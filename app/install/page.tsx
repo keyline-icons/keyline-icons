@@ -221,13 +221,21 @@ export default async function Page() {
           */}
           <Section id="registry" title="Install with the shadcn CLI">
             <p>
-              The shadcn CLI reads registries from your own{" "}
-              <code>package.json</code>, so this takes one entry and no{" "}
-              <code>components.json</code> at all:
+              The CLI reads registries from your own <code>package.json</code>
+              or your <code>components.json</code>, so adding the set is one
+              entry:
             </p>
             <Code>{`"registries": {
   "@keyline": "https://keylineicons.com/r/{name}.json"
 }`}</Code>
+            <p>
+              Any shadcn project already has a <code>components.json</code>, and
+              this needs one: each icon arrives at{" "}
+              <code>@components/icons/&lt;name&gt;.tsx</code>, and the alias is
+              what puts it wherever you actually keep components rather than
+              somewhere this set picked. In a project without one, the CLI offers
+              to run <code>init</code> first.
+            </p>
             <p>Then add icons by name:</p>
             <Code>{`npx shadcn add @keyline/bell
 npx shadcn add @keyline/fill/bell   # any style but stroke is prefixed
