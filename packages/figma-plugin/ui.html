@@ -6,6 +6,14 @@
   `__html__`, so a bundler would only exist to inline what is already inline,
   and the whole surface is a search box, a style switch and a grid.
 -->
+<meta charset="utf-8" />
+<!--
+  Declared rather than inherited. This file holds three non-ASCII characters:
+  the ellipsis in "Loading the set…" and the curly quotes around a failed query.
+  Without a charset the host decides, and a host that does not say UTF-8 renders
+  the first of those as mojibake on the plugin's opening frame. Found by serving
+  this file over a plain static server, where it read "Loading the setâ€¦".
+-->
 <style>
   :root {
     color-scheme: light dark;
@@ -177,17 +185,47 @@
   }
 
   /**
-   * Same tiers as the CLI, with keyword hits last: an exact name beats a prefix
-   * beats a word start beats a substring, and a word someone curated in Figma
-   * beats nothing at all. Ties break on the shorter name, which is what keeps
-   * `arrow-down` above `arrow-down-narrow-wide`.
+   * The query as words, matching `packages/mcp/src/index.mjs`.
+   *
+   * A query carrying a camelCase boundary is a component identifier someone
+   * pasted out of their code rather than a phrase they typed, `CheckCircle2` or
+   * `RefreshCw`, so it is split on those boundaries and a leftover bare digit is
+   * dropped: lucide's trailing `2` disambiguates inside lucide and means nothing
+   * here. Guarded on the case boundary, because `clock-3`, `dice-5` and
+   * `bar-chart-2` are real names and a query without one keeps its digits.
    */
-  function search(q) {
+  function wordsOf(query) {
+    const identifier = /[a-z][A-Z]/.test(query)
+    const split = identifier
+      ? query.replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/([a-zA-Z])(\d)/g, "$1 $2")
+      : query
+    return split
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .filter((w) => w && !(identifier && /^\d+$/.test(w)))
+  }
+
+  /**
+   * Same tiers as the MCP server and the CLI, with keyword hits last: an exact
+   * name beats a prefix beats a word start beats a substring, then every word
+   * landing somewhere, then a word someone curated in Figma. Ties break on the
+   * shorter name, which is what keeps `arrow-down` above
+   * `arrow-down-narrow-wide`.
+   *
+   * The word tier is why this is not just `indexOf`. Compounds here read
+   * base-first, so a designer carrying lucide's `CheckCircle2` types
+   * "check-circle", and matching the whole string finds nothing even though
+   * `circle-check` is right there. This plugin shipped with that bug after the
+   * MCP server and the CLI were fixed for it, because nothing checks that the
+   * four searches agree.
+   */
+  function search(q, raw) {
     // Browsing, not searching. The ranked order below breaks ties on length,
     // which is right for a query and reads as random with nothing typed: it
     // opens on `x`, `at`, `bin`. Alphabetical is the only useful browse order.
     if (!q) return NAMES.filter((n) => ICONS[n][style]).map((name) => ({ name }))
 
+    const words = wordsOf(raw ?? q)
     const hits = []
     for (const name of NAMES) {
       if (!ICONS[name][style]) continue
@@ -195,8 +233,10 @@
       if (i !== -1) {
         const boundary = /(^|-)/.test(name[i - 1] ?? "-")
         hits.push({ name, rank: name === q ? 0 : i === 0 ? 1 : boundary ? 2 : 3 })
-      } else if (keywordsFor(name).some((k) => k.includes(q))) {
+      } else if (words.length && words.every((w) => name.includes(w))) {
         hits.push({ name, rank: 4 })
+      } else if (keywordsFor(name).some((k) => k.includes(q))) {
+        hits.push({ name, rank: 5 })
       }
     }
     return hits.sort(
@@ -204,13 +244,21 @@
     )
   }
 
-  /** Names a query matches in some other style, so a gap reads as coverage, not as a bug. */
-  const elsewhere = (q) =>
-    NAMES.filter(
+  /**
+   * Names a query matches in some other style, so a gap reads as coverage, not
+   * as a bug. Matched the same way as `search`, or the count would disagree with
+   * the grid it is explaining.
+   */
+  const elsewhere = (q, raw) => {
+    const words = wordsOf(raw ?? q)
+    return NAMES.filter(
       (n) =>
         !ICONS[n][style] &&
-        (n.includes(q) || (q && keywordsFor(n).some((k) => k.includes(q))))
+        (n.includes(q) ||
+          (words.length && words.every((w) => n.includes(w))) ||
+          (q && keywordsFor(n).some((k) => k.includes(q))))
     ).length
+  }
 
   /* ---------------------------------------------------------------- render */
 
@@ -232,8 +280,12 @@
   }
 
   function render() {
-    const q = $("q").value.trim().toLowerCase()
-    const hits = search(q)
+    // Both forms. The lowercased one is what the substring tiers match on; the
+    // raw one still carries the case boundary that tells `wordsOf` it is looking
+    // at a pasted identifier rather than a typed phrase.
+    const raw = $("q").value.trim()
+    const q = raw.toLowerCase()
+    const hits = search(q, raw)
 
     // One write, not one per icon. The whole set is under 500 names, so the grid
     // is built as a string and handed over in a single assignment.
@@ -241,7 +293,7 @@
       .map((h) => `<button data-name="${h.name}" title="${h.name}">${svgFor(h.name)}</button>`)
       .join("")
 
-    const missing = q ? elsewhere(q) : 0
+    const missing = q ? elsewhere(q, raw) : 0
     note.textContent = hits.length
       ? missing
         ? `${missing} more match in another style.`
