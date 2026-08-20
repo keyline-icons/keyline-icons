@@ -1,6 +1,6 @@
 "use client"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,9 +29,19 @@ import { DemoIcon } from "@/components/demo-icon"
 type NavUserData = {
   name: string
   email: string
-  avatar: string
 }
 
+/**
+ * Initials, with no image behind them.
+ *
+ * The dashboard this demo is built from carries an `avatar` pointing at
+ * `/avatars/shadcn.jpg`, and that file has never been in this repository. The
+ * fallback caught it, so the sidebar looked right while the homepage fired two
+ * 404s on every visit, which is exactly the shape of thing that survives for
+ * months. The image is gone rather than added: this is a demo of the icons, and
+ * a photograph of a person who is not a user of this site is not something the
+ * page needs to be making a request for.
+ */
 function UserAvatar({
   user,
   className,
@@ -39,10 +49,10 @@ function UserAvatar({
   user: NavUserData
   className?: string
 }) {
+  const initials = user.name.slice(0, 2).toUpperCase()
   return (
     <Avatar className={cn("size-8 rounded-lg grayscale", className)}>
-      <AvatarImage src={user.avatar} alt={user.name} />
-      <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+      <AvatarFallback className="rounded-lg">{initials}</AvatarFallback>
     </Avatar>
   )
 }
