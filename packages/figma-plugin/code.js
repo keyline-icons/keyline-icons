@@ -50,6 +50,18 @@ figma.ui.onmessage = (msg) => {
   // is what a later export or a Code Connect mapping reads back.
   node.name = String(msg.name)
 
+  /**
+   * The wrapper frame arrives with a white fill, which `createNodeFromSvg` adds
+   * rather than the drawing carrying it: the SVG root says `fill="none"`, and
+   * the set's own component sets in Figma have no frame fill at all.
+   *
+   * It is invisible on a white canvas and is a white square everywhere else, so
+   * it survives every test done on a default page and fails the first time
+   * someone drops an icon on a dark artboard. Found exactly that way, by
+   * comparing the inserted node's Fill against a library icon's in the panel.
+   */
+  if ("fills" in node) node.fills = []
+
   place(node)
   figma.currentPage.selection = [node]
   figma.notify(`Inserted ${msg.name}`)
