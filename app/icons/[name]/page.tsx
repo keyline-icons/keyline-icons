@@ -312,9 +312,10 @@ export default async function Page({
           */}
           <div className="flex shrink-0 flex-col items-start gap-3 sm:items-end">
             {/*
-              Only once there is a file to open. `SET_FIGMA_URL` is empty until
-              the Figma file is actually published, and a dead button on 414
-              pages costs more than the missing one does.
+              Only once there is a file to open. `SET_FIGMA_URL` now holds the
+              published Community file, but the gate stays: it is empty when there
+              is nothing to open, and a dead button on 503 pages costs more than a
+              missing one does.
 
               `render` with `nativeButton={false}`, which is Base UI's way of
               making a Button something other than a `<button>`. Without the

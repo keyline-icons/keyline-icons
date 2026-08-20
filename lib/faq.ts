@@ -30,12 +30,12 @@
  * set as React components, and send anyone who wants the specifics to
  * `/install`, which owns them. That was written to survive the publish and did.
  *
- * The set's own Figma file is likewise still unpublished, and `/`'s Figma answer
- * is written the same way: it says the set is drawn in one Figma file and that
- * the repository is what is public, which is true whether or not the file is
- * ever published. `iconFaq` is the one that states the negative outright; if
- * `SET_FIGMA_URL` is ever filled in with a real file, that answer is the one to
- * move, and this one still reads correctly.
+ * The set's own Figma file went the same way. `/`'s Figma answer was written to
+ * survive it too: it says the set is drawn in one Figma file and that the
+ * repository is what is public, which was true before publishing and is true
+ * after. `iconFaq` was the one stating the negative outright, so when
+ * `SET_FIGMA_URL` was filled in with the Community file, that answer moved and
+ * this one did not need to.
  */
 import { REACT_PACKAGE } from "@/lib/icon-code"
 import {

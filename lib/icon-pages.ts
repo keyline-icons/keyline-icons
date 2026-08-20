@@ -261,15 +261,17 @@ function containerQuestion(
  * drawing*, because a visitor who landed on one icon from a search is asking
  * whether *that* is free, and where *that* one is drawn.
  *
- * One thing they must not claim, checked rather than assumed:
+ * Two constraints used to sit here and neither binds now. Both are worth
+ * keeping a note of, because both were fixed by publishing rather than by
+ * rewording, and the answers had to move on the same day.
  *
- * - **The Figma file is not public.** There is no URL for it anywhere in this
- *   repo, so the answer says what is actually available instead: `raw/` and
- *   `icons/`. If the file is ever published, that answer is the one to change.
+ * The Figma file was not public, so its answer said "not yet" and pointed at
+ * `raw/` and `icons/` instead. It is now a Community file at `SET_FIGMA_URL`,
+ * and the answer says so and describes duplicating it.
  *
- * A second constraint used to sit here and no longer binds: the packages were
- * not on npm, so the React answer described the import and the props rather
- * than telling anyone to run an install that would fail. All three published at
+ * The packages were not on npm, so the React answer described the import and
+ * the props rather than telling anyone to run an install that would fail. All
+ * three published at
  * v0.1.0 and `npm view @keyline-icons/react` now resolves. The answer did not
  * need rewriting, because describing the import was true before the publish and
  * is true after it, which is the better way to write one of these.
@@ -345,10 +347,11 @@ export function iconFaq(icon: BrowserIcon, all: BrowserIcon[]): IconQuestion[] {
     {
       question: `Is there a Figma file for ${name}?`,
       answer:
-        `Not yet as a Community file. The set is drawn in Figma and the button at the top of this page ` +
-        `opens the profile it will be published to. For ${name} itself the ` +
-        `repository is the source: raw/ holds the export of every variant straight out of Figma, and ` +
-        `icons/ holds the normalised SVGs the site, the React components and the packages are built from.`,
+        `Yes. The whole set is one Figma Community file and the button at the top of this page opens it: ` +
+        `duplicate it and ${name} comes with every other drawing, as a component set with Container and ` +
+        `Style as variant properties. The repository is the other source: raw/ holds the export of every ` +
+        `variant straight out of Figma, and icons/ holds the normalised SVGs the site, the React ` +
+        `components and the packages are built from.`,
     },
     {
       question: `Can I use ${name} in a commercial project, and do I have to credit the set?`,

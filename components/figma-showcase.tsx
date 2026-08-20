@@ -26,14 +26,13 @@ import { SET_FIGMA_URL, SET_PAPER_URL } from "@/lib/site-chrome"
  * keep that difference legible, because "available in both" is true and "drawn
  * in both" is not.
  *
- * **What the Figma button opens today.** `SET_FIGMA_URL` is `@keylineicons`,
- * the team Community profile the file will be published to, not the file, which
- * is not published yet; the long note on that constant in `lib/site-chrome.ts`
- * is the one to read before touching it. This section carried a line saying so, under the button,
- * and it is out at the user's request on the basis that the file is coming. The
- * claim still lives where it is owned: the two FAQ answers in `lib/icon-pages.ts`
- * and the note in `lib/faq.ts`. Publish the file and all three move together.
- * `SET_PAPER_URL` is the opposite case and opens the real file.
+ * **What the Figma button opens.** `SET_FIGMA_URL` is the published Community
+ * file. It was the `@keylineicons` profile for as long as the file was
+ * unpublished, and this section carried a line under the button saying so; that
+ * line came out early, on the basis that the file was coming, leaving the claim
+ * with the two FAQ answers that owned it. The file is published, so those
+ * answers and this note moved together, which is what the arrangement was for.
+ * `SET_PAPER_URL` is the same kind of link and opens the Paper file.
  *
  * There is still no plugin, kit or download offered anywhere in here, which is
  * why each panel is a screenshot and four sentences rather than a pricing block.
@@ -260,6 +259,17 @@ export function FigmaShowcase({ icons }: { icons: Icon[] }) {
     <div className="flex flex-col gap-3 lg:gap-4">
       <DesignFileTabs
         urls={{ figma: SET_FIGMA_URL, paper: SET_PAPER_URL }}
+        /*
+          Only Paper needs one. It renders a file in Chrome and in its own
+          desktop app, and answers Safari with a download card saying view and
+          comment is coming "in the future", so a visitor on the Mac default
+          browser gets no file at all from a button that promises one. Delete
+          this the day Safari renders the file: it is a statement about Paper on
+          a date, not about the set.
+        */
+        caveats={{
+          paper: "Paper opens in Chrome or its desktop app. Safari shows a download prompt instead of the file.",
+        }}
         panels={{
           figma: (
             <>

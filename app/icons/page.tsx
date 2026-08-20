@@ -53,7 +53,7 @@ export async function generateMetadata(): Promise<Metadata> {
     // And one word deliberately not in it: **SVG**. It was there, for the query
     // rather than for the reader, and it is a claim about format on a page that
     // is not about formats. The same drawings already leave here as JSX and as
-    // React components, the Figma file is unpublished rather than nonexistent,
+    // React components, the set is also a published Figma Community file,
     // and whatever ships next would make the word narrower still. A title that
     // names one output is a title that has to be rewritten every time another
     // one is added. The description below is where formats belong, because it

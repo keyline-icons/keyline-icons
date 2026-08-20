@@ -554,8 +554,8 @@ export default async function Page() {
 
           Before the demos rather than after them, because the demos are the
           payoff and the page ends on them. See `components/figma-showcase.tsx`
-          for what this section may and may not claim: the file is not published,
-          and the link is the author's profile.
+          for what this section may and may not claim. The file is published now, so
+          the button opens it rather than the profile it was promising.
         */}
         <section className={`${CONTAINER} py-16 lg:py-24`}>
           <SectionHead

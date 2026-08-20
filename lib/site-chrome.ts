@@ -137,22 +137,19 @@ export const SET_X_URL = "https://x.com/iszafar92"
 /**
  * Where the Figma button on an icon page goes.
  *
- * **This is the set's Community profile, not its file.** The distinction is the
- * whole reason this comment is long: `@keylineicons` is the team profile the
- * file will be published to, and until it is, a visitor who clicks this from
- * `bell-x` lands on a profile with nothing on it. That is accepted on the basis
- * that publishing is days away, not months, and it replaced a worse option: the
- * author's personal profile, which at least had work on it but was the wrong
- * publisher for this set entirely.
+ * **The published Community file.** This stood at `@keylineicons`, the team
+ * profile, for as long as the file was unpublished: a visitor clicking it from
+ * `bell-x` landed on a profile with nothing on it. That was the one link on the
+ * site knowingly ahead of reality, carried on the basis that publishing was
+ * days away rather than months, and it now points at the file it was promising.
  *
- * It is the one link on the site that is knowingly ahead of reality, so it has
- * a deadline rather than a caveat. The day the file is published this becomes
- * the file's own URL and the `iconFaq` answer in `lib/icon-pages.ts` stops
- * saying "not yet".
+ * The profile is still linked, from the bar and the footer, through
+ * `SET_FIGMA_PROFILE_URL`. The two are different claims: this one is where the
+ * set can be opened, that one is where the work comes from.
  *
  * Empty disables it. Everything that renders the button is gated on this being
  * a non-empty string rather than on a guess, because a dead "Open in Figma" on
- * 414 pages costs the click and the trust, and it is the kind of link nobody
+ * 503 pages costs the click and the trust, and it is the kind of link nobody
  * re-tests once shipped.
  *
  * One link, not one per icon: a deep link into a Figma node needs that node's
@@ -160,22 +157,22 @@ export const SET_X_URL = "https://x.com/iszafar92"
  * the file through the plugin API rather than storing a map of ids, so a
  * per-icon Figma URL would have to be generated first.
  */
-export const SET_FIGMA_URL = "https://www.figma.com/@keylineicons"
+export const SET_FIGMA_URL =
+  "https://www.figma.com/community/file/1672255957017818239/keyline-icons"
 
 /**
  * The set's Figma Community profile, linked from the bar and the footer.
  *
  * Deliberately not `SET_FIGMA_URL`. That constant means one specific thing, the
- * published Community file, and three places read it on that understanding: the
- * icon page's "Open in Figma" button, and two FAQ answers that currently say
- * the file is not published. Pointing it at a profile would make the button
- * promise a file it does not open and make both answers contradict the page
- * they sit on.
+ * published Community file, and the icon page's "Open in Figma" button reads it
+ * on that understanding.
  *
  * A profile is a different claim and belongs beside X and GitHub: it is where
- * the work comes from, not where the set can be opened. When the file is
- * published, fill in `SET_FIGMA_URL`, fix those two FAQ answers, and decide
- * then whether the chrome should point at the file instead of at this.
+ * the work comes from, not where the set can be opened. Both now resolve, so
+ * the split is no longer about one of them being empty. The bar and the footer
+ * keep pointing here because a row of publisher links is a row of publishers,
+ * and someone following the Figma logo out of the chrome is asking who made
+ * this rather than asking to open one file.
  *
  * `@keylineicons` is a team Community profile rather than the author's personal
  * one, which is the same choice the GitHub organisation and the npm scope make:
