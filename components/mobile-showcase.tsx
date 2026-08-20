@@ -401,7 +401,16 @@ export function MobileShowcase({
 
   return (
     <PhoneIconProvider icons={icons} style={style}>
-      <div className="mx-auto max-w-[1400px] px-6 py-12">
+      {/*
+        `w-full` is load-bearing, the same way it is on the dashboard's frame.
+        Every page is wrapped in `flex min-h-svh flex-col`, so this is a flex
+        item, and the `mx-auto` beside it suppresses `align-items: stretch`: the
+        box shrink-wraps its content rather than filling the line. Its widest
+        child is the 27rem stage, so on a 390px phone the section laid itself
+        out at 480 and took the fixed header and the whole document with it,
+        scrolling the page sideways.
+      */}
+      <div className="mx-auto w-full max-w-[1400px] px-6 py-12">
         {/* Held to a reading measure and centred in the 1400px, so the
             paragraph stays short enough to scan rather than running the full
             width of the three columns below it. */}
@@ -521,7 +530,17 @@ export function MobileShowcase({
           <div className="order-1 lg:order-2">
             <div
               ref={stageRef}
-              className="relative w-[27rem] max-w-full [scrollbar-width:none] overflow-y-auto overscroll-contain rounded-[2.5rem] bg-gradient-to-b from-muted to-muted/30 ring-1 ring-border/60 [&::-webkit-scrollbar]:hidden"
+              /*
+                `w-full max-w-[27rem]`, not `w-[27rem] max-w-full`. They look
+                interchangeable and are not: a fixed width contributes its own
+                432px as this item's min-content, and a grid track cannot shrink
+                below that, so on a phone the single column came out 432 wide
+                and every sibling in it — the screens rail, the settings panel —
+                was dragged to that width and spilled 21px past both edges.
+                Filling the track and capping the fill leaves nothing to floor
+                it, and looks identical from `lg` up.
+              */
+              className="relative w-full max-w-[27rem] [scrollbar-width:none] overflow-y-auto overscroll-contain rounded-[2.5rem] bg-gradient-to-b from-muted to-muted/30 ring-1 ring-border/60 [&::-webkit-scrollbar]:hidden"
               style={{ height: STAGE_HEIGHT }}
             >
               <div
