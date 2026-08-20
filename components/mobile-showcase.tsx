@@ -134,7 +134,32 @@ function PhoneFrame({
               app content is fluid, so it reflows instead of overflowing. */}
           <div
             ref={screenRef}
-            className="relative flex h-[740px] w-[352px] max-w-[calc(100vw-5rem)] flex-col overflow-hidden rounded-[2.6rem] bg-background text-foreground"
+            className={cn(
+              "relative flex h-[740px] w-[352px] max-w-[calc(100vw-5rem)] flex-col overflow-hidden rounded-[2.6rem] bg-background text-foreground",
+              /*
+                The mask is what actually holds these corners on an iPhone.
+
+                `overflow-hidden` with a radius clips the flat children fine,
+                but a child that gets its own compositing layer is composited
+                after the clip and ignores it. Two of them here: the blurred
+                wallpaper, which sits `-inset-8` on the understanding that the
+                parent crops the overhang, and the scrim's `backdrop-blur`. On
+                a real device that leaves the wallpaper painted square and a
+                full 2rem outside the bezel.
+
+                It does not reproduce in a desktop browser at a phone width,
+                which is worth knowing before trusting a narrow window here:
+                the layers stay on the software path there and the clip still
+                applies. Only the device composites them.
+
+                A mask puts the clip onto the layer itself, which is the form
+                of it compositing honours. The gradient is two identical stops
+                — it paints nothing, it exists so that there is a mask at all.
+                `-webkit-` beside it because unprefixed `mask-image` is Safari
+                15.4 and up.
+              */
+              "[-webkit-mask-image:linear-gradient(#000,#000)] [mask-image:linear-gradient(#000,#000)]"
+            )}
           >
             {/* Every wallpaper is mounted and the inactive ones are held at
                 zero opacity, so a change cross-fades instead of cutting.
