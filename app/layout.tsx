@@ -9,6 +9,7 @@ import {
   TWITTER_DEFAULTS,
 } from "@/lib/seo"
 import { SET_TITLE } from "@/lib/site-chrome"
+import { RouteProgress } from "@/components/route-progress"
 import { ThemeProvider } from "@/components/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
@@ -120,6 +121,13 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <TooltipProvider>
+            {/*
+              Outside the flex column below rather than inside it, because it is
+              fixed and the note on that element explains what happens to a
+              fixed child of anything that gets a transform or a filter. Here it
+              is a sibling and cannot be caught by one.
+            */}
+            <RouteProgress />
             {/*
               A floor under every page, so the footer can be pushed to the
               bottom of the window whenever the content is too short to reach

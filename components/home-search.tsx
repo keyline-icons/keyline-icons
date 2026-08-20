@@ -3,6 +3,7 @@
 import * as React from "react"
 import { useRouter } from "next/navigation"
 
+import { startRouteProgress } from "@/components/route-progress"
 import { IconSearch, type SearchSuggestion } from "@/components/icon-search"
 
 /**
@@ -56,6 +57,9 @@ export function HomeSearch({
       onSubmit={(event) => {
         event.preventDefault()
         const term = query.trim()
+        // No link was clicked, so the top bar has nothing to read this
+        // navigation from and has to be told. See `route-progress.tsx`.
+        startRouteProgress()
         router.push(term ? `/icons?icon=${encodeURIComponent(term)}` : "/icons")
       }}
     >
