@@ -61,3 +61,18 @@ next-env.d.ts
 # `.claude/launch.json` stays tracked on purpose: it is a dev-server config,
 # not knowledge.
 .claude/skills/
+
+# Marketing exports for the Figma Community listing, composed by hand for one
+# upload and not reproducible from anything here.
+#
+# Everything else under `previews/` is generated from `icons/` and checked:
+# `build-cover.mjs` writes the covers and `--check` fails when a glyph is
+# renamed under them, `build-paper.mjs` does the same for the boards. These are
+# the opposite. They were built once against a specific listing layout, some of
+# them from Figma frames this repository does not contain, and nothing can tell
+# whether they still match the set.
+#
+# Committing them would put images in `previews/` that look like the generated
+# ones, sit beside them, and go stale with no check to catch it. They live on
+# the machine that made them, and the listing is where they are published.
+previews/community/
