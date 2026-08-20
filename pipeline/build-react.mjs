@@ -66,12 +66,38 @@ const c = (n, s) => `\x1b[${n}m${s}\x1b[0m`
 /** Attributes the wrapper supplies itself, so they must not be re-emitted. */
 const ROOT_DROP = new Set(["width", "height", "xmlns", "viewBox"])
 
-const CAMEL = {
-  "stroke-width": "strokeWidth",
-  "stroke-linecap": "strokeLinecap",
-  "stroke-linejoin": "strokeLinejoin",
-  "fill-rule": "fillRule",
-  "clip-rule": "clipRule",
+/**
+ * kebab-case SVG attribute -> React prop name, read from `components/glyph.tsx`
+ * rather than written out again here.
+ *
+ * It was written out again here, and the two drifted: this copy was missing
+ * `fill-opacity` and `stroke-opacity`, which only duotone drawings carry. The
+ * site renders duotone correctly because `glyph.tsx` maps them; the package
+ * emitted `fill-opacity={0.4}` as JSX, which React rejects at runtime with
+ * "Invalid DOM property" and then drops. 416 attributes across 415 duotone
+ * components, every one of them the muted plate that makes a duotone a duotone.
+ *
+ * `tsc` does not catch it. A kebab-cased name cannot be a JSX identifier, so it
+ * is parsed as a string-keyed attribute and typechecks clean, and nothing in
+ * the repository renders the generated module. Only mounting it does, which is
+ * why this survived until the package was installed from a tarball and
+ * server-rendered.
+ *
+ * Reading the map means the two cannot disagree again. `glyph.tsx` is the copy
+ * that is exercised on every page of the site, so it is the one to trust.
+ */
+const CAMEL = Object.fromEntries(
+  [
+    ...(await readFile(join(ROOT, "components", "glyph.tsx"), "utf8")).matchAll(
+      /"([a-z]+-[a-z-]+)":\s*"([a-zA-Z]+)"/g
+    ),
+  ].map(([, kebab, prop]) => [kebab, prop])
+)
+
+if (!CAMEL["fill-opacity"] || !CAMEL["stroke-opacity"]) {
+  throw new Error(
+    "REACT_ATTR in components/glyph.tsx no longer parses: the opacity mappings are missing"
+  )
 }
 
 const ATTR = /([\w-]+)="([^"]*)"/g
