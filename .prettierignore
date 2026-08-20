@@ -28,3 +28,14 @@ packages/*/icons.json
 # package data above: it is imported by the page, so every newline in it is
 # payload. Prettier would expand it and `history:check` would report drift.
 lib/icon-history.json
+
+# Not generated, but parsed. `pipeline/check-readmes.mjs` finds each count with
+# a regex that expects single spaces around the table pipes, and Prettier pads
+# those columns to align them. The result is three MISSING counts on a repo
+# where all anyone did was run `npm run format`, and the failure names the
+# numbers rather than the formatting, so it reads as a stale count. The tables
+# are hand-aligned and stay that way.
+README.md
+pipeline/README.md
+raw/README.md
+packages/*/README.md

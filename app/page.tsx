@@ -36,6 +36,7 @@ import {
   SET_TITLE,
   SITE_LINKS,
 } from "@/lib/site-chrome"
+import { siteSponsors, sponsorHref } from "@/lib/sponsors"
 
 /**
  * The landing page, at the origin.
@@ -202,6 +203,10 @@ export default async function Page() {
      rather than at the bottom of the tree, so every drawing this page names is
      looked up in one place. */
   const sponsorIcon = find(icons, SPONSOR_ICON_NAMES[0])
+
+  /* Only the tier that was promised placement here. `lib/sponsors.ts` is the
+     list, and the README carries everyone rather than just this tier. */
+  const sponsors = siteSponsors()
 
   /* The demo routes, read from the one list the nav, the footer and the
      sitemap already share, so a renamed demo cannot leave a dead card here. */
@@ -810,6 +815,48 @@ export default async function Page() {
               Become a sponsor
               <span className="sr-only">{" (opens in a new tab)"}</span>
             </Button>
+
+            {/*
+              The names the `$100 a month` tier promises, and the empty state
+              that tier makes necessary.
+
+              The tier was published before this existed, so the promise was
+              live with nowhere to keep it. It is a list rather than a logo wall
+              because a wall of one logo looks worse than a sentence, and
+              because the set is drawn in keylines: a row of full-colour company
+              marks under a page arguing for consistent weight would be the one
+              thing on it that ignores its own rule.
+
+              It renders when empty rather than hiding, so the slot is visibly
+              real. A section that appears only once someone has paid asks
+              people to trust a promise they cannot see being kept.
+            */}
+            <div className="flex flex-col gap-2 border-t pt-6 text-sm">
+              <p className="font-medium text-foreground">Sponsors</p>
+              {sponsors.length === 0 ? (
+                <p className="text-muted-foreground">
+                  Nobody yet. Yours would be the first name here.
+                </p>
+              ) : (
+                <ul className="flex flex-wrap gap-x-3 gap-y-1 text-muted-foreground">
+                  {sponsors.map((sponsor) => (
+                    <li key={sponsor.login}>
+                      <a
+                        href={sponsorHref(sponsor)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-2 hover:text-foreground"
+                      >
+                        {sponsor.name}
+                        <span className="sr-only">
+                          {" (opens in a new tab)"}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </div>
         </section>
       </main>

@@ -107,6 +107,23 @@ which CI does not have. `brand:check` rasterises through headless Chrome, where
 two versions disagree by a pixel on identical input, and a check that cries wolf
 gets switched off. Run both locally.
 
+## Sponsors
+
+<!-- SPONSORS:start -->
+
+Nobody yet. Yours would be the first name here.
+
+<!-- SPONSORS:end -->
+
+The set is free, has no paid tier, and is not getting one. Sponsorship pays for
+the hours rather than unlocking anything, so every icon added is added for
+everyone.
+
+[Sponsoring on GitHub](https://github.com/sponsors/keyline-icons) from $25 a
+month puts your name in this section, and from $100 a month on
+[keylineicons.com](https://keylineicons.com) as well. `lib/sponsors.ts` is the
+list both read from.
+
 ## Licence
 
 MIT. See [LICENSE](LICENSE). Use them in anything, commercial included, without
