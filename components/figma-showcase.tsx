@@ -268,7 +268,7 @@ export function FigmaShowcase({ icons }: { icons: Icon[] }) {
           a date, not about the set.
         */
         caveats={{
-          paper: "Paper opens in Chrome or its desktop app. Safari shows a download prompt instead of the file.",
+          paper: "Opens in Chrome or the Paper desktop app, not Safari.",
         }}
         panels={{
           figma: (

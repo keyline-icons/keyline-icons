@@ -5,6 +5,7 @@ import * as React from "react"
 import { FigmaLogo, PaperLogo } from "@/components/brand-logos"
 import { ArrowUpRight } from "@/components/icons"
 import { Segmented, SegmentedItem } from "@/components/segmented"
+import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
 /**
@@ -40,11 +41,18 @@ export type DesignTool = (typeof TOOLS)[number]["id"]
 export function DesignFileTabs({
   urls,
   panels,
+  caveats,
 }: {
   /** Where each tool's button goes. */
   urls: Record<DesignTool, string>
   /** Each tool's panel, rendered on the server and handed over as-is. */
   panels: Record<DesignTool, React.ReactNode>
+  /**
+   * A line about what the button opens, for the tools that need one. Beside the
+   * button rather than under the picture: it is a caveat about the click, and
+   * above four notes it is read after the click has already happened.
+   */
+  caveats?: Partial<Record<DesignTool, React.ReactNode>>
 }) {
   const [tool, setTool] = React.useState<DesignTool>("figma")
   const tabs = React.useRef<Map<DesignTool, HTMLButtonElement | null>>(
@@ -81,10 +89,17 @@ export function DesignFileTabs({
   return (
     <>
       {/*
-        `flex-wrap` with the picker first: on a phone the two stack in that
-        order rather than the button jumping above the tabs, and
-        `justify-between` only starts separating them once there is room for
-        both on one line.
+        Picker left, button right, and nothing else in this row. `flex-wrap`
+        with the picker first so that on a phone the two stack in that order
+        rather than the button jumping above the tabs, and `justify-between`
+        only starts separating them once there is room for both on one line.
+
+        The caveat sat in here beside the button for a version and it made the
+        two tabs different shapes: caveat plus button is wider than the space the
+        picker leaves, so on a narrower window the pair wrapped and the button
+        dropped to a second line on Paper while Figma kept it on the first. A row
+        that is one line on one tab and two on the other reads as the layout
+        breaking on switch.
       */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex">
@@ -162,6 +177,45 @@ export function DesignFileTabs({
           <ArrowUpRight data-icon="inline-end" />
           <span className="sr-only">{" (opens in a new tab)"}</span>
         </Button>
+      </div>
+
+      {/*
+        The caveat's line under the button, reserved on every tab and filled on
+        the ones that have something to say.
+
+        **Nothing here moves.** Two earlier versions animated the line's height,
+        first with the `0fr` to `1fr` grid trick and then with a capped
+        `max-height`, and both were solving the wrong problem: a reveal is
+        smoother than a jump but it is still the picture shifting every time you
+        toggle a control you are toggling back and forth. The slot is one line
+        tall whatever tab is showing, and only the words fade. It costs a blank
+        line under the Figma button, which is the cheaper of the two prices.
+
+        Each tool's line is absolutely positioned so it contributes no height of
+        its own, which is what makes the reservation exact rather than a
+        `min-height` that the longest caveat could still outgrow. Keeping all of
+        them mounted is what lets the one leaving fade out while the one arriving
+        fades in; a single element fed `caveats[tool]` swaps its text instantly
+        and reads as a pop however the box is animated.
+
+        Two lines are reserved below `sm`, since the sentence wraps on a phone
+        and an overflowing line would sit on top of the screenshot.
+      */}
+      <div className="relative h-10 sm:h-5">
+        {TOOLS.map(({ id }) => (
+          <p
+            key={id}
+            className={cn(
+              "absolute inset-x-0 top-0 text-sm text-muted-foreground transition-opacity duration-260 ease-out sm:text-right",
+              caveats?.[id] && tool === id ? "opacity-100" : "opacity-0"
+            )}
+            /* Its own tab is what it describes, so it leaves the accessibility
+               tree with that tab's panel rather than being read out beside it. */
+            aria-hidden={tool !== id}
+          >
+            {caveats?.[id]}
+          </p>
+        ))}
       </div>
 
       {TOOLS.map(({ id }) => (
