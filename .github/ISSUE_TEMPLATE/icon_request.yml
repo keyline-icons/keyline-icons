@@ -1,0 +1,43 @@
+name: Icon request
+description: Ask for a glyph the set does not have.
+labels: ["icon request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the set first at [keylineicons.com](https://keylineicons.com). Search
+        matches on names, so a glyph may be here under a word you did not try.
+
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: kebab-case, matching how the set is named. Compounds read base-first, like `mail-check`.
+      placeholder: shield-check
+    validations:
+      required: true
+
+  - type: textarea
+    id: use
+    attributes:
+      label: What you would use it for
+      description: >
+        The most useful thing you can write. An icon is a word, and knowing the
+        sentence it appears in is what decides whether it is a new glyph or a
+        compound of two that already exist.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reference
+    attributes:
+      label: Reference
+      description: A sketch, or the same idea from another set, to say what you mean rather than what it should look like.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched the set and it is not there under another name.
+          required: true

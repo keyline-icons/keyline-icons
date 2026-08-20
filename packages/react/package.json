@@ -1,0 +1,56 @@
+{
+  "name": "@keyline-icons/react",
+  "version": "0.1.0",
+  "description": "Icons on one 24×24 grid, as React components in three weights: stroke, duotone and fill. Built for shadcn/ui.",
+  "license": "MIT",
+  "author": "Keyline Icons (https://keylineicons.com)",
+  "homepage": "https://keylineicons.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keyline-icons/keyline-icons.git",
+    "directory": "packages/react"
+  },
+  "bugs": "https://github.com/keyline-icons/keyline-icons/issues",
+  "keywords": [
+    "icons",
+    "react",
+    "svg",
+    "shadcn",
+    "shadcn-ui",
+    "icon-set",
+    "tailwind"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./duotone": {
+      "types": "./dist/duotone.d.ts",
+      "default": "./dist/duotone.js"
+    },
+    "./fill": {
+      "types": "./dist/fill.d.ts",
+      "default": "./dist/fill.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "tsc -p tsconfig.json"
+  }
+}

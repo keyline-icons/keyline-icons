@@ -1,0 +1,40 @@
+{
+  "name": "@keyline-icons/mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Keyline Icons. Search the set, get SVG source, get the React import.",
+  "license": "MIT",
+  "author": "Keyline Icons (https://keylineicons.com)",
+  "homepage": "https://keylineicons.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keyline-icons/keyline-icons.git",
+    "directory": "packages/mcp"
+  },
+  "bugs": "https://github.com/keyline-icons/keyline-icons/issues",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "icons",
+    "svg",
+    "shadcn",
+    "claude"
+  ],
+  "type": "module",
+  "bin": {
+    "keyline-icons-mcp": "./src/index.mjs"
+  },
+  "exports": {
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "icons.json",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "start": "node ./src/index.mjs"
+  }
+}

@@ -1,0 +1,47 @@
+name: Bug report
+description: Something is broken, or a glyph is drawn wrong.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a drawing that looks wrong, a screenshot **at the size it looks wrong at**
+        is worth more than a description. Most icon defects only appear at 16px.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where is it
+      options:
+        - An icon is drawn wrong
+        - The site (browsing, search, copying)
+        - The React package
+        - The build pipeline
+    validations:
+      required: true
+
+  - type: input
+    id: icon
+    attributes:
+      label: Which icon
+      description: The name as it appears on disk, plus the style and container.
+      placeholder: circle-arrow-down, duotone
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+      description: What you did, what you expected, and what you got instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot
+      description: At the size the problem shows. Drag the image in here.
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Package version, or the commit if you are working from the repo.

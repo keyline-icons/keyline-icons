@@ -1,0 +1,63 @@
+# dependencies
+/node_modules
+/.pnpm-store
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# package build output. `packages/*/src` is generated but committed, because
+# `build-react.mjs --check` diffs against it in CI; `dist` is compiled from
+# that source at publish time and would only be a second copy in the history.
+packages/*/dist
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# local, machine-specific agent settings
+.claude/settings.local.json
+
+# Agent skills. All of them. Private, permanently.
+#
+# These are the working knowledge behind the set: how an icon is constructed,
+# how the site's components and tokens fit together, how search sees it. They
+# are not part of what this project gives away, and that is a decision rather
+# than an oversight. Open-sourcing the icons does not mean open-sourcing the
+# method that draws them.
+#
+# The whole directory rather than a list of names, so a skill added tomorrow is
+# private by default and cannot be published by forgetting a line here. If one
+# is ever meant to ship, it moves out of `.claude/skills/` into the repository
+# proper as an ordinary document, deliberately. Nothing gets un-ignored in
+# place.
+#
+# `.claude/launch.json` stays tracked on purpose: it is a dev-server config,
+# not knowledge.
+.claude/skills/

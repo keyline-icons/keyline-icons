@@ -1,0 +1,84 @@
+# The checks that have to pass before anything lands on `main`.
+#
+# `icons:ci` is the real gate and it is a chain, not a suite: `build --check`
+# proves icons/ still matches raw/, `build-react --check` proves
+# components/icons/index.tsx still matches icons/stroke/, and `tsc` then checks
+# the app against that module. Run them out of order and a stale generated file
+# type-checks clean against a set that no longer backs it.
+#
+# Deliberately absent: `icons:figma` needs the Figma file, and `brand:check`
+# rasterises through headless Chrome, so two Chrome versions disagree by a pixel
+# on identical input and the job fails for reasons that are not the mark. Both
+# are documented in pipeline/README.md as run-them-locally checks.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# A second push to the same PR makes the first run irrelevant, so stop paying
+# for it. `main` is excluded from cancellation: those runs are the record of
+# what the branch looked like when each commit landed.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Before setup-node, so its `cache: pnpm` has a pnpm to ask for a store
+      # path. The other order fails with "Unable to locate executable file: pnpm".
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      # --frozen-lockfile so a lockfile that disagrees with package.json fails
+      # here rather than being silently resolved into something no one tested.
+      # The skills under `.claude/skills/` are private and are not published
+      # with this repository. `.gitignore` states that and a comment cannot
+      # enforce it: an `--force` add, a merge, or a rewrite that predates the
+      # rule would all put them back silently. This turns the policy into a
+      # failing build. It runs before anything slow, so the answer arrives in
+      # seconds rather than after a full install and build.
+      - name: Skills must never be committed
+        run: |
+          if git ls-files --error-unmatch .claude/skills > /dev/null 2>&1; then
+            echo "::error::Private skills are tracked. See the .claude/skills rule in .gitignore."
+            git ls-files .claude/skills
+            exit 1
+          fi
+          echo "No skills tracked."
+
+      - run: pnpm install --frozen-lockfile
+
+      # `icons:ci` runs `next typegen` itself, and has to. `next-env.d.ts` is
+      # gitignored, so it never exists on a fresh checkout, and it is the file
+      # that pulls in `next/image-types/global` — the declaration for `*.png`
+      # imports. Without it `tsc` fails with "Cannot find module
+      # '@/public/mockups/figma.png'" about a file that is committed and
+      # present.
+      #
+      # Locally it is invisible: `next dev` writes the file once and it stays,
+      # so the first CI run is the first honest test of a clean checkout. It
+      # was, and this is what it caught. Putting the fix in the script rather
+      # than in a step here keeps `pnpm icons:ci` true to what CONTRIBUTING
+      # promises: pass locally, pass on GitHub.
+      - run: pnpm icons:ci
+
+      - run: pnpm lint
+
+      # Last because it is the slowest, and because everything above narrows
+      # down which of its failures would even be worth reading.
+      - run: pnpm build

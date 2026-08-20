@@ -1,0 +1,36 @@
+{
+  "name": "@keyline-icons/cli",
+  "version": "0.1.0",
+  "description": "Search Keyline Icons and copy them into your project from the terminal.",
+  "license": "MIT",
+  "author": "Keyline Icons (https://keylineicons.com)",
+  "homepage": "https://keylineicons.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keyline-icons/keyline-icons.git",
+    "directory": "packages/cli"
+  },
+  "bugs": "https://github.com/keyline-icons/keyline-icons/issues",
+  "keywords": [
+    "icons",
+    "svg",
+    "cli",
+    "shadcn",
+    "icon-set"
+  ],
+  "type": "module",
+  "bin": {
+    "keyline-icons": "./src/index.mjs"
+  },
+  "exports": {
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "icons.json",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

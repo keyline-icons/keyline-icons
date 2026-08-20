@@ -1,0 +1,12 @@
+{
+  "name": "Keyline Icons",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma", "figjam"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": ["https://cdn.jsdelivr.net"],
+    "reasoning": "The icon set is read from the repository over jsDelivr, so a new icon release reaches everyone without a plugin update going through review."
+  }
+}

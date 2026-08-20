@@ -1,0 +1,11 @@
+# Blank issues stay on, deliberately. The two templates cover the common cases
+# and neither fits "I read pipeline/README.md and rule X seems wrong", which is
+# the report worth having most.
+blank_issues_enabled: true
+contact_links:
+  - name: Browse the set
+    url: https://keylineicons.com
+    about: Search every icon, switch styles, and copy the SVG.
+  - name: The drawing standard
+    url: https://github.com/keyline-icons/keyline-icons/blob/main/pipeline/README.md
+    about: What the build normalises, every rule the linter enforces, and why.

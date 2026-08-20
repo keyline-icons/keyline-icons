@@ -1,0 +1,14 @@
+# The Sponsor button GitHub renders on the repository.
+#
+# One platform, because the site asks for exactly one thing in exactly one
+# place. `lib/site-chrome.ts` already points the sponsor card at
+# https://github.com/sponsors/keyline-icons, and a repository offering a
+# different set of destinations than the site it belongs to is a choice nobody
+# benefits from making twice.
+#
+# This does not switch sponsorship on. GitHub answers that URL with a 404 until
+# Sponsors is enabled on the organisation, and nothing in this repository can
+# detect that, so the button will either not appear or lead nowhere until the
+# account is enrolled. That step belongs with publishing the repo, and
+# `SET_SPONSOR_URL` carries the same warning for the same reason.
+github: keyline-icons
