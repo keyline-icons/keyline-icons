@@ -261,16 +261,18 @@ function containerQuestion(
  * drawing*, because a visitor who landed on one icon from a search is asking
  * whether *that* is free, and where *that* one is drawn.
  *
- * Two things they must not claim, both checked before this was written:
+ * One thing they must not claim, checked rather than assumed:
  *
- * - **Neither package is on npm yet.** `npm view @keyline-icons/react` is a 404,
- *   and the README says so. The React answer therefore describes the import and
- *   the props, which are true today, rather than telling anyone to run an
- *   install that fails. The code tabs already print the install line; that is a
- *   separate promise and not one to restate in prose.
  * - **The Figma file is not public.** There is no URL for it anywhere in this
  *   repo, so the answer says what is actually available instead: `raw/` and
  *   `icons/`. If the file is ever published, that answer is the one to change.
+ *
+ * A second constraint used to sit here and no longer binds: the packages were
+ * not on npm, so the React answer described the import and the props rather
+ * than telling anyone to run an install that would fail. All three published at
+ * v0.1.0 and `npm view @keyline-icons/react` now resolves. The answer did not
+ * need rewriting, because describing the import was true before the publish and
+ * is true after it, which is the better way to write one of these.
  *
  * Worth knowing before adding more: Google stopped showing FAQ rich results for
  * ordinary sites in August 2023 — they are limited to well-known health and

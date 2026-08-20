@@ -172,15 +172,15 @@ export function FrameworkInstaller({
             framework at all. It was a whole pane beside the terminal and reads
             better as this line.
 
-            **What came out, and where it still lives.** This paragraph opened
-            with "Not published yet." for as long as the package was not on npm,
-            on the argument that a terminal is the most convincing thing on the
-            page and therefore the worst place to imply an install that fails.
-            It is out at the user's request, on the basis that the package is
-            coming. Nothing else changed with it, so the claim is still made in
-            the two places that own it: the callout on `/install`, and the answers
-            in `lib/faq.ts`. If the package ships, neither needs this line back;
-            if it stalls, this is the paragraph that used to carry the warning.
+            **What came out.** This paragraph opened with "Not published yet."
+            for as long as the package was not on npm, on the argument that a
+            terminal is the most convincing thing on the page and therefore the
+            worst place to imply an install that fails. It came out early, on
+            the basis that the package was coming, and the claim went on living
+            in the two places that owned it: the callout on `/install` and the
+            answers in `lib/faq.ts`. All three packages published at v0.1.0, so
+            both of those are gone too and the install this terminal shows now
+            works. Nothing here needs the warning back.
           */}
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               Or skip the install entirely: every icon in the{" "}

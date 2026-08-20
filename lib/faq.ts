@@ -15,18 +15,20 @@
  *
  * **Every answer has to be backed by the page it sits on.** Structured data may
  * only describe what is there, and the answers below are the page's own prose
- * compressed rather than new claims. One fact constrains them, verified rather
- * than assumed: neither `@keyline-icons/react` nor `@keyline-icons/cli` is on
- * npm yet, and `/install` says so in a callout, so any answer mentioning the
- * package has to say the same thing or the page and its own FAQ disagree.
+ * compressed rather than new claims.
  *
- * **`homeFaq` handles that fact by not raising it.** The landing page used to
- * carry "Not published yet." under its terminal and no longer does, so an answer
- * there stating the npm status would be the FAQ making a claim its own page has
- * dropped, and an answer implying the opposite would be false. Both of its
- * install-shaped answers describe what is true today and is on the page, copying
- * the SVG or taking the React components from the repository, and they send anyone
- * who needs the status to `/install`, which owns it and states it.
+ * One fact used to constrain them: neither `@keyline-icons/react` nor
+ * `@keyline-icons/cli` was on npm, `/install` said so in a callout, and every
+ * answer mentioning the package had to repeat it or the page and its own FAQ
+ * would disagree. All three packages published at v0.1.0, the callout came out
+ * with them, and the answers here came out at the same time. The rule that
+ * survives is the general one: an answer may not promise an install the page
+ * does not offer, in either direction.
+ *
+ * **`homeFaq` never took a position on it**, which is why it needed no edit. Its
+ * install-shaped answers describe taking an icon from the browser or the whole
+ * set as React components, and send anyone who wants the specifics to
+ * `/install`, which owns them. That was written to survive the publish and did.
  *
  * The set's own Figma file is likewise still unpublished, and `/`'s Figma answer
  * is written the same way: it says the set is drawn in one Figma file and that
@@ -161,8 +163,8 @@ export function installFaq(): FaqEntry[] {
       question: `Which package do I install for React?`,
       answer:
         `${REACT_PACKAGE}, which generates one component per icon from the same SVGs, so the two cannot ` +
-        `disagree. It is built in the repository and is not on npm at the time of writing: until it is, copy ` +
-        `the SVGs or take the files from icons/ in the repository at ${repo}.`,
+        `disagree. Each style is its own entry point, and the drawings are also in icons/ in the ` +
+        `repository at ${repo} if you would rather copy them than install anything.`,
     },
     {
       question: `Why does each style have its own import path?`,

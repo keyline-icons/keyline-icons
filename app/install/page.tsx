@@ -192,32 +192,16 @@ export default async function Page() {
 <Check className="size-4" />
 <Plus size={16} />
 <Settings strokeWidth={1.5} />`}</Code>
-            <p className="rounded-lg border border-dashed p-4">
-              <strong className="font-medium text-foreground">
-                Not published yet.
-              </strong>{" "}
-              The package is built in the repo and is not on npm at the time of
-              writing. Until it is, copy the SVGs above, or take the files from{" "}
-              <code>icons/</code> in the{" "}
-              <a
-                href={SET_REPO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-0.5 underline underline-offset-2 hover:text-foreground"
-              >
-                repository
-                <ArrowUpRight className="size-3" />
-                <span className="sr-only">{" (opens in a new tab)"}</span>
-              </a>
-              .
-            </p>
           </Section>
 
           {/*
-            No "not published yet" note on this one, deliberately. The registry
-            is served by this site, from `app/r/[...slug]/route.ts`, so it works
-            for anyone who can read this page. A caveat here would be false the
-            moment it was true.
+            Neither section carries a "not published yet" note any more. This one
+            never did: the registry is served by this site, from
+            `app/r/[...slug]/route.ts`, so it has always worked for anyone who
+            can read this page. The React section above carried one until
+            `@keyline-icons/react` went to npm, and it came out with the publish
+            rather than later, because a caveat that outlives its reason sends
+            people to copy files they could have installed.
           */}
           <Section id="registry" title="Install with the shadcn CLI">
             <p>
@@ -233,8 +217,8 @@ export default async function Page() {
               this needs one: each icon arrives at{" "}
               <code>@components/icons/&lt;name&gt;.tsx</code>, and the alias is
               what puts it wherever you actually keep components rather than
-              somewhere this set picked. In a project without one, the CLI offers
-              to run <code>init</code> first.
+              somewhere this set picked. In a project without one, the CLI
+              offers to run <code>init</code> first.
             </p>
             <p>Then add icons by name:</p>
             <Code>{`npx shadcn add @keyline/bell
@@ -243,10 +227,9 @@ npx shadcn search @keyline          # browse the whole set`}</Code>
             <p>
               This is the path that gives you <strong>source</strong> rather
               than a dependency. Each icon arrives as a self-contained component
-              that imports nothing from{" "}
-              <code>@keyline-icons/react</code>, so you can rename it, edit the
-              drawing, or fold it into whatever conventions your project already
-              has.
+              that imports nothing from <code>@keyline-icons/react</code>, so
+              you can rename it, edit the drawing, or fold it into whatever
+              conventions your project already has.
             </p>
             <p>
               Which to choose is a question about ownership rather than about
@@ -288,12 +271,12 @@ npx shadcn search @keyline          # browse the whole set`}</Code>
               buttons below are <code>sm</code>, so their icons are 14.
             </p>
             <p>
-              The primitives do not all agree, which is worth knowing before
-              you debug one. DropdownMenu carries the same <code>:not()</code>{" "}
-              clause Button does, so your own <code>size-*</code> wins there too.
-              Sidebar does not: it uses <code>{`[&>svg]:size-4`}</code>, with no
-              exception and on a direct child rather than any descendant, so a
-              class of your own is ignored there.
+              The primitives do not all agree, which is worth knowing before you
+              debug one. DropdownMenu carries the same <code>:not()</code>{" "}
+              clause Button does, so your own <code>size-*</code> wins there
+              too. Sidebar does not: it uses <code>{`[&>svg]:size-4`}</code>,
+              with no exception and on a direct child rather than any
+              descendant, so a class of your own is ignored there.
             </p>
             <div className="flex flex-wrap items-center gap-3 rounded-lg border p-4 text-foreground">
               <Button size="sm">
