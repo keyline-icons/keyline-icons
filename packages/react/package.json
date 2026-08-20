@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Icons on one 24×24 grid, as React components in three weights: stroke, duotone and fill. Built for shadcn/ui.",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Keyline Icons (https://keylineicons.com)",
   "homepage": "https://keylineicons.com",
   "repository": {
