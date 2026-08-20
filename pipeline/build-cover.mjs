@@ -2,10 +2,14 @@
 //
 //   node pipeline/build-cover.mjs [--check]
 //
-// Writes previews/figma-cover.svg and previews/figma-cover.png at 1920x960,
-// which is the size Figma asks for on a Community file. The icons on it are
-// read out of icons/stroke/ rather than pasted in, so the cover cannot end up
-// advertising a glyph that has since been redrawn or renamed.
+// Writes two covers: previews/figma-cover.{svg,png} at 1920x1080, the size
+// Figma asks for on a Community file, and previews/social-preview.{svg,png} at
+// 1280x640 for a repository's social preview. The two aspects differ, which is
+// why there are two compositions rather than one drawing at two scales.
+//
+// The icons on them are read out of icons/stroke/ rather than pasted in, so a
+// cover cannot end up advertising a glyph that has since been redrawn or
+// renamed.
 //
 // Like build-brand.mjs, this shells out to headless Chrome, because plain Node
 // cannot rasterise a vector. It carries its own copy of the Chrome lookup
@@ -34,7 +38,6 @@ const check = process.argv.includes("--check")
 const c = (n, s) => `\x1b[${n}m${s}\x1b[0m`
 
 const W = 1920
-const H = 960
 const PAD = 100
 
 /**
@@ -73,15 +76,42 @@ const WISHLIST = [
   // Row 3: range, so the cover is not thirty variations on a rectangle.
   "smartphone", "shopping-cart", "credit-card", "map-pin", "git-branch",
   "terminal", "bar-chart", "tag", "arrow-right", "menu",
+  // Row 4, which the Figma cover added when it went to 16:9. It was briefly
+  // filled by the alphabetical top-up and ended on `align-offset-bottom`,
+  // `-left` and `-right`: three near-identical glyphs closing the one image
+  // most people judge the set by.
+  "link", "package", "bookmark", "share", "gift", "heart", "star", "eye",
+  "image", "code",
   // Spares. The list is longer than the grid so a rename is absorbed here
   // rather than by the alphabetical top-up, which opens on align-offset.
-  "link", "package", "bookmark", "share", "gift", "chevron-down",
+  "chevron-down", "cloud", "sun", "wifi", "filter", "database",
 ]
 
 const COLS = 10
-const ROWS = 3
 const CELL = (W - PAD * 2) / COLS
 const GLYPH = 64
+
+/**
+ * The two covers, which are no longer one drawing at two scales.
+ *
+ * They were, on the belief that Figma wanted 1920×960 and GitHub 1280×640, both
+ * 2:1. Figma's publish dialog asks for **1920×1080**, so the shared aspect never
+ * held and the cover sat 120px short inside the frame with the composition
+ * floating in it. GitHub's social preview really is 2:1, so the fix is a second
+ * composition rather than one aspect for both.
+ *
+ * The 120px is exactly one glyph row, which is why the Figma cover carries four
+ * rows and the social preview three. Nothing else moves: the header is
+ * identical, and the footer is measured from the bottom edge so both sit the
+ * same distance from it.
+ */
+const COVERS = [
+  { svg: "figma-cover.svg", png: "figma-cover.png", h: 1080, rows: 4, raster: [1920, 1080] },
+  { svg: "social-preview.svg", png: "social-preview.png", h: 960, rows: 3, raster: [1280, 640] },
+]
+
+/** Enough glyphs for the tallest cover; each composition takes what it needs. */
+const MAX_ROWS = Math.max(...COVERS.map((c) => c.rows))
 
 const ATTR = /([\w-]+)="([^"]*)"/g
 const ROOT_DROP = new Set(["width", "height", "xmlns", "viewBox"])
@@ -102,13 +132,14 @@ const available = new Set(
   (await readdir(SRC)).filter((f) => f.endsWith(".svg")).map((f) => f.slice(0, -4))
 )
 
-const want = COLS * ROWS
+const want = COLS * MAX_ROWS
 const picked = WISHLIST.filter((n) => available.has(n)).slice(0, want)
 for (const n of [...available].sort()) {
   if (picked.length >= want) break
   if (!picked.includes(n)) picked.push(n)
 }
 
+/** Every glyph the tallest cover needs, positioned. A shorter one takes a slice. */
 const glyphs = []
 for (const [i, name] of picked.entries()) {
   const { attrs, body } = await readGlyph(name)
@@ -129,9 +160,17 @@ const FONT =
 const total = available.size
 const styles = ["stroke", "duotone", "fill"]
 
-const svg =
-  `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">` +
-  `<rect width="${W}" height="${H}" fill="${BG}"/>` +
+/**
+ * One cover at a given height, with the glyph grid cut to `rows`.
+ *
+ * The header is fixed: the mark, the title and the rule under it sit the same
+ * distance from the top on both, so the two covers read as the same object. The
+ * footer is measured from the bottom edge instead, which is what lets one
+ * composition serve two heights without a second set of tuned numbers.
+ */
+const compose = (h, rows) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${h}" viewBox="0 0 ${W} ${h}">` +
+  `<rect width="${W}" height="${h}" fill="${BG}"/>` +
   // The mark, scaled off its own 40-unit box.
   `<g transform="translate(${PAD} 96) scale(2.6)">` +
   `<path d="${TILE}" fill="${PRIMARY}"/>` +
@@ -140,10 +179,10 @@ const svg =
   `<text x="${PAD}" y="322" font-family="${FONT}" font-size="96" font-weight="600" letter-spacing="-3" fill="${INK}">Keyline Icons</text>` +
   `<text x="${PAD}" y="378" font-family="${FONT}" font-size="34" fill="${MUTED}">Built for shadcn/ui · An icon set made entirely with AI</text>` +
   `<line x1="${PAD}" y1="430" x2="${W - PAD}" y2="430" stroke="${HAIRLINE}" stroke-width="2"/>` +
-  `<g fill="none" stroke="${INK}">${glyphs.join("")}</g>` +
-  `<line x1="${PAD}" y1="846" x2="${W - PAD}" y2="846" stroke="${HAIRLINE}" stroke-width="2"/>` +
-  `<text x="${PAD}" y="900" font-family="${FONT}" font-size="30" fill="${INK}">${total} free icons</text>` +
-  `<text x="${W - PAD}" y="900" text-anchor="end" font-family="${FONT}" font-size="30" fill="${MUTED}">${styles.join(" · ")}  |  24 × 24  |  MIT</text>` +
+  `<g fill="none" stroke="${INK}">${glyphs.slice(0, COLS * rows).join("")}</g>` +
+  `<line x1="${PAD}" y1="${h - 114}" x2="${W - PAD}" y2="${h - 114}" stroke="${HAIRLINE}" stroke-width="2"/>` +
+  `<text x="${PAD}" y="${h - 60}" font-family="${FONT}" font-size="30" fill="${INK}">${total} free icons</text>` +
+  `<text x="${W - PAD}" y="${h - 60}" text-anchor="end" font-family="${FONT}" font-size="30" fill="${MUTED}">${styles.join(" · ")}  |  24 × 24  |  MIT</text>` +
   `</svg>\n`
 
 const CHROME_CANDIDATES = [
@@ -164,35 +203,39 @@ function findChrome() {
   )
 }
 
-const svgPath = join(OUT, "figma-cover.svg")
-
-/**
- * One drawing, two rasters. Figma asks for 1920×960 on a Community file and
- * GitHub for 1280×640 on a repository's social preview, and both are 2:1, so
- * the second is the first at a different scale rather than a second design to
- * keep in step.
- */
-const RASTERS = [
-  ["figma-cover.png", 1920, 960],
-  ["social-preview.png", 1280, 640],
-]
+/** Each cover's finished SVG, keyed by the file it is written to. */
+const built = COVERS.map((cover) => ({ ...cover, text: compose(cover.h, cover.rows) }))
 
 if (check) {
-  const prev = existsSync(svgPath) ? await readFile(svgPath, "utf8") : null
-  if (prev !== svg) {
+  // Both covers are reported before exiting. Bailing on the first would hide a
+  // stale second behind it, so the fix looks complete after one rebuild.
+  let drift = false
+  for (const { svg: file, text } of built) {
+    const path = join(OUT, file)
+    const prev = existsSync(path) ? await readFile(path, "utf8") : null
+    if (prev === text) continue
     const why = prev === null ? "does not exist" : "is out of sync with icons/stroke/"
-    console.error(`  ${c(33, "DRIFT")} previews/figma-cover.svg ${why}`)
+    console.error(`  ${c(33, "DRIFT")} previews/${file} ${why}`)
+    drift = true
+  }
+  if (drift) {
     console.error(`\nRun: node pipeline/build-cover.mjs`)
     process.exit(1)
   }
-  console.log(c(32, `previews/figma-cover.svg is in sync with icons/stroke/ (${picked.length} glyphs)`))
+  const sizes = built.map((b) => `${b.raster[0]}×${b.raster[1]}`).join(", ")
+  console.log(
+    c(32, `previews/ covers are in sync with icons/stroke/ (${sizes}, ${picked.length} glyphs)`)
+  )
 } else {
   await mkdir(OUT, { recursive: true })
-  await writeFile(svgPath, svg, "utf8")
 
   const chrome = findChrome()
-  for (const [file, w, h] of RASTERS) {
-    const pngPath = join(OUT, file)
+  for (const { svg: file, png: pngFile, text, raster } of built) {
+    const svgPath = join(OUT, file)
+    await writeFile(svgPath, text, "utf8")
+
+    const [w, h] = raster
+    const pngPath = join(OUT, pngFile)
     await run(chrome, [
       "--headless",
       "--disable-gpu",
@@ -206,15 +249,15 @@ if (check) {
       // Chrome chatters on stderr about macOS task policy even on success.
       if (!existsSync(pngPath)) throw e
     })
-    if (!existsSync(pngPath)) throw new Error(`Chrome produced no PNG for ${file}`)
+    if (!existsSync(pngPath)) throw new Error(`Chrome produced no PNG for ${pngFile}`)
 
     const png = await readFile(pngPath)
     const [gotW, gotH] = [png.readUInt32BE(16), png.readUInt32BE(20)]
     if (gotW !== w || gotH !== h) {
-      throw new Error(`${file}: expected ${w}x${h}, Chrome gave ${gotW}x${gotH}`)
+      throw new Error(`${pngFile}: expected ${w}x${h}, Chrome gave ${gotW}x${gotH}`)
     }
-    console.log(`Wrote previews/${file} (${w}×${h})`)
+    console.log(`Wrote previews/${pngFile} (${w}×${h})`)
   }
 
-  console.log(`previews/figma-cover.svg, ${picked.length} glyphs`)
+  console.log(`${built.length} covers, ${picked.length} glyphs`)
 }

@@ -19,7 +19,7 @@ Figma exports, and everything downstream is built from it:
 raw/<name>/*.svg  ->  icons/<style>/<name>.svg  ->  components/icons/index.tsx
                                                 ->  packages/react/src/*.tsx
                                                 ->  packages/{mcp,cli,figma-plugin}/icons.json
-                                                ->  previews/figma-cover.svg
+                                                ->  previews/{figma-cover,social-preview}.svg
                                                 ->  previews/paper/*.html
 ```
 
