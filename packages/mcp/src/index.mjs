@@ -18,7 +18,9 @@ import { readFile } from "node:fs/promises"
 import { fileURLToPath } from "node:url"
 
 const HERE = fileURLToPath(new URL(".", import.meta.url))
-const data = JSON.parse(await readFile(new URL("../icons.json", import.meta.url), "utf8"))
+const data = JSON.parse(
+  await readFile(new URL("../icons.json", import.meta.url), "utf8")
+)
 const { icons, styles } = data
 const NAMES = Object.keys(icons)
 
@@ -50,6 +52,32 @@ const pascal = (name) =>
     .join("")
 
 /**
+ * The query split into the words that must each land somewhere in a name.
+ *
+ * A query carrying a camelCase boundary is a component identifier someone
+ * pasted out of their code rather than a phrase they typed, `CheckCircle2` or
+ * `RefreshCw`, so it is split on those boundaries, and a leftover bare number
+ * is dropped, because lucide's trailing `2` disambiguates inside lucide and
+ * means nothing here.
+ *
+ * Only identifiers are treated that way. `clock-3` and `dice-5` are real names
+ * in this set, so a query with no case boundary keeps its digits and can still
+ * reach them.
+ */
+function wordsOf(query) {
+  const identifier = /[a-z][A-Z]/.test(query)
+  const split = identifier
+    ? query
+        .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
+        .replace(/([a-zA-Z])(\d)/g, "$1 $2")
+    : query
+  return split
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter((w) => w && !(identifier && /^\d+$/.test(w)))
+}
+
+/**
  * Rank matches so the obvious answer is first.
  *
  * An agent asking for "arrow" wants `arrow-down` before
@@ -57,19 +85,52 @@ const pascal = (name) =>
  * rather than the twelve compounds that contain it. Exact beats prefix beats
  * word-boundary beats substring, and shorter breaks ties, because the shorter
  * name is the more general glyph in this set's naming scheme.
+ *
+ * The query is also matched word by word, which is what lets a name borrowed
+ * from another set land. Compounds here read base-first, so an agent carrying
+ * lucide's `CheckCircle2` asks for "check-circle", and matching the whole
+ * string against the name finds nothing, because the icon is `circle-check`.
+ * The honest answer there is that the words arrived in the other order, not that
+ * the set lacks the glyph, and the difference is not academic: a migration
+ * shipped a plain `check` because `circle-check` looked absent, in a set that
+ * has it in all three styles. The site's search has always split the query
+ * this way. This is the agent-facing copy catching up.
+ *
+ * Scattered matches rank below every contiguous one, so a direct query comes
+ * back ordered exactly as it did before.
  */
 function search(query, style, limit) {
   const q = query.toLowerCase().trim()
+  const words = wordsOf(query)
+  if (!words.length) return []
+
   const hits = []
   for (const name of NAMES) {
     if (style && !icons[name][style]) continue
+
     const i = name.indexOf(q)
-    if (i === -1) continue
-    const rank =
-      name === q ? 0 : name.startsWith(q) ? 1 : /(^|-)/.test(name[i - 1] ?? "-") ? 2 : 3
+    let rank
+    if (i !== -1) {
+      rank =
+        name === q
+          ? 0
+          : name.startsWith(q)
+            ? 1
+            : /(^|-)/.test(name[i - 1] ?? "-")
+              ? 2
+              : 3
+    } else if (words.every((w) => name.includes(w))) {
+      rank = 4
+    } else continue
+
     hits.push({ name, rank })
   }
-  hits.sort((a, b) => a.rank - b.rank || a.name.length - b.name.length || a.name.localeCompare(b.name))
+  hits.sort(
+    (a, b) =>
+      a.rank - b.rank ||
+      a.name.length - b.name.length ||
+      a.name.localeCompare(b.name)
+  )
   return hits.slice(0, limit).map((h) => ({
     name: h.name,
     styles: Object.keys(icons[h.name]),
@@ -87,13 +148,26 @@ const TOOLS = [
       "Find icons by name. Returns matching names and which of the three styles " +
       "each one has. Names are kebab-case and compounds read base-first, so a " +
       "mail icon with a tick is `mail-check`, not `check-mail`. Search the base " +
-      "word to find a family.",
+      "word to find a family. Word order does not matter and a component name " +
+      "from another set is accepted as written, so `CheckCircle2` finds " +
+      "`circle-check`. Trust an empty result: it means the set has no such icon.",
     inputSchema: {
       type: "object",
       properties: {
-        query: { type: "string", description: "Substring to match, e.g. `arrow` or `mail`." },
-        style: { ...STYLE_ENUM, description: "Only return icons that have this style." },
-        limit: { type: "integer", description: "Max results. Default 25.", minimum: 1, maximum: 200 },
+        query: {
+          type: "string",
+          description: "Substring to match, e.g. `arrow` or `mail`.",
+        },
+        style: {
+          ...STYLE_ENUM,
+          description: "Only return icons that have this style.",
+        },
+        limit: {
+          type: "integer",
+          description: "Max results. Default 25.",
+          minimum: 1,
+          maximum: 200,
+        },
       },
       required: ["query"],
     },
@@ -106,8 +180,14 @@ const TOOLS = [
     inputSchema: {
       type: "object",
       properties: {
-        name: { type: "string", description: "Exact icon name, e.g. `circle-arrow-down`." },
-        style: { ...STYLE_ENUM, description: "Defaults to `stroke`, the only style every icon has." },
+        name: {
+          type: "string",
+          description: "Exact icon name, e.g. `circle-arrow-down`.",
+        },
+        style: {
+          ...STYLE_ENUM,
+          description: "Defaults to `stroke`, the only style every icon has.",
+        },
       },
       required: ["name"],
     },
@@ -120,7 +200,10 @@ const TOOLS = [
     inputSchema: {
       type: "object",
       properties: {
-        name: { type: "string", description: "Exact icon name, e.g. `circle-arrow-down`." },
+        name: {
+          type: "string",
+          description: "Exact icon name, e.g. `circle-arrow-down`.",
+        },
         style: { ...STYLE_ENUM, description: "Defaults to `stroke`." },
       },
       required: ["name"],
@@ -214,10 +297,23 @@ function callTool(name, args = {}) {
 
     case "search_icons": {
       const { query, style, limit = 25 } = args
-      if (typeof query !== "string" || !query.trim()) return fail("`query` is required.")
-      if (style && !styles.includes(style)) return fail(`Unknown style \`${style}\`. One of: ${styles.join(", ")}.`)
-      const hits = search(query, style ?? null, Math.min(Math.max(limit, 1), 200))
-      if (!hits.length) return text(`No icon matches "${query}"${style ? ` in ${style}` : ""}.`)
+      if (typeof query !== "string" || !query.trim())
+        return fail("`query` is required.")
+      if (style && !styles.includes(style))
+        return fail(`Unknown style \`${style}\`. One of: ${styles.join(", ")}.`)
+      const hits = search(
+        query,
+        style ?? null,
+        Math.min(Math.max(limit, 1), 200)
+      )
+      // A bare "no match" is the one answer an agent cannot act on: it reads as
+      // "this set has no such icon" when it usually means the word was spelled
+      // or ordered differently here. `nearest` is what `get_icon` already says
+      // in the same situation, and it costs a walk of the names only on a miss.
+      if (!hits.length)
+        return text(
+          `No icon matches "${query}"${style ? ` in ${style}` : ""}.${nearest(query)}`
+        )
       return text(
         `${hits.length} match${hits.length === 1 ? "" : "es"} for "${query}"${style ? ` in ${style}` : ""}:\n\n` +
           hits.map((h) => `  ${h.name}  [${h.styles.join(", ")}]`).join("\n")
@@ -227,8 +323,10 @@ function callTool(name, args = {}) {
     case "get_icon": {
       const { name: icon, style = "stroke" } = args
       if (typeof icon !== "string") return fail("`name` is required.")
-      if (!styles.includes(style)) return fail(`Unknown style \`${style}\`. One of: ${styles.join(", ")}.`)
-      if (!icons[icon]) return fail(`No icon named \`${icon}\`.${nearest(icon)}`)
+      if (!styles.includes(style))
+        return fail(`Unknown style \`${style}\`. One of: ${styles.join(", ")}.`)
+      if (!icons[icon])
+        return fail(`No icon named \`${icon}\`.${nearest(icon)}`)
       const svg = svgFor(icon, style)
       if (!svg) {
         return fail(
@@ -242,14 +340,20 @@ function callTool(name, args = {}) {
     case "get_react_usage": {
       const { name: icon, style = "stroke" } = args
       if (typeof icon !== "string") return fail("`name` is required.")
-      if (!styles.includes(style)) return fail(`Unknown style \`${style}\`. One of: ${styles.join(", ")}.`)
+      if (!styles.includes(style))
+        return fail(`Unknown style \`${style}\`. One of: ${styles.join(", ")}.`)
       if (!icons[icon]?.[style]) {
         return fail(
           `\`${icon}\` has no ${style} style.` +
-            (icons[icon] ? ` It has: ${Object.keys(icons[icon]).join(", ")}.` : nearest(icon))
+            (icons[icon]
+              ? ` It has: ${Object.keys(icons[icon]).join(", ")}.`
+              : nearest(icon))
         )
       }
-      const entry = style === "stroke" ? "@keyline-icons/react" : `@keyline-icons/react/${style}`
+      const entry =
+        style === "stroke"
+          ? "@keyline-icons/react"
+          : `@keyline-icons/react/${style}`
       const C = pascal(icon)
       return text(
         `import { ${C} } from "${entry}"\n\n<${C} className="size-4" />\n\n` +
@@ -267,7 +371,8 @@ function callTool(name, args = {}) {
 
 const send = (msg) => process.stdout.write(JSON.stringify(msg) + "\n")
 const reply = (id, result) => send({ jsonrpc: "2.0", id, result })
-const error = (id, code, message) => send({ jsonrpc: "2.0", id, error: { code, message } })
+const error = (id, code, message) =>
+  send({ jsonrpc: "2.0", id, error: { code, message } })
 
 function handle(msg) {
   const { id, method, params } = msg

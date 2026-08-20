@@ -19,7 +19,9 @@ import { readFile } from "node:fs/promises"
 import { dirname, join, resolve } from "node:path"
 import { existsSync } from "node:fs"
 
-const data = JSON.parse(await readFile(new URL("../icons.json", import.meta.url), "utf8"))
+const data = JSON.parse(
+  await readFile(new URL("../icons.json", import.meta.url), "utf8")
+)
 const { icons, styles } = data
 const NAMES = Object.keys(icons)
 const VERSION = "0.1.0"
@@ -52,14 +54,20 @@ function parseArgs(argv) {
   const positional = []
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i]
-    if (a === "--") { positional.push(...argv.slice(i + 1)); break }
+    if (a === "--") {
+      positional.push(...argv.slice(i + 1))
+      break
+    }
     if (a.startsWith("--") || (a.startsWith("-") && a.length === 2)) {
       const raw = a.replace(/^--?/, "")
-      const [k, inline] = raw.includes("=") ? raw.split(/=(.*)/) : [raw, undefined]
+      const [k, inline] = raw.includes("=")
+        ? raw.split(/=(.*)/)
+        : [raw, undefined]
       const key = alias[k] ?? k
       if (inline !== undefined) flags[key] = inline
       else if (key === "help" || key === "version") flags[key] = true
-      else if (argv[i + 1] && !argv[i + 1].startsWith("-")) flags[key] = argv[++i]
+      else if (argv[i + 1] && !argv[i + 1].startsWith("-"))
+        flags[key] = argv[++i]
       else flags[key] = true
     } else positional.push(a)
   }
@@ -68,7 +76,8 @@ function parseArgs(argv) {
 
 const styleOf = (flags) => {
   const s = flags.style ?? "stroke"
-  if (!styles.includes(s)) die(`unknown style \`${s}\`. One of: ${styles.join(", ")}`)
+  if (!styles.includes(s))
+    die(`unknown style \`${s}\`. One of: ${styles.join(", ")}`)
   return s
 }
 
@@ -77,19 +86,60 @@ const styleOf = (flags) => {
 function svgFor(name, style) {
   const art = icons[name]?.[style]
   if (!art) return null
-  const attrs = Object.entries(art.root).map(([k, v]) => ` ${k}="${v}"`).join("")
+  const attrs = Object.entries(art.root)
+    .map(([k, v]) => ` ${k}="${v}"`)
+    .join("")
   return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"${attrs}>${art.body}</svg>\n`
 }
 
+/** Kept in step with `@keyline-icons/mcp`, which carries the reasoning. */
+function wordsOf(query) {
+  const identifier = /[a-z][A-Z]/.test(query)
+  const split = identifier
+    ? query
+        .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
+        .replace(/([a-zA-Z])(\d)/g, "$1 $2")
+    : query
+  return split
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter((w) => w && !(identifier && /^\d+$/.test(w)))
+}
+
+/**
+ * Matched whole first, then word by word, so a name in another set's word order
+ * still lands: compounds here read base-first, and lucide's `CheckCircle2` asks
+ * for "check-circle" when the icon is `circle-check`. Kept in step with the
+ * copy in `@keyline-icons/mcp`, which carries the full reasoning.
+ */
 function search(query, style, limit) {
   const q = query.toLowerCase().trim()
-  return NAMES.filter((n) => (!style || icons[n][style]) && n.includes(q))
+  const words = wordsOf(query)
+  if (!words.length) return []
+
+  return NAMES.filter(
+    (n) =>
+      (!style || icons[n][style]) &&
+      (n.includes(q) || words.every((w) => n.includes(w)))
+  )
     .map((n) => {
       const i = n.indexOf(q)
-      const rank = n === q ? 0 : n.startsWith(q) ? 1 : /(^|-)/.test(n[i - 1] ?? "-") ? 2 : 3
+      const rank =
+        i === -1
+          ? 4
+          : n === q
+            ? 0
+            : n.startsWith(q)
+              ? 1
+              : /(^|-)/.test(n[i - 1] ?? "-")
+                ? 2
+                : 3
       return { n, rank }
     })
-    .sort((a, b) => a.rank - b.rank || a.n.length - b.n.length || a.n.localeCompare(b.n))
+    .sort(
+      (a, b) =>
+        a.rank - b.rank || a.n.length - b.n.length || a.n.localeCompare(b.n)
+    )
     .slice(0, limit)
     .map((h) => h.n)
 }
@@ -104,13 +154,20 @@ function nearest(name) {
     for (let i = 1; i <= a.length; i++) {
       const cur = [i]
       for (let j = 1; j <= b.length; j++)
-        cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1))
+        cur[j] = Math.min(
+          prev[j] + 1,
+          cur[j - 1] + 1,
+          prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)
+        )
       prev = cur
     }
     return prev[b.length]
   }
   const head = q.split("-")[0]
-  return NAMES.map((n) => ({ n, d: Math.min(d(q, n), d(head, n.split("-")[0]) + 0.5) }))
+  return NAMES.map((n) => ({
+    n,
+    d: Math.min(d(q, n), d(head, n.split("-")[0]) + 0.5),
+  }))
     .filter(({ d }) => d <= 2)
     .sort((a, b) => a.d - b.d || a.n.length - b.n.length)
     .slice(0, 5)
@@ -120,7 +177,9 @@ function nearest(name) {
 function resolveOrDie(name, style) {
   if (!icons[name]) {
     const near = nearest(name)
-    die(`no icon named \`${name}\`.${near.length ? ` Did you mean: ${near.join(", ")}?` : ""}`)
+    die(
+      `no icon named \`${name}\`.${near.length ? ` Did you mean: ${near.join(", ")}?` : ""}`
+    )
   }
   const svg = svgFor(name, style)
   if (!svg) {
@@ -178,11 +237,16 @@ const commands = {
     const query = positional.join(" ")
     if (!query) die("search needs a query. Try: keyline-icons search arrow")
     const style = flags.style ? styleOf(flags) : null
-    const limit = Math.min(Math.max(parseInt(flags.limit ?? "25", 10) || 25, 1), 200)
+    const limit = Math.min(
+      Math.max(parseInt(flags.limit ?? "25", 10) || 25, 1),
+      200
+    )
     const hits = search(query, style, limit)
     if (!hits.length) {
       const near = nearest(query)
-      die(`nothing matches \`${query}\`.${near.length ? ` Did you mean: ${near.join(", ")}?` : ""}`)
+      die(
+        `nothing matches \`${query}\`.${near.length ? ` Did you mean: ${near.join(", ")}?` : ""}`
+      )
     }
     for (const n of hits) {
       const has = styles.filter((s) => icons[n][s])
@@ -211,9 +275,15 @@ const commands = {
       const path = join(dir, `${name}.svg`)
       const existed = existsSync(path)
       await writeFile(path, svg, "utf8")
-      note(`  ${existed ? c(33, "overwrote") : green("wrote")}  ${join(dirname(path), `${name}.svg`)}`)
+      note(
+        `  ${existed ? c(33, "overwrote") : green("wrote")}  ${join(dirname(path), `${name}.svg`)}`
+      )
     }
-    note(dim(`\n${files.length} ${style} icon${files.length === 1 ? "" : "s"} to ${dir}`))
+    note(
+      dim(
+        `\n${files.length} ${style} icon${files.length === 1 ? "" : "s"} to ${dir}`
+      )
+    )
   },
 }
 
@@ -222,8 +292,14 @@ const commands = {
 const argv = process.argv.slice(2)
 const { flags, positional } = parseArgs(argv)
 
-if (flags.version) { commands.version(); process.exit(0) }
-if (flags.help || !positional.length) { commands.help(); process.exit(positional.length ? 0 : 1) }
+if (flags.version) {
+  commands.version()
+  process.exit(0)
+}
+if (flags.help || !positional.length) {
+  commands.help()
+  process.exit(positional.length ? 0 : 1)
+}
 
 const name = positional.shift()
 const cmd = commands[name]
