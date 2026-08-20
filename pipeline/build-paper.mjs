@@ -614,16 +614,25 @@ for (const section of SECTIONS) {
 /**
  * The release the two prose surfaces date themselves by.
  *
- * The newest `updated` across every drawing, which is what `/changelog` calls
- * the release date, and the label is the one baked at build rather than
- * formatted here: a date formatted at render is formatted in the reader's
- * locale, and these two surfaces have to agree with the site.
+ * The tag's date, not the newest drawing's. Both surfaces used to print the
+ * latter, which made the catalogue's "Released:" line wrong as soon as a
+ * release was cut on a different day from the last edit: the last drawing
+ * changed on 19 August and v0.1.0 was tagged on the 20th, so the boards claimed
+ * a release date a day before it happened.
+ *
+ * These boards describe one released version rather than a working tree, so
+ * both lines answer the same question, "as of when". The newest drawing date is
+ * still the honest answer before anything is tagged, which is the fallback.
+ *
+ * The label is baked by `build-history.mjs` rather than formatted here: a date
+ * formatted at render is formatted in the reader's locale, and these two
+ * surfaces have to agree with the site.
  */
 const dated = Object.values(HISTORY.icons ?? {}).filter((h) => h.updated)
 const newest = dated.reduce((a, b) => (a && a.updated > b.updated ? a : b), dated[0])
 const release = {
   version: HISTORY.version,
-  label: newest?.updatedLabel ?? "",
+  label: HISTORY.releasedLabel ?? newest?.updatedLabel ?? "",
   /* The page counts drawings that carry a history entry, which is names rather
      than base icons and lags `icons/` until `history:build` runs. Both are true
      of `/changelog` as well, so mirroring the number is what keeps the two
