@@ -609,7 +609,16 @@ export default async function Page() {
             someone reaches the pages themselves; a third link per demo was one
             control too many in a block that is already interactive.
           */}
-          <div className="mt-10 flex flex-col gap-16 lg:gap-24">
+          {/*
+            The negative margin cancels this section's own `px-6` below `lg`.
+            Each showcase is a page section in its own right and carries
+            `mx-auto max-w-[1400px] px-6 py-12`, so embedded here the two
+            paddings stacked: 48px a side on a 390px phone, an eighth of the
+            screen spent twice on the same gutter. Above `lg` there is room for
+            both and the wider container reads as a deliberate inset, so the
+            cancel stops there.
+          */}
+          <div className="-mx-6 mt-10 flex flex-col gap-16 lg:mx-0 lg:gap-24">
             {examples.map((example) => {
               const Demo = EXAMPLE_DEMOS[example.href]
 
