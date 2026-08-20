@@ -168,12 +168,35 @@ const byName = (a: BrowserIcon, b: BrowserIcon) => a.name.localeCompare(b.name)
  * find nothing while "arrow-up-right" found the icon: the space is the one
  * separator nobody types the file name with. Every run of non-alphanumerics is
  * a separator here, so spaces, dashes and underscores are all the same thing.
+ *
+ * **A camelCase boundary is a separator too**, and it is the one this missed.
+ * Lowercasing first left `CheckCircle2` as `checkcircle2`, a single token with
+ * no separator in it, matching nothing at all. "check-circle" and "check circle"
+ * both worked, which is what made this look fixed: the form that fails is the
+ * one someone pastes out of their editor rather than types, and it is the most
+ * likely thing a person migrating off lucide puts in the box.
+ *
+ * So the case boundary is read before the lowercasing, and a leftover bare digit
+ * is dropped, because lucide's trailing `2` disambiguates inside lucide and
+ * means nothing here. Guarded on there being a boundary at all: `clock-3`,
+ * `dice-5` and `bar-chart-2` are real names, and a query without one keeps its
+ * digits.
+ *
+ * Same rule as `wordsOf` in the MCP server, the CLI and the Figma plugin. Four
+ * surfaces, one behaviour, and this was the last of them to get it.
  */
-const terms = (query: string) =>
-  query
+const terms = (query: string) => {
+  const identifier = /[a-z][A-Z]/.test(query)
+  const split = identifier
+    ? query
+        .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
+        .replace(/([a-zA-Z])(\d)/g, "$1 $2")
+    : query
+  return split
     .toLowerCase()
     .split(/[^a-z0-9]+/i)
-    .filter(Boolean)
+    .filter((w) => w && !(identifier && /^\d+$/.test(w)))
+}
 
 export function IconBrowser({
   icons,
