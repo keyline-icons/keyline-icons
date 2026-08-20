@@ -111,7 +111,18 @@ function PhoneFrame({
     : undefined
 
   return (
-    <div className="relative shrink-0">
+    /*
+      `isolate` scopes every z-index inside the phone to the phone.
+
+      The status bar and the tab bar are `z-40`, layering device chrome over the
+      app content at `z-10`, which is a conversation between siblings inside
+      this frame. Without a stacking context here that conversation is held on
+      the page instead, against a site header that is `fixed z-30` — so the tab
+      bar painted over the nav on the landing page, where the two finally shared
+      a screen. Renumbering the chrome would fix the symptom and leave the same
+      trap for the next number anyone picks.
+    */
+    <div className="relative isolate shrink-0">
       {/* Three shells, like the device: a brushed titanium rail, the black
           bezel inside it, then the glass. One flat slab never reads as a
           phone — the giveaway is the metal catching light along the edge. */}
