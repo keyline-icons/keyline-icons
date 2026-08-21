@@ -22,7 +22,7 @@ import { existsSync } from "node:fs"
 const data = JSON.parse(
   await readFile(new URL("../icons.json", import.meta.url), "utf8")
 )
-const { icons, styles } = data
+const { icons, styles, keywords = {} } = data
 const NAMES = Object.keys(icons)
 const VERSION = "0.1.0"
 
@@ -113,6 +113,27 @@ function wordsOf(query) {
  * for "check-circle" when the icon is `circle-check`. Kept in step with the
  * copy in `@keyline-icons/mcp`, which carries the full reasoning.
  */
+/**
+ * The words a name can be found by: the name itself, plus whatever is written
+ * about it.
+ *
+ * Keywords are keyed by base name, because one component set in Figma covers
+ * all three containers, so `square-arrow-down` reads `arrow-down`'s words. The
+ * prefix only counts when that base exists: `circle-half` is a shape in its own
+ * right and there is no `half` for it to contain.
+ *
+ * Searched as one string rather than as a separate tier, which is what lets a
+ * query take a word from each: "help circle" finds `circle-question` because
+ * `circle` is in the name and `help` is in the words. Matching the whole query
+ * against one keyword, which is what this used to do, could never do that.
+ */
+function keywordsFor(name) {
+  const m = /^(square|circle)-(.+)$/.exec(name)
+  return keywords[m && icons[m[2]] ? m[2] : name] || []
+}
+
+const haystackFor = (name) => `${name} ${keywordsFor(name).join(" ")}`
+
 function search(query, style, limit) {
   const q = query.toLowerCase().trim()
   const words = wordsOf(query)
@@ -121,13 +142,17 @@ function search(query, style, limit) {
   return NAMES.filter(
     (n) =>
       (!style || icons[n][style]) &&
-      (n.includes(q) || words.every((w) => n.includes(w)))
+      (n.includes(q) ||
+        words.every((w) => n.includes(w)) ||
+        words.every((w) => haystackFor(n).includes(w)))
   )
     .map((n) => {
       const i = n.indexOf(q)
       const rank =
         i === -1
-          ? 4
+          ? words.every((w) => n.includes(w))
+            ? 4
+            : 5
           : n === q
             ? 0
             : n.startsWith(q)

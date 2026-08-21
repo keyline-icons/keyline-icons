@@ -55,6 +55,23 @@ const SOURCES = [
 ]
 
 /**
+ * The three packages that build a searchable string per icon, and the line that
+ * does it.
+ *
+ * The site is not here on purpose. It composes the same string from a different
+ * shape, `[name, ...aliasesFor(base)]`, because it has the alias table itself
+ * rather than a baked map, so there is no text to compare. Its behaviour is the
+ * one this was copied from.
+ */
+const HAYSTACK_FILES = [
+  ["packages/mcp/src/index.mjs", "mcp"],
+  ["packages/cli/src/index.mjs", "cli"],
+  ["packages/figma-plugin/ui.html", "plugin"],
+]
+
+const HAYSTACK = /const haystackFor = \(name\) =>[^\n]*/
+
+/**
  * The shared part, from the guard down to the end of the filter.
  *
  * Anchored on code rather than on a marker comment, because a marker is a
@@ -176,10 +193,35 @@ async function main() {
     process.exit(1)
   }
 
+  /* 3. The haystack helper, which is how a keyword is reached at all. The MCP
+     server and the CLI shipped without any keyword support for their whole
+     life, so this exists to make its absence loud rather than invisible. */
+  const hay = []
+  for (const [file, label] of HAYSTACK_FILES) {
+    const src = await readFile(join(ROOT, file), "utf8")
+    const m = src.match(HAYSTACK)
+    if (!m) {
+      console.error(
+        `  ${c(31, "MISSING")}  ${file}\n` +
+          `    No haystackFor. Without it this surface cannot reach a keyword at all,\n` +
+          `    which is how "south" found nine icons on the site and none in the CLI.`
+      )
+      process.exit(1)
+    }
+    hay.push({ file, label, flat: flatten(m[0]) })
+  }
+  const hayDrift = hay.slice(1).filter((h) => h.flat !== hay[0].flat)
+  if (hayDrift.length) {
+    console.error(`  ${c(31, "DRIFTED")}  haystackFor is not the same in every package\n`)
+    for (const h of [hay[0], ...hayDrift]) console.error(`    ${h.label}: ${h.flat}`)
+    process.exit(1)
+  }
+
   console.log(
     c(32, `The ${found.length} searches agree and pass ${CASES.length} cases`)
   )
   console.log(`  ${found.map((f) => f.label).join(", ")}`)
+  console.log(`  haystackFor identical across ${hay.map((h) => h.label).join(", ")}`)
 }
 
 main()

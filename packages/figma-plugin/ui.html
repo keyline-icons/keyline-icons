@@ -184,6 +184,8 @@
     return KEYWORDS[m && ICONS[m[2]] ? m[2] : name] || []
   }
 
+  const haystackFor = (name) => `${name} ${keywordsFor(name).join(" ")}`
+
   /**
    * The query as words, matching `packages/mcp/src/index.mjs`.
    *
@@ -239,7 +241,7 @@
         hits.push({ name, rank: name === q ? 0 : i === 0 ? 1 : boundary ? 2 : 3 })
       } else if (words.length && words.every((w) => name.includes(w))) {
         hits.push({ name, rank: 4 })
-      } else if (keywordsFor(name).some((k) => k.includes(q))) {
+      } else if (words.length && words.every((w) => haystackFor(name).includes(w))) {
         hits.push({ name, rank: 5 })
       }
     }
@@ -259,8 +261,9 @@
       (n) =>
         !ICONS[n][style] &&
         (n.includes(q) ||
-          (words.length && words.every((w) => n.includes(w))) ||
-          (q && keywordsFor(n).some((k) => k.includes(q))))
+          (words.length &&
+            (words.every((w) => n.includes(w)) ||
+              words.every((w) => haystackFor(n).includes(w)))))
     ).length
   }
 

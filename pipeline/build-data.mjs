@@ -25,16 +25,14 @@ const check = process.argv.includes("--check")
 const c = (n, s) => `\x1b[${n}m${s}\x1b[0m`
 
 const OUTS = [
-  ["packages/mcp/icons.json", join(ROOT, "packages", "mcp", "icons.json"), "set"],
-  ["packages/cli/icons.json", join(ROOT, "packages", "cli", "icons.json"), "set"],
+  ["packages/mcp/icons.json", join(ROOT, "packages", "mcp", "icons.json")],
+  ["packages/cli/icons.json", join(ROOT, "packages", "cli", "icons.json")],
   // The plugin's copy is not only bundled, it is the file the plugin fetches at
   // runtime off jsDelivr, so this path is a published URL and moving it breaks
-  // every installed copy. It carries the keywords too, because the plugin reads
-  // one URL and cannot go back for a second file.
+  // every installed copy.
   [
     "packages/figma-plugin/icons.json",
     join(ROOT, "packages", "figma-plugin", "icons.json"),
-    "set+keywords",
   ],
 ]
 
@@ -127,26 +125,53 @@ const base = {
 }
 
 /**
+ * The searchable words for each base name, from both places they are written.
+ *
  * Keyed by base name, exactly as `lib/icon-keywords.json` stores it: one
  * component set in Figma covers all three containers, so the consumer resolves
  * `square-arrow-down` back to `arrow-down` itself.
+ *
+ * Two sources, because they answer different questions. Figma's descriptions
+ * are curated per icon by whoever drew it. The aliases in
+ * `lib/icon-aliases.json` are patterns covering whole families at once, for the
+ * drawings nobody has described yet, and they are where "hamburger" reaches
+ * `menu` and "trash" reaches `bin`.
+ *
+ * Both used to reach the site alone. The MCP server and the CLI shipped with
+ * neither, so `south` found nine icons in the browser and none in the tool an
+ * agent actually calls, and the plugin had Figma's half and not this one. That
+ * is the reason this is merged here rather than in any one consumer.
  */
-const { keywords } = JSON.parse(
+const { keywords: described } = JSON.parse(
   await readFile(join(ROOT, "lib", "icon-keywords.json"), "utf8")
 )
+const { aliases } = JSON.parse(
+  await readFile(join(ROOT, "lib", "icon-aliases.json"), "utf8")
+)
 
-const CONTENT = {
-  set: JSON.stringify(base, null, 0) + "\n",
-  "set+keywords": JSON.stringify({ ...base, keywords }, null, 0) + "\n",
+/* Every matching pattern contributes, the way `aliasesFor` in
+   lib/icon-taxonomy.ts applies them: a drawing's family and each modifier hung
+   off it both have something to say. `bell-x` is a notification and a
+   dismissal. */
+const patterns = aliases.map((a) => ({ match: new RegExp(a.match), terms: a.terms }))
+const keywords = {}
+for (const name of Object.keys(sorted)) {
+  const words = new Set([
+    ...(described[name] ?? []),
+    ...patterns.filter((p) => p.match.test(name)).flatMap((p) => p.terms),
+  ])
+  if (words.size) keywords[name] = [...words]
 }
+
+const CONTENT = JSON.stringify({ ...base, keywords }, null, 0) + "\n"
 
 const names = Object.keys(sorted).length
 
 if (check) {
   let drift = false
-  for (const [label, path, kind] of OUTS) {
+  for (const [label, path] of OUTS) {
     const prev = existsSync(path) ? await readFile(path, "utf8") : null
-    if (prev === CONTENT[kind]) continue
+    if (prev === CONTENT) continue
     console.error(
       `  ${c(33, "DRIFT")} ${label} ${prev === null ? "does not exist" : "is out of sync with icons/"}`
     )
@@ -160,8 +185,8 @@ if (check) {
   console.log(c(32, `${OUTS.length} data bundles in sync with icons/ (${names} names)`))
 } else {
   await checkPluginUrl()
-  for (const [label, path, kind] of OUTS) {
-    const out = CONTENT[kind]
+  for (const [label, path] of OUTS) {
+    const out = CONTENT
     await mkdir(dirname(path), { recursive: true })
     await writeFile(path, out, "utf8")
     console.log(`Wrote ${names} names to ${label} (${(out.length / 1024).toFixed(0)}KB)`)
