@@ -496,6 +496,30 @@ export function IconBrowser({
     })
   }, [icons, query, style, category])
 
+  /**
+   * Drawings this search would have found in one of the other two styles.
+   *
+   * The empty state used to test `perStyle[style] === 0`, which counts the
+   * whole set rather than this query's matches: it is 503, 415 and 368, so it
+   * is never zero and the branch it guarded was unreachable. Searching `wifi`
+   * in fill therefore said "try another word" while ten wifi icons sat one tab
+   * away, which reads as a missing drawing rather than a missing variant.
+   *
+   * The Figma plugin fixed the same case and named this exact query in its own
+   * comment. This is the site catching up.
+   */
+  const matchesElsewhere = React.useMemo(() => {
+    if (matches.length > 0) return 0
+    const words = terms(query)
+    if (words.length === 0 && category === "all") return 0
+    return icons.filter((i) => {
+      if (i.art[style]) return false
+      if (category !== "all" && categoryOf(i.base) !== category) return false
+      const haystack = [i.name, ...aliasesFor(i.base)].join(" ")
+      return words.every((w) => haystack.includes(w))
+    }).length
+  }, [icons, query, style, category, matches.length])
+
   /*
     The corrected query, when the search missed and a small spelling slip
     explains it. Word by word, mirroring the search itself: words that match
@@ -690,8 +714,9 @@ export function IconBrowser({
     if (!isNarrow) scrollAfterDrawer.current = false
   }, [isNarrow])
 
-  // How many icons exist per style, so an empty result reads as "this style has
-  // none" rather than "your search is wrong".
+  // How many icons the set has in each style, for the badge on each style tab.
+  // Set-wide and independent of the search, which is why the empty state counts
+  // its own matches instead: this never reaches zero.
   const perStyle = React.useMemo(() => {
     const c: Record<string, number> = {}
     for (const s of STYLES) c[s] = icons.filter((i) => i.art[s]).length
@@ -1179,8 +1204,14 @@ export function IconBrowser({
                   The suggestion takes the subtitle's place rather than adding
                   a line: it is the "try another word" advice, made specific.
                 */}
-                {perStyle[style] === 0 ? (
-                  `Nothing is drawn in ${style} yet, so try stroke.`
+                {/*
+                  Worded exactly as the plugin words it, down to the full stop.
+                  Not pluralised on purpose: "1 match in another style" reads as
+                  a noun and "10 match in another style" as a verb, and both
+                  parse, where the conditional it replaced produced "1 matches".
+                */}
+                {matchesElsewhere > 0 ? (
+                  `Nothing in ${style}. ${matchesElsewhere} match in another style.`
                 ) : suggestion ? (
                   <>
                     Did you mean{" "}
