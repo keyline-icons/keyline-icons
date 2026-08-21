@@ -300,12 +300,24 @@
       .map((h) => `<button data-name="${h.name}" title="${h.name}">${svgFor(h.name)}</button>`)
       .join("")
 
+    /*
+      Four states, and the empty one is the reason this exists. Duotone and fill
+      need a region to fill and some glyphs have none, so an empty grid is
+      usually coverage rather than a failure, and saying only "nothing matches"
+      reads as "we do not have this icon" when we do.
+
+      This used to surface the count only when the grid already had hits, which
+      is the case that needs it least. Searching `wifi` in fill showed
+      "Nothing matches" while six wifi icons sat one tab away.
+    */
     const missing = q ? elsewhere(q, raw) : 0
     note.textContent = hits.length
       ? missing
         ? `${missing} more match in another style.`
         : ""
-      : `Nothing matches “${q}”.`
+      : missing
+        ? `Nothing in ${style}. ${missing} match in another style.`
+        : `Nothing matches “${q}”.`
     note.style.display = note.textContent ? "block" : "none"
 
     $("count").textContent = `${hits.length} ${style}`
