@@ -88,25 +88,32 @@ keylineicons.com
 github.com/keyline-icons/keyline-icons
 ```
 
+## Category
+
+```
+Icon Packs
+```
+
 ## Tags
 
-Figma allows a limited number; these are ordered so a truncation still leaves
-the useful ones.
+**Five custom tags, no more.** The modal refuses a sixth and outlines the field
+in red. There is also a Recommended row Figma populates itself, App, Social
+media, 3D, Vector at the time of writing; `Vector` is worth taking and appears
+not to count against the five, though that is unverified.
 
 ```
 icons
 icon set
 ui icons
-open source
-free icons
 figjam
-stroke
 duotone
-svg
-design system
-outline icons
-lucide alternative
 ```
+
+`stroke` was the one to drop. It is the default expectation for an icon set, so
+it carries the least information of the six. `duotone` and `figjam` are the two
+that separate this from almost everything else in Icon Packs: very few icon
+plugins run in FigJam at all, which is what three of the six carousel sheets are
+there to argue.
 
 ## Support contact
 
