@@ -27,9 +27,15 @@ there is nothing here for a bundler to do that `__html__` does not already do.
 2. Pick `packages/figma-plugin/manifest.json`.
 3. Run it from `Plugins` → `Development` → `Keyline Icons`.
 
-`manifest.json` has no `id`. Figma assigns one when the plugin is registered for
-publishing, and writing a placeholder in by hand is how you end up publishing
-under someone else's. Local import does not need it.
+`manifest.json` carries the `id` Figma minted for this plugin when it was
+registered for publishing. Figma does not write it for you: the publish modal
+generates it, shows it, and tells you to paste it in yourself, so it is
+committed here like any other part of the manifest.
+
+Never invent one. An `id` is how Figma decides which listing an upload belongs
+to, and a made-up value either fails or aims at someone else's plugin. A local
+import does not need one at all, which is why this file had none until the day
+it was published.
 
 ## Where the icons come from
 
