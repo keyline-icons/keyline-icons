@@ -93,6 +93,12 @@ const CLAIMS = [
   ['packages/react/README.md', /\/\/ stroke, +([\d,]+) icons/, 'stroke'],
   ['packages/react/README.md', /\/\/ duotone, ([\d,]+) icons/, 'duotone'],
   ['packages/react/README.md', /\/\/ fill, +([\d,]+) icons/, 'fill'],
+  /* This one was not here, and it went stale exactly as predicted: the plugin
+     README said 484 names against an actual 503, and nothing caught it because
+     nothing was looking. Every README that states a count belongs in this list,
+     which is the whole argument the file opens with. `packages/mcp` and
+     `packages/cli` state none, deliberately, and so have nothing to add. */
+  ['packages/figma-plugin/README.md', /canvas\. ([\d,]+) names/, 'icons'],
 ];
 
 /* The prose commas are part of the claim: "1,286 SVGs" reads as prose and

@@ -110,6 +110,29 @@ const COVERS = [
   { svg: "social-preview.svg", png: "social-preview.png", h: 960, rows: 3, raster: [1280, 640] },
 ]
 
+/**
+ * The plugin's Community cover, which is a different pitch from the file's.
+ *
+ * The file cover argues "here is a set". This one has to argue "here is a thing
+ * that does something", so it draws the plugin's own panel: the search field,
+ * the three style tabs and a grid, at the proportions `ui.html` actually uses.
+ * A cover that showed only glyphs would be indistinguishable from the file's
+ * and would say nothing about why a plugin exists.
+ *
+ * Same 1920×1080 the publish dialog asks for, and the glyphs on it are read out
+ * of `icons/stroke/` like every other cover here, so it cannot advertise a
+ * drawing that has since been renamed.
+ */
+const PLUGIN_COVER = {
+  svg: "plugin-cover.svg",
+  png: "plugin-cover.png",
+  raster: [1920, 1080],
+}
+
+/** The panel's own grid, which needs more distinct drawings than any cover does. */
+const PANEL_COLS = 8
+const PANEL_ROWS = 9
+
 /** Enough glyphs for the tallest cover; each composition takes what it needs. */
 const MAX_ROWS = Math.max(...COVERS.map((c) => c.rows))
 
@@ -132,7 +155,9 @@ const available = new Set(
   (await readdir(SRC)).filter((f) => f.endsWith(".svg")).map((f) => f.slice(0, -4))
 )
 
-const want = COLS * MAX_ROWS
+/* Enough for whichever wants the most. The covers slice what they need, so the
+   surplus the panel asks for costs them nothing. */
+const want = Math.max(COLS * MAX_ROWS, PANEL_COLS * PANEL_ROWS)
 const picked = WISHLIST.filter((n) => available.has(n)).slice(0, want)
 for (const n of [...available].sort()) {
   if (picked.length >= want) break
@@ -141,6 +166,9 @@ for (const n of [...available].sort()) {
 
 /** Every glyph the tallest cover needs, positioned. A shorter one takes a slice. */
 const glyphs = []
+
+/** The same drawings unpositioned, keyed by name, for the plugin panel. */
+const art24 = {}
 for (const [i, name] of picked.entries()) {
   const { attrs, body } = await readGlyph(name)
   // The glyph is drawn on a 24 grid, so the scale carries its stroke with it:
@@ -152,6 +180,7 @@ for (const [i, name] of picked.entries()) {
   glyphs.push(
     `<g transform="translate(${x.toFixed(2)} ${y}) scale(${s})" ${attrs}>${body}</g>`
   )
+  art24[name] = { attrs, body }
 }
 
 const FONT =
@@ -204,7 +233,101 @@ function findChrome() {
 }
 
 /** Each cover's finished SVG, keyed by the file it is written to. */
-const built = COVERS.map((cover) => ({ ...cover, text: compose(cover.h, cover.rows) }))
+/**
+ * The plugin panel, drawn to the proportions `ui.html` gives it.
+ *
+ * `figma.showUI` opens it at 400×560, and the parts inside are measured off the
+ * stylesheet there rather than invented: an 8px gutter, a 5px-radius search
+ * field, three equal style tabs, and a grid whose cells are `minmax(40px, 1fr)`
+ * with a 2px gap. Drawn at 1.6× so it reads at cover scale without the glyphs
+ * going soft.
+ *
+ * It is a drawing of the panel, not a screenshot of it. A screenshot would
+ * freeze whatever the set said the day it was taken, and this file already
+ * carries that argument for the Figma mockup on the landing page.
+ */
+function pluginPanel(x, y, scale) {
+  const W = 400
+  const H = 560
+  const PADDING = 8
+  const CELL = 40
+  const GAP = 2
+  const COLS = PANEL_COLS
+  const GRID_ROWS = PANEL_ROWS
+
+  const cells = []
+  const start = 30
+  for (let i = 0; i < COLS * GRID_ROWS; i++) {
+    const name = picked[(start + i) % picked.length]
+    const cx = PADDING + (i % COLS) * (CELL + GAP)
+    const cy = 108 + Math.floor(i / COLS) * (CELL + GAP)
+    // 24px drawing centred in a 40px cell, which is what the grid does.
+    cells.push(
+      `<g transform="translate(${cx + 8} ${cy + 8})">${glyphAt(name, 24)}</g>`
+    )
+  }
+
+  return (
+    `<g transform="translate(${x} ${y}) scale(${scale})">` +
+    `<rect width="${W}" height="${H}" rx="12" fill="${BG}"/>` +
+    // The search field.
+    `<rect x="${PADDING}" y="${PADDING}" width="${W - PADDING * 2}" height="30" rx="5" ` +
+    `fill="none" stroke="${HAIRLINE}" stroke-width="1"/>` +
+    `<text x="${PADDING + 9}" y="${PADDING + 20}" font-family="${FONT}" font-size="12" fill="${MUTED}">Search icons</text>` +
+    // Three equal tabs, the first one pressed.
+    `<rect x="${PADDING}" y="46" width="${(W - PADDING * 2) / 3}" height="24" rx="4" fill="#e5f4ff"/>` +
+    ["stroke", "duotone", "fill"]
+      .map((s, i) => {
+        const tw = (W - PADDING * 2) / 3
+        return (
+          `<text x="${PADDING + tw * i + tw / 2}" y="62" text-anchor="middle" ` +
+          `font-family="${FONT}" font-size="12" fill="${i === 0 ? INK : MUTED}">${s}</text>`
+        )
+      })
+      .join("") +
+    `<line x1="0" y1="82" x2="${W}" y2="82" stroke="${HAIRLINE}" stroke-width="1"/>` +
+    `<g fill="none" stroke="${INK}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">` +
+    cells.join("") +
+    `</g>` +
+    `<line x1="0" y1="${H - 28}" x2="${W}" y2="${H - 28}" stroke="${HAIRLINE}" stroke-width="1"/>` +
+    `<text x="${PADDING}" y="${H - 10}" font-family="${FONT}" font-size="11" fill="${MUTED}">503 stroke</text>` +
+    `<text x="${W - PADDING}" y="${H - 10}" text-anchor="end" font-family="${FONT}" font-size="11" fill="${MUTED}">keylineicons.com</text>` +
+    `</g>`
+  )
+}
+
+/** One drawing at a size, without the wrapper the grid composer adds. */
+function glyphAt(name, size) {
+  const art = art24[name]
+  if (!art) return ""
+  const s = size / 24
+  return `<g transform="scale(${s})" ${art.attrs}>${art.body}</g>`
+}
+
+const pluginCoverSvg =
+  `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="1080" viewBox="0 0 ${W} 1080">` +
+  `<rect width="${W}" height="1080" fill="#fafafa"/>` +
+  // The mark, then the pitch, down the left.
+  `<g transform="translate(${PAD} 281) scale(2.2)">` +
+  `<path d="${TILE}" fill="${PRIMARY}"/>` +
+  `<path d="${PENNANT}" fill="${ON_PRIMARY}" stroke="${ON_PRIMARY}" stroke-width="3" stroke-linecap="round"/>` +
+  `</g>` +
+  `<text x="${PAD}" y="485" font-family="${FONT}" font-size="82" font-weight="600" letter-spacing="-2.5" fill="${INK}">Keyline Icons</text>` +
+  `<text x="${PAD}" y="551" font-family="${FONT}" font-size="30" fill="${MUTED}">Search ${available.size} icons and drop one on the canvas.</text>` +
+  ["Stroke, duotone and fill", "No library, no file to duplicate", "MIT, free for commercial work"]
+    .map(
+      (line, i) =>
+        `<text x="${PAD}" y="${639 + i * 46}" font-family="${FONT}" font-size="26" fill="${INK}">${line}</text>`
+    )
+    .join("") +
+  `<text x="${PAD}" y="${639 + 3 * 46 + 24}" font-family="${FONT}" font-size="24" fill="${MUTED}">keylineicons.com</text>` +
+  pluginPanel(1180, 116, 1.51) +
+  `</svg>\n`
+
+const built = [
+  ...COVERS.map((cover) => ({ ...cover, text: compose(cover.h, cover.rows) })),
+  { ...PLUGIN_COVER, text: pluginCoverSvg },
+]
 
 if (check) {
   // Both covers are reported before exiting. Bailing on the first would hide a

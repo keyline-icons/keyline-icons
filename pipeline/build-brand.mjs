@@ -1,11 +1,16 @@
 #!/usr/bin/env node
 /**
  * public/logo/logo.svg  ->  app/icon.svg, app/favicon.ico, app/apple-icon.png
+ *                       ->  packages/figma-plugin/icon.png
  *
- * The three app icons are all the same mark wearing different constraints, and
- * before this they were three hand-made artifacts with nothing tying them to
+ * Every one of these is the same mark wearing different constraints, and before
+ * this the app icons were three hand-made artifacts with nothing tying them to
  * the logo or to each other. Redraw the mark and they drift silently, because
  * nothing type-checks a favicon.
+ *
+ * The plugin icon joined them for the same reason and a sharper one: it is
+ * uploaded to a Figma Community listing by hand and then lives outside this
+ * repository entirely, where no check can ever reach it again.
  *
  *   node pipeline/build-brand.mjs [--check]
  *
@@ -28,7 +33,7 @@ import { execFile } from "node:child_process"
 import { inflateSync } from "node:zlib"
 import { promisify } from "node:util"
 import { tmpdir } from "node:os"
-import { join, resolve } from "node:path"
+import { join, relative, resolve } from "node:path"
 
 const run = promisify(execFile)
 
@@ -52,6 +57,22 @@ const ICO_SIZES = [16, 32, 48, 64, 128, 256]
 
 /** What Apple asks for: iPhone @3x of a 60pt slot. */
 const APPLE_SIZE = 180
+
+/**
+ * The Figma plugin's Community icon, which the publish dialog asks for at
+ * 128×128 and which cannot be referenced from `manifest.json`: it is uploaded
+ * by hand, once, and then lives in Figma rather than in the repository.
+ *
+ * That is exactly why it is generated here rather than exported by hand. An
+ * icon nobody can regenerate is an icon that silently stops being the mark the
+ * moment the mark changes, and this one is going to sit in a Community listing
+ * where nothing about the repository can reach it.
+ *
+ * Bled like the apple-touch-icon rather than transparent: Figma draws it on
+ * both light and dark chrome, and a transparent mark disappears into one of
+ * them.
+ */
+const PLUGIN_ICON_SIZE = 128
 
 const CHROME_CANDIDATES = [
   process.env.CHROME,
@@ -228,10 +249,22 @@ async function main() {
       "apple",
     )
     assertOpaque(apple)
+
+    const pluginIcon = await rasterize(
+      chrome,
+      dir,
+      flatSvg(mark, PLUGIN_ICON_SIZE, { bleed: true }),
+      PLUGIN_ICON_SIZE,
+      "plugin",
+    )
+    assertOpaque(pluginIcon)
+
+    // Full paths, because these no longer all land in app/.
     outputs = [
-      ["icon.svg", Buffer.from(iconSvg(mark))],
-      ["favicon.ico", buildIco(icoParts)],
-      ["apple-icon.png", apple],
+      [join(APP, "icon.svg"), Buffer.from(iconSvg(mark))],
+      [join(APP, "favicon.ico"), buildIco(icoParts)],
+      [join(APP, "apple-icon.png"), apple],
+      [join(ROOT, "packages", "figma-plugin", "icon.png"), pluginIcon],
     ]
   } finally {
     await rm(dir, { recursive: true, force: true })
@@ -239,16 +272,16 @@ async function main() {
 
   let drift = 0
   let written = 0
-  for (const [name, next] of outputs) {
-    const dest = join(APP, name)
+  for (const [dest, next] of outputs) {
+    const label = relative(ROOT, dest)
     const prev = existsSync(dest) ? await readFile(dest) : null
     if (prev && prev.equals(next)) continue
     if (check) {
-      console.error(`  ${c(33, "DRIFT")} app/${name}`)
+      console.error(`  ${c(33, "DRIFT")} ${label}`)
       drift++
     } else {
       await writeFile(dest, next)
-      console.log(`  ${c(32, "WROTE")} app/${name}  (${next.length}B)`)
+      console.log(`  ${c(32, "WROTE")} ${label}  (${next.length}B)`)
       written++
     }
   }
