@@ -66,6 +66,13 @@ deliberately fall through: a section's children keep absolute page coordinates
 and an instance refuses `appendChild`, so honouring either would put the icon
 somewhere the user did not point at.
 
+**An icon this plugin inserted is never the parent of the next one.** An insert
+is a 24×24 frame and it stays selected, so without this, clicking two icons in a
+row put the second inside the first at 0,0, exactly on top of it, visible only in
+the layer tree. `place` walks up out of its own nodes first, which puts a second
+icon beside the first rather than inside it. FigJam never had the problem: an
+insert is a group there, and a group is not an accepted parent.
+
 **Search matches the curated words too.** `arrow-down` is reachable by "south"
 and "descend" because those live on the component set's description in Figma,
 baked out by `pipeline/build-keywords.mjs`. Keywords are keyed by base name, so

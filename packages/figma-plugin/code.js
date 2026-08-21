@@ -17,6 +17,15 @@ figma.showUI(__html__, { width: 400, height: 560, themeColors: true })
 const INK = "#000000"
 
 /**
+ * Every node this plugin has inserted this session, by id.
+ *
+ * A plain object rather than a Set because the ids are only ever read back by
+ * `place`, and it needs one lookup per insert. Stale entries from deleted nodes
+ * cost nothing: an id that no longer resolves is never the current selection.
+ */
+const OURS = Object.create(null)
+
+/**
  * Centre the node in the selected frame, or in the viewport when nothing usable
  * is selected.
  *
@@ -27,7 +36,26 @@ const INK = "#000000"
  * somewhere surprising.
  */
 function place(node) {
-  const [sel] = figma.currentPage.selection
+  let [sel] = figma.currentPage.selection
+
+  /*
+    Step out of our own icons before choosing a parent.
+
+    An inserted icon is a 24x24 frame and it stays selected, so clicking two
+    icons in a row put the second one inside the first, centred at 0,0, where it
+    sat exactly on top and showed up only in the layer tree. Twenty in a row
+    nested twenty deep.
+
+    Its parent is what the user actually meant: a second icon lands beside the
+    first, in the same frame, or on the page if the first was on the page. An
+    icon is never a useful container, so this applies however the selection got
+    there, not only to the most recent insert.
+
+    FigJam never had this. An insert becomes a group there, and a group is not an
+    accepted parent, so the second icon already fell through to the viewport.
+  */
+  while (sel && OURS[sel.id]) sel = sel.parent
+
   const box = sel && (sel.type === "FRAME" || sel.type === "COMPONENT") ? sel : null
 
   if (box) {
@@ -102,6 +130,10 @@ figma.ui.onmessage = (msg) => {
    * is one swatch, and one swatch aimed at a frame paints the frame.
    */
   const node = figma.editorType === "figjam" ? toGroup(frame, name) : frame
+
+  // After toGroup, so FigJam registers the group rather than the frame it
+  // dissolved. Registering the wrong one would leave the real node unrecognised.
+  OURS[node.id] = true
 
   figma.currentPage.selection = [node]
   figma.notify(`Inserted ${name}`)
