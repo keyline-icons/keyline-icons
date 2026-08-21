@@ -25,6 +25,8 @@
     "brand:check": "node pipeline/build-brand.mjs --check",
     "cover:build": "node pipeline/build-cover.mjs",
     "cover:check": "node pipeline/build-cover.mjs --check",
+    "community:build": "node pipeline/build-community.mjs",
+    "community:check": "node pipeline/build-community.mjs --check",
     "paper:build": "node pipeline/build-paper.mjs",
     "paper:check": "node pipeline/build-paper.mjs --check",
     "paper:verify": "node pipeline/check-paper.mjs",
@@ -32,7 +34,7 @@
     "readmes:check": "node pipeline/check-readmes.mjs",
     "readmes:fix": "node pipeline/check-readmes.mjs --fix",
     "icons:figma": "node pipeline/check-figma.mjs",
-    "icons:ci": "next typegen && node pipeline/build.mjs --check && node pipeline/build-react.mjs --check && node pipeline/build-cover.mjs --check && node pipeline/build-paper.mjs --check && node pipeline/build-data.mjs --check && node pipeline/lint.mjs && node pipeline/check-demos.mjs && node pipeline/check-readmes.mjs && tsc --noEmit",
+    "icons:ci": "next typegen && node pipeline/build.mjs --check && node pipeline/build-react.mjs --check && node pipeline/build-cover.mjs --check && node pipeline/build-community.mjs --check && node pipeline/build-paper.mjs --check && node pipeline/build-data.mjs --check && node pipeline/lint.mjs && node pipeline/check-demos.mjs && node pipeline/check-readmes.mjs && tsc --noEmit",
     "ship": "node pipeline/ship.mjs",
     "data:build": "node pipeline/build-data.mjs",
     "data:check": "node pipeline/build-data.mjs --check"

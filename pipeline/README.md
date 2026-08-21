@@ -74,6 +74,7 @@ pipeline/
   build-brand.mjs           public/logo/logo.svg -> app/ icons
   build-paper.mjs           icons/ -> previews/paper/ HTML sheets
   check-paper.mjs           check the Paper file against previews/paper/
+  build-community.mjs       icons/ -> previews/community/ carousel sheets
 ```
 
 `build-react` is a restatement, not a transform: it emits one component per
