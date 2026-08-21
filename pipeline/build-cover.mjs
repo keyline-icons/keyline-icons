@@ -151,6 +151,20 @@ async function readGlyph(name) {
   return { attrs, body: body.trim() }
 }
 
+/**
+ * The twenty glyphs on the plugin card.
+ *
+ * Recognisable at a glance and varied in silhouette, which is what a block of
+ * twenty needs: a grid of near-identical outlines reads as one texture rather
+ * than as twenty things.
+ */
+const COVER_BLOCK = [
+  "bell", "heart", "star", "gift", "cloud",
+  "sun", "camera", "bookmark", "message", "folder",
+  "shopping-cart", "package", "calendar", "image", "lock",
+  "map-pin", "user", "search", "settings", "share",
+]
+
 const available = new Set(
   (await readdir(SRC)).filter((f) => f.endsWith(".svg")).map((f) => f.slice(0, -4))
 )
@@ -180,6 +194,21 @@ for (const [i, name] of picked.entries()) {
   glyphs.push(
     `<g transform="translate(${x.toFixed(2)} ${y}) scale(${s})" ${attrs}>${body}</g>`
   )
+  art24[name] = { attrs, body }
+}
+
+/*
+  The card's glyph block names drawings the covers may never have picked, and
+  `glyphAt` returns nothing for a name it has no art for. That failed silently:
+  `camera` and `message` passed the `available` check, which reads the whole of
+  icons/stroke, and then rendered as two holes in the grid.
+
+  Loaded straight into art24 rather than pushed onto `picked`, which is what
+  positions the other two covers and must not move.
+*/
+for (const name of COVER_BLOCK) {
+  if (art24[name] || !available.has(name)) continue
+  const { attrs, body } = await readGlyph(name)
   art24[name] = { attrs, body }
 }
 
@@ -304,25 +333,92 @@ function glyphAt(name, size) {
   return `<g transform="scale(${s})" ${art.attrs}>${art.body}</g>`
 }
 
-const pluginCoverSvg =
-  `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="1080" viewBox="0 0 ${W} 1080">` +
-  `<rect width="${W}" height="1080" fill="#fafafa"/>` +
-  // The mark, then the pitch, down the left.
-  `<g transform="translate(${PAD} 281) scale(2.2)">` +
-  `<path d="${TILE}" fill="${PRIMARY}"/>` +
-  `<path d="${PENNANT}" fill="${ON_PRIMARY}" stroke="${ON_PRIMARY}" stroke-width="3" stroke-linecap="round"/>` +
-  `</g>` +
-  `<text x="${PAD}" y="485" font-family="${FONT}" font-size="82" font-weight="600" letter-spacing="-2.5" fill="${INK}">Keyline Icons</text>` +
-  `<text x="${PAD}" y="551" font-family="${FONT}" font-size="30" fill="${MUTED}">Search ${available.size} icons and drop one on the canvas.</text>` +
-  ["Stroke, duotone and fill", "Install once, works in every file", "MIT, free for commercial work"]
-    .map(
-      (line, i) =>
-        `<text x="${PAD}" y="${639 + i * 46}" font-family="${FONT}" font-size="26" fill="${INK}">${line}</text>`
+/**
+ * The plugin's Community card.
+ *
+ * Built for a card in a grid, not for a page. It is seen at roughly a fifth of
+ * this size next to a screenful of other icon plugins, so anything that only
+ * works at 1920 is decoration: the wordmark carries it, the glyph block says
+ * "icons" before any word is read, and everything else is a caption for the
+ * people who click through.
+ *
+ * Dark on purpose. Almost every icon plugin card is light, including the three
+ * Iconduck ones that share a template, so a black card is the cheapest way to
+ * stop looking like them. It is also what the set already does: `3-range.png`
+ * puts 98 drawings on #0a0a0a and they hold, because every glyph takes its
+ * colour from `currentColor`.
+ *
+ * Four of the twenty glyphs are coloured. That is the one thing a monochrome
+ * icon set cannot put on its own cover, and it is a real capability rather than
+ * a flourish: `code.js` inserts paths that keep their own paint, which is what
+ * lets a gift take a red box and a yellow bow. Four rather than twenty because
+ * the set is monochrome by default and a cover full of colour would be selling
+ * something else.
+ */
+const COVER_DARK = "#0a0a0a"
+const COVER_INK = "#ffffff"
+const COVER_MUTED = "#8a8a8f"
+
+/* Tuned for a black ground rather than lifted from the FigJam palette, which is
+   mixed on white and goes muddy here. */
+const COVER_ACCENTS = ["#ff5c4d", "#ffc247", "#35d6b8", "#57a9ff"]
+
+/* Which of the twenty carry colour. Spread so no row is without one and no two
+   sit adjacent, because a cluster reads as a mistake and a diagonal reads as a
+   choice. */
+const COVER_COLOURED = { 3: 0, 6: 1, 14: 2, 16: 3 }
+
+function coverBlock(x, y, cols, cell, glyph) {
+  const out = []
+  for (const [i, name] of COVER_BLOCK.entries()) {
+    if (!available.has(name)) continue
+    const accent = COVER_COLOURED[i]
+    const colour = accent === undefined ? COVER_INK : COVER_ACCENTS[accent]
+    const cx = x + (i % cols) * cell
+    const cy = y + Math.floor(i / cols) * cell
+    // `color` rather than `stroke`, because the drawings carry
+    // `stroke="currentColor"` on their own root and would win over an inherited
+    // stroke. Setting the colour property is what currentColor resolves against.
+    out.push(
+      `<g transform="translate(${cx} ${cy})" color="${colour}">` +
+        `${glyphAt(name, glyph)}</g>`
     )
-    .join("") +
-  `<text x="${PAD}" y="${639 + 3 * 46 + 24}" font-family="${FONT}" font-size="24" fill="${MUTED}">keylineicons.com</text>` +
-  pluginPanel(1180, 116, 1.51) +
-  `</svg>\n`
+  }
+  return out.join("")
+}
+
+const pluginCoverSvg = (() => {
+  const PADX = 132
+  const COLS = 5
+  const CELL = 170
+  const GLYPH = 110
+  // Right-aligned to the same optical margin the text keeps on the left, and
+  // four rows rather than five because five ran off the bottom of the canvas.
+  const BLOCK_X = W - PADX - (COLS - 1) * CELL - GLYPH
+  const BLOCK_Y = 230
+
+  return (
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="1080" viewBox="0 0 ${W} 1080">` +
+    `<rect width="${W}" height="1080" fill="${COVER_DARK}"/>` +
+    coverBlock(BLOCK_X, BLOCK_Y, COLS, CELL, GLYPH) +
+    // The mark, sitting on the cap height of the wordmark below it.
+    `<g transform="translate(${PADX} 300) scale(2.6)">` +
+    `<path d="${TILE}" fill="${COVER_INK}"/>` +
+    `<path d="${PENNANT}" fill="${COVER_DARK}" stroke="${COVER_DARK}" stroke-width="3" stroke-linecap="round"/>` +
+    `</g>` +
+    `<text x="${PADX}" y="576" font-family="${FONT}" font-size="128" font-weight="600" ` +
+    `letter-spacing="-5" fill="${COVER_INK}">Keyline Icons</text>` +
+    `<text x="${PADX}" y="646" font-family="${FONT}" font-size="38" fill="${COVER_MUTED}">` +
+    `Search ${available.size} icons and drop one on the canvas.</text>` +
+    // The three facts that survive being shrunk, on one line.
+    `<text x="${PADX}" y="900" font-family="${FONT}" font-size="30" font-weight="500" fill="${COVER_INK}">` +
+    `Stroke, duotone and fill` +
+    `<tspan fill="${COVER_MUTED}">  ·  </tspan>Figma and FigJam` +
+    `<tspan fill="${COVER_MUTED}">  ·  </tspan>MIT</text>` +
+    `<text x="${PADX}" y="948" font-family="${FONT}" font-size="26" fill="${COVER_MUTED}">keylineicons.com</text>` +
+    `</svg>\n`
+  )
+})()
 
 const built = [
   ...COVERS.map((cover) => ({ ...cover, text: compose(cover.h, cover.rows) })),
