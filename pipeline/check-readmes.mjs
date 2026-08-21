@@ -63,7 +63,19 @@ function counts() {
       (n) => n.startsWith(`${prefix}-`) && names.has(n.slice(prefix.length + 1))
     ).length;
 
+  /*
+    The number of names carrying searchable words, off the generated bundle
+    rather than off `lib/icon-keywords.json`. The bundle is the merge of Figma's
+    descriptions and the alias patterns, which is the number the listing quotes,
+    and `build-data.mjs --check` already guards the bundle itself.
+  */
+  const bundle = join(ROOT, 'packages', 'figma-plugin', 'icons.json');
+  const keywords = existsSync(bundle)
+    ? Object.keys(JSON.parse(readFileSync(bundle, 'utf8')).keywords ?? {}).length
+    : 0;
+
   return {
+    keywords,
     icons: names.size,
     files: STYLES.reduce((n, s) => n + byStyle[s], 0),
     stroke: byStyle.stroke,
@@ -99,6 +111,17 @@ const CLAIMS = [
      which is the whole argument the file opens with. `packages/mcp` and
      `packages/cli` state none, deliberately, and so have nothing to add. */
   ['packages/figma-plugin/README.md', /canvas\. ([\d,]+) names/, 'icons'],
+  /* The Community listing copy. It is published prose on someone else's page
+     and cannot be corrected without going back through the modal, which is
+     exactly the reason it belongs here rather than in a scratch file. */
+  ['packages/figma-plugin/LISTING.md', /^([\d,]+) icons in three styles/m, 'icons'],
+  ['packages/figma-plugin/LISTING.md', /Search ([\d,]+) icons and drop/, 'icons'],
+  ['packages/figma-plugin/LISTING.md', /stroke {4}([\d,]+) icons, 2px/, 'stroke'],
+  ['packages/figma-plugin/LISTING.md', /duotone {3}([\d,]+) icons, a 40%/, 'duotone'],
+  ['packages/figma-plugin/LISTING.md', /fill {6}([\d,]+) icons, solid/, 'fill'],
+  ['packages/figma-plugin/LISTING.md', /([\d,]+) icons also come in a square- form/, 'square'],
+  ['packages/figma-plugin/LISTING.md', /form and ([\d,]+) in a circle- form/, 'circle'],
+  ['packages/figma-plugin/LISTING.md', /([\d,]+) icons carry curated words/, 'keywords'],
 ];
 
 /* The prose commas are part of the claim: "1,286 SVGs" reads as prose and

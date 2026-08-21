@@ -6,10 +6,16 @@ import { SET_TITLE } from "@/lib/site-chrome"
 /**
  * The shadcn registry.
  *
- * A consumer adds one line to their own `package.json` and every icon becomes
- * installable, in any project, with no `components.json` required:
+ * A consumer adds one line to their own `components.json` and every icon becomes
+ * installable:
  *
  *   "registries": { "@keyline": "https://keylineicons.com/r/{name}.json" }
+ *
+ * In `components.json` specifically. shadcn's docs describe a `package.json`
+ * form as well, and its CLI does not read it: through 4.13.0 the same entry in
+ * `package.json` fails with "Add the registry configuration to your
+ * components.json file". This said `package.json` and "no components.json
+ * required" until someone tried it.
  *
  *   npx shadcn add @keyline/bell
  *   npx shadcn add @keyline/fill/bell
@@ -143,10 +149,17 @@ export async function GET(
     // The coverage rule, as an answer rather than a 404 with no reason: an open
     // glyph has nothing to fill, and saying so is what stops it reading as a
     // gap in the registry.
+    //
+    // The styles are named inside `error` as well as beside it, because the
+    // shadcn CLI prints that one string and drops every sibling field. It read
+    // `["bar-chart" has no fill style] undefined` at the terminal, so the half
+    // of the answer worth having never reached the person who asked. `available`
+    // stays for anyone reading the route directly.
+    const available = STYLES.filter((s) => icon.art[s])
     return json(
       {
-        error: `"${last}" has no ${style} style`,
-        available: STYLES.filter((s) => icon.art[s]),
+        error: `"${last}" has no ${style} style. It has: ${available.join(", ")}.`,
+        available,
       },
       404
     )

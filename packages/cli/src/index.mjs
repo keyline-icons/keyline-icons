@@ -66,7 +66,15 @@ function parseArgs(argv) {
       const key = alias[k] ?? k
       if (inline !== undefined) flags[key] = inline
       else if (key === "help" || key === "version") flags[key] = true
-      else if (argv[i + 1] && !argv[i + 1].startsWith("-"))
+      else if (
+        argv[i + 1] &&
+        // A bare negative number is a value, not a flag. Without this `-l -3`
+        // read `-3` as its own short flag, left `limit` set to `true`, and fell
+        // back to the default, so it showed 25 results while `--limit=-3`
+        // clamped to 1. No name in the set starts with a digit, so nothing else
+        // can be caught by it.
+        (!argv[i + 1].startsWith("-") || /^-\d+(\.\d+)?$/.test(argv[i + 1]))
+      )
         flags[key] = argv[++i]
       else flags[key] = true
     } else positional.push(a)
@@ -170,8 +178,16 @@ function search(query, style, limit) {
     .map((h) => h.n)
 }
 
+/**
+ * The longest query worth answering. Kept in step with `@keyline-icons/mcp`,
+ * which carries the reasoning: `nearest` costs O(query x name) per name, so the
+ * caller sets the price, and a 200KB query took ten seconds here too.
+ */
+const MAX_QUERY = 200
+
 /** Only reached when a name misses, so it can afford to walk every name. */
 function nearest(name) {
+  if (name.length > MAX_QUERY) return []
   const q = name.toLowerCase()
   const hit = search(q, null, 5)
   if (hit.length) return hit
@@ -262,11 +278,18 @@ const commands = {
   search({ flags, positional }) {
     const query = positional.join(" ")
     if (!query) die("search needs a query. Try: keyline-icons search arrow")
+    if (query.length > MAX_QUERY)
+      die(
+        `that query is ${query.length} characters. The longest name in the set ` +
+          `is under 40, so anything over ${MAX_QUERY} is refused.`
+      )
     const style = flags.style ? styleOf(flags) : null
-    const limit = Math.min(
-      Math.max(parseInt(flags.limit ?? "25", 10) || 25, 1),
-      200
-    )
+    /* `|| 25` turned every falsy limit into the default, which swallowed `0`
+       along with the genuinely unusable ones: `--limit=0` should clamp up to 1,
+       the way `--limit=-3` does, rather than quietly show 25. Only a value that
+       is not a number at all earns the default. */
+    const raw = parseInt(flags.limit ?? "25", 10)
+    const limit = Math.min(Math.max(Number.isNaN(raw) ? 25 : raw, 1), 200)
     const hits = search(query, style, limit)
     if (!hits.length) {
       const near = nearest(query)
@@ -324,7 +347,10 @@ if (flags.version) {
 }
 if (flags.help || !positional.length) {
   commands.help()
-  process.exit(positional.length ? 0 : 1)
+  // Both print the same text and only one of them is a failure. Asking for help
+  // succeeded; running with no command did not. `--help` exiting non-zero stops
+  // any `set -e` script that offers its own usage line.
+  process.exit(flags.help ? 0 : 1)
 }
 
 const name = positional.shift()

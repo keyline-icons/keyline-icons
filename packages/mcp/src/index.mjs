@@ -251,7 +251,23 @@ const TOOLS = [
 const text = (s) => ({ content: [{ type: "text", text: s }] })
 const fail = (s) => ({ content: [{ type: "text", text: s }], isError: true })
 
-/** Levenshtein, iterative with one row. 414 names is nothing to walk. */
+/**
+ * The longest query worth answering.
+ *
+ * `nearest` below walks every name and costs O(query x name) per name, so its
+ * price is set by whatever the caller sent. That is fine for a query someone
+ * typed and is not fine as the only limit: a 200KB query takes ten seconds, and
+ * because this server is one process reading one stream, every other request
+ * queued behind it waits the whole time. A client that times out at thirty
+ * seconds loses the connection over a single malformed call.
+ *
+ * 200 rather than something tighter because the point is to bound the work, not
+ * to police the query: the longest name in the set is under 40 characters, so
+ * anything past this is an accident or an attack either way.
+ */
+const MAX_QUERY = 200
+
+/** Levenshtein, iterative with one row. 503 names is nothing to walk. */
 function distance(a, b) {
   let prev = Array.from({ length: b.length + 1 }, (_, i) => i)
   for (let i = 1; i <= a.length; i++) {
@@ -277,6 +293,11 @@ function distance(a, b) {
  * Edit distance catches transpositions, which is what typos mostly are.
  */
 function nearest(name) {
+  // Guarded here as well as at the `search_icons` boundary, because `get_icon`
+  // and `get_react_usage` reach this with a `name` that has had no length check
+  // of its own, and this is the expensive half of all three tools.
+  if (name.length > MAX_QUERY) return ""
+
   const q = name.toLowerCase()
   const sub = search(q, null, 5).map((h) => h.name)
   if (sub.length) return ` Did you mean: ${sub.join(", ")}?`
@@ -301,7 +322,17 @@ function nearest(name) {
   return family.length ? ` Did you mean: ${family.join(", ")}?` : ""
 }
 
-function callTool(name, args = {}) {
+/**
+ * `args ?? {}` rather than a default parameter, which only fires on `undefined`.
+ *
+ * A client is entitled to send `"arguments": null` for a call that takes none,
+ * and several do. A default parameter lets that through untouched, so the first
+ * destructuring below threw and the client got a JavaScript TypeError wearing an
+ * `-32603 Internal error`, which reads as a broken server rather than as an
+ * empty argument list.
+ */
+function callTool(name, args) {
+  args = args ?? {}
   switch (name) {
     case "describe_set":
       return text(
@@ -328,6 +359,11 @@ function callTool(name, args = {}) {
       const { query, style, limit = 25 } = args
       if (typeof query !== "string" || !query.trim())
         return fail("`query` is required.")
+      if (query.length > MAX_QUERY)
+        return fail(
+          `\`query\` is ${query.length} characters. The longest name in the set ` +
+            `is under 40, so anything over ${MAX_QUERY} is refused.`
+        )
       if (style && !styles.includes(style))
         return fail(`Unknown style \`${style}\`. One of: ${styles.join(", ")}.`)
       const hits = search(
@@ -404,6 +440,22 @@ const error = (id, code, message) =>
   send({ jsonrpc: "2.0", id, error: { code, message } })
 
 function handle(msg) {
+  /*
+    A line that parsed but is not a request object.
+
+    `null` is the one that mattered: destructuring it throws, and the catch
+    around this call then read `msg.id` off the same `null` and threw again,
+    outside any try, which killed the process. A stray `null` on the stream took
+    the whole server down and the client saw it disappear rather than answer.
+
+    `[]` and a bare string never crashed, because destructuring those works, but
+    they fell through to the notification branch and were silently ignored.
+    -32600 is what the spec asks for and covers all three.
+  */
+  if (typeof msg !== "object" || msg === null || Array.isArray(msg)) {
+    return error(null, -32600, "Invalid Request")
+  }
+
   const { id, method, params } = msg
 
   // A notification has no id and must never be answered. Replying to one is a
@@ -464,7 +516,11 @@ process.stdin.on("data", (chunk) => {
       handle(msg)
     } catch (e) {
       log(`[keyline-icons] ${e?.stack ?? e}`)
-      if (msg.id !== undefined && msg.id !== null) {
+      // `msg?.id`, because this is the handler for a message that already went
+      // wrong and it must not be the second thing to throw. It was: a `null`
+      // message threw in `handle`, landed here, and `msg.id` threw again with
+      // nothing left to catch it.
+      if (msg?.id !== undefined && msg?.id !== null) {
         error(msg.id, -32603, `Internal error: ${e?.message ?? e}`)
       }
     }
