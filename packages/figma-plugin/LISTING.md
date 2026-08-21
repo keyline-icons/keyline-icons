@@ -98,22 +98,31 @@ Icon Packs
 
 **Five custom tags, no more.** The modal refuses a sixth and outlines the field
 in red. There is also a Recommended row Figma populates itself, App, Social
-media, 3D, Vector at the time of writing; `Vector` is worth taking and appears
-not to count against the five, though that is unverified.
+media, 3D and Vector at the time of writing; `Vector` is worth taking and
+appears not to count against the five, though that is unverified.
 
 ```
-icons
-icon set
-ui icons
 figjam
 duotone
+ui icons
+open source
+design system
 ```
 
-`stroke` was the one to drop. It is the default expectation for an icon set, so
-it carries the least information of the six. `duotone` and `figjam` are the two
-that separate this from almost everything else in Icon Packs: very few icon
-plugins run in FigJam at all, which is what three of the six carousel sheets are
-there to argue.
+Chosen against what the listing already says elsewhere. `icons`, `icon set` and
+`svg` are implied by the name and by the Icon Packs category, so a slot spent
+restating them buys little. `stroke` and `outline icons` are the default
+expectation for an icon set. `free icons` overlaps `open source`, and page four
+marks the plugin Free natively.
+
+That leaves the five that actually distinguish it: FigJam support is rare among
+icon plugins, 415 duotone drawings are rare among icon sets, and the rest name
+the audience rather than the artefact.
+
+`lucide alternative` is deliberately absent. It is the highest-intent term
+available and Figma's review criteria mention trademark compliance, so a
+competitor's project name in the tags is a grey area not worth a rejection
+cycle on a first submission. Worth revisiting once published.
 
 ## Support contact
 
