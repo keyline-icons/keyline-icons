@@ -16,6 +16,7 @@ import {
   X,
 } from "@/components/icons"
 
+import { DesignFileLinks } from "@/components/design-file-links"
 import { Glyph, STYLES, type BrowserIcon, type Style } from "@/components/glyph"
 import { Segmented, SegmentedItem } from "@/components/segmented"
 import { Button } from "@/components/ui/button"
@@ -739,7 +740,8 @@ export function IconPreview({
               </span>
             </div>
 
-            {/* The two chip rows, side by side wherever they both fit. */}
+            {/* The two chip rows, side by side wherever they both fit, and
+                the links out to the design files pinned to the far end. */}
             <div className="flex min-w-0 flex-wrap items-start gap-x-4 gap-y-3">
               {/*
                 Only the styles this drawing has. A missing one stays in the row
@@ -818,6 +820,19 @@ export function IconPreview({
                   ))}
                 </div>
               )}
+
+              {/*
+                Figma and Paper, as marks with the label in a tooltip, at the
+                end of the chip row rather than in the actions row below it.
+                Down there they would sit against Download and Copy, which act
+                on the snippet beside them; these two leave the site, and the
+                row they belong to is the one that describes the drawing.
+
+                `ml-auto` only from `sm` up. On a phone the chips already wrap,
+                and pushing the pair to the far edge of a wrapped row leaves it
+                stranded opposite whatever chip ended the line above it.
+              */}
+              <DesignFileLinks className="flex items-center gap-2 sm:ml-auto" />
             </div>
 
             {/*

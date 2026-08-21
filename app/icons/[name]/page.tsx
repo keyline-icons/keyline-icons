@@ -4,10 +4,10 @@ import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
-import { ArrowLeft, ArrowUpRight } from "@/components/icons"
+import { ArrowLeft } from "@/components/icons"
 import { BrandMark } from "@/components/brand-mark"
-import { FigmaLogo } from "@/components/brand-logos"
 import { CopyName } from "@/components/copy-name"
+import { DesignFileLinks } from "@/components/design-file-links"
 import { Glyph } from "@/components/glyph"
 import { Faq } from "@/components/faq"
 import { IconDetail } from "@/components/icon-detail"
@@ -22,7 +22,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
-import { Button } from "@/components/ui/button"
 import {
   avatarUrl,
   contributorsFor,
@@ -45,7 +44,7 @@ import { parseSettings, SETTINGS_COOKIE } from "@/lib/browser-settings"
 import { aliasesFor, categoryOf } from "@/lib/icon-taxonomy"
 import { loadIcons, type Icon } from "@/lib/icons"
 import { iconJsonLd, pageMetadata } from "@/lib/seo"
-import { SET_FIGMA_URL, SET_LICENSE, SET_TITLE } from "@/lib/site-chrome"
+import { SET_LICENSE, SET_TITLE } from "@/lib/site-chrome"
 import { cn } from "@/lib/utils"
 
 /**
@@ -307,47 +306,26 @@ export default async function Page({
 
           {/*
             The right of the header: where this drawing came from, and where to
-            open it. Who drew it is a line of text; Figma is a button, because
-            it leaves the site.
+            open it. Who drew it is a line of text; the design files are
+            buttons, because they leave the site.
           */}
           <div className="flex shrink-0 flex-col items-start gap-3 sm:items-end">
             {/*
-              Only once there is a file to open. `SET_FIGMA_URL` now holds the
-              published Community file, but the gate stays: it is empty when there
-              is nothing to open, and a dead button on 503 pages costs more than a
-              missing one does.
+              The two design files, as marks with the label in a tooltip.
 
-              `render` with `nativeButton={false}`, which is Base UI's way of
-              making a Button something other than a `<button>`. Without the
-              second prop it renders and looks correct while logging an error
-              about the native button semantics it no longer has, on every
-              render — easy to ship past if you only look at the screenshot.
+              It was one wide "Open in Figma" button until Paper's file existed
+              too, and a second button in that shape would have put two labelled
+              outline controls above a line of grey credit. `DesignFileLinks`
+              is where the gating on each URL lives, and where the reasoning for
+              dropping the words is written down.
+
+              `icon-lg` so the pair matches the height of the `lg` controls the
+              specimen column starts with, rather than shrinking against them.
             */}
-            {SET_FIGMA_URL && (
-              <Button
-                variant="outline"
-                size="lg"
-                nativeButton={false}
-                render={
-                  <a
-                    href={SET_FIGMA_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  />
-                }
-              >
-                {/* `size-` in the class is what makes the button's own
-                    `[&_svg:not([class*='size-'])]:size-4` stand down. The
-                    mark is 38:57, so it letterboxes inside the square
-                    rather than stretching to fill it. */}
-                <FigmaLogo data-icon="inline-start" className="size-4" />
-                Open in Figma
-                <ArrowUpRight data-icon="inline-end" className="size-4" />
-                {/* The tab change is announced rather than implied by the
-                    arrow, which a screen reader does not describe. */}
-                <span className="sr-only">{" (opens in a new tab)"}</span>
-              </Button>
-            )}
+            <DesignFileLinks
+              size="icon-lg"
+              className="flex items-center gap-2"
+            />
 
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span>Drawn by</span>
