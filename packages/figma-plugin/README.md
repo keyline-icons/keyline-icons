@@ -46,6 +46,18 @@ roughly 12 hours, and a network dependency the manifest has to declare in
 `networkAccess`. Pin a tag in place of `@main` if a release needs to land the
 moment it is cut.
 
+**Purging the CDN does not shortcut a `@main` URL.** jsDelivr has a purge API,
+`https://purge.jsdelivr.net/gh/<owner>/<repo>@main/<path>`, and it reports
+`"status": "finished"` for this file. It does not help: `@main` keeps serving the
+old bytes afterwards, same `etag`, with `x-cache` showing a hit on a downstream
+layer. The same file pinned to the commit, `@<sha>/packages/figma-plugin/icons.json`,
+serves the new copy immediately.
+
+So the commit-pinned URL is how you confirm a release actually reached the CDN,
+and the wait for `@main` is a wait. Measured once: a push at 12:20 was still
+invisible on `@main` ten minutes and one successful purge later, while the
+commit URL had it.
+
 **The fetch revalidates rather than trusting the browser cache.** jsDelivr also
 sends `max-age=604800`, and a plain `fetch` honours it: the panel would serve a
 week-old set from this browser's cache without ever asking. That made the 12
