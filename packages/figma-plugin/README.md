@@ -41,9 +41,22 @@ https://cdn.jsdelivr.net/gh/keyline-icons/keyline-icons@main/packages/figma-plug
 
 A plugin update goes through Figma's review before it reaches users, so bundling
 the set would put every icon release behind that queue. A push to `main` reaches
-the CDN on its own. The cost is jsDelivr's branch cache, roughly 12 hours, and a
-network dependency the manifest has to declare in `networkAccess`. Pin a tag in
-place of `@main` if a release needs to land the moment it is cut.
+the CDN on its own. The cost is jsDelivr's edge cache, `s-maxage=43200`, so
+roughly 12 hours, and a network dependency the manifest has to declare in
+`networkAccess`. Pin a tag in place of `@main` if a release needs to land the
+moment it is cut.
+
+**The fetch revalidates rather than trusting the browser cache.** jsDelivr also
+sends `max-age=604800`, and a plain `fetch` honours it: the panel would serve a
+week-old set from this browser's cache without ever asking. That made the 12
+hours above a fiction for anyone who had already opened the plugin, since their
+own cache outlived the edge by six days. `cache: "no-cache"` keeps the stored
+copy and revalidates it, so an unchanged set costs one 304.
+
+It falls back to `cache: "force-cache"` when the request cannot be made at all,
+which is what keeps the panel working with no network. That used to happen by
+accident, as a side effect of the header this now overrides, and it is worth
+keeping on purpose: a stale set beats an empty grid, and only offline takes it.
 
 **The URL in `ui.html` is a published contract.** Renaming the repo, moving it to
 an organisation or moving this file breaks every installed copy, and there is no

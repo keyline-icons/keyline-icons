@@ -146,7 +146,28 @@
 
   async function load() {
     try {
-      const res = await fetch(DATA_URL)
+      /*
+        Revalidate, then fall back to whatever is cached.
+
+        jsDelivr answers with `max-age=604800`, so a plain fetch is served from
+        this browser's own cache for a week without asking. That is why the panel
+        still loads with the network off, which is worth having. It also meant a
+        new icon release reached nobody who had already run the plugin until
+        their cache expired: seven days, not the twelve hours the edge cache
+        costs.
+
+        `no-cache` keeps the stored copy but always asks the server whether it
+        changed, so an unchanged set comes back as a 304 and costs nothing. When
+        that ask cannot happen, `force-cache` takes the stored copy however stale
+        it is, which is the offline case and the only one where stale is better
+        than nothing.
+      */
+      let res
+      try {
+        res = await fetch(DATA_URL, { cache: "no-cache" })
+      } catch (offline) {
+        res = await fetch(DATA_URL, { cache: "force-cache" })
+      }
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       const data = await res.json()
 
