@@ -79,6 +79,11 @@ deliberately fall through: a section's children keep absolute page coordinates
 and an instance refuses `appendChild`, so honouring either would put the icon
 somewhere the user did not point at.
 
+**With several nodes selected, the backmost wins.** `place` reads
+`selection[0]`, and Figma orders that array by the scene graph, not by the order
+you clicked. So the frame lower in the layers panel takes the icon whichever one
+you selected first. Predictable, and not what most people would guess.
+
 **An icon this plugin inserted is never the parent of the next one.** An insert
 is a 24×24 frame and it stays selected, so without this, clicking two icons in a
 row put the second inside the first at 0,0, exactly on top of it, visible only in
