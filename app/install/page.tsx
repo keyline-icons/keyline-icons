@@ -204,10 +204,16 @@ export default async function Page() {
             people to copy files they could have installed.
           */}
           <Section id="registry" title="Install with the shadcn CLI">
+            {/*
+              This named `package.json` first until someone ran it. shadcn's
+              CLI reads registries from `components.json` only: through 4.13.0
+              the same entry in `package.json` fails with "Add the registry
+              configuration to your components.json file", which is a confusing
+              way to be told the instructions were wrong.
+            */}
             <p>
-              The CLI reads registries from your own <code>package.json</code>
-              or your <code>components.json</code>, so adding the set is one
-              entry:
+              The CLI reads registries from your <code>components.json</code>,
+              so adding the set is one entry:
             </p>
             <Code>{`"registries": {
   "@keyline": "https://keylineicons.com/r/{name}.json"

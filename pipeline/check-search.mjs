@@ -19,13 +19,24 @@
  *
  * WHAT IT CHECKS
  *
- * Two things, and the second is the one that matters:
+ * Four things, and the last is the one that matters:
  *
  *  1. AGREEMENT. The shared expression is lifted out of all four files and
  *     compared with indentation flattened. They have to be the same code. This
  *     catches a fix that lands in three files.
  *  2. BEHAVIOUR. That expression is run against the table below. This catches a
  *     fix that lands in all four and is wrong in all four.
+ *  3. VOCABULARY. The words each icon answers to are computed the site's way
+ *     and the packages' way and compared. The two spell it differently on
+ *     purpose, so they cannot be diffed as text, and they went out of step
+ *     once already: the aliases reached the site alone, so "south" found nine
+ *     icons in the browser and none in the tool an agent calls.
+ *  4. OUTCOMES. A table of query-to-icon rows, run end to end. This is the one
+ *     the other three cannot do, and the gap they left was not hypothetical:
+ *     `Trash2` split correctly into `["trash"]`, passed case 2 green, and then
+ *     matched nothing, because the drawing is called `bin` and no alias said
+ *     so. Splitting a word right is not the same as finding the icon, and only
+ *     this section can tell the difference.
  *
  * It reads the source rather than importing it, because none of the four export
  * the function: the site's is a module-private const, the plugin's lives inside
@@ -34,8 +45,9 @@
  * four, and it is honest about what it is checking, which is that the code in
  * these four files is the same code.
  *
- * Adding a case is one row in CASES. Adding a fifth surface is one row in
- * SOURCES, provided it spells the shared part the same way.
+ * Adding a case is one row in CASES, or one row in FINDS for an outcome.
+ * Adding a fifth surface is one row in SOURCES, provided it spells the shared
+ * part the same way.
  */
 
 import { readFile } from "node:fs/promises"
@@ -113,7 +125,71 @@ const CASES = [
   ["", [], "empty"],
 ]
 
+/**
+ * Queries that must reach a particular drawing.
+ *
+ * The word someone types, and the icon they meant. Every row here is a word the
+ * set does not call the thing, which is the only kind worth writing down: a
+ * query that already matches the file name cannot regress without the file name
+ * changing with it.
+ *
+ * `Trash2` is the row this table was built for. It sat in CASES above, green,
+ * for as long as it took someone to notice that `["trash"]` matched nothing.
+ */
+const FINDS = [
+  ["Trash2", "bin", "lucide's name. The drawing is `bin` and nothing said so"],
+  ["trash", "bin", "the word most people would type first"],
+  ["delete", "bin", "and the word the rest would type"],
+  ["gear", "settings", "nobody looks for `settings` before trying this"],
+  ["email", "mail", "the other half of the room"],
+  ["hamburger", "menu", "what the three lines are called out loud"],
+  ["south", "arrow-down", "reached the site alone until the aliases shipped"],
+  ["theme", "sun", "the toggle, which neither drawing is named after"],
+  ["paste", "copy", "half of a pair where only one half is drawn"],
+  ["stats", "bar-chart", "`statistics` was there, the short form was not"],
+
+  // Word order, which is the other way a name from elsewhere fails to land.
+  ["CheckCircle2", "circle-check", "compounds here read base-first"],
+  ["check circle", "circle-check", "same, typed as words"],
+  ["down arrow", "arrow-down", "either order asks the same question"],
+]
+
 const same = (a, b) => a.length === b.length && a.every((x, i) => x === b[i])
+
+/**
+ * The words an icon answers to, computed the way each side computes them.
+ *
+ * `site` follows lib/icon-taxonomy.ts: patterns are applied to the
+ * container-stripped base, and the descriptions are read under that base.
+ * `packages` follows what pipeline/build-data.mjs baked into the bundle and how
+ * `keywordsFor` reads it back out.
+ *
+ * Two spellings of one idea, which is why they are compared by result rather
+ * than as text. If they ever disagree, one of the two files changed and the
+ * other did not.
+ */
+function vocabularies(bundle, described, aliases) {
+  const patterns = aliases.map((a) => ({ match: new RegExp(a.match), terms: a.terms }))
+  const baseOf = (name) => {
+    const m = /^(square|circle)-(.+)$/.exec(name)
+    return m && bundle.icons[m[2]] ? m[2] : name
+  }
+
+  const site = {}
+  const packages = {}
+  for (const name of Object.keys(bundle.icons)) {
+    const base = baseOf(name)
+    site[name] = [
+      name,
+      ...new Set([
+        ...(described[base] ?? []),
+        ...patterns.filter((a) => a.match.test(base)).flatMap((a) => a.terms),
+      ]),
+    ].join(" ")
+    packages[name] = `${name} ${(bundle.keywords?.[base] ?? []).join(" ")}`
+  }
+  return { site, packages }
+}
 
 async function main() {
   const found = []
@@ -217,11 +293,93 @@ async function main() {
     process.exit(1)
   }
 
+  /* 4. The vocabulary itself, which the check above cannot see.
+
+     `haystackFor` being identical in three files says nothing about whether the
+     words it looks up are the same words the site looks up. The site derives
+     them in TypeScript from a container-stripped base; the packages read them
+     out of a bundle baked by build-data.mjs. Same idea, two spellings, so they
+     are compared by result. */
+  const bundle = JSON.parse(await readFile(join(ROOT, "packages/mcp/icons.json"), "utf8"))
+  const { keywords: described } = JSON.parse(
+    await readFile(join(ROOT, "lib/icon-keywords.json"), "utf8")
+  )
+  const { aliases } = JSON.parse(
+    await readFile(join(ROOT, "lib/icon-aliases.json"), "utf8")
+  )
+  const vocab = vocabularies(bundle, described, aliases)
+
+  const vocabDrift = []
+  for (const name of Object.keys(bundle.icons)) {
+    const a = new Set(vocab.site[name].split(" ").filter(Boolean))
+    const b = new Set(vocab.packages[name].split(" ").filter(Boolean))
+    const onlySite = [...a].filter((w) => !b.has(w))
+    const onlyPackages = [...b].filter((w) => !a.has(w))
+    if (onlySite.length || onlyPackages.length)
+      vocabDrift.push({ name, onlySite, onlyPackages })
+  }
+
+  /* 5. Outcomes. The only section that answers "does typing this find it".
+
+     Matched with the shared rule rather than with any one surface's copy of it,
+     so a row failing here means the words are missing, not that one file drifted
+     — sections 1 and 3 have already ruled that out by this point. */
+  const missed = []
+  for (const [query, want, why] of FINDS) {
+    const words = wordsOf(query)
+    const q = query.toLowerCase().trim()
+    const hits = Object.keys(bundle.icons).filter(
+      (n) =>
+        n.includes(q) ||
+        (words.length &&
+          (words.every((w) => n.includes(w)) ||
+            words.every((w) => vocab.packages[n].includes(w))))
+    )
+    if (!hits.includes(want)) missed.push({ query, want, why, hits: hits.slice(0, 5) })
+  }
+
+  if (vocabDrift.length) {
+    console.error(
+      `  ${c(31, "DRIFTED")}  the site and the packages know different words\n`
+    )
+    for (const d of vocabDrift.slice(0, 8)) {
+      console.error(
+        `    ${d.name}: ${d.onlySite.length ? `site only [${d.onlySite.join(", ")}]` : ""}` +
+          `${d.onlyPackages.length ? ` packages only [${d.onlyPackages.join(", ")}]` : ""}`
+      )
+    }
+    if (vocabDrift.length > 8) console.error(`    ...and ${vocabDrift.length - 8} more`)
+    console.error(
+      `\n    lib/icon-taxonomy.ts and pipeline/build-data.mjs derive this separately.\n` +
+        `    Run: node pipeline/build-data.mjs`
+    )
+  }
+
+  for (const m of missed) {
+    console.error(
+      `  ${c(31, "LOST")}     ${JSON.stringify(m.query)} does not find \`${m.want}\`\n` +
+        `           ${m.why}\n` +
+        `           found instead: ${m.hits.length ? m.hits.join(", ") : "nothing"}\n` +
+        `           Add the word to lib/icon-aliases.json, then run build-data.mjs.`
+    )
+  }
+
+  if (vocabDrift.length || missed.length) {
+    console.error(
+      `\n${vocabDrift.length ? `${vocabDrift.length} icon(s) with a split vocabulary. ` : ""}` +
+        `${missed.length ? `${missed.length} quer${missed.length === 1 ? "y" : "ies"} found nothing. ` : ""}`
+    )
+    process.exit(1)
+  }
+
   console.log(
     c(32, `The ${found.length} searches agree and pass ${CASES.length} cases`)
   )
   console.log(`  ${found.map((f) => f.label).join(", ")}`)
   console.log(`  haystackFor identical across ${hay.map((h) => h.label).join(", ")}`)
+  console.log(
+    `  one vocabulary across ${Object.keys(bundle.icons).length} icons, ${FINDS.length} queries reach their drawing`
+  )
 }
 
 main()

@@ -156,6 +156,15 @@ const { aliases } = JSON.parse(
 const patterns = aliases.map((a) => ({ match: new RegExp(a.match), terms: a.terms }))
 const keywords = {}
 for (const name of Object.keys(sorted)) {
+  /* Containered names are skipped rather than written and ignored. Every
+     consumer resolves `circle-check` back to `check` before looking a name up,
+     exactly as `aliasesFor` does on the site, so an entry under the containered
+     name is unreachable by construction. Twelve of them were being written and
+     shipped in all three bundles, which is harmless and reads as though the
+     lookup considers them. */
+  const container = /^(square|circle)-(.+)$/.exec(name)
+  if (container && sorted[container[2]]) continue
+
   const words = new Set([
     ...(described[name] ?? []),
     ...patterns.filter((p) => p.match.test(name)).flatMap((p) => p.terms),
