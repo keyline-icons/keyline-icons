@@ -22,12 +22,6 @@ choose `Publish`. Four pages:
 Sizes below are the ones Figma's own help page states: 128 × 128 for the icon,
 1920 × 1080 for the thumbnail, up to nine carousel images or videos.
 
-**Two-factor authentication has to be on before any of this can be submitted.**
-The modal fills in and validates without it and then refuses at the bottom of
-page one: "You must enable two-factor authentication to publish." It is in the
-Figma account settings, under Security, and it is worth turning on before
-drafting anything rather than after.
-
 Afterwards the listing carries an `In review` badge and the decision arrives by
 email. Figma publishes no target turnaround, only that "approval times vary
 depending on current volume and the team's availability", so do not promise
