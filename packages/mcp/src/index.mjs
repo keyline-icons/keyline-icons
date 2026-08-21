@@ -60,12 +60,18 @@ const pascal = (name) =>
  * is dropped, because lucide's trailing `2` disambiguates inside lucide and
  * means nothing here.
  *
+ * Two shapes count as an identifier: a camelCase boundary, and a single
+ * capitalised word ending in digits. `Share2` is the second and has no boundary
+ * anywhere, so the camelCase rule alone left it as one word and found nothing
+ * while `share` sat in the set. `CheckCircle2` only ever worked because `kC`
+ * happens to trip the first rule.
+ *
  * Only identifiers are treated that way. `clock-3` and `dice-5` are real names
- * in this set, so a query with no case boundary keeps its digits and can still
- * reach them.
+ * in this set, so a lowercase query keeps its digits and can still reach them.
  */
 function wordsOf(query) {
-  const identifier = /[a-z][A-Z]/.test(query)
+  const identifier =
+    /[a-z][A-Z]/.test(query) || /^[A-Z][A-Za-z]*\d+$/.test(query)
   const split = identifier
     ? query
         .replace(/([a-z0-9])([A-Z])/g, "$1 $2")

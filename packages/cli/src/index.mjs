@@ -94,7 +94,8 @@ function svgFor(name, style) {
 
 /** Kept in step with `@keyline-icons/mcp`, which carries the reasoning. */
 function wordsOf(query) {
-  const identifier = /[a-z][A-Z]/.test(query)
+  const identifier =
+    /[a-z][A-Z]/.test(query) || /^[A-Z][A-Za-z]*\d+$/.test(query)
   const split = identifier
     ? query
         .replace(/([a-z0-9])([A-Z])/g, "$1 $2")

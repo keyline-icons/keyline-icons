@@ -191,11 +191,15 @@
    * pasted out of their code rather than a phrase they typed, `CheckCircle2` or
    * `RefreshCw`, so it is split on those boundaries and a leftover bare digit is
    * dropped: lucide's trailing `2` disambiguates inside lucide and means nothing
-   * here. Guarded on the case boundary, because `clock-3`, `dice-5` and
-   * `bar-chart-2` are real names and a query without one keeps its digits.
+   * here. Two shapes count: a camelCase boundary, and a single capitalised word
+   * ending in digits, which is what `Share2` is and what this missed.
+   *
+   * Still guarded, because `clock-3`, `dice-5` and `bar-chart-2` are real names
+   * and a lowercase query keeps its digits.
    */
   function wordsOf(query) {
-    const identifier = /[a-z][A-Z]/.test(query)
+    const identifier =
+      /[a-z][A-Z]/.test(query) || /^[A-Z][A-Za-z]*\d+$/.test(query)
     const split = identifier
       ? query.replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/([a-zA-Z])(\d)/g, "$1 $2")
       : query

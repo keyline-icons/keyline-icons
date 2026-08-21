@@ -178,15 +178,19 @@ const byName = (a: BrowserIcon, b: BrowserIcon) => a.name.localeCompare(b.name)
  *
  * So the case boundary is read before the lowercasing, and a leftover bare digit
  * is dropped, because lucide's trailing `2` disambiguates inside lucide and
- * means nothing here. Guarded on there being a boundary at all: `clock-3`,
- * `dice-5` and `bar-chart-2` are real names, and a query without one keeps its
- * digits.
+ * means nothing here. Two shapes count as an identifier: a camelCase boundary,
+ * and a single capitalised word ending in digits. The second was missing, so
+ * `Share2` stayed one word and matched nothing while `share` sat in the set.
+ *
+ * Still guarded, because `clock-3`, `dice-5` and `bar-chart-2` are real names.
+ * A lowercase query keeps its digits and can still reach them.
  *
  * Same rule as `wordsOf` in the MCP server, the CLI and the Figma plugin. Four
  * surfaces, one behaviour, and this was the last of them to get it.
  */
 const terms = (query: string) => {
-  const identifier = /[a-z][A-Z]/.test(query)
+  const identifier =
+    /[a-z][A-Z]/.test(query) || /^[A-Z][A-Za-z]*\d+$/.test(query)
   const split = identifier
     ? query
         .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
@@ -194,7 +198,7 @@ const terms = (query: string) => {
     : query
   return split
     .toLowerCase()
-    .split(/[^a-z0-9]+/i)
+    .split(/[^a-z0-9]+/)
     .filter((w) => w && !(identifier && /^\d+$/.test(w)))
 }
 
