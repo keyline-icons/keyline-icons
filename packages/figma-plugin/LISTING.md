@@ -147,11 +147,47 @@ Figma takes up to nine carousel images or videos, so all six fit. Keep them in
 this order: styles and containers are the argument for the set, and the three
 FigJam sheets are the argument for the plugin over a library.
 
-## Data security, and the network access review
+## Data security
 
-Page three's security disclosure form is optional. Page four's network access
-review is the one that matters, and the manifest already answers it with one
-domain:
+Page three. Optional, but a material update triggers re-review and the same five
+questions come back, so the answers are here with what makes each one true.
+
+**1. Do you host a backend service?**
+`No, I do not host a backend service for my plugin/widget.`
+Two `fetch` calls, both to jsDelivr, a third-party CDN serving a static file out
+of this repository. Nothing here is hosted by us.
+
+**2. Does it make network requests with services you do not host?**
+`Makes network requests for static assets eg. fonts, images. None of these
+requests include data read/derived from Figma's plugin API.`
+A bare GET for `icons.json`: no body, no credentials, no query string. Nothing
+from the document leaves. Not analytics, and not the "not captured by the above"
+option, because a static JSON file on a CDN is exactly this category.
+
+**3. Does it use any user authentication?**
+`No, my plugin/widget does not require or use any user authentication.`
+No credentials of any kind. `ui.html` and `code.js` contain no reference to
+auth, tokens, login, or OAuth.
+
+**4. Does it store data read/derived from Figma's plugin API?**
+`No, my plugin/widget does not store any data read/derived from Figma's plugin
+API.`
+No `figma.clientStorage`, no `localStorage`, no `setPluginData`. The only
+mention of `clientStorage` in the repository is in this package's README, under
+"Not done yet".
+
+The judgement call, so it is not re-made from scratch next time: `code.js` keeps
+`OURS`, an in-memory map of node ids, so a second insert does not land inside
+the first. Those ids are derived from the plugin API. It is still `No`, because
+that object is program state for the lifetime of one run, and every example the
+option gives is a persistence mechanism.
+
+**5. How do you manage updates?**
+`I am a solo developer. I manage and update my plugin/widget myself.`
+
+## The network access review
+
+Page four, and the manifest already answers it with one domain:
 
 ```json
 "networkAccess": {
