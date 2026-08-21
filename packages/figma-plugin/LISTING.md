@@ -11,7 +11,9 @@ away from `icons/` without CI failing.
 Figma logo, upper left, then `Plugins` → `Manage plugins`. Select the plugin,
 choose `Publish`. Four pages:
 
-1. **Describe your resource.** Name, tagline, description, category.
+1. **Describe your resource.** Name, tagline, description. Both name and tagline
+   are capped at 100 characters, counted live in the modal. Figma's help page
+   also lists a category on this page; the modal did not show one in August 2026.
 2. **Choose some images.** Icon, thumbnail, an optional playground file, carousel.
 3. **Data security.** The disclosure form. Optional.
 4. **Add the final details.** Where to publish, contributors, support contact,
@@ -19,6 +21,12 @@ choose `Publish`. Four pages:
 
 Sizes below are the ones Figma's own help page states: 128 × 128 for the icon,
 1920 × 1080 for the thumbnail, up to nine carousel images or videos.
+
+**Two-factor authentication has to be on before any of this can be submitted.**
+The modal fills in and validates without it and then refuses at the bottom of
+page one: "You must enable two-factor authentication to publish." It is in the
+Figma account settings, under Security, and it is worth turning on before
+drafting anything rather than after.
 
 Afterwards the listing carries an `In review` badge and the decision arrives by
 email. Figma publishes no target turnaround, only that "approval times vary
@@ -39,8 +47,8 @@ Keyline Icons
 503 icons in three styles, searchable inside Figma and FigJam.
 ```
 
-Figma states no character limit for this field. If the modal truncates it
-anyway, drop the editors:
+Capped at 100 characters. The line above is 62, so there is room. A shorter
+alternative if it ever needs one:
 
 ```
 503 icons in three styles, drawn on one 24 × 24 grid.
@@ -99,12 +107,6 @@ design system
 outline icons
 lucide alternative
 ```
-
-## Category
-
-Page one asks for one. Figma's list is not reproduced here because it changes
-and I have not verified the current options: pick the closest to an icon or
-asset library in the modal.
 
 ## Support contact
 
