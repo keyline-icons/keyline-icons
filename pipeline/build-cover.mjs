@@ -314,7 +314,7 @@ const pluginCoverSvg =
   `</g>` +
   `<text x="${PAD}" y="485" font-family="${FONT}" font-size="82" font-weight="600" letter-spacing="-2.5" fill="${INK}">Keyline Icons</text>` +
   `<text x="${PAD}" y="551" font-family="${FONT}" font-size="30" fill="${MUTED}">Search ${available.size} icons and drop one on the canvas.</text>` +
-  ["Stroke, duotone and fill", "No library, no file to duplicate", "MIT, free for commercial work"]
+  ["Stroke, duotone and fill", "Install once, works in every file", "MIT, free for commercial work"]
     .map(
       (line, i) =>
         `<text x="${PAD}" y="${639 + i * 46}" font-family="${FONT}" font-size="26" fill="${INK}">${line}</text>`
