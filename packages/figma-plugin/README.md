@@ -75,6 +75,29 @@ baked out by `pipeline/build-keywords.mjs`. Keywords are keyed by base name, so
 some glyphs have none, so an empty grid is usually coverage rather than a failure.
 The count of names matching in another style is shown instead of nothing.
 
+**In FigJam an insert is a group, and recolouring means double-clicking into
+it.** `createNodeFromSvg` returns a frame, and a frame is the wrong thing to
+hand a FigJam user: its colour control paints the frame's own background, so
+picking a colour drew a coloured square around the drawing and never touched it.
+Duotone looked worst, because two tones that both refuse to change read as "not
+editable" rather than as a wrapper problem.
+
+A group has no fill of its own, so the colour reaches the paths. Clicking the
+group still offers nothing, which is FigJam's behaviour and not something the
+plugin sets; double-clicking selects the path under the cursor and colours it.
+That is worth knowing rather than working around, because it is per path: a
+`gift` can take a red body and a yellow bow, and a duotone keeps its plate and
+its line as two separate tones.
+
+Flattening to a single vector was the alternative and is why this is a group.
+One click would then colour the whole icon, at the cost of both of those, and it
+could never apply to duotone, whose entire point is two tones. Single-tone icons
+would behave one way and duotone another.
+
+Design files keep the frame. They want the 24×24 box, which is what makes a row
+of inserted icons line up, and their properties panel lists every distinct colour
+in the selection and edits each, so the frame was never in the way there.
+
 ## Not done yet
 
 - Drag and drop onto the canvas, via `figma.on("drop")`.

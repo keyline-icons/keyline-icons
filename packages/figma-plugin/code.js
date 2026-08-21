@@ -42,27 +42,67 @@ function place(node) {
   node.y = Math.round(figma.viewport.center.y - node.height / 2)
 }
 
+/**
+ * Dissolve the wrapper frame into a group, which is what FigJam needs.
+ *
+ * The frame is why colour did not work there. Picking a colour with a frame
+ * selected paints the frame's own background, so the drawing never changed and
+ * a coloured square appeared around it instead. Duotone read as "not editable
+ * at all", because every attempt landed on the wrapper. One cause, both
+ * symptoms.
+ *
+ * A group has no fill of its own, so the colour reaches the paths, and duotone
+ * keeps both tones because each path carries its own opacity.
+ *
+ * Flattening was the other option and is wrong: it merges every path into one
+ * shape, so duotone's 40% plate and the line above it become a single tone. The
+ * style would not survive its own insert.
+ */
+function toGroup(frame, name) {
+  const parent = frame.parent
+  const index = parent.children.indexOf(frame)
+  const group = figma.group([...frame.children], parent, index)
+  group.name = name
+  frame.remove()
+  return group
+}
+
 figma.ui.onmessage = (msg) => {
   if (!msg || msg.type !== "insert") return
 
-  const node = figma.createNodeFromSvg(String(msg.svg).replace(/currentColor/g, INK))
+  const frame = figma.createNodeFromSvg(String(msg.svg).replace(/currentColor/g, INK))
+  const name = String(msg.name)
   // Figma names the import `svg`. The icon name is the only useful label, and it
   // is what a later export or a Code Connect mapping reads back.
-  node.name = String(msg.name)
+  frame.name = name
 
   /**
-   * The wrapper frame arrives with a white fill, which `createNodeFromSvg` adds
-   * rather than the drawing carrying it: the SVG root says `fill="none"`, and
-   * the set's own component sets in Figma have no frame fill at all.
-   *
-   * It is invisible on a white canvas and is a white square everywhere else, so
-   * it survives every test done on a default page and fails the first time
-   * someone drops an icon on a dark artboard. Found exactly that way, by
-   * comparing the inserted node's Fill against a library icon's in the panel.
+   * The wrapper arrives with a white fill, which the drawing does not carry:
+   * the SVG root says `fill="none"`. Invisible on a white canvas and a white
+   * square everywhere else, so it survives every test done on a default page.
    */
-  if ("fills" in node) node.fills = []
+  if ("fills" in frame) frame.fills = []
 
-  place(node)
+  place(frame)
+
+  /**
+   * The frame survives in a design file and is dissolved in FigJam, which is
+   * not a hedge: the two editors want different things and only one of them
+   * has a problem.
+   *
+   * A design file wants the 24×24 box. It is what makes a row of inserted icons
+   * line up, and dropping it would hand back a group sized to the ink instead,
+   * so `check` would arrive as roughly 14×10 and align with nothing. Colour is
+   * already fine there, because the design panel lists every distinct colour in
+   * the selection and edits each one, which is how duotone's two tones showed
+   * as 100% and 40% and stayed editable.
+   *
+   * FigJam has neither the alignment discipline that makes the box worth
+   * keeping nor the panel that makes the frame survivable. Its colour control
+   * is one swatch, and one swatch aimed at a frame paints the frame.
+   */
+  const node = figma.editorType === "figjam" ? toGroup(frame, name) : frame
+
   figma.currentPage.selection = [node]
-  figma.notify(`Inserted ${msg.name}`)
+  figma.notify(`Inserted ${name}`)
 }
