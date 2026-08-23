@@ -78,6 +78,8 @@ const ICONS_DIR = join(process.cwd(), "icons")
 const HISTORY = history as {
   version: string
   released: boolean
+  releasedAt?: string
+  releasedLabel?: string
   people: GitAuthor[]
   icons: Record<string, Omit<IconHistory, "by"> & { by: number[] }>
 }
@@ -95,6 +97,28 @@ const historyFor = (name: string): IconHistory | undefined => {
 /** The version the set currently ships at, and whether anything is out yet. */
 export const SET_VERSION = HISTORY.version
 export const SET_RELEASED = HISTORY.released
+
+/**
+ * When the current version was tagged, and how to say it.
+ *
+ * The tag's own date, which is not the newest drawing's: v0.1.0 was cut on 20
+ * August and drawings have landed since. Anything added after this is in the
+ * tree but not in a release, which is what `isNewSince` reads and what the
+ * changelog's second entry is.
+ */
+export const SET_RELEASED_AT = HISTORY.releasedAt ?? ""
+export const SET_RELEASED_LABEL = HISTORY.releasedLabel ?? ""
+
+/**
+ * Whether a drawing arrived after the last release.
+ *
+ * Derived rather than listed. A hand-kept list of what is new is a list someone
+ * has to remember to empty, and the one thing certain about "new" is that it
+ * stops being true; comparing against the tag date means the badge clears
+ * itself the moment the next version is cut.
+ */
+export const isNewSince = (icon: Icon) =>
+  Boolean(SET_RELEASED_AT && icon.history && icon.history.added > SET_RELEASED_AT)
 
 /**
  * A `square-`/`circle-` prefix alone does not make a container variant. Twenty-

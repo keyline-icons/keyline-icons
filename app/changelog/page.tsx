@@ -1,4 +1,11 @@
-import { loadIcons, SET_VERSION, STYLES } from "@/lib/icons"
+import {
+  isNewSince,
+  loadIcons,
+  SET_RELEASED_LABEL,
+  SET_RELEASED_AT,
+  SET_VERSION,
+  STYLES,
+} from "@/lib/icons"
 import { pageMetadata } from "@/lib/seo"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
@@ -21,17 +28,24 @@ import { SiteNav } from "@/components/site-nav"
  * on the install page, stale by 27 icons before anyone noticed.
  */
 
-/** The date the release is dated by: the last day any drawing moved. */
+/**
+ * The release, and anything drawn since it.
+ *
+ * The release entry is dated by the tag rather than by the newest drawing. It
+ * used to take the latter, which was right while the two were the same day and
+ * became a lie the moment anything landed afterwards: an entry headed "Initial
+ * release" would have carried today's date. What landed afterwards is its own
+ * entry, which is the honest place for it.
+ */
 async function release() {
   const icons = await loadIcons()
   const dated = icons.filter((icon) => icon.history)
+  const since = dated.filter(isNewSince)
 
-  const newest = dated.reduce(
+  const newest = since.reduce(
     (latest, icon) =>
-      !latest || icon.history!.updated > latest.history!.updated
-        ? icon
-        : latest,
-    dated[0]
+      !latest || icon.history!.added > latest.history!.added ? icon : latest,
+    since[0]
   )
 
   return {
@@ -39,8 +53,13 @@ async function release() {
     // Formatted by `pipeline/build-history.mjs`, not here. A date formatted at
     // render is formatted on both sides of hydration, and the two disagree for
     // a visitor in another locale.
-    date: newest?.history?.updated.slice(0, 10) ?? "",
-    label: newest?.history?.updatedLabel ?? "",
+    date: SET_RELEASED_AT.slice(0, 10),
+    label: SET_RELEASED_LABEL,
+    since: {
+      names: since.map((icon) => icon.name).sort(),
+      date: newest?.history?.added.slice(0, 10) ?? "",
+      label: newest?.history?.addedLabel ?? "",
+    },
     styles: STYLES.map((style) => ({
       style,
       count: icons.filter((icon) => icon.art[style]).length,
@@ -68,7 +87,7 @@ export async function generateMetadata() {
 }
 
 export default async function Page() {
-  const { count, date, label, styles } = await release()
+  const { count, date, label, since, styles } = await release()
 
   return (
     <>
@@ -88,9 +107,44 @@ export default async function Page() {
         </header>
 
         {/*
-          One entry, and the markup says so: a `section` per release, so the
-          second one is a copy of this block rather than a rewrite of the page.
+          A `section` per entry, newest first, exactly as the note above this
+          block always said the second one would be.
+
+          It names the drawings and stops there. An earlier version of this page
+          printed every icon in the set as a tile and became a second browser
+          filed by date; a list of what is new is the part that browser could
+          not give you, because `/icons` cannot show you what you have already
+          seen.
         */}
+        {since.names.length > 0 && (
+          <section className="border-t pt-8 pb-8">
+            <h2 className="text-xl font-semibold tracking-tight">
+              New drawings
+            </h2>
+
+            <p className="mt-2 text-sm text-muted-foreground">
+              Unreleased
+              <span aria-hidden="true"> · </span>
+              <time dateTime={since.date}>{since.label}</time>
+            </p>
+
+            <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
+              <p>
+                {since.names.length} drawings added since {SET_VERSION}, and
+                badged <span className="text-foreground">New</span> in the grid
+                until the next release:
+              </p>
+              <ul className="flex flex-wrap gap-x-2 gap-y-1">
+                {since.names.map((name) => (
+                  <li key={name} className="font-mono text-xs text-foreground">
+                    {name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+
         <section className="border-t pt-8">
           <h2 className="text-xl font-semibold tracking-tight">
             Initial release

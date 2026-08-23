@@ -44,6 +44,15 @@ export type BrowserIcon = {
   container: Container
   art: Partial<Record<Style, StyleArt>>
   history?: IconHistory
+  /**
+   * Added since the last release, so the grid can badge it.
+   *
+   * Decided on the server and carried here rather than worked out in the
+   * browser: the comparison needs the tag date out of `lib/icon-history.json`,
+   * and `lib/icons.ts` reads the icon directories off disk, so a client
+   * component cannot import it to ask.
+   */
+  isNew?: boolean
 }
 
 /** kebab-case SVG attribute -> the React prop name. */

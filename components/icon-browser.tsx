@@ -1346,7 +1346,7 @@ export function IconBrowser({
                     aria-label={icon.name}
                     aria-haspopup="dialog"
                     className={cn(
-                      "group flex aspect-square flex-col items-center justify-center gap-2 rounded-lg p-2 transition-colors",
+                      "group relative flex aspect-square flex-col items-center justify-center gap-2 rounded-lg p-2 transition-colors",
                       // The open icon stays marked while the dock is up, so the
                       // panel and the grid agree on what is being looked at.
                       preview.name === icon.name
@@ -1374,6 +1374,24 @@ export function IconBrowser({
                     {showNames && (
                       <span className="w-full truncate text-center text-[11px] leading-tight text-muted-foreground group-hover:text-foreground">
                         {icon.name}
+                      </span>
+                    )}
+                    {/*
+                      Absolute, so a badged tile is the same size as every
+                      other one. In flow it would push the glyph off centre and
+                      the grid would ripple around whichever icons are new.
+
+                      The text is for the eye only. The tile's accessible name
+                      is `aria-label`, which a child cannot add to, so the
+                      badge is hidden and the same fact is announced by the
+                      changelog entry that lists these by name.
+                    */}
+                    {icon.isNew && (
+                      <span
+                        aria-hidden="true"
+                        className="pointer-events-none absolute top-1 right-1 rounded-full bg-foreground px-1.5 py-px text-[9px] leading-[14px] font-semibold tracking-wide text-background"
+                      >
+                        New
                       </span>
                     )}
                   </button>

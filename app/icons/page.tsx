@@ -3,7 +3,7 @@ import { cookies } from "next/headers"
 
 import { parseSettings, SETTINGS_COOKIE } from "@/lib/browser-settings"
 import { CONTAINERS } from "@/components/glyph"
-import { loadIcons, STYLES } from "@/lib/icons"
+import { isNewSince, loadIcons, STYLES } from "@/lib/icons"
 import { pageMetadata } from "@/lib/seo"
 import { IconLibrary } from "@/components/icon-library"
 import { SET_LICENSE, SET_TAGLINE } from "@/lib/site-chrome"
@@ -82,7 +82,15 @@ export default async function Page({
     shape?: string | string[]
   }>
 }) {
-  const icons = await loadIcons()
+  /*
+   * Badged here rather than in the grid. The comparison needs the tag date out
+   * of `lib/icon-history.json`, and `lib/icons.ts` reads the icon directories
+   * off disk, so the client component that draws the tiles cannot import it to
+   * ask. It carries the answer instead.
+   */
+  const icons = (await loadIcons()).map((icon) =>
+    isNewSince(icon) ? { ...icon, isNew: true } : icon
+  )
 
   // Reading the cookie is what lets the first paint already be your grid, at
   // the cost of rendering per request rather than once at build.

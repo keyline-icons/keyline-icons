@@ -175,6 +175,19 @@ const HISTORY = JSON.parse(
   await readFile(join(ROOT, "lib", "icon-history.json"), "utf8")
 )
 
+/*
+ * Drawn after the tag, so in the tree but not in a release.
+ *
+ * Derived from the dates rather than listed, the same way `lib/icons.ts`
+ * derives it: a hand-kept list of what is new is one someone has to remember to
+ * empty. Declared up here because `row` reads it and the rows are composed a
+ * long way above where the release object is assembled.
+ */
+const since = Object.entries(HISTORY.icons ?? {})
+  .filter(([, h]) => HISTORY.releasedAt && h.added > HISTORY.releasedAt)
+  .sort(([a], [b]) => a.localeCompare(b))
+const NEW_NAMES = new Set(since.map(([name]) => name))
+
 /**
  * One block per base icon, which is one component set in Figma and one row in
  * its catalogue. Grouping by name rather than by style is what makes the sheet
@@ -286,7 +299,12 @@ const COUNT = `font-size:15px;font-weight:500;color:${MUTED};white-space:nowrap`
 const BLURB = `margin:0;font-size:16px;color:${MUTED}`
 const DIVIDER = `height:1px;background:${HAIRLINE}`
 const ROWS = "display:flex;flex-direction:column"
-const LABEL = `flex:1;font-size:14px;font-weight:500;color:${INK};white-space:nowrap`
+const LABEL = `font-size:14px;font-weight:500;color:${INK};white-space:nowrap`
+/* Sized off the row's 38px rather than the label's line, so a badged row is the
+   same height as an unbadged one and the stripe stays a straight edge. */
+const BADGE =
+  `flex-shrink:0;padding:2px 7px;border-radius:999px;background:${INK};color:#ffffff;` +
+  `font-size:10px;font-weight:600;letter-spacing:0.3px;line-height:16px;white-space:nowrap`
 const GROUP = "display:flex;align-items:center;gap:6px"
 
 /** A row's own line, striped on the even ones exactly as the Figma card is. */
@@ -312,10 +330,17 @@ const tile = (v) =>
  */
 function row(block, index) {
   const [lead, ...rest] = block.variants
+  const isNew = NEW_NAMES.has(block.base)
   return (
-    `<div style="${rowStyle(index)}" data-icon-set="${block.base}">` +
+    `<div style="${rowStyle(index)}" data-icon-set="${block.base}"` +
+      (isNew ? ` data-new="true"` : "") + `>` +
       tile(lead) +
       `<div style="${LABEL}">${block.base}</div>` +
+      (isNew ? `<span style="${BADGE}">New</span>` : "") +
+      /* The spacer, not the label, is what pushes the variants right. The label
+         used to carry `flex:1` and a badge next to it then sat against the far
+         edge instead of against the name it badges. */
+      `<div style="flex:1"></div>` +
       `<div style="${GROUP}">${rest.map(tile).join("")}</div>` +
     `</div>`
   )
@@ -531,7 +556,27 @@ function changelogSheet(release) {
       `</div>` +
 
       `<div style="padding:40px">` +
+        /* Newest first, so anything unreleased sits above the release it is not
+           in yet. The site's page is the same two entries in the same order. */
+        (release.since.names.length
+          ? `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">New drawings</h2>` +
+            `<p style="margin:8px 0 0;font-size:13px;color:${MUTED}">` +
+              `Unreleased &middot; ${release.since.label}` +
+            `</p>` +
+            `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
+              `${release.since.names.length} drawings added since ${release.version}, ` +
+              `and badged New in the catalogue until the next release:` +
+            `</p>` +
+            `<p style="margin:12px 0 0;font-size:12px;line-height:2;color:${INK};` +
+              `font-family:ui-monospace, SFMono-Regular, Menlo, monospace">` +
+              release.since.names.join("&nbsp; ") +
+            `</p>` +
+            `<div style="${DIVIDER};margin:32px 0"></div>`
+          : "") +
         `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">Initial release</h2>` +
+        `<p style="margin:8px 0 0;font-size:13px;color:${MUTED}">` +
+          `Version ${release.version} &middot; ${release.label}` +
+        `</p>` +
         `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
           `The first cut of the set: ${release.count} drawings on one 24 × 24 grid, ` +
           `at a 2px keyline, built for shadcn/ui and free under the MIT licence. ` +
@@ -630,9 +675,16 @@ for (const section of SECTIONS) {
  */
 const dated = Object.values(HISTORY.icons ?? {}).filter((h) => h.updated)
 const newest = dated.reduce((a, b) => (a && a.updated > b.updated ? a : b), dated[0])
+
+
 const release = {
   version: HISTORY.version,
   label: HISTORY.releasedLabel ?? newest?.updatedLabel ?? "",
+  since: {
+    names: since.map(([name]) => name),
+    label: since.reduce((a, [, h]) => (h.added > a.added ? h : a), since[0]?.[1] ?? {})
+      ?.addedLabel ?? "",
+  },
   /* The page counts drawings that carry a history entry, which is names rather
      than base icons and lags `icons/` until `history:build` runs. Both are true
      of `/changelog` as well, so mirroring the number is what keeps the two
