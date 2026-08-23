@@ -45,7 +45,7 @@ Capped at 100 characters. The line above is 62, so there is room. A shorter
 alternative if it ever needs one:
 
 ```
-530 icons in three styles, drawn on one 24 × 24 grid.
+527 icons in three styles, drawn on one 24 × 24 grid.
 ```
 
 ## Description
@@ -110,7 +110,7 @@ expectation for an icon set. `free icons` overlaps `open source`, and page four
 marks the plugin Free natively.
 
 That leaves the five that actually distinguish it: FigJam support is rare among
-icon plugins, 440 duotone drawings are rare among icon sets, and the rest name
+icon plugins, 437 duotone drawings are rare among icon sets, and the rest name
 the audience rather than the artefact.
 
 `lucide alternative` is deliberately absent. It is the highest-intent term
