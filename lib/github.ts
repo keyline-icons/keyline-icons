@@ -3,10 +3,18 @@ import { SET_REPO_SLUG } from "@/lib/site-chrome"
 /**
  * How many people have starred the repo, or `null` when GitHub will not say.
  *
- * `null` is the expected answer today, not the error case: the repo is private,
- * and the unauthenticated API answers a private repo with a 404, exactly as it
- * answers one that does not exist. The bar is built for that, so publishing the
- * repo turns the count on with no code change and no deploy.
+ * `null` used to be the expected answer, because the repo was private and the
+ * unauthenticated API answers a private repo with a 404, exactly as it answers
+ * one that does not exist. The repo is public now and the bar carries a real
+ * count, so `null` has gone back to meaning what it says: GitHub did not
+ * answer.
+ *
+ * The failure that actually happens is the rate limit below, and it is a
+ * development problem rather than a production one. Every render in `next dev`
+ * is a fresh call, `revalidate` does not survive a restart and is not shared
+ * between two servers, so a few reloads across a few dev servers spend the 60
+ * an IP is allowed and the number disappears from localhost for the rest of the
+ * hour. Deployed, one call an hour per region is nowhere near it.
  *
  * Server-side on purpose. A count fetched in the browser is one more request on
  * every page load, it arrives after the first paint and shifts the bar when it

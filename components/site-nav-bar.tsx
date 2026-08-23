@@ -304,12 +304,15 @@ export function SiteNavBar({
                 number is part of the same target and the pair cannot be split
                 across a wrap.
 
-                `stars` is null while the repo is private, which is the state
-                this ships in: GitHub answers an unauthenticated request for a
-                private repo with a 404, so there is no number to show. The
-                link stays either way, and with the count gone the padded box
-                measures exactly 36px, the same square as the X mark next to it.
-                Publishing the repo fills the number in with no change here.
+                `stars` is null whenever GitHub does not answer, which since
+                the repo went public is a rate limit rather than the 404 a
+                private repo used to return. It is common in `next dev` and
+                rare in production; see the note on `repoStars`.
+
+                The link stays either way, and with the count gone the padded
+                box measures exactly 36px, the same square as the X mark next
+                to it. So the null state is a layout the bar already wears
+                rather than a hole in it.
               */}
               <a
                 href={SET_REPO_URL}
