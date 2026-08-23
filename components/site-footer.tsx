@@ -3,14 +3,15 @@ import Link from "next/link"
 import { BrandMark } from "@/components/brand-mark"
 import { FigmaLogo, XLogo } from "@/components/brand-logos"
 import {
+  LEGAL,
   SET_FIGMA_PROFILE_URL,
   SET_LICENSE_NAME,
-  SET_LICENSE_URL,
   SET_REPO_URL,
   SET_SPONSOR_URL,
   SET_TITLE,
   SET_X_URL,
-  SITE_LINKS,
+  SITE_FOOTER_LINKS,
+  SITE_LEGAL_LINKS,
 } from "@/lib/site-chrome"
 
 /**
@@ -117,48 +118,66 @@ export function SiteFooter() {
               stays because MIT grants rights in the code and none in what the
               set is called.
 
-              The licence still links to the canonical text rather than to this
-              repo's own `LICENSE`, because that is the actual grant. The repo
-              itself now has a link of its own in the row opposite, which it
-              could not have while its URL carried a personal handle instead of
-              the organisation's name.
+              The licence links to `/legal/license` now, not to
+              opensource.org. That is a reversal of what stood here, and the
+              reason it stood here was sound as far as it went: the canonical
+              text is the actual grant, and a page of ours describing one is
+              not. What changed is that there is now a page carrying the grant
+              *and* the two things the text cannot tell an icon set's reader,
+              which are that the drawings are covered as well as the code and
+              that the name is not. It links on to the canonical text itself.
+
+              `SET_LICENSE_URL` did not move with it. The JSON-LD still declares
+              that URL, because a consumer matching licences matches on the
+              identifier rather than on our reading of it.
             */}
             <p className="mt-3 text-xs text-muted-foreground">
               © {year} {SET_TITLE}™. Free under the{" "}
               {/*
-                No new-tab arrow, here or in the row opposite. Every outbound
-                link in this footer leaves the site, so the glyph marked all of
-                them and distinguished none, and four of them in one short band
-                read as decoration.
-
-                The warning stays for screen readers, which is the part that
-                was ever doing work: sighted readers get it from the browser,
-                and the arrow only ever repeated it.
+                A `Link`, and no new-tab warning, because this one no longer
+                leaves the site. The outbound links in the row opposite still
+                carry theirs, and still carry no arrow: every one of them
+                leaves, so a glyph on all four marked nothing.
               */}
-              <a
-                href={SET_LICENSE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={LEGAL.license}
                 className="underline underline-offset-2 transition-colors hover:text-foreground"
               >
                 {SET_LICENSE_NAME}
-                {/*
-                  The leading space is written as an expression because JSX
-                  strips whitespace that sits against a newline, and without it
-                  the accessible name runs together as
-                  "MIT License(opens in a new tab)".
-                */}
-                <span className="sr-only">{" (opens in a new tab)"}</span>
-              </a>
+              </Link>
               .
             </p>
+
+            {/*
+              The legal row, under the notice it belongs to rather than in the
+              row of pages opposite. Same size as the notice, because that is
+              what it is: three links of small print, read by the same person in
+              the same moment, and one of them is the sentence directly above.
+
+              `text-xs` and the same muted ink, so the block reads as one
+              paragraph with links in it rather than as a second nav.
+            */}
+            <nav
+              aria-label="Legal"
+              className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs"
+            >
+              {SITE_LEGAL_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
           </div>
 
           <nav
             aria-label="Footer"
             className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm"
           >
-            {SITE_LINKS.map((link) => (
+            {SITE_FOOTER_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}

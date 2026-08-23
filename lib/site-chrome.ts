@@ -88,6 +88,14 @@ export const SET_LICENSE_NAME = `${SET_LICENSE} License`
  * would be the more useful destination for a person: it is the actual grant,
  * with the year in it. `LICENSE` is still in the repo for anyone who clones it,
  * and `SET_REPO_URL` now links it from the same footer.
+ *
+ * **This is the identifier, not the reading.** It is what `license` in the
+ * JSON-LD has to be, because a machine matching licences matches on that URL
+ * and not on a page of ours explaining one. People go to `LEGAL.license`
+ * instead, which prints the same text with the part nobody can read out of it:
+ * that the drawings are covered as well as the code, and that the name is not.
+ * The footer link moved there for that reason; this constant did not move with
+ * it, and the two are not interchangeable.
  */
 export const SET_LICENSE_URL = "https://opensource.org/licenses/MIT"
 
@@ -115,13 +123,27 @@ export const SET_REPO_SLUG = "keyline-icons/keyline-icons"
 export const SET_REPO_URL = `https://github.com/${SET_REPO_SLUG}`
 
 /**
+ * The repo's issue tracker, which is the whole of the site's contact address.
+ *
+ * There is no support inbox and no contact form, and the legal pages name this
+ * rather than printing a mailbox: a set with one maintainer and no company
+ * behind it is reachable where the work is, and an address on the page is an
+ * address in every scraper's list within a week.
+ *
+ * It is a *public* tracker, which is the one thing that has to travel with the
+ * link. `/legal/privacy` says so where it asks people not to put personal
+ * details in one.
+ */
+export const SET_ISSUES_URL = `${SET_REPO_URL}/issues`
+
+/**
  * Where "request an icon" goes, from the grid's no-results state.
  *
  * A search that found nothing is the one moment the set's gaps are visible to
  * the person who cares, so it is the moment to ask — and an issue is where a
  * request survives long enough to be drawn, unlike a reply in a timeline.
  */
-export const SET_REQUEST_URL = `${SET_REPO_URL}/issues/new`
+export const SET_REQUEST_URL = `${SET_ISSUES_URL}/new`
 
 /**
  * The author's X account, linked from the bar.
@@ -198,7 +220,6 @@ export const SET_FIGMA_PROFILE_URL = "https://www.figma.com/@keylineicons"
 export const SET_PAPER_URL =
   "https://app.paper.design/file/01M0C1A8JM2Q96K8FTA6RS7WCX"
 
-
 /**
  * Where the bar's primary button goes.
  *
@@ -231,6 +252,24 @@ export const SET_SPONSOR_URL = "https://github.com/sponsors/keyline-icons"
  * The ™ stays on the name regardless. MIT grants rights in the code; it grants
  * nothing in what the set is called.
  */
+
+/**
+ * The three legal routes.
+ *
+ * Named here rather than typed at each call site because four things point at
+ * them: `SITE_LINKS` below, each page's own `pageMetadata` and `LegalPage`, the
+ * footer's licence link, and the cross-links the pages draw to each other. A
+ * path written five times is a path that gets renamed four times.
+ *
+ * Under one folder rather than at the root. They are the only pages on the site
+ * nobody arrives at on purpose, and grouping them says that in the URL: `/terms`
+ * beside `/icons` and `/install` reads as a fourth thing the site does.
+ */
+export const LEGAL = {
+  terms: "/legal/terms",
+  privacy: "/legal/privacy",
+  license: "/legal/license",
+} as const
 
 /**
  * Every destination on the site, in bar order.
@@ -266,7 +305,12 @@ export type SiteLink = {
    * Set `false` to keep a route out of the bar and the phone menu. Omit
    * otherwise.
    *
-   * One route uses it, `/`, and the reason is that the bar already links home:
+   * The three legal routes use it for the obvious reason: nobody navigates to a
+   * privacy policy from a bar, and three more entries would push the pages
+   * people came for off a phone's menu. They are linked from the footer, which
+   * is where small print is looked for.
+   *
+   * `/` uses it too, and for a different reason: the bar already links home:
    * the brand at the left edge is the home link on every site anyone has used.
    * A "Home" row beside it would be a second control pointing at the same page,
    * which is the kind of thing that makes a bar longer without making it more
@@ -295,6 +339,17 @@ export type SiteLink = {
    * `group` need one — a bar link has its label and the page behind it.
    */
   description?: string
+  /**
+   * Set `true` for a legal page. Only the footer reads it, and only to put
+   * these links in their own small row beside the copyright rather than in the
+   * row that lists the site.
+   *
+   * A flag rather than a second array, because the sitemap has to keep reading
+   * one list: a legal page is exactly the kind of route that would be added to
+   * a `LEGAL_LINKS` literal and never reach `app/sitemap.ts`, and nothing would
+   * fail. The rest of the chrome ignores it.
+   */
+  legal?: true
 }
 
 export const SITE_LINKS: readonly SiteLink[] = [
@@ -353,7 +408,50 @@ export const SITE_LINKS: readonly SiteLink[] = [
   // pages at 0.6 for the same reason: a drawing is what someone came for, and
   // this is the page you read once you already have the set.
   { href: "/changelog", label: "Changelog", priority: 0.5 },
+  /*
+    The legal pages, last and lowest.
+
+    Indexed rather than hidden, which is the choice worth stating because the
+    instinct is the other way. A licence page is genuinely searched for, by
+    people deciding whether they may ship a set in a paid product, and it is one
+    of the few pages here that answers a question `/icons` cannot. A privacy
+    policy nobody can find is also worth less than one they can, since its
+    entire job is to be checkable. So they carry `sitemap` and `robots` defaults
+    like every other page, and take 0.3: real content, and never the answer to
+    anything anyone types about icons.
+
+    Terms first, then privacy, then the licence, which is the order they are
+    read in and the order the footer prints them.
+  */
+  { href: LEGAL.terms, label: "Terms", priority: 0.3, bar: false, legal: true },
+  {
+    href: LEGAL.privacy,
+    label: "Privacy",
+    priority: 0.3,
+    bar: false,
+    legal: true,
+  },
+  {
+    href: LEGAL.license,
+    label: "License",
+    priority: 0.3,
+    bar: false,
+    legal: true,
+  },
 ]
+
+/**
+ * What the footer's main row lists: every page except the legal ones, which get
+ * their own row under the copyright notice.
+ *
+ * The split is about weight rather than about tidiness. A footer row is read as
+ * "here is the site", and Terms sitting between Dashboard and Changelog offers
+ * a privacy policy as though it were somewhere to go next.
+ */
+export const SITE_FOOTER_LINKS = SITE_LINKS.filter((link) => !link.legal)
+
+/** The legal row, in the order `SITE_LINKS` declares them. */
+export const SITE_LEGAL_LINKS = SITE_LINKS.filter((link) => link.legal)
 
 /**
  * Every route the chrome offers: the whole list, minus what `bar: false` holds
