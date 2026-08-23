@@ -79,7 +79,7 @@ export const CATEGORIES = [
   },
   {
     label: "Maps",
-    match: /^(map|compass|route)/,
+    match: /^(map|compass|building|route)/,
     blurb: "Pins, maps, compasses and routes.",
   },
   {
@@ -93,14 +93,14 @@ export const CATEGORIES = [
   // bar charts and the signal bars, which is where the design file files it too.
   {
     label: "Charts",
-    match: /^(bar-chart|trending|signal|progress|activity)/,
+    match: /^(bar-chart|trending|signal|progress|loader|activity)/,
     blurb: "Trends, bar charts, signal strength and activity markers.",
   },
   // `code` sits with `terminal` rather than on a shelf of its own: the label is
   // the developer surface, and two names do not earn a row in a rail of 18.
   {
     label: "Devices",
-    match: /^(smartphone|terminal|database|server|code)/,
+    match: /^(smartphone|monitor|terminal|database|server|battery|bluetooth|code)/,
     blurb: "Phones, servers, databases, terminals and code.",
   },
   {
@@ -110,7 +110,7 @@ export const CATEGORIES = [
   },
   {
     label: "Layout",
-    match: /^(panel|list|align|menu)/,
+    match: /^(panel|layout|grid|list|align|menu)/,
     blurb: "Panels, lists, alignment and the menu marks.",
   },
   {
@@ -125,7 +125,7 @@ export const CATEGORIES = [
     // outlines they happen to be. `eye` is the show/hide operation, next to lock.
     label: "Actions",
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|download|upload|filter|eye|star|heart|octagon-alert|triangle-alert|info|question)/,
+      /^(check|double-check|plus|minus|x|more|lock|unlock|download|upload|filter|eye|star|heart|alert|octagon-alert|triangle-alert|info|question)/,
     blurb: "Checks, crosses, pluses and the everyday verbs.",
   },
   {
@@ -136,6 +136,11 @@ export const CATEGORIES = [
     label: "Controls",
     match: /^(toggle|slider)/,
     blurb: "Toggles and sliders.",
+  },
+  {
+    label: "Sport",
+    match: /^(trophy|award|podium|medal)/,
+    blurb: "Trophies, awards and the places on the podium.",
   },
   {
     label: "Shapes",

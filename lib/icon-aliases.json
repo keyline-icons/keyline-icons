@@ -12,6 +12,17 @@
       ]
     },
     {
+      "match": "^alert$",
+      "terms": [
+        "exclamation",
+        "warning",
+        "caution",
+        "attention",
+        "important",
+        "error"
+      ]
+    },
+    {
       "match": "^align-offset",
       "terms": [
         "align",
@@ -58,6 +69,20 @@
       ]
     },
     {
+      "match": "^award",
+      "terms": [
+        "medal",
+        "prize",
+        "ribbon",
+        "badge",
+        "achievement",
+        "recognition",
+        "honour",
+        "honor",
+        "winner"
+      ]
+    },
+    {
       "match": "^bar-chart",
       "terms": [
         "analytics",
@@ -68,6 +93,17 @@
         "data",
         "insights",
         "metrics"
+      ]
+    },
+    {
+      "match": "^battery",
+      "terms": [
+        "power",
+        "charge",
+        "energy",
+        "cell",
+        "level",
+        "remaining"
       ]
     },
     {
@@ -89,6 +125,28 @@
       ]
     },
     {
+      "match": "^bluetooth$",
+      "terms": [
+        "wireless",
+        "pair",
+        "connect",
+        "device",
+        "radio"
+      ]
+    },
+    {
+      "match": "^building$",
+      "terms": [
+        "office",
+        "company",
+        "organisation",
+        "organization",
+        "business",
+        "workplace",
+        "apartment"
+      ]
+    },
+    {
       "match": "^bracket-arrow",
       "terms": [
         "collapse",
@@ -96,6 +154,24 @@
         "resize",
         "fit",
         "inset"
+      ]
+    },
+    {
+      "match": "^bracket-arrow-left$",
+      "note": "Figma's description spells these `log out` and `log in`, which reaches `LogOut` because the identifier splits into two words, and misses `logout` typed as one. The closed-up forms are what people type.",
+      "terms": [
+        "logout",
+        "signout",
+        "log out"
+      ]
+    },
+    {
+      "match": "^bracket-arrow-right$",
+      "note": "Figma's description spells these `log out` and `log in`, which reaches `LogOut` because the identifier splits into two words, and misses `logout` typed as one. The closed-up forms are what people type.",
+      "terms": [
+        "login",
+        "signin",
+        "log in"
       ]
     },
     {
@@ -390,6 +466,21 @@
       ]
     },
     {
+      "match": "^grid-",
+      "terms": [
+        "grid",
+        "layout",
+        "tiles",
+        "cells",
+        "table",
+        "gallery",
+        "matrix",
+        "columns",
+        "rows"
+      ],
+      "note": "Named columns x rows. There is no bare `grid`: the word said nothing about which one, and it reaches the family through the name anyway."
+    },
+    {
       "match": "^handbag$",
       "terms": [
         "purse",
@@ -409,6 +500,24 @@
       ]
     },
     {
+      "match": "^heart-hand$",
+      "terms": [
+        "hand heart",
+        "love",
+        "send love",
+        "donate",
+        "charity",
+        "care",
+        "support",
+        "give",
+        "giving",
+        "volunteer",
+        "kindness",
+        "gratitude"
+      ],
+      "note": "Base-first like every compound here, and `heart` is the base that actually exists. `hand heart` is the word order people arrive with."
+    },
+    {
       "match": "^home$",
       "terms": [
         "house",
@@ -424,6 +533,18 @@
         "help",
         "about",
         "details"
+      ]
+    },
+    {
+      "match": "^layout-dashboard$",
+      "terms": [
+        "dashboard",
+        "layout",
+        "widgets",
+        "tiles",
+        "overview",
+        "panels",
+        "admin"
       ]
     },
     {
@@ -451,6 +572,17 @@
         "playlist",
         "queue",
         "tracks"
+      ]
+    },
+    {
+      "match": "^loader$",
+      "terms": [
+        "spinner",
+        "loading",
+        "busy",
+        "wait",
+        "progress",
+        "throbber"
       ]
     },
     {
@@ -510,6 +642,27 @@
         "less",
         "collapse",
         "hide"
+      ]
+    },
+    {
+      "match": "^monitor",
+      "terms": [
+        "screen",
+        "display",
+        "desktop",
+        "computer",
+        "tv",
+        "workstation"
+      ]
+    },
+    {
+      "match": "^monitor-off$",
+      "terms": [
+        "screen off",
+        "display off",
+        "stop sharing",
+        "no display",
+        "presentation off"
       ]
     },
     {
@@ -627,13 +780,27 @@
       ]
     },
     {
+      "match": "^podium",
+      "terms": [
+        "ranking",
+        "leaderboard",
+        "places",
+        "standings",
+        "results",
+        "winner",
+        "first second third"
+      ]
+    },
+    {
       "match": "^progress",
       "terms": [
         "loading",
         "status",
         "completion",
         "percent",
-        "ring"
+        "ring",
+        "spinner",
+        "loader"
       ]
     },
     {
@@ -826,6 +993,19 @@
         "analytics",
         "stocks",
         "arrow"
+      ]
+    },
+    {
+      "match": "^trophy$",
+      "terms": [
+        "win",
+        "winner",
+        "champion",
+        "prize",
+        "cup",
+        "first place",
+        "achievement",
+        "victory"
       ]
     },
     {

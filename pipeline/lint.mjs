@@ -87,6 +87,12 @@ const NARROW = new Set([
  *   already occupy. Note the size cannot be split from the shape here: the dot
  *   and its 2-unit gap are absolute, so a taller glyph is a wider bowl, and at
  *   22 the bowl reaches 14 across.
+ *
+ *   `alert` is `question` again, and is here for the same reason rather than a
+ *   new one: 2 x 16, so the classifier calls it a vertical rectangle and asks
+ *   for 22. It is the same mark drawn against the same four, and the two have
+ *   to match each other: a question mark and an exclamation mark sitting five
+ *   units apart in a sentence of icons is the defect this would cause.
  * - **media controls** — `pause`, `skip-*` and `stop` are sized as a set against
  *   each other, not against the shape classes. `play` is **not** in that set: it
  *   grew to 18 x 22 and is now exactly the vertical size, so it needs no
@@ -136,7 +142,7 @@ const NARROW = new Set([
  */
 const SIZE_KNOWN = new Set([
   'caret-down', 'caret-left', 'caret-right', 'caret-up', 'check', 'double-check',
-  'menu', 'minus', 'more-horizontal', 'more-vertical', 'question',
+  'alert', 'menu', 'minus', 'more-horizontal', 'more-vertical', 'question',
   'pause', 'skip-back', 'skip-forward', 'stop',
   'git-commit-horizontal', 'git-commit-vertical',
   'terminal', 'terminal-asterisk',

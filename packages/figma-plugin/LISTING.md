@@ -38,7 +38,7 @@ Keyline Icons
 ## Tagline
 
 ```
-503 icons in three styles, searchable inside Figma and FigJam.
+530 icons in three styles, searchable inside Figma and FigJam.
 ```
 
 Capped at 100 characters. The line above is 62, so there is room. A shorter
@@ -51,18 +51,18 @@ alternative if it ever needs one:
 ## Description
 
 ```
-Search 503 icons and drop one on the canvas. No library to publish, no file to
+Search 530 icons and drop one on the canvas. No library to publish, no file to
 duplicate, no plan requirement.
 
 Three styles
-  stroke    503 icons, 2px, round caps and joins
-  duotone   415 icons, a 40% plate under the line
-  fill      368 icons, solid where the glyph has a region to fill
+  stroke    530 icons, 2px, round caps and joins
+  duotone   440 icons, a 40% plate under the line
+  fill      392 icons, solid where the glyph has a region to fill
 
-54 icons also come in a square- form and 53 in a circle- form, so a container
+55 icons also come in a square- form and 54 in a circle- form, so a container
 is a search away rather than a second drawing.
 
-Search knows more than the file names. 387 icons carry curated words, so
+Search knows more than the file names. 412 icons carry curated words, so
 "south" finds arrow-down, "hamburger" finds menu and "trash" finds bin. Paste a
 component name straight out of your code and it resolves: CheckCircle2 finds
 circle-check.

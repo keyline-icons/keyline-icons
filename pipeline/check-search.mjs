@@ -147,11 +147,15 @@ const FINDS = [
   ["theme", "sun", "the toggle, which neither drawing is named after"],
   ["paste", "copy", "half of a pair where only one half is drawn"],
   ["stats", "bar-chart", "`statistics` was there, the short form was not"],
+  ["screen", "monitor", "the word for the object, which the drawing is not named after"],
+  ["spinner", "loader", "and the word for the state, same"],
+  ["office", "building", "nobody types `building` first"],
 
   // Word order, which is the other way a name from elsewhere fails to land.
   ["CheckCircle2", "circle-check", "compounds here read base-first"],
   ["check circle", "circle-check", "same, typed as words"],
   ["down arrow", "arrow-down", "either order asks the same question"],
+  ["AlertCircle", "circle-alert", "lucide's old spelling, mark first"],
 ]
 
 const same = (a, b) => a.length === b.length && a.every((x, i) => x === b[i])

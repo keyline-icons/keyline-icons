@@ -13,9 +13,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 396,
-  "names": 503,
-  "variants": 1286,
+  "icons": 421,
+  "names": 530,
+  "variants": 1362,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -25,9 +25,9 @@
       "parts": 2,
       "into": "artboard",
       "width": 742,
-      "icons": 21,
-      "variants": 52,
-      "bytes": 41519
+      "icons": 23,
+      "variants": 48,
+      "bytes": 36094
     },
     {
       "file": "actions-2.html",
@@ -38,8 +38,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 34,
-      "bytes": 26948
+      "variants": 48,
+      "bytes": 40169
     },
     {
       "file": "arrows-1.html",
@@ -97,9 +97,9 @@
       "parts": 2,
       "into": "artboard",
       "width": 742,
-      "icons": 15,
+      "icons": 16,
       "variants": 65,
-      "bytes": 41385
+      "bytes": 41383
     },
     {
       "file": "charts-2.html",
@@ -110,8 +110,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 20,
-      "bytes": 13327
+      "variants": 22,
+      "bytes": 14561
     },
     {
       "file": "commerce.html",
@@ -145,9 +145,9 @@
       "parts": 2,
       "into": "artboard",
       "width": 742,
-      "icons": 21,
-      "variants": 50,
-      "bytes": 39700
+      "icons": 28,
+      "variants": 51,
+      "bytes": 39434
     },
     {
       "file": "devices-2.html",
@@ -158,8 +158,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 11,
-      "bytes": 7964
+      "variants": 29,
+      "bytes": 20844
     },
     {
       "file": "files-1.html",
@@ -217,9 +217,9 @@
       "parts": 2,
       "into": "artboard",
       "width": 742,
-      "icons": 21,
+      "icons": 26,
       "variants": 64,
-      "bytes": 40040
+      "bytes": 41076
     },
     {
       "file": "layout-2.html",
@@ -230,8 +230,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 3,
-      "bytes": 2024
+      "variants": 18,
+      "bytes": 11401
     },
     {
       "file": "mail-1.html",
@@ -265,9 +265,9 @@
       "parts": 1,
       "into": "artboard",
       "width": 742,
-      "icons": 11,
-      "variants": 33,
-      "bytes": 30406
+      "icons": 12,
+      "variants": 36,
+      "bytes": 32841
     },
     {
       "file": "media-1.html",
@@ -352,6 +352,18 @@
       "icons": 0,
       "variants": 6,
       "bytes": 3617
+    },
+    {
+      "file": "sport.html",
+      "artboard": "Sport",
+      "category": "Sport",
+      "part": 1,
+      "parts": 1,
+      "into": "artboard",
+      "width": 742,
+      "icons": 9,
+      "variants": 27,
+      "bytes": 23206
     },
     {
       "file": "time-1.html",
