@@ -16,6 +16,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { usePathname } from "next/navigation"
+
+import { track } from "@/lib/analytics"
 import { SITE_URL } from "@/lib/seo"
 import {
   shareCopy,
@@ -106,8 +109,24 @@ export function ShareMenu({ counts }: { counts: ShareCounts }) {
   */
   const copy = shareCopy(counts)
 
+  /*
+    Where the reader was, not what they shared. Every row posts the site's front
+    door whatever page it is opened from, so the URL is a constant and the only
+    thing worth recording is which page persuaded them to reach for this.
+  */
+  const page = usePathname()
+
   return (
-    <DropdownMenu>
+    <DropdownMenu
+      /*
+        Only the opening. Base UI fires this on both edges, and a close is not a
+        second act of interest: counting it would double every menu and make the
+        click-through rate read as half what it is.
+      */
+      onOpenChange={(open) => {
+        if (open) track("share_open", { page })
+      }}
+    >
       <DropdownMenuTrigger
         aria-label="Share Keyline Icons"
         className={cn(
@@ -157,6 +176,15 @@ export function ShareMenu({ counts }: { counts: ShareCounts }) {
                     href={target.href(SHARE_URL, copy)}
                     target="_blank"
                     rel="noopener noreferrer"
+                    /*
+                      Safe on an anchor here because the row opens a new tab:
+                      this document is not going anywhere, so there is no unload
+                      racing the beacon. A same-tab link would need `sendBeacon`
+                      or it would lose events on the slower networks.
+                    */
+                    onClick={() =>
+                      track("share_click", { network: target.id, page })
+                    }
                   />
                 }
                 style={

@@ -79,6 +79,25 @@ export type Events = {
     elsewhere: number
     suggestion: string | null
   }
+  /**
+   * The share menu was opened.
+   *
+   * Counted separately from the click, because the two answer different
+   * questions: how many readers reach for it at all, against how many follow
+   * through once they see the five networks. A menu opened and abandoned is the
+   * more common outcome and the one a click-only count cannot see.
+   */
+  share_open: { page: string }
+  /**
+   * A share row was followed out to a network's composer.
+   *
+   * `network` is the target's own id, so the counts line up with
+   * `SHARE_TARGETS` rather than with a label someone may reword. `page` is
+   * where the reader was when they shared, not what they shared: every row
+   * posts the site's front door whatever page it is opened from, so the
+   * pathname says which page persuaded them.
+   */
+  share_click: { network: string; page: string }
   /** An install command was copied, from the install page or the landing one. */
   install_copy: {
     manager: PackageManager
