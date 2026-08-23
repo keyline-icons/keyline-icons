@@ -529,7 +529,7 @@ function catalogSheet(icons, totals, release) {
  * countable thing counted, and this is the same sentences off the same data. It
  * is short enough for one write, so it is one file and one artboard.
  */
-function changelogSheet(release) {
+function changelogSheet(icons, release) {
   const styles = STYLES.map((style) => `${style} (${release.styles[style]})`)
   const list =
     styles.slice(0, -1).join(", ") + " and " + styles[styles.length - 1]
@@ -567,10 +567,27 @@ function changelogSheet(release) {
               `${release.since.names.length} drawings added since ${release.version}, ` +
               `and badged New in the catalogue until the next release:` +
             `</p>` +
-            `<p style="margin:12px 0 0;font-size:12px;line-height:2;color:${INK};` +
-              `font-family:ui-monospace, SFMono-Regular, Menlo, monospace">` +
-              release.since.names.join("&nbsp; ") +
-            `</p>` +
+            /* The drawings, not their names. Named only, a reader has to go
+               and look them up, which is the one thing this surface is here to
+               save them. Drawn at grid size: they are being identified rather
+               than admired, and 24 is the size the set is built at. */
+            `<div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0">` +
+              release.since.names.map((name) => {
+                const art = icons.get(name)?.art?.stroke
+                if (!art) return ""
+                return (
+                  `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;` +
+                    `width:104px;padding:12px 4px;box-sizing:border-box;border-radius:10px;` +
+                    `background:${STRIPE}">` +
+                    `<svg width="${SIZE}" height="${SIZE}" xmlns="http://www.w3.org/2000/svg" ` +
+                    `role="img" aria-label="${name} stroke" data-icon="${name}" ` +
+                    `data-style="stroke" ${art.attrs}>${art.body}</svg>` +
+                    `<span style="font-size:11px;line-height:1.2;color:${MUTED};` +
+                      `text-align:center">${name}</span>` +
+                  `</div>`
+                )
+              }).join("") +
+            `</div>` +
             `<div style="${DIVIDER};margin:32px 0"></div>`
           : "") +
         `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">Initial release</h2>` +
@@ -726,7 +743,7 @@ const counted = {
 }
 
 {
-  const html = changelogSheet(release)
+  const html = changelogSheet(byName, release)
   files.set("changelog.html", html)
   entries.push({
     file: "changelog.html",

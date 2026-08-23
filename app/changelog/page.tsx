@@ -9,6 +9,7 @@ import {
 import { pageMetadata } from "@/lib/seo"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
+import { Glyph } from "@/components/glyph"
 
 /**
  * What has shipped, release by release.
@@ -56,7 +57,10 @@ async function release() {
     date: SET_RELEASED_AT.slice(0, 10),
     label: SET_RELEASED_LABEL,
     since: {
-      names: since.map((icon) => icon.name).sort(),
+      // The drawings, not their names. A changelog that only names them makes
+      // the reader go and look them up, which is the one thing this page is
+      // placed to save them.
+      icons: [...since].sort((a, b) => a.name.localeCompare(b.name)),
       date: newest?.history?.added.slice(0, 10) ?? "",
       label: newest?.history?.addedLabel ?? "",
     },
@@ -116,7 +120,7 @@ export default async function Page() {
           not give you, because `/icons` cannot show you what you have already
           seen.
         */}
-        {since.names.length > 0 && (
+        {since.icons.length > 0 && (
           <section className="border-t pt-8 pb-8">
             <h2 className="text-xl font-semibold tracking-tight">
               New drawings
@@ -130,14 +134,27 @@ export default async function Page() {
 
             <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
               <p>
-                {since.names.length} drawings added since {SET_VERSION}, and
+                {since.icons.length} drawings added since {SET_VERSION}, and
                 badged <span className="text-foreground">New</span> in the grid
                 until the next release:
               </p>
-              <ul className="flex flex-wrap gap-x-2 gap-y-1">
-                {since.names.map((name) => (
-                  <li key={name} className="font-mono text-xs text-foreground">
-                    {name}
+              {/*
+                Drawn at grid size, not at display size. These are being
+                identified rather than admired, and 24px is the size the set is
+                built at and the size they will be used at.
+              */}
+              <ul className="grid grid-cols-[repeat(auto-fill,minmax(104px,1fr))] gap-2 not-prose">
+                {since.icons.map((icon) => (
+                  <li
+                    key={icon.name}
+                    className="flex flex-col items-center gap-2 rounded-lg bg-muted p-3"
+                  >
+                    <span className="text-foreground">
+                      <Glyph art={icon.art.stroke!} size={24} stroke={2} />
+                    </span>
+                    <span className="w-full truncate text-center text-[11px] leading-tight">
+                      {icon.name}
+                    </span>
                   </li>
                 ))}
               </ul>
