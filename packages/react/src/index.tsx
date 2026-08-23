@@ -416,7 +416,7 @@ export function BarChart(props: IconProps) {
 export function BatteryFull(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 7H15C16.65685 7 18 8.34315 18 10V14C18 15.65685 16.65685 17 15 17H5C3.34315 17 2 15.65685 2 14V10C2 8.34315 3.34315 7 5 7ZM22 10V14M6 11V13M10 11V13M14 11V13" />
+      <path d="M5 6H15C16.65685 6 18 7.34315 18 9V15C18 16.65685 16.65685 18 15 18H5C3.34315 18 2 16.65685 2 15V9C2 7.34315 3.34315 6 5 6ZM22 9.5V14.5M6 10V14M10 10V14M14 10V14" />
     </Icon>
   )
 }
@@ -424,7 +424,7 @@ export function BatteryFull(props: IconProps) {
 export function BatteryLow(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 7H15C16.65685 7 18 8.34315 18 10V14C18 15.65685 16.65685 17 15 17H5C3.34315 17 2 15.65685 2 14V10C2 8.34315 3.34315 7 5 7ZM22 10V14M6 11V13" />
+      <path d="M5 6H15C16.65685 6 18 7.34315 18 9V15C18 16.65685 16.65685 18 15 18H5C3.34315 18 2 16.65685 2 15V9C2 7.34315 3.34315 6 5 6ZM22 9.5V14.5M6 10V14" />
     </Icon>
   )
 }
@@ -432,7 +432,7 @@ export function BatteryLow(props: IconProps) {
 export function BatteryMedium(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 7H15C16.65685 7 18 8.34315 18 10V14C18 15.65685 16.65685 17 15 17H5C3.34315 17 2 15.65685 2 14V10C2 8.34315 3.34315 7 5 7ZM22 10V14M6 11V13M10 11V13" />
+      <path d="M5 6H15C16.65685 6 18 7.34315 18 9V15C18 16.65685 16.65685 18 15 18H5C3.34315 18 2 16.65685 2 15V9C2 7.34315 3.34315 6 5 6ZM22 9.5V14.5M6 10V14M10 10V14" />
     </Icon>
   )
 }
@@ -440,7 +440,7 @@ export function BatteryMedium(props: IconProps) {
 export function Battery(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 7H15C16.65685 7 18 8.34315 18 10V14C18 15.65685 16.65685 17 15 17H5C3.34315 17 2 15.65685 2 14V10C2 8.34315 3.34315 7 5 7ZM22 10V14" />
+      <path d="M5 6H15C16.65685 6 18 7.34315 18 9V15C18 16.65685 16.65685 18 15 18H5C3.34315 18 2 16.65685 2 15V9C2 7.34315 3.34315 6 5 6ZM22 9.5V14.5" />
     </Icon>
   )
 }

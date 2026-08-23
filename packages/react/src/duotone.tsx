@@ -229,8 +229,8 @@ export function Award(props: IconProps) {
 export function BatteryFull(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 6H15C17.20914 6 19 7.79086 19 10V14C19 16.20914 17.20914 18 15 18H5C2.79086 18 1 16.20914 1 14V10C1 7.79086 2.79086 6 5 6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M5 7H15C16.65685 7 18 8.34315 18 10V14C18 15.65685 16.65685 17 15 17H5C3.34315 17 2 15.65685 2 14V10C2 8.34315 3.34315 7 5 7ZM22 10V14M6 11V13M10 11V13M14 11V13" />
+      <path d="M5 5H15C17.20914 5 19 6.79086 19 9V15C19 17.20914 17.20914 19 15 19H5C2.79086 19 1 17.20914 1 15V9C1 6.79086 2.79086 5 5 5Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M5 6H15C16.65685 6 18 7.34315 18 9V15C18 16.65685 16.65685 18 15 18H5C3.34315 18 2 16.65685 2 15V9C2 7.34315 3.34315 6 5 6ZM22 9.5V14.5M6 10V14M10 10V14M14 10V14" />
     </Icon>
   )
 }
@@ -238,8 +238,8 @@ export function BatteryFull(props: IconProps) {
 export function BatteryLow(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 6H15C17.20914 6 19 7.79086 19 10V14C19 16.20914 17.20914 18 15 18H5C2.79086 18 1 16.20914 1 14V10C1 7.79086 2.79086 6 5 6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M5 7H15C16.65685 7 18 8.34315 18 10V14C18 15.65685 16.65685 17 15 17H5C3.34315 17 2 15.65685 2 14V10C2 8.34315 3.34315 7 5 7ZM22 10V14M6 11V13" />
+      <path d="M5 5H15C17.20914 5 19 6.79086 19 9V15C19 17.20914 17.20914 19 15 19H5C2.79086 19 1 17.20914 1 15V9C1 6.79086 2.79086 5 5 5Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M5 6H15C16.65685 6 18 7.34315 18 9V15C18 16.65685 16.65685 18 15 18H5C3.34315 18 2 16.65685 2 15V9C2 7.34315 3.34315 6 5 6ZM22 9.5V14.5M6 10V14" />
     </Icon>
   )
 }
@@ -247,8 +247,8 @@ export function BatteryLow(props: IconProps) {
 export function BatteryMedium(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 6H15C17.20914 6 19 7.79086 19 10V14C19 16.20914 17.20914 18 15 18H5C2.79086 18 1 16.20914 1 14V10C1 7.79086 2.79086 6 5 6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M5 7H15C16.65685 7 18 8.34315 18 10V14C18 15.65685 16.65685 17 15 17H5C3.34315 17 2 15.65685 2 14V10C2 8.34315 3.34315 7 5 7ZM22 10V14M6 11V13M10 11V13" />
+      <path d="M5 5H15C17.20914 5 19 6.79086 19 9V15C19 17.20914 17.20914 19 15 19H5C2.79086 19 1 17.20914 1 15V9C1 6.79086 2.79086 5 5 5Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M5 6H15C16.65685 6 18 7.34315 18 9V15C18 16.65685 16.65685 18 15 18H5C3.34315 18 2 16.65685 2 15V9C2 7.34315 3.34315 6 5 6ZM22 9.5V14.5M6 10V14M10 10V14" />
     </Icon>
   )
 }
@@ -256,8 +256,8 @@ export function BatteryMedium(props: IconProps) {
 export function Battery(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 6H15C17.20914 6 19 7.79086 19 10V14C19 16.20914 17.20914 18 15 18H5C2.79086 18 1 16.20914 1 14V10C1 7.79086 2.79086 6 5 6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M5 7H15C16.65685 7 18 8.34315 18 10V14C18 15.65685 16.65685 17 15 17H5C3.34315 17 2 15.65685 2 14V10C2 8.34315 3.34315 7 5 7ZM22 10V14" />
+      <path d="M5 5H15C17.20914 5 19 6.79086 19 9V15C19 17.20914 17.20914 19 15 19H5C2.79086 19 1 17.20914 1 15V9C1 6.79086 2.79086 5 5 5Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M5 6H15C16.65685 6 18 7.34315 18 9V15C18 16.65685 16.65685 18 15 18H5C3.34315 18 2 16.65685 2 15V9C2 7.34315 3.34315 6 5 6ZM22 9.5V14.5" />
     </Icon>
   )
 }
