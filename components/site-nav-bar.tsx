@@ -20,6 +20,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { ShareMenu } from "@/components/share-menu"
+import type { ShareCounts } from "@/lib/share"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { formatStars } from "@/lib/github"
 import {
@@ -70,7 +72,13 @@ const MENU_ICONS: Record<
  * one, so the four pages that render a bar still render `<SiteNav />` and know
  * nothing about GitHub.
  */
-export function SiteNavBar({ stars }: { stars: number | null }) {
+export function SiteNavBar({
+  stars,
+  counts,
+}: {
+  stars: number | null
+  counts: ShareCounts
+}) {
   const pathname = usePathname()
   const active = currentHref(pathname)
   const isCurrent = (href: string) => href === active
@@ -351,6 +359,28 @@ export function SiteNavBar({ stars }: { stars: number | null }) {
                 <FigmaLogo className="size-4" />
               </a>
             </div>
+
+            {/*
+              A second hairline, and the same one: the three marks above point
+              at us, this points at whoever is reading. Only at `md` and up,
+              because below it the marks are in the phone's menu and there is
+              nothing on this side of the rule to separate from.
+            */}
+            <span
+              aria-hidden="true"
+              className="mx-1.5 hidden h-5 w-px shrink-0 bg-border md:block"
+            />
+
+            {/*
+              Outside the `md:` group on purpose, unlike everything above it.
+
+              That group is the bar's link row and it folds into the phone's
+              menu whole. This is not a link, it is the one thing on the bar
+              asking the reader to do something, and an ask that disappears
+              below `md` is an ask missed by every visitor who found the set on
+              a phone, which is most of them.
+            */}
+            <ShareMenu counts={counts} />
 
             {/* The link row is gone below md, so it needs a way back. */}
             <DropdownMenu>
