@@ -3,8 +3,9 @@ import {
   loadIcons,
   SET_RELEASED_LABEL,
   SET_RELEASED_AT,
+  SET_PREVIOUS_RELEASED_AT,
+  SET_PREVIOUS_RELEASED_LABEL,
   SET_PREVIOUS_RELEASED_VERSION,
-  SET_RELEASED_VERSION,
   SET_VERSION,
   STYLES,
 } from "@/lib/icons"
@@ -53,6 +54,15 @@ async function release() {
 
   return {
     count: dated.length,
+    /*
+      What the first release actually shipped, which is not what the set holds
+      today. The entry below printed the current total under "The first cut of
+      the set", so the number grew every time a drawing landed and the sentence
+      described a release that never contained them.
+    */
+    initialCount: dated.filter(
+      (icon) => icon.history!.added <= SET_PREVIOUS_RELEASED_AT
+    ).length,
     // Formatted by `pipeline/build-history.mjs`, not here. A date formatted at
     // render is formatted on both sides of hydration, and the two disagree for
     // a visitor in another locale.
@@ -93,7 +103,7 @@ export async function generateMetadata() {
 }
 
 export default async function Page() {
-  const { count, date, label, since, styles } = await release()
+  const { count, initialCount, date, label, since, styles } = await release()
 
   return (
     <>
@@ -109,6 +119,23 @@ export default async function Page() {
           <h1 className="text-4xl font-semibold tracking-tight">Changelog</h1>
           <p className="mt-3 text-base text-balance text-muted-foreground">
             Releases, new drawings and announcements, newest first.
+          </p>
+
+          {/*
+            The set as it stands, which is a fact about today rather than about
+            any one release. It sat inside the initial-release entry and made
+            that entry claim the current counts for a release cut before most of
+            them existed.
+          */}
+          <p className="mt-2 text-sm text-muted-foreground">
+            {count} drawings on one 24×24 grid, at a 2px keyline, each drawn in{" "}
+            {styles.map(({ style, count: n }, i) => (
+              <span key={style}>
+                {i > 0 && (i === styles.length - 1 ? " and " : ", ")}
+                {style} ({n})
+              </span>
+            ))}
+            .
           </p>
         </header>
 
@@ -178,8 +205,13 @@ export default async function Page() {
         )}
 
         <section className="border-t pt-8">
+          {/*
+            The first release, headed by its own version and dated by its own
+            tag. This read `SET_RELEASED_VERSION` and the current date, so the
+            moment a second release existed the page called it the initial one.
+          */}
           <h2 className="text-xl font-semibold tracking-tight">
-            {SET_RELEASED_VERSION}
+            {SET_PREVIOUS_RELEASED_VERSION}
           </h2>
 
           {/*
@@ -190,26 +222,16 @@ export default async function Page() {
           <p className="mt-2 text-sm text-muted-foreground">
             Initial release
             <span aria-hidden="true"> · </span>
-            <time dateTime={date}>{label}</time>
+            <time dateTime={SET_PREVIOUS_RELEASED_AT.slice(0, 10)}>
+              {SET_PREVIOUS_RELEASED_LABEL}
+            </time>
           </p>
 
           <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
             <p>
-              The first cut of the set: {count} drawings on one 24×24 grid, at a
-              2px keyline, built for shadcn/ui and free under the MIT licence.
-              Every icon is drawn in{" "}
-              {/*
-                Per style rather than one number, because the three are not the
-                same size and a reader deciding whether to adopt the set is
-                deciding on the style they will actually use.
-              */}
-              {styles.map(({ style, count: n }, i) => (
-                <span key={style}>
-                  {i > 0 && (i === styles.length - 1 ? " and " : ", ")}
-                  {style} ({n})
-                </span>
-              ))}
-              , and ships as an SVG, a JSX snippet and a React component.
+              The first cut of the set: {initialCount} drawings on one 24×24
+              grid, at a 2px keyline, built for shadcn/ui and free under the MIT
+              licence, shipping as SVGs, JSX snippets and React components.
             </p>
           </div>
         </section>

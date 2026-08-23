@@ -82,6 +82,7 @@ const HISTORY = history as {
   releasedAt?: string
   previousReleasedVersion?: string
   previousReleasedAt?: string
+  previousReleasedLabel?: string
   releasedLabel?: string
   people: GitAuthor[]
   icons: Record<string, Omit<IconHistory, "by"> & { by: number[] }>
@@ -124,6 +125,9 @@ export const SET_PREVIOUS_RELEASED_AT =
 /** The version that release cut. What the current entry is measured against. */
 export const SET_PREVIOUS_RELEASED_VERSION =
   HISTORY.previousReleasedVersion ?? SET_RELEASED_VERSION
+
+export const SET_PREVIOUS_RELEASED_LABEL =
+  HISTORY.previousReleasedLabel ?? SET_RELEASED_LABEL
 
 /**
  * Whether a drawing is new in the current release.

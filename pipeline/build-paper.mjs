@@ -593,15 +593,18 @@ function changelogSheet(icons, release) {
             `</div>` +
             `<div style="${DIVIDER};margin:32px 0"></div>`
           : "") +
-        `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">${release.releasedVersion}</h2>` +
+        /* The *first* release, headed and dated by its own tag. This read the
+           current version and the current date, so the moment a second release
+           existed the board called it the initial one. Its count is what that
+           release actually held, not what the set holds today. */
+        `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">${release.previousReleasedVersion}</h2>` +
         `<p style="margin:8px 0 0;font-size:13px;color:${MUTED}">` +
-          `Initial release &middot; ${release.label}` +
+          `Initial release &middot; ${release.previousLabel}` +
         `</p>` +
         `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
-          `The first cut of the set: ${release.count} drawings on one 24 × 24 grid, ` +
-          `at a 2px keyline, built for shadcn/ui and free under the MIT licence. ` +
-          `Every icon is drawn in ${list}, and ships as an SVG, a JSX snippet ` +
-          `and a React component.` +
+          `The first cut of the set: ${release.initialCount} drawings on one 24 × 24 grid, ` +
+          `at a 2px keyline, built for shadcn/ui and free under the MIT licence, ` +
+          `shipping as SVGs, JSX snippets and React components.` +
         `</p>` +
       `</div>` +
     `</section>\n`
@@ -703,6 +706,11 @@ const release = {
   /* What the current entry counts from. See NEW_SINCE above. */
   previousReleasedVersion:
     HISTORY.previousReleasedVersion ?? HISTORY.releasedVersion ?? HISTORY.version,
+  previousLabel: HISTORY.previousReleasedLabel ?? HISTORY.releasedLabel ?? "",
+  /* What the first release shipped, counted rather than carried forward. */
+  initialCount: Object.values(HISTORY.icons ?? {}).filter(
+    (h) => NEW_SINCE && h.added <= NEW_SINCE
+  ).length,
   label: HISTORY.releasedLabel ?? newest?.updatedLabel ?? "",
   /* "Last updated" is the last day a drawing moved, which is not the day the
      tag was cut. Handing it `label` printed the release date under a heading

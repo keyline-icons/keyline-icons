@@ -283,6 +283,7 @@ const out =
       /* What "new" is measured against. See the note on `previous`. */
       previousReleasedAt: previous?.date ?? null,
       previousReleasedVersion: previous?.version ?? null,
+      previousReleasedLabel: previous ? show(previous.date) : null,
       people: people.map((who) => {
         const [name, email] = who.split("\t")
         return { name, email }
