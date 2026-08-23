@@ -7,7 +7,6 @@ import {
   SET_PREVIOUS_RELEASED_LABEL,
   SET_PREVIOUS_RELEASED_VERSION,
   SET_VERSION,
-  STYLES,
 } from "@/lib/icons"
 import { pageMetadata } from "@/lib/seo"
 import { SiteFooter } from "@/components/site-footer"
@@ -76,10 +75,6 @@ async function release() {
       date: newest?.history?.added.slice(0, 10) ?? "",
       label: newest?.history?.addedLabel ?? "",
     },
-    styles: STYLES.map((style) => ({
-      style,
-      count: icons.filter((icon) => icon.art[style]).length,
-    })),
   }
 }
 
@@ -103,7 +98,7 @@ export async function generateMetadata() {
 }
 
 export default async function Page() {
-  const { count, initialCount, date, label, since, styles } = await release()
+  const { initialCount, date, label, since } = await release()
 
   return (
     <>
@@ -121,22 +116,6 @@ export default async function Page() {
             Releases, new drawings and announcements, newest first.
           </p>
 
-          {/*
-            The set as it stands, which is a fact about today rather than about
-            any one release. It sat inside the initial-release entry and made
-            that entry claim the current counts for a release cut before most of
-            them existed.
-          */}
-          <p className="mt-2 text-sm text-muted-foreground">
-            {count} drawings on one 24×24 grid, at a 2px keyline, each drawn in{" "}
-            {styles.map(({ style, count: n }, i) => (
-              <span key={style}>
-                {i > 0 && (i === styles.length - 1 ? " and " : ", ")}
-                {style} ({n})
-              </span>
-            ))}
-            .
-          </p>
         </header>
 
         {/*
