@@ -38,31 +38,31 @@ Keyline Icons
 ## Tagline
 
 ```
-530 icons in three styles, searchable inside Figma and FigJam.
+527 icons in three styles, searchable inside Figma and FigJam.
 ```
 
 Capped at 100 characters. The line above is 62, so there is room. A shorter
 alternative if it ever needs one:
 
 ```
-503 icons in three styles, drawn on one 24 × 24 grid.
+530 icons in three styles, drawn on one 24 × 24 grid.
 ```
 
 ## Description
 
 ```
-Search 530 icons and drop one on the canvas. No library to publish, no file to
+Search 527 icons and drop one on the canvas. No library to publish, no file to
 duplicate, no plan requirement.
 
 Three styles
-  stroke    530 icons, 2px, round caps and joins
-  duotone   440 icons, a 40% plate under the line
-  fill      392 icons, solid where the glyph has a region to fill
+  stroke    527 icons, 2px, round caps and joins
+  duotone   437 icons, a 40% plate under the line
+  fill      389 icons, solid where the glyph has a region to fill
 
 55 icons also come in a square- form and 54 in a circle- form, so a container
 is a search away rather than a second drawing.
 
-Search knows more than the file names. 412 icons carry curated words, so
+Search knows more than the file names. 409 icons carry curated words, so
 "south" finds arrow-down, "hamburger" finds menu and "trash" finds bin. Paste a
 component name straight out of your code and it resolves: CheckCircle2 finds
 circle-check.
@@ -110,13 +110,44 @@ expectation for an icon set. `free icons` overlaps `open source`, and page four
 marks the plugin Free natively.
 
 That leaves the five that actually distinguish it: FigJam support is rare among
-icon plugins, 415 duotone drawings are rare among icon sets, and the rest name
+icon plugins, 440 duotone drawings are rare among icon sets, and the rest name
 the audience rather than the artefact.
 
 `lucide alternative` is deliberately absent. It is the highest-intent term
 available and Figma's review criteria mention trademark compliance, so a
 competitor's project name in the tags is a grey area not worth a rejection
 cycle on a first submission. Worth revisiting once published.
+
+## Release notes
+
+Republishing shows a **Release notes** field. It is the one part of the listing
+that is per-version rather than standing copy, so each release adds an entry
+here and the modal takes the top one.
+
+**Before republishing, check whether you need to.** The icon set is fetched from
+jsDelivr at run time rather than bundled, so new drawings reach every user
+without a plugin update or a review cycle. A republish is only required when the
+plugin's own code changes, or when the listing copy goes stale, which it does
+every time the counts move. jsDelivr serves the repository, so the drawings have
+to be **pushed** before any of this is true for anyone but you.
+
+### 0.1.1
+
+```
+24 new drawings, and a Sport category.
+
+Sport      trophy, award, and podium with 1, 2 and 3 place variants
+Devices    monitor, monitor-off, bluetooth, and battery at four levels
+Layout     layout-dashboard, and grid in 2x2, 2x3, 3x2 and 3x3
+Also       alert, in bare, circle and square forms; building; loader; heart-hand
+
+Search picked up the words for all of them, so "screen" finds monitor,
+"spinner" finds loader and "office" finds building.
+```
+
+Kept to the shelves rather than a flat list of 24, because the shelf is what
+tells a reader whether the release covers anything they were missing. The full
+list by name is on `/changelog` and on the Changelog page of the Figma file.
 
 ## Support contact
 
