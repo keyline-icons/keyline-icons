@@ -77,6 +77,7 @@ pipeline/
   build-community.mjs       icons/ -> previews/community/ carousel sheets
   check-search.mjs          the four searches agree, and are right
   check-versions.mjs        each package reports the version it ships as
+  check-categories.mjs      every category label has an icon to draw it
 ```
 
 `build-react` is a restatement, not a transform: it emits one component per

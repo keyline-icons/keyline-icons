@@ -78,6 +78,7 @@ const ICONS_DIR = join(process.cwd(), "icons")
 const HISTORY = history as {
   version: string
   released: boolean
+  releasedVersion?: string
   releasedAt?: string
   releasedLabel?: string
   people: GitAuthor[]
@@ -108,6 +109,8 @@ export const SET_RELEASED = HISTORY.released
  */
 export const SET_RELEASED_AT = HISTORY.releasedAt ?? ""
 export const SET_RELEASED_LABEL = HISTORY.releasedLabel ?? ""
+/** The version that tag cut. Not `SET_VERSION` once the next one is underway. */
+export const SET_RELEASED_VERSION = HISTORY.releasedVersion ?? HISTORY.version
 
 /**
  * Whether a drawing arrived after the last release.

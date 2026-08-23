@@ -503,7 +503,7 @@ function catalogSheet(icons, totals, release) {
             `${blocks.size} icons · ${icons.size} names · ` +
               `${[...blocks.values()].reduce((n, b) => n + b.variants.length, 0)} variants`
           ) +
-          meta("Last updated:", release.label) +
+          meta("Last updated:", release.updatedLabel) +
           meta("Version:", release.version) +
           meta("Site:", SITE_LABEL) +
         `</div>` +
@@ -550,7 +550,6 @@ function changelogSheet(icons, release) {
         `</div>` +
         `<div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0">` +
           meta("Version:", release.version) +
-          meta("Released:", release.label) +
           meta("Site:", SITE_LABEL) +
         `</div>` +
       `</div>` +
@@ -559,12 +558,12 @@ function changelogSheet(icons, release) {
         /* Newest first, so anything unreleased sits above the release it is not
            in yet. The site's page is the same two entries in the same order. */
         (release.since.names.length
-          ? `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">New drawings</h2>` +
+          ? `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">${release.version}</h2>` +
             `<p style="margin:8px 0 0;font-size:13px;color:${MUTED}">` +
               `Unreleased &middot; ${release.since.label}` +
             `</p>` +
             `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
-              `${release.since.names.length} drawings added since ${release.version}, ` +
+              `${release.since.names.length} drawings added since ${release.releasedVersion}, ` +
               `and badged New in the catalogue until the next release:` +
             `</p>` +
             /* The drawings, not their names. Named only, a reader has to go
@@ -590,9 +589,9 @@ function changelogSheet(icons, release) {
             `</div>` +
             `<div style="${DIVIDER};margin:32px 0"></div>`
           : "") +
-        `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">Initial release</h2>` +
+        `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">${release.releasedVersion}</h2>` +
         `<p style="margin:8px 0 0;font-size:13px;color:${MUTED}">` +
-          `Version ${release.version} &middot; ${release.label}` +
+          `Initial release &middot; ${release.label}` +
         `</p>` +
         `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
           `The first cut of the set: ${release.count} drawings on one 24 × 24 grid, ` +
@@ -696,7 +695,13 @@ const newest = dated.reduce((a, b) => (a && a.updated > b.updated ? a : b), date
 
 const release = {
   version: HISTORY.version,
+  releasedVersion: HISTORY.releasedVersion ?? HISTORY.version,
   label: HISTORY.releasedLabel ?? newest?.updatedLabel ?? "",
+  /* "Last updated" is the last day a drawing moved, which is not the day the
+     tag was cut. Handing it `label` printed the release date under a heading
+     that promises the opposite, and it went stale in the other direction: the
+     boards said 20 August while three days of drawings sat in them. */
+  updatedLabel: newest?.updatedLabel ?? HISTORY.releasedLabel ?? "",
   since: {
     names: since.map(([name]) => name),
     label: since.reduce((a, [, h]) => (h.added > a.added ? h : a), since[0]?.[1] ?? {})

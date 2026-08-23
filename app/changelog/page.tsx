@@ -3,6 +3,7 @@ import {
   loadIcons,
   SET_RELEASED_LABEL,
   SET_RELEASED_AT,
+  SET_RELEASED_VERSION,
   SET_VERSION,
   STYLES,
 } from "@/lib/icons"
@@ -122,8 +123,13 @@ export default async function Page() {
         */}
         {since.icons.length > 0 && (
           <section className="border-t pt-8 pb-8">
+            {/*
+              Headed by the version it will ship as, like the entry under it.
+              "New drawings" named the contents rather than the release, which
+              is a heading a reader cannot place against anything.
+            */}
             <h2 className="text-xl font-semibold tracking-tight">
-              New drawings
+              {SET_VERSION}
             </h2>
 
             <p className="mt-2 text-sm text-muted-foreground">
@@ -134,7 +140,8 @@ export default async function Page() {
 
             <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
               <p>
-                {since.icons.length} drawings added since {SET_VERSION}, and
+                {since.icons.length} drawings added since{" "}
+                {SET_RELEASED_VERSION}, and
                 badged <span className="text-foreground">New</span> in the grid
                 until the next release:
               </p>
@@ -164,16 +171,16 @@ export default async function Page() {
 
         <section className="border-t pt-8">
           <h2 className="text-xl font-semibold tracking-tight">
-            Initial release
+            {SET_RELEASED_VERSION}
           </h2>
 
           {/*
-            Version and date on one line under the heading, which is where a
+            Name and date on one line under the heading, which is where a
             changelog is read from. The machine-readable date is the ISO one;
             the printed one is the label baked at build.
           */}
           <p className="mt-2 text-sm text-muted-foreground">
-            Version {SET_VERSION}
+            Initial release
             <span aria-hidden="true"> · </span>
             <time dateTime={date}>{label}</time>
           </p>

@@ -30,6 +30,7 @@ import {
   SlidersHorizontal,
   Smartphone,
   Square,
+  Trophy,
   Sun,
   User,
 } from "@/components/icons"
@@ -127,6 +128,7 @@ const CATEGORY_ICONS: Record<
   Controls: SlidersHorizontal,
   Weather: Sun,
   Shapes: Shapes,
+  Sport: Trophy,
   Web: Globe,
   [OTHER_CATEGORY]: Circle,
 }
