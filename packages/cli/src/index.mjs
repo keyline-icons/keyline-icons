@@ -24,7 +24,7 @@ const data = JSON.parse(
 )
 const { icons, styles, keywords = {} } = data
 const NAMES = Object.keys(icons)
-const VERSION = "0.1.2"
+const VERSION = "0.1.3"
 
 /** Colour only when a human is looking. Piped output stays clean. */
 const tty = process.stdout.isTTY
