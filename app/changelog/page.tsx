@@ -3,6 +3,7 @@ import {
   loadIcons,
   SET_RELEASED_LABEL,
   SET_RELEASED_AT,
+  SET_PREVIOUS_RELEASED_VERSION,
   SET_RELEASED_VERSION,
   SET_VERSION,
   STYLES,
@@ -132,16 +133,23 @@ export default async function Page() {
               {SET_VERSION}
             </h2>
 
+            {/*
+              Released, not pending. This entry used to list what had been drawn
+              since the last tag and was therefore unreleased by definition; it
+              now lists what the current release *added*, so saying "Unreleased"
+              over it contradicts the version heading above it.
+            */}
             <p className="mt-2 text-sm text-muted-foreground">
-              Unreleased
+              Released
               <span aria-hidden="true"> · </span>
-              <time dateTime={since.date}>{since.label}</time>
+              <time dateTime={date}>{label}</time>
             </p>
 
             <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
               <p>
                 {since.icons.length} drawings added since{" "}
-                {SET_RELEASED_VERSION}, each marked with a dot in the grid, and{" "}
+                {SET_PREVIOUS_RELEASED_VERSION}, each marked with a dot in the
+                grid, and{" "}
                 <span className="text-foreground">New</span> in its preview,
                 until the next release:
               </p>

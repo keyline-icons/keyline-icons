@@ -183,8 +183,12 @@ const HISTORY = JSON.parse(
  * empty. Declared up here because `row` reads it and the rows are composed a
  * long way above where the release object is assembled.
  */
+/* Measured against the release before this one, exactly as `isNewSince` is.
+   Against the current tag this list is empty the moment a release is cut, which
+   emptied the Changelog board and every dot on the category boards. */
+const NEW_SINCE = HISTORY.previousReleasedAt ?? HISTORY.releasedAt
 const since = Object.entries(HISTORY.icons ?? {})
-  .filter(([, h]) => HISTORY.releasedAt && h.added > HISTORY.releasedAt)
+  .filter(([, h]) => NEW_SINCE && h.added > NEW_SINCE)
   .sort(([a], [b]) => a.localeCompare(b))
 const NEW_NAMES = new Set(since.map(([name]) => name))
 
@@ -560,10 +564,10 @@ function changelogSheet(icons, release) {
         (release.since.names.length
           ? `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">${release.version}</h2>` +
             `<p style="margin:8px 0 0;font-size:13px;color:${MUTED}">` +
-              `Unreleased &middot; ${release.since.label}` +
+              `Released &middot; ${release.label}` +
             `</p>` +
             `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
-              `${release.since.names.length} drawings added since ${release.releasedVersion}, ` +
+              `${release.since.names.length} drawings added since ${release.previousReleasedVersion}, ` +
               `and badged New in the catalogue until the next release:` +
             `</p>` +
             /* The drawings, not their names. Named only, a reader has to go
@@ -696,6 +700,9 @@ const newest = dated.reduce((a, b) => (a && a.updated > b.updated ? a : b), date
 const release = {
   version: HISTORY.version,
   releasedVersion: HISTORY.releasedVersion ?? HISTORY.version,
+  /* What the current entry counts from. See NEW_SINCE above. */
+  previousReleasedVersion:
+    HISTORY.previousReleasedVersion ?? HISTORY.releasedVersion ?? HISTORY.version,
   label: HISTORY.releasedLabel ?? newest?.updatedLabel ?? "",
   /* "Last updated" is the last day a drawing moved, which is not the day the
      tag was cut. Handing it `label` printed the release date under a heading

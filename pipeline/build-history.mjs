@@ -250,6 +250,25 @@ const icons = Object.fromEntries(
  */
 const cut = releases.find((r) => r.version === current) ?? releases.at(-1)
 
+/**
+ * The release before the current one, which is what "new" is measured against.
+ *
+ * Not a refinement: measuring against `cut` is what made a release erase the
+ * drawings it had just shipped. `isNewSince` asks whether a drawing arrived
+ * after a release, so handing it the release being cut answers "no" for
+ * everything, every time, the instant the tag lands. The 24 drawings v0.1.1
+ * announced lost their dot at the moment v0.1.1 was published.
+ *
+ * Against the *previous* tag it means what the badge is for: what this release
+ * added. It still clears itself, one release later than before, which is the
+ * whole reason the badge is derived rather than a list someone empties.
+ *
+ * Null before the second tag. Everything downstream falls back to `releasedAt`,
+ * so a set with one release marks whatever has landed since it, which is the
+ * best answer available when there is no earlier release to compare with.
+ */
+const previous = cut ? releases[releases.indexOf(cut) - 1] : undefined
+
 const out =
   JSON.stringify(
     {
@@ -261,6 +280,9 @@ const out =
       releasedVersion: cut?.version ?? null,
       releasedAt: cut?.date ?? null,
       releasedLabel: cut ? show(cut.date) : null,
+      /* What "new" is measured against. See the note on `previous`. */
+      previousReleasedAt: previous?.date ?? null,
+      previousReleasedVersion: previous?.version ?? null,
       people: people.map((who) => {
         const [name, email] = who.split("\t")
         return { name, email }

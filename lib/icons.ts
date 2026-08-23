@@ -80,6 +80,8 @@ const HISTORY = history as {
   released: boolean
   releasedVersion?: string
   releasedAt?: string
+  previousReleasedVersion?: string
+  previousReleasedAt?: string
   releasedLabel?: string
   people: GitAuthor[]
   icons: Record<string, Omit<IconHistory, "by"> & { by: number[] }>
@@ -113,15 +115,37 @@ export const SET_RELEASED_LABEL = HISTORY.releasedLabel ?? ""
 export const SET_RELEASED_VERSION = HISTORY.releasedVersion ?? HISTORY.version
 
 /**
- * Whether a drawing arrived after the last release.
+ * When the release *before* this one was cut, which is what "new" is measured
+ * against. Falls back to the current release while there is only one.
+ */
+export const SET_PREVIOUS_RELEASED_AT =
+  HISTORY.previousReleasedAt ?? SET_RELEASED_AT
+
+/** The version that release cut. What the current entry is measured against. */
+export const SET_PREVIOUS_RELEASED_VERSION =
+  HISTORY.previousReleasedVersion ?? SET_RELEASED_VERSION
+
+/**
+ * Whether a drawing is new in the current release.
  *
  * Derived rather than listed. A hand-kept list of what is new is a list someone
  * has to remember to empty, and the one thing certain about "new" is that it
- * stops being true; comparing against the tag date means the badge clears
- * itself the moment the next version is cut.
+ * stops being true.
+ *
+ * Measured against the **previous** release, not the current one, and that
+ * distinction is the whole rule. Against the current tag the answer is "no" for
+ * every drawing the moment the tag lands, because a release cannot contain
+ * anything added after itself: v0.1.1 shipped 24 drawings and took the dot off
+ * all 24 in the same act, while its own release notes announced them. Against
+ * the previous tag the badge says what this release added, and clears when the
+ * next one is cut, which is what it was always meant to say.
  */
 export const isNewSince = (icon: Icon) =>
-  Boolean(SET_RELEASED_AT && icon.history && icon.history.added > SET_RELEASED_AT)
+  Boolean(
+    SET_PREVIOUS_RELEASED_AT &&
+      icon.history &&
+      icon.history.added > SET_PREVIOUS_RELEASED_AT
+  )
 
 /**
  * A `square-`/`circle-` prefix alone does not make a container variant. Twenty-
