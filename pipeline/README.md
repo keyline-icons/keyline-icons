@@ -752,3 +752,74 @@ fails the build rather than letting one silently win.
 
 > Export from the Components page, not the catalogue. The catalogue's frames
 > carry no style information — that is what the component sets encode.
+
+## Cutting a release
+
+Nothing in the pipeline does this. `ship` deliberately stops at the commit, so
+the steps below are the only record of the order, and the order is the whole
+difficulty.
+
+**The version is not typed anywhere.** `build-history.mjs` reads it from
+`packages/react/package.json`, and takes the release *date* from the git tag. So
+a release is a tag plus a rebuild, and bumping the React package is what decides
+what the next version is called.
+
+```bash
+git checkout main && git pull
+git tag v0.1.1 && git push origin v0.1.1
+pnpm history:build          # releasedVersion and releasedAt, off the new tag
+pnpm paper:build            # the boards are dated by the release
+pnpm icons:ci
+```
+
+Then commit `lib/icon-history.json` and `previews/paper/`, re-import the changed
+Paper sheets, and run `pnpm paper:verify`.
+
+**The tag cannot contain the file the tag produces**, and this reads as a
+mistake every time. `history:build` needs the tag to exist before it can date
+the release, so the history commit necessarily lands after the tag and the tag
+does not include it. That is not a corner anyone cut: `git show
+v0.1.0:lib/icon-history.json` says `released: false`, because at the moment
+v0.1.0 was tagged it was true.
+
+**A release clears every "new" dot, and that is the point.** `isNewSince`
+compares each drawing's added date against `releasedAt`, so moving that date
+forward empties the badge from the grid, the changelog and the Paper boards in
+one step. Expect the diff to be visible on every surface rather than in one
+file, and do not go looking for the list that needs emptying: there isn't one,
+which is why the badge is derived rather than kept.
+
+**`paper:check` is the only check that drifts** when the date moves. The rest,
+`cover`, `data`, `community` and `readmes`, are counted off `icons/` and do not
+care when the release was.
+
+### Publishing the packages
+
+Separate from the tag, and needed only when a package's contents changed. The
+CLI and the MCP server each bundle their own `icons.json`, so new drawings mean
+a new version of both; React ships its components and needs one too.
+
+There is no npm `workspaces` field in the root manifest, only a
+`pnpm-workspace.yaml`, so `npm publish --workspace` does not work. Publish from
+each directory:
+
+```bash
+cd packages/react && npm publish && cd ../..
+cd packages/cli && npm publish && cd ../..
+cd packages/mcp && npm publish && cd ../..
+```
+
+Two things that cost time when they go wrong:
+
+- **A version bump is two edits per package.** The manifest is what npm reads;
+  the `VERSION` constant in `src/index.mjs` is what the binaries answer with.
+  0.1.1 shipped with the two disagreeing. `check-versions` exists for that.
+- **npm reports a rejected publish as `E404`, not `401`.** A 404 on a `PUT` to a
+  package that plainly exists means the token was refused, not that the package
+  is missing. Check with `npm whoami` before believing the error, and re-run
+  `npm login` if it answers 401.
+
+`react` builds its `dist/` from `prepublishOnly`, so the directory is
+gitignored and never commits; a stale local build cannot ship. `npm publish
+--dry-run` runs that build and prints the tarball without authenticating, which
+makes it a real check of the contents and no check at all of the credentials.
