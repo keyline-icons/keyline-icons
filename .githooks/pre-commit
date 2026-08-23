@@ -1,0 +1,22 @@
+#!/bin/sh
+# Refuse to commit on main.
+#
+# Every branch here has earned its keep. The Sport category shipped a 500 on
+# /icons and sat harmlessly on design-file-links because that is where it was
+# written. On main it would have been live.
+#
+# Bypass, when you mean it:  git commit --no-verify
+
+branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+
+if [ "$branch" = "main" ]; then
+  printf '\033[31mrefusing to commit on main\033[0m\n\n'
+  printf '  Work on a branch and merge it:\n\n'
+  printf '    git switch -c <name>\n'
+  printf '    git commit ...\n'
+  printf '    git switch main && git merge <name>\n\n'
+  printf '  If you truly mean to commit here: git commit --no-verify\n'
+  exit 1
+fi
+
+exit 0
