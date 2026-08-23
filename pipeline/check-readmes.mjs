@@ -77,6 +77,11 @@ function counts() {
   return {
     keywords,
     icons: names.size,
+    /* Component sets rather than names: a contained form lives inside its base
+       set as a variant, so it is a name the site counts and not a set the Figma
+       file holds. The file listing quotes this one and the plugin listing does
+       not, which is why it only appears now. */
+    sets: names.size - contained('square') - contained('circle'),
     files: STYLES.reduce((n, s) => n + byStyle[s], 0),
     stroke: byStyle.stroke,
     duotone: byStyle.duotone,
@@ -122,6 +127,16 @@ const CLAIMS = [
   ['packages/figma-plugin/LISTING.md', /([\d,]+) icons also come in a square- form/, 'square'],
   ['packages/figma-plugin/LISTING.md', /form and ([\d,]+) in a circle- form/, 'circle'],
   ['packages/figma-plugin/LISTING.md', /([\d,]+) icons carry curated words/, 'keywords'],
+  /* The file's own listing, which is a second modal with its own prose. It went
+     stale at 503 while the plugin's was current, because only the plugin's was
+     written down and therefore only the plugin's was checked. */
+  ['packages/figma-plugin/LISTING.md', /^([\d,]+) icons on a 24×24 grid/m, 'icons'],
+  ['packages/figma-plugin/LISTING.md', /^([\d,]+) component sets, each with/m, 'sets'],
+  ['packages/figma-plugin/LISTING.md', /without swapping components\. ([\d,]+) icons carry a square- form/, 'square'],
+  ['packages/figma-plugin/LISTING.md', /square- form and ([\d,]+) a circle-/, 'circle'],
+  ['packages/figma-plugin/LISTING.md', /three counts differ: stroke\n([\d,]+), duotone/, 'stroke'],
+  ['packages/figma-plugin/LISTING.md', /, duotone ([\d,]+), fill/, 'duotone'],
+  ['packages/figma-plugin/LISTING.md', /, fill ([\d,]+)\./, 'fill'],
 ];
 
 /* The prose commas are part of the claim: "1,286 SVGs" reads as prose and
