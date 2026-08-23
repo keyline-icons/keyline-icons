@@ -11,6 +11,7 @@ import {
   PACKAGE_MANAGERS,
   type PackageManager,
 } from "@/lib/icon-code"
+import { track } from "@/lib/analytics"
 
 /**
  * Every way of installing the set, in a terminal, for whichever package manager
@@ -83,6 +84,7 @@ export function InstallTerminal({
       )
       setCopied(true)
       window.setTimeout(() => setCopied(false), 1600)
+      track("install_copy", { manager: pm, target: "terminal" })
     } catch {
       setCopied(false)
     }

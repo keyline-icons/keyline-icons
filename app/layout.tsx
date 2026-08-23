@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import "./globals.css"
 import {
@@ -9,6 +11,7 @@ import {
   TWITTER_DEFAULTS,
 } from "@/lib/seo"
 import { SET_TITLE } from "@/lib/site-chrome"
+import { GoogleAnalytics } from "@/components/google-analytics"
 import { RouteProgress } from "@/components/route-progress"
 import { ThemeProvider } from "@/components/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
@@ -144,6 +147,36 @@ export default function RootLayout({
             <div className="flex min-h-svh flex-col">{children}</div>
           </TooltipProvider>
         </ThemeProvider>
+        {/*
+          The two Vercel scripts, which is the whole of the page-view setup.
+
+          Both are free on Hobby, both are cookieless, so neither of them needs
+          a consent banner, and both no-op outside a Vercel deployment: nothing
+          is sent from `next dev` beyond one console line. Web Analytics counts
+          visitors, referrers and countries; Speed Insights reports the Core Web
+          Vitals of real loads, which on a page that paints 360 drawings is the
+          number worth watching after any change to the grid.
+
+          They are served first-party, from `/_vercel/insights` and
+          `/_vercel/speed-insights`, so a blocker aimed at third-party trackers
+          takes rather less of this than it takes of a `google-analytics.com`
+          script.
+
+          Custom events go through `lib/analytics.ts` instead. Those are the
+          part of this a Hobby plan does not record; see the note there.
+
+          Last in the body on purpose: nothing renders, and a script tag ahead
+          of the app is a script tag ahead of the app.
+        */}
+        <Analytics />
+        <SpeedInsights />
+        {/*
+          Renders nothing until `NEXT_PUBLIC_GA_ID` is set. It is where the
+          custom events in `lib/analytics.ts` will actually be recorded, since
+          Vercel drops them on this plan. See the note on the component,
+          including the consent question it raises.
+        */}
+        <GoogleAnalytics />
       </body>
     </html>
   )

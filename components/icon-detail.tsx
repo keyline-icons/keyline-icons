@@ -24,6 +24,7 @@ import {
   type Format,
   type PackageManager,
 } from "@/lib/icon-code"
+import { track } from "@/lib/analytics"
 import { cn } from "@/lib/utils"
 
 /**
@@ -133,17 +134,24 @@ export function IconDetail({
     [format, icon.name, style, art, size, stroke, pm]
   )
 
+  /* Counted after the write resolves; see the same handler in the dock. */
   const copy = React.useCallback(async () => {
     try {
       await navigator.clipboard.writeText(code)
       setCopied(true)
       window.setTimeout(() => setCopied(false), 1600)
+      track("icon_copy", {
+        icon: icon.name,
+        style,
+        format,
+        surface: "page",
+      })
     } catch {
       toast.error("Couldn't copy", {
         description: "Clipboard access was refused.",
       })
     }
-  }, [code])
+  }, [code, icon.name, style, format])
 
   const download = React.useCallback(() => {
     const file = snippet("svg", icon.name, style, art, { size, stroke, pm })
@@ -155,6 +163,7 @@ export function IconDetail({
     link.download = downloadName(icon.name, style)
     link.click()
     URL.revokeObjectURL(url)
+    track("icon_download", { icon: icon.name, style, surface: "page" })
   }, [icon.name, style, art, size, stroke, pm])
 
   /*

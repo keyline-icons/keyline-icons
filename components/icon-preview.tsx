@@ -25,6 +25,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { track } from "@/lib/analytics"
 import { cn } from "@/lib/utils"
 import {
   downloadName,
@@ -247,18 +248,33 @@ export function IconPreview({
     [onHeightChange]
   )
 
-  const copy = React.useCallback(async (text: string) => {
-    if (!text) return
-    try {
-      await navigator.clipboard.writeText(text)
-      setCopied(true)
-      window.setTimeout(() => setCopied(false), 1600)
-    } catch {
-      toast.error("Couldn't copy", {
-        description: "Clipboard access was refused.",
-      })
-    }
-  }, [])
+  /*
+    Counted after the write resolves, never before it. A copy the clipboard
+    refused is the one case where the reader wanted the snippet and did not get
+    it, and folding it into the same number as a successful copy would hide
+    exactly that. The tick and the event agree for the same reason.
+  */
+  const copy = React.useCallback(
+    async (text: string) => {
+      if (!text || !icon) return
+      try {
+        await navigator.clipboard.writeText(text)
+        setCopied(true)
+        window.setTimeout(() => setCopied(false), 1600)
+        track("icon_copy", {
+          icon: icon.name,
+          style,
+          format,
+          surface: "dock",
+        })
+      } catch {
+        toast.error("Couldn't copy", {
+          description: "Clipboard access was refused.",
+        })
+      }
+    },
+    [icon, style, format]
+  )
 
   const download = React.useCallback(() => {
     if (!icon || !art) return
@@ -271,6 +287,7 @@ export function IconPreview({
     link.download = downloadName(icon.name, style)
     link.click()
     URL.revokeObjectURL(url)
+    track("icon_download", { icon: icon.name, style, surface: "dock" })
   }, [icon, art, style, size, stroke, pm])
 
   /*

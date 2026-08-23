@@ -72,6 +72,11 @@ import { PhoneToggle } from "@/components/phone-toggle"
 import { TickSlider } from "@/components/tick-slider"
 import { useBrowserSettings } from "@/hooks/use-browser-settings"
 import { type BrowserSettings, SETTINGS_DEFAULTS } from "@/lib/browser-settings"
+import {
+  SEARCH_MIN_LENGTH,
+  SEARCH_SETTLE_MS,
+  track,
+} from "@/lib/analytics"
 import { nearestWord } from "@/lib/did-you-mean"
 import {
   NAV_HEIGHT,
@@ -563,6 +568,69 @@ export function IconBrowser({
   )
 
   /**
+   * A search that found nothing, reported once the typing stops.
+   *
+   * This is the one number on the site that says what to draw next. An empty
+   * result is a request for an icon from someone who is never going to file
+   * one, and the wording they used is the name they expect it to have.
+   *
+   * Three things keep it honest:
+   *
+   * - **It waits.** The grid filters on every keystroke, so "arrow" renders
+   *   empty at "a", "ar" and "arr" on the way to matching. Counting the render
+   *   would report prefixes of words that worked, and drown the queries that
+   *   did not.
+   * - **It carries the filters.** A miss under `duotone` with 40 matches in
+   *   another style is not a gap in the set, it is a filter doing its job.
+   *   `elsewhere` and `suggestion` are what separate "we have not drawn this"
+   *   from "you were two keystrokes away", and only the first is work.
+   * - **It reports a combination once.** The ref holds the last signature
+   *   sent, so backspacing into a query already counted does not count it
+   *   twice. That is the same string the pager resets on, deliberately: what
+   *   makes a result different is exactly what makes it a different search.
+   */
+  /**
+   * What makes this result the result it is.
+   *
+   * One string, read twice: the pager resets on it, because filtering changes
+   * what a page number means, and the miss report keys on it, because two
+   * searches that differ in any of these four are two searches. Kept as one
+   * const so those two can never disagree about what "the same search" means.
+   */
+  const searchSignature = `${query}|${style}|${shape}|${category}`
+
+  const emptySearch =
+    shown.length === 0 && query.trim().length >= SEARCH_MIN_LENGTH
+  const reportedSearch = React.useRef("")
+
+  React.useEffect(() => {
+    if (!emptySearch || reportedSearch.current === searchSignature) return
+
+    const timer = window.setTimeout(() => {
+      reportedSearch.current = searchSignature
+      track("search_empty", {
+        query: query.trim(),
+        style,
+        shape,
+        category,
+        elsewhere: matchesElsewhere,
+        suggestion,
+      })
+    }, SEARCH_SETTLE_MS)
+
+    return () => window.clearTimeout(timer)
+  }, [
+    emptySearch,
+    searchSignature,
+    query,
+    style,
+    shape,
+    category,
+    matchesElsewhere,
+    suggestion,
+  ])
+
+  /**
    * The page's slice, ordered before it is cut — page 2 has to be sorted
    * against the whole result, not against whatever landed on it.
    */
@@ -575,13 +643,12 @@ export function IconBrowser({
     filters do — adjusted during render rather than in an effect, which would
     paint the wrong page first and correct it after.
   */
-  const signature = `${query}|${style}|${shape}|${category}`
-  if (signature !== lastSignature) {
-    setLastSignature(signature)
+  if (searchSignature !== lastSignature) {
+    setLastSignature(searchSignature)
     setPage(1)
   }
   const currentPage = Math.min(
-    signature === lastSignature ? page : 1,
+    searchSignature === lastSignature ? page : 1,
     pageCount
   )
 

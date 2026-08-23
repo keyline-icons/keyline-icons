@@ -4,6 +4,7 @@ import * as React from "react"
 import { toast } from "sonner"
 
 import { Check, Copy } from "@/components/icons"
+import { track } from "@/lib/analytics"
 import { cn } from "@/lib/utils"
 
 /**
@@ -43,6 +44,7 @@ export function CopyName({
       await navigator.clipboard.writeText(name)
       setCopied(true)
       window.setTimeout(() => setCopied(false), 1600)
+      track("icon_name_copy", { icon: name })
     } catch {
       toast.error("Couldn't copy", {
         description: "Clipboard access was refused.",
