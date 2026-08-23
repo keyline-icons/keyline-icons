@@ -75,3 +75,21 @@ next-env.d.ts
 # fails on any drawing a sheet names that `icons/` no longer has, so a rename
 # is caught here rather than on the Community page.
 previews/community/
+
+# Announcement banners, and the copy that goes out with them.
+#
+# `marketing/` is its own git repository pointed at a private remote, and this
+# line is what keeps the two from seeing each other. How a release gets
+# announced is not part of what this project gives away: the templates, the
+# draft posts and the rendered PNGs are working material, and a public repo is
+# a strange place to leave a half-written tweet.
+#
+# The whole directory rather than a list of names, for the reason
+# `.claude/skills/` gives above: something added tomorrow is private by default
+# and cannot be published by forgetting a line here.
+#
+# The generator in there reads `icons/` and `lib/icon-history.json` out of this
+# repository, so a banner cannot claim a version or a drawing the set does not
+# have. That dependency is deliberate and one-way. Nothing here reads anything
+# in `marketing/`, and `pnpm icons:ci` passes with the directory deleted.
+marketing/
