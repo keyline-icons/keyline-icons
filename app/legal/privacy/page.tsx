@@ -1,4 +1,5 @@
 import { SETTINGS_COOKIE, SETTINGS_DEFAULTS } from "@/lib/browser-settings"
+import { loadIcons } from "@/lib/icons"
 import { pageMetadata, SITE_URL } from "@/lib/seo"
 import {
   LEGAL,
@@ -81,7 +82,7 @@ export const metadata = pageMetadata({
     "No accounts, no ads, no cross-site tracking, and nothing here knows who you are.",
 })
 
-export default function Page() {
+export default async function Page() {
   /*
     The settings the cookie actually holds, read off the defaults rather than
     typed into the sentence. A sixth setting added to `BrowserSettings` would
@@ -89,6 +90,14 @@ export default function Page() {
     is the one kind of error on this page that matters.
   */
   const stored = Object.keys(SETTINGS_DEFAULTS)
+
+  /*
+    Counted, not typed. The sentence about loading speed named a figure that was
+    already 113 drawings out of date, which is what a number written into prose
+    does: nothing lints it, and it is wrong from the next release onward. Every
+    other count on the site comes off `loadIcons()` for the same reason.
+  */
+  const drawings = (await loadIcons()).length
 
   /* The origin as a reader would say it, from the one place it is written. */
   const host = SITE_URL.replace(/^https:\/\//, "")
@@ -161,7 +170,7 @@ export default function Page() {
               Loading speed.
             </strong>{" "}
             How long pages take to render and respond, which is what tells us a
-            page of 414 drawings has become slow on a phone.
+            page of {drawings} drawings has become slow on a phone.
           </li>
         </LegalList>
         <p>
