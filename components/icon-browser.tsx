@@ -1379,22 +1379,27 @@ export function IconBrowser({
                       </span>
                     )}
                     {/*
-                      Absolute, so a badged tile is the same size as every
+                      A dot, not the word. At the tail of a release a hundred
+                      tiles carry this at once, and a hundred labels reading
+                      New pull harder than the drawings they sit on, which are
+                      what the page is for. The word is still spelled out in
+                      the preview panel, where one icon is being looked at and
+                      there is nothing for it to shout over.
+
+                      Absolute, so a marked tile is the same size as every
                       other one. In flow it would push the glyph off centre and
                       the grid would ripple around whichever icons are new.
 
-                      The text is for the eye only. The tile's accessible name
-                      is `aria-label`, which a child cannot add to, so the
-                      badge is hidden and the same fact is announced by the
-                      changelog entry that lists these by name.
+                      For the eye only. The tile's accessible name is
+                      `aria-label`, which a child cannot add to, so the mark is
+                      hidden and the same fact is announced by the panel and by
+                      the changelog entry that lists these by name.
                     */}
                     {icon.isNew && (
                       <span
                         aria-hidden="true"
-                        className="pointer-events-none absolute top-1 right-1 rounded-full bg-foreground px-1.5 py-px text-[9px] leading-[14px] font-semibold tracking-wide text-background"
-                      >
-                        New
-                      </span>
+                        className="pointer-events-none absolute top-1.5 right-1.5 size-1.5 rounded-full bg-foreground"
+                      />
                     )}
                   </button>
                 ))}

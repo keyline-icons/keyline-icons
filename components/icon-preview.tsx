@@ -421,6 +421,38 @@ export function IconPreview({
                   {category}
                 </button>
 
+                {/*
+                  The word, where the grid marks the tile with a dot alone. The
+                  grid shows every new drawing at once and a label on each one
+                  drowns the set; here there is one icon on screen, the row
+                  already reads as prose about it, and the mark that was too
+                  faint to name itself in the grid gets said out loud.
+
+                  The dot comes with it, at the size and the colour it has on a
+                  tile. That is the whole point of the badge: a dot in a corner
+                  means nothing until you have seen it once with its name
+                  attached, and the panel is where you see it, because opening
+                  an icon is what you do after noticing the mark on it.
+
+                  Outlined rather than filled, so it is not read as another
+                  chip like the category beside it, and so the dot keeps the
+                  foreground colour it wears in the grid instead of inverting
+                  to sit on a dark pill.
+
+                  Not hidden from a reader, unlike the grid's dot: this line is
+                  the panel's own description of the icon, so it is announced
+                  with the version and the date beside it.
+                */}
+                {icon.isNew && (
+                  <span className="flex items-center gap-1.5 rounded-full border border-border px-2 py-0.5 text-[10px] leading-4 font-semibold tracking-wide text-foreground">
+                    <span
+                      aria-hidden="true"
+                      className="size-1.5 shrink-0 rounded-full bg-foreground"
+                    />
+                    New
+                  </span>
+                )}
+
                 {icon.history && (
                   <span className="flex flex-wrap items-center gap-x-2 text-xs text-muted-foreground tabular-nums">
                     <span>v{icon.history.version}</span>

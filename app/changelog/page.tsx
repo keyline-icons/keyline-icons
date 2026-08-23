@@ -141,8 +141,8 @@ export default async function Page() {
             <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
               <p>
                 {since.icons.length} drawings added since{" "}
-                {SET_RELEASED_VERSION}, and
-                badged <span className="text-foreground">New</span> in the grid
+                {SET_RELEASED_VERSION}, each marked with a dot in the grid, and{" "}
+                <span className="text-foreground">New</span> in its preview,
                 until the next release:
               </p>
               {/*

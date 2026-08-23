@@ -42,7 +42,7 @@ import {
 } from "@/lib/icon-pages"
 import { parseSettings, SETTINGS_COOKIE } from "@/lib/browser-settings"
 import { aliasesFor, categoryOf } from "@/lib/icon-taxonomy"
-import { loadIcons, type Icon } from "@/lib/icons"
+import { isNewSince, loadIcons, type Icon } from "@/lib/icons"
 import { iconJsonLd, pageMetadata } from "@/lib/seo"
 import { SET_LICENSE, SET_TITLE } from "@/lib/site-chrome"
 import { cn } from "@/lib/utils"
@@ -278,6 +278,27 @@ export default async function Page({
               <span className="rounded-md bg-muted px-2 py-0.5">
                 {category}
               </span>
+
+              {/*
+                The dock's badge, on the page the dock links out to. The two
+                show the same strip of facts about one drawing, and a name
+                that is new in the panel and unmarked here reads as the page
+                being out of date rather than the badge being a grid thing.
+
+                Derived on the server, where the tag date lives. This is a
+                server component, so it can simply ask; the grid has to be
+                told, and is, in `app/icons/page.tsx`.
+              */}
+              {isNewSince(icon) && (
+                <span className="flex items-center gap-1.5 rounded-full border border-border px-2 py-0.5 text-[10px] leading-4 font-semibold tracking-wide text-foreground">
+                  <span
+                    aria-hidden="true"
+                    className="size-1.5 shrink-0 rounded-full bg-foreground"
+                  />
+                  New
+                </span>
+              )}
+
               {icon.history && (
                 <span className="flex flex-wrap items-center gap-x-2 tabular-nums">
                   <span>v{icon.history.version}</span>
