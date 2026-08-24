@@ -50,6 +50,17 @@
       ]
     },
     {
+      "match": "^captions$",
+      "note": "The CC form. `subtitles` is the same idea drawn as caption lines.",
+      "terms": [
+        "cc",
+        "closed captions",
+        "subtitles",
+        "text track",
+        "srt"
+      ]
+    },
+    {
       "match": "^cast$",
       "terms": [
         "chromecast",
@@ -433,6 +444,18 @@
       ]
     },
     {
+      "match": "^gallery-",
+      "note": "The family, so every member answers to these.",
+      "terms": [
+        "carousel",
+        "slideshow",
+        "slider",
+        "album",
+        "photos",
+        "frames"
+      ]
+    },
+    {
       "match": "^gift$",
       "terms": [
         "present",
@@ -583,6 +606,16 @@
         "playlist",
         "queue",
         "tracks"
+      ]
+    },
+    {
+      "match": "^list-video$",
+      "terms": [
+        "playlist",
+        "queue",
+        "videos",
+        "watch later",
+        "episodes"
       ]
     },
     {

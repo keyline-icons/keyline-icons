@@ -460,6 +460,15 @@ export function Camera(props: IconProps) {
   )
 }
 
+export function Captions(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M5 3L19 3C21.20914 3 23 4.79086 23 7L23 17C23 19.20914 21.20914 21 19 21L5 21C2.79086 21 1 19.20914 1 17L1 7C1 4.79086 2.79086 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M5 4L19 4C20.65685 4 22 5.34315 22 7L22 17C22 18.65685 20.65685 20 19 20L5 20C3.34315 20 2 18.65685 2 17L2 7C2 5.34315 3.34315 4 5 4ZM10 10C8.96861 9.22646 7.51813 9.36408 6.65063 10.31779C5.78312 11.2715 5.78312 12.7285 6.65063 13.68221C7.51813 14.63592 8.96861 14.77354 10 14M18 10C16.96861 9.22646 15.51813 9.36408 14.65063 10.31779C13.78312 11.2715 13.78312 12.7285 14.65063 13.68221C15.51813 14.63592 16.96861 14.77354 18 14" />
+    </Icon>
+  )
+}
+
 export function CaretDown(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -1786,6 +1795,60 @@ export function Folders(props: IconProps) {
   )
 }
 
+export function GalleryHorizontalEnd(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M14 2L18 2C20.20914 2 22 3.79086 22 6L22 18C22 20.20914 20.20914 22 18 22L14 22C11.79086 22 10 20.20914 10 18L10 6C10 3.79086 11.79086 2 14 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M14 3L18 3C19.65685 3 21 4.34315 21 6L21 18C21 19.65685 19.65685 21 18 21L14 21C12.34315 21 11 19.65685 11 18L11 6C11 4.34315 12.34315 3 14 3ZM7 5V19M3 7V17" />
+    </Icon>
+  )
+}
+
+export function GalleryHorizontalStart(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M6 2L10 2C12.20914 2 14 3.79086 14 6L14 18C14 20.20914 12.20914 22 10 22L6 22C3.79086 22 2 20.20914 2 18L2 6C2 3.79086 3.79086 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M6 3L10 3C11.65685 3 13 4.34315 13 6L13 18C13 19.65685 11.65685 21 10 21L6 21C4.34315 21 3 19.65685 3 18L3 6C3 4.34315 4.34315 3 6 3ZM17 5V19M21 7V17" />
+    </Icon>
+  )
+}
+
+export function GalleryHorizontal(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M10 2L14 2C16.20914 2 18 3.79086 18 6L18 18C18 20.20914 16.20914 22 14 22L10 22C7.79086 22 6 20.20914 6 18L6 6C6 3.79086 7.79086 2 10 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M10 3L14 3C15.65685 3 17 4.34315 17 6L17 18C17 19.65685 15.65685 21 14 21L10 21C8.34315 21 7 19.65685 7 18L7 6C7 4.34315 8.34315 3 10 3ZM3 3V21M21 3V21" />
+    </Icon>
+  )
+}
+
+export function GalleryVerticalEnd(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M6 10L18 10C20.20914 10 22 11.79086 22 14L22 18C22 20.20914 20.20914 22 18 22L6 22C3.79086 22 2 20.20914 2 18L2 14C2 11.79086 3.79086 10 6 10Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M6 11L18 11C19.65685 11 21 12.34315 21 14L21 18C21 19.65685 19.65685 21 18 21L6 21C4.34315 21 3 19.65685 3 18L3 14C3 12.34315 4.34315 11 6 11ZM5 7H19M7 3H17" />
+    </Icon>
+  )
+}
+
+export function GalleryVerticalStart(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M6 2L18 2C20.20914 2 22 3.79086 22 6L22 10C22 12.20914 20.20914 14 18 14L6 14C3.79086 14 2 12.20914 2 10L2 6C2 3.79086 3.79086 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M6 3L18 3C19.65685 3 21 4.34315 21 6L21 10C21 11.65685 19.65685 13 18 13L6 13C4.34315 13 3 11.65685 3 10L3 6C3 4.34315 4.34315 3 6 3ZM5 17H19M7 21H17" />
+    </Icon>
+  )
+}
+
+export function GalleryVertical(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M6 6L18 6C20.20914 6 22 7.79086 22 10L22 14C22 16.20914 20.20914 18 18 18L6 18C3.79086 18 2 16.20914 2 14L2 10C2 7.79086 3.79086 6 6 6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M6 7L18 7C19.65685 7 21 8.34315 21 10L21 14C21 15.65685 19.65685 17 18 17L6 17C4.34315 17 3 15.65685 3 14L3 10C3 8.34315 4.34315 7 6 7ZM3 3H21M3 21H21" />
+    </Icon>
+  )
+}
+
 export function Gift(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -2344,6 +2407,15 @@ export function ListMusic(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M23 15C23 17.2091 21.2091 19 19 19C16.7909 19 15 17.2091 15 15C15 12.7909 16.7909 11 19 11C21.2091 11 23 12.7909 23 15Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <path d="M22 15C22 16.6569 20.6569 18 19 18C17.3431 18 16 16.6569 16 15C16 13.3431 17.3431 12 19 12C20.6569 12 22 13.3431 22 15ZM2 6H16M2 12H10M2 18H10M22 15V6" />
+    </Icon>
+  )
+}
+
+export function ListVideo(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M15.89381 9.21342L21.89381 12.21084C23.36873 12.94766 23.36873 15.05234 21.89381 15.78916L15.89381 18.78658C14.56405 19.45089 13 18.48389 13 16.99742L13 11.00258C13 9.51611 14.56405 8.54911 15.89381 9.21342Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M2 6H16M2 12H10M2 18H10M15.44706 10.10679L21.44706 13.1055C22.18432 13.47396 22.18432 14.52604 21.44706 14.8945L15.44706 17.89321C14.78217 18.22552 14 17.74202 14 16.99871L14 11.00129C14 10.25798 14.78217 9.77448 15.44706 10.10679Z" />
     </Icon>
   )
 }

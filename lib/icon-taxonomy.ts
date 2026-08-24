@@ -90,9 +90,15 @@ export const CATEGORIES = [
     // viewport being framed, not as playback, and the shelf files by what a
     // drawing reads as. They are in Layout with the panels. "fullscreen" is an
     // alias on both, so the word still lands on them.
+    //
+    // `gallery-*` goes the other way and is here rather than in Layout, though
+    // it is drawn from panels: a gallery is a carousel of pictures, and the
+    // person looking for one is looking where `image` and `images` are. The
+    // drawing is panels, the thing is media, and this shelf files by the thing
+    // wherever the two disagree — the same call the taxonomy makes for `wifi`.
     label: "Media",
     match:
-      /^(play|pause|stop|record|skip-|fast-forward|rewind|repeat|volume|audio-lines|mic|headphones|headset|shuffle|music-note|list-music|camera|image|cast|subtitles|picture-in-picture)/,
+      /^(play|pause|stop|record|skip-|fast-forward|rewind|repeat|volume|audio-lines|mic|headphones|headset|shuffle|music-note|list-music|list-video|camera|image|cast|subtitles|captions|picture-in-picture|gallery-)/,
     blurb:
       "Playback, volume, capture, casting and the sound and image marks.",
   },

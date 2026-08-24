@@ -13,9 +13,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 425,
-  "names": 534,
-  "variants": 1364,
+  "icons": 433,
+  "names": 542,
+  "variants": 1388,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -274,36 +274,48 @@
       "artboard": "Media",
       "category": "Media",
       "part": 1,
-      "parts": 3,
+      "parts": 4,
       "into": "artboard",
       "width": 742,
-      "icons": 43,
-      "variants": 41,
-      "bytes": 41315
+      "icons": 51,
+      "variants": 44,
+      "bytes": 39508
     },
     {
       "file": "media-2.html",
       "artboard": "Media",
       "category": "Media",
       "part": 2,
-      "parts": 3,
+      "parts": 4,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 51,
-      "bytes": 40482
+      "variants": 42,
+      "bytes": 39718
     },
     {
       "file": "media-3.html",
       "artboard": "Media",
       "category": "Media",
       "part": 3,
-      "parts": 3,
+      "parts": 4,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 51,
-      "bytes": 37440
+      "bytes": 36192
+    },
+    {
+      "file": "media-4.html",
+      "artboard": "Media",
+      "category": "Media",
+      "part": 4,
+      "parts": 4,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 30,
+      "bytes": 22914
     },
     {
       "file": "pointers.html",
@@ -455,7 +467,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 25013
+      "bytes": 31148
     }
   ]
 }
