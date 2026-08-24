@@ -607,10 +607,16 @@ function changelogSheet(icons, release) {
               ? `The first cut of the set: ${entry.count} drawings on one 24 × 24 grid, ` +
                 `at a 2px keyline, built for shadcn/ui and free under the MIT licence, ` +
                 `shipping as SVGs, JSX snippets and React components.`
-              : `${entry.names.length} drawings added since ${entry.previous}, ` +
-                (entry.current
-                  ? `and badged New in the catalogue until the next release:`
-                  : `bringing the set to ${entry.count}:`)) +
+              /* A release is not always drawings added. One that is entirely
+                 corrections said "0 drawings added", which is true and tells a
+                 reader nothing about why they would upgrade. */
+              : entry.names.length === 0
+                ? `No new drawings. ${entry.updatedNames.length} redrawn since ` +
+                  `${entry.previous}, so the set still holds ${entry.count}:`
+                : `${entry.names.length} drawings added since ${entry.previous}, ` +
+                  (entry.current
+                    ? `and badged New in the catalogue until the next release:`
+                    : `bringing the set to ${entry.count}:`)) +
           `</p>` +
           /* The drawings, not their names. Named only, a reader has to go and
              look them up, which is the one thing this surface is here to save
@@ -619,7 +625,7 @@ function changelogSheet(icons, release) {
           (entry.initial
             ? ""
             : `<div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0">` +
-                entry.names.map((name) => {
+                (entry.names.length ? entry.names : entry.updatedNames).map((name) => {
                   const art = icons.get(name)?.art?.stroke
                   if (!art) return ""
                   return (

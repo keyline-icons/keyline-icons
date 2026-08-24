@@ -68,6 +68,12 @@ async function release() {
       icons: entry.names
         .map((name) => byName.get(name))
         .filter(Boolean) as Icon[],
+      /* A release is not always drawings added. One that is entirely
+         corrections could only say "0 drawings added", which is true and tells
+         a reader nothing about why they would upgrade. */
+      redrawn: (entry.updatedNames ?? [])
+        .map((name) => byName.get(name))
+        .filter(Boolean) as Icon[],
     })),
   }
 }
@@ -158,29 +164,36 @@ export default async function Page() {
                   components.
                 </p>
               ) : (
-                <p>
-                  {entry.icons.length} drawings added since {entry.previous},
-                  {entry.current ? (
-                    <>
-                      {" "}each marked with a dot in the grid, and{" "}
-                      <span className="text-foreground">New</span> in its
-                      preview, until the next release:
-                    </>
-                  ) : (
-                    <>
-                      {" "}bringing the set to {entry.count}:
-                    </>
-                  )}
-                </p>
+                entry.icons.length === 0 ? (
+                  <p>
+                    No new drawings. {entry.redrawn.length} redrawn since{" "}
+                    {entry.previous}, so the set still holds {entry.count}:
+                  </p>
+                ) : (
+                  <p>
+                    {entry.icons.length} drawings added since {entry.previous},
+                    {entry.current ? (
+                      <>
+                        {" "}each marked with a dot in the grid, and{" "}
+                        <span className="text-foreground">New</span> in its
+                        preview, until the next release:
+                      </>
+                    ) : (
+                      <>
+                        {" "}bringing the set to {entry.count}:
+                      </>
+                    )}
+                  </p>
+                )
               )}
               {/*
                 Drawn at grid size, not at display size. These are being
                 identified rather than admired, and 24px is the size the set is
                 built at and the size they will be used at.
               */}
-              {entry.icons.length > 0 && !entry.initial && (
+              {!entry.initial && (entry.icons.length > 0 || entry.redrawn.length > 0) && (
                 <ul className="grid grid-cols-[repeat(auto-fill,minmax(104px,1fr))] gap-2 not-prose">
-                  {entry.icons.map((icon) => (
+                  {(entry.icons.length ? entry.icons : entry.redrawn).map((icon) => (
                     <li
                       key={icon.name}
                       className="flex flex-col items-center gap-2 rounded-lg bg-muted p-3"

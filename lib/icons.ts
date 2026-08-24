@@ -86,6 +86,8 @@ export type Release = {
   /** What the set held at that tag, not what it holds today. */
   count: number
   names: string[]
+  /** Drawings that already existed and were redrawn in this release. */
+  updatedNames: string[]
 }
 
 const NOT_CONTAINERS = new Set<string>(notContainers.names)

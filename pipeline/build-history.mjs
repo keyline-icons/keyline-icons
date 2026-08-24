@@ -113,13 +113,26 @@ const releaseFor = (added) =>
  * their locales differ, which React reports as a hydration mismatch on a date
  * nobody looks at twice. One string, decided at build, cannot disagree.
  */
-const show = (iso) =>
-  new Intl.DateTimeFormat("en-GB", {
+const show = (iso) => {
+  /*
+   * The date as it was in the zone the thing happened in, which `iso` already
+   * carries as its offset. Converting to UTC first was deterministic and
+   * wrong: v0.1.3 was tagged at 04:44 +05:00, which is 23:44 the previous day
+   * in UTC, and the release went out labelled a day before it was cut. Anyone
+   * working past midnight gets the day before on everything they touch.
+   *
+   * Taking the date straight off the string keeps the one property UTC was
+   * there for — one string, decided at build, that the server and the client
+   * cannot disagree about — without the shift.
+   */
+  const [y, m, d] = iso.slice(0, 10).split("-").map(Number)
+  return new Intl.DateTimeFormat("en-GB", {
     day: "numeric",
     month: "short",
     year: "numeric",
     timeZone: "UTC",
-  }).format(new Date(iso))
+  }).format(new Date(Date.UTC(y, m - 1, d)))
+}
 
 /**
  * Only names that still exist.
