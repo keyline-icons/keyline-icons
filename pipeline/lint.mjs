@@ -122,6 +122,21 @@ const NARROW = new Set([
  *   absolute, so filling 22 can only lengthen the straight runs, which stretches
  *   the clip rather than enlarging it. Both were tried at 22 and rejected on
  *   sight. Sizing follows the drawing here, not the other way round.
+ * - **`queue`, drawn at 18 x 16 on the author's instruction.** It classifies as
+ *   a horizontal rectangle and so owes 22 on the long axis, and it is 18. This
+ *   is a decision rather than a measurement: the drawing was reviewed at 22 x 18
+ *   beside the other screens and asked for narrower, twice. There is no legal
+ *   narrower rectangle — the class fixes the long axis at 22, and 20 x 18 falls
+ *   to a ratio of 1.111, a hair under the 1.12 that separates a rectangle from a
+ *   square, so the classifier asks for 20 x 20 instead. 18 x 16 is the size that
+ *   was chosen once those two were ruled out.
+ *
+ *   What the size costs is worth knowing before anyone widens it back. Three
+ *   rows at the house 2-unit gap inside 16 units of ink leave the box exactly 8
+ *   of ink, `box + 2 + 2 + 2 + 2 = 16`, so its walls paint 4..6 and 10..12 and
+ *   its interior is 4 — the floor a closed shape is allowed. A taller box pushes
+ *   the second rule past 20.
+ *
  * - **`repeat` and `repeat-1`, sized against the loop family they belong to.**
  *   Both classify as `circle`, and the classification is an artefact of their
  *   own symmetry rather than a reading of the drawing: `repeat` is 180-degree
@@ -165,7 +180,7 @@ const SIZE_KNOWN = new Set([
   'terminal', 'terminal-asterisk',
   'credit-card', 'octagon-alert', 'package', 'settings', 'user', 'x',
   'bell', 'paperclip', 'wifi', 'wifi-info', 'wifi-exclamation',
-  'repeat', 'repeat-1',
+  'repeat', 'repeat-1', 'queue',
   'arrow-down-left', 'arrow-down-right', 'arrow-up-left', 'arrow-up-right',
 ]);
 const MIN_PAD = 1;

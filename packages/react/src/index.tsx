@@ -2124,7 +2124,7 @@ export function Forward(props: IconProps) {
 export function FullscreenExit(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M22 10H14.5C14.22386 10 14 9.77614 14 9.5V2M14.6 9.4L22 2M2 14H9.5C9.77614 14 10 14.22386 10 14.5V22M9.4 14.6L2 22" />
+      <path d="M21 10H14.5C14.22386 10 14 9.77614 14 9.5V3M14.6 9.4L21 3M3 14H9.5C9.77614 14 10 14.22386 10 14.5V21M9.4 14.6L3 21" />
     </Icon>
   )
 }
@@ -2132,7 +2132,7 @@ export function FullscreenExit(props: IconProps) {
 export function Fullscreen(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M14 2H21.5C21.77614 2 22 2.22386 22 2.5V10M13.5 10.5L21.4 2.6M10 22H2.5C2.22386 22 2 21.77614 2 21.5V14M10.5 13.5L2.6 21.4" />
+      <path d="M13 3H20.5C20.77614 3 21 3.22386 21 3.5V11M13.5 10.5L20.4 3.6M11 21H3.5C3.22386 21 3 20.77614 3 20.5V13M10.5 13.5L3.6 20.4" />
     </Icon>
   )
 }
@@ -3298,7 +3298,7 @@ export function Question(props: IconProps) {
 export function Queue(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M4 4L20 4C21.10457 4 22 4.89543 22 6L22 10C22 11.10457 21.10457 12 20 12L4 12C2.89543 12 2 11.10457 2 10L2 6C2 4.89543 2.89543 4 4 4ZM2 16H3M7 16H22M2 20H3M7 20H22" />
+      <path d="M6 5L18 5C19.10457 5 20 5.89543 20 7L20 9C20 10.10457 19.10457 11 18 11L6 11C4.89543 11 4 10.10457 4 9L4 7C4 5.89543 4.89543 5 6 5ZM4 15H20M4 19H20" />
     </Icon>
   )
 }

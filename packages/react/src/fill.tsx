@@ -2484,8 +2484,8 @@ export function Podium(props: IconProps) {
 export function Queue(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M4 3L20 3C21.65685 3 23 4.34315 23 6L23 10C23 11.65685 21.65685 13 20 13L4 13C2.34315 13 1 11.65685 1 10L1 6C1 4.34315 2.34315 3 4 3Z" fill="currentColor" stroke="none" />
-      <path d="M2 16H3M7 16H22M2 20H3M7 20H22" />
+      <path d="M6 4L18 4C19.65685 4 21 5.34315 21 7L21 9C21 10.65685 19.65685 12 18 12L6 12C4.34315 12 3 10.65685 3 9L3 7C3 5.34315 4.34315 4 6 4Z" fill="currentColor" stroke="none" />
+      <path d="M4 15H20M4 19H20" />
     </Icon>
   )
 }
