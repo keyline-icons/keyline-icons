@@ -13,9 +13,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 433,
-  "names": 542,
-  "variants": 1388,
+  "icons": 440,
+  "names": 549,
+  "variants": 1401,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -169,9 +169,9 @@
       "parts": 2,
       "into": "artboard",
       "width": 742,
-      "icons": 31,
+      "icons": 32,
       "variants": 54,
-      "bytes": 40309
+      "bytes": 40584
     },
     {
       "file": "files-2.html",
@@ -182,8 +182,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 41,
-      "bytes": 33278
+      "variants": 44,
+      "bytes": 35713
     },
     {
       "file": "git-1.html",
@@ -217,9 +217,9 @@
       "parts": 2,
       "into": "artboard",
       "width": 742,
-      "icons": 28,
-      "variants": 60,
-      "bytes": 40620
+      "icons": 31,
+      "variants": 55,
+      "bytes": 38584
     },
     {
       "file": "layout-2.html",
@@ -230,8 +230,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 15389
+      "variants": 32,
+      "bytes": 20287
     },
     {
       "file": "mail-1.html",
@@ -277,7 +277,7 @@
       "parts": 4,
       "into": "artboard",
       "width": 742,
-      "icons": 51,
+      "icons": 54,
       "variants": 44,
       "bytes": 39508
     },
@@ -291,7 +291,7 @@
       "width": 742,
       "icons": 0,
       "variants": 42,
-      "bytes": 39718
+      "bytes": 40372
     },
     {
       "file": "media-3.html",
@@ -302,8 +302,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 51,
-      "bytes": 36192
+      "variants": 55,
+      "bytes": 39722
     },
     {
       "file": "media-4.html",
@@ -314,8 +314,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 30,
-      "bytes": 22914
+      "variants": 33,
+      "bytes": 25036
     },
     {
       "file": "pointers.html",
@@ -467,7 +467,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 31148
+      "bytes": 36520
     }
   ]
 }

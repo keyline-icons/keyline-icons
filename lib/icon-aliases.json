@@ -72,6 +72,18 @@
       ]
     },
     {
+      "match": "^copy-plus$",
+      "note": "Named for its base, but it is also the add-to-queue mark.",
+      "terms": [
+        "queue",
+        "add to queue",
+        "library add",
+        "duplicate",
+        "stack",
+        "add copy"
+      ]
+    },
+    {
       "match": "dashed-panel$",
       "terms": [
         "move to",
@@ -444,6 +456,26 @@
       ]
     },
     {
+      "match": "^fullscreen$",
+      "terms": [
+        "expand",
+        "maximize",
+        "full screen",
+        "enlarge",
+        "zoom in"
+      ]
+    },
+    {
+      "match": "^fullscreen-exit$",
+      "terms": [
+        "minimize",
+        "collapse",
+        "shrink",
+        "exit full screen",
+        "zoom out"
+      ]
+    },
+    {
       "match": "^gallery-",
       "note": "The family, so every member answers to these.",
       "terms": [
@@ -609,6 +641,15 @@
       ]
     },
     {
+      "match": "^list-next$",
+      "terms": [
+        "queue",
+        "play next",
+        "up next",
+        "add next"
+      ]
+    },
+    {
       "match": "^list-video$",
       "terms": [
         "playlist",
@@ -669,6 +710,17 @@
         "enlarge",
         "corners",
         "resize"
+      ]
+    },
+    {
+      "match": "^megaphone$",
+      "terms": [
+        "announce",
+        "bullhorn",
+        "broadcast",
+        "promote",
+        "shout",
+        "campaign"
       ]
     },
     {
@@ -825,6 +877,25 @@
         "start",
         "resume",
         "video"
+      ]
+    },
+    {
+      "match": "^podcast$",
+      "terms": [
+        "broadcast",
+        "radio",
+        "rss",
+        "episode",
+        "audio show"
+      ]
+    },
+    {
+      "match": "^queue$",
+      "terms": [
+        "up next",
+        "playlist",
+        "play queue",
+        "now playing"
       ]
     },
     {

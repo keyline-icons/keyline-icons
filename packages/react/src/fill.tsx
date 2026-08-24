@@ -1014,6 +1014,15 @@ export function Compass(props: IconProps) {
   )
 }
 
+export function CopyPlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M15.8284 4C15.4046 2.8015 14.2714 2 13 2H5C3.34315 2 2 3.34315 2 5V13C2 14.2714 2.8015 15.4046 4 15.8284" />
+      <path d="M11 7L19 7C21.20914 7 23 8.79086 23 11L23 19C23 21.20914 21.20914 23 19 23L11 23C8.79086 23 7 21.20914 7 19L7 11C7 8.79086 8.79086 7 11 7ZM14 14L14 12C14 11.44772 14.44772 11 15 11C15.55228 11 16 11.44772 16 12L16 14L18 14C18.55228 14 19 14.44772 19 15C19 15.55228 18.55228 16 18 16L16 16L16 18C16 18.55228 15.55228 19 15 19C14.44772 19 14 18.55228 14 18L14 16L12 16C11.44772 16 11 15.55228 11 15C11 14.44772 11.44772 14 12 14Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function Copy(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -2143,6 +2152,15 @@ export function Map(props: IconProps) {
   )
 }
 
+export function Megaphone(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M3.50239 5.73325L19.50239 3.04206C21.33232 2.73426 23 4.14487 23 6.0005L23 13.9995C23 15.85513 21.33232 17.26574 19.50239 16.95794L3.50239 14.26675C2.05786 14.02378 1 12.77313 1 11.30831L1 8.69169C1 7.22687 2.05786 5.97622 3.50239 5.73325Z" fill="currentColor" stroke="none" />
+      <path d="M5 13.5046L5 18C5 19.10457 5.89543 20 7 20L8 20C9.10457 20 10 19.10457 10 18L10 14.3456" />
+    </Icon>
+  )
+}
+
 export function MessageCheck(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
@@ -2459,6 +2477,15 @@ export function Podium(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M4 17.25V13.75H9V10.25H14V6.75H20V17.25H4Z" fill="currentColor" stroke="none" />
       <path d="M2 17.25H22M4 17.25V13.75H9V10.25H14V6.75H20V17.25H4Z" />
+    </Icon>
+  )
+}
+
+export function Queue(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M3.89412 5.21228L9.89412 8.21099C11.36863 8.94793 11.36863 11.05207 9.89412 11.78901L3.89412 14.78772C2.56434 15.45232 1 14.48532 1 12.99871L1 7.00129C1 5.51468 2.56434 4.54768 3.89412 5.21228Z" fill="currentColor" stroke="none" />
+      <path d="M14 6H22M14 12H22M2 18H22" />
     </Icon>
   )
 }
