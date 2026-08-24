@@ -153,7 +153,11 @@ for (const style of STYLES) {
  * files a standalone shape as a variant of nothing.
  */
 const names = new Set(byName.keys())
+const NOT_CONTAINERS = new Set(
+  JSON.parse(await readFile(join(ROOT, "lib", "icon-not-containers.json"), "utf8")).names
+)
 const containerOf = (name) => {
+  if (NOT_CONTAINERS.has(name)) return "regular"
   const m = /^(square|circle)-(.+)$/.exec(name)
   return m && names.has(m[2]) ? m[1] : "regular"
 }

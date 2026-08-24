@@ -27,6 +27,18 @@ import { join } from "node:path"
 import { fileURLToPath } from "node:url"
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url))
+
+/*
+ * Names that wear a container prefix without being one. Shared with
+ * lib/icons.ts so every surface resolves a base the same way — the counts
+ * drifted apart precisely because each of these files had its own copy of the
+ * rule.
+ */
+const NOT_CONTAINERS = new Set(
+  JSON.parse(
+    await readFile(join(ROOT, "lib", "icon-not-containers.json"), "utf8")
+  ).names
+)
 const OUT = join(ROOT, "lib", "icon-keywords.json")
 
 const c = (n, s) => `\x1b[${n}m${s}\x1b[0m`
@@ -99,7 +111,9 @@ async function bases() {
   )
   const out = new Set()
   for (const name of names) {
-    const m = /^(square|circle)-(.+)$/.exec(name)
+    const m = NOT_CONTAINERS.has(name)
+      ? null
+      : /^(square|circle)-(.+)$/.exec(name)
     out.add(m && names.has(m[2]) ? m[2] : name)
   }
   return out

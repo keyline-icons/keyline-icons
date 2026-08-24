@@ -19,6 +19,18 @@ import { dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url))
+
+/*
+ * Names that wear a container prefix without being one. Shared with
+ * lib/icons.ts so every surface resolves a base the same way — the counts
+ * drifted apart precisely because each of these files had its own copy of the
+ * rule.
+ */
+const NOT_CONTAINERS = new Set(
+  JSON.parse(
+    await readFile(join(ROOT, "lib", "icon-not-containers.json"), "utf8")
+  ).names
+)
 const STYLES = ["stroke", "duotone", "fill"]
 const check = process.argv.includes("--check")
 
@@ -162,7 +174,9 @@ for (const name of Object.keys(sorted)) {
      name is unreachable by construction. Twelve of them were being written and
      shipped in all three bundles, which is harmless and reads as though the
      lookup considers them. */
-  const container = /^(square|circle)-(.+)$/.exec(name)
+  const container = NOT_CONTAINERS.has(name)
+    ? null
+    : /^(square|circle)-(.+)$/.exec(name)
   if (container && sorted[container[2]]) continue
 
   const words = new Set([

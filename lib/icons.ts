@@ -3,6 +3,7 @@ import { existsSync } from "node:fs"
 import { join } from "node:path"
 
 import history from "@/lib/icon-history.json"
+import notContainers from "@/lib/icon-not-containers.json"
 
 export const STYLES = ["stroke", "duotone", "fill"] as const
 export type Style = (typeof STYLES)[number]
@@ -85,6 +86,8 @@ export type Release = {
   count: number
   names: string[]
 }
+
+const NOT_CONTAINERS = new Set<string>(notContainers.names)
 
 const HISTORY = history as {
   version: string
@@ -182,8 +185,22 @@ export const isNewSince = (icon: Icon) =>
  * `dashed` for them to contain. Counting them as containers inflated the Square
  * and Circle sections and filed standalone shapes as variants of nothing, so
  * the base has to actually exist before the prefix means anything.
+ *
+ * And existing is still not sufficient. `square-pen` is a pen drawn over a
+ * square — the conventional edit mark — not the `pen` glyph inside a square
+ * container, and `pen` does exist, so the rule above folded both it and
+ * `circle-pen` into a family they are not part of. The Figma file always had
+ * these as three separate component sets, which is why it counted 440 icons
+ * where this counted 438, and why one surface's catalogue had two more rows
+ * than the other's.
+ *
+ * The exceptions live in `lib/icon-not-containers.json` because five other
+ * places resolve a base name the same way — build-paper, build-data,
+ * build-keywords, check-search — and a rule that only half of them know is how
+ * the counts drifted apart in the first place.
  */
 const containerOf = (name: string, exists: (base: string) => boolean) => {
+  if (NOT_CONTAINERS.has(name)) return "regular"
   const m = /^(square|circle)-(.+)$/.exec(name)
   return m && exists(m[2]) ? (m[1] as "square" | "circle") : "regular"
 }

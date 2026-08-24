@@ -1,0 +1,7 @@
+{
+  "$comment": "Names that carry a square-/circle- prefix, and whose base exists, but which are NOT container variants of it. Read by lib/icons.ts and by every pipeline script that resolves a base name, so all of them count the set the same way. See the note on containerOf in lib/icons.ts.",
+  "names": [
+    "square-pen",
+    "circle-pen"
+  ]
+}

@@ -55,6 +55,18 @@ import { join } from "node:path"
 import { fileURLToPath } from "node:url"
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url))
+
+/*
+ * Names that wear a container prefix without being one. Shared with
+ * lib/icons.ts so every surface resolves a base the same way — the counts
+ * drifted apart precisely because each of these files had its own copy of the
+ * rule.
+ */
+const NOT_CONTAINERS = new Set(
+  JSON.parse(
+    await readFile(join(ROOT, "lib", "icon-not-containers.json"), "utf8")
+  ).names
+)
 const json = process.argv.includes("--json")
 const c = (n, s) => `\x1b[${n}m${s}\x1b[0m`
 
@@ -175,6 +187,7 @@ const same = (a, b) => a.length === b.length && a.every((x, i) => x === b[i])
 function vocabularies(bundle, described, aliases) {
   const patterns = aliases.map((a) => ({ match: new RegExp(a.match), terms: a.terms }))
   const baseOf = (name) => {
+    if (NOT_CONTAINERS.has(name)) return name
     const m = /^(square|circle)-(.+)$/.exec(name)
     return m && bundle.icons[m[2]] ? m[2] : name
   }
