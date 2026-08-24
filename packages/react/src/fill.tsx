@@ -2004,8 +2004,8 @@ export function ListMusic(props: IconProps) {
 export function ListVideo(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M15.89381 9.21342L21.89381 12.21084C23.36873 12.94766 23.36873 15.05234 21.89381 15.78916L15.89381 18.78658C14.56405 19.45089 13 18.48389 13 16.99742L13 11.00258C13 9.51611 14.56405 8.54911 15.89381 9.21342Z" fill="currentColor" stroke="none" />
-      <path d="M2 6H16M2 12H10M2 18H10" />
+      <path d="M18.19907 9.40293L22.19907 12.3993C23.26698 13.19926 23.26698 14.80074 22.19907 15.6007L18.19907 18.59707C16.88045 19.58483 15 18.64393 15 16.99637L15 11.00363C15 9.35607 16.88045 8.41517 18.19907 9.40293Z" fill="currentColor" stroke="none" />
+      <path d="M2 6H16M2 12H12M2 18H12" />
     </Icon>
   )
 }
