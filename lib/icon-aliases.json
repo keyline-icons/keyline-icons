@@ -641,15 +641,6 @@
       ]
     },
     {
-      "match": "^list-next$",
-      "terms": [
-        "queue",
-        "play next",
-        "up next",
-        "add next"
-      ]
-    },
-    {
       "match": "^list-video$",
       "terms": [
         "playlist",

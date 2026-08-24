@@ -126,9 +126,6 @@ export const CATEGORIES = [
     // `fullscreen` and `fullscreen-exit` sit here with `maximize` and
     // `minimize` for the reason given under Media: brackets and diagonals
     // framing a viewport read as layout, whatever they are used to resize.
-    // `list-next` stays here too rather than following `list-music` and
-    // `list-video` into Media: those are lists OF media, this is an operation
-    // on a list, which is what the rest of the `list-*` family is.
     match: /^(panel|layout|grid|list|align|menu|maximize|minimize|fullscreen)/,
     blurb: "Panels, lists, alignment, the menu marks and the fullscreen corners.",
   },

@@ -2726,14 +2726,6 @@ export function ListMusic(props: IconProps) {
   )
 }
 
-export function ListNext(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M2 4H22M2 10H22M2 16H9M13 20H15C17.20914 20 19 18.20914 19 16V14M16 17L19 14L22 17" />
-    </Icon>
-  )
-}
-
 export function ListPlus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -2922,7 +2914,7 @@ export function Maximize(props: IconProps) {
 export function Megaphone(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M3.66826 6.7194L19.66826 4.0282C20.88821 3.82301 22 4.76341 22 6.0005L22 13.9995C22 15.23659 20.88821 16.17699 19.66826 15.9718L3.66826 13.2806C2.70524 13.11862 2 12.28486 2 11.30831L2 8.69169C2 7.71514 2.70524 6.88138 3.66826 6.7194ZM5 13.5046L5 18C5 19.10457 5.89543 20 7 20L8 20C9.10457 20 10 19.10457 10 18L10 14.3456" />
+      <path d="M5 8L10 8C12.85992 4.9425 16.81591 3.14433 21 3L20 19C19.36853 19.1022 18.72987 19.15354 18.09019 19.15354C15.09352 19.15354 12.20614 18.02805 10 16L5 16C3.89543 16 3 15.10457 3 14L3 10C3 8.89543 3.89543 8 5 8ZM10 8V16M5 16C5 18.5 6 20 8 21" />
     </Icon>
   )
 }
@@ -3306,7 +3298,7 @@ export function Question(props: IconProps) {
 export function Queue(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M3.44706 6.10679L9.44706 9.1055C10.18432 9.47396 10.18432 10.52604 9.44706 10.8945L3.44706 13.89321C2.78217 14.22552 2 13.74202 2 12.99871L2 7.00129C2 6.25798 2.78217 5.77448 3.44706 6.10679ZM14 6H22M14 12H22M2 18H22" />
+      <path d="M5 4L19 4C20.65685 4 22 5.34315 22 7L22 9C22 10.65685 20.65685 12 19 12L5 12C3.34315 12 2 10.65685 2 9L2 7C2 5.34315 3.34315 4 5 4ZM2 16H22M2 20H22" />
     </Icon>
   )
 }

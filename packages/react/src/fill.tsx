@@ -2155,8 +2155,8 @@ export function Map(props: IconProps) {
 export function Megaphone(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M3.50239 5.73325L19.50239 3.04206C21.33232 2.73426 23 4.14487 23 6.0005L23 13.9995C23 15.85513 21.33232 17.26574 19.50239 16.95794L3.50239 14.26675C2.05786 14.02378 1 12.77313 1 11.30831L1 8.69169C1 7.22687 2.05786 5.97622 3.50239 5.73325Z" fill="currentColor" stroke="none" />
-      <path d="M5 13.5046L5 18C5 19.10457 5.89543 20 7 20L8 20C9.10457 20 10 19.10457 10 18L10 14.3456" />
+      <path d="M5 7L9.57396 7C12.592 3.93794 16.66869 2.14881 20.96553 2.00059C20.97701 2.0002 20.98851 2 21 2C21.55228 2 22 2.44772 22 3C22 3.02081 21.99935 3.04161 21.99805 3.06238L20.99805 19.06238C20.96891 19.5286 20.62089 19.91253 20.15976 19.98716C19.47547 20.0979 18.78339 20.15354 18.09019 20.15354C14.97947 20.15354 11.97262 19.03417 9.61917 17L5 17C3.34315 17 2 15.65685 2 14L2 10C2 8.34315 3.34315 7 5 7ZM9 9H5C4.44772 9 4 9.44772 4 10V14C4 14.55228 4.44772 15 5 15H9Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M5 16C5 18.5 6 20 8 21" />
     </Icon>
   )
 }
@@ -2484,8 +2484,8 @@ export function Podium(props: IconProps) {
 export function Queue(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M3.89412 5.21228L9.89412 8.21099C11.36863 8.94793 11.36863 11.05207 9.89412 11.78901L3.89412 14.78772C2.56434 15.45232 1 14.48532 1 12.99871L1 7.00129C1 5.51468 2.56434 4.54768 3.89412 5.21228Z" fill="currentColor" stroke="none" />
-      <path d="M14 6H22M14 12H22M2 18H22" />
+      <path d="M5 3L19 3C21.20914 3 23 4.79086 23 7L23 9C23 11.20914 21.20914 13 19 13L5 13C2.79086 13 1 11.20914 1 9L1 7C1 4.79086 2.79086 3 5 3Z" fill="currentColor" stroke="none" />
+      <path d="M2 16H22M2 20H22" />
     </Icon>
   )
 }
