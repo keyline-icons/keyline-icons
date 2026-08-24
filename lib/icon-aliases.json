@@ -704,17 +704,6 @@
       ]
     },
     {
-      "match": "^megaphone$",
-      "terms": [
-        "announce",
-        "bullhorn",
-        "broadcast",
-        "promote",
-        "shout",
-        "campaign"
-      ]
-    },
-    {
       "match": "^menu$",
       "terms": [
         "hamburger",
@@ -887,17 +876,6 @@
         "playlist",
         "play queue",
         "now playing"
-      ]
-    },
-    {
-      "match": "^queue-volume$",
-      "terms": [
-        "volume queue",
-        "output",
-        "airplay",
-        "speaker list",
-        "now playing",
-        "sound"
       ]
     },
     {

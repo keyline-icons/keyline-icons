@@ -2911,14 +2911,6 @@ export function Maximize(props: IconProps) {
   )
 }
 
-export function Megaphone(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 6H12C13.61102 6.15 14.80353 5.80182 16 5C17.38421 4.63878 18.75463 3.73538 20 3H21C21.55228 3 22 3.55228 22 4V17C22 17.44772 21.55228 18 21 18H20C18.75463 17.26462 17.38421 16.36122 16 16C14.80353 15.19818 13.61102 14.85 12 15H5C3.34316 15 2 13.343160000000001 2 12V9C2 7.65684 3.34316 6 5 6ZM16 5V16M10 15V19C10 20.10456 8.89544 21 8 21C6.35 20.94 5.48 18.33 5.5 15" />
-    </Icon>
-  )
-}
-
 export function Menu(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -3291,14 +3283,6 @@ export function Question(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M8 9C8 6.7909 9.7909 5 12 5C14.2091 5 16 6.7909 16 9C16 10.6148 15.029 12.0712 13.5385 12.6923C12.6068 13.0805 12 13.9907 12 15" />
       <path d="M13 19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19C11 18.4477 11.4477 18 12 18C12.5523 18 13 18.4477 13 19Z" fill="currentColor" stroke="none" />
-    </Icon>
-  )
-}
-
-export function QueueVolume(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M4 9.19158L4 6.80842C4 6.25613 4.44772 5.80842 5 5.80842L6.11696 5.80842C6.45913 5.80842 6.77755 5.63347 6.96103 5.34465L8.15593 3.46377C8.33941 3.17496 8.65783 3 9 3C9.55228 3 10 3.44772 10 4L10 12C10 12.55228 9.55228 13 9 13C8.65783 13 8.33941 12.82504 8.15593 12.53623L6.96103 10.65535C6.77755 10.36653 6.45913 10.19158 6.11696 10.19158L5 10.19158C4.44772 10.19158 4 9.74387 4 9.19158ZM14.8 11.6C15.57893 10.56142 16 9.29822 16 8C16 6.70178 15.57893 5.43858 14.8 4.4M18 14C19.29822 12.26904 20 10.1637 20 8C20 5.8363 19.29822 3.73096 18 2M4 18H20M4 22H16" />
     </Icon>
   )
 }
