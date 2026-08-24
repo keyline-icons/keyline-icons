@@ -50,6 +50,17 @@
       ]
     },
     {
+      "match": "^cast$",
+      "terms": [
+        "chromecast",
+        "airplay",
+        "screen mirror",
+        "stream",
+        "broadcast",
+        "tv"
+      ]
+    },
+    {
       "match": "dashed-panel$",
       "terms": [
         "move to",
@@ -617,6 +628,17 @@
       ]
     },
     {
+      "match": "^maximize$",
+      "terms": [
+        "fullscreen",
+        "full screen",
+        "expand",
+        "enlarge",
+        "corners",
+        "resize"
+      ]
+    },
+    {
       "match": "^menu$",
       "terms": [
         "hamburger",
@@ -632,6 +654,17 @@
         "voice",
         "record",
         "speak"
+      ]
+    },
+    {
+      "match": "^minimize$",
+      "terms": [
+        "exit fullscreen",
+        "shrink",
+        "collapse",
+        "restore",
+        "corners",
+        "resize"
       ]
     },
     {
@@ -742,6 +775,16 @@
       ]
     },
     {
+      "match": "^picture-in-picture$",
+      "terms": [
+        "pip",
+        "inset",
+        "mini player",
+        "floating window",
+        "overlay"
+      ]
+    },
+    {
       "match": "^play$",
       "terms": [
         "media",
@@ -749,6 +792,25 @@
         "start",
         "resume",
         "video"
+      ]
+    },
+    {
+      "match": "^repeat",
+      "note": "The family, so repeat-1 answers to these too.",
+      "terms": [
+        "loop",
+        "replay",
+        "again",
+        "cycle"
+      ]
+    },
+    {
+      "match": "^repeat-1$",
+      "terms": [
+        "loop once",
+        "repeat one",
+        "repeat single",
+        "loop track"
       ]
     },
     {
@@ -954,6 +1016,16 @@
         "light mode",
         "appearance",
         "brightness"
+      ]
+    },
+    {
+      "match": "^subtitles$",
+      "terms": [
+        "captions",
+        "cc",
+        "closed captions",
+        "text track",
+        "srt"
       ]
     },
     {

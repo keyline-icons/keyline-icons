@@ -311,7 +311,12 @@ grew to 18 x 22 and is on-system), diagram glyphs (a git node is sized by what i
 contains), the two drawings with proportions the ladder cannot hold (`bell` and
 `paperclip`), the four diagonal arrows (the classifier reads a corner-to-corner
 shaft as a box; the spread floor is what really governs them, and their hull of
-19.0 clears it), and four answered objects — `credit-card` is honestly shallower
+19.0 clears it), `repeat` and `repeat-1` (read as a circle only because they are
+180-degree symmetric, so both pairs of corners agree and `hi - lo` falls under
+the test's 1.5; `refresh-cw` and `rotate-cw` are the same idea drawn as a real
+circle at the same 20 x 20 and escape only because an arrowhead fills one
+corner — so the family, `shuffle` included, is what sets the size), and four
+answered objects — `credit-card` is honestly shallower
 than a square, `octagon-alert` covers ~360 units at 20 against a
 disc's ~380 at 22 and would be far too heavy at 22, `user` is pinned by
 `H = W/2 + 2`, and `settings` cannot be scaled at all: its 16 tooth fillets are

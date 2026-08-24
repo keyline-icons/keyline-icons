@@ -2787,6 +2787,15 @@ export function Pen(props: IconProps) {
   )
 }
 
+export function PictureInPicture(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M5 3H19C21.20914 3 23 4.79086 23 7V17C23 19.20914 21.20914 21 19 21H5C2.79086 21 1 19.20914 1 17V7C1 4.79086 2.79086 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M5 4H19C20.65685 4 22 5.34315 22 7V17C22 18.65685 20.65685 20 19 20H5C3.34315 20 2 18.65685 2 17V7C2 5.34315 3.34315 4 5 4ZM11 11H17C17.55228 11 18 11.44772 18 12V15C18 15.55228 17.55228 16 17 16H11C10.44772 16 10 15.55228 10 15V12C10 11.44772 10.44772 11 11 11Z" />
+    </Icon>
+  )
+}
+
 export function Play(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -3736,6 +3745,15 @@ export function Stop(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M4 7C4 5.343146 5.343146 4 7 4L17 4C18.656854 4 20 5.343146 20 7L20 17C20 18.656854 18.656854 20 17 20L7 20C5.343146 20 4 18.656854 4 17Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <path d="M5 7C5 5.895431 5.895431 5 7 5L17 5C18.104569 5 19 5.895431 19 7L19 17C19 18.104569 18.104569 19 17 19L7 19C5.895431 19 5 18.104569 5 17Z" />
+    </Icon>
+  )
+}
+
+export function Subtitles(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M5 3H19C21.20914 3 23 4.79086 23 7V17C23 19.20914 21.20914 21 19 21H5C2.79086 21 1 19.20914 1 17V7C1 4.79086 2.79086 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M5 4H19C20.65685 4 22 5.34315 22 7V17C22 18.65685 20.65685 20 19 20H5C3.34315 20 2 18.65685 2 17V7C2 5.34315 3.34315 4 5 4ZM6 10H8M12 10H18M6 14H12M16 14H18" />
     </Icon>
   )
 }

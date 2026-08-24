@@ -84,10 +84,17 @@ export const CATEGORIES = [
   },
   {
     // Ahead of Layout, whose `list` prefix would otherwise claim `list-music`.
+    //
+    // `maximize` and `minimize` are deliberately NOT here, though they arrived
+    // with this batch as fullscreen controls: four corner brackets read as a
+    // viewport being framed, not as playback, and the shelf files by what a
+    // drawing reads as. They are in Layout with the panels. "fullscreen" is an
+    // alias on both, so the word still lands on them.
     label: "Media",
     match:
-      /^(play|pause|stop|record|skip-|fast-forward|rewind|volume|audio-lines|mic|headphones|headset|shuffle|music-note|list-music|camera|image)/,
-    blurb: "Playback, volume, capture and the sound and image marks.",
+      /^(play|pause|stop|record|skip-|fast-forward|rewind|repeat|volume|audio-lines|mic|headphones|headset|shuffle|music-note|list-music|camera|image|cast|subtitles|picture-in-picture)/,
+    blurb:
+      "Playback, volume, capture, casting and the sound and image marks.",
   },
   // `activity` is a pulse trace, not a transport control — it reads against the
   // bar charts and the signal bars, which is where the design file files it too.
@@ -110,8 +117,8 @@ export const CATEGORIES = [
   },
   {
     label: "Layout",
-    match: /^(panel|layout|grid|list|align|menu)/,
-    blurb: "Panels, lists, alignment and the menu marks.",
+    match: /^(panel|layout|grid|list|align|menu|maximize|minimize)/,
+    blurb: "Panels, lists, alignment, the menu marks and the fullscreen corners.",
   },
   {
     label: "Users",

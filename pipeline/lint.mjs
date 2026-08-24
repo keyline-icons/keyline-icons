@@ -122,6 +122,23 @@ const NARROW = new Set([
  *   absolute, so filling 22 can only lengthen the straight runs, which stretches
  *   the clip rather than enlarging it. Both were tried at 22 and rejected on
  *   sight. Sizing follows the drawing here, not the other way round.
+ * - **`repeat` and `repeat-1`, sized against the loop family they belong to.**
+ *   Both classify as `circle`, and the classification is an artefact of their
+ *   own symmetry rather than a reading of the drawing: `repeat` is 180-degree
+ *   symmetric, so its two pairs of corners agree (4.43 at the hooks, 3.12 at
+ *   the chevrons) and `hi - lo` falls to 1.31, under the 1.5 the circle test
+ *   allows. `refresh-cw` and `rotate-cw` are the same idea drawn as an actual
+ *   circle at the same 20 x 20, and they escape the bucket only because an
+ *   arrowhead fills one corner and pushes `hi - lo` to 2.65. Same size, same
+ *   family, opposite verdicts, decided by whether a tick happens to sit in a
+ *   corner.
+ *
+ *   Which leaves the sibling comparison to settle it, and it is not close:
+ *   `shuffle` — two rails and two 45-degree chevrons, the closest drawing in
+ *   the set — is 20 x 20, as are `refresh-cw` and `rotate-cw`. Rendered beside
+ *   the three at 40px, `repeat` at 20 matches them and `repeat` at 22 is
+ *   visibly the largest glyph in the row. Sizing follows the family here.
+ *
  * - **`wifi`, whose height is not a free axis.** The gap ladder fixes it
  *   completely: the origin mark paints 1, MIN_ELEMENT_GAP puts the first arc at
  *   r=4 and each next one 4 further out, so three arcs reach an ink radius of 13
@@ -148,6 +165,7 @@ const SIZE_KNOWN = new Set([
   'terminal', 'terminal-asterisk',
   'credit-card', 'octagon-alert', 'package', 'settings', 'user', 'x',
   'bell', 'paperclip', 'wifi', 'wifi-info', 'wifi-exclamation',
+  'repeat', 'repeat-1',
   'arrow-down-left', 'arrow-down-right', 'arrow-up-left', 'arrow-up-right',
 ]);
 const MIN_PAD = 1;

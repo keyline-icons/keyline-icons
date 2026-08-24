@@ -2340,6 +2340,14 @@ export function Pen(props: IconProps) {
   )
 }
 
+export function PictureInPicture(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M5 3H19C21.20914 3 23 4.79086 23 7V17C23 19.20914 21.20914 21 19 21H5C2.79086 21 1 19.20914 1 17V7C1 4.79086 2.79086 3 5 3ZM11 10H17C18.10457 10 19 10.89543 19 12V15C19 16.10457 18.10457 17 17 17H11C9.89543 17 9 16.10457 9 15V12C9 10.89543 9.89543 10 11 10Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+    </Icon>
+  )
+}
+
 export function Play(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
@@ -3141,6 +3149,14 @@ export function Stop(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
       <path d="M4 7C4 5.343146 5.343146 4 7 4L17 4C18.656854 4 20 5.343146 20 7L20 17C20 18.656854 18.656854 20 17 20L7 20C5.343146 20 4 18.656854 4 17Z" fill="currentColor" />
+    </Icon>
+  )
+}
+
+export function Subtitles(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M5 3H19C21.20914 3 23 4.79086 23 7V17C23 19.20914 21.20914 21 19 21H5C2.79086 21 1 19.20914 1 17V7C1 4.79086 2.79086 3 5 3ZM6 9C5.4477 9 5 9.4477 5 10C5 10.5523 5.4477 11 6 11L8 11C8.5523 11 9 10.5523 9 10C9 9.4477 8.5523 9 8 9L6 9ZM12 9C11.4477 9 11 9.4477 11 10C11 10.5523 11.4477 11 12 11L18 11C18.5523 11 19 10.5523 19 10C19 9.4477 18.5523 9 18 9L12 9ZM6 13C5.4477 13 5 13.4477 5 14C5 14.5523 5.4477 15 6 15L12 15C12.5523 15 13 14.5523 13 14C13 13.4477 12.5523 13 12 13L6 13ZM16 13C15.4477 13 15 13.4477 15 14C15 14.5523 15.4477 15 16 15L18 15C18.5523 15 19 14.5523 19 14C19 13.4477 18.5523 13 18 13L16 13Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
     </Icon>
   )
 }
