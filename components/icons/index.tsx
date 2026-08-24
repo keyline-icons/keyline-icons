@@ -2914,7 +2914,7 @@ export function Maximize(props: IconProps) {
 export function Megaphone(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 8L10 8C12.85992 4.9425 16.81591 3.14433 21 3L20 19C19.36853 19.1022 18.72987 19.15354 18.09019 19.15354C15.09352 19.15354 12.20614 18.02805 10 16L5 16C3.89543 16 3 15.10457 3 14L3 10C3 8.89543 3.89543 8 5 8ZM10 8V16M5 16C5 18.5 6 20 8 21" />
+      <path d="M7 4L16 4C16.67404 3.35806 17.56918 3 18.5 3C19.43082 3 20.32596 3.35806 21 4L21 14C20.32596 14.64194 19.43082 15.00001 18.5 15.00001C17.56918 15.00001 16.67404 14.64194 16 14L7 14C4.79086 14 3 12.20914 3 10L3 8C3 5.79086 4.79086 4 7 4ZM16 4V14M12 14V19C12 20.10457 11.10457 21 10 21C8 21 7 18 7 14" />
     </Icon>
   )
 }
@@ -3298,7 +3298,7 @@ export function Question(props: IconProps) {
 export function Queue(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 4L19 4C20.65685 4 22 5.34315 22 7L22 9C22 10.65685 20.65685 12 19 12L5 12C3.34315 12 2 10.65685 2 9L2 7C2 5.34315 3.34315 4 5 4ZM2 16H22M2 20H22" />
+      <path d="M4 4L20 4C21.10457 4 22 4.89543 22 6L22 10C22 11.10457 21.10457 12 20 12L4 12C2.89543 12 2 11.10457 2 10L2 6C2 4.89543 2.89543 4 4 4ZM2 16H22M2 20H22" />
     </Icon>
   )
 }

@@ -2155,8 +2155,8 @@ export function Map(props: IconProps) {
 export function Megaphone(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 7L9.57396 7C12.592 3.93794 16.66869 2.14881 20.96553 2.00059C20.97701 2.0002 20.98851 2 21 2C21.55228 2 22 2.44772 22 3C22 3.02081 21.99935 3.04161 21.99805 3.06238L20.99805 19.06238C20.96891 19.5286 20.62089 19.91253 20.15976 19.98716C19.47547 20.0979 18.78339 20.15354 18.09019 20.15354C14.97947 20.15354 11.97262 19.03417 9.61917 17L5 17C3.34315 17 2 15.65685 2 14L2 10C2 8.34315 3.34315 7 5 7ZM9 9H5C4.44772 9 4 9.44772 4 10V14C4 14.55228 4.44772 15 5 15H9Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <path d="M5 16C5 18.5 6 20 8 21" />
+      <path d="M7 3L15.62772 3C16.44503 2.35239 17.45722 2 18.5 2C19.68759 2 20.82968 2.45683 21.68966 3.27586C21.88784 3.46461 22 3.72632 22 4L22 14C22 14.27368 21.88784 14.53539 21.68966 14.72414C20.82968 15.54317 19.68759 16.00001 18.5 16.00001C17.45722 16.00001 16.44503 15.64761 15.62772 15L7 15C4.23858 15 2 12.76142 2 10L2 8C2 5.23858 4.23858 3 7 3ZM7 5L15 5L15 13L7 13C5.34315 13 4 11.65685 4 10L4 8C4 6.34315 5.34315 5 7 5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M12 14V19C12 20.10457 11.10457 21 10 21C8 21 7 18 7 14" />
     </Icon>
   )
 }
@@ -2484,7 +2484,7 @@ export function Podium(props: IconProps) {
 export function Queue(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 3L19 3C21.20914 3 23 4.79086 23 7L23 9C23 11.20914 21.20914 13 19 13L5 13C2.79086 13 1 11.20914 1 9L1 7C1 4.79086 2.79086 3 5 3Z" fill="currentColor" stroke="none" />
+      <path d="M4 3L20 3C21.65685 3 23 4.34315 23 6L23 10C23 11.65685 21.65685 13 20 13L4 13C2.34315 13 1 11.65685 1 10L1 6C1 4.34315 2.34315 3 4 3Z" fill="currentColor" stroke="none" />
       <path d="M2 16H22M2 20H22" />
     </Icon>
   )
