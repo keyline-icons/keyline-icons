@@ -19,6 +19,7 @@ pnpm icons:figma     # check the Figma file against raw/ (two steps, see below)
 pnpm icons:ci        # sync checks, lint, demo and README checks, typecheck (for CI)
 pnpm brand:build     # public/logo/logo.svg -> app/ icons
 pnpm paper:build     # icons/ -> previews/paper/ (sheets for paper.design)
+pnpm paper:import    # write those sheets into the paper.design file
 pnpm paper:verify    # check the paper.design file against those sheets
 ```
 
@@ -74,6 +75,7 @@ pipeline/
   build-brand.mjs           public/logo/logo.svg -> app/ icons
   build-paper.mjs           icons/ -> previews/paper/ HTML sheets
   check-paper.mjs           check the Paper file against previews/paper/
+  import-paper.mjs          write previews/paper/ into the Paper file
   build-community.mjs       icons/ -> previews/community/ carousel sheets
   check-search.mjs          the four searches agree, and are right
   check-versions.mjs        each package reports the version it ships as
@@ -730,6 +732,59 @@ parse asserts it read a pattern for every label. Without that check a regex
 written across two lines hands its whole category to `Other`, which looks like a
 grouping decision rather than a broken read.
 
+## What `import-paper` writes
+
+The other half of the Paper loop: `paper:build` writes the sheets, this writes
+them into the file.
+
+```bash
+pnpm paper:import              # the boards that are behind, and only those
+pnpm paper:import --dry-run    # name them without writing
+pnpm paper:import --all
+pnpm paper:import --board Media --board Files
+pnpm paper:import --changed HEAD
+```
+
+It was a person following a recipe until 24 Aug 2026, and the reason it is a
+script now is worth stating plainly, because the shape of the problem argues the
+other way: Paper is a desktop app, so a session concludes it cannot be reached
+and writes a warning instead. It can. Paper Desktop is a local HTTP server on
+`127.0.0.1:29979` with no auth, which is how `check-paper.mjs` has always talked
+to it, and the import is four tool calls per board.
+
+**Which boards it writes is a union of two questions, because neither answers
+the other.** `check-paper`'s findings say what the *file* is missing, which
+catches a board never imported, imported from an older sheet, or half-renamed,
+including drift this commit had nothing to do with. But that comparison is
+composition only, so a drawing redrawn under the same name in the same place is
+invisible to it, and a redraw commit is exactly that. `--changed <rev>` adds the
+boards whose sheets the commit touched. Re-importing a board that was already
+current costs a few seconds and nothing else: the write is a replace.
+
+**It will not create a board that is not in the file.** `--create` does, and
+warns, because nothing in the repo records where a board sits on the canvas, so
+a created one lands at the origin on whatever page is active and someone has to
+place it. That is a decision rather than a step.
+
+The traps are the ones `previews/paper/manifest.json` lists, now in code:
+
+- **Replace the artboard's child, never the artboard.** Deleting it loses the
+  canvas position, and nothing here records it.
+- **The replace mints a new node**, so the card has to be read again before its
+  rows container can be found for parts 2 and up.
+- **`update_styles` takes `nodeIds` plural and `rename_nodes` takes `nodeId`
+  singular**, and each answers the other's shape with a schema complaint inside
+  a *successful* result. Only a caller that reads `isError` sees it; one that
+  does not reports a write that never happened as done.
+- **Drawings arrive named `SVG`**, after their type, and are renamed from the
+  sheet in document order. Match `component === "SVG"` exactly: the nested paths
+  come back as `SVGVisualElement`, and a loose filter finds 18 candidates on a
+  sheet with 7 drawings.
+
+Exit codes carry the distinction `ship` needs: 2 means Paper was not listening,
+which is a step waiting on an app rather than a failure, and 1 means an import
+was attempted and went wrong.
+
 ## Adding icons
 
 1. In Figma, select the **Components** page and Export → SVG.
@@ -738,8 +793,15 @@ grouping decision rather than a broken read.
 4. `pnpm ship -m "Draw sun"`
 
 `ship` does the rest: every generator, the checks, the commit, and then the icon
-dates and the Paper boards folded into it. Step 3 is separate only because a
-drawing that fails the linter should be fixed before it is committed, not after.
+dates and the Paper boards folded into it. If Paper Desktop is open it writes the
+changed boards into the file too and verifies them; if it is not, it says so and
+the step waits. Step 3 is separate only because a drawing that fails the linter
+should be fixed before it is committed, not after.
+
+Figma is the one surface `ship` can only talk about. Writing drawings into the
+file is the plugin API, and the REST API will not carry a vector, so a commit
+that touches `raw/` ends with a warning that Figma is behind and the command
+that proves it.
 
 Figma exports component-set variants as one folder per set, with the variant
 properties as the filename:
@@ -777,8 +839,8 @@ pnpm paper:build            # the boards are dated by the release
 pnpm icons:ci
 ```
 
-Then commit `lib/icon-history.json` and `previews/paper/`, re-import the changed
-Paper sheets, and run `pnpm paper:verify`.
+Then commit `lib/icon-history.json` and `previews/paper/`, run
+`pnpm paper:import` with the file open, and confirm with `pnpm paper:verify`.
 
 **The tag cannot contain the file the tag produces**, and this reads as a
 mistake every time. `history:build` needs the tag to exist before it can date
@@ -793,6 +855,27 @@ forward empties the badge from the grid, the changelog and the Paper boards in
 one step. Expect the diff to be visible on every surface rather than in one
 file, and do not go looking for the list that needs emptying: there isn't one,
 which is why the badge is derived rather than kept.
+
+**A changelog only ever grows. Never delete or reword a published entry.** Every
+changelog surface is generated and redrawn from scratch on every build, so a bug
+in the *shape* of the data does not fail, it silently publishes less history than
+yesterday. Both surfaces were built from `releasedVersion` and
+`previousReleasedVersion` — two scalars, therefore two entries — and cutting
+v0.1.2 deleted v0.1.0 from the board and printed "Initial release" over v0.1.1.
+It survived v0.1.1 only because with two tags the wrong shape and the right one
+agree.
+
+Anything that lists releases reads `HISTORY.releases` / `SET_RELEASES`, which
+holds all of them with per-tag counts and membership; `initial` marks the oldest
+tag and nothing else. `build-history.mjs` reads the file already on disk and
+refuses to write one that has lost a release it previously recorded, so the
+committed file is the record. If a tag is genuinely being retracted, delete its
+entry deliberately in a commit that says so.
+
+> Deleting a tag to test that guard rewrites its date, because a lightweight
+> tag's `creatordate` is its commit's. Recover the original from
+> `git show v<older-tag>:lib/icon-history.json`, which recorded the date and lets
+> you find the commit by it. Better: don't delete the tag.
 
 **`paper:check` is the only check that drifts** when the date moves. The rest,
 `cover`, `data`, `community` and `readmes`, are counted off `icons/` and do not
