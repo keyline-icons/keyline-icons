@@ -3290,7 +3290,7 @@ export function Question(props: IconProps) {
 export function Queue(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M6 4L18 4C19.10457 4 20 4.89543 20 6L20 10C20 11.10457 19.10457 12 18 12L6 12C4.89543 12 4 11.10457 4 10L4 6C4 4.89543 4.89543 4 6 4ZM4 16H20M4 20H16" />
+      <path d="M4 4L20 4C21.10457 4 22 4.89543 22 6L22 10C22 11.10457 21.10457 12 20 12L4 12C2.89543 12 2 11.10457 2 10L2 6C2 4.89543 2.89543 4 4 4ZM2 16H22M2 20H17" />
     </Icon>
   )
 }
