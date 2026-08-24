@@ -1,7 +1,7 @@
 {
   "name": "@keyline-icons/react",
-  "version": "0.1.1",
-  "description": "Icons on one 24×24 grid, as React components in three weights: stroke, duotone and fill. Built for shadcn/ui.",
+  "version": "0.1.2",
+  "description": "Icons on one 24\u00d724 grid, as React components in three weights: stroke, duotone and fill. Built for shadcn/ui.",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
