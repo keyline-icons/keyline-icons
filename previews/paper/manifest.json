@@ -219,7 +219,7 @@
       "width": 742,
       "icons": 30,
       "variants": 61,
-      "bytes": 41585
+      "bytes": 41577
     },
     {
       "file": "layout-2.html",
@@ -290,8 +290,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 42,
-      "bytes": 40660
+      "variants": 39,
+      "bytes": 37660
     },
     {
       "file": "media-3.html",
@@ -302,8 +302,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 55,
-      "bytes": 39451
+      "variants": 54,
+      "bytes": 40929
     },
     {
       "file": "media-4.html",
@@ -314,8 +314,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 33,
-      "bytes": 25036
+      "variants": 37,
+      "bytes": 27944
     },
     {
       "file": "pointers.html",
@@ -467,7 +467,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 35824
+      "bytes": 35838
     }
   ]
 }
