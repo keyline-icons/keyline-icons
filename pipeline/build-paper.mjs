@@ -559,53 +559,52 @@ function changelogSheet(icons, release) {
       `</div>` +
 
       `<div style="padding:40px">` +
-        /* Newest first, so anything unreleased sits above the release it is not
-           in yet. The site's page is the same two entries in the same order. */
-        (release.since.names.length
-          ? `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">${release.version}</h2>` +
-            `<p style="margin:8px 0 0;font-size:13px;color:${MUTED}">` +
-              `Released &middot; ${release.label}` +
-            `</p>` +
-            `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
-              `${release.since.names.length} drawings added since ${release.previousReleasedVersion}, ` +
-              `and badged New in the catalogue until the next release:` +
-            `</p>` +
-            /* The drawings, not their names. Named only, a reader has to go
-               and look them up, which is the one thing this surface is here to
-               save them. Drawn at grid size: they are being identified rather
-               than admired, and 24 is the size the set is built at. */
-            `<div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0">` +
-              release.since.names.map((name) => {
-                const art = icons.get(name)?.art?.stroke
-                if (!art) return ""
-                return (
-                  `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;` +
-                    `width:104px;padding:12px 4px;box-sizing:border-box;border-radius:10px;` +
-                    `background:${STRIPE}">` +
-                    `<svg width="${SIZE}" height="${SIZE}" xmlns="http://www.w3.org/2000/svg" ` +
-                    `role="img" aria-label="${name} stroke" data-icon="${name}" ` +
-                    `data-style="stroke" ${art.attrs}>${art.body}</svg>` +
-                    `<span style="font-size:11px;line-height:1.2;color:${MUTED};` +
-                      `text-align:center">${name}</span>` +
-                  `</div>`
-                )
-              }).join("") +
-            `</div>` +
-            `<div style="${DIVIDER};margin:32px 0"></div>`
-          : "") +
-        /* The *first* release, headed and dated by its own tag. This read the
-           current version and the current date, so the moment a second release
-           existed the board called it the initial one. Its count is what that
-           release actually held, not what the set holds today. */
-        `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">${release.previousReleasedVersion}</h2>` +
-        `<p style="margin:8px 0 0;font-size:13px;color:${MUTED}">` +
-          `Initial release &middot; ${release.previousLabel}` +
-        `</p>` +
-        `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
-          `The first cut of the set: ${release.initialCount} drawings on one 24 × 24 grid, ` +
-          `at a 2px keyline, built for shadcn/ui and free under the MIT licence, ` +
-          `shipping as SVGs, JSX snippets and React components.` +
-        `</p>` +
+        /* One block per release, newest first, every release that has ever been
+           cut. Entries are never dropped and never relabelled: see the note on
+           `release.entries`. */
+        release.entries.map((entry, i) =>
+          (i > 0 ? `<div style="${DIVIDER};margin:32px 0"></div>` : "") +
+          `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">${entry.version}</h2>` +
+          `<p style="margin:8px 0 0;font-size:13px;color:${MUTED}">` +
+            /* "Initial release" belongs to the oldest tag and to nothing else.
+               Printed over whichever entry came second, it announced each
+               release's predecessor as the first cut of the set. */
+            `${entry.initial ? "Initial release" : "Released"} &middot; ${entry.label}` +
+          `</p>` +
+          `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
+            (entry.initial
+              ? `The first cut of the set: ${entry.count} drawings on one 24 × 24 grid, ` +
+                `at a 2px keyline, built for shadcn/ui and free under the MIT licence, ` +
+                `shipping as SVGs, JSX snippets and React components.`
+              : `${entry.names.length} drawings added since ${entry.previous}, ` +
+                (entry.current
+                  ? `and badged New in the catalogue until the next release:`
+                  : `bringing the set to ${entry.count}:`)) +
+          `</p>` +
+          /* The drawings, not their names. Named only, a reader has to go and
+             look them up, which is the one thing this surface is here to save
+             them. Drawn at grid size: they are being identified rather than
+             admired, and 24 is the size the set is built at. */
+          (entry.initial
+            ? ""
+            : `<div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0">` +
+                entry.names.map((name) => {
+                  const art = icons.get(name)?.art?.stroke
+                  if (!art) return ""
+                  return (
+                    `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;` +
+                      `width:104px;padding:12px 4px;box-sizing:border-box;border-radius:10px;` +
+                      `background:${STRIPE}">` +
+                      `<svg width="${SIZE}" height="${SIZE}" xmlns="http://www.w3.org/2000/svg" ` +
+                      `role="img" aria-label="${name} stroke" data-icon="${name}" ` +
+                      `data-style="stroke" ${art.attrs}>${art.body}</svg>` +
+                      `<span style="font-size:11px;line-height:1.2;color:${MUTED};` +
+                        `text-align:center">${name}</span>` +
+                    `</div>`
+                  )
+                }).join("") +
+              `</div>`)
+        ).join("") +
       `</div>` +
     `</section>\n`
   )
@@ -722,6 +721,20 @@ const release = {
     label: since.reduce((a, [, h]) => (h.added > a.added ? h : a), since[0]?.[1] ?? {})
       ?.addedLabel ?? "",
   },
+  /*
+   * Every release, newest first, straight off the generated list.
+   *
+   * This board used to be assembled from `releasedVersion` and
+   * `previousReleasedVersion`, which describe two releases and can therefore
+   * only ever draw two entries. Cutting a third deleted the oldest: v0.1.2
+   * pushed v0.1.0 off the board and printed "Initial release" over v0.1.1. A
+   * changelog only grows, so it is drawn from the list that holds all of them.
+   */
+  entries: (HISTORY.releases ?? []).map((entry, i, all) => ({
+    ...entry,
+    previous: all[i + 1]?.version ?? null,
+    current: i === 0,
+  })),
   /* The page counts drawings that carry a history entry, which is names rather
      than base icons and lags `icons/` until `history:build` runs. Both are true
      of `/changelog` as well, so mirroring the number is what keeps the two

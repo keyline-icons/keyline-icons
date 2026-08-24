@@ -1,12 +1,7 @@
 import {
-  isNewSince,
   loadIcons,
-  SET_RELEASED_LABEL,
-  SET_RELEASED_AT,
-  SET_PREVIOUS_RELEASED_AT,
-  SET_PREVIOUS_RELEASED_LABEL,
-  SET_PREVIOUS_RELEASED_VERSION,
-  SET_VERSION,
+  SET_RELEASES,
+  type Icon,
 } from "@/lib/icons"
 import { pageMetadata } from "@/lib/seo"
 import { SiteFooter } from "@/components/site-footer"
@@ -16,11 +11,18 @@ import { Glyph } from "@/components/glyph"
 /**
  * What has shipped, release by release.
  *
- * There is one release, so there is one entry, and that is the whole page. An
- * earlier version of it grouped every drawing by the day it was committed and
- * printed all 484 of them as tiles: a second icon browser, filed by date,
+ * One entry per release, newest first, every release that has ever been cut.
+ * An earlier version of it grouped every drawing by the day it was committed
+ * and printed all 484 of them as tiles: a second icon browser, filed by date,
  * answering a question `/icons` and the icon pages already answer better. A
  * changelog is for the release, not for the inventory.
+ *
+ * **Entries are never removed and never rewritten.** The page is generated, so
+ * every cut rebuilds it from scratch, and for two releases it was built from
+ * `SET_RELEASED_*` and `SET_PREVIOUS_RELEASED_*` — which describe two releases
+ * and therefore silently deleted the third. Cutting v0.1.2 dropped v0.1.0 off
+ * the bottom and relabelled v0.1.1 "Initial release". Anything added here must
+ * read `SET_RELEASES`, which holds all of them, rather than the two scalars.
  *
  * The Figma file carries the same page, written by hand. The two are meant to
  * say the same thing, so an edit here is an edit there.
@@ -43,38 +45,30 @@ import { Glyph } from "@/components/glyph"
 async function release() {
   const icons = await loadIcons()
   const dated = icons.filter((icon) => icon.history)
-  const since = dated.filter(isNewSince)
-
-  const newest = since.reduce(
-    (latest, icon) =>
-      !latest || icon.history!.added > latest.history!.added ? icon : latest,
-    since[0]
-  )
+  const byName = new Map(icons.map((icon) => [icon.name, icon]))
 
   return {
     count: dated.length,
     /*
-      What the first release actually shipped, which is not what the set holds
-      today. The entry below printed the current total under "The first cut of
-      the set", so the number grew every time a drawing landed and the sentence
-      described a release that never contained them.
+      One entry per release, newest first, straight off the generated list.
+      Counts and membership are as of each tag rather than as of today: the
+      entry under "The first cut of the set" used to print the current total,
+      so the number grew every time a drawing landed and the sentence described
+      a release that never contained them.
     */
-    initialCount: dated.filter(
-      (icon) => icon.history!.added <= SET_PREVIOUS_RELEASED_AT
-    ).length,
-    // Formatted by `pipeline/build-history.mjs`, not here. A date formatted at
-    // render is formatted on both sides of hydration, and the two disagree for
-    // a visitor in another locale.
-    date: SET_RELEASED_AT.slice(0, 10),
-    label: SET_RELEASED_LABEL,
-    since: {
+    entries: SET_RELEASES.map((entry, i) => ({
+      ...entry,
+      previous: SET_RELEASES[i + 1]?.version ?? null,
+      /* Newest first, so the entry after this one in the array is the release
+         before it in time, and the newest entry is the only one still current. */
+      current: i === 0,
       // The drawings, not their names. A changelog that only names them makes
       // the reader go and look them up, which is the one thing this page is
       // placed to save them.
-      icons: [...since].sort((a, b) => a.name.localeCompare(b.name)),
-      date: newest?.history?.added.slice(0, 10) ?? "",
-      label: newest?.history?.addedLabel ?? "",
-    },
+      icons: entry.names
+        .map((name) => byName.get(name))
+        .filter(Boolean) as Icon[],
+    })),
   }
 }
 
@@ -98,7 +92,7 @@ export async function generateMetadata() {
 }
 
 export default async function Page() {
-  const { initialCount, date, label, since } = await release()
+  const { entries } = await release()
 
   return (
     <>
@@ -119,8 +113,8 @@ export default async function Page() {
         </header>
 
         {/*
-          A `section` per entry, newest first, exactly as the note above this
-          block always said the second one would be.
+          A `section` per entry, newest first — every release, not the two the
+          old scalars could describe.
 
           It names the drawings and stops there. An earlier version of this page
           printed every icon in the set as a tile and became a second browser
@@ -128,92 +122,83 @@ export default async function Page() {
           not give you, because `/icons` cannot show you what you have already
           seen.
         */}
-        {since.icons.length > 0 && (
-          <section className="border-t pt-8 pb-8">
+        {entries.map((entry) => (
+          <section key={entry.version} className="border-t pt-8 pb-8">
             {/*
-              Headed by the version it will ship as, like the entry under it.
-              "New drawings" named the contents rather than the release, which
-              is a heading a reader cannot place against anything.
+              Headed by the version it shipped as. "New drawings" named the
+              contents rather than the release, which is a heading a reader
+              cannot place against anything.
             */}
             <h2 className="text-xl font-semibold tracking-tight">
-              {SET_VERSION}
+              {entry.version}
             </h2>
 
             {/*
-              Released, not pending. This entry used to list what had been drawn
-              since the last tag and was therefore unreleased by definition; it
-              now lists what the current release *added*, so saying "Unreleased"
-              over it contradicts the version heading above it.
+              Name and date on one line under the heading, which is where a
+              changelog is read from. The machine-readable date is the ISO one;
+              the printed one is the label baked at build.
+
+              "Initial release" belongs to the oldest tag and to nothing else.
+              It used to be printed over whichever entry happened to be second
+              on the page, which made every release after the second one
+              announce its predecessor as the first cut of the set.
             */}
             <p className="mt-2 text-sm text-muted-foreground">
-              Released
+              {entry.initial ? "Initial release" : "Released"}
               <span aria-hidden="true"> · </span>
-              <time dateTime={date}>{label}</time>
+              <time dateTime={entry.date.slice(0, 10)}>{entry.label}</time>
             </p>
 
             <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
-              <p>
-                {since.icons.length} drawings added since{" "}
-                {SET_PREVIOUS_RELEASED_VERSION}, each marked with a dot in the
-                grid, and{" "}
-                <span className="text-foreground">New</span> in its preview,
-                until the next release:
-              </p>
+              {entry.initial ? (
+                <p>
+                  The first cut of the set: {entry.count} drawings on one 24×24
+                  grid, at a 2px keyline, built for shadcn/ui and free under the
+                  MIT licence, shipping as SVGs, JSX snippets and React
+                  components.
+                </p>
+              ) : (
+                <p>
+                  {entry.icons.length} drawings added since {entry.previous},
+                  {entry.current ? (
+                    <>
+                      {" "}each marked with a dot in the grid, and{" "}
+                      <span className="text-foreground">New</span> in its
+                      preview, until the next release:
+                    </>
+                  ) : (
+                    <>
+                      {" "}bringing the set to {entry.count}:
+                    </>
+                  )}
+                </p>
+              )}
               {/*
                 Drawn at grid size, not at display size. These are being
                 identified rather than admired, and 24px is the size the set is
                 built at and the size they will be used at.
               */}
-              <ul className="grid grid-cols-[repeat(auto-fill,minmax(104px,1fr))] gap-2 not-prose">
-                {since.icons.map((icon) => (
-                  <li
-                    key={icon.name}
-                    className="flex flex-col items-center gap-2 rounded-lg bg-muted p-3"
-                  >
-                    <span className="text-foreground">
-                      <Glyph art={icon.art.stroke!} size={24} stroke={2} />
-                    </span>
-                    <span className="w-full truncate text-center text-[11px] leading-tight">
-                      {icon.name}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              {entry.icons.length > 0 && !entry.initial && (
+                <ul className="grid grid-cols-[repeat(auto-fill,minmax(104px,1fr))] gap-2 not-prose">
+                  {entry.icons.map((icon) => (
+                    <li
+                      key={icon.name}
+                      className="flex flex-col items-center gap-2 rounded-lg bg-muted p-3"
+                    >
+                      <span className="text-foreground">
+                        <Glyph art={icon.art.stroke!} size={24} stroke={2} />
+                      </span>
+                      <span className="w-full truncate text-center text-[11px] leading-tight">
+                        {icon.name}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </section>
-        )}
+        ))}
 
-        <section className="border-t pt-8">
-          {/*
-            The first release, headed by its own version and dated by its own
-            tag. This read `SET_RELEASED_VERSION` and the current date, so the
-            moment a second release existed the page called it the initial one.
-          */}
-          <h2 className="text-xl font-semibold tracking-tight">
-            {SET_PREVIOUS_RELEASED_VERSION}
-          </h2>
-
-          {/*
-            Name and date on one line under the heading, which is where a
-            changelog is read from. The machine-readable date is the ISO one;
-            the printed one is the label baked at build.
-          */}
-          <p className="mt-2 text-sm text-muted-foreground">
-            Initial release
-            <span aria-hidden="true"> · </span>
-            <time dateTime={SET_PREVIOUS_RELEASED_AT.slice(0, 10)}>
-              {SET_PREVIOUS_RELEASED_LABEL}
-            </time>
-          </p>
-
-          <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
-            <p>
-              The first cut of the set: {initialCount} drawings on one 24×24
-              grid, at a 2px keyline, built for shadcn/ui and free under the MIT
-              licence, shipping as SVGs, JSX snippets and React components.
-            </p>
-          </div>
-        </section>
       </main>
 
       <SiteFooter />

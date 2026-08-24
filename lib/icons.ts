@@ -75,6 +75,17 @@ function rootAttrs(svg: string): Record<string, string> {
 
 const ICONS_DIR = join(process.cwd(), "icons")
 
+export type Release = {
+  version: string
+  date: string
+  label: string
+  /** True for the oldest tag only. The one entry that gets the first-cut copy. */
+  initial: boolean
+  /** What the set held at that tag, not what it holds today. */
+  count: number
+  names: string[]
+}
+
 const HISTORY = history as {
   version: string
   released: boolean
@@ -83,6 +94,7 @@ const HISTORY = history as {
   previousReleasedVersion?: string
   previousReleasedAt?: string
   previousReleasedLabel?: string
+  releases?: Release[]
   releasedLabel?: string
   people: GitAuthor[]
   icons: Record<string, Omit<IconHistory, "by"> & { by: number[] }>
@@ -128,6 +140,18 @@ export const SET_PREVIOUS_RELEASED_VERSION =
 
 export const SET_PREVIOUS_RELEASED_LABEL =
   HISTORY.previousReleasedLabel ?? SET_RELEASED_LABEL
+
+/**
+ * Every release, newest first, with what each one added.
+ *
+ * The scalars above describe two releases, and a changelog is not two releases.
+ * Built from them, the page dropped the oldest entry every time a new one was
+ * cut and promoted whatever was left to "Initial release" — v0.1.2 deleted
+ * v0.1.0 and announced v0.1.1 as the first cut of the set. Read this instead
+ * and the page rebuilds every entry that has ever been published, which is the
+ * only shape a changelog is allowed to have.
+ */
+export const SET_RELEASES: Release[] = HISTORY.releases ?? []
 
 /**
  * Whether a drawing is new in the current release.

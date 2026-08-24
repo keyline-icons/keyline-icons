@@ -284,6 +284,53 @@ const out =
       previousReleasedAt: previous?.date ?? null,
       previousReleasedVersion: previous?.version ?? null,
       previousReleasedLabel: previous ? show(previous.date) : null,
+      /**
+       * Every release, newest first, with what each one added.
+       *
+       * The scalars above are this release and the one before it, and for a
+       * long time that was the whole file. It reads as sufficient right up to
+       * the third release, when the surfaces built on it start dropping the
+       * oldest entry off the bottom and relabelling whatever is left as the
+       * initial one. Cutting v0.1.2 deleted v0.1.0 from the changelog and
+       * announced v0.1.1 as the first cut of the set.
+       *
+       * **A changelog only ever grows.** Nothing here may narrow with age: an
+       * entry that has been published is a record of what happened, and a
+       * generator that recomputes the whole board from the current tag has to
+       * be able to rebuild every earlier entry exactly as it was published.
+       * That is what this array is for, and why the counts are as-of each tag
+       * rather than today.
+       *
+       * Windows are half-open on the left, so a drawing belongs to exactly one
+       * release: after the previous tag, up to and including this one. The
+       * newest entry is deliberately unbounded above, so work committed after
+       * the tag shows against the release it is heading for rather than
+       * vanishing until the next one is cut.
+       */
+      releases: [...releases]
+        .reverse()
+        .map((r, i, all) => {
+          const before = all[i + 1]
+          return {
+            version: r.version,
+            date: r.date,
+            label: show(r.date),
+            /* The oldest tag, and only ever the oldest. The surfaces print
+               "Initial release" off this instead of assuming the second entry
+               on the board is the first one that happened. */
+            initial: !before,
+            /* What the set held at that tag, not what it holds now. */
+            count: Object.values(icons).filter((h) => h.added <= r.date).length,
+            names: Object.entries(icons)
+              .filter(
+                ([, h]) =>
+                  (!before || h.added > before.date) &&
+                  (i === 0 || h.added <= r.date)
+              )
+              .map(([name]) => name)
+              .sort((a, b) => a.localeCompare(b)),
+          }
+        }),
       people: people.map((who) => {
         const [name, email] = who.split("\t")
         return { name, email }
@@ -293,6 +340,37 @@ const out =
     null,
     0
   ) + "\n"
+
+/**
+ * A changelog only ever grows.
+ *
+ * Every surface that prints releases is generated, which means every release
+ * is redrawn from scratch on every build, which means a bug in the shape of
+ * the data silently deletes history rather than failing. That is exactly what
+ * happened: the file carried the current release and the previous one, the
+ * board drew those two, and cutting v0.1.2 erased v0.1.0 and announced v0.1.1
+ * as the initial release. Nobody sees a deletion in a regenerated file.
+ *
+ * So the file that is already committed is the record, and the rebuild has to
+ * account for every release in it. A tag is not allowed to quietly disappear
+ * from the history — if one is genuinely being retracted, delete the entry
+ * here deliberately and say so in the commit, which is a decision with a name
+ * on it rather than a diff nobody reads.
+ */
+const before = JSON.parse(await readFile(OUT, "utf8").catch(() => "{}"))
+const lost = (before.releases ?? [])
+  .map((r) => r.version)
+  .filter((v) => !releases.some((r) => r.version === v))
+if (lost.length) {
+  console.error(
+    c(31, "✗") +
+      ` lib/icon-history.json already records ${lost.join(", ")}, and this ` +
+      `build does not.\n  A published release cannot be dropped by a rebuild. ` +
+      `Restore the tag (\`git tag v${lost[0]} <commit>\`), or retract the ` +
+      `entry deliberately.`
+  )
+  process.exit(1)
+}
 
 if (check) {
   const have = await readFile(OUT, "utf8").catch(() => "")
