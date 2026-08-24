@@ -53,7 +53,7 @@ Keyline Icons
 ## Tagline
 
 ```
-549 icons in three styles, searchable inside Figma and FigJam.
+547 icons in three styles, searchable inside Figma and FigJam.
 ```
 
 Capped at 100 characters. The line above is 62, so there is room. A shorter
@@ -66,18 +66,18 @@ alternative if it ever needs one:
 ## Description
 
 ```
-Search 549 icons and drop one on the canvas. No library to publish, no file to
+Search 547 icons and drop one on the canvas. No library to publish, no file to
 duplicate, no plan requirement.
 
 Three styles
-  stroke    549 icons, 2px, round caps and joins
-  duotone   451 icons, a 40% plate under the line
-  fill      403 icons, solid where the glyph has a region to fill
+  stroke    547 icons, 2px, round caps and joins
+  duotone   449 icons, a 40% plate under the line
+  fill      401 icons, solid where the glyph has a region to fill
 
 55 icons also come in a square- form and 54 in a circle- form, so a container
 is a search away rather than a second drawing.
 
-Search knows more than the file names. 431 icons carry curated words, so
+Search knows more than the file names. 429 icons carry curated words, so
 "south" finds arrow-down, "hamburger" finds menu and "trash" finds bin. Paste a
 component name straight out of your code and it resolves: CheckCircle2 finds
 circle-check.
@@ -272,17 +272,17 @@ Keyline Icons
 ### Description
 
 ```
-549 icons on a 24×24 grid, in three styles: stroke, duotone and fill.
+547 icons on a 24×24 grid, in three styles: stroke, duotone and fill.
 MIT licensed, free for commercial work, no attribution required.
 
-440 component sets, each with two variant properties, Container and Style, so
+438 component sets, each with two variant properties, Container and Style, so
 you switch between regular, square and circle, and between the three styles,
 without swapping components. 55 icons carry a square- form and 54 a circle-.
 
 Which styles an icon has is measured rather than chosen: duotone and fill need
 a fillable region, so an open glyph like bar-chart is stroke-only, and
 square-bar-chart has all three. That is why the three counts differ: stroke
-549, duotone 451, fill 403.
+547, duotone 449, fill 401.
 
 The Catalog page files every icon under one of 19 categories, and the Changelog
 page records what landed in each version, so the file says what is in it
