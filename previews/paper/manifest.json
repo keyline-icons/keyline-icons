@@ -27,7 +27,7 @@
       "width": 742,
       "icons": 23,
       "variants": 48,
-      "bytes": 36341
+      "bytes": 36763
     },
     {
       "file": "actions-2.html",
@@ -98,8 +98,8 @@
       "into": "artboard",
       "width": 742,
       "icons": 16,
-      "variants": 65,
-      "bytes": 41573
+      "variants": 63,
+      "bytes": 40322
     },
     {
       "file": "charts-2.html",
@@ -110,8 +110,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 22,
-      "bytes": 14675
+      "variants": 24,
+      "bytes": 16137
     },
     {
       "file": "commerce.html",
@@ -147,7 +147,7 @@
       "width": 742,
       "icons": 28,
       "variants": 51,
-      "bytes": 39793
+      "bytes": 41270
     },
     {
       "file": "devices-2.html",
@@ -218,8 +218,8 @@
       "into": "artboard",
       "width": 742,
       "icons": 30,
-      "variants": 62,
-      "bytes": 41492
+      "variants": 61,
+      "bytes": 41577
     },
     {
       "file": "layout-2.html",
@@ -230,8 +230,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 15389
+      "variants": 25,
+      "bytes": 16359
     },
     {
       "file": "mail-1.html",
@@ -267,7 +267,7 @@
       "width": 742,
       "icons": 12,
       "variants": 36,
-      "bytes": 33069
+      "bytes": 33280
     },
     {
       "file": "media-1.html",
@@ -375,7 +375,7 @@
       "width": 742,
       "icons": 6,
       "variants": 18,
-      "bytes": 12415
+      "bytes": 13681
     },
     {
       "file": "time-1.html",
