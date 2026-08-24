@@ -2155,7 +2155,7 @@ export function Map(props: IconProps) {
 export function Megaphone(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M7 3L15.62772 3C16.44503 2.35239 17.45722 2 18.5 2C19.68759 2 20.82968 2.45683 21.68966 3.27586C21.88784 3.46461 22 3.72632 22 4L22 14C22 14.27368 21.88784 14.53539 21.68966 14.72414C20.82968 15.54317 19.68759 16.00001 18.5 16.00001C17.45722 16.00001 16.44503 15.64761 15.62772 15L7 15C4.23858 15 2 12.76142 2 10L2 8C2 5.23858 4.23858 3 7 3ZM7 5L15 5L15 13L7 13C5.34315 13 4 11.65685 4 10L4 8C4 6.34315 5.34315 5 7 5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M6 3L15.62772 3C16.44503 2.35239 17.45722 2 18.5 2C19.68759 2 20.82968 2.45683 21.68966 3.27586C21.88784 3.46461 22 3.72632 22 4L22 14C22 14.27368 21.88784 14.53539 21.68966 14.72414C20.82968 15.54317 19.68759 16.00001 18.5 16.00001C17.45722 16.00001 16.44503 15.64761 15.62772 15L6 15C3.79086 15 2 13.20914 2 11L2 7C2 4.79086 3.79086 3 6 3ZM6 5L15 5L15 13L6 13C4.89543 13 4 12.10457 4 11L4 7C4 5.89543 4.89543 5 6 5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
       <path d="M12 14V19C12 20.10457 11.10457 21 10 21C8 21 7 18 7 14" />
     </Icon>
   )
@@ -2485,7 +2485,7 @@ export function Queue(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M4 3L20 3C21.65685 3 23 4.34315 23 6L23 10C23 11.65685 21.65685 13 20 13L4 13C2.34315 13 1 11.65685 1 10L1 6C1 4.34315 2.34315 3 4 3Z" fill="currentColor" stroke="none" />
-      <path d="M2 16H22M2 20H22" />
+      <path d="M2 16H3M7 16H22M2 20H3M7 20H22" />
     </Icon>
   )
 }
