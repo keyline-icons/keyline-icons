@@ -890,6 +890,17 @@
       ]
     },
     {
+      "match": "^queue-volume$",
+      "terms": [
+        "volume queue",
+        "output",
+        "airplay",
+        "speaker list",
+        "now playing",
+        "sound"
+      ]
+    },
+    {
       "match": "^repeat",
       "note": "The family, so repeat-1 answers to these too.",
       "terms": [

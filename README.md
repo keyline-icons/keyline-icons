@@ -3,18 +3,18 @@
 [![CI](https://github.com/keyline-icons/keyline-icons/actions/workflows/ci.yml/badge.svg)](https://github.com/keyline-icons/keyline-icons/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE)
 
-**548 icons, drawn on one 24×24 grid, in three weights.** Built for shadcn/ui,
+**549 icons, drawn on one 24×24 grid, in three weights.** Built for shadcn/ui,
 made entirely with AI, free under MIT.
 
 [**keylineicons.com**](https://keylineicons.com) to browse and copy.
 
 | Style | Icons | What it is |
 | --- | --- | --- |
-| `stroke` | 548 | The full set. 2px keylines on a 24 grid. |
-| `duotone` | 450 | The stroke drawing over a flat plate at reduced opacity. |
-| `fill` | 402 | Solid, with the detail knocked back out of the shape. |
+| `stroke` | 549 | The full set. 2px keylines on a 24 grid. |
+| `duotone` | 451 | The stroke drawing over a flat plate at reduced opacity. |
+| `fill` | 403 | Solid, with the detail knocked back out of the shape. |
 
-1,400 SVGs in total. `stroke` is complete by definition: it is the drawing every
+1,403 SVGs in total. `stroke` is complete by definition: it is the drawing every
 other style is derived from. `duotone` and `fill` need a region to fill, and not
 every glyph has one. `bar-chart` is three open strokes with no interior, so it
 carries stroke only, while `square-bar-chart` puts the same glyph in a container
