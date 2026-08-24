@@ -29,6 +29,7 @@
     "community:check": "node pipeline/build-community.mjs --check",
     "paper:build": "node pipeline/build-paper.mjs",
     "paper:check": "node pipeline/build-paper.mjs --check",
+    "paper:import": "node pipeline/import-paper.mjs",
     "paper:verify": "node pipeline/check-paper.mjs",
     "icons:demos": "node pipeline/check-demos.mjs",
     "search:check": "node pipeline/check-search.mjs",

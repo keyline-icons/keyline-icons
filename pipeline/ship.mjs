@@ -15,12 +15,18 @@
 //
 //   keywords:build   needs a Figma dump pasted back in. Two steps, no API token.
 //   brand:build      headless Chrome, and the logo changes about once a year.
-//   icons:figma      needs the design file, which is not in the repo.
-//   paper:verify     needs Paper Desktop.
+//   icons:figma      needs the design file, and writing to it needs the plugin
+//                    API, which a node script has no door to. Figma stays the
+//                    one surface `ship` can only warn about.
 //
 // Those are manual because they cannot be otherwise, not because nobody got
 // round to them. Adding them here would make `ship` fail on machines where it
 // should have worked.
+//
+// Paper used to be on that list and is not any more. It reads as an app you
+// need, but Paper Desktop is a local HTTP server, so the import is reachable
+// from here whenever the app happens to be open, and when it is not, that is a
+// skipped step with a warning rather than a failed ship.
 
 import { spawnSync } from "node:child_process"
 import { existsSync } from "node:fs"
@@ -124,6 +130,15 @@ if (node("check-readmes.mjs", "--fix").code !== 0) die("README counts could not 
 step("Verify")
 if (node("lint.mjs").code !== 0) die("the icon linter found errors")
 if (node("check-demos.mjs").code !== 0) die("a demo references an icon that is not in the set")
+// Both are in `icons:ci` too, and both are here because what they catch is a
+// batch that added something: a new category label with no icon to draw it
+// with, which is a 500 on /icons rather than a missing row, or a new name the
+// four searches no longer agree about. Learning that from CI one push later is a
+// second commit for what is a one-line fix while the drawing is still open.
+if (node("check-categories.mjs").code !== 0) {
+  die("a category label has no icon, which is a 500 on /icons")
+}
+if (node("check-search.mjs").code !== 0) die("the four searches disagree")
 
 const tsc = run("npx", ["tsc", "--noEmit"])
 if (tsc.code !== 0) die("typecheck failed")
@@ -199,20 +214,50 @@ if (git("diff", "--cached", "--name-only").out.trim()) {
 const head = git("log", "-1", "--format=%h %s").out.trim()
 console.log(`\n${c(32, "shipped")}  ${head}`)
 
-// Paper is a two-part loop and `ship` only owns the first half: it rewrites the
-// sheets, and writing them into the file needs Paper Desktop open, the way the
-// plugin needs Figma. So say when the second half is outstanding, because the
-// drift is otherwise invisible from here: `previews/paper/` is current, the file
-// is a version behind, and nothing on this machine knows. `paper:verify` proves
-// it either way, but only if someone thinks to run it.
-const touchedPaper = git("show", "--name-only", "--format=", "HEAD")
-  .out.split("\n")
-  .some((f) => f.startsWith("previews/paper/"))
+// Paper is a two-part loop: `paper:build` writes the sheets, and someone writes
+// the sheets into the file. The second half runs here now, because Paper Desktop
+// is a local HTTP server rather than a tool only a session can reach. See
+// `import-paper.mjs`. It is attempted rather than required: the app is either
+// open or it is not, and a shipped commit should not fail over which.
+const shipped = git("show", "--name-only", "--format=", "HEAD").out.split("\n")
+const touchedPaper = shipped.some((f) => f.startsWith("previews/paper/"))
 
 if (touchedPaper) {
-  warn("the Paper sheets changed, so the paper.design file is now behind")
-  console.log(`    ${c(2, "open the file in Paper Desktop, re-import the changed sheets,")}`)
-  console.log(`    ${c(2, "then confirm with:  pnpm paper:verify")}`)
+  step("Paper")
+  // `--changed HEAD` on top of the importer's own selection: it compares the
+  // file to the sheets and cannot see a drawing redrawn under the same name in
+  // the same place, which is exactly what a redraw commit is.
+  const imported = node("import-paper.mjs", "--changed", "HEAD")
+
+  if (imported.code === 0) {
+    // Verify rather than trust the writes: the check reads the file back, and
+    // the importer only knows what the tool calls answered.
+    if (node("check-paper.mjs").code !== 0) {
+      warn("the import ran but the file still does not match previews/paper/")
+    }
+  } else if (imported.code === 2) {
+    // Unreachable, not broken. This is the ordinary case on a machine without
+    // Paper open, and it is a warning for the same reason the cover asks before
+    // rasterising: `ship` should still work there.
+    warn("the Paper sheets changed, so the paper.design file is now behind")
+    console.log(`    ${c(2, "open the file in Paper Desktop, then:  pnpm paper:import")}`)
+    console.log(`    ${c(2, "confirm with:  pnpm paper:verify")}`)
+  } else {
+    warn("the Paper import did not finish, so the file is behind")
+    console.log(`    ${c(2, "re-run it with:  pnpm paper:import")}`)
+  }
+}
+
+// Figma cannot be reached from a script at all: writing drawings into the file
+// is the plugin API, and the REST API will not carry a vector. So the most that
+// can be done here is to say it, in the same breath as everything else that
+// moved, rather than leaving it to be remembered.
+const touchedRaw = shipped.some((f) => f.startsWith("raw/"))
+
+if (touchedRaw) {
+  warn("raw/ changed, so Figma is behind: it is authored there, not generated")
+  console.log(`    ${c(2, "swap the vectors in the existing variants through the plugin API,")}`)
+  console.log(`    ${c(2, "then confirm with:  pnpm icons:figma")}`)
 }
 
 console.log(`  ${c(2, `push when ready:  git push origin ${branch}`)}`)
