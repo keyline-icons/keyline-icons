@@ -4,6 +4,7 @@ import { join } from "node:path"
 
 import history from "@/lib/icon-history.json"
 import notContainers from "@/lib/icon-not-containers.json"
+import badges from "@/lib/icon-badges.json"
 
 export const STYLES = ["stroke", "duotone", "fill"] as const
 export type Style = (typeof STYLES)[number]
@@ -157,25 +158,29 @@ export const SET_PREVIOUS_RELEASED_LABEL =
 export const SET_RELEASES: Release[] = HISTORY.releases ?? []
 
 /**
- * Whether a drawing is new in the current release.
+ * Whether a drawing still carries its New badge.
  *
- * Derived rather than listed. A hand-kept list of what is new is a list someone
- * has to remember to empty, and the one thing certain about "new" is that it
- * stops being true.
+ * Derived rather than listed — a hand-kept list of what is new is a list
+ * someone has to remember to empty — but derived from a floor that is *chosen*
+ * rather than computed.
  *
- * Measured against the **previous** release, not the current one, and that
- * distinction is the whole rule. Against the current tag the answer is "no" for
- * every drawing the moment the tag lands, because a release cannot contain
- * anything added after itself: v0.1.1 shipped 24 drawings and took the dot off
- * all 24 in the same act, while its own release notes announced them. Against
- * the previous tag the badge says what this release added, and clears when the
- * next one is cut, which is what it was always meant to say.
+ * It used to measure against the previous release, so cutting one cleared the
+ * badges of the release before it with no one deciding that. v0.1.2 took the
+ * badge off all 24 of v0.1.1's drawings the moment it was tagged. **Only Zafar
+ * decides when badges drop, explicitly, every time**, so the floor lives in
+ * `lib/icon-badges.json` and no build step writes it. Badges accumulate until
+ * they are deliberately cleared, which fails in the direction someone will
+ * notice.
  */
+const BADGES_CLEARED_THROUGH = badges.clearedThrough
+const BADGES_CLEARED_AT =
+  SET_RELEASES.find((r) => r.version === BADGES_CLEARED_THROUGH)?.date ?? ""
+
 export const isNewSince = (icon: Icon) =>
   Boolean(
-    SET_PREVIOUS_RELEASED_AT &&
+    BADGES_CLEARED_AT &&
       icon.history &&
-      icon.history.added > SET_PREVIOUS_RELEASED_AT
+      icon.history.added > BADGES_CLEARED_AT
   )
 
 /**

@@ -1,0 +1,4 @@
+{
+  "$comment": "Which release the New badges have been cleared THROUGH. Everything added after that release's tag carries a badge. ONLY Zafar changes this value, stated explicitly, every time — see the note on NEW_SINCE in pipeline/build-paper.mjs. Cutting a release must never advance it.",
+  "clearedThrough": "0.1.0"
+}

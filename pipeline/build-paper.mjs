@@ -187,10 +187,37 @@ const HISTORY = JSON.parse(
  * empty. Declared up here because `row` reads it and the rows are composed a
  * long way above where the release object is assembled.
  */
-/* Measured against the release before this one, exactly as `isNewSince` is.
-   Against the current tag this list is empty the moment a release is cut, which
-   emptied the Changelog board and every dot on the category boards. */
-const NEW_SINCE = HISTORY.previousReleasedAt ?? HISTORY.releasedAt
+/*
+ * Measured against the release the badges were last cleared through, which is
+ * a decision rather than a date the build can work out.
+ *
+ * It was `previousReleasedAt`, so cutting a release cleared the badges of the
+ * release before it, automatically and silently. That is not a rule anyone
+ * agreed to: v0.1.2 took the New badge off all 24 of v0.1.1's drawings, and
+ * because the boards are regenerated and re-imported wholesale, the clearing
+ * reached the Paper file as a side effect of an unrelated import.
+ *
+ * **Only Zafar decides when badges drop, stated explicitly, every time.** So
+ * the floor is read from `lib/icon-badges.json` and nothing in the pipeline
+ * writes it. Cutting a release leaves it exactly where it was, which means
+ * badges accumulate until they are deliberately cleared — the failure mode is
+ * a badge that outstays its welcome and gets noticed, rather than one that
+ * disappears without anyone choosing it.
+ */
+const BADGES = JSON.parse(
+  await readFile(join(ROOT, "lib", "icon-badges.json"), "utf8")
+)
+const clearedThrough = (HISTORY.releases ?? []).find(
+  (r) => r.version === BADGES.clearedThrough
+)
+if (BADGES.clearedThrough && !clearedThrough) {
+  throw new Error(
+    `lib/icon-badges.json: clearedThrough "${BADGES.clearedThrough}" is not a ` +
+      `release in lib/icon-history.json. Fix the value rather than letting the ` +
+      `badges fall back to a date nobody chose.`
+  )
+}
+const NEW_SINCE = clearedThrough?.date ?? null
 const since = Object.entries(HISTORY.icons ?? {})
   .filter(([, h]) => NEW_SINCE && h.added > NEW_SINCE)
   .sort(([a], [b]) => a.localeCompare(b))
