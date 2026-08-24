@@ -329,6 +329,28 @@ const out =
               )
               .map(([name]) => name)
               .sort((a, b) => a.localeCompare(b)),
+            /*
+             * Drawings that already existed and were redrawn in this release.
+             *
+             * A release is not always drawings added. v0.1.3 adds none at all
+             * and is entirely corrections — queue resized, repeat-1's numeral
+             * — and an entry that could only count what was *added* announced
+             * it as "0 drawings added", which is true and tells the reader
+             * nothing about what they are being asked to upgrade for.
+             *
+             * Same window as `names`, measured on `updated` instead, minus
+             * anything added inside it so a new drawing is not also counted as
+             * a changed one.
+             */
+            updatedNames: Object.entries(icons)
+              .filter(
+                ([, h]) =>
+                  (!before || h.updated > before.date) &&
+                  (i === 0 || h.updated <= r.date) &&
+                  (before ? h.added <= before.date : false)
+              )
+              .map(([name]) => name)
+              .sort((a, b) => a.localeCompare(b)),
           }
         }),
       people: people.map((who) => {
