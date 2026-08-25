@@ -1,6 +1,6 @@
 {
   "name": "@keyline-icons/cli",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Search Keyline Icons and copy them into your project from the terminal.",
   "license": "MIT",
   "publishConfig": {

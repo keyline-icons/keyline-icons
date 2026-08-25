@@ -610,7 +610,10 @@ function changelogSheet(icons, release) {
               /* A release is not always drawings added. One that is entirely
                  corrections said "0 drawings added", which is true and tells a
                  reader nothing about why they would upgrade. */
-              : entry.names.length === 0
+              : entry.names.length === 0 && entry.updatedNames.length === 0
+                ? `No drawing changes since ${entry.previous}. The set still ` +
+                  `holds ${entry.count}.`
+                : entry.names.length === 0
                 ? `No new drawings. ${entry.updatedNames.length} redrawn since ` +
                   `${entry.previous}, so the set still holds ${entry.count}:`
                 : `${entry.names.length} drawings added since ${entry.previous}, ` +
@@ -622,7 +625,7 @@ function changelogSheet(icons, release) {
              look them up, which is the one thing this surface is here to save
              them. Drawn at grid size: they are being identified rather than
              admired, and 24 is the size the set is built at. */
-          (entry.initial
+          (entry.initial || (!entry.names.length && !entry.updatedNames.length)
             ? ""
             : `<div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0">` +
                 (entry.names.length ? entry.names : entry.updatedNames).map((name) => {

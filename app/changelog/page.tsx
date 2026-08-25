@@ -164,7 +164,12 @@ export default async function Page() {
                   components.
                 </p>
               ) : (
-                entry.icons.length === 0 ? (
+                entry.icons.length === 0 && entry.redrawn.length === 0 ? (
+                  <p>
+                    No drawing changes since {entry.previous}. The set still
+                    holds {entry.count}.
+                  </p>
+                ) : entry.icons.length === 0 ? (
                   <p>
                     No new drawings. {entry.redrawn.length} redrawn since{" "}
                     {entry.previous}, so the set still holds {entry.count}:

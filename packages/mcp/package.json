@@ -1,6 +1,6 @@
 {
   "name": "@keyline-icons/mcp",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "MCP server for Keyline Icons. Search the set, get SVG source, get the React import.",
   "license": "MIT",
   "publishConfig": {
