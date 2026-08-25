@@ -33,7 +33,8 @@ export type IconHistory = {
   addedLabel: string
   updated: string
   updatedLabel: string
-  version: string
+  /** The release it shipped in, or null while no tag covers it yet. */
+  version: string | null
   /** Everyone whose commits touched it, newest first. */
   by: { name: string; email: string }[]
 }

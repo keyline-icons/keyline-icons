@@ -1,6 +1,8 @@
 import {
   loadIcons,
+  NEW_FOR_DAYS,
   SET_RELEASES,
+  SET_UNRELEASED,
   type Icon,
 } from "@/lib/icons"
 import { pageMetadata } from "@/lib/seo"
@@ -34,6 +36,43 @@ import { Glyph } from "@/components/glyph"
  */
 
 /**
+ * "1 drawing", not "1 drawings".
+ *
+ * The page shipped `{n} drawings` for every count including one, which reads as
+ * a machine talking. A release that adds a single icon is the common case, so
+ * this is not an edge.
+ */
+const plural = (n: number, one: string, many = one + "s") =>
+  `${n} ${n === 1 ? one : many}`
+
+/**
+ * The drawings themselves, at grid size.
+ *
+ * They are being identified rather than admired, and 24px is the size the set
+ * is built at and used at. Shared by the released entries and the unreleased
+ * one so the two cannot drift apart.
+ */
+function Tiles({ icons }: { icons: Icon[] }) {
+  return (
+    <ul className="grid grid-cols-[repeat(auto-fill,minmax(104px,1fr))] gap-2 not-prose">
+      {icons.map((icon) => (
+        <li
+          key={icon.name}
+          className="flex flex-col items-center gap-2 rounded-lg bg-muted p-3"
+        >
+          <span className="text-foreground">
+            <Glyph art={icon.art.stroke!} size={24} stroke={2} />
+          </span>
+          <span className="w-full truncate text-center text-[11px] leading-tight">
+            {icon.name}
+          </span>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+/**
  * The release, and anything drawn since it.
  *
  * The release entry is dated by the tag rather than by the newest drawing. It
@@ -56,6 +95,22 @@ async function release() {
       so the number grew every time a drawing landed and the sentence described
       a release that never contained them.
     */
+    /*
+      What has been drawn since the newest tag, if anything. Its own section
+      rather than a row inside the newest release: that entry is headed
+      "Released" over the tag's own date, and a drawing made after it was never
+      in it. `grip-vertical` was drawn twelve hours after v0.1.4 and the page
+      announced it as part of v0.1.4, which npm would have contradicted.
+    */
+    unreleased: SET_UNRELEASED && {
+      ...SET_UNRELEASED,
+      icons: SET_UNRELEASED.names
+        .map((name) => byName.get(name))
+        .filter(Boolean) as Icon[],
+      redrawn: SET_UNRELEASED.updatedNames
+        .map((name) => byName.get(name))
+        .filter(Boolean) as Icon[],
+    },
     entries: SET_RELEASES.map((entry, i) => ({
       ...entry,
       previous: SET_RELEASES[i + 1]?.version ?? null,
@@ -98,7 +153,7 @@ export async function generateMetadata() {
 }
 
 export default async function Page() {
-  const { entries } = await release()
+  const { entries, unreleased } = await release()
 
   return (
     <>
@@ -113,7 +168,9 @@ export default async function Page() {
         <header className="pt-6 pb-12">
           <h1 className="text-4xl font-semibold tracking-tight">Changelog</h1>
           <p className="mt-3 text-base text-balance text-muted-foreground">
-            Releases, new drawings and announcements, newest first.
+            Releases, new drawings and announcements, newest first. A drawing
+            carries a <span className="text-foreground">New</span> badge for its
+            first {NEW_FOR_DAYS} days, whatever ships in between.
           </p>
 
         </header>
@@ -128,6 +185,38 @@ export default async function Page() {
           not give you, because `/icons` cannot show you what you have already
           seen.
         */}
+        {/*
+          Work since the newest tag. It leads the page because it is what a
+          returning reader is looking for, and it is headed "Unreleased"
+          rather than by a version, because it does not have one: an install of
+          the newest release does not contain it.
+        */}
+        {unreleased && (
+          <section className="border-t pt-8 pb-8">
+            <h2 className="text-xl font-semibold tracking-tight">Unreleased</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Drawn since {unreleased.since}
+              <span aria-hidden="true"> · </span>
+              not in a release yet
+            </p>
+
+            <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
+              <p>
+                {unreleased.icons.length > 0
+                  ? `${plural(unreleased.icons.length, "drawing")} added since ${unreleased.since}`
+                  : `${plural(unreleased.redrawn.length, "drawing")} redrawn since ${unreleased.since}`}
+                , in the repository and the design files but not on npm until
+                the next release. The set holds {unreleased.count}:
+              </p>
+              <Tiles
+                icons={
+                  unreleased.icons.length ? unreleased.icons : unreleased.redrawn
+                }
+              />
+            </div>
+          </section>
+        )}
+
         {entries.map((entry) => (
           <section key={entry.version} className="border-t pt-8 pb-8">
             {/*
@@ -171,23 +260,13 @@ export default async function Page() {
                   </p>
                 ) : entry.icons.length === 0 ? (
                   <p>
-                    No new drawings. {entry.redrawn.length} redrawn since{" "}
-                    {entry.previous}, so the set still holds {entry.count}:
+                    No new drawings. {plural(entry.redrawn.length, "redrawn", "redrawn")}{" "}
+                    since {entry.previous}, so the set still holds {entry.count}:
                   </p>
                 ) : (
                   <p>
-                    {entry.icons.length} drawings added since {entry.previous},
-                    {entry.current ? (
-                      <>
-                        {" "}each marked with a dot in the grid, and{" "}
-                        <span className="text-foreground">New</span> in its
-                        preview, until the next release:
-                      </>
-                    ) : (
-                      <>
-                        {" "}bringing the set to {entry.count}:
-                      </>
-                    )}
+                    {plural(entry.icons.length, "drawing")} added since{" "}
+                    {entry.previous}, bringing the set to {entry.count}:
                   </p>
                 )
               )}
@@ -197,21 +276,7 @@ export default async function Page() {
                 built at and the size they will be used at.
               */}
               {!entry.initial && (entry.icons.length > 0 || entry.redrawn.length > 0) && (
-                <ul className="grid grid-cols-[repeat(auto-fill,minmax(104px,1fr))] gap-2 not-prose">
-                  {(entry.icons.length ? entry.icons : entry.redrawn).map((icon) => (
-                    <li
-                      key={icon.name}
-                      className="flex flex-col items-center gap-2 rounded-lg bg-muted p-3"
-                    >
-                      <span className="text-foreground">
-                        <Glyph art={icon.art.stroke!} size={24} stroke={2} />
-                      </span>
-                      <span className="w-full truncate text-center text-[11px] leading-tight">
-                        {icon.name}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                <Tiles icons={entry.icons.length ? entry.icons : entry.redrawn} />
               )}
             </div>
           </section>

@@ -38,7 +38,8 @@ export type IconHistory = {
   addedLabel: string
   updated: string
   updatedLabel: string
-  version: string
+  /** The release it shipped in, or null while no tag covers it yet. */
+  version: string | null
   /**
    * Everyone whose commits touched the drawing, newest first.
    *
@@ -90,6 +91,26 @@ export type Release = {
   updatedNames: string[]
 }
 
+/**
+ * Drawings that have landed since the newest tag and are in no release yet.
+ *
+ * Not a `Release`, and deliberately shaped differently: it has no version and
+ * no date, because it is not a thing that happened. Giving it a version was the
+ * old bug — the newest release window was left open at the top, so a drawing
+ * made after the tag was announced as part of a release that shipped without
+ * it.
+ */
+export type Unreleased = {
+  /** The tag this is measured from. */
+  since: string | null
+  sinceDate: string | null
+  sinceLabel: string | null
+  /** What the set holds now, which is what a reader of this is asking. */
+  count: number
+  names: string[]
+  updatedNames: string[]
+}
+
 const NOT_CONTAINERS = new Set<string>(notContainers.names)
 
 const HISTORY = history as {
@@ -101,6 +122,7 @@ const HISTORY = history as {
   previousReleasedAt?: string
   previousReleasedLabel?: string
   releases?: Release[]
+  unreleased?: Unreleased | null
   releasedLabel?: string
   people: GitAuthor[]
   icons: Record<string, Omit<IconHistory, "by"> & { by: number[] }>
@@ -160,29 +182,56 @@ export const SET_PREVIOUS_RELEASED_LABEL =
 export const SET_RELEASES: Release[] = HISTORY.releases ?? []
 
 /**
+ * What has been drawn since the newest tag, or null when the tag is current.
+ *
+ * Null is the resting state and the surfaces print nothing for it. A section
+ * that says "nothing yet" on a freshly cut release is a section that has to be
+ * read to learn there is nothing to read.
+ */
+export const SET_UNRELEASED: Unreleased | null = HISTORY.unreleased ?? null
+
+/**
  * Whether a drawing still carries its New badge.
  *
- * Derived rather than listed — a hand-kept list of what is new is a list
- * someone has to remember to empty — but derived from a floor that is *chosen*
- * rather than computed.
+ * **The badge measures age, not releases.** A drawing is new for
+ * `newForDays` days after it was drawn, and cutting a release does not touch
+ * it either way.
  *
- * It used to measure against the previous release, so cutting one cleared the
- * badges of the release before it with no one deciding that. v0.1.2 took the
- * badge off all 24 of v0.1.1's drawings the moment it was tagged. **Only Zafar
- * decides when badges drop, explicitly, every time**, so the floor lives in
- * `lib/icon-badges.json` and no build step writes it. Badges accumulate until
- * they are deliberately cleared, which fails in the direction someone will
- * notice.
+ * It was tied to a version twice and was wrong in both directions. Measured
+ * against the previous release it cleared the badges of the drawings the
+ * release was announcing: v0.1.2 took the badge off all 24 of v0.1.1's the
+ * moment it was tagged. Moved to a hand-set floor it stopped doing that, but
+ * the floor was still a version, so the answer to "how long does a badge last"
+ * was "until someone remembers" — and on a set that shipped four versions in
+ * three days, any release-shaped rule gives a drawing roughly a day in the
+ * light. Neither is what the badge is for. It is there to tell a returning
+ * reader what has appeared since they last looked, and that is a question about
+ * time.
+ *
+ * `clearedBefore` stays as the manual override, so "drop them all now" is one
+ * timestamp. No build step writes either value.
  */
-const BADGES_CLEARED_THROUGH = badges.clearedThrough
-const BADGES_CLEARED_AT =
-  SET_RELEASES.find((r) => r.version === BADGES_CLEARED_THROUGH)?.date ?? ""
+/** Exported so the copy that explains the badge cannot drift from the rule. */
+export const NEW_FOR_DAYS: number = badges.newForDays ?? 30
+const BADGES_CLEARED_BEFORE: string = badges.clearedBefore ?? ""
+
+/**
+ * Compared as instants, never as strings.
+ *
+ * Git writes `2026-08-25T17:11:41+05:00` and a window computed from the clock
+ * comes out as `...Z`, so the two sort against each other by the shape of their
+ * offset rather than by when they happened. The old floor was a git date
+ * compared with a git date, which is why string comparison held there and does
+ * not here.
+ */
+const at = (iso: string) => (iso ? Date.parse(iso) : 0)
+const CLEARED_AT = at(BADGES_CLEARED_BEFORE)
 
 export const isNewSince = (icon: Icon) =>
   Boolean(
-    BADGES_CLEARED_AT &&
-      icon.history &&
-      icon.history.added > BADGES_CLEARED_AT
+    icon.history &&
+      at(icon.history.added) >
+        Math.max(CLEARED_AT, Date.now() - NEW_FOR_DAYS * 86_400_000)
   )
 
 /**

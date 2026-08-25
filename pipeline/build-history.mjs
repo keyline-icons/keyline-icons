@@ -102,9 +102,17 @@ for (const line of log.split("\n")) {
   }
 }
 
-/** The first release cut after the icon was added, or the one being worked on. */
+/**
+ * The first release cut after the icon was added, or null if none has been.
+ *
+ * It used to answer `current` for a drawing no tag covers, and that reads as a
+ * fact rather than as a placeholder: `grip-vertical` was drawn twelve hours
+ * after v0.1.4 was tagged and every surface said it shipped in v0.1.4, which
+ * anyone installing that version from npm would find untrue. A drawing that is
+ * in no release has no version, and the surfaces print "Unreleased".
+ */
 const releaseFor = (added) =>
-  releases.find((r) => r.date >= added)?.version ?? current
+  releases.find((r) => r.date >= added)?.version ?? null
 
 /**
  * Formatted here rather than in the browser.
@@ -315,10 +323,15 @@ const out =
        * rather than today.
        *
        * Windows are half-open on the left, so a drawing belongs to exactly one
-       * release: after the previous tag, up to and including this one. The
-       * newest entry is deliberately unbounded above, so work committed after
-       * the tag shows against the release it is heading for rather than
-       * vanishing until the next one is cut.
+       * release: after the previous tag, up to and including this one. Every
+       * window is closed at its tag, the newest included.
+       *
+       * The newest used to be left open above, so that work committed after
+       * the tag showed against the release it was heading for. That is the
+       * right idea and the wrong place for it: the entry is already headed
+       * "Released" with the tag's own date, so an icon drawn hours later was
+       * announced as part of a version that had shipped without it. Work after
+       * the newest tag goes in `unreleased` below, which says exactly that.
        */
       releases: [...releases]
         .reverse()
@@ -336,9 +349,7 @@ const out =
             count: Object.values(icons).filter((h) => h.added <= r.date).length,
             names: Object.entries(icons)
               .filter(
-                ([, h]) =>
-                  (!before || h.added > before.date) &&
-                  (i === 0 || h.added <= r.date)
+                ([, h]) => (!before || h.added > before.date) && h.added <= r.date
               )
               .map(([name]) => name)
               .sort((a, b) => a.localeCompare(b)),
@@ -359,13 +370,48 @@ const out =
               .filter(
                 ([, h]) =>
                   (!before || h.updated > before.date) &&
-                  (i === 0 || h.updated <= r.date) &&
+                  h.updated <= r.date &&
                   (before ? h.added <= before.date : false)
               )
               .map(([name]) => name)
               .sort((a, b) => a.localeCompare(b)),
           }
         }),
+      /**
+       * Work since the newest tag, which belongs to no release yet.
+       *
+       * Every release window closes at its own tag, so this is where a drawing
+       * lands between a release and the next one. It is deliberately not an
+       * entry in `releases`: that array is the published record, every item of
+       * it has a version and a date, and anything looking a version up in it
+       * would find a row that is neither.
+       *
+       * `count` is the set as it stands, which is what a reader of an
+       * unreleased entry is asking about — not what any tag holds.
+       */
+      unreleased: (() => {
+        const since = releases.at(-1)
+        const names = Object.entries(icons)
+          .filter(([, h]) => !since || h.added > since.date)
+          .map(([name]) => name)
+          .sort((a, b) => a.localeCompare(b))
+        const updatedNames = Object.entries(icons)
+          .filter(
+            ([, h]) =>
+              since && h.updated > since.date && h.added <= since.date
+          )
+          .map(([name]) => name)
+          .sort((a, b) => a.localeCompare(b))
+        if (!names.length && !updatedNames.length) return null
+        return {
+          since: since?.version ?? null,
+          sinceDate: since?.date ?? null,
+          sinceLabel: since ? show(since.date) : null,
+          count: Object.keys(icons).length,
+          names,
+          updatedNames,
+        }
+      })(),
       people: people.map((who) => {
         const [name, email] = who.split("\t")
         return { name, email }

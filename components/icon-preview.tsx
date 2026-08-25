@@ -472,7 +472,14 @@ export function IconPreview({
 
                 {icon.history && (
                   <span className="flex flex-wrap items-center gap-x-2 text-xs text-muted-foreground tabular-nums">
-                    <span>v{icon.history.version}</span>
+                    {/* No version until a tag covers it. Printing the current
+                        one said a drawing shipped in a release that went out
+                        without it. */}
+                    <span>
+                      {icon.history.version
+                        ? `v${icon.history.version}`
+                        : "Unreleased"}
+                    </span>
                     <span aria-hidden="true">·</span>
                     <span>
                       Added{" "}

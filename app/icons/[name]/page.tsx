@@ -301,7 +301,13 @@ export default async function Page({
 
               {icon.history && (
                 <span className="flex flex-wrap items-center gap-x-2 tabular-nums">
-                  <span>v{icon.history.version}</span>
+                  {/* Unreleased until a tag covers it: an icon page that
+                      claims a version anyone can install has to be right. */}
+                  <span>
+                    {icon.history.version
+                      ? `v${icon.history.version}`
+                      : "Unreleased"}
+                  </span>
                   <span aria-hidden="true">·</span>
                   <span>
                     Added{" "}

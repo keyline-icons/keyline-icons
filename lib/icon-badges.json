@@ -1,4 +1,5 @@
 {
-  "$comment": "Which release the New badges have been cleared THROUGH. Everything added after that release's tag carries a badge. ONLY Zafar changes this value, stated explicitly, every time — see the note on NEW_SINCE in pipeline/build-paper.mjs. Cutting a release must never advance it.",
-  "clearedThrough": "0.1.0"
+  "$comment": "How long a drawing wears its New badge. Source, not generated: no build step writes this file. The badge is measured in DAYS SINCE THE DRAWING WAS ADDED and has nothing to do with releases — tying it to a version meant a release cleared the badges of the drawings it was announcing, and a set that ships twice in a week would show a badge for about a day. `clearedBefore` is the manual override: set it to a timestamp to drop every badge earned before then. ONLY Zafar changes these values, stated explicitly, every time. Cutting a release must never touch either of them.",
+  "newForDays": 30,
+  "clearedBefore": "2026-08-20T15:06:05+05:00"
 }

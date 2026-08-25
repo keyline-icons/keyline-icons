@@ -207,19 +207,16 @@ const HISTORY = JSON.parse(
 const BADGES = JSON.parse(
   await readFile(join(ROOT, "lib", "icon-badges.json"), "utf8")
 )
-const clearedThrough = (HISTORY.releases ?? []).find(
-  (r) => r.version === BADGES.clearedThrough
+/* The badge is an age, not a release. Same rule and same file as `isNewSince`
+   in lib/icons.ts, compared as instants because git's offset dates and a
+   window computed from the clock do not sort against each other as strings. */
+const NEW_FOR_DAYS = BADGES.newForDays ?? 30
+const NEW_SINCE = Math.max(
+  BADGES.clearedBefore ? Date.parse(BADGES.clearedBefore) : 0,
+  Date.now() - NEW_FOR_DAYS * 86_400_000
 )
-if (BADGES.clearedThrough && !clearedThrough) {
-  throw new Error(
-    `lib/icon-badges.json: clearedThrough "${BADGES.clearedThrough}" is not a ` +
-      `release in lib/icon-history.json. Fix the value rather than letting the ` +
-      `badges fall back to a date nobody chose.`
-  )
-}
-const NEW_SINCE = clearedThrough?.date ?? null
 const since = Object.entries(HISTORY.icons ?? {})
-  .filter(([, h]) => NEW_SINCE && h.added > NEW_SINCE)
+  .filter(([, h]) => Date.parse(h.added) > NEW_SINCE)
   .sort(([a], [b]) => a.localeCompare(b))
 const NEW_NAMES = new Set(since.map(([name]) => name))
 
@@ -406,7 +403,7 @@ function card({ label, blurb, icons, names, rows }) {
     `<div style="${CARD}" data-category="${label}">` +
       `<div style="${HEADER}">` +
         `<h2 style="${TITLE}">${label}</h2>` +
-        `<span style="${COUNT}">${icons} ${icons === 1 ? "icon" : "icons"} · ${names} names</span>` +
+        `<span style="${COUNT}">${icons} ${icons === 1 ? "icon" : "icons"} · ${names} ${names === 1 ? "name" : "names"}</span>` +
       `</div>` +
       `<p style="${BLURB}">${blurb}</p>` +
       `<div style="${DIVIDER}"></div>` +
@@ -565,9 +562,34 @@ function catalogSheet(icons, totals, release) {
  * is short enough for one write, so it is one file and one artboard.
  */
 function changelogSheet(icons, release) {
-  const styles = STYLES.map((style) => `${style} (${release.styles[style]})`)
-  const list =
-    styles.slice(0, -1).join(", ") + " and " + styles[styles.length - 1]
+  /* "1 drawing", not "1 drawings". The board said the second for years, and a
+     release that adds one icon is the common case rather than an edge. */
+  const plural = (n, one, many = one + "s") => `${n} ${n === 1 ? one : many}`
+
+  /* The drawings, not their names. Named only, a reader has to go and look
+     them up, which is the one thing this surface is here to save them. Drawn
+     at grid size: they are being identified rather than admired, and 24 is the
+     size the set is built at. */
+  const tiles = (names) =>
+    `<div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0">` +
+      names
+        .map((name) => {
+          const art = icons.get(name)?.art?.stroke
+          if (!art) return ""
+          return (
+            `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;` +
+              `width:104px;padding:12px 4px;box-sizing:border-box;border-radius:10px;` +
+              `background:${STRIPE}">` +
+              `<svg width="${SIZE}" height="${SIZE}" xmlns="http://www.w3.org/2000/svg" ` +
+              `role="img" aria-label="${name} stroke" data-icon="${name}" ` +
+              `data-style="stroke" ${art.attrs}>${art.body}</svg>` +
+              `<span style="font-size:11px;line-height:1.2;color:${MUTED};` +
+                `text-align:center">${name}</span>` +
+            `</div>`
+          )
+        })
+        .join("") +
+    `</div>`
 
   return (
     `<section style="box-sizing:border-box;width:768px;background:${BG};color:${INK};` +
@@ -580,7 +602,9 @@ function changelogSheet(icons, release) {
         `<div>` +
           `<h1 style="margin:0;font-size:36px;font-weight:600;letter-spacing:-0.8px;color:${HEAD_INK}">Changelog</h1>` +
           `<p style="margin:10px 0 0;font-size:15px;color:${HEAD_MUTED}">` +
-            `Releases, new drawings and announcements, newest first.` +
+            `Releases, new drawings and announcements, newest first. A drawing ` +
+            `carries a New badge for its first ${NEW_FOR_DAYS} days, whatever ` +
+            `ships in between.` +
           `</p>` +
         `</div>` +
         `<div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0">` +
@@ -593,8 +617,31 @@ function changelogSheet(icons, release) {
         /* One block per release, newest first, every release that has ever been
            cut. Entries are never dropped and never relabelled: see the note on
            `release.entries`. */
-        release.entries.map((entry, i) =>
-          (i > 0 ? `<div style="${DIVIDER};margin:32px 0"></div>` : "") +
+        [
+          /* Work since the newest tag leads the board, headed by no version
+             because it has none: an install of the newest release does not
+             contain it. Null is the resting state and prints nothing. */
+          release.unreleased
+            ? `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">Unreleased</h2>` +
+              `<p style="margin:8px 0 0;font-size:13px;color:${MUTED}">` +
+                `Drawn since ${release.unreleased.since} &middot; not in a release yet` +
+              `</p>` +
+              `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
+                (release.unreleased.names.length
+                  ? `${plural(release.unreleased.names.length, "drawing")} added since ` +
+                    `${release.unreleased.since}`
+                  : `${plural(release.unreleased.updatedNames.length, "drawing")} redrawn since ` +
+                    `${release.unreleased.since}`) +
+                `, in the repository and the design files but not on npm until ` +
+                `the next release. The set holds ${release.unreleased.count}:` +
+              `</p>` +
+              tiles(
+                release.unreleased.names.length
+                  ? release.unreleased.names
+                  : release.unreleased.updatedNames
+              )
+            : "",
+        ].concat(release.entries.map((entry) =>
           `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">${entry.version}</h2>` +
           `<p style="margin:8px 0 0;font-size:13px;color:${MUTED}">` +
             /* "Initial release" belongs to the oldest tag and to nothing else.
@@ -616,35 +663,15 @@ function changelogSheet(icons, release) {
                 : entry.names.length === 0
                 ? `No new drawings. ${entry.updatedNames.length} redrawn since ` +
                   `${entry.previous}, so the set still holds ${entry.count}:`
-                : `${entry.names.length} drawings added since ${entry.previous}, ` +
-                  (entry.current
-                    ? `and badged New in the catalogue until the next release:`
-                    : `bringing the set to ${entry.count}:`)) +
+                : `${plural(entry.names.length, "drawing")} added since ` +
+                  `${entry.previous}, bringing the set to ${entry.count}:`) +
           `</p>` +
-          /* The drawings, not their names. Named only, a reader has to go and
-             look them up, which is the one thing this surface is here to save
-             them. Drawn at grid size: they are being identified rather than
-             admired, and 24 is the size the set is built at. */
           (entry.initial || (!entry.names.length && !entry.updatedNames.length)
             ? ""
-            : `<div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0">` +
-                (entry.names.length ? entry.names : entry.updatedNames).map((name) => {
-                  const art = icons.get(name)?.art?.stroke
-                  if (!art) return ""
-                  return (
-                    `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;` +
-                      `width:104px;padding:12px 4px;box-sizing:border-box;border-radius:10px;` +
-                      `background:${STRIPE}">` +
-                      `<svg width="${SIZE}" height="${SIZE}" xmlns="http://www.w3.org/2000/svg" ` +
-                      `role="img" aria-label="${name} stroke" data-icon="${name}" ` +
-                      `data-style="stroke" ${art.attrs}>${art.body}</svg>` +
-                      `<span style="font-size:11px;line-height:1.2;color:${MUTED};` +
-                        `text-align:center">${name}</span>` +
-                    `</div>`
-                  )
-                }).join("") +
-              `</div>`)
-        ).join("") +
+            : tiles(entry.names.length ? entry.names : entry.updatedNames))
+        ))
+          .filter(Boolean)
+          .join(`<div style="${DIVIDER};margin:32px 0"></div>`) +
       `</div>` +
     `</section>\n`
   )
@@ -746,10 +773,12 @@ const release = {
   previousReleasedVersion:
     HISTORY.previousReleasedVersion ?? HISTORY.releasedVersion ?? HISTORY.version,
   previousLabel: HISTORY.previousReleasedLabel ?? HISTORY.releasedLabel ?? "",
-  /* What the first release shipped, counted rather than carried forward. */
-  initialCount: Object.values(HISTORY.icons ?? {}).filter(
-    (h) => NEW_SINCE && h.added <= NEW_SINCE
-  ).length,
+  /* What the first release shipped, counted rather than carried forward. Off
+     the release windows, not off the badge floor: the badge is an age now, so
+     asking it what a tag held would answer with whatever is 30 days old. */
+  initialCount:
+    (HISTORY.releases ?? []).find((r) => r.initial)?.count ??
+    Object.keys(HISTORY.icons ?? {}).length,
   label: HISTORY.releasedLabel ?? newest?.updatedLabel ?? "",
   /* "Last updated" is the last day a drawing moved, which is not the day the
      tag was cut. Handing it `label` printed the release date under a heading
@@ -775,6 +804,11 @@ const release = {
     previous: all[i + 1]?.version ?? null,
     current: i === 0,
   })),
+  /* Drawn since the newest tag and in no release. Its own block on the board,
+     for the same reason as on /changelog: the newest release entry is headed
+     "Released" over the tag's date, and a drawing made afterwards was not in
+     it. Null is the resting state and prints nothing. */
+  unreleased: HISTORY.unreleased ?? null,
   /* The page counts drawings that carry a history entry, which is names rather
      than base icons and lags `icons/` until `history:build` runs. Both are true
      of `/changelog` as well, so mirroring the number is what keeps the two
