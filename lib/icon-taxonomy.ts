@@ -45,7 +45,7 @@ export const CATEGORIES = [
   // rather than a loose end.
   {
     label: "New",
-    match: /^(megaphone|grip-horizontal|grip-vertical)$/,
+    match: /^(megaphone|grip-horizontal|grip-vertical|octagon-x)$/,
     blurb: "Drawn since the last release and waiting to be reviewed.",
   },
   // `refresh` and `rotate` are here because they are arrow glyphs, whatever they
@@ -153,7 +153,7 @@ export const CATEGORIES = [
     // outlines they happen to be. `eye` is the show/hide operation, next to lock.
     label: "Actions",
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|download|upload|filter|eye|star|heart|alert|octagon-alert|triangle-alert|info|question)/,
+      /^(check|double-check|plus|minus|x|more|lock|unlock|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question)/,
     blurb: "Checks, crosses, pluses and the everyday verbs.",
   },
   {

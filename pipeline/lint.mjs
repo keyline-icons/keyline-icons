@@ -111,7 +111,7 @@ const NARROW = new Set([
  *   so a square's own edge midpoint measures as far from ink as an arrow's.
  * - **answered objects** — each has a documented reason: `credit-card` is
  *   honestly shallower than a square and should not be stretched to 20 x 20,
- *   `octagon-alert` covers ~360 units at 20
+ *   the octagons cover ~360 units at 20
  *   against a disc's ~380 at 22 and would be far too heavy at 22, `user` is
  *   pinned by H = W/2 + 2, and `settings` cannot be scaled at all — its 16
  *   tooth fillets are absolute tokens, so growing the gear is a redraw rather
@@ -174,7 +174,7 @@ const SIZE_KNOWN = new Set([
   'pause', 'skip-back', 'skip-forward', 'stop',
   'git-commit-horizontal', 'git-commit-vertical',
   'terminal', 'terminal-asterisk',
-  'credit-card', 'octagon-alert', 'package', 'settings', 'user', 'x',
+  'credit-card', 'octagon-alert', 'octagon-x', 'package', 'settings', 'user', 'x',
   'bell', 'paperclip', 'wifi', 'wifi-info', 'wifi-exclamation',
   'repeat', 'repeat-1',
   'arrow-down-left', 'arrow-down-right', 'arrow-up-left', 'arrow-up-right',

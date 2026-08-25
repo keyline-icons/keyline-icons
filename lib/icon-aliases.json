@@ -1375,6 +1375,19 @@
       ]
     },
     {
+      "match": "^octagon-x$",
+      "note": "The error mark, which is what a toast reaches for. `stop` is the sign the shape comes from.",
+      "terms": [
+        "error",
+        "failed",
+        "failure",
+        "stop",
+        "cancel",
+        "abort",
+        "destructive"
+      ]
+    },
+    {
       "match": "^grip-",
       "note": "The words for what it does. Nobody types `grip` first.",
       "terms": [
