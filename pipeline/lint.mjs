@@ -156,10 +156,21 @@ const NARROW = new Set([
  *   sign inverted. Read the group together: a compound is listed here only when
  *   its sign is narrow enough to keep the base's box. `wifi-x` widens to 22 and
  *   drops out.
+ *
+ * - **`grip-vertical` and `grip-horizontal`, drawn to the proportions the
+ *   handle is known by.** Six dots 4 across, on centres 6 apart and 7 down, which
+ *   puts the ink at 10 x 18 and its transpose at 18 x 10. The long axis reaches
+ *   22 only by opening the pitch to 9, which is 5 units of daylight between
+ *   dots and reads as scattered marks rather than as a handle, or by adding a
+ *   fourth row, which is a different drawing. A drag handle is the one glyph
+ *   whose whole job is to look grippable, and the density is what does that.
+ *   Both are listed, because the pair are exact transposes and one of them
+ *   passing while the other warns would be the rule disagreeing with itself.
  */
 const SIZE_KNOWN = new Set([
   'caret-down', 'caret-left', 'caret-right', 'caret-up', 'check', 'double-check',
   'alert', 'menu', 'minus', 'more-horizontal', 'more-vertical', 'question',
+  'grip-horizontal', 'grip-vertical',
   'pause', 'skip-back', 'skip-forward', 'stop',
   'git-commit-horizontal', 'git-commit-vertical',
   'terminal', 'terminal-asterisk',
