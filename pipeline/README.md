@@ -359,6 +359,24 @@ The tolerance is 0.05 rather than `EPS`, because `plus` sits 0.01 out on a known
 rounding artefact and fillet tangent points quantise at a similar scale. A real
 placement error is a whole unit, so nothing is missed in between.
 
+### Nothing measures where a glyph sits inside its container
+
+`CENTERING` reads the whole icon's bounding box, and a container is centred by
+construction, so the drawing inside it can sit anywhere and the build stays
+green. `play` sat 0.22 to the left in all six of its contained variants and
+nothing said so; it took someone looking at the six tiles side by side.
+
+Centring it by the box did not settle it either. A right-pointing triangle
+carries its mass on the flat edge and tapers to a point — its centroid is at
+10.6 where its box centre is 12 — so box-centred it still reads left-heavy. It
+ships **half a unit right of centre**, painted 3.96 against the left wall and
+2.96 against the right, one unit more daylight on the left. That number was set
+by eye.
+
+This is `play` and nothing else. Every other contained glyph is centred by its
+box, and the asymmetry here is deliberate, invisible to the linter, and exactly
+the kind of thing a later tidy-up would undo.
+
 ### An open container is exempt from CONSISTENCY and CENTERING
 
 `navigation` has a frame that is open in the outline — an arc that stops short
