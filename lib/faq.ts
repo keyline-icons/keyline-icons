@@ -89,7 +89,7 @@ export function homeFaq({
       answer:
         `A free icon set: ${total} icons drawn on one 24×24 grid, each in up to three weights: ` +
         `stroke, duotone and fill. ${SET_TAGLINE}, released under the ${SET_LICENSE_NAME}, ` +
-        `and made entirely with AI.`,
+        `and refined with AI.`,
     },
     {
       question: `How many icons are there, and why do the three styles differ?`,

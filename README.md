@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE)
 
 **551 icons, drawn on one 24×24 grid, in three weights.** Built for shadcn/ui,
-made entirely with AI, free under MIT.
+refined with AI, free under MIT.
 
 [**keylineicons.com**](https://keylineicons.com) to browse and copy.
 

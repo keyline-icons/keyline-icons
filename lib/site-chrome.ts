@@ -54,7 +54,7 @@ export const SET_TAGLINE = "Built for shadcn/ui"
  * Avoids "built", which the tagline already has — two of them either side of a
  * divider in one short line reads as a copy-paste rather than as a sentence.
  */
-export const SET_CREDIT = "An icon set made entirely with AI"
+export const SET_CREDIT = "An icon set refined with AI"
 
 /**
  * The licence, named in one place because three of them have to agree.
