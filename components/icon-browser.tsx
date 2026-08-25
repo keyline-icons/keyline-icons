@@ -30,6 +30,7 @@ import {
   SlidersHorizontal,
   Smartphone,
   Square,
+  Star,
   Trophy,
   Sun,
   User,
@@ -60,6 +61,7 @@ import {
   aliasesFor,
   CATEGORIES,
   categoryOf,
+  iconNamedElsewhere,
   OTHER_CATEGORY,
 } from "@/lib/icon-taxonomy"
 import { Segmented, SegmentedItem } from "@/components/segmented"
@@ -113,6 +115,7 @@ const CATEGORY_ICONS: Record<
   string,
   React.ComponentType<{ className?: string }>
 > = {
+  New: Star,
   Arrows: ArrowRight,
   Git: GitBranch,
   Files: File,
@@ -498,6 +501,13 @@ export function IconBrowser({
         called it. They are appended to the haystack rather than matched
         separately, so "email plus" still works across both.
       */
+      /*
+        A name from another set answers on its own, matched whole: someone
+        migrating types `message-square`, and the drawing here is `message`.
+        Kept out of the haystack on purpose — see `FOREIGN` in
+        lib/icon-taxonomy.ts for what putting it in there did to `square`.
+      */
+      if (iconNamedElsewhere(query) === i.base) return true
       const haystack = [i.name, ...aliasesFor(i.base)].join(" ")
       return words.every((w) => haystack.includes(w))
     })

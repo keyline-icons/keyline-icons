@@ -142,6 +142,45 @@ function keywordsFor(name) {
 
 const haystackFor = (name) => `${name} ${keywordsFor(name).join(" ")}`
 
+/**
+ * What another set calls a drawing here: `message-square` for `message`,
+ * `arrow-big-up` for `arrow-up`, `loader-2` for `loader`.
+ *
+ * Matched against the whole query and never split into words, which is the
+ * entire reason it is a map of its own rather than more keywords. Folded into
+ * the vocabulary instead, `message-square` puts "square" in the message icon's
+ * words, and a search for `square` answers with every message in the set —
+ * measured on the site's own grid, where the first row of a `square` search
+ * came back holding no squares at all.
+ */
+const foreign = data.names ?? {}
+
+/**
+ * Whether `hay` carries `needle` as a whole word, hyphen or space delimited.
+ *
+ * The rule here used to be a plain substring, and a substring lands inside
+ * words that have nothing to do with the query: `box` matched `inbox`, `ad`
+ * matched `upload`, `car` matched `caret-up`, `monitor` matched `activity`
+ * through its words. Run another set's 1775 names through this and 140 came back
+ * holding an icon that shares no word with what was asked for. That reads as a
+ * hit, which is worse than an empty result twice over: it hides the gap from
+ * anyone counting, and it hands the caller a drawing they did not ask for.
+ *
+ * The site keeps the looser rule on purpose. It answers every keystroke, and
+ * someone typing `arro` has not finished the word yet. Nothing types here. An
+ * agent sends a whole name, and the honest answer to a name this set does not
+ * have is nothing at all.
+ */
+const wholeWord = (hay, needle) => {
+  for (let i = hay.indexOf(needle); i !== -1; i = hay.indexOf(needle, i + 1)) {
+    const before = hay[i - 1] ?? "-"
+    const after = hay[i + needle.length] ?? "-"
+    if ((before === "-" || before === " ") && (after === "-" || after === " "))
+      return true
+  }
+  return false
+}
+
 function search(query, style, limit) {
   const q = query.toLowerCase().trim()
   const words = wordsOf(query)
@@ -150,24 +189,24 @@ function search(query, style, limit) {
   return NAMES.filter(
     (n) =>
       (!style || icons[n][style]) &&
-      (n.includes(q) ||
-        words.every((w) => n.includes(w)) ||
-        words.every((w) => haystackFor(n).includes(w)))
+      (foreign[q] === n ||
+        wholeWord(n, q) ||
+        words.every((w) => wholeWord(n, w)) ||
+        words.every((w) => wholeWord(haystackFor(n), w)))
   )
     .map((n) => {
-      const i = n.indexOf(q)
       const rank =
-        i === -1
-          ? words.every((w) => n.includes(w))
-            ? 4
-            : 5
-          : n === q
-            ? 0
-            : n.startsWith(q)
-              ? 1
-              : /(^|-)/.test(n[i - 1] ?? "-")
-                ? 2
-                : 3
+        n === q
+          ? 0
+          : foreign[q] === n
+            ? 1
+            : n.startsWith(q + "-")
+              ? 2
+              : wholeWord(n, q)
+                ? 3
+                : words.every((w) => wholeWord(n, w))
+                  ? 4
+                  : 5
       return { n, rank }
     })
     .sort(

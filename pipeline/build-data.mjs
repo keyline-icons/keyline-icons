@@ -157,7 +157,7 @@ const base = {
 const { keywords: described } = JSON.parse(
   await readFile(join(ROOT, "lib", "icon-keywords.json"), "utf8")
 )
-const { aliases } = JSON.parse(
+const { aliases, names: foreign } = JSON.parse(
   await readFile(join(ROOT, "lib", "icon-aliases.json"), "utf8")
 )
 
@@ -186,7 +186,18 @@ for (const name of Object.keys(sorted)) {
   if (words.size) keywords[name] = [...words]
 }
 
-const CONTENT = JSON.stringify({ ...base, keywords }, null, 0) + "\n"
+/* The other direction of the same idea, and deliberately not merged into the
+   words above. A name another set uses — `message-square` for this set's
+   `message` — is matched whole, because splitting it into words puts
+   "square" in the message icon's vocabulary and a search for `square` then
+   answers with every message in the set. Keyed by the query rather than by the
+   drawing, since that is the direction every consumer reads it. */
+const foreignNames = {}
+for (const [icon, list] of Object.entries(foreign ?? {}))
+  for (const name of list) foreignNames[name] = icon
+
+const CONTENT =
+  JSON.stringify({ ...base, keywords, names: foreignNames }, null, 0) + "\n"
 
 const names = Object.keys(sorted).length
 

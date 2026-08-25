@@ -36,6 +36,18 @@ const FIGMA_KEYWORDS = (keywords as { keywords: Record<string, string[]> })
  * families of exactly one.
  */
 export const CATEGORIES = [
+  // The review shelf, and the only row here that is not about what a drawing
+  // is. It sits first so it beats each icon's real shelf, and every name in it
+  // is also listed in its real category below — so deleting this one row files
+  // the whole batch at once, with no second edit to forget. That deletion is
+  // what "reviewed" means. It is recreated whenever a batch starts and removed
+  // once the batch graduates, so an empty repo state is the resting state
+  // rather than a loose end.
+  {
+    label: "New",
+    match: /^(megaphone|grip-horizontal|grip-vertical)$/,
+    blurb: "Drawn since the last release and waiting to be reviewed.",
+  },
   // `refresh` and `rotate` are here because they are arrow glyphs, whatever they
   // are used for. The anchor is what keeps `git-refresh` in Git below.
   {
@@ -98,7 +110,7 @@ export const CATEGORIES = [
     // wherever the two disagree — the same call the taxonomy makes for `wifi`.
     label: "Media",
     match:
-      /^(play|pause|stop|record|skip-|fast-forward|rewind|repeat|volume|audio-lines|mic|headphones|headset|shuffle|music-note|list-music|list-video|camera|image|cast|subtitles|captions|picture-in-picture|gallery-|podcast|queue)/,
+      /^(play|pause|stop|record|skip-|fast-forward|rewind|repeat|volume|audio-lines|mic|megaphone|headphones|headset|shuffle|music-note|list-music|list-video|camera|image|cast|subtitles|captions|picture-in-picture|gallery-|podcast|queue)/,
     blurb:
       "Playback, volume, capture, casting and the sound and image marks.",
   },
@@ -150,8 +162,8 @@ export const CATEGORIES = [
     // Prefixes rather than exact names, so the family this is being drawn
     // towards lands here too: a bare `slider`, a `toggle-left`.
     label: "Controls",
-    match: /^(toggle|slider)/,
-    blurb: "Toggles and sliders.",
+    match: /^(toggle|slider|grip)/,
+    blurb: "Toggles, sliders and the drag handle.",
   },
   {
     label: "Sport",
@@ -225,6 +237,27 @@ export const categoryOf = (base: string): CategoryLabel =>
 const ALIASES: { match: RegExp; terms: string[] }[] = (
   aliases as { aliases: { match: string; terms: string[] }[] }
 ).aliases.map((a) => ({ match: new RegExp(a.match), terms: a.terms }))
+
+/**
+ * What another set calls a drawing here, keyed by the name someone would type:
+ * `message-square` for `message`, `arrow-big-up` for `arrow-up`.
+ *
+ * Kept apart from the words above, and matched against the whole query rather
+ * than word by word, because a name is not a keyword. Folded into the terms
+ * instead — which is how this shipped for an afternoon — `message-square` puts
+ * "square" into the message icon's vocabulary, and a search for `square` comes
+ * back with every message in the set ahead of the squares.
+ */
+const FOREIGN: Record<string, string> = Object.fromEntries(
+  Object.entries(
+    (aliases as { names?: Record<string, string[]> }).names ?? {}
+  ).flatMap(([icon, list]) => list.map((name) => [name, icon]))
+)
+
+/** The drawing another set's name asks for, or nothing. */
+export function iconNamedElsewhere(query: string): string | undefined {
+  return FOREIGN[query.trim().toLowerCase()]
+}
 
 const cache = new Map<string, string[]>()
 

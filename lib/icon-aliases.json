@@ -426,7 +426,8 @@
         "nature",
         "plant",
         "bloom",
-        "spring"
+        "spring",
+        "rose"
       ]
     },
     {
@@ -701,6 +702,19 @@
         "enlarge",
         "corners",
         "resize"
+      ]
+    },
+    {
+      "match": "^megaphone$",
+      "terms": [
+        "bullhorn",
+        "announce",
+        "announcement",
+        "broadcast",
+        "shout",
+        "loudspeaker",
+        "promote",
+        "marketing"
       ]
     },
     {
@@ -1208,7 +1222,8 @@
         "people",
         "team",
         "group",
-        "contacts"
+        "contacts",
+        "contact"
       ]
     },
     {
@@ -1340,6 +1355,622 @@
         "browse",
         "expanded"
       ]
+    },
+    {
+      "match": "^calendar$",
+      "terms": [
+        "calendars"
+      ]
+    },
+    {
+      "match": "^mail$",
+      "terms": [
+        "mails"
+      ]
+    },
+    {
+      "match": "^tag$",
+      "terms": [
+        "tags"
+      ]
+    },
+    {
+      "match": "^grip-",
+      "note": "The words for what it does. Nobody types `grip` first.",
+      "terms": [
+        "drag",
+        "drag handle",
+        "handle",
+        "grab",
+        "reorder",
+        "resize",
+        "dots"
+      ]
     }
-  ]
+  ],
+  "names": {
+    "activity": [
+      "heart-pulse"
+    ],
+    "captions": [
+      "captions-off",
+      "closed-caption"
+    ],
+    "audio-lines": [
+      "audio-lines-off",
+      "audio-lines-x"
+    ],
+    "bookmark": [
+      "bookmark-check",
+      "bookmark-minus",
+      "bookmark-off",
+      "bookmark-plus",
+      "bookmark-x"
+    ],
+    "bluetooth": [
+      "bluetooth-connected",
+      "bluetooth-off",
+      "bluetooth-searching"
+    ],
+    "building": [
+      "building-2"
+    ],
+    "check": [
+      "check-line",
+      "circle-check-big",
+      "square-check-big"
+    ],
+    "copy": [
+      "copy-check",
+      "copy-minus",
+      "copy-slash",
+      "copy-x"
+    ],
+    "flower": [
+      "flower-2"
+    ],
+    "link": [
+      "link-2"
+    ],
+    "loader": [
+      "loader-2",
+      "loader-circle",
+      "loader-pinwheel"
+    ],
+    "maximize": [
+      "maximize-2"
+    ],
+    "megaphone": [
+      "megaphone-off"
+    ],
+    "mic": [
+      "mic-audio-lines",
+      "mic-signal",
+      "mic-vocal"
+    ],
+    "minimize": [
+      "minimize-2"
+    ],
+    "navigation": [
+      "navigation-2",
+      "navigation-2-off"
+    ],
+    "package": [
+      "package-2",
+      "package-check",
+      "package-minus",
+      "package-open",
+      "package-plus",
+      "package-search",
+      "package-x"
+    ],
+    "picture-in-picture": [
+      "picture-in-picture-2"
+    ],
+    "question": [
+      "circle-question-mark"
+    ],
+    "receipt": [
+      "receipt-cent",
+      "receipt-euro",
+      "receipt-indian-rupee",
+      "receipt-japanese-yen",
+      "receipt-pound-sterling",
+      "receipt-russian-ruble",
+      "receipt-swiss-franc",
+      "receipt-text",
+      "receipt-turkish-lira"
+    ],
+    "search": [
+      "search-alert",
+      "search-check",
+      "search-code",
+      "search-slash",
+      "search-x"
+    ],
+    "settings": [
+      "settings-2"
+    ],
+    "share": [
+      "share-2"
+    ],
+    "truck": [
+      "truck-electric"
+    ],
+    "x": [
+      "x-line-top"
+    ],
+    "archive": [
+      "archive-restore",
+      "archive-x"
+    ],
+    "arrow-down": [
+      "a-arrow-down",
+      "arrow-big-down",
+      "arrow-big-down-dash",
+      "arrow-down-0-1",
+      "arrow-down-1-0",
+      "arrow-down-a-z",
+      "arrow-down-from-line",
+      "arrow-down-to-dot",
+      "arrow-down-to-line",
+      "arrow-down-z-a"
+    ],
+    "arrow-left": [
+      "arrow-big-left",
+      "arrow-big-left-dash",
+      "arrow-left-from-line",
+      "arrow-left-to-line"
+    ],
+    "arrow-right": [
+      "arrow-big-right",
+      "arrow-big-right-dash",
+      "arrow-right-from-line",
+      "arrow-right-to-line",
+      "square-arrow-right-enter",
+      "square-arrow-right-exit"
+    ],
+    "arrow-up": [
+      "a-arrow-up",
+      "arrow-big-up",
+      "arrow-big-up-dash",
+      "arrow-up-0-1",
+      "arrow-up-1-0",
+      "arrow-up-a-z",
+      "arrow-up-from-dot",
+      "arrow-up-from-line",
+      "arrow-up-to-line",
+      "arrow-up-z-a",
+      "arrows-up-from-line"
+    ],
+    "bar-chart": [
+      "chart-bar-big",
+      "chart-bar-decreasing",
+      "chart-bar-increasing",
+      "chart-bar-stacked",
+      "chart-column",
+      "chart-line"
+    ],
+    "battery": [
+      "battery-charging",
+      "battery-plus",
+      "battery-warning"
+    ],
+    "bell": [
+      "bell-electric"
+    ],
+    "calendar": [
+      "calendar-1",
+      "calendar-clock",
+      "calendar-cog",
+      "calendar-days",
+      "calendar-fold",
+      "calendar-heart",
+      "calendar-range",
+      "calendar-search",
+      "calendar-sync"
+    ],
+    "calendar-check": [
+      "calendar-check-2"
+    ],
+    "calendar-minus": [
+      "calendar-minus-2"
+    ],
+    "calendar-plus": [
+      "calendar-plus-2"
+    ],
+    "calendar-x": [
+      "calendar-x-2"
+    ],
+    "chevrons-left": [
+      "chevron-first"
+    ],
+    "chevrons-left-right": [
+      "chevrons-left-right-ellipsis"
+    ],
+    "chevrons-right": [
+      "chevron-last"
+    ],
+    "clock": [
+      "clock-alert",
+      "clock-fading"
+    ],
+    "cloud": [
+      "cloud-alert",
+      "cloud-backup",
+      "cloud-check",
+      "cloud-cog",
+      "cloud-download",
+      "cloud-fog",
+      "cloud-hail",
+      "cloud-lightning",
+      "cloud-moon",
+      "cloud-snow",
+      "cloud-sun"
+    ],
+    "cloud-rain": [
+      "cloud-moon-rain",
+      "cloud-rain-wind",
+      "cloud-sun-rain"
+    ],
+    "database": [
+      "database-arrow-down",
+      "database-arrow-up",
+      "database-backup",
+      "database-check",
+      "database-minus",
+      "database-plus",
+      "database-search",
+      "database-x",
+      "database-zap"
+    ],
+    "eye": [
+      "eye-closed",
+      "eye-dashed"
+    ],
+    "file": [
+      "file-archive",
+      "file-axis-3d",
+      "file-badge",
+      "file-box",
+      "file-braces",
+      "file-braces-corner",
+      "file-chart-column",
+      "file-chart-column-increasing",
+      "file-chart-line",
+      "file-chart-pie",
+      "file-clock",
+      "file-code",
+      "file-code-corner",
+      "file-cog",
+      "file-diff",
+      "file-digit",
+      "file-exclamation-point",
+      "file-headphone",
+      "file-heart",
+      "file-input",
+      "file-key",
+      "file-lock",
+      "file-music",
+      "file-output",
+      "file-pen",
+      "file-pen-line",
+      "file-play",
+      "file-question-mark",
+      "file-scan",
+      "file-search",
+      "file-search-corner",
+      "file-signal",
+      "file-sliders",
+      "file-stack",
+      "file-symlink",
+      "file-terminal",
+      "file-type",
+      "file-type-corner",
+      "file-user",
+      "file-video-camera",
+      "file-volume"
+    ],
+    "file-check": [
+      "file-check-corner"
+    ],
+    "file-minus": [
+      "file-minus-corner"
+    ],
+    "file-plus": [
+      "file-plus-corner"
+    ],
+    "file-x": [
+      "file-x-corner"
+    ],
+    "folder": [
+      "folder-archive",
+      "folder-bookmark",
+      "folder-clock",
+      "folder-closed",
+      "folder-code",
+      "folder-cog",
+      "folder-dot",
+      "folder-git",
+      "folder-git-2",
+      "folder-heart",
+      "folder-input",
+      "folder-kanban",
+      "folder-key",
+      "folder-lock",
+      "folder-output",
+      "folder-pen",
+      "folder-root",
+      "folder-search",
+      "folder-search-2",
+      "folder-symlink",
+      "folder-sync",
+      "folder-tree"
+    ],
+    "folder-open": [
+      "folder-open-dot"
+    ],
+    "grid-2x2": [
+      "grid-2x2-check",
+      "grid-2x2-plus",
+      "grid-2x2-x"
+    ],
+    "headphones-off": [
+      "headphone-off"
+    ],
+    "heart": [
+      "heart-crack",
+      "heart-handshake",
+      "heart-minus",
+      "heart-plus",
+      "heart-x"
+    ],
+    "image": [
+      "image-off",
+      "image-play",
+      "image-upscale"
+    ],
+    "link-off": [
+      "link-2-off"
+    ],
+    "list-check": [
+      "list-checks"
+    ],
+    "list-plus": [
+      "list-filter-plus"
+    ],
+    "list-sort": [
+      "list-sort-ascending",
+      "list-sort-descending"
+    ],
+    "lock": [
+      "lock-keyhole",
+      "lock-keyhole-open"
+    ],
+    "mail": [
+      "mail-question-mark",
+      "mail-search",
+      "mail-warning"
+    ],
+    "map": [
+      "map-pinned"
+    ],
+    "map-pin": [
+      "map-pin-house",
+      "map-pin-pen"
+    ],
+    "map-pin-check": [
+      "map-pin-check-inside"
+    ],
+    "map-pin-minus": [
+      "map-pin-minus-inside"
+    ],
+    "map-pin-plus": [
+      "map-pin-plus-inside"
+    ],
+    "map-pin-x": [
+      "map-pin-x-inside"
+    ],
+    "message": [
+      "message-circle",
+      "message-circle-code",
+      "message-circle-dashed",
+      "message-circle-heart",
+      "message-circle-more",
+      "message-circle-question-mark",
+      "message-circle-reply",
+      "message-circle-warning",
+      "message-square",
+      "message-square-code",
+      "message-square-dashed",
+      "message-square-diff",
+      "message-square-heart",
+      "message-square-lock",
+      "message-square-more",
+      "message-square-quote",
+      "message-square-reply",
+      "message-square-share",
+      "message-square-text",
+      "message-square-warning"
+    ],
+    "message-check": [
+      "message-circle-check",
+      "message-square-check"
+    ],
+    "message-dot": [
+      "message-square-dot"
+    ],
+    "message-off": [
+      "message-circle-off",
+      "message-square-off"
+    ],
+    "message-plus": [
+      "message-circle-plus",
+      "message-square-plus"
+    ],
+    "message-x": [
+      "message-circle-x",
+      "message-square-x"
+    ],
+    "messages": [
+      "messages-square"
+    ],
+    "monitor": [
+      "monitor-check",
+      "monitor-cloud",
+      "monitor-cog",
+      "monitor-dot",
+      "monitor-down",
+      "monitor-pause",
+      "monitor-play",
+      "monitor-smartphone",
+      "monitor-speaker",
+      "monitor-up",
+      "monitor-x"
+    ],
+    "panel-bottom": [
+      "panel-bottom-open"
+    ],
+    "panel-left": [
+      "panel-left-open",
+      "panels-left-bottom"
+    ],
+    "panel-right": [
+      "panel-right-open",
+      "panels-right-bottom"
+    ],
+    "panel-top": [
+      "panel-top-bottom-dashed",
+      "panel-top-open",
+      "panels-top-left"
+    ],
+    "pen": [
+      "pen-tool"
+    ],
+    "refresh-ccw": [
+      "refresh-ccw-dot"
+    ],
+    "refresh-cw": [
+      "refresh-cw-off"
+    ],
+    "repeat": [
+      "repeat-2",
+      "repeat-off"
+    ],
+    "rotate-ccw": [
+      "rotate-ccw-clock",
+      "rotate-ccw-key",
+      "rotate-ccw-square"
+    ],
+    "rotate-cw": [
+      "rotate-cw-fading-clock",
+      "rotate-cw-square"
+    ],
+    "server": [
+      "server-cog",
+      "server-crash",
+      "server-off",
+      "server-plus"
+    ],
+    "signal": [
+      "signal-zero"
+    ],
+    "smartphone": [
+      "smartphone-charging",
+      "smartphone-nfc"
+    ],
+    "square-dashed": [
+      "square-dashed-bottom",
+      "square-dashed-bottom-code",
+      "square-dashed-kanban",
+      "square-dashed-mouse-pointer",
+      "square-dashed-text",
+      "square-dashed-top-solid"
+    ],
+    "star": [
+      "star-check",
+      "star-half",
+      "star-minus",
+      "star-off",
+      "star-plus",
+      "star-x"
+    ],
+    "sun": [
+      "sun-dim",
+      "sun-medium",
+      "sun-moon",
+      "sun-snow"
+    ],
+    "tag": [
+      "tag-plus",
+      "tag-x"
+    ],
+    "unlock": [
+      "lock-open"
+    ],
+    "user": [
+      "circle-user-round",
+      "square-user",
+      "square-user-round",
+      "user-cog",
+      "user-key",
+      "user-lock",
+      "user-pen",
+      "user-round",
+      "user-round-arrow-left",
+      "user-round-cog",
+      "user-round-key",
+      "user-round-pen",
+      "user-round-search",
+      "user-search",
+      "user-shield",
+      "user-star",
+      "users-round"
+    ],
+    "user-check": [
+      "user-round-check"
+    ],
+    "user-minus": [
+      "user-round-minus"
+    ],
+    "user-plus": [
+      "user-round-plus"
+    ],
+    "user-x": [
+      "user-round-x"
+    ],
+    "volume": [
+      "volume-1",
+      "volume-2"
+    ],
+    "wifi": [
+      "wifi-cog",
+      "wifi-pen",
+      "wifi-sync",
+      "wifi-zero"
+    ],
+    "at": [
+      "at-sign"
+    ],
+    "globe": [
+      "globe-lock"
+    ],
+    "arrow-up-left": [
+      "circle-arrow-out-up-left",
+      "square-arrow-out-up-left"
+    ],
+    "arrow-down-left": [
+      "circle-arrow-out-down-left",
+      "square-arrow-out-down-left"
+    ],
+    "arrow-down-right": [
+      "circle-arrow-out-down-right",
+      "square-arrow-out-down-right"
+    ],
+    "arrow-up-right": [
+      "circle-arrow-out-up-right",
+      "square-arrow-out-up-right"
+    ]
+  },
+  "$names": "Names other sets use for a drawing here, keyed by the drawing. Matched against the whole query, never split into words: these are names, not keywords, and folding `message-square` into a keyword list makes a search for `square` return every message icon."
 }

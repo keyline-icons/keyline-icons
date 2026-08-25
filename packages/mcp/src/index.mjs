@@ -89,8 +89,8 @@ function wordsOf(query) {
  * An agent asking for "arrow" wants `arrow-down` before
  * `square-arrow-down-dashed`, and asking for "check" wants `check` itself
  * rather than the twelve compounds that contain it. Exact beats prefix beats
- * word-boundary beats substring, and shorter breaks ties, because the shorter
- * name is the more general glyph in this set's naming scheme.
+ * word-boundary, and shorter breaks ties, because the shorter name is the more
+ * general glyph in this set's naming scheme.
  *
  * The query is also matched word by word, which is what lets a name borrowed
  * from another set land. Compounds here read base-first, so an agent carrying
@@ -126,6 +126,45 @@ function keywordsFor(name) {
 
 const haystackFor = (name) => `${name} ${keywordsFor(name).join(" ")}`
 
+/**
+ * What another set calls a drawing here: `message-square` for `message`,
+ * `arrow-big-up` for `arrow-up`, `loader-2` for `loader`.
+ *
+ * Matched against the whole query and never split into words, which is the
+ * entire reason it is a map of its own rather than more keywords. Folded into
+ * the vocabulary instead, `message-square` puts "square" in the message icon's
+ * words, and a search for `square` answers with every message in the set —
+ * measured on the site's own grid, where the first row of a `square` search
+ * came back holding no squares at all.
+ */
+const foreign = data.names ?? {}
+
+/**
+ * Whether `hay` carries `needle` as a whole word, hyphen or space delimited.
+ *
+ * The rule here used to be a plain substring, and a substring lands inside
+ * words that have nothing to do with the query: `box` matched `inbox`, `ad`
+ * matched `upload`, `car` matched `caret-up`, `monitor` matched `activity`
+ * through its words. Run another set's 1775 names through this and 140 came back
+ * holding an icon that shares no word with what was asked for. That reads as a
+ * hit, which is worse than an empty result twice over: it hides the gap from
+ * anyone counting, and it hands the caller a drawing they did not ask for.
+ *
+ * The site keeps the looser rule on purpose. It answers every keystroke, and
+ * someone typing `arro` has not finished the word yet. Nothing types here. An
+ * agent sends a whole name, and the honest answer to a name this set does not
+ * have is nothing at all.
+ */
+const wholeWord = (hay, needle) => {
+  for (let i = hay.indexOf(needle); i !== -1; i = hay.indexOf(needle, i + 1)) {
+    const before = hay[i - 1] ?? "-"
+    const after = hay[i + needle.length] ?? "-"
+    if ((before === "-" || before === " ") && (after === "-" || after === " "))
+      return true
+  }
+  return false
+}
+
 function search(query, style, limit) {
   const q = query.toLowerCase().trim()
   const words = wordsOf(query)
@@ -135,22 +174,14 @@ function search(query, style, limit) {
   for (const name of NAMES) {
     if (style && !icons[name][style]) continue
 
-    const i = name.indexOf(q)
     let rank
-    if (i !== -1) {
-      rank =
-        name === q
-          ? 0
-          : name.startsWith(q)
-            ? 1
-            : /(^|-)/.test(name[i - 1] ?? "-")
-              ? 2
-              : 3
-    } else if (words.every((w) => name.includes(w))) {
-      rank = 4
-    } else if (words.every((w) => haystackFor(name).includes(w))) {
-      rank = 5
-    } else continue
+    if (name === q) rank = 0
+    else if (foreign[q] === name) rank = 1
+    else if (name.startsWith(q + "-")) rank = 2
+    else if (wholeWord(name, q)) rank = 3
+    else if (words.every((w) => wholeWord(name, w))) rank = 4
+    else if (words.every((w) => wholeWord(haystackFor(name), w))) rank = 5
+    else continue
 
     hits.push({ name, rank })
   }
