@@ -2474,6 +2474,22 @@ export function Grid3x3(props: IconProps) {
   )
 }
 
+export function GripHorizontal(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M6 9C6 9.5523 5.5523 10 5 10C4.4477 10 4 9.5523 4 9C4 8.4477 4.4477 8 5 8C5.5523 8 6 8.4477 6 9ZM6 15C6 15.5523 5.5523 16 5 16C4.4477 16 4 15.5523 4 15C4 14.4477 4.4477 14 5 14C5.5523 14 6 14.4477 6 15ZM13 9C13 9.5523 12.5523 10 12 10C11.4477 10 11 9.5523 11 9C11 8.4477 11.4477 8 12 8C12.5523 8 13 8.4477 13 9ZM13 15C13 15.5523 12.5523 16 12 16C11.4477 16 11 15.5523 11 15C11 14.4477 11.4477 14 12 14C12.5523 14 13 14.4477 13 15ZM20 9C20 9.5523 19.5523 10 19 10C18.4477 10 18 9.5523 18 9C18 8.4477 18.4477 8 19 8C19.5523 8 20 8.4477 20 9ZM20 15C20 15.5523 19.5523 16 19 16C18.4477 16 18 15.5523 18 15C18 14.4477 18.4477 14 19 14C19.5523 14 20 14.4477 20 15Z" />
+    </Icon>
+  )
+}
+
+export function GripVertical(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M10 5C10 5.5523 9.5523 6 9 6C8.4477 6 8 5.5523 8 5C8 4.4477 8.4477 4 9 4C9.5523 4 10 4.4477 10 5ZM10 12C10 12.5523 9.5523 13 9 13C8.4477 13 8 12.5523 8 12C8 11.4477 8.4477 11 9 11C9.5523 11 10 11.4477 10 12ZM10 19C10 19.5523 9.5523 20 9 20C8.4477 20 8 19.5523 8 19C8 18.4477 8.4477 18 9 18C9.5523 18 10 18.4477 10 19ZM16 5C16 5.5523 15.5523 6 15 6C14.4477 6 14 5.5523 14 5C14 4.4477 14.4477 4 15 4C15.5523 4 16 4.4477 16 5ZM16 12C16 12.5523 15.5523 13 15 13C14.4477 13 14 12.5523 14 12C14 11.4477 14.4477 11 15 11C15.5523 11 16 11.4477 16 12ZM16 19C16 19.5523 15.5523 20 15 20C14.4477 20 14 19.5523 14 19C14 18.4477 14.4477 18 15 18C15.5523 18 16 18.4477 16 19Z" />
+    </Icon>
+  )
+}
+
 export function Handbag(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -2907,6 +2923,14 @@ export function Maximize(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M9 3H6C4.34315 3 3 4.34315 3 6V9M15 3H18C19.65685 3 21 4.34315 21 6V9M21 15V18C21 19.65685 19.65685 21 18 21H15M3 15V18C3 19.65685 4.34315 21 6 21H9" />
+    </Icon>
+  )
+}
+
+export function Megaphone(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M16 5.5C17.42 4.886 18.788 4.02 20 3.214C20.186 3.095 20.407 3.022 20.638 3.004C20.869 2.986 21.101 3.024 21.309 3.113C21.517 3.202 21.691 3.339 21.813 3.508C21.935 3.677 22 3.872 22 4.071V17.429C22 17.628 21.935 17.823 21.813 17.992C21.691 18.161 21.517 18.298 21.309 18.387C21.101 18.476 20.869 18.516 20.638 18.496C20.407 18.478 20.186 18.405 20 18.286C18.788 17.48 17.42 16.614 16 16C14.849 15.4 13.664 15 12.5 15H10M10 15H5.5M10 15V19C10 20.1046 9.10457 21 8 21C6.2 21 5.5 18.5 5.5 15M5.5 15H5C3.34315 15 2 13.6569 2 12V9.5C2 7.84315 3.34315 6.5 5 6.5H12.5C13.664 6.5 14.849 6.1 16 5.5M16 5.5V16" />
     </Icon>
   )
 }
