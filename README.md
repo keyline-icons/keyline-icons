@@ -11,10 +11,10 @@ refined with AI, free under MIT.
 | Style | Icons | What it is |
 | --- | --- | --- |
 | `stroke` | 551 | The full set. 2px keylines on a 24 grid. |
-| `duotone` | 450 | The stroke drawing over a flat plate at reduced opacity. |
-| `fill` | 402 | Solid, with the detail knocked back out of the shape. |
+| `duotone` | 451 | The stroke drawing over a flat plate at reduced opacity. |
+| `fill` | 403 | Solid, with the detail knocked back out of the shape. |
 
-1,403 SVGs in total. `stroke` is complete by definition: it is the drawing every
+1,405 SVGs in total. `stroke` is complete by definition: it is the drawing every
 other style is derived from. `duotone` and `fill` need a region to fill, and not
 every glyph has one. `bar-chart` is three open strokes with no interior, so it
 carries stroke only, while `square-bar-chart` puts the same glyph in a container

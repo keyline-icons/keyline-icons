@@ -71,8 +71,8 @@ duplicate, no plan requirement.
 
 Three styles
   stroke    551 icons, 2px, round caps and joins
-  duotone   450 icons, a 40% plate under the line
-  fill      402 icons, solid where the glyph has a region to fill
+  duotone   451 icons, a 40% plate under the line
+  fill      403 icons, solid where the glyph has a region to fill
 
 55 icons also come in a square- form and 54 in a circle- form, so a container
 is a search away rather than a second drawing.
@@ -282,7 +282,7 @@ without swapping components. 55 icons carry a square- form and 54 a circle-.
 Which styles an icon has is measured rather than chosen: duotone and fill need
 a fillable region, so an open glyph like bar-chart is stroke-only, and
 square-bar-chart has all three. That is why the three counts differ: stroke
-551, duotone 450, fill 402.
+551, duotone 451, fill 403.
 
 The Catalog page files every icon under one of 19 categories, and the Changelog
 page records what landed in each version, so the file says what is in it
