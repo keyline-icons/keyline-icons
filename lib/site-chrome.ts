@@ -183,6 +183,30 @@ export const SET_FIGMA_URL =
   "https://www.figma.com/community/file/1672255957017818239/keyline-icons"
 
 /**
+ * The Community plugin, which is the third Figma link on this site and the only
+ * one that is not a place to look at the set.
+ *
+ * The three are worth keeping straight, because they answer three questions:
+ * `SET_FIGMA_URL` is where the set can be opened, `SET_FIGMA_PROFILE_URL` is
+ * who made it, and this one is how an icon gets onto a canvas without opening
+ * either. A reader who wants an icon in the file they already have open wants
+ * this one, and until it was published there was nothing on the site to give
+ * them.
+ *
+ * **It updates on a different clock from everything else here.** The plugin
+ * fetches `packages/figma-plugin/icons.json` from `@main` on jsDelivr rather
+ * than bundling it, so what it serves is whatever `main` holds, while the site
+ * renders whatever the deployed commit holds. The two agree in the normal case
+ * and diverge for as long as a branch is unmerged, which is why nothing on this
+ * site should ever quote a count *for the plugin*: it can only quote its own.
+ *
+ * Gated on being non-empty like the other two, for the reason `SET_FIGMA_URL`
+ * gives.
+ */
+export const SET_FIGMA_PLUGIN_URL =
+  "https://www.figma.com/community/plugin/1672557050316875938/keyline-icons"
+
+/**
  * The set's Figma Community profile, linked from the bar and the footer.
  *
  * Deliberately not `SET_FIGMA_URL`. That constant means one specific thing, the

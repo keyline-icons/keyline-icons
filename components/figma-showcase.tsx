@@ -7,7 +7,11 @@ import { DesignFileTabs } from "@/components/design-file-tabs"
 import { Glyph } from "@/components/glyph"
 import type { Icon } from "@/lib/icons"
 import { DESIGN_NOTE_ICON_NAMES, PAPER_NOTE_ICON_NAMES } from "@/lib/home"
-import { SET_FIGMA_URL, SET_PAPER_URL } from "@/lib/site-chrome"
+import {
+  SET_FIGMA_PLUGIN_URL,
+  SET_FIGMA_URL,
+  SET_PAPER_URL,
+} from "@/lib/site-chrome"
 
 /**
  * Where the set comes from, which is now two design files rather than one.
@@ -34,8 +38,16 @@ import { SET_FIGMA_URL, SET_PAPER_URL } from "@/lib/site-chrome"
  * answers and this note moved together, which is what the arrangement was for.
  * `SET_PAPER_URL` is the same kind of link and opens the Paper file.
  *
- * There is still no plugin, kit or download offered anywhere in here, which is
- * why each panel is a screenshot and four sentences rather than a pricing block.
+ * **The plugin is offered here now, and it is the one thing in this section a
+ * reader can act on rather than look at.** It was deliberately absent while it
+ * was unpublished, and this note said so; it is published, so the line under the
+ * Figma notes is the whole of the change. It stays one sentence under four
+ * mechanism claims rather than becoming a panel of its own, because the section
+ * is still about where the set is drawn, not about ways to get it. Anything
+ * more belongs on `/install`.
+ *
+ * There is still no kit or download offered in here, which is why each panel is
+ * a screenshot and four sentences rather than a pricing block.
  *
  * What this section had before the screenshot: a `Container` × `Style` matrix
  * built from `check`, `square-check` and `circle-check`, drawn with `Glyph` off
@@ -299,6 +311,31 @@ export function FigmaShowcase({ icons }: { icons: Icon[] }) {
                   blank phones were found that way.
                 </Note>
               </Notes>
+              {/*
+                Inside the panel rather than in the line reserved under the
+                button, which is where a second link beside the first one wants
+                to go. That slot keeps every tab's line mounted and hides the
+                inactive ones with opacity, so a link in it would stay in the
+                tab order while invisible. The panels use the `hidden`
+                attribute, which takes the whole subtree out of focus and out of
+                the accessibility tree, so a link is safe here and nowhere else
+                in this component.
+              */}
+              {SET_FIGMA_PLUGIN_URL && (
+                <p className="mt-8 text-sm text-muted-foreground">
+                  Already in a file?{" "}
+                  <a
+                    href={SET_FIGMA_PLUGIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2 hover:text-foreground"
+                  >
+                    The plugin
+                  </a>{" "}
+                  searches the set and drops an icon straight onto the canvas,
+                  in Figma and in FigJam, without opening this file at all.
+                </p>
+              )}
             </>
           ),
           paper: (
