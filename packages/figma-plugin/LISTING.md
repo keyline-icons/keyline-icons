@@ -13,9 +13,23 @@ different places with different copy:
 
 - **The plugin**, at `Plugins` → `Manage plugins` → `Publish`. Everything below
   from "Where the modal is" onward is that one.
-- **The file**, from the Figma file itself: the file name menu → `Publish to
-  Community`. Three pages: Describe your resource, Set a thumbnail, Add the
-  final details. Its copy is in "The file listing" at the bottom of this file.
+- **The file**, from the Figma file itself: the toolbar's `Share` button, then
+  `Update Community file` in the lower half of that dialog. Three pages:
+  Describe your resource, Set a thumbnail, Add the final details. Its copy is
+  in "The file listing" at the bottom of this file.
+
+  **It is not in either file menu.** It was under the file name menu once, and
+  on 26 Aug 2026 it was in neither that menu nor the Figma logo's `File`
+  submenu, and the Actions palette did not surface it either. Note that Figma's
+  own help page still calls the entry `Publish to Community`, and the dialog
+  says `Update Community file`, so searching for the documented wording finds
+  nothing. If it has moved again when you read this, go to the resource from
+  the Community profile rather than searching the editor.
+
+  Figma treats an update as a new version and leaves existing duplicates alone,
+  so a file listing never reaches anyone who already duplicated it. The plugin
+  is the surface that updates in place, which is worth remembering before
+  putting anything time-sensitive in the file's copy.
 
 They are not the same words and updating one does not update the other. The
 file's description went stale at 503 icons while the plugin's was current,
@@ -145,6 +159,36 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 0.1.4
+
+Everything below landed while the listing still described 0.1.0, so this is one
+entry covering the span rather than four.
+
+```
+Two releases of new drawings since this listing was written, and all three
+packages reissued so every one of them ships the same set.
+
+Playback   captions, subtitles, cast, podcast, queue, repeat, repeat-1 and
+           list-video, with shuffle redrawn
+Gallery    gallery-horizontal and gallery-vertical, each with a start and an
+           end form
+Screen     fullscreen, fullscreen-exit, maximize, minimize and
+           picture-in-picture
+Sport      trophy, award, and podium with 1, 2 and 3 place variants
+Devices    monitor, monitor-off, bluetooth, and battery at four levels
+Layout     layout-dashboard, and grid in 2x2, 2x3, 3x2 and 3x3
+Also       alert, in bare, circle and square forms; building; loader;
+           heart-hand; megaphone; copy-plus
+
+Nothing to install. The set is fetched at run time, so these drawings were
+already reaching you; this publish is the listing catching up.
+```
+
+Deliberately no total. The published listing states its own counts on page one
+and the site computes them; a number typed into the notes as well is a third
+copy of a fact two surfaces already agree on, and it is the copy that goes
+wrong.
 
 ### 0.1.1
 
@@ -305,10 +349,17 @@ regenerated together; re-upload whichever modal you are in.
 ### What changed, for the final details page
 
 ```
-24 new drawings and a Sport category, and the battery family redrawn taller.
+Two releases of new drawings since this description was written.
 
+Playback   captions, subtitles, cast, podcast, queue, repeat, repeat-1 and
+           list-video, with shuffle redrawn
+Gallery    gallery-horizontal and gallery-vertical, each with a start and an
+           end form
+Screen     fullscreen, fullscreen-exit, maximize, minimize and
+           picture-in-picture
 Sport      trophy, award, and podium with 1, 2 and 3 place variants
 Devices    monitor, monitor-off, bluetooth, and battery at four levels
 Layout     layout-dashboard, and grid in 2x2, 2x3, 3x2 and 3x3
-Also       alert, in bare, circle and square forms; building; loader; heart-hand
+Also       alert, in bare, circle and square forms; building; loader;
+           heart-hand; megaphone; copy-plus
 ```

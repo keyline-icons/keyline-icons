@@ -410,14 +410,20 @@ async function sheetBoard() {
       `<div class="row">${await g("message", 28, FJ.ink)}<span class="t">Write the FAQ answers</span></div>` +
       `<div class="row" style="margin-top:auto;opacity:.55">${await g("clock", 24, FJ.ink)}` +
       `<span style="font-size:19px">Thursday</span></div>`) +
+    // Both of these said something specific and dated: one was waiting on the
+    // plugin's first review, the other on the six drawings the August migration
+    // asked for. Both came true, and the sheet went on saying otherwise on a
+    // published Community page for as long as nobody looked. What replaces them
+    // is ordinary board work that stays true, because a carousel image is
+    // reprinted only when the listing is republished and that is rare.
     sticky(700, 330, 300, 232, FJ.sPink, 1.4,
-      `<div class="row">${await g("bell", 28, FJ.red)}<span class="t">Waiting on plugin review</span></div>` +
+      `<div class="row">${await g("bell", 28, FJ.red)}<span class="t">Waiting on design review</span></div>` +
       `<div class="row" style="margin-top:auto;opacity:.55">${await g("question", 24, FJ.ink)}` +
-      `<span style="font-size:19px">Two weeks?</span></div>`) +
+      `<span style="font-size:19px">Two days?</span></div>`) +
     sticky(700, 594, 300, 232, FJ.sOrange, -0.8,
-      `<div class="row">${await g("bookmark", 28, FJ.orange)}<span class="t">Six icons still to draw</span></div>` +
+      `<div class="row">${await g("bookmark", 28, FJ.orange)}<span class="t">Icon requests to triage</span></div>` +
       `<div class="row" style="margin-top:auto;opacity:.55">${await g("pen", 24, FJ.ink)}` +
-      `<span style="font-size:19px">From the migration</span></div>`) +
+      `<span style="font-size:19px">From the issues</span></div>`) +
     sticky(1312, 330, 300, 232, FJ.sGreen, -1.5,
       `<div class="row">${await gf("circle-check", 28, FJ.green)}<span class="t">Packages on npm</span></div>` +
       `<div class="row" style="margin-top:auto;opacity:.55">${await g("check", 24, FJ.ink)}` +
