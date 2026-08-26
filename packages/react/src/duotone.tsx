@@ -970,7 +970,7 @@ export function CirclePause(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M10 8V16M14 8V16" />
+      <path d="M9 8V15M15 8V17" />
     </Icon>
   )
 }
@@ -2854,8 +2854,8 @@ export function PanelTop(props: IconProps) {
 export function Pause(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 5C5 3.895431 5.895431 3 7 3L9 3C10.104569 3 11 3.895431 11 5L11 19C11 20.104569 10.104569 21 9 21L7 21C5.895431 21 5 20.104569 5 19ZM13 5C13 3.895431 13.895431 3 15 3L17 3C18.104569 3 19 3.895431 19 5L19 19C19 20.104569 18.104569 21 17 21L15 21C13.895431 21 13 20.104569 13 19Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M6 5C6 4.447715 6.447715 4 7 4L9 4C9.552285 4 10 4.447715 10 5L10 19C10 19.552285 9.552285 20 9 20L7 20C6.447715 20 6 19.552285 6 19ZM14 5C14 4.447715 14.447715 4 15 4L17 4C17.552285 4 18 4.447715 18 5L18 19C18 19.552285 17.552285 20 17 20L15 20C14.447715 20 14 19.552285 14 19Z" />
+      <path d="M4 5C4 3.895431 4.895431 3 6 3L8 3C9.104569 3 10 3.895431 10 5L10 19C10 20.104569 9.104569 21 8 21L6 21C4.895431 21 4 20.104569 4 19ZM14 5C14 3.895431 14.895431 3 16 3L18 3C19.104569 3 20 3.895431 20 5L20 19C20 20.104569 19.104569 21 18 21L16 21C14.895431 21 14 20.104569 14 19Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M5 5C5 4.447715 5.447715 4 6 4L8 4C8.552285 4 9 4.447715 9 5L9 19C9 19.552285 8.552285 20 8 20L6 20C5.447715 20 5 19.552285 5 19ZM15 5C15 4.447715 15.447715 4 16 4L18 4C18.552285 4 19 4.447715 19 5L19 19C19 19.552285 18.552285 20 18 20L16 20C15.447715 20 15 19.552285 15 19Z" />
     </Icon>
   )
 }
@@ -3708,7 +3708,7 @@ export function SquarePause(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M2 6C2 3.790861 3.790861 2 6 2L18 2C20.209139 2 22 3.790861 22 6L22 18C22 20.209139 20.209139 22 18 22L6 22C3.790861 22 2 20.209139 2 18Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M10 8V16M14 8V16" />
+      <path d="M9 8V15M15 8V17" />
     </Icon>
   )
 }

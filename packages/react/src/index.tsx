@@ -1266,7 +1266,7 @@ export function CircleOff(props: IconProps) {
 export function CirclePause(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM10 8V16M14 8V16" />
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM9 8V15M15 8V17" />
     </Icon>
   )
 }
@@ -3217,7 +3217,7 @@ export function Paperclip(props: IconProps) {
 export function Pause(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M6 5C6 4.447715 6.447715 4 7 4L9 4C9.552285 4 10 4.447715 10 5L10 19C10 19.552285 9.552285 20 9 20L7 20C6.447715 20 6 19.552285 6 19ZM14 5C14 4.447715 14.447715 4 15 4L17 4C17.552285 4 18 4.447715 18 5L18 19C18 19.552285 17.552285 20 17 20L15 20C14.447715 20 14 19.552285 14 19Z" />
+      <path d="M5 5C5 4.447715 5.447715 4 6 4L8 4C8.552285 4 9 4.447715 9 5L9 19C9 19.552285 8.552285 20 8 20L6 20C5.447715 20 5 19.552285 5 19ZM15 5C15 4.447715 15.447715 4 16 4L18 4C18.552285 4 19 4.447715 19 5L19 19C19 19.552285 18.552285 20 18 20L16 20C15.447715 20 15 19.552285 15 19Z" />
     </Icon>
   )
 }
@@ -4155,7 +4155,7 @@ export function SquareNavigation(props: IconProps) {
 export function SquarePause(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M3 6C3 4.343146 4.343146 3 6 3L18 3C19.656854 3 21 4.343146 21 6L21 18C21 19.656854 19.656854 21 18 21L6 21C4.343146 21 3 19.656854 3 18ZM10 8V16M14 8V16" />
+      <path d="M3 6C3 4.343146 4.343146 3 6 3L18 3C19.656854 3 21 4.343146 21 6L21 18C21 19.656854 19.656854 21 18 21L6 21C4.343146 21 3 19.656854 3 18ZM9 8V15M15 8V17" />
     </Icon>
   )
 }
