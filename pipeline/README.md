@@ -895,6 +895,56 @@ entry deliberately in a commit that says so.
 > `git show v<older-tag>:lib/icon-history.json`, which recorded the date and lets
 > you find the commit by it. Better: don't delete the tag.
 
+**A redrawn icon belongs in every changelog, shown before against after.** A
+release is not always drawings added, and naming a correction is not announcing
+it: "shuffle redrawn" asks the reader to remember what `shuffle` used to look
+like, which nobody can, and remembering is the whole thing the drawing changed.
+So each entry carries both documents and every surface prints them side by side,
+same size, same ink, same ground.
+
+`build-history.mjs` bakes them into `updated` on each release and on
+`unreleased`, out of the two refs that bound the window — the previous tag and
+this one, or the newest tag and the working tree. Both sides come off the refs,
+never off disk for a released entry, so redrawing the same icon again does not
+rewrite what an older entry was published showing. The style shown is the first
+one that genuinely differs across the window; where nothing differs, the pair is
+null and the surfaces fall back to naming the icon. Where the window did not
+open with the drawing at all, it is an addition rather than a redraw, whatever
+its dates say — `megaphone` was drawn, retired and drawn again across v0.1.4.
+
+**A release's membership is a fact about its tree, not about dates.** The same
+`megaphone` decides this one too, and it was wrong on every generated surface
+until 26 Aug 2026. Windows used to be computed by comparing each drawing's
+`added` date against the two tags, which is only the same question while nothing
+is ever retired: `megaphone` was drawn on 24 August, retired forty minutes
+before v0.1.2 was cut and drawn again after v0.1.4, so the arithmetic counted it
+into three releases whose trees do not contain it. Every generated surface
+published 548 where `git ls-tree v0.1.2:icons/stroke` says 547, and announced 21
+drawings added where the tag added 20.
+
+The Figma Changelog page — the one surface with no generator, written by hand off
+the tags — was the one that was right, and it had been sitting there disagreeing
+with the other four. So `held(ref)` now answers membership and counts straight
+off `git ls-tree`, one subprocess per tag: `names` is what this tag holds and the
+previous one did not, `count` is the whole tree including drawings retired since,
+and an icon's `version` is the first tag whose tree actually carries it. Dates
+still nominate redraw candidates, cheaply, but they no longer decide anything.
+
+> The general form, worth applying to the next surface that counts something:
+> where a fact is recorded in the repository itself, ask the repository. A date
+> is a proxy for membership and proxies drift.
+
+Two ways this went wrong before, both guarded now:
+
+- **A release that both added and corrected announced only the additions.** The
+  copy and the tiles each picked whichever list was non-empty and dropped the
+  other, so v0.1.2's redrawn `shuffle` shipped unmentioned on both surfaces
+  while 21 added drawings were listed above it. Print both lists, always.
+- **The redraws are read off git every build**, so anything that stops a window
+  reading publishes an entry announcing fewer corrections than yesterday — the
+  same failure as a dropped release, one level down. `build-history.mjs` refuses
+  to write a file in which a recorded entry has lost redraws.
+
 **`paper:check` is the only check that drifts** when the date moves. The rest,
 `cover`, `data`, `community` and `readmes`, are counted off `icons/` and do not
 care when the release was.

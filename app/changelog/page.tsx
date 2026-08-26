@@ -3,7 +3,10 @@ import {
   NEW_FOR_DAYS,
   SET_RELEASES,
   SET_UNRELEASED,
+  toStyleArt,
   type Icon,
+  type Redraw,
+  type StyleArt,
 } from "@/lib/icons"
 import { pageMetadata } from "@/lib/seo"
 import { SiteFooter } from "@/components/site-footer"
@@ -73,6 +76,82 @@ function Tiles({ icons }: { icons: Icon[] }) {
 }
 
 /**
+ * A redrawn drawing, taken apart ready to render.
+ *
+ * The two documents are parsed once in `release()` rather than in the markup,
+ * so the component below is a layout and nothing else.
+ */
+type Pair = { name: string; before: StyleArt | null; after: StyleArt | null }
+
+/**
+ * What was redrawn, shown as the change rather than as a claim.
+ *
+ * A changelog that only names a corrected drawing is asking the reader to
+ * remember what it used to look like, and nobody can — which is the whole
+ * reason the icon was worth correcting. So the entry carries both drawings out
+ * of the refs that bound the release and prints them side by side.
+ *
+ * Both at the same size, in the same ink, on the same ground: the difference
+ * between them is the only thing that should differ, so anything the layout
+ * does to one of them it does to both. The pair falls back to whichever half
+ * exists, which is the resting state for a drawing that was committed without
+ * visibly moving.
+ */
+function Redrawn({ pairs }: { pairs: Pair[] }) {
+  const face = (art: StyleArt | null, label: string) =>
+    art && (
+      <span className="flex flex-col items-center gap-1.5">
+        <span className="text-foreground">
+          <Glyph art={art} size={24} stroke={2} />
+        </span>
+        <span className="text-[10px] leading-none text-muted-foreground">
+          {label}
+        </span>
+      </span>
+    )
+
+  return (
+    <ul className="grid grid-cols-[repeat(auto-fill,minmax(148px,1fr))] gap-2 not-prose">
+      {pairs.map((pair) => (
+        <li
+          key={pair.name}
+          className="flex flex-col items-center gap-2 rounded-lg bg-muted p-3"
+        >
+          <span className="flex items-center gap-3">
+            {face(pair.before, "Before")}
+            {pair.before && pair.after && (
+              <span aria-hidden="true" className="text-muted-foreground">
+                →
+              </span>
+            )}
+            {face(pair.after, "After")}
+          </span>
+          <span className="w-full truncate text-center text-[11px] leading-tight">
+            {pair.name}
+          </span>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+/**
+ * The stored documents, parsed, with today's drawing as the fallback.
+ *
+ * A redraw that the generator could not find a visible change for carries no
+ * pair, and the honest thing to show for it is the drawing as it stands rather
+ * than nothing at all — the icon was still touched in that release.
+ */
+const pairs = (redraws: Redraw[], byName: Map<string, Icon>): Pair[] =>
+  redraws.map((redraw) => ({
+    name: redraw.name,
+    before: redraw.before ? toStyleArt(redraw.before) : null,
+    after: redraw.after
+      ? toStyleArt(redraw.after)
+      : byName.get(redraw.name)?.art.stroke ?? null,
+  }))
+
+/**
  * The release, and anything drawn since it.
  *
  * The release entry is dated by the tag rather than by the newest drawing. It
@@ -107,9 +186,7 @@ async function release() {
       icons: SET_UNRELEASED.names
         .map((name) => byName.get(name))
         .filter(Boolean) as Icon[],
-      redrawn: SET_UNRELEASED.updatedNames
-        .map((name) => byName.get(name))
-        .filter(Boolean) as Icon[],
+      redrawn: pairs(SET_UNRELEASED.updated, byName),
     },
     entries: SET_RELEASES.map((entry, i) => ({
       ...entry,
@@ -126,9 +203,7 @@ async function release() {
       /* A release is not always drawings added. One that is entirely
          corrections could only say "0 drawings added", which is true and tells
          a reader nothing about why they would upgrade. */
-      redrawn: (entry.updatedNames ?? [])
-        .map((name) => byName.get(name))
-        .filter(Boolean) as Icon[],
+      redrawn: pairs(entry.updated ?? [], byName),
     })),
   }
 }
@@ -202,17 +277,26 @@ export default async function Page() {
 
             <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
               <p>
-                {unreleased.icons.length > 0
-                  ? `${plural(unreleased.icons.length, "drawing")} added since ${unreleased.since}`
-                  : `${plural(unreleased.redrawn.length, "drawing")} redrawn since ${unreleased.since}`}
+                {/*
+                  Both halves, always. The sentence used to name whichever list
+                  was non-empty and drop the other, so a stretch that added
+                  three drawings and corrected six announced the three.
+                */}
+                {unreleased.icons.length > 0 && unreleased.redrawn.length > 0
+                  ? `${plural(unreleased.icons.length, "drawing")} added and ` +
+                    `${unreleased.redrawn.length} redrawn since ${unreleased.since}`
+                  : unreleased.icons.length > 0
+                    ? `${plural(unreleased.icons.length, "drawing")} added since ${unreleased.since}`
+                    : `${plural(unreleased.redrawn.length, "drawing")} redrawn since ${unreleased.since}`}
                 , in the repository and the design files but not on npm until
                 the next release. The set holds {unreleased.count}:
               </p>
-              <Tiles
-                icons={
-                  unreleased.icons.length ? unreleased.icons : unreleased.redrawn
-                }
-              />
+              {unreleased.icons.length > 0 && (
+                <Tiles icons={unreleased.icons} />
+              )}
+              {unreleased.redrawn.length > 0 && (
+                <Redrawn pairs={unreleased.redrawn} />
+              )}
             </div>
           </section>
         )}
@@ -263,10 +347,19 @@ export default async function Page() {
                     No new drawings. {plural(entry.redrawn.length, "redrawn", "redrawn")}{" "}
                     since {entry.previous}, so the set still holds {entry.count}:
                   </p>
-                ) : (
+                ) : entry.redrawn.length === 0 ? (
                   <p>
                     {plural(entry.icons.length, "drawing")} added since{" "}
                     {entry.previous}, bringing the set to {entry.count}:
+                  </p>
+                ) : (
+                  /* A release that both adds and corrects used to announce
+                     only the additions, and then draw only their tiles. Every
+                     redrawn icon in a release like that went out unmentioned. */
+                  <p>
+                    {plural(entry.icons.length, "drawing")} added since{" "}
+                    {entry.previous}, bringing the set to {entry.count}, and{" "}
+                    {plural(entry.redrawn.length, "redrawn", "redrawn")}:
                   </p>
                 )
               )}
@@ -275,8 +368,11 @@ export default async function Page() {
                 identified rather than admired, and 24px is the size the set is
                 built at and the size they will be used at.
               */}
-              {!entry.initial && (entry.icons.length > 0 || entry.redrawn.length > 0) && (
-                <Tiles icons={entry.icons.length ? entry.icons : entry.redrawn} />
+              {!entry.initial && entry.icons.length > 0 && (
+                <Tiles icons={entry.icons} />
+              )}
+              {!entry.initial && entry.redrawn.length > 0 && (
+                <Redrawn pairs={entry.redrawn} />
               )}
             </div>
           </section>

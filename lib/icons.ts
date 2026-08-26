@@ -78,6 +78,42 @@ function rootAttrs(svg: string): Record<string, string> {
 
 const ICONS_DIR = join(process.cwd(), "icons")
 
+/**
+ * A whole SVG document split the way `Glyph` wants it.
+ *
+ * The same two lines `readIcons` runs over a file on disk, lifted out so that a
+ * drawing recovered from git — a changelog's "before" — is taken apart by the
+ * same code as the drawing beside it. Two parsers is how one tile ends up
+ * rendering with a stroke the other does not have.
+ */
+export const toStyleArt = (svg: string): StyleArt => ({
+  body: svg
+    .replace(/^[\s\S]*?<svg[^>]*>/, "")
+    .replace(/<\/svg>\s*$/, "")
+    .trim(),
+  root: rootAttrs(svg),
+})
+
+/**
+ * A drawing that was redrawn, carrying both versions of itself.
+ *
+ * Baked by `pipeline/build-history.mjs` out of the two refs that bound the
+ * release window, so a published entry keeps showing the pair it was published
+ * with even after the same icon is redrawn again. Whole SVG documents, exactly
+ * as those refs carried them, because every surface that prints them parses an
+ * icon file already and none of them should learn a second shape.
+ *
+ * `style` is the style the change is visible in, and it is null — with both
+ * documents null — where a commit touched the drawing without moving it. The
+ * surfaces then name the icon rather than printing two identical tiles.
+ */
+export type Redraw = {
+  name: string
+  style: Style | null
+  before: string | null
+  after: string | null
+}
+
 export type Release = {
   version: string
   date: string
@@ -89,6 +125,8 @@ export type Release = {
   names: string[]
   /** Drawings that already existed and were redrawn in this release. */
   updatedNames: string[]
+  /** The same drawings, before and after. Never narrower than `updatedNames`. */
+  updated: Redraw[]
 }
 
 /**
@@ -109,6 +147,7 @@ export type Unreleased = {
   count: number
   names: string[]
   updatedNames: string[]
+  updated: Redraw[]
 }
 
 const NOT_CONTAINERS = new Set<string>(notContainers.names)
@@ -291,10 +330,6 @@ async function readIcons(): Promise<Icon[]> {
     for (const file of (await readdir(dir)).filter((f) => f.endsWith(".svg"))) {
       const name = file.slice(0, -4)
       const src = await readFile(join(dir, file), "utf8")
-      const body = src
-        .replace(/^[\s\S]*?<svg[^>]*>/, "")
-        .replace(/<\/svg>\s*$/, "")
-        .trim()
 
       let icon = byName.get(name)
       if (!icon) {
@@ -302,7 +337,7 @@ async function readIcons(): Promise<Icon[]> {
         icon = { name, base: name, container: "regular", art: {} }
         byName.set(name, icon)
       }
-      icon.art[style] = { body, root: rootAttrs(src) }
+      icon.art[style] = toStyleArt(src)
     }
   }
 

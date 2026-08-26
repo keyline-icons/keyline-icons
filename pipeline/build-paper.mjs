@@ -566,6 +566,11 @@ function changelogSheet(icons, release) {
      release that adds one icon is the common case rather than an edge. */
   const plural = (n, one, many = one + "s") => `${n} ${n === 1 ? one : many}`
 
+  /* The redraws an entry carries, from a file that may predate them. Older
+     copies of `lib/icon-history.json` have `updatedNames` and no `updated`,
+     and a board is not worth failing over a field a rebuild will supply. */
+  const redrawnIn = (entry) => entry.updated ?? []
+
   /* The drawings, not their names. Named only, a reader has to go and look
      them up, which is the one thing this surface is here to save them. Drawn
      at grid size: they are being identified rather than admired, and 24 is the
@@ -585,6 +590,56 @@ function changelogSheet(icons, release) {
               `data-style="stroke" ${art.attrs}>${art.body}</svg>` +
               `<span style="font-size:11px;line-height:1.2;color:${MUTED};` +
                 `text-align:center">${name}</span>` +
+            `</div>`
+          )
+        })
+        .join("") +
+    `</div>`
+
+  /*
+   * What was redrawn, shown as the change rather than as a claim.
+   *
+   * A changelog that only names a corrected drawing asks the reader to
+   * remember what it used to look like, and nobody can — which is the whole
+   * reason it was worth correcting. Both drawings come baked into
+   * `lib/icon-history.json`, out of the two refs that bound the release, so
+   * this board and `/changelog` print the same pair from the same source.
+   *
+   * Same size, same ink, same ground for both halves: the difference between
+   * them is the only thing that should differ.
+   */
+  const redraws = (updated) =>
+    `<div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0">` +
+      updated
+        .map((redraw) => {
+          const face = (art, label) =>
+            art
+              ? `<div style="display:flex;flex-direction:column;align-items:center;gap:6px">` +
+                  `<svg width="${SIZE}" height="${SIZE}" xmlns="http://www.w3.org/2000/svg" ` +
+                  `role="img" aria-label="${redraw.name} ${label}" data-icon="${redraw.name}" ` +
+                  `data-style="${redraw.style ?? "stroke"}" ${art.attrs}>${art.body}</svg>` +
+                  `<span style="font-size:10px;line-height:1;color:${MUTED}">${label}</span>` +
+                `</div>`
+              : ""
+          const before = redraw.before ? parse(redraw.before) : null
+          /* A drawing committed without visibly moving carries no pair, and
+             what it still has is today's drawing. */
+          const after = redraw.after
+            ? parse(redraw.after)
+            : icons.get(redraw.name)?.art?.stroke ?? null
+          return (
+            `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;` +
+              `width:148px;padding:12px 4px;box-sizing:border-box;border-radius:10px;` +
+              `background:${STRIPE}">` +
+              `<div style="display:flex;align-items:center;gap:12px">` +
+                face(before, "Before") +
+                (before && after
+                  ? `<span style="color:${MUTED};font-size:13px">&rarr;</span>`
+                  : "") +
+                face(after, "After") +
+              `</div>` +
+              `<span style="font-size:11px;line-height:1.2;color:${MUTED};` +
+                `text-align:center">${redraw.name}</span>` +
             `</div>`
           )
         })
@@ -627,19 +682,25 @@ function changelogSheet(icons, release) {
                 `Drawn since ${release.unreleased.since} &middot; not in a release yet` +
               `</p>` +
               `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
-                (release.unreleased.names.length
-                  ? `${plural(release.unreleased.names.length, "drawing")} added since ` +
+                /* Both halves, always. The sentence used to name whichever
+                   list was non-empty and drop the other, so a stretch that
+                   added three drawings and corrected six announced three. */
+                (release.unreleased.names.length && redrawnIn(release.unreleased).length
+                  ? `${plural(release.unreleased.names.length, "drawing")} added and ` +
+                    `${redrawnIn(release.unreleased).length} redrawn since ` +
                     `${release.unreleased.since}`
-                  : `${plural(release.unreleased.updatedNames.length, "drawing")} redrawn since ` +
-                    `${release.unreleased.since}`) +
+                  : release.unreleased.names.length
+                    ? `${plural(release.unreleased.names.length, "drawing")} added since ` +
+                      `${release.unreleased.since}`
+                    : `${plural(redrawnIn(release.unreleased).length, "drawing")} redrawn since ` +
+                      `${release.unreleased.since}`) +
                 `, in the repository and the design files but not on npm until ` +
                 `the next release. The set holds ${release.unreleased.count}:` +
               `</p>` +
-              tiles(
-                release.unreleased.names.length
-                  ? release.unreleased.names
-                  : release.unreleased.updatedNames
-              )
+              (release.unreleased.names.length ? tiles(release.unreleased.names) : "") +
+              (redrawnIn(release.unreleased).length
+                ? redraws(redrawnIn(release.unreleased))
+                : "")
             : "",
         ].concat(release.entries.map((entry) =>
           `<h2 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.3px">${entry.version}</h2>` +
@@ -663,12 +724,20 @@ function changelogSheet(icons, release) {
                 : entry.names.length === 0
                 ? `No new drawings. ${entry.updatedNames.length} redrawn since ` +
                   `${entry.previous}, so the set still holds ${entry.count}:`
+                : entry.updatedNames.length === 0
+                ? `${plural(entry.names.length, "drawing")} added since ` +
+                  `${entry.previous}, bringing the set to ${entry.count}:`
+                /* A release that both adds and corrects used to announce only
+                   the additions and draw only their tiles, so every redrawn
+                   icon in a release like that went out unmentioned. */
                 : `${plural(entry.names.length, "drawing")} added since ` +
-                  `${entry.previous}, bringing the set to ${entry.count}:`) +
+                  `${entry.previous}, bringing the set to ${entry.count}, and ` +
+                  `${entry.updatedNames.length} redrawn:`) +
           `</p>` +
-          (entry.initial || (!entry.names.length && !entry.updatedNames.length)
+          (entry.initial || !entry.names.length ? "" : tiles(entry.names)) +
+          (entry.initial || !redrawnIn(entry).length
             ? ""
-            : tiles(entry.names.length ? entry.names : entry.updatedNames))
+            : redraws(redrawnIn(entry)))
         ))
           .filter(Boolean)
           .join(`<div style="${DIVIDER};margin:32px 0"></div>`) +
