@@ -970,7 +970,7 @@ export function CirclePause(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M9 8V15M15 8V17" />
+      <path d="M9 8V16M15 8V16" />
     </Icon>
   )
 }
@@ -3708,7 +3708,7 @@ export function SquarePause(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M2 6C2 3.790861 3.790861 2 6 2L18 2C20.209139 2 22 3.790861 22 6L22 18C22 20.209139 20.209139 22 18 22L6 22C3.790861 22 2 20.209139 2 18Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M9 8V15M15 8V17" />
+      <path d="M9 8V16M15 8V16" />
     </Icon>
   )
 }
