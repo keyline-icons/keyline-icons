@@ -71,13 +71,14 @@ const TOOLS = [
       `auto` width browsers have historically resolved against the containing
       block rather than against the viewBox's ratio, and the failure mode is a
       mark that fills the chip. Pinning both is one class either way and cannot
-      go wrong. The lockup is 70.67 x 40, so 16 tall wants 28.27 wide, which is
-      `w-[1.77rem]` to within a twentieth of a pixel.
+      go wrong. The lockup is 75.67 x 40, so 16 tall wants 30.27 wide, which is
+      `w-[1.892rem]` to within a hundredth of a pixel. Both numbers move when
+      the lockup's own gap does.
 
       The other two keep the `size-4` they shipped with. A square box letterboxes
       Figma's 2:3 mark exactly as it always has; nothing about those two moves.
     */
-    logoClass: "h-4 w-[1.77rem]",
+    logoClass: "h-4 w-[1.892rem]",
   },
   {
     id: "figma",

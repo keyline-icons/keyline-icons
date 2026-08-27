@@ -120,24 +120,25 @@ export function FigmaLogo(props: LogoProps) {
  * Two numbers are deliberate. The marks are **not** the same height: Figma's is
  * six outlined shapes with air between them and ours is a solid tile, so at
  * equal heights the tile reads heavier and drags the pair off balance. It sits
- * at 34 against Figma's 40, centred. And the gap is 10, wider than the 7 it
- * first shipped at: neither mark carries side bearing of its own, so the whole
- * separation lives in this number, and at 7 the tile's hard left edge sat close
- * enough to Figma's rightmost column to read as one crowded shape rather than
- * as two marks.
+ * at 34 against Figma's 40, centred. And the gap is 15, which is 6px at the
+ * 16px this draws at. Neither mark carries side bearing of its own, so the
+ * whole separation lives in this number and it has been raised twice: 7 read as
+ * one crowded shape, and 10 was still tight enough that the tile's hard left
+ * edge crowded Figma's rightmost column. The thing being tuned is the *painted*
+ * gap, not the number, so re-measure it at 16px rather than judging the viewBox.
  */
 export function FigmaPluginLogo(props: LogoProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 70.67 40"
+      viewBox="0 0 75.67 40"
       fill="none"
       aria-hidden="true"
       focusable="false"
       {...props}
     >
       <FigmaLogo x={0} y={0} width={26.67} height={40} />
-      <BrandMark x={36.67} y={3} width={34} height={34} />
+      <BrandMark x={41.67} y={3} width={34} height={34} />
     </svg>
   )
 }
