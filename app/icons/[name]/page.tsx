@@ -463,6 +463,12 @@ export default async function Page({
             things in prose: the same content is worth more as the question
             somebody typed than as a paragraph they have to find it in.
 
+            Every question here is about this drawing, and the six that were not
+            are gone — see the note on `iconFaq`. They were the same answers `/`
+            and `/install` already give, repeated once per icon, which is what
+            made this section the largest block of duplicate text on the site.
+            The paragraph under the list is where they went.
+
             Answers are read straight out of `iconFaq` and rendered as text,
             because the `FAQPage` markup quotes the same array. Anything inline
             here — a link, a `<code>` — would make the markup a description of a
@@ -471,19 +477,29 @@ export default async function Page({
           */}
           <Section
             title="FAQ"
-            description={`Common questions about the ${icon.name} icon, and about using the set it comes from.`}
+            description={`Answered from ${icon.name}'s own facts: its shelf, the weights it was drawn in, its siblings and its dates.`}
           >
             <Faq items={faq} />
 
             <p className="mt-8 text-base leading-relaxed text-muted-foreground">
+              Questions about the set rather than about this drawing are
+              answered where they belong.{" "}
+              <Link
+                href="/"
+                className="underline underline-offset-2 hover:text-foreground"
+              >
+                The home page
+              </Link>{" "}
+              covers what the set is, how the three styles differ, why some
+              icons come boxed and where the Figma file is;{" "}
               <Link
                 href="/install"
                 className="underline underline-offset-2 hover:text-foreground"
               >
-                Installing the set in a shadcn/ui project
+                installing the set in a shadcn/ui project
               </Link>{" "}
-              covers the React package and the CLI in full, and the{" "}
-              {SET_LICENSE} licence is stated in the footer of every page.
+              covers the React package, the CLI and using an icon without React.
+              The {SET_LICENSE} licence is stated in the footer of every page.
             </p>
           </Section>
         </div>

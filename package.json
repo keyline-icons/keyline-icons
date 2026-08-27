@@ -34,11 +34,12 @@
     "icons:demos": "node pipeline/check-demos.mjs",
     "search:check": "node pipeline/check-search.mjs",
     "categories:check": "node pipeline/check-categories.mjs",
+    "usage:check": "node pipeline/check-usage.mjs",
     "versions:check": "node pipeline/check-versions.mjs",
     "readmes:check": "node pipeline/check-readmes.mjs",
     "readmes:fix": "node pipeline/check-readmes.mjs --fix",
     "icons:figma": "node pipeline/check-figma.mjs",
-    "icons:ci": "next typegen && node pipeline/build.mjs --check && node pipeline/build-react.mjs --check && node pipeline/build-cover.mjs --check && node pipeline/build-community.mjs --check && node pipeline/build-paper.mjs --check && node pipeline/build-data.mjs --check && node pipeline/lint.mjs && node pipeline/check-demos.mjs && node pipeline/check-search.mjs && node pipeline/check-versions.mjs && node pipeline/check-categories.mjs && node pipeline/check-readmes.mjs && tsc --noEmit",
+    "icons:ci": "next typegen && node pipeline/build.mjs --check && node pipeline/build-react.mjs --check && node pipeline/build-cover.mjs --check && node pipeline/build-community.mjs --check && node pipeline/build-paper.mjs --check && node pipeline/build-data.mjs --check && node pipeline/lint.mjs && node pipeline/check-demos.mjs && node pipeline/check-search.mjs && node pipeline/check-versions.mjs && node pipeline/check-categories.mjs && node pipeline/check-usage.mjs && node pipeline/check-readmes.mjs && tsc --noEmit",
     "ship": "node pipeline/ship.mjs",
     "data:build": "node pipeline/build-data.mjs",
     "data:check": "node pipeline/build-data.mjs --check"

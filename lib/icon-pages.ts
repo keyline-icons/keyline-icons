@@ -16,7 +16,8 @@ import type { BrowserIcon, Style } from "@/components/glyph"
 import { STYLES } from "@/components/glyph"
 import { componentName, importPath } from "@/lib/icon-code"
 import { aliasesFor, categoryOf } from "@/lib/icon-taxonomy"
-import { SET_LICENSE_NAME, SET_REPO_URL, SET_TITLE } from "@/lib/site-chrome"
+import { usageOf } from "@/lib/icon-usage"
+import { SET_TITLE } from "@/lib/site-chrome"
 
 /** The segment every icon page hangs off. Written once, read by the sitemap. */
 export const ICONS_SEGMENT = "/icons"
@@ -126,25 +127,43 @@ export const iconTitle = (name: string) => `${name} icon`
  * The two have to agree — Google rewrites a description the page does not back
  * up — so there is one sentence rather than a string in each place.
  *
- * It varies by more than the name: the styles a drawing actually has go in it,
- * so a stroke-only icon does not advertise a fill it has not got.
+ * **The line that carries the page is the one from `lib/icon-usage.json`**,
+ * which says what this drawing is for. Everything before it was a template with
+ * the name dropped into it: 554 pages reading "The X icon, drawn on a 24×24
+ * grid in stroke, duotone and fill" are one page 554 times, and a page about
+ * `upload` that never says what an upload icon depicts has nothing for
+ * "arrow out of a tray icon" to match. The old sentence survives below as the
+ * fallback, because a drawing added before its line is written still needs a
+ * description, and a page with no description at all is worse than a templated
+ * one.
  *
- * Length is what shaped the wording. This set's names run from 1 character
- * (`x`) to 35 (`circle-bar-chart-2-horizontal-start`), a snippet truncates
- * mid-clause somewhere past 160, and the longest name has to fit. The first
- * draft ended "copy the SVG or JSX, download it, or install the React
- * component" and overran by five characters on exactly one icon, which is the
- * kind of thing that is only ever found by measuring the whole set. Any edit
- * here has to be measured against `circle-bar-chart-2-horizontal-start` rather
- * than against a short name that leaves room.
+ * The container clause is added here rather than written into the data: one
+ * drawing boxed three ways shares a line, and this is what keeps `upload`,
+ * `square-upload` and `circle-upload` from declaring three identical
+ * descriptions of three separate URLs.
+ *
+ * Length is what shaped the wording, and it still binds. A snippet is cut
+ * mid-clause somewhere past 160, and the clause that must survive the cut is
+ * the one carrying "free" and "MIT". `USAGE_LIMIT` is set so the longest line
+ * plus the longest tail lands under that on every icon in the set;
+ * `pipeline/check-usage.mjs` measures the real descriptions rather than
+ * trusting the arithmetic, which is what will be wrong after the next edit
+ * here.
  */
 export function iconDescription(icon: BrowserIcon): string {
   const styles = listOf(stylesOf(icon))
+  const usage = usageOf(icon.base)
 
-  return (
-    `The ${icon.name} icon, drawn on a 24×24 grid in ${styles}. ` +
-    `Free under MIT: copy the SVG, the JSX or the React component.`
-  )
+  if (!usage) {
+    return (
+      `The ${icon.name} icon, drawn on a 24×24 grid in ${styles}. ` +
+      `Free under MIT: copy the SVG, the JSX or the React component.`
+    )
+  }
+
+  return icon.container === "regular"
+    ? `${usage} On a 24×24 grid in ${styles}, free under MIT.`
+    : `${usage} Boxed in a ${icon.container}, in ${styles}, free under MIT.`
 }
 
 /** Where a snippet starts being cut off mid-clause. */
@@ -243,8 +262,7 @@ function containerQuestion(
 }
 
 /**
- * The questions an icon page is actually asked, answered from that icon's own
- * facts.
+ * The questions this drawing is actually asked, answered from its own facts.
  *
  * Both the visible section and the `FAQPage` markup are built from this one
  * array, and the answers are plain strings rather than JSX for exactly that
@@ -253,28 +271,31 @@ function containerQuestion(
  * answer would fork the two, so the one link this section wants sits under the
  * grid instead.
  *
- * **Every answer names the icon, and most are built from its own facts.** The
- * pattern to avoid is the one overflow.design ships: nine questions about
- * licensing and refunds, byte-identical across a few thousand icon pages, which
- * is a duplicate-content block wearing an FAQ's clothes. The set-level ones here
- * — the licence, the source files, shadcn/ui, contributing — are asked *of this
- * drawing*, because a visitor who landed on one icon from a search is asking
- * whether *that* is free, and where *that* one is drawn.
+ * **Every answer here is about this drawing. That is new, and it is the whole
+ * point of the rewrite.** The list used to run to ten questions, of which six
+ * were set-level with the name swapped into them: the size ramp, React, using
+ * it without React, shadcn/ui, the Figma file, the licence and contributing.
+ * The note that stood here defended them, on the argument that someone who
+ * landed on one icon from a search is asking whether *that* one is free.
  *
- * Two constraints used to sit here and neither binds now. Both are worth
- * keeping a note of, because both were fixed by publishing rather than by
- * rewording, and the answers had to move on the same day.
+ * That argument missed the thing that decides it. Those same questions are
+ * already answered on the two pages that own them — `homeFaq` asks about
+ * commercial use, shadcn/ui, the Figma file and the container variants,
+ * `installFaq` asks about React, the package and using the set without it — so
+ * the icon route was not the only place a visitor could find them. It was the
+ * third copy, multiplied by 554, and all three emit `FAQPage` markup. That is
+ * the overflow.design pattern this file's own note warned about, arrived at
+ * from the other direction: not nine questions about refunds, but nine good
+ * questions asked in a place that could not answer any of them differently.
  *
- * The Figma file was not public, so its answer said "not yet" and pointed at
- * `raw/` and `icons/` instead. It is now a Community file at `SET_FIGMA_URL`,
- * and the answer says so and describes duplicating it.
- *
- * The packages were not on npm, so the React answer described the import and
- * the props rather than telling anyone to run an install that would fail. All
- * three published at
- * v0.1.0 and `npm view @keyline-icons/react` now resolves. The answer did not
- * need rewriting, because describing the import was true before the publish and
- * is true after it, which is the better way to write one of these.
+ * So the set-level ones are gone and the closing paragraph under the section
+ * points at the pages that hold them. What is left varies per drawing by
+ * construction — the category and the words it answers to, the weights it was
+ * drawn in and why, its container siblings by name, the drawings around it, the
+ * component and module its weights import from, the files on disk, and the
+ * dates off its own history. A page with nothing to say in one of them drops
+ * that question rather than padding it, which is why this builds an array
+ * instead of returning a literal.
  *
  * Worth knowing before adding more: Google stopped showing FAQ rich results for
  * ordinary sites in August 2023 — they are limited to well-known health and
@@ -282,7 +303,8 @@ function containerQuestion(
  * It is here because the answers are worth having on the page, and because the
  * machine-readable copy is read by other engines and by the assistants people
  * increasingly ask instead of searching. Do not add a question for the markup's
- * sake that you would not put on the page.
+ * sake that you would not put on the page, and do not add one whose answer
+ * would read the same on every icon in the set.
  */
 export function iconFaq(icon: BrowserIcon, all: BrowserIcon[]): IconQuestion[] {
   const name = icon.name
@@ -290,15 +312,20 @@ export function iconFaq(icon: BrowserIcon, all: BrowserIcon[]): IconQuestion[] {
   const missing = STYLES.filter((style) => !icon.art[style])
   const aliases = aliasesFor(icon.base)
   const category = categoryOf(icon.base)
+  const usage = usageOf(icon.base)
   const family = containerFamily(icon, all).filter(
     (variant) => variant.name !== name
   )
+  const related = relatedIcons(icon, all)
 
-  return [
+  const questions: IconQuestion[] = [
     {
       question: `What is the ${name} icon for?`,
       answer:
-        `${name} is filed under ${category} in ${SET_TITLE}, drawn on the ` +
+        // The same line the page leads with, which is what makes this answer
+        // about the drawing rather than about the shelf it sits on.
+        (usage ? `${usage} ` : ``) +
+        `It is filed under ${category} in ${SET_TITLE}, drawn on the ` +
         `same 24×24 grid as the rest of the set.` +
         (aliases.length
           ? ` People look for it as ${listOf(aliases)}, and the browser's search matches all of those.`
@@ -315,59 +342,75 @@ export function iconFaq(icon: BrowserIcon, all: BrowserIcon[]): IconQuestion[] {
             `either in the glyph itself or from a square or circle container.`,
     },
     containerQuestion(icon, family),
-    {
-      question: `What size is the ${name} icon, and can I recolour it?`,
-      answer:
-        `It is a 24×24 vector with a 2px keyline, so it scales to any size; ` +
-        `this page draws it at 16, 20, 24 and 32 to show how it holds up small. ` +
-        `Colour comes from currentColor, so it inherits the text colour around it and needs no fill or stroke of your own.`,
-    },
-    {
-      question: `How do I use ${name} in React?`,
-      answer:
-        `The React tab above gives you the line to paste: ` +
-        `import { ${componentName(name)} } from "${importPath(styles[0] ?? "stroke")}". ` +
-        `Every component takes the usual SVG props plus a size, so ` +
-        `<${componentName(name)} size={16} /> and className="size-4" both work, and there is no provider or theme to set up.`,
-    },
-    {
-      question: `Can I use ${name} without React?`,
-      answer:
-        `Yes, and it needs no install at all. Copy the SVG or the JSX from the tabs above, or download the file; ` +
-        `the drawings are also plain normalised SVGs in the repository at icons/<style>/${name}.svg, ` +
-        `with no wrapper, no ids and no classes to strip out.`,
-    },
-    {
-      question: `Does ${name} work with shadcn/ui?`,
-      answer:
-        `That is what the set is drawn for. It uses the same 24×24 box and the same 2px keyline that ` +
-        `shadcn/ui's defaults assume, so ${name} sits correctly at size-4 inside a Button and needs no adjustment ` +
-        `to your components. Swapping it in where a lucide icon was is an import change, not a markup change.`,
-    },
-    {
-      question: `Is there a Figma file for ${name}?`,
-      answer:
-        `Yes. The whole set is one Figma Community file and the button at the top of this page opens it: ` +
-        `duplicate it and ${name} comes with every other drawing, as a component set with Container and ` +
-        `Style as variant properties. The repository is the other source: raw/ holds the export of every ` +
-        `variant straight out of Figma, and icons/ holds the normalised SVGs the site, the React ` +
-        `components and the packages are built from.`,
-    },
-    {
-      question: `Can I use ${name} in a commercial project, and do I have to credit the set?`,
-      answer:
-        `Yes to the first. ${SET_TITLE} is released under the ${SET_LICENSE_NAME}, which covers commercial ` +
-        `work, client work and products you sell, with no per-seat terms. The licence asks that its notice ` +
-        `travels with copies of the set itself rather than with a product that happens to use an icon; ` +
-        `the LICENSE file in the repository is the actual grant and governs.`,
-    },
-    {
-      question: `How do I contribute an icon, or report a problem with ${name}?`,
-      answer:
-        `Through the repository at ${SET_REPO_URL.replace("https://", "")}. Issues are where a missing icon or a ` +
-        `wrong drawing gets raised, and pull requests are welcome; contributors keep the credit, which is what the ` +
-        `name beside "Drawn by" at the top of this page comes from. One thing to know before opening one: the ` +
-        `files under icons/ are build output, so a fix goes into raw/ and gets rebuilt.`,
-    },
   ]
+
+  /*
+    The drawings around it, named. The related grid below already links them,
+    and naming them in prose is what lets this answer differ from the next
+    icon's: a shelf of sixty and a family of two do not read the same.
+  */
+  if (related.length) {
+    const shown = related.slice(0, 6).map((other) => other.name)
+    const rest = related.length - shown.length
+    const stem = icon.base.split("-")[0]
+    /*
+      Whether the grid below actually opens with a name family, rather than
+      whether one could exist. `relatedIcons` sorts the family to the front and
+      falls through to the shelf, so for `upload`, which nothing else is named
+      after, the first row *is* the shelf — and an answer promising a family
+      first is describing a page that is not there, which is the one thing a
+      quoted `FAQPage` answer may not do.
+    */
+    const kin = related.filter((other) => other.base.split("-")[0] === stem)
+
+    questions.push({
+      question: `What other icons go with ${name}?`,
+      answer:
+        `${listOf(shown)}${rest > 0 ? `, and ${rest} more` : ``}, all shown below. ` +
+        (kin.length
+          ? `The ${stem} family is listed first, then the rest of the ${category} shelf, ` +
+            `so the row under this one is the useful one even where a shelf runs long.`
+          : `They are the ${category} shelf: nothing else in the set is named after ${stem}.`),
+    })
+  }
+
+  questions.push(
+    {
+      question: `How do I import ${name} in React?`,
+      answer:
+        `<${componentName(name)} /> is the component, and the weight decides the module: ` +
+        `${listOf(styles.map((style) => `${style} from "${importPath(style)}"`))}. ` +
+        `It takes the usual SVG props plus a size, so <${componentName(name)} size={16} /> ` +
+        `and className="size-4" both work, and there is no provider or theme to set up.`,
+    },
+    {
+      question: `Where is the ${name} SVG?`,
+      answer:
+        `${listOf(styles.map((style) => `icons/${style}/${name}.svg`))} in the repository, ` +
+        `normalised: no wrapper, no ids and no classes to strip out. The tabs above hand you ` +
+        `the same drawing as SVG or JSX without the download, and neither needs an install.`,
+    }
+  )
+
+  /*
+    Dates, which no other icon shares and which the header of this page already
+    prints. Dropped rather than guessed at where a drawing has no history —
+    every one of them has, today, and a blank answer is worse than no question.
+  */
+  if (icon.history) {
+    const { addedLabel, updatedLabel, added, updated, version } = icon.history
+
+    questions.push({
+      question: `When was ${name} added to the set?`,
+      answer:
+        `Added ${addedLabel}` +
+        (updated !== added ? `, and last redrawn ${updatedLabel}` : ``) +
+        `. ` +
+        (version
+          ? `It ships in v${version}, so an install at that version or later has it.`
+          : `It is not in a tagged release yet: it is on the site and in the repository, and the next version will carry it.`),
+    })
+  }
+
+  return questions
 }
