@@ -37,6 +37,22 @@ reference check and `tsc --noEmit`. Three checks sit outside it on purpose:
 `icons:figma` needs the Figma file, `brand:check` rasterises through headless
 Chrome where two versions disagree by a pixel, and `history:check` reads git.
 
+**Name the branch after the update it ships in.** `release/0.1.5`, not
+`grips-and-search`. The releases are numbered and the branches were not, which
+left a list — `design-file-links`, `dot-size-system`, `fix-changelog-copy`,
+`media-batch` — with nothing to sort or search by once the work had landed and
+the name had stopped meaning anything. The number is prefixed and drops the `v`
+on purpose: tags carry it, so a branch called `v0.1.5` goes ambiguous against
+the tag `v0.1.5` the day it is cut. Two branches for one release qualify after
+the number, `release/0.1.5-shields`, so the sort still runs by update.
+
+```bash
+git tag --sort=-creatordate | head -1   # the last release; the next one names the branch
+git switch -c release/0.1.5
+```
+
+`main` is never committed to directly, and the merge back is Zafar's.
+
 **Changed a drawing? Use `pnpm ship -m "..."` rather than committing by hand.**
 
 ```bash
