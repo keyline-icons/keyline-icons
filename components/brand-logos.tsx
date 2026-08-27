@@ -1,5 +1,7 @@
 import type { SVGProps } from "react"
 
+import { BrandMark } from "@/components/brand-mark"
+
 /**
  * Three company logos, GitHub's, X's and Figma's, for the links that point at
  * those services.
@@ -100,6 +102,44 @@ export function FigmaLogo(props: LogoProps) {
  * Figma's five, so this one takes `fill` on the element and needs no per-path
  * `style`.
  */
+/**
+ * Figma's mark and the set's own, as one lockup, for the plugin.
+ *
+ * The plugin tab wants to say two things at once — whose editor it runs in and
+ * whose icons it carries — and either mark alone says only one of them. Figma's
+ * on its own is the tab beside it wearing the same logo; ours on its own is a
+ * mark most readers have never seen attached to a word they have.
+ *
+ * Built by nesting both components inside one `<svg>` rather than by copying
+ * their paths. `BrandMark` is the only place the logo is drawn, and
+ * `public/logo/logo.svg` is already a copy that renders nowhere; a third would
+ * be the one that goes stale. Nested `<svg>` elements take `x`/`y`/`width`/
+ * `height` and establish their own viewport, so each mark keeps its own
+ * viewBox and neither has to be re-solved against this one.
+ *
+ * Two numbers are deliberate. The marks are **not** the same height: Figma's is
+ * six outlined shapes with air between them and ours is a solid tile, so at
+ * equal heights the tile reads heavier and drags the pair off balance. It sits
+ * at 34 against Figma's 40, centred. And the gap is 7 rather than a rounder 8,
+ * because Figma's mark carries no bearing of its own on the right where ours
+ * has its tile edge.
+ */
+export function FigmaPluginLogo(props: LogoProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 67.67 40"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <FigmaLogo x={0} y={0} width={26.67} height={40} />
+      <BrandMark x={33.67} y={3} width={34} height={34} />
+    </svg>
+  )
+}
+
 export function PaperLogo(props: LogoProps) {
   return (
     <svg

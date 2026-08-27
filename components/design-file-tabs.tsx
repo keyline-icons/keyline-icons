@@ -2,8 +2,11 @@
 
 import * as React from "react"
 
-import { BrandMark } from "@/components/brand-mark"
-import { FigmaLogo, PaperLogo } from "@/components/brand-logos"
+import {
+  FigmaLogo,
+  FigmaPluginLogo,
+  PaperLogo,
+} from "@/components/brand-logos"
 import { ArrowUpRight } from "@/components/icons"
 import { Segmented, SegmentedItem } from "@/components/segmented"
 import { cn } from "@/lib/utils"
@@ -38,22 +41,53 @@ import { Button } from "@/components/ui/button"
  * plugin you install, so "Open in Plugin" was the sentence that formula
  * produced and it names no destination at all.
  *
- * The plugin wears the set's own mark rather than Figma's, and its label says
- * "Figma Plugin" rather than "Plugin". Those two decisions are the same one:
- * the words name the host, so the mark is free to name the thing. Give it
- * Figma's mark as well and two chips a few pixels apart wear one logo under two
- * different words, which reads as two links to the same place. The mark it
- * carries is the one on the plugin's own window, which is what a reader sees a
- * second after clicking.
+ * The plugin carries both marks, Figma's and the set's own, as one lockup — see
+ * `FigmaPluginLogo`. Either alone says half of what the chip is: Figma's is the
+ * tab beside it wearing the same logo, and ours is a mark most readers meet for
+ * the first time here. Together they say whose editor and whose icons, which is
+ * the whole of it.
+ *
+ * **The order is the plugin, then Figma, then Paper**, which is not the order
+ * the section was built in. It runs most-reached to least: someone drawing in
+ * Figma gets the set from the plugin without ever opening the library file,
+ * where the two files below are for reading and for taking the drawings out of.
+ * Note that the plugin being first does **not** make it the opening panel —
+ * that is still Figma, because the lead above this row is a sentence about the
+ * Figma file and landing on a different panel under it reads as a mismatch.
  */
 const TOOLS = [
-  { id: "figma", label: "Figma", action: "Open in Figma", Logo: FigmaLogo },
-  { id: "paper", label: "Paper", action: "Open in Paper", Logo: PaperLogo },
   {
     id: "plugin",
     label: "Figma Plugin",
     action: "Get the plugin",
-    Logo: BrandMark,
+    Logo: FigmaPluginLogo,
+    /*
+      Both dimensions given, rather than a height and `w-auto`. An `<svg>` with
+      a viewBox and no width/height attributes is a replaced element whose
+      `auto` width browsers have historically resolved against the containing
+      block rather than against the viewBox's ratio, and the failure mode is a
+      mark that fills the chip. Pinning both is one class either way and cannot
+      go wrong. The lockup is 67.67 x 40, so 16 tall wants 27.07 wide: `w-7` is
+      28, and the spare 0.9px letterboxes evenly at under half a pixel a side.
+
+      The other two keep the `size-4` they shipped with. A square box letterboxes
+      Figma's 2:3 mark exactly as it always has; nothing about those two moves.
+    */
+    logoClass: "h-4 w-7",
+  },
+  {
+    id: "figma",
+    label: "Figma",
+    action: "Open in Figma",
+    Logo: FigmaLogo,
+    logoClass: "size-4",
+  },
+  {
+    id: "paper",
+    label: "Paper",
+    action: "Open in Paper",
+    Logo: PaperLogo,
+    logoClass: "size-4",
   },
 ] as const
 
@@ -129,7 +163,7 @@ export function DesignFileTabs({
             aria-label="Design tool"
             onKeyDown={onKeyDown}
           >
-            {TOOLS.map(({ id, label, Logo }) => (
+            {TOOLS.map(({ id, label, Logo, logoClass }) => (
               <SegmentedItem
                 key={id}
                 ref={(node) => {
@@ -154,8 +188,14 @@ export function DesignFileTabs({
                   which is most of what makes a logo legible at 16px. Same as the
                   framework row. `mr-2` on the mark because `SegmentedItem` sets
                   no gap.
+
+                  **The size is per tool, in `logoClass`.** These were all
+                  `size-4` until the plugin's lockup arrived, and a lockup is
+                  nearly twice as wide as it is tall, so a square box letterboxes
+                  it to half its height. The lockup names both dimensions; the
+                  other two are untouched.
                 */}
-                <Logo className="mr-2 size-4 shrink-0" />
+                <Logo className={cn("mr-2 shrink-0", logoClass)} />
                 {label}
               </SegmentedItem>
             ))}
@@ -193,7 +233,10 @@ export function DesignFileTabs({
             dark, and neither Figma's five nor Paper's blue disappears into
             either. See `components/brand-logos.tsx`.
           */}
-          <active.Logo data-icon="inline-start" className="size-4 shrink-0" />
+          <active.Logo
+            data-icon="inline-start"
+            className={cn("shrink-0", active.logoClass)}
+          />
           {active.action}
           <ArrowUpRight data-icon="inline-end" />
           <span className="sr-only">{" (opens in a new tab)"}</span>
