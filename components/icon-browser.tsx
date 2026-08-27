@@ -30,7 +30,6 @@ import {
   SlidersHorizontal,
   Smartphone,
   Square,
-  Star,
   Trophy,
   Sun,
   User,
@@ -116,7 +115,6 @@ const CATEGORY_ICONS: Record<
   string,
   React.ComponentType<{ className?: string }>
 > = {
-  New: Star,
   Arrows: ArrowRight,
   Git: GitBranch,
   Files: File,

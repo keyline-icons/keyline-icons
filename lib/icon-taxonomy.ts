@@ -36,18 +36,6 @@ const FIGMA_KEYWORDS = (keywords as { keywords: Record<string, string[]> })
  * families of exactly one.
  */
 export const CATEGORIES = [
-  // The review shelf, and the only row here that is not about what a drawing
-  // is. It sits first so it beats each icon's real shelf, and every name in it
-  // is also listed in its real category below — so deleting this one row files
-  // the whole batch at once, with no second edit to forget. That deletion is
-  // what "reviewed" means. It is recreated whenever a batch starts and removed
-  // once the batch graduates, so an empty repo state is the resting state
-  // rather than a loose end.
-  {
-    label: "New",
-    match: /^(megaphone|grip-horizontal|grip-vertical|octagon-x|toolbox|wrench|hammer|pencil-ruler|circles|circles-dashed|circle-square|circle-square-dashed|circles-x|circles-check|squares|squares-x|squares-check|power|power-off|percent|ban|slider-horizontal|slider-vertical|plug|shield|shield-check|shield-plus|shield-minus|shield-x|lightbulb|lightbulb-on|tag-horizontal-end|cursor-off|tag-horizontal-start-percent|tag-horizontal-end-percent)$/,
-    blurb: "Drawn since the last release and waiting to be reviewed.",
-  },
   // `refresh` and `rotate` are here because they are arrow glyphs, whatever they
   // are used for. The anchor is what keeps `git-refresh` in Git below.
   {
@@ -86,10 +74,14 @@ export const CATEGORIES = [
     blurb: "Envelopes, messages, bells and the marks that badge them.",
   },
   {
+    // `percent` is here rather than with the marks in Actions: the batch that
+    // drew it drew the percent tags with it, and a bare `%` reads as a discount
+    // next to `coupon` and `tag`, not as a verb. Its containered forms go to
+    // Shapes on their prefix like every other contained glyph.
     label: "Commerce",
     match:
-      /^(shopping-|handbag|receipt|credit-card|tag|package|truck|gift|coupon)/,
-    blurb: "Carts, bags, receipts, cards and shipping.",
+      /^(shopping-|handbag|receipt|credit-card|tag|package|truck|gift|coupon|percent)/,
+    blurb: "Carts, bags, receipts, cards, shipping and the discount marks.",
   },
   {
     label: "Maps",
