@@ -124,6 +124,27 @@ export const PAPER_NOTE_ICON_NAMES = [
   "file-check",
 ] as const
 
+/**
+ * The four glyphs on the plugin notes, in the order the notes appear: the
+ * search, the insert, the two editors it runs in, and where its set comes from.
+ *
+ * Distinct from both lists above for the reason given there, and one of them
+ * deliberately near-misses: the Figma column opens with `search`, so this one
+ * takes `search-2`. The two notes are about the same search — the plugin ranks
+ * a query exactly as the CLI and the MCP server do — and a glyph one step off
+ * says "the same thing again, somewhere else", which is the claim.
+ *
+ * `cursor-click` is the insert, because what the plugin does to the document is
+ * one click; `layout-dashboard` is the pair of editors; and `refresh-cw` is the
+ * set arriving over the network rather than being baked into the plugin.
+ */
+export const PLUGIN_NOTE_ICON_NAMES = [
+  "search-2",
+  "cursor-click",
+  "layout-dashboard",
+  "refresh-cw",
+] as const
+
 /*
   `FIGMA_SAMPLE_ICON_NAMES` lived here: `check`, `square-check` and `circle-check`,
   one per container, feeding a `Container` × `Style` matrix in the Figma section.

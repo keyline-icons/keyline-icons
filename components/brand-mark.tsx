@@ -1,3 +1,5 @@
+import type { SVGProps } from "react"
+
 /**
  * The site's logo mark.
  *
@@ -28,7 +30,10 @@
  * generated from the same source file — redraw the logo and run
  * `npm run brand:build`, or they keep shipping the old mark.
  */
-export function BrandMark({ className }: { className?: string }) {
+export function BrandMark({
+  className,
+  ...props
+}: Omit<SVGProps<SVGSVGElement>, "children">) {
   return (
     <svg
       viewBox="0 0 40 40"
@@ -36,6 +41,7 @@ export function BrandMark({ className }: { className?: string }) {
       aria-hidden="true"
       className={className}
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <path
         d="M31.916 0H8.07899C3.61455 0 0 3.615 0 8.08V31.925C0 36.385 3.61455 40 8.07899 40H31.921C36.3805 40 40 36.385 40 31.92V8.08C39.995 3.615 36.3805 0 31.916 0Z"

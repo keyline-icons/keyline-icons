@@ -567,10 +567,14 @@ export default async function Page() {
 
               "Design files" is also the flattest of the options considered, on
               purpose. Anything warmer, "Design where you work", is a claim
-              about the reader's tool, and the honest scope of this section is
-              two files: the Figma one the set is drawn in, and the Paper one
-              generated from `icons/`. The lead still says "drawn in Figma"
-              because that is the half that stayed true; Paper is downstream.
+              about the reader's tool. The scope is three surfaces now rather
+              than the two this note was written for: the Figma file the set is
+              drawn in, the Paper one generated from `icons/`, and the plugin,
+              which is neither a file nor drawn in but is where someone already
+              working in Figma reaches the set. The heading still fits, at the
+              cost of the plugin being filed under "files". The lead still says
+              "drawn in Figma" because that is the half that stayed true; the
+              other two are downstream of it.
             */
             title="Design files"
             lead="The set is drawn in Figma: one component set per icon, and an export step that changes nothing about the drawing. What ships here is what is in the file."

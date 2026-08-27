@@ -1,12 +1,17 @@
 import Image, { type StaticImageData } from "next/image"
 
 import figmaMockup from "@/public/mockups/figma.png"
+import pluginMockup from "@/public/mockups/figma-plugin.png"
 import paperMockup from "@/public/mockups/paper.png"
 
 import { DesignFileTabs } from "@/components/design-file-tabs"
 import { Glyph } from "@/components/glyph"
 import type { Icon } from "@/lib/icons"
-import { DESIGN_NOTE_ICON_NAMES, PAPER_NOTE_ICON_NAMES } from "@/lib/home"
+import {
+  DESIGN_NOTE_ICON_NAMES,
+  PAPER_NOTE_ICON_NAMES,
+  PLUGIN_NOTE_ICON_NAMES,
+} from "@/lib/home"
 import {
   SET_FIGMA_PLUGIN_URL,
   SET_FIGMA_URL,
@@ -38,13 +43,20 @@ import {
  * answers and this note moved together, which is what the arrangement was for.
  * `SET_PAPER_URL` is the same kind of link and opens the Paper file.
  *
- * **The plugin is offered here now, and it is the one thing in this section a
- * reader can act on rather than look at.** It was deliberately absent while it
- * was unpublished, and this note said so; it is published, so the line under the
- * Figma notes is the whole of the change. It stays one sentence under four
- * mechanism claims rather than becoming a panel of its own, because the section
- * is still about where the set is drawn, not about ways to get it. Anything
- * more belongs on `/install`.
+ * **The plugin has a panel of its own now, and this note used to argue against
+ * it.** It read: one sentence under the Figma notes rather than a panel,
+ * because the section is about where the set is drawn and not about ways to get
+ * it, with anything more belonging on `/install`. That was overruled on
+ * 27 Aug 2026, and the argument against it was weaker than it looked: the
+ * plugin *is* where the set is drawn from, for anyone drawing in Figma who will
+ * never open the library file, and a sentence under someone else's four notes
+ * is not where a reader looks for it. The sentence is gone, since the tab says
+ * the same thing louder.
+ *
+ * It is still not a third design file, and the copy should not imply one. Figma
+ * is authored, Paper is generated from `icons/`, and the plugin is a reader of
+ * what the repository publishes: three different relationships to the same set,
+ * which is what the notes under each picture have to keep legible.
  *
  * There is still no kit or download offered in here, which is why each panel is
  * a screenshot and four sentences rather than a pricing block.
@@ -101,6 +113,34 @@ const MOCKUP = {
     "The Keyline Icons file open in Figma: a Catalog page of category boards, " +
     "each listing its icons by name, with the layer tree beside it showing one " +
     "component set per drawing.",
+}
+
+/**
+ * The plugin screenshot, imported the same way and for the same reasons.
+ *
+ * It is the same window as the Figma shot with the plugin open over the canvas,
+ * rather than a capture of the 400x560 panel on its own. A panel photographed
+ * alone is a picture of a widget; what a reader needs to see is that it runs
+ * inside the file they are already in, and at what size relative to it.
+ *
+ * Cropped to 3436x1968 to match the other two exactly, which is not cosmetic:
+ * the three sit behind one picker, and a switch between tabs that changes the
+ * picture's height moves everything under it. macOS hands you the window with
+ * its rounded corners and a strip of desktop behind them, so the crop is 10px
+ * off every edge, taken until all four corners read the window's own fill. The
+ * two older files were made the same way and land on the same numbers.
+ */
+const PLUGIN_MOCKUP = {
+  image: pluginMockup,
+  /*
+    What this picture is evidence *of* is that the set is reachable from inside
+    a file without opening the library: a search field, the three styles, and a
+    grid of the whole set in a panel floating over the catalogue.
+  */
+  alt:
+    "The Keyline Icons plugin open in Figma: a panel floating over the " +
+    "catalogue with a search field, a Stroke, Duotone and Fill switch, and a " +
+    "grid of the whole set, with the library file's own Catalog page behind it.",
 }
 
 /**
@@ -266,11 +306,17 @@ export function FigmaShowcase({ icons }: { icons: Icon[] }) {
     DESIGN_NOTE_ICON_NAMES.map(glyph)
   const [boardGlyph, layerGlyph, builtGlyph, sheetGlyph] =
     PAPER_NOTE_ICON_NAMES.map(glyph)
+  const [findGlyph, dropGlyph, editorGlyph, freshGlyph] =
+    PLUGIN_NOTE_ICON_NAMES.map(glyph)
 
   return (
     <div className="flex flex-col gap-3 lg:gap-4">
       <DesignFileTabs
-        urls={{ figma: SET_FIGMA_URL, paper: SET_PAPER_URL }}
+        urls={{
+          figma: SET_FIGMA_URL,
+          paper: SET_PAPER_URL,
+          plugin: SET_FIGMA_PLUGIN_URL,
+        }}
         /*
           Only Paper needs one. It renders a file in Chrome and in its own
           desktop app, and answers Safari with a download card saying view and
@@ -281,6 +327,7 @@ export function FigmaShowcase({ icons }: { icons: Icon[] }) {
         */
         caveats={{
           paper: "Opens in Chrome or the Paper desktop app, not Safari.",
+          plugin: "Opens the Figma Community listing, in Figma or the browser.",
         }}
         panels={{
           figma: (
@@ -311,31 +358,6 @@ export function FigmaShowcase({ icons }: { icons: Icon[] }) {
                   blank phones were found that way.
                 </Note>
               </Notes>
-              {/*
-                Inside the panel rather than in the line reserved under the
-                button, which is where a second link beside the first one wants
-                to go. That slot keeps every tab's line mounted and hides the
-                inactive ones with opacity, so a link in it would stay in the
-                tab order while invisible. The panels use the `hidden`
-                attribute, which takes the whole subtree out of focus and out of
-                the accessibility tree, so a link is safe here and nowhere else
-                in this component.
-              */}
-              {SET_FIGMA_PLUGIN_URL && (
-                <p className="mt-8 text-sm text-muted-foreground">
-                  Already in a file?{" "}
-                  <a
-                    href={SET_FIGMA_PLUGIN_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline underline-offset-2 hover:text-foreground"
-                  >
-                    The plugin
-                  </a>{" "}
-                  searches the set and drops an icon straight onto the canvas,
-                  in Figma and in FigJam, without opening this file at all.
-                </p>
-              )}
             </>
           ),
           paper: (
@@ -363,6 +385,37 @@ export function FigmaShowcase({ icons }: { icons: Icon[] }) {
                   <Code>paper:check</Code> re-composes them and fails on any
                   difference, so what the file was built from cannot go stale
                   without the build saying so.
+                </Note>
+              </Notes>
+            </>
+          ),
+          plugin: (
+            <>
+              <Mockup mockup={PLUGIN_MOCKUP} />
+              <Notes>
+                <Note icon={findGlyph} title="The same search, one more place">
+                  A query is ranked the way the CLI and the MCP server rank it:
+                  exact name, then prefix, then word, then a word someone
+                  curated in Figma. Four surfaces, one vocabulary.
+                </Note>
+
+                <Note icon={dropGlyph} title="One click puts it on the canvas">
+                  Centred in the frame you have selected, or in the middle of
+                  the viewport when nothing is. <Code>currentColor</Code> is
+                  swapped for real ink on the way in, because Figma&rsquo;s
+                  importer cannot resolve it.
+                </Note>
+
+                <Note icon={editorGlyph} title="Figma and FigJam both">
+                  The same plugin in both editors. An insert becomes a group in
+                  FigJam rather than a frame, which is what makes recolouring it
+                  there land on the drawing instead of on a wrapper.
+                </Note>
+
+                <Note icon={freshGlyph} title="It reads the published set">
+                  The icons come over the network from this repository, not from
+                  the plugin&rsquo;s own bundle, so a release reaches everyone
+                  without a plugin update going through review.
                 </Note>
               </Notes>
             </>

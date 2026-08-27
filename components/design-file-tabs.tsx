@@ -2,6 +2,7 @@
 
 import * as React from "react"
 
+import { BrandMark } from "@/components/brand-mark"
 import { FigmaLogo, PaperLogo } from "@/components/brand-logos"
 import { ArrowUpRight } from "@/components/icons"
 import { Segmented, SegmentedItem } from "@/components/segmented"
@@ -12,13 +13,13 @@ import { Button } from "@/components/ui/button"
  * The design-files section's picker, and the only client island in it.
  *
  * It is here rather than in `figma-showcase.tsx` because everything else that
- * section draws is static: two screenshots and eight sentences, all of which
+ * section draws is static: three screenshots and twelve sentences, all of which
  * should be server-rendered and in the markup a crawler reads. So the panels
  * arrive as props, already rendered, and this component does nothing but decide
  * which one is shown and which link the button opens.
  *
- * **Both panels stay in the DOM**, hidden with the `hidden` attribute rather
- * than switched with a ternary. The inactive panel holds a screenshot and an
+ * **Every panel stays in the DOM**, hidden with the `hidden` attribute rather
+ * than switched with a ternary. An inactive panel holds a screenshot and an
  * outbound link, and a link that only exists after a click is a link nothing
  * crawls. It also means switching tabs costs no render.
  *
@@ -31,9 +32,22 @@ import { Button } from "@/components/ui/button"
  * to the ends, and only the selected tab is in the tab order.
  */
 
+/**
+ * `action` rather than `Open in ${label}` computed at the call site, which is
+ * what this was. Two of these are files you open in a tool and the third is a
+ * plugin you install, so "Open in Plugin" was the sentence that formula
+ * produced and it names no destination at all.
+ *
+ * The plugin wears the set's own mark rather than Figma's. It runs inside
+ * Figma, so Figma's mark is defensible and wrong here for one reason: the tab
+ * beside it already carries it, and two chips under one logo read as two links
+ * to the same place. The mark it wears is the one on the plugin's own window,
+ * which is what a reader will see a second after clicking.
+ */
 const TOOLS = [
-  { id: "figma", label: "Figma", Logo: FigmaLogo },
-  { id: "paper", label: "Paper", Logo: PaperLogo },
+  { id: "figma", label: "Figma", action: "Open in Figma", Logo: FigmaLogo },
+  { id: "paper", label: "Paper", action: "Open in Paper", Logo: PaperLogo },
+  { id: "plugin", label: "Plugin", action: "Get the plugin", Logo: BrandMark },
 ] as const
 
 export type DesignTool = (typeof TOOLS)[number]["id"]
@@ -173,7 +187,7 @@ export function DesignFileTabs({
             either. See `components/brand-logos.tsx`.
           */}
           <active.Logo data-icon="inline-start" className="size-4 shrink-0" />
-          {`Open in ${active.label}`}
+          {active.action}
           <ArrowUpRight data-icon="inline-end" />
           <span className="sr-only">{" (opens in a new tab)"}</span>
         </Button>
