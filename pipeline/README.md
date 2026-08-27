@@ -867,12 +867,19 @@ does not include it. That is not a corner anyone cut: `git show
 v0.1.0:lib/icon-history.json` says `released: false`, because at the moment
 v0.1.0 was tagged it was true.
 
-**A release clears every "new" dot, and that is the point.** `isNewSince`
-compares each drawing's added date against `releasedAt`, so moving that date
-forward empties the badge from the grid, the changelog and the Paper boards in
-one step. Expect the diff to be visible on every surface rather than in one
-file, and do not go looking for the list that needs emptying: there isn't one,
-which is why the badge is derived rather than kept.
+**A release does NOT touch the "new" dot, and this paragraph used to say the
+opposite.** It once read "a release clears every new dot, and that is the
+point", because `isNewSince` compared each drawing's added date against
+`releasedAt`. That rule is gone, for the two reasons `lib/icon-badges.json`
+records: it cleared the badges of the very drawings the release was announcing,
+and a set shipping twice in a week showed a badge for about a day.
+
+The badge is an **age**. `isNewSince` asks whether a drawing was added inside
+`newForDays`, floored by `clearedBefore`, both in `lib/icon-badges.json`, which
+is source rather than generated and which only Zafar changes, stated explicitly,
+every time. **Cutting a release must never touch either value.** Read that file
+before saying anything about what a badge does; the sentence above stood here
+wrong for long enough to mislead a session into offering to clear 78 of them.
 
 **A changelog only ever grows. Never delete or reword a published entry.** Every
 changelog surface is generated and redrawn from scratch on every build, so a bug
