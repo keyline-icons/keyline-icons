@@ -13,9 +13,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 444,
-  "names": 551,
-  "variants": 1405,
+  "icons": 476,
+  "names": 585,
+  "variants": 1497,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -27,7 +27,7 @@
       "width": 742,
       "icons": 23,
       "variants": 48,
-      "bytes": 36763
+      "bytes": 36793
     },
     {
       "file": "actions-2.html",
@@ -123,7 +123,7 @@
       "width": 742,
       "icons": 11,
       "variants": 33,
-      "bytes": 30885
+      "bytes": 31144
     },
     {
       "file": "controls.html",
@@ -133,9 +133,9 @@
       "parts": 1,
       "into": "artboard",
       "width": 742,
-      "icons": 4,
-      "variants": 8,
-      "bytes": 6288
+      "icons": 6,
+      "variants": 14,
+      "bytes": 11665
     },
     {
       "file": "devices-1.html",
@@ -147,7 +147,7 @@
       "width": 742,
       "icons": 28,
       "variants": 51,
-      "bytes": 41270
+      "bytes": 41292
     },
     {
       "file": "devices-2.html",
@@ -217,9 +217,9 @@
       "parts": 2,
       "into": "artboard",
       "width": 742,
-      "icons": 30,
-      "variants": 61,
-      "bytes": 41577
+      "icons": 36,
+      "variants": 54,
+      "bytes": 40328
     },
     {
       "file": "layout-2.html",
@@ -230,8 +230,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 25,
-      "bytes": 16359
+      "variants": 50,
+      "bytes": 36639
     },
     {
       "file": "mail-1.html",
@@ -318,16 +318,40 @@
       "bytes": 22914
     },
     {
-      "file": "new.html",
+      "file": "new-1.html",
       "artboard": "New",
       "category": "New",
       "part": 1,
-      "parts": 1,
+      "parts": 3,
       "into": "artboard",
       "width": 742,
-      "icons": 4,
-      "variants": 8,
-      "bytes": 12336
+      "icons": 28,
+      "variants": 34,
+      "bytes": 41114
+    },
+    {
+      "file": "new-2.html",
+      "artboard": "New",
+      "category": "New",
+      "part": 2,
+      "parts": 3,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 36,
+      "bytes": 38820
+    },
+    {
+      "file": "new-3.html",
+      "artboard": "New",
+      "category": "New",
+      "part": 3,
+      "parts": 3,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 6,
+      "bytes": 7928
     },
     {
       "file": "pointers.html",
@@ -479,7 +503,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 54865
+      "bytes": 88380
     }
   ]
 }
