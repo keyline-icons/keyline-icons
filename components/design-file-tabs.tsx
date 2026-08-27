@@ -38,16 +38,23 @@ import { Button } from "@/components/ui/button"
  * plugin you install, so "Open in Plugin" was the sentence that formula
  * produced and it names no destination at all.
  *
- * The plugin wears the set's own mark rather than Figma's. It runs inside
- * Figma, so Figma's mark is defensible and wrong here for one reason: the tab
- * beside it already carries it, and two chips under one logo read as two links
- * to the same place. The mark it wears is the one on the plugin's own window,
- * which is what a reader will see a second after clicking.
+ * The plugin wears the set's own mark rather than Figma's, and its label says
+ * "Figma Plugin" rather than "Plugin". Those two decisions are the same one:
+ * the words name the host, so the mark is free to name the thing. Give it
+ * Figma's mark as well and two chips a few pixels apart wear one logo under two
+ * different words, which reads as two links to the same place. The mark it
+ * carries is the one on the plugin's own window, which is what a reader sees a
+ * second after clicking.
  */
 const TOOLS = [
   { id: "figma", label: "Figma", action: "Open in Figma", Logo: FigmaLogo },
   { id: "paper", label: "Paper", action: "Open in Paper", Logo: PaperLogo },
-  { id: "plugin", label: "Plugin", action: "Get the plugin", Logo: BrandMark },
+  {
+    id: "plugin",
+    label: "Figma Plugin",
+    action: "Get the plugin",
+    Logo: BrandMark,
+  },
 ] as const
 
 export type DesignTool = (typeof TOOLS)[number]["id"]
