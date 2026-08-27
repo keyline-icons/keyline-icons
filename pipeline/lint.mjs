@@ -446,8 +446,15 @@ const DASHED_LEVEL = /^(?:circle|square)-dashed-(?:full|half|quarter|three-quart
  * other marks, which simply have no closed counter to expose it. Do not read it
  * as a waiver for objects: a body that encloses a region still owes its filled
  * styles, and everything else here still applies to `at`.
+ *
+ * `percent` joined on 27 Aug 2026 for the same reason rather than a new one:
+ * its two rings are the counters the sign is read by, and a percent with them
+ * filled is two beads on a slash — which is the mark `coupon` carries at a
+ * sixth of the size, not this glyph. Where a percent does want a solid, the
+ * container supplies it and the sign is knocked out of the disc, exactly as
+ * `circle-check` does with its mark.
  */
-const COUNTER = new Set(['at']);
+const COUNTER = new Set(['at', 'percent']);
 
 /**
  * A compound's fillability comes from its base.

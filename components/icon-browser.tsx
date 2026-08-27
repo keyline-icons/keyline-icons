@@ -34,6 +34,7 @@ import {
   Trophy,
   Sun,
   User,
+  Wrench,
 } from "@/components/icons"
 
 import { cn } from "@/lib/utils"
@@ -137,6 +138,7 @@ const CATEGORY_ICONS: Record<
   Weather: Sun,
   Shapes: Shapes,
   Sport: Trophy,
+  Tools: Wrench,
   Web: Globe,
   [OTHER_CATEGORY]: Circle,
 }

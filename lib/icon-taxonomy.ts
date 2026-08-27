@@ -45,7 +45,7 @@ export const CATEGORIES = [
   // rather than a loose end.
   {
     label: "New",
-    match: /^(megaphone|grip-horizontal|grip-vertical|octagon-x)$/,
+    match: /^(megaphone|grip-horizontal|grip-vertical|octagon-x|toolbox|wrench|hammer|pencil-ruler|circles|circles-dashed|circle-square|circle-square-dashed|circles-x|circles-check|squares|squares-x|squares-check|power|power-off|percent|ban|slider-horizontal|slider-vertical|plug|shield|shield-check|shield-plus|shield-minus|shield-x|lightbulb|lightbulb-on|tag-horizontal-end|cursor-off|tag-horizontal-start-percent|tag-horizontal-end-percent)$/,
     blurb: "Drawn since the last release and waiting to be reviewed.",
   },
   // `refresh` and `rotate` are here because they are arrow glyphs, whatever they
@@ -66,7 +66,9 @@ export const CATEGORIES = [
     // suffix: they have to land here before Shapes claims them for their
     // `square-` and `circle-` prefixes, the way it claims every other one.
     label: "Files",
-    match: /^(file|folder|copy|paperclip|bin|archive|pen|(square|circle)-pen)/,
+    // `pen` carries a lookahead so `pencil-*` falls through to Tools below:
+    // a pencil-and-ruler is a drawing instrument, not a document.
+    match: /^(file|folder|copy|paperclip|bin|archive|pen(?!cil)|(square|circle)-pen)/,
     blurb: "Documents, folders, copies, the paperclip and the bin.",
   },
   {
@@ -125,8 +127,8 @@ export const CATEGORIES = [
   // the developer surface, and two names do not earn a row in a rail of 18.
   {
     label: "Devices",
-    match: /^(smartphone|monitor|terminal|database|server|battery|bluetooth|code)/,
-    blurb: "Phones, servers, databases, terminals and code.",
+    match: /^(smartphone|monitor|terminal|database|server|battery|bluetooth|code|plug)/,
+    blurb: "Phones, servers, databases, terminals, code and what plugs into them.",
   },
   {
     label: "Pointers",
@@ -153,8 +155,8 @@ export const CATEGORIES = [
     // outlines they happen to be. `eye` is the show/hide operation, next to lock.
     label: "Actions",
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question)/,
-    blurb: "Checks, crosses, pluses and the everyday verbs.",
+      /^(check|double-check|plus|minus|x|more|lock|unlock|shield|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|ban)/,
+    blurb: "Checks, crosses, pluses, the everyday verbs and the marks that guard a thing.",
   },
   {
     // Next to Actions rather than inside it: those are marks you read, a check
@@ -162,13 +164,23 @@ export const CATEGORIES = [
     // Prefixes rather than exact names, so the family this is being drawn
     // towards lands here too: a bare `slider`, a `toggle-left`.
     label: "Controls",
-    match: /^(toggle|slider|grip)/,
+    match: /^(toggle|slider|grip|power)/,
     blurb: "Toggles, sliders and the drag handle.",
   },
   {
     label: "Sport",
     match: /^(trophy|award|podium|medal)/,
     blurb: "Trophies, awards and the places on the podium.",
+  },
+  {
+    // The shelf follows what the thing is, not what the drawing is made of: a
+    // toolbox is drawn from the same rounded box as `archive` and belongs here
+    // rather than in Files, the same call `gallery-*` gets against Layout.
+    // Prefixes, so the family this is being drawn towards lands here too: a
+    // `screwdriver`, a `wrench-plus`.
+    label: "Tools",
+    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler)/,
+    blurb: "The toolbox and what comes out of it.",
   },
   {
     label: "Shapes",
