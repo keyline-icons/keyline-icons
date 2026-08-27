@@ -49,12 +49,18 @@ export const SET_TITLE = `${SET_NAME} Icons`
 export const SET_TAGLINE = "Built for shadcn/ui"
 
 /**
- * How it was made. Sits beside the tagline rather than above the name.
+ * How it was made, in the covers' words.
  *
- * Avoids "built", which the tagline already has — two of them either side of a
+ * Avoids "built", which the tagline already has: two of them either side of a
  * divider in one short line reads as a copy-paste rather than as a sentence.
+ *
+ * Nothing on the site renders this any more. The hero carried it and now names
+ * the three weights instead, for the reason written down there. It stays
+ * because `pipeline/build-cover.mjs` paints this exact sentence onto the Figma
+ * and social covers, and a second wording of one claim is how two surfaces end
+ * up disagreeing.
  */
-export const SET_CREDIT = "An icon set refined with AI"
+export const SET_CREDIT = "An icon set crafted with AI"
 
 /**
  * The licence, named in one place because three of them have to agree.

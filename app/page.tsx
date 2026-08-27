@@ -77,7 +77,7 @@ export async function generateMetadata(): Promise<Metadata> {
       skill.
     */
     title: {
-      absolute: `${SET_TITLE}: ${total} free shadcn/ui icons, refined with AI`,
+      absolute: `${SET_TITLE}: ${total} free shadcn/ui icons, crafted with AI`,
     },
     description:
       `${total} free ${SET_LICENSE}-licensed icons for shadcn/ui, drawn on ` +
@@ -301,7 +301,7 @@ export default async function Page() {
                   one. `text-muted-foreground` on a heading is the same device
                   the hero's tagline uses, one level up.
                 */}
-                <span className="text-muted-foreground">refined with AI</span>
+                <span className="text-muted-foreground">crafted with AI</span>
               </h1>
 
               {/*

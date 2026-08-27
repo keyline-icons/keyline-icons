@@ -1,14 +1,14 @@
 "use client"
 
 import { IconSearch, type SearchSuggestion } from "@/components/icon-search"
-import { SET_CREDIT, SET_LICENSE, SET_TAGLINE } from "@/lib/site-chrome"
+import { SET_LICENSE, SET_TAGLINE } from "@/lib/site-chrome"
 
 /**
  * The hero: what this page is, one line under it, and the field.
  *
- * The line carries both facts — what the set is for, and how it was made —
- * divided rather than stacked, so neither outranks the other. The first half is
- * the one doing real work: it states the relationship to shadcn/ui as
+ * The line carries three facts: what the set is for, what it ships in, and
+ * what it costs, divided rather than stacked so none outranks the others. The
+ * first is the one doing real work: it states the relationship to shadcn/ui as
  * compatibility rather than as authorship, which is why it is a line under the
  * heading instead of a word inside it.
  *
@@ -51,14 +51,18 @@ export function SiteHero({
         not a border between two spans — it is punctuation between clauses, so
         it belongs in the text where it wraps with them.
 
-        Three clauses now: what the set is for, how it was made, and what it
-        costs. The licence is the shortest of the three and the one carrying the
-        most weight, because "free" in the heading above is a claim and this is
-        what backs it. `SET_LICENSE` rather than the word, so it moves with the
+        Three clauses: what the set is for, what it ships in, and what it
+        costs. The middle one was the AI credit, which is provenance: it belongs
+        on the landing page, because whoever reaches the grid has already
+        decided to browse and wants to know what the style switcher offers.
+
+        The licence is the shortest of the three and the one carrying the most
+        weight, because "free" in the heading above is a claim and this is what
+        backs it. `SET_LICENSE` rather than the word, so it moves with the
         `LICENSE` file the footer and the structured data both read.
       */}
       <p className="mt-3 text-base text-balance text-muted-foreground">
-        {SET_TAGLINE} · {SET_CREDIT} · {SET_LICENSE}
+        {SET_TAGLINE} · Stroke, duotone and fill · {SET_LICENSE}
       </p>
 
       {/*

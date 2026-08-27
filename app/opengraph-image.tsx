@@ -53,7 +53,7 @@ import { SET_LICENSE, SET_TITLE } from "@/lib/site-chrome"
  * so it wraps either way, and the only choice is whether the break lands at the
  * comma or somewhere inside "shadcn/ui". Two rows put it at the comma.
  */
-export const alt = `${SET_TITLE}: free icons for shadcn/ui, refined with AI`
+export const alt = `${SET_TITLE}: free icons for shadcn/ui, crafted with AI`
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -125,7 +125,7 @@ export default async function Image() {
           Free icons for shadcn/ui,
         </div>
         <div style={{ fontSize: 76, color: MUTED, letterSpacing: -2 }}>
-          refined with AI
+          crafted with AI
         </div>
       </div>
 
