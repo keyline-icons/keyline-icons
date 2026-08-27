@@ -1136,6 +1136,30 @@
       ]
     },
     {
+      "match": "^lightbulb",
+      "note": "The bulb is reached for as an idea, not as a lamp.",
+      "terms": [
+        "idea",
+        "tip",
+        "hint",
+        "insight",
+        "suggestion",
+        "learn",
+        "light",
+        "inspiration"
+      ]
+    },
+    {
+      "match": "^lightbulb-on$",
+      "terms": [
+        "bright",
+        "eureka",
+        "shine",
+        "lit",
+        "on"
+      ]
+    },
+    {
       "match": "^terminal",
       "terms": [
         "console",
@@ -1398,6 +1422,221 @@
         "reorder",
         "resize",
         "dots"
+      ]
+    },
+    {
+      "match": "^toolbox$",
+      "note": "The words for what it holds, and the two names other sets use.",
+      "terms": [
+        "tools",
+        "toolkit",
+        "tool box",
+        "kit",
+        "hardware",
+        "build",
+        "repair",
+        "maintenance"
+      ]
+    },
+    {
+      "match": "^wrench$",
+      "note": "`spanner` is what half the world calls it, and nobody types `wrench` looking for settings.",
+      "terms": [
+        "spanner",
+        "tool",
+        "fix",
+        "repair",
+        "adjust",
+        "configure",
+        "maintenance",
+        "service"
+      ]
+    },
+    {
+      "match": "^grid-(circles|squares)(-x|-check)?$",
+      "note": "A grid of shapes reads as a group or a selection long before anyone types its drawing.",
+      "terms": [
+        "group",
+        "select",
+        "selection",
+        "multiple",
+        "batch",
+        "items",
+        "grid",
+        "all"
+      ]
+    },
+    {
+      "match": "^sliders-2-(horizontal|vertical)$",
+      "note": "The knob form, against the plain `sliders-*` equaliser: the thumb is what people are looking for.",
+      "terms": [
+        "range",
+        "knob",
+        "thumb",
+        "adjust",
+        "volume",
+        "settings",
+        "control",
+        "level"
+      ]
+    },
+    {
+      "match": "^power(-off)?$",
+      "terms": [
+        "on",
+        "off",
+        "shutdown",
+        "restart",
+        "standby",
+        "boot",
+        "switch"
+      ]
+    },
+    {
+      "match": "^percent$",
+      "terms": [
+        "percentage",
+        "discount",
+        "sale",
+        "rate",
+        "interest",
+        "tax"
+      ]
+    },
+    {
+      "match": "^ban$",
+      "note": "Nobody types `ban` for the sign; they type what it means.",
+      "terms": [
+        "no",
+        "block",
+        "blocked",
+        "forbidden",
+        "prohibited",
+        "denied",
+        "cancel",
+        "not allowed",
+        "restricted"
+      ]
+    },
+    {
+      "match": "^pencil-ruler$",
+      "note": "Nobody types the compound name; they type what they are doing with it.",
+      "terms": [
+        "design",
+        "draw",
+        "drafting",
+        "measure",
+        "edit",
+        "tools",
+        "ruler",
+        "pencil",
+        "sketch"
+      ]
+    },
+    {
+      "match": "^hammer$",
+      "terms": [
+        "mallet",
+        "claw hammer",
+        "tool",
+        "build",
+        "construct",
+        "nail",
+        "hit",
+        "repair"
+      ]
+    },
+    {
+      "match": "^circles$",
+      "note": "Two rings that cross: the drawing is the overlap, so the words are about the overlap. \"ring\" lives here rather than in the filename, which says circle like the other 73.",
+      "terms": [
+        "ring",
+        "rings",
+        "overlap",
+        "intersect",
+        "venn",
+        "union",
+        "combine",
+        "merge",
+        "group",
+        "diagram"
+      ]
+    },
+    {
+      "match": "^circles-dashed$",
+      "note": "The dashed ring is the one that is not there yet, so the words are about the pending half.",
+      "terms": [
+        "ring",
+        "rings",
+        "overlap",
+        "intersect",
+        "venn",
+        "placeholder",
+        "pending",
+        "draft",
+        "group",
+        "optional"
+      ]
+    },
+    {
+      "match": "^circle-square$",
+      "note": "Not a square in a circle: a ring and a rounded square crossing. Listed in lib/icon-not-containers.json for that reason.",
+      "terms": [
+        "ring",
+        "shapes",
+        "overlap",
+        "intersect",
+        "combine",
+        "merge",
+        "union",
+        "group",
+        "mixed selection",
+        "diagram"
+      ]
+    },
+    {
+      "match": "^circle-square-dashed$",
+      "note": "Same pair as circle-square with the square left dashed.",
+      "terms": [
+        "ring",
+        "shapes",
+        "overlap",
+        "intersect",
+        "placeholder",
+        "pending",
+        "draft",
+        "group",
+        "mixed selection"
+      ]
+    },
+    {
+      "match": "^plug$",
+      "note": "The software sense outweighs the wall socket: this is what an integration is drawn with.",
+      "terms": [
+        "plugin",
+        "integration",
+        "connect",
+        "connection",
+        "socket",
+        "adapter",
+        "extension",
+        "power"
+      ]
+    },
+    {
+      "match": "^shield",
+      "note": "The family, so the signs inherit it.",
+      "terms": [
+        "security",
+        "secure",
+        "protected",
+        "protection",
+        "safe",
+        "trust",
+        "privacy",
+        "guard",
+        "antivirus",
+        "insurance"
       ]
     }
   ],
