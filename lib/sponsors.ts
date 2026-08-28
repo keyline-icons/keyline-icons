@@ -39,13 +39,27 @@ export type Sponsor = {
 }
 
 /**
- * Empty, and the pages that read it say so rather than hiding.
+ * Everyone owed a name, oldest first.
  *
- * An invisible section is the version that rots: it looks identical whether
- * there are no sponsors or the list broke, and nobody finds out which. A
- * visible empty state is also the more honest ask.
+ * The empty state stays written down rather than being deleted now that there
+ * is a name here: an invisible section is the version that rots, because it
+ * looks identical whether there are no sponsors or the list broke, and nobody
+ * finds out which. The pages say "nobody yet" when this is empty.
+ *
+ * `login` is `github.com/preline`, the organisation, which is what the avatar
+ * is fetched from. The library itself lives under a different org, so the two
+ * do not match and that is not a mistake: this is who sponsors, not where the
+ * code is.
  */
-export const SPONSORS: Sponsor[] = []
+export const SPONSORS: Sponsor[] = [
+  {
+    name: "Preline",
+    login: "preline",
+    web: "https://preline.co",
+    since: "2026-08",
+    tier: "website",
+  },
+]
 
 /** Those owed a place on the site. The README lists everyone. */
 export const siteSponsors = () =>
