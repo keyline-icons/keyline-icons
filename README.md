@@ -33,11 +33,17 @@ That is the fastest path and needs no install.
 no wrapper, no `id`s and no classes. They are generated, so treat them as build
 output: to change one, change the drawing in `raw/` and rebuild.
 
-**Import them in React.** `components/icons/index.tsx` is generated from
-`icons/stroke/` and exports one component per icon:
+**Import them in React.** `@keyline-icons/react` exports one component per
+icon, one entry point per style:
+
+```bash
+npm i @keyline-icons/react
+```
 
 ```tsx
-import { ArrowUpRight, Check, Menu } from "@/components/icons"
+import { ArrowUpRight, Check, Menu } from "@keyline-icons/react"
+import { Folder as FolderDuotone } from "@keyline-icons/react/duotone"
+import { Folder as FolderFill } from "@keyline-icons/react/fill"
 
 <Check className="size-4" />
 <ArrowUpRight size={16} />
@@ -46,9 +52,40 @@ import { ArrowUpRight, Check, Menu } from "@/components/icons"
 Every component takes the usual `SVGProps` plus `size`, and colours from
 `currentColor`. There is no theme, no context and no provider.
 
-> **Not yet on npm.** `packages/react` builds `@keyline-icons/react` from the
-> same source, but nothing is published yet. Until it is, the import path above
-> is the in-repo one.
+The two style entry points are smaller than the stroke one and deliberately so.
+`Check` is three open strokes with nothing to fill, so it exists in
+`@keyline-icons/react` and in neither of the others; `Folder` has an interior
+and exists in all three. The counts at the top of this file are the same fact.
+
+`components/icons/index.tsx` is the same set generated for this repo's own
+site, and `@/components/icons` is the import to use inside it. Both come off
+`icons/stroke/`, so they hold the same drawings; the package is the one to
+install anywhere else.
+
+**Add one at a time from the terminal.** `@keyline-icons/cli` searches the set
+and writes SVGs into a project without adding a dependency to it:
+
+```bash
+npx @keyline-icons/cli search arrow
+npx @keyline-icons/cli add circle-arrow-down bell --out src/icons
+```
+
+**Give an agent the set.** `@keyline-icons/mcp` is an MCP server that searches
+the set, returns SVG source and returns the React import, so an assistant picks
+a real icon name rather than guessing one:
+
+```bash
+claude mcp add keyline-icons -- npx -y @keyline-icons/mcp
+```
+
+Anything else that speaks MCP over stdio runs the same command; the package's
+own README has the JSON.
+
+**Drop one onto a Figma canvas.** The
+[Figma plugin](https://www.figma.com/community/plugin/1672557050316875938/keyline-icons)
+inserts any icon in any style into the file you already have open, and the
+[Community file](https://www.figma.com/community/file/1672255957017818239/keyline-icons)
+is the whole set as components.
 
 ## Containers
 
