@@ -184,8 +184,10 @@ export function FrameworkInstaller({
           */}
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               Or skip the install entirely: every icon in the{" "}
+              {/* Links inside a sentence, so no prefetch. */}
               <Link
                 href="/icons"
+                prefetch={false}
                 className="underline underline-offset-2 hover:text-foreground"
               >
                 browser
@@ -193,6 +195,7 @@ export function FrameworkInstaller({
               copies as plain SVG that works in any framework, or none.{" "}
               <Link
                 href="/install"
+                prefetch={false}
                 className="underline underline-offset-2 hover:text-foreground"
               >
                 How to install
