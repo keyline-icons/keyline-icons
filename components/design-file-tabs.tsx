@@ -47,13 +47,17 @@ import { Button } from "@/components/ui/button"
  * the first time here. Together they say whose editor and whose icons, which is
  * the whole of it.
  *
- * **The order is the plugin, then Figma, then Paper**, which is not the order
- * the section was built in. It runs most-reached to least: someone drawing in
- * Figma gets the set from the plugin without ever opening the library file,
- * where the two files below are for reading and for taking the drawings out of.
- * Note that the plugin being first does **not** make it the opening panel —
- * that is still Figma, because the lead above this row is a sentence about the
- * Figma file and landing on a different panel under it reads as a mismatch.
+ * **The order is the plugin, then Figma, then Paper**, and the plugin is the
+ * panel that opens. It runs most-reached to least: someone drawing in Figma
+ * gets the set from the plugin without ever opening the library file, where the
+ * two files below are for reading and for taking the drawings out of.
+ *
+ * Figma opened by default for one version, on the argument that the lead above
+ * this row is a sentence about the Figma file and landing elsewhere under it
+ * reads as a mismatch. That was overruled, and it was the weaker half of the
+ * argument: a tablist whose first chip is not the selected one reads as a bug
+ * before it reads as anything. If the mismatch ever bites, the lead is the
+ * thing to change.
  */
 const TOOLS = [
   {
@@ -67,13 +71,14 @@ const TOOLS = [
       `auto` width browsers have historically resolved against the containing
       block rather than against the viewBox's ratio, and the failure mode is a
       mark that fills the chip. Pinning both is one class either way and cannot
-      go wrong. The lockup is 67.67 x 40, so 16 tall wants 27.07 wide: `w-7` is
-      28, and the spare 0.9px letterboxes evenly at under half a pixel a side.
+      go wrong. The lockup is 75.67 x 40, so 16 tall wants 30.27 wide, which is
+      `w-[1.892rem]` to within a hundredth of a pixel. Both numbers move when
+      the lockup's own gap does.
 
       The other two keep the `size-4` they shipped with. A square box letterboxes
       Figma's 2:3 mark exactly as it always has; nothing about those two moves.
     */
-    logoClass: "h-4 w-7",
+    logoClass: "h-4 w-[1.892rem]",
   },
   {
     id: "figma",
@@ -109,7 +114,7 @@ export function DesignFileTabs({
    */
   caveats?: Partial<Record<DesignTool, React.ReactNode>>
 }) {
-  const [tool, setTool] = React.useState<DesignTool>("figma")
+  const [tool, setTool] = React.useState<DesignTool>("plugin")
   const tabs = React.useRef<Map<DesignTool, HTMLButtonElement | null>>(
     new Map()
   )
