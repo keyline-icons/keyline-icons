@@ -98,7 +98,7 @@ export function SiteFooter() {
             {/* The bar's brand without its panel — same mark, same 28px, and
                 the same destination: the landing page, now that `/` renders
                 one rather than forwarding to the browser. */}
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" prefetch={false} className="flex items-center gap-2">
               <BrandMark className="size-7" />
               <span className="text-sm font-medium tracking-tight">
                 {SET_TITLE}
@@ -141,6 +141,7 @@ export function SiteFooter() {
               */}
               <Link
                 href={LEGAL.license}
+                prefetch={false}
                 className="underline underline-offset-2 transition-colors hover:text-foreground"
               >
                 {SET_LICENSE_NAME}
@@ -165,6 +166,7 @@ export function SiteFooter() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  prefetch={false}
                   className="text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {link.label}
@@ -173,6 +175,21 @@ export function SiteFooter() {
             </nav>
           </div>
 
+          {/*
+            `prefetch={false}` on every internal link in this footer, including
+            the mark and the licence link above.
+
+            Next fetches a route as soon as its link enters the viewport, and a
+            footer enters the viewport on the way to the bottom of every page.
+            The nine addresses this component names were therefore being fetched
+            for readers who had scrolled past them, not clicked one. Measured on
+            the landing page: thirteen route fetches per view, nine of them from
+            here, on a plan that meters requests rather than visitors.
+
+            The bar keeps its prefetch. Those are the links people actually
+            navigate with, and the instant transition there is worth what it
+            costs. Nobody has ever felt the latency of a footer link.
+          */}
           <nav
             aria-label="Footer"
             className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm"
@@ -181,6 +198,7 @@ export function SiteFooter() {
               <Link
                 key={link.href}
                 href={link.href}
+                prefetch={false}
                 className="text-muted-foreground transition-colors hover:text-foreground"
               >
                 {link.label}
