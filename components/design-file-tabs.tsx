@@ -226,7 +226,15 @@ export function DesignFileTabs({
           when the tab does.
         */}
         <Button
-          size="lg"
+          /*
+            `default` rather than `lg`: 32 tall against `lg`'s 36. With a 20px
+            mark in it the taller box left the pair floating in vertical space,
+            and the picker's own chips are 32. Note this breaks the rule in the
+            `site-ui` skill that a button beside a 36px `Segmented` track should
+            be `lg` — the row now runs a 36px track against a 32px button, which
+            is deliberate and worth re-reading if either side is retuned.
+          */
+          size="default"
           render={
             <a href={urls[tool]} target="_blank" rel="noopener noreferrer" />
           }
@@ -238,9 +246,40 @@ export function DesignFileTabs({
             dark, and neither Figma's five nor Paper's blue disappears into
             either. See `components/brand-logos.tsx`.
           */}
+          {/*
+            Two things ride on this `style`, and both have to be inline.
+
+            **The mark inverts.** The button is a flat `--primary` fill and the
+            set's own mark is a `--primary` tile, so on the plugin tab it
+            painted black on black and only the pennant showed. Swapping the
+            pair gives a white tile with a black pennant in light and the
+            reverse in dark, since the two tokens trade places there.
+            `FigmaLogo` and `PaperLogo` do not read these and are unaffected.
+
+            **The size is written here, not in a class.** `button.tsx`'s base
+            carries `[&_svg:not([class*='size-'])]:size-4`, which is a
+            descendant selector and therefore beats a plain `w-*` utility on the
+            same element. `logoClass` has no `size-` in it, so that rule caught
+            the lockup and squared it: 75.67 x 40 letterboxed into 16 x 16 comes
+            out 16 wide and 8.5 tall, which is why it read as shrunken here and
+            correct on the chip, where no such rule exists. An inline
+            declaration beats every class rule and needs no escape hatch.
+
+            20 tall rather than 16 because this is the one place the mark is the
+            button's subject rather than an affordance beside a label. The width
+            follows the lockup's own ratio, 20 x 75.67 / 40.
+          */}
           <active.Logo
             data-icon="inline-start"
-            className={cn("shrink-0", active.logoClass)}
+            className="shrink-0"
+            style={
+              {
+                "--brand-mark-tile": "var(--primary-foreground)",
+                "--brand-mark-glyph": "var(--primary)",
+                height: "1.25rem",
+                width: active.id === "plugin" ? "2.365rem" : "1.25rem",
+              } as React.CSSProperties
+            }
           />
           {active.action}
           <ArrowUpRight data-icon="inline-end" />
