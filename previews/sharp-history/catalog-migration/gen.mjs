@@ -1,13 +1,17 @@
 // Emit use_figma code for the catalog matrix migration.
 //   node gen.mjs batch <Card> <start> <count>   rows [start, start+count)
 //   node gen.mjs final <Card>                    swap, stripe, legend, header
+//   node gen.mjs retrofit <Card>                 swap plain sharp art for instances
+// Sharp cells are instances of the Corners=sharp variants on the Components
+// page; regular cells are still cloned from the card's own old rows, whose
+// main components now carry the ', Corners=regular' suffix.
 import { readFileSync } from 'node:fs';
-import { compact } from '../scripts/encode.mjs';
-const S = new URL('..', import.meta.url).pathname.replace(/\/$/, '');
 const plan = JSON.parse(readFileSync(new URL('./plan.json', import.meta.url), 'utf8'));
 const [mode, cardName, startS, countS] = process.argv.slice(2);
 const card = plan.find((c) => c.card === cardName);
 if (!card) throw new Error('no card ' + cardName);
+
+const fnv = (s) => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(16); };
 
 const GUARD = `
 const page = figma.root.children.find(p => p.name === 'Catalog');
@@ -19,43 +23,41 @@ if (!card) return 'no card';
 const oldRows = card.children.find(n => n.name === 'Category rows / ${card.card}');
 if (!oldRows) return 'no rows frame';`;
 
+// Sharp instances come off the Components page. Sets are direct children of
+// the page, so children.find per set is cheap; never findOne the whole page.
+const COMP = `
+const compPage = figma.root.children.find(p => p.name === 'Components');
+if (!compPage) return 'no Components page';
+if (compPage.loadAsync) await compPage.loadAsync();
+const setCache = new Map();
+function sharpOf(setName, c, st) {
+  let set = setCache.get(setName);
+  if (set === undefined) { set = compPage.children.find(n => n.type === 'COMPONENT_SET' && n.name === setName) || null; setCache.set(setName, set); }
+  if (!set) return null;
+  return set.children.find(k => k.name === 'Container=' + c + ', Style=' + st + ', Corners=sharp') || null;
+}`;
+
+const CHECKSUM = (specsJson) => `
+const _h = (function(s){let h=0x811c9dc5;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0}return h.toString(16)})(JSON.stringify(SPECS));
+if (_h !== '${fnv(specsJson)}') return 'SPECS corrupted in transit: ' + _h;`;
+
+const specOf = (r) => ({ n: r.name, set: r.set, c: r.container, b: r.badge ? 1 : 0,
+  reg: [r.reg.stroke ? 1 : 0, r.reg.duotone ? 1 : 0, r.reg.fill ? 1 : 0],
+  shp: [r.sharp.stroke ? 1 : 0, r.sharp.duotone ? 1 : 0, r.sharp.fill ? 1 : 0] });
+
 if (mode === 'batch') {
   const start = +startS, count = +countS;
   const rows = card.rows.slice(start, start + count);
   if (!rows.length) throw new Error('empty batch');
-  const specs = rows.map((r) => {
-    const pay = {};
-    for (const [k, dir] of [['s', 'solved-mid'], ['d', 'solved-duotone'], ['f', 'solved-fill']])
-      pay[k] = r.sharp[{ s: 'stroke', d: 'duotone', f: 'fill' }[k]]
-        ? compact(readFileSync(`${S}/${dir}/${r.name}.svg`, 'utf8').replace(/\n\s*/g, '')) : 0;
-    return { n: r.name, set: r.set, c: r.container, b: r.badge ? 1 : 0,
-      reg: [r.reg.stroke ? 1 : 0, r.reg.duotone ? 1 : 0, r.reg.fill ? 1 : 0], pay };
-  });
-  const specsJson = JSON.stringify(specs);
-  const fnv = (s) => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(16); };
-  const code = `${GUARD}
+  const specsJson = JSON.stringify(rows.map(specOf));
+  const code = `${GUARD}${COMP}
 let tmp = card.children.find(n => n.name === '__matrix');
 if (!tmp) { tmp = figma.createFrame(); tmp.name = '__matrix'; tmp.layoutMode = 'VERTICAL'; tmp.itemSpacing = 0; tmp.fills = []; card.appendChild(tmp); tmp.layoutSizingHorizontal = 'FILL'; tmp.layoutSizingVertical = 'HUG'; }
-const SPECS = ${specsJson};
-const _h = (function(s){let h=0x811c9dc5;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0}return h.toString(16)})(JSON.stringify(SPECS));
-if (_h !== '${fnv(specsJson)}') return 'SPECS corrupted in transit: ' + _h;
+const SPECS = ${specsJson};${CHECKSUM(specsJson)}
 if (tmp.children.some(n => n.name === 'Icon row / ' + SPECS[0].n)) return 'batch already applied';
 await figma.loadFontAsync({ family: 'Inter', style: 'Regular' });
 await figma.loadFontAsync({ family: 'Inter', style: 'Medium' });
 await figma.loadFontAsync({ family: 'Inter', style: 'Semi Bold' });
-const HEAD = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="butt" stroke-linejoin="round">';
-function svgOf(paths) {
-  return HEAD + paths.map((p) => {
-    const i = p.lastIndexOf('#'), d = p.slice(0, i), flags = p.slice(i + 1);
-    const fo = /o([\\d.]+)/.exec(flags), so = /p([\\d.]+)/.exec(flags);
-    let a = flags.includes('f') ? ' fill="#000000"' : ' fill="none"';
-    if (flags.includes('e')) a += ' fill-rule="evenodd" clip-rule="evenodd"';
-    if (fo) a += ' fill-opacity="' + fo[1] + '"';
-    if (so) a += ' stroke-opacity="' + so[1] + '"';
-    if (!flags.includes('s')) a += ' stroke="none"';
-    return '<path d="' + d + '"' + a + '/>';
-  }).join('') + '</svg>';
-}
 const INK = { r: 17/255, g: 17/255, b: 17/255 };
 const harv = new Map();
 async function variantsOf(set) {
@@ -69,7 +71,7 @@ async function variantsOf(set) {
   }
   harv.set(set, m); return m;
 }
-const rep = { rows: 0, inst: 0, art: 0, missInst: [] };
+const rep = { rows: 0, inst: 0, sharpInst: 0, missInst: [], missSharp: [] };
 const STYLES = ['stroke', 'duotone', 'fill'];
 for (const s of SPECS) {
   const row = figma.createFrame(); row.name = 'Icon row / ' + s.n;
@@ -102,16 +104,16 @@ for (const s of SPECS) {
       cell.resize(24, 24); cell.fills = []; cell.clipsContent = false; g.appendChild(cell);
       if (grp === 'regular') {
         if (s.reg[si]) {
-          const src = vmap.get('Container=' + s.c + ', Style=' + st);
+          const src = vmap.get('Container=' + s.c + ', Style=' + st + ', Corners=regular');
           if (!src) { rep.missInst.push(s.n + '/' + st); continue; }
           const c2 = src.clone(); cell.appendChild(c2); c2.x = 0; c2.y = 0; rep.inst++;
         }
       } else {
-        const pay = s.pay['sdf'[si]];
-        if (pay) {
-          const art = figma.createNodeFromSvg(svgOf(pay)); art.name = s.n; art.clipsContent = false; art.fills = [];
-          for (const v of art.findAll(n => n.type === 'VECTOR')) if (v.strokes.length) { v.strokeJoin = 'ROUND'; v.strokeCap = 'NONE'; }
-          cell.appendChild(art); art.x = 0; art.y = 0; rep.art++;
+        if (s.shp[si]) {
+          const comp = sharpOf(s.set, s.c, st);
+          if (!comp) { rep.missSharp.push(s.n + '/' + st); continue; }
+          const inst = comp.createInstance(); inst.name = s.n;
+          cell.appendChild(inst); inst.x = 0; inst.y = 0; rep.sharpInst++;
         }
       }
     }
@@ -119,6 +121,35 @@ for (const s of SPECS) {
   rep.rows++;
 }
 rep.tmpRows = tmp.children.length;
+return rep;`;
+  process.stdout.write(code);
+} else if (mode === 'retrofit') {
+  const rows = card.rows.filter((r) => r.sharp.stroke || r.sharp.duotone || r.sharp.fill);
+  const specsJson = JSON.stringify(rows.map(specOf));
+  const expected = rows.reduce((a, r) => a + (r.sharp.stroke ? 1 : 0) + (r.sharp.duotone ? 1 : 0) + (r.sharp.fill ? 1 : 0), 0);
+  const code = `${GUARD}${COMP}
+const SPECS = ${specsJson};${CHECKSUM(specsJson)}
+const cellMap = new Map();
+for (const f of oldRows.findAll(n => n.name.indexOf('cell/') === 0)) cellMap.set(f.name, f);
+const rep = { expected: ${expected}, swapped: 0, already: 0, missCell: [], missSharp: [], wasEmpty: [] };
+const STYLES = ['stroke', 'duotone', 'fill'];
+for (const s of SPECS) {
+  for (let si = 0; si < 3; si++) {
+    if (!s.shp[si]) continue;
+    const st = STYLES[si];
+    const cell = cellMap.get('cell/' + s.n + '/sharp/' + st);
+    if (!cell) { rep.missCell.push(s.n + '/' + st); continue; }
+    const kid = cell.children[0];
+    if (kid && kid.type === 'INSTANCE') { rep.already++; continue; }
+    const comp = sharpOf(s.set, s.c, st);
+    if (!comp) { rep.missSharp.push(s.n + '/' + st); continue; }
+    if (!kid) rep.wasEmpty.push(s.n + '/' + st);
+    const inst = comp.createInstance(); inst.name = s.n;
+    cell.appendChild(inst); inst.x = 0; inst.y = 0;
+    if (kid) kid.remove();
+    rep.swapped++;
+  }
+}
 return rep;`;
   process.stdout.write(code);
 } else if (mode === 'final') {

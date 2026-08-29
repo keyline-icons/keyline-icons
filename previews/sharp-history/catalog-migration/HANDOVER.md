@@ -1,92 +1,82 @@
-# Catalog matrix migration — handover, 29 Aug 2026
+# Catalog matrix migration — COMPLETE, 29 Aug 2026
 
-Stopped mid-run at Zafar's request, with one new requirement that changes the
-architecture: **the sharp drawings placed in the catalog are plain vector art,
-and they must be global components.** Everything below is the state, the flow
-that built it, and what the requirement means for what is already in the file.
+The migration this document used to hand over is finished. All 20 cards are on
+the matrix layout, every cell in both groups is a component instance, and the
+library carries sharp as a variant axis. This file stays as the record of what
+was built and what is still Zafar's call.
 
-## The new requirement, first
+## The architecture, as settled
 
-Every sharp cell filled so far holds a frame from `createNodeFromSvg`: loose
-VECTOR nodes, no component behind them. Zafar's instruction: they **must be
-global components**, like the regular cells, which are instances of the
-component sets on the Components page.
+Zafar chose **Corners as a third variant property on the existing component
+sets**, not parallel sharp sets. Every set on the Components page now reads:
 
-What that implies:
+```
+Container   regular | square | circle
+Style       stroke  | duotone | fill
+Corners     regular | sharp
+```
 
-1. **Create components for the sharp drawings** before placing any more cells.
-   Two shapes are possible and Zafar has not chosen between them:
-   - a new property on the existing component sets (e.g. `Corners
-     round | sharp`), which doubles every set in place but changes the
-     property surface of every published instance;
-   - parallel sharp component sets (own sets, or an own page/section), which
-     leaves the existing sets untouched.
-   Ask before building; this decides the library's public shape.
-2. **Retrofit the cells already placed.** The 12 swapped cards plus Media's
-   `__matrix` tmp hold plain art in their sharp cells. The cell frames and
-   their names (`cell/<name>/sharp/<style>`) are correct and stay; only each
-   cell's child swaps for an instance. `plan.json` records exactly which cells
-   are filled (`sharp.stroke/duotone/fill` per row). For Media it may be
-   simpler to delete the tmp and rebuild once components exist.
-3. **Rewrite `gen.mjs`'s sharp branch** (the `createNodeFromSvg` arm) to place
-   `component.createInstance()` instead, for the 7 remaining cards and the
-   rest of Media.
+- Existing variants were renamed in place (`, Corners=regular` appended), so
+  component ids survived and every published instance kept its link.
+- 1497 `Corners=sharp` variants were added across all 476 sets, mirroring each
+  regular variant's position translated down by `max(regular y) + 48`.
+  Verified: 476 sets, 1497 regular = 1497 sharp, zero untagged children, zero
+  sets out of balance.
+- Default variant stays `Container=regular, Style=stroke, Corners=regular`.
+- Sharp internals match the house recipe: SCALE constraints, strokeAlign
+  CENTER, strokeJoin ROUND, strokeCap NONE (butt), muted layers named `Plate`.
+- The Components page was re-flowed (sets doubled in height): row step =
+  tallest set in row + 56, first row 64 below its heading, 176 from a band's
+  last row bottom to the next heading. Page bottom is now 15984, verified
+  zero overlapping nodes.
 
-The sharp SVG payloads themselves are correct and verified; the geometry does
-not change, only what kind of node carries it.
+## The catalog, as built
 
-## State of the file (Figma `MH38XMqFN24kGYSQu4epxT`, Catalog page 14483:2)
+All 20 cards: 585 rows, 1497 regular cells + 1497 sharp cells, every one an
+INSTANCE (regular cells clone-harvested as before; sharp cells are
+`createInstance()` of the Corners=sharp variants). Verified per card against
+plan.json: rows, regular count, sharp count all exact, zero plain-art frames,
+zero `__matrix` leftovers. Badges preserved throughout.
 
-- **12 of 20 cards fully swapped** to the matrix layout, 398 of 585 rows:
-  Sport, Actions, Arrows, Charts, Commerce, Controls, Devices, Files, Git,
-  Layout, Mail, Maps. Every final call returned the expected row and cell
-  counts, zero missing regular instances, badges preserved.
-- **Media is half-built**: its `__matrix` tmp frame inside `Category / Media`
-  holds rows 0–15 of 62 (audio-lines … headset-2). The old rows are still in
-  place; nothing user-visible changed. Remaining batches would have been
-  `batch Media 16 16`, `batch Media 32 16`, `batch Media 48 14`, then
-  `final Media` (expects 62).
-- **7 cards untouched**: Pointers 10, Shapes 41, Time 31, Tools 4, Users 8,
-  Weather 8, Web 23 rows.
-- The **Sharp page (`16256:2445`, with its ZOOM frame `16286:3085`) still
-  exists** and is deleted only at the very end, after the catalog is complete
-  and verified.
-- The regular cells everywhere are clones of harvested instances and keep
-  their `mainComponent` links; they are done and correct.
+- The 12 cards migrated before the component rule existed were retrofitted in
+  place with `gen.mjs retrofit <Card>` (976 cells swapped art for instances).
+- Media was rebuilt from scratch (old half-built tmp deleted first).
+- The 7 remaining cards ran through the rewritten batch + final flow.
 
-## The tooling in this directory
+## The tooling (this directory)
 
-- `plan.mjs` → `plan.json`: 20 cards, 585 rows in catalog order, each row
-  `{name, set, container, badge, reg, sharp}` with per-style coverage flags.
-  Validates itself against `raw/` and `icons/stroke` and throws on any
-  mismatch. 82 badge rows; never drop a New badge.
-- `gen.mjs` emits **complete** `use_figma` call code:
-  - `node gen.mjs batch <Card> <start> <count>` — appends rows to the card's
-    `__matrix` tmp. Guards: page assert, FNV-1a checksum over SPECS (refuses
-    corrupted transcription; it fired twice, on Git 25 and Mail 13 — split the
-    batch smaller and re-paste faithfully), first-row idempotency check so a
-    dropped-socket retry is safe. 13–17 rows per call is comfortable.
-  - `node gen.mjs final <Card>` — verifies tmp row count, swaps old rows out,
-    restripes alternating white/#F5F5F5, inserts Legend + column header once,
-    forces the card back to HUG. Returns counts to compare against plan.json.
-- Regular instances are harvested from the card's own old rows
-  (`variantsOf`), never by walking the Components page — a full-page walk
-  kills the plugin socket. Note the swap destroys the harvest source, so
-  retrofitting a swapped card cannot re-harvest from it (it doesn't need to;
-  regular cells are done).
-- Badge frames need `layoutSizingHorizontal/Vertical = 'HUG'` **after**
-  appendChild (already in gen.mjs; the Sport card shipped a 100px badge before
-  this).
+- `plan.mjs` → `plan.json`: unchanged, still the source of truth for coverage.
+- `gen.mjs`, rewritten for the instance world:
+  - `batch <Card> <start> <count>`: sharp arm places instances from the
+    Components page (per-set `children.find`, cached; never a full-page walk);
+    regular arm still harvests from the card's own old rows, keyed with the
+    `, Corners=regular` suffix the rename added. No SVG payloads anymore, so
+    batches are small and fast.
+  - `retrofit <Card>`: swaps any plain-art child of a filled
+    `cell/<name>/sharp/<style>` for an instance. Idempotent (INSTANCE child =
+    already done). All 12 retrofits matched their expected counts exactly.
+  - `final <Card>`: unchanged (swap, stripe, legend, header, HUG).
+
+## Still open, in Zafar's hands
+
+- **The Sharp page (`16256:2445`, ZOOM frame `16286:3085`) still exists.** The
+  catalog no longer needs it; deleting it is Zafar's call now that everything
+  is verified.
+- Two stray tiny `Vector` nodes sit on the Components page at (-5991,-5990),
+  7x5 and 6x4, debris from some earlier import. Harmless, off-canvas, left in
+  place.
+- The export/check pipeline does not know the Corners property yet:
+  `check-figma`, the exporter and the variant-to-path mapping all predate the
+  axis. That is release work, not catalog work, but it lands the moment sharp
+  ships to `raw/`.
+- Design calls still open: -off fill clip ends stay authored-round,
+  user-family shoulders domed, mic duotone inner capsule.
 
 ## Standing constraints
 
-- Branch `release/0.3.0-sharp`. Phase 1 of the handover (question fill caps,
-  signal square dot) is done and committed at `57887be3`.
+- Branch `release/0.3.0-sharp`. Phase 1 (question fill caps, signal square
+  dot) committed at `57887be3`.
 - Do NOT touch the paper boards or the site.
 - Never drop New badges; clearing one is Zafar's explicit call.
 - Sharp SVG sources: `previews/sharp-history/solved-{mid,duotone,fill}`
   (585/480/432 files). ROUNDED sources are read-only.
-- Figma butt cap on stroked vectors: `strokeCap = 'NONE'`, `strokeJoin =
-  'ROUND'`.
-- Design calls still open for Zafar: -off fill clip ends stay authored-round,
-  user-family shoulders domed, mic duotone inner capsule.
