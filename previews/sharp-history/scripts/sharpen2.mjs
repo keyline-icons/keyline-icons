@@ -39,10 +39,47 @@ function segsOf(d){const runs=[];let segs=[],x=0,y=0,sx=0,sy=0;
   else return null;}
  flush(false);return runs;}
 
+
+/** Radius and turn direction of a cubic treated as a circular arc. */
+function arcOf(c) {
+  const mid = cubicAt(c.p0, c.p1, c.p2, c.p3, 0.5);
+  const fit = circleThrough(c.p0, mid, c.p3);
+  if (!fit) return null;
+  const sign = Math.sign(cross(sub(c.p1, c.p0), sub(c.p3, c.p2))) || 1;
+  return { R: fit.R, sign };
+}
+/**
+ * Two cubics that curve the same way at the same radius are two halves of one
+ * bend, not a corner and the thing it dies into. paperclip's clip is a 180
+ * degree bend written as two 90 degree cubics, and without this it reads as a
+ * corner twice over.
+ */
+function sameArc(a, b) {
+  const x = arcOf(a), y = arcOf(b);
+  if (!x || !y) return false;
+  return x.sign === y.sign && Math.abs(x.R - y.R) / Math.max(x.R, y.R) < 0.35;
+}
+
 export function sharpen2(d) {
   const runs = segsOf(d);
   if (!runs) return null;
   let out = '', removed = 0, kept = 0;
+  for (const run of runs) {
+    // Some drawings repeat their opening corner at the end of the path, which
+    // leaves that corner with a curve on both sides and nothing able to claim
+    // it. filter does this. Drop the retrace; the subpath still closes.
+    if (run.closed && run.segs.length > 2) {
+      const a = run.segs[0];
+      const same = (z) => z && a.t === z.t
+        && Math.hypot(a.p0[0]-z.p0[0], a.p0[1]-z.p0[1]) < 1e-6
+        && Math.hypot((a.p3||a.p1)[0]-(z.p3||z.p1)[0], (a.p3||a.p1)[1]-(z.p3||z.p1)[1]) < 1e-6;
+      const n2 = run.segs.length;
+      // the retrace can be last, or last but one when Z synthesised a closing
+      // line after it
+      if (same(run.segs[n2-1])) run.segs = run.segs.slice(0, -1);
+      else if (same(run.segs[n2-2]) && run.segs[n2-1].t === 'l') run.segs = run.segs.slice(0, -2);
+    }
+  }
   for (const { segs, closed } of runs) {
     const parts = segs.map(s => ({ ...s }));
     const N = parts.length;
@@ -52,10 +89,23 @@ export function sharpen2(d) {
       const prev = parts[(i-1+N)%N], next = parts[(i+1)%N];
       if ((!closed && (i === 0 || i === N-1)) || !prev || !next || prev.t !== 'l' || next.t !== 'l') continue;
       const u = sub(cur.p1, cur.p0), v = sub(cur.p3, cur.p2);
-      if (!par(u, sub(prev.p1, prev.p0)) || !par(v, sub(next.p1, next.p0))) { kept++; continue; }
+      // tangent to at least one neighbour is enough. trophy's foot has a
+      // shoulder tangent to the top edge that meets the bottom edge at an
+      // angle, and demanding both sides left it round.
+      const tanIn = par(u, sub(prev.p1, prev.p0)), tanOut = par(v, sub(next.p1, next.p0));
+      if (!tanIn && !tanOut) { kept++; continue; }
+      const turn = Math.acos(Math.max(-1, Math.min(1, dot(unit(u), unit(v))))) * 180 / Math.PI;
+      // tangent on BOTH sides is proof enough that this is a fillet, however
+      // hard it turns — volume's cone apex turns 142 degrees. The tighter cap
+      // is only for the one-sided case, where an arc could be a feature.
+      if (turn > (tanIn && tanOut ? 175 : 135)) { kept++; continue; }
       const V = isect(cur.p0, u, cur.p3, mul(v, -1));
       if (!V) { kept++; continue; }
-      prev.p1 = V; next.p0 = V; cur.drop = true; removed++;
+      if (len(sub(V, cur.p0)) > 6 || len(sub(V, cur.p3)) > 6) { kept++; continue; }
+      // replace the ARC with its corner and leave the neighbours alone, so a
+      // one-sided fillet does not swallow the edge beyond it
+      parts[i] = { t: 'corner', p0: cur.p0, V, p3: cur.p3 };
+      removed++;
     }
     // a fillet between a LINE and a CURVE: the bell's bottom corners, the map
     // pins, the shields. The curve cannot be extended, but its end tangent can:
@@ -79,6 +129,7 @@ export function sharpen2(d) {
       // a round cap: a cap's sibling arc is as short as the cap itself, and
       // eating it turns a knockout's rounded end into a notch
       if (len(sub(curve.p3, curve.p0)) < 2.5) continue;
+      if (sameArc(cur, curve)) continue;
       const curveEnd = lineSide === 'prev' ? curve.p0 : curve.p3;
       const curveTan = lineSide === 'prev' ? sub(curve.p0, curve.p1) : sub(curve.p3, curve.p2);
       const turn = Math.acos(Math.max(-1, Math.min(1, dot(unit(myLineTan), unit(mul(curveTan, -1))))));
@@ -89,6 +140,34 @@ export function sharpen2(d) {
       if (lineSide === 'prev') { prev.p1 = V; parts[i] = { t: 'l', p0: V, p1: curveEnd }; }
       else { next.p0 = V; parts[i] = { t: 'l', p0: curveEnd, p1: V }; }
       removed++;
+    }
+
+    // A dash that IS a corner: an open subpath made only of arc, with no
+    // straight anywhere to hang off. The two end tangents still meet at the
+    // corner it was cut from, so the dash becomes an L like every other corner
+    // in the drawing — otherwise one dash stays round while its neighbours go
+    // sharp, which is how the dashed panels looked wrong.
+    if (!closed && parts.every(s => s.t === 'c') && parts.length <= 2) {
+      const first = parts[0], last = parts[parts.length - 1];
+      const inTan = sub(first.p1, first.p0), outTan = sub(last.p3, last.p2);
+      const turn = Math.acos(Math.max(-1, Math.min(1, dot(unit(inTan), unit(outTan)))));
+      const deg = turn * 180 / Math.PI;
+      // and it must be corner-SIZED. volume's sound waves are an open arc too,
+      // with the same turn; the difference is the radius they are drawn at.
+      const mid2 = cubicAt(first.p0, first.p1, first.p2, first.p3, 0.5);
+      const fitc = circleThrough(first.p0, mid2, last.p3);
+      const cornerSized = fitc && fitc.R <= 4 && len(sub(last.p3, first.p0)) <= 6;
+      // a corner dash is a QUARTER turn. bell-x's clapper is a 120 degree arc
+      // at the same radius, and it is a curve, not a corner
+      if (deg > 80 && deg < 100 && cornerSized) {
+        const V = isect(first.p0, unit(inTan), last.p3, unit(mul(outTan, -1)));
+        if (V && len(sub(V, first.p0)) < 8 && len(sub(V, last.p3)) < 8) {
+          const start = first.p0, end = last.p3;
+          parts.length = 0;
+          parts.push({ t: 'l', p0: start, p1: V }, { t: 'l', p0: V, p1: end });
+          removed++;
+        }
+      }
     }
 
     // a corner arc at a free end: recover the vertex, keep the endpoint
@@ -126,6 +205,7 @@ export function sharpen2(d) {
     let d2 = `M${n(at[0])} ${n(at[1])}`;
     for (const s of live) {
       if (s.t === 'l') d2 += L(s.p1);
+      else if (s.t === 'corner') { d2 += L(s.V) + L(s.p3); }
       else { d2 += `C${n(s.p1[0])} ${n(s.p1[1])} ${n(s.p2[0])} ${n(s.p2[1])} ${n(s.p3[0])} ${n(s.p3[1])}`; at = s.p3; }
     }
     out += closed ? d2 + 'Z' : d2;

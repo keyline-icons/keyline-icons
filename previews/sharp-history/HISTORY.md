@@ -190,3 +190,52 @@ dies into must have a chord of at least 2.5 units.
 
 111 fills and 114 duotones needed a contour fit. Painted box error across both
 sets: 0.
+
+## 14. `solved-mid/` — the one that sizes right
+
+The set the Testing board now shows, and the first that answers "the sizes are
+off" with a measurement instead of an argument. Same middle rung as `mid/`:
+every drawn fillet gone, the house round join kept, so a corner paints at
+radius 1 rather than 4.
+
+The pipeline, in this order:
+
+```
+sharpen2.mjs   remove every fillet, recover the vertex
+tidy.mjs       merge the collinear points that leaves behind
+solve-growers.mjs  clamp only overshooting vertices to the rounded box
+caps.mjs       butt caps, free ends pushed out a unit
+tidy.mjs       merge again
+```
+
+Solving the growers **before** the caps step is not a preference. Run the other
+way it clamps the extensions straight back off, and `alert`'s bar comes home to
+5..15.
+
+Three rules earned their place here:
+
+**The turn guard is two-tiered.** Tangency proved on both sides is proof enough
+of a fillet however hard it turns, so it may run to 175 degrees. `volume`'s cone
+apex turns 142, and a flat 135 cap quietly left it round. The tight cap now
+applies only where tangency is one-sided, which is the case where an arc could
+be a feature rather than a fillet.
+
+**A cap extension is clamped on curved ends only.** A round cap paints a disc of
+radius 1; a butt cap paints a 2-wide bar. Off a straight line a full unit is
+exact. Off an arc the straight stub leaves the turn and overshoots, which is
+where `volume`'s waves gained 0.83. Straight ends take the whole unit even when
+diagonal: trimming those to fit the box cost `volume-x` the symmetry of its X,
+one arm short and the other not, which reads far worse than the overshoot.
+
+**Freeness is about staying embedded, not about being near.** An end is held
+only when something sits within 1.2 **and** is still within 1.2 after the
+extension. `home`'s door ends on the base and stays there, so it is held. The
+bar in `heart-hand` ends a unit below the palm's own start and grows away from
+it, so it extends; the plain distance test held it and lost the unit.
+
+Painted box against the rounded drawings, all 585: **424 exact, 161 within 0.45,
+none beyond**. Every one of those 161 is the same number, `sqrt(2) - 1 = 0.41` —
+a square end on a 45 degree diagonal, which is what a sharp cap is, not drift.
+
+The scripts read the rounded set from an absolute path. They are kept as a
+record of how this was solved, not as a build step.
