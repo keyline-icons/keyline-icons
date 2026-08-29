@@ -151,6 +151,13 @@ export const SET_ISSUES_URL = `${SET_REPO_URL}/issues`
  */
 export const SET_REQUEST_URL = `${SET_ISSUES_URL}/new`
 
+/*
+  `SET_FEATURED_URL` lived here and pointed at a `featured_example.yml` issue
+  form. Both are gone: the showcase takes submissions as public posts on X now,
+  through `featuredIntent` below, and an issue template nothing links to is a
+  path that rots unwatched.
+*/
+
 /**
  * The author's X account, linked from the bar.
  *
@@ -160,7 +167,55 @@ export const SET_REQUEST_URL = `${SET_ISSUES_URL}/new`
  * whoever draws it is harder to trust than one that names a person. If the
  * project ever gets its own account, this is the only line that moves.
  */
-export const SET_X_URL = "https://x.com/iszafar92"
+export const SET_X_HANDLE = "iszafar92"
+
+export const SET_X_URL = `https://x.com/${SET_X_HANDLE}`
+
+/**
+ * What "post a screenshot" prefills, and the composer it opens.
+ *
+ * **The set is named before the handle.** The first version prefilled "Built
+ * with @iszafar92", which says the wrong thing in the wrong order: read plainly
+ * it credits a person for the reader's own work, and it never mentions the
+ * library at all. The sentence has to carry the set's name, and the mention is
+ * there to reach whoever curates, which is a separate job.
+ *
+ * **There is more than one of them.** A single prefill means every submission
+ * on X arrives worded identically, which reads as a bot the tenth time someone
+ * sees it and gives the maker nothing of their own to say. One is picked when
+ * the button is clicked, so two people who post on the same day do not post the
+ * same sentence.
+ *
+ * Each is a short, finishable opener rather than a finished post. A prefilled
+ * paragraph in someone else's voice is the thing people select and delete; a
+ * half-sentence is the thing they add to. The trailing space is deliberate: the
+ * cursor lands after it, ready to keep typing.
+ *
+ * `intent/post` rather than the older `intent/tweet`, which still resolves but
+ * redirects. Nothing here can tell whether it still will.
+ *
+ * The submission path is a public post rather than an issue because the people
+ * with a screenshot worth showing are on X and not all of them have a GitHub
+ * account, which was a real barrier on a page whose entire job is to be easy to
+ * get into. What it costs is the explicit rights checkbox the issue form
+ * carried. A public post tagging the account is weaker consent than a ticked
+ * box, so the page says plainly that posting is what grants it, and every card
+ * links back to the post it came from.
+ */
+export const SET_FEATURED_MESSAGES = [
+  `Built with ${SET_TITLE}`,
+  `Shipped this with ${SET_TITLE}`,
+  `Redrew our UI with ${SET_TITLE}`,
+  `Every glyph here is ${SET_TITLE}`,
+  `New screens, drawn with ${SET_TITLE}`,
+  `Swapped our icon set for ${SET_TITLE}`,
+] as const
+
+/** One opener, wrapped in the composer URL that carries the mention. */
+export const featuredIntent = (message: string) =>
+  `https://x.com/intent/post?text=${encodeURIComponent(
+    `${message} @${SET_X_HANDLE} `
+  )}`
 
 /**
  * Where the Figma button on an icon page goes.
@@ -429,6 +484,22 @@ export const SITE_LINKS: readonly SiteLink[] = [
     priority: 0.8,
     group: "Examples",
     description: "A full shadcn admin drawn with the set",
+  },
+  // The community gallery, third in the menu the demos already share: all
+  // three answer "what does it look like in use", the demos with pages this
+  // repo builds and this one with screenshots other people send in. Below the
+  // demos at 0.7 because its content is theirs rather than ours, and the page
+  // is only as good as what has been submitted.
+  //
+  // Labelled for what it is rather than for the folder it sits in: "Examples"
+  // is the menu, and a row repeating the menu's own name says nothing about
+  // which of the three it is.
+  {
+    href: "/examples",
+    label: "Showcase",
+    priority: 0.7,
+    group: "Examples",
+    description: "Interfaces built with the set, sent in by their makers",
   },
   // What changed and when, off the same commit dates every icon page prints.
   //

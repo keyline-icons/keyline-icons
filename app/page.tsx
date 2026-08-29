@@ -11,6 +11,7 @@ import { SiteNav } from "@/components/site-nav"
 import { Button } from "@/components/ui/button"
 import { DashboardShowcase } from "@/components/dashboard-showcase"
 import { Faq } from "@/components/faq"
+import { FeaturedGallery } from "@/components/featured-gallery"
 import { FigmaShowcase } from "@/components/figma-showcase"
 import { FrameworkInstaller } from "@/components/framework-installer"
 import { KeylineShowcase } from "@/components/keyline-showcase"
@@ -19,6 +20,7 @@ import { StyleShowcase } from "@/components/style-showcase"
 import dashboardData from "@/app/data.json"
 import { pickDashboardIcons } from "@/lib/dashboard-demo"
 import { homeFaq } from "@/lib/faq"
+import { homeFeatured } from "@/lib/featured"
 import {
   HERO_FACT_ICON_NAMES,
   INSTALL_EXAMPLE_ICON_NAMES,
@@ -208,9 +210,6 @@ export default async function Page() {
      list, and the README carries everyone rather than just this tier. */
   const sponsors = siteSponsors()
 
-  /* The demo routes, read from the one list the nav, the footer and the
-     sitemap already share, so a renamed demo cannot leave a dead card here. */
-  const examples = SITE_LINKS.filter((link) => link.group === "Examples")
   /*
     The two demos, built here so the page reads them the way `/demo` and
     `/demo/mobile` do: the same components, the same pickers, the same counts.
@@ -233,6 +232,19 @@ export default async function Page() {
       />
     ),
   }
+  /* The demo routes, read from the one list the nav, the footer and the
+     sitemap already share, so a renamed demo cannot leave a dead card here.
+     Filtered against `EXAMPLE_DEMOS` as well as the group, because the group
+     also carries `/examples` now, and the gallery is a route of its own rather
+     than a block this page embeds. */
+  const examples = SITE_LINKS.filter(
+    (link) => link.group === "Examples" && link.href in EXAMPLE_DEMOS
+  )
+
+  /* The community strip, and the section around it renders only when someone
+     is in it: a heading over an empty gallery would be the page asking for
+     content in the middle of showing off. */
+  const featured = homeFeatured()
 
   return (
     <>
@@ -635,6 +647,42 @@ export default async function Page() {
             })}
           </div>
         </section>
+
+        {/*
+          Other people's interfaces, straight after the set's own two: the
+          demos say what the set can do, these say someone shipped it, and the
+          second claim is the one a set cannot make about itself. Before the
+          FAQ for the same reason the demos are: it is still the page making
+          its case.
+
+          The whole section is gated on `featured` above. One link under the
+          strip, into `/examples`; the "send yours" ask lives on that page,
+          because the landing page already ends on an ask and two asks is one
+          too many.
+        */}
+        {featured.length > 0 && (
+          <section className={`${CONTAINER} py-16 lg:py-24`}>
+            <SectionHead
+              title="Built with the set"
+              lead="Interfaces that ship it, sent in by the people who made them."
+            />
+
+            <div className="mt-10">
+              <FeaturedGallery entries={featured} columns={3} />
+            </div>
+
+            <div className="mt-6 flex justify-center">
+              <Button
+                variant="ghost"
+                render={<Link href="/examples" prefetch={false} />}
+                nativeButton={false}
+              >
+                See the whole showcase
+                <ArrowRight data-icon="inline-end" />
+              </Button>
+            </div>
+          </section>
+        )}
 
         {/*
           The questions, last, and the same array the page's `FAQPage` node
