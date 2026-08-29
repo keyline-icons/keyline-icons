@@ -20,6 +20,20 @@ const n = (v) => { const r = +v.toFixed(4); return Object.is(r, -0) ? '0' : Stri
 const sub=(a,b)=>[a[0]-b[0],a[1]-b[1]], add=(a,b)=>[a[0]+b[0],a[1]+b[1]];
 const mul=(a,k)=>[a[0]*k,a[1]*k], len=a=>Math.hypot(a[0],a[1]), unit=a=>mul(a,1/len(a));
 const dot=(a,b)=>a[0]*b[0]+a[1]*b[1];
+const dirOf=(a,b)=>{const v=sub(b,a),L=len(v);return L>1e-6?mul(v,1/L):null;};
+const startTan=(s)=>s.t==='l'?dirOf(s.p0,s.p1):(dirOf(s.p0,s.p1)||dirOf(s.p0,s.p2)||dirOf(s.p0,s.p3));
+const endTan=(s)=>s.t==='l'?dirOf(s.p0,s.p1):(dirOf(s.p2,s.p3)||dirOf(s.p1,s.p3)||dirOf(s.p0,s.p3));
+
+// Circles stay circles: a dot's every 2-cubic window IS a chord-2 semicircle
+// with antiparallel neighbour tangents, so an all-cubic closed ring whose
+// junctions sit equidistant from their own centroid is never a cap.
+function isRound(run) {
+  if (!run.closed || run.segs.some((s) => s.t !== 'c')) return false;
+  const pts = run.segs.map((s) => s.p0);
+  const c = mul(pts.reduce((a, p) => add(a, p), [0, 0]), 1 / pts.length);
+  const d = pts.map((p) => len(sub(p, c)));
+  return Math.max(...d) / Math.min(...d) < 1.35;
+}
 
 function segsOf(d){const runs=[];let segs=[],x=0,y=0,sx=0,sy=0;
  const flush=c=>{if(segs.length)runs.push({segs,closed:c});segs=[];};
@@ -67,6 +81,37 @@ export function flattenOutlineCaps(d) {
       caps++;
     }
   }
+  // Pass 2: a cap whose NEIGHBOURS are curves — the question glyph's stem and
+  // hook end between the ?'s own body curves, where pass 1's "arc between two
+  // lines" never fires. Same U-turn, read off end tangents instead: a 2-cubic
+  // window whose chord is one stroke wide, whose apex stands a unit off the
+  // chord, tangent-continuous into antiparallel neighbours.
+  for (const run of runs) {
+    const segs = run.segs.filter((s) => !s.drop), N = segs.length;
+    if (N < 4 || isRound(run)) continue;
+    const lim = run.closed ? N : N - 2;
+    for (let i = 0; i < lim; i++) {
+      const a = segs[i], b = segs[(i + 1) % N];
+      if (a.t !== 'c' || b.t !== 'c' || a.drop || b.drop) continue;
+      if (!run.closed && (i < 1 || i + 2 >= N)) continue;
+      const prev = segs[(i - 1 + N) % N], next = segs[(i + 2) % N];
+      if (prev === b || next === a || prev === next || prev.drop || next.drop) continue;
+      if (prev.t !== 'c' && next.t !== 'c') continue;   // line-line caps are pass 1's
+      const tP = endTan(prev), tN = startTan(next);
+      if (!tP || !tN || dot(tP, tN) > -0.9) continue;   // neighbours antiparallel
+      const wS = startTan(a), wE = endTan(b);
+      if (!wS || !wE || dot(tP, wS) < 0.9 || dot(wE, tN) < 0.9) continue; // continuous
+      const A = a.p0, B = b.p3, chord = len(sub(B, A));
+      if (chord < 1.5 || chord > 2.5) continue;         // not one stroke wide
+      const apex = sub(b.p0, mul(add(A, B), 0.5)), h = len(apex);
+      if (h < 0.7 || h > 1.3) continue;                 // a semicircle, not a sweep
+      if (dot(apex, tP) / h < 0.8) continue;            // bulging out along the stroke
+      if (prev.t === 'l') prev.p1 = add(prev.p1, tP); else prev.p3 = add(prev.p3, tP);
+      next.p0 = add(next.p0, tP);                       // butt cap: both sides grow the unit
+      a.drop = b.drop = true;
+      caps++;
+    }
+  }
   let out = '';
   for (const { segs, closed } of runs) {
     const live = segs.filter((s) => !s.drop);
@@ -81,6 +126,31 @@ export function flattenOutlineCaps(d) {
     if (closed) out += 'Z';
   }
   return { d: out, caps };
+}
+
+// The captions fill's c terminals are AUTHORED (the rounded fill's c is a
+// letterform, not an offset, so rebuild-offsets' gate rightly refuses it) and
+// their round caps sit between neighbour tangents at dot -0.80 — under the
+// antiparallel threshold, which cannot be loosened without eating the -off
+// clips. Name list beats shape heuristic: the four terminal runs are replaced
+// with the butt-cap quads derived from the sharp stroke's own ends,
+// E=(10.7999,13.3999) t=(0.8,-0.6) and its three mirrors.
+export const NAMED_CAPS = {
+  'captions.svg': [
+    ['C10.8518 14.6112 11 14.3148 11 14C11 13.7836 10.9298 13.5731 10.8 13.4C10.6112 13.1482 10.3148 13 10 13', 'L11.4 14.2L10.2 12.6L10 13'],
+    ['C10.3148 11 10.6112 10.8518 10.8 10.6C10.9298 10.4269 11 10.2164 11 10C11 9.6852 10.8518 9.3888 10.6 9.2', 'L10.2 11.4L11.4 9.8L10.6 9.2'],
+    ['C18.8518 14.6112 19 14.3148 19 14C19 13.7836 18.9298 13.5731 18.8 13.4C18.6111 13.1482 18.3148 13 18 13', 'L19.4 14.2L18.2 12.6L18 13'],
+    ['C18.3148 11 18.6111 10.8518 18.8 10.6C18.9298 10.4269 19 10.2164 19 10C19 9.6852 18.8518 9.3888 18.6 9.2', 'L18.2 11.4L19.4 9.8L18.6 9.2'],
+  ],
+};
+
+export function applyNamedCaps(f, src) {
+  let out = src, applied = 0;
+  for (const [from, to] of NAMED_CAPS[f] || []) {
+    if (!out.includes(from)) { console.log(`NAMED_CAPS MISS ${f}: ${from.slice(0, 40)}…`); continue; }
+    out = out.replace(from, to); applied++;
+  }
+  return { src: out, applied };
 }
 
 if (process.argv[1].endsWith('caps-styles.mjs')) {
@@ -103,7 +173,9 @@ if (process.argv[1].endsWith('caps-styles.mjs')) {
     // then the stroked layers
     const r2 = buttCaps(step1);
     ext += r2.extended; held += r2.held;
-    writeFileSync(`${DIR}/${f}`, r2.src);
+    const r3 = applyNamedCaps(f, r2.src);
+    flattened += r3.applied;
+    writeFileSync(`${DIR}/${f}`, r3.src);
   }
   console.log(DIR, { outlineCapsFlattened: flattened, strokeEndsExtended: ext, held });
 }

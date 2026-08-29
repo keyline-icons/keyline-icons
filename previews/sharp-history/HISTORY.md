@@ -471,3 +471,40 @@ butt allowance); the bars sit at gap 2 in all styles; 117 board cells
 re-pushed. The registration metric is saturated by its own corner artifact on
 sharp geometry (an arc 1 from a VERTEX is not 1 from the segments), so eyes,
 not that number, closed every finding.
+
+## 21. Two reported defects, and the survivors they pointed at (29 Aug 2026)
+
+Zafar reported both, and both were the same lesson wearing different hats:
+pass 1 of the outline cap flattener only knew a cap as an arc between two
+antiparallel LINES, and the signal dot was a circle nobody had asked to stay
+one.
+
+* **The question fills kept two round caps** — the ? glyph's stem and hook end
+  sit between the glyph's own CURVES, so the line-neighbour detector never
+  fired. Pass 2 reads the neighbours' end tangents instead: a 2-cubic window,
+  chord one stroke wide, apex a unit off the chord, tangent-continuous into
+  antiparallel neighbours. Circles are guarded by construction — every
+  2-cubic window of an r1 dot *is* a chord-2 semicircle, so an all-cubic
+  closed ring whose junctions sit equidistant from their centroid is never
+  claimed.
+* **The sweep found three more**: shopping-bag's handle ends and messages'
+  band cut (both register exactly with the stroke's extended butt ends — the
+  flat chord passes through the extended endpoint), and megaphone's handle
+  interior, where the round bottom stood 0.27 proud of the stroke's inner
+  wall and now sits on it.
+* **captions' c terminals are the case the threshold cannot reach**: a c's
+  curvature spreads the neighbour tangents to dot −0.80, and loosening the
+  gate to take them also takes the −off clips, which are the authored plate
+  device and stay. Name list beats shape heuristic, again: NAMED_CAPS in
+  caps-styles.mjs carries the four butt-cap quads derived from the sharp
+  stroke's own ends.
+* **The signal family's first bar is a SQUARE.** The r1 dot at (2,20) read as
+  a bar to Zafar, and a bar it is: the 2×2 square with the same painted box,
+  by name, all styles of all four signal icons. The wifi and exclamation dots
+  stay round.
+
+The clock hands' centre arc was flagged and correctly refused — it is the
+round JOIN of the two hands, not a cap, and it registers with the duotone's
+polyline join. Same for the cursor tails and the −off clips: the strict
+antiparallel gate is what tells a cap from a design. All 1482 non-alert
+drawings still paint inside the rounded envelope, worst 0.4142.
