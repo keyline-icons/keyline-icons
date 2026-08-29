@@ -50,9 +50,12 @@ if (start === -1 || end === -1) {
 }
 const block = browser.slice(start, end)
 
-/* Keys are written one per line at two spaces of indent. The catch-all is
+/* Keys are written one per line at two spaces of indent, bare or quoted, the
+   quoted form carrying labels with spaces or an ampersand. The catch-all is
    `[OTHER_CATEGORY]:` and is matched by name instead. */
-const mapped = new Set([...block.matchAll(/^ {2}([A-Za-z][A-Za-z0-9]*):/gm)].map((m) => m[1]))
+const mapped = new Set(
+  [...block.matchAll(/^ {2}(?:"([^"]+)"|([A-Za-z][A-Za-z0-9]*)):/gm)].map((m) => m[1] ?? m[2])
+)
 if (other && /\[OTHER_CATEGORY\]:/.test(block)) mapped.add(other)
 
 const missing = labels.filter((l) => !mapped.has(l))

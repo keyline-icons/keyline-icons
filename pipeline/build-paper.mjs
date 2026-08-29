@@ -19,9 +19,9 @@
 // note under SHEET below. A browser wraps a fragment on its own, so these still
 // open locally for review.
 //
-// **Sheets are chunked by bytes, not by category.** Arrows alone is 220
-// drawings and over 100KB of path data, which is more than one MCP call should
-// carry. Pages break on a block boundary and never inside one, so an icon's
+// **Sheets are chunked by bytes, not by category.** Media alone is 174
+// drawings and over 100KB of path data (Arrows was 220 before the Chevrons &
+// Carets split), which is more than one MCP call should carry. Pages break on a block boundary and never inside one, so an icon's
 // variants always land on the same artboard as each other.
 //
 // **The manifest is the import script's input.** Driving the migration means a

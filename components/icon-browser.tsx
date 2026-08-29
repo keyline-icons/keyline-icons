@@ -116,6 +116,7 @@ const CATEGORY_ICONS: Record<
   React.ComponentType<{ className?: string }>
 > = {
   Arrows: ArrowRight,
+  "Chevrons & Carets": ChevronRight,
   Git: GitBranch,
   Files: File,
   Time: Clock,

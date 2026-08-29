@@ -58,10 +58,10 @@
       "artboard": "Arrows",
       "category": "Arrows",
       "part": 1,
-      "parts": 4,
+      "parts": 3,
       "into": "artboard",
       "width": 742,
-      "icons": 60,
+      "icons": 46,
       "variants": 56,
       "bytes": 37696
     },
@@ -70,36 +70,24 @@
       "artboard": "Arrows",
       "category": "Arrows",
       "part": 2,
-      "parts": 4,
+      "parts": 3,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 58,
-      "bytes": 39226
+      "variants": 60,
+      "bytes": 40818
     },
     {
       "file": "arrows-3.html",
       "artboard": "Arrows",
       "category": "Arrows",
       "part": 3,
-      "parts": 4,
+      "parts": 3,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 57,
-      "bytes": 37227
-    },
-    {
-      "file": "arrows-4.html",
-      "artboard": "Arrows",
-      "category": "Arrows",
-      "part": 4,
-      "parts": 4,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 49,
-      "bytes": 34006
+      "variants": 10,
+      "bytes": 8519
     },
     {
       "file": "charts-1.html",
@@ -124,6 +112,30 @@
       "icons": 0,
       "variants": 24,
       "bytes": 16137
+    },
+    {
+      "file": "chevrons-carets-1.html",
+      "artboard": "Chevrons & Carets",
+      "category": "Chevrons & Carets",
+      "part": 1,
+      "parts": 2,
+      "into": "artboard",
+      "width": 742,
+      "icons": 14,
+      "variants": 57,
+      "bytes": 38043
+    },
+    {
+      "file": "chevrons-carets-2.html",
+      "artboard": "Chevrons & Carets",
+      "category": "Chevrons & Carets",
+      "part": 2,
+      "parts": 2,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 37,
+      "bytes": 23896
     },
     {
       "file": "commerce-1.html",

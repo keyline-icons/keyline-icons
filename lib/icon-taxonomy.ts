@@ -40,9 +40,16 @@ export const CATEGORIES = [
   // are used for. The anchor is what keeps `git-refresh` in Git below.
   {
     label: "Arrows",
-    match: /^(arrow|bracket-arrow|caret|chevron|expand|refresh|rotate)/,
+    match: /^(arrow|bracket-arrow|expand|refresh|rotate)/,
     blurb:
-      "Direction, movement and resizing, with the carets, chevrons and dashed panels.",
+      "Direction, movement and resizing, with the brackets, u-turns and dashed panels.",
+  },
+  // Split out of Arrows on 29 Aug 2026: the sharp matrix doubled every catalog
+  // card, and 104 rows stopped being one readable shelf.
+  {
+    label: "Chevrons & Carets",
+    match: /^(caret|chevron)/,
+    blurb: "Carets, chevrons and their doubled and opposing pairs.",
   },
   {
     label: "Git",
