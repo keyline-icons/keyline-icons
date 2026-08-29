@@ -17,6 +17,7 @@ import { sharpen2 } from './sharpen2.mjs';
 
 const ROOT = '/Users/zafarismatullaev/Documents/GitHub/keyline-icons/icons';
 const KNOBBED = /^(sliders|toggle)/;
+const DOMED = /^(user|users|circle-user)/;
 const n = (v) => { const r = +v.toFixed(4); return Object.is(r,-0) ? '0' : String(r); };
 const sub=(a,b)=>[a[0]-b[0],a[1]-b[1]], add=(a,b)=>[a[0]+b[0],a[1]+b[1]];
 const mul=(a,k)=>[a[0]*k,a[1]*k], len=a=>Math.hypot(a[0],a[1]), unit=a=>mul(a,1/len(a));
@@ -169,12 +170,25 @@ export function sharpenFill(d, mode = 'tint') {
       // its end tangents, which cannot tell 90 degrees from 270. A corner turns
       // less than half a revolution; map-pin's head is a 270 degree arc between
       // the two lines of its tail, and collapsing that to a vertex ate the pin.
-      let turn = 0;
+      let turn = 0, turnPos = 0, turnNeg = 0;
       for (let k = lo; k <= hi; k++) {
         const t0 = sub(segs[k].p1, segs[k].p0), t1 = sub(segs[k].p3, segs[k].p2);
-        if (len(t0) > 1e-9 && len(t1) > 1e-9) turn += Math.acos(Math.max(-1, Math.min(1, dot(unit(t0), unit(t1)))));
+        if (len(t0) > 1e-9 && len(t1) > 1e-9) {
+          const a = Math.acos(Math.max(-1, Math.min(1, dot(unit(t0), unit(t1)))));
+          turn += a;
+          if (cross(t0, t1) >= 0) turnPos += a; else turnNeg += a;
+        }
       }
       if (turn > 176 * Math.PI / 180) continue;
+      // circular corner runs have symmetric end legs; an elliptical sweep
+      // does not, and collapsing one redraws the drawing (megaphone's handle)
+      const eleg1 = len(sub(first.p1, first.p0)), eleg2 = len(sub(last.p3, last.p2));
+      if (eleg1 > 1e-9 && eleg2 > 1e-9 && Math.max(eleg1, eleg2) / Math.min(eleg1, eleg2) > 1.8) continue;
+      // A fillet turns ONE way. An S-shaped run whose end tangents happen to
+      // intersect nearby reads as a plausible corner to every distance guard —
+      // megaphone's horn lost its whole bottom sweep to one. Any real double
+      // curvature disqualifies the run.
+      if (Math.min(turnPos, turnNeg) > 0.15) continue;
       const a = sub(prev.p0, V), b = sub(next.p1, V);
       const alpha = Math.acos(Math.max(-1, Math.min(1, dot(unit(a), unit(b)))));
       const orig = len(sub(first.p0, V)) * Math.tan(alpha/2);
@@ -263,7 +277,7 @@ if (process.argv[1].endsWith('sharpen-fill.mjs')) {
         // them oval, so their fills and tints stay oval too — the one family
         // where the outline sharpener must not touch anything.
         if (KNOBBED.test(f) && outline) return tag;
-        const r = outline ? sharpenFill(m[1], mode) : sharpen2(m[1]);
+        const r = outline ? sharpenFill(m[1], mode) : sharpen2(m[1], DOMED.test(f) ? { maxClaimRadius: 3.2 } : {});
         if (!r) return tag;
         if (outline) { outer += r.outer; inner += r.inner; } else strokes += r.removed;
         return tag.replace(/ d="[^"]+"/, ` d="${r.d}"`);

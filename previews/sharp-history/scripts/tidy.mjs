@@ -28,7 +28,8 @@ function tidy(d) {
         const a = [last.p1[0]-last.p0[0], last.p1[1]-last.p0[1]];
         const b = [s.p1[0]-s.p0[0], s.p1[1]-s.p0[1]];
         const la = Math.hypot(...a), lb = Math.hypot(...b);
-        if (la > 1e-9 && lb > 1e-9 && Math.abs(cross(a,b))/(la*lb) < 1e-4 && (a[0]*b[0]+a[1]*b[1]) > 0) {
+        const AC = [s.p1[0]-last.p0[0], s.p1[1]-last.p0[1]], lac = Math.hypot(...AC);
+        if (la > 1e-9 && lb > 1e-9 && lac > 1e-9 && Math.abs(cross(AC,a))/lac < 0.02 && (a[0]*b[0]+a[1]*b[1]) > 0) {
           last.p1 = s.p1;                    // straight on: merge
           continue;
         }
@@ -45,7 +46,8 @@ function tidy(d) {
         const a = [last.p1[0]-last.p0[0], last.p1[1]-last.p0[1]];
         const b = [first.p1[0]-first.p0[0], first.p1[1]-first.p0[1]];
         const la = Math.hypot(...a), lb = Math.hypot(...b);
-        if (la > 1e-9 && lb > 1e-9 && Math.abs(cross(a,b))/(la*lb) < 1e-4 && (a[0]*b[0]+a[1]*b[1]) > 0) {
+        const AC = [first.p1[0]-last.p0[0], first.p1[1]-last.p0[1]], lac = Math.hypot(...AC);
+        if (la > 1e-9 && lb > 1e-9 && lac > 1e-9 && Math.abs(cross(AC,a))/lac < 0.02 && (a[0]*b[0]+a[1]*b[1]) > 0) {
           first.p0 = last.p0;
           keep.pop();
         }

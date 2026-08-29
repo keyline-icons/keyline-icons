@@ -419,3 +419,55 @@ and passed a render pass against those sources. Painted boxes: 346 exact, one
 filter, list-video and star, the cubic's approximation of a true arc. On the
 board, 75 of the 86 fill cells changed and were re-pushed; the other 11 had
 no claimed corner to move.
+
+## 21. The day it broke everywhere at once, and what was actually one bug family
+
+Zafar's morning, 29 Aug: the exclamation gap reads 3 where the rounded's reads
+2; list-video's angles are broken; filter's grey sticks out and its corner is
+torn; cursor is broken in all three styles; square-navigation and circle-cursor
+too; "this must be some universal problem." He was right, and it was FOUR:
+
+* **The box fitters tore geometry.** clampPath projected coordinates and
+  fitPath translated points past a bound: any corner arc STRADDLING that bound
+  had half its points moved — the S-wiggles, the bent cursor tip, most of the
+  poking tints. Replaced by solve-box.mjs, which moves whole corner units and
+  re-solves the fillet at the moved vertex, tangency and radius intact.
+* **tidy's collinearity was relative.** A leftover tangent point 0.0003 off the
+  line survived 4-decimal rounding jitter, and the solver then bent the edge at
+  it. The test is a perpendicular distance now, 0.02.
+* **Surgery cannot register two layers.** Solving the tint to its box and the
+  stroke to its box leaves them a few tenths apart on oblique glyphs. Where
+  the ROUNDED file proves a tint subpath is one closed stroke subpath offset
+  by 1, the sharp tint is now BUILT as that offset of the solved sharp stroke
+  (offset-tint.mjs, rebuild-offsets.mjs): 315 duotone and 292 fill paths,
+  registered by construction. The matched fill inherits it for free.
+* **The emitted files still said mitre.** The board always imported with the
+  round join; every local render painted spikes the board never had. The
+  attribute now matches the decision.
+
+And the bars: every exclamation slides DOWN one unit (triangle 10..14), so the
+butt bar's painted gap to the dot is 2, the same as the rounded original's,
+and the length Zafar set is kept.
+
+A 42-agent sweep then read all 585 against the rounded originals and its
+adversarial verify pass confirmed 16 more: contained glyphs (the circle and
+square carets, cursors, navigations, play) whose stroke solved against the
+file union box while their siblings solved per path — the stroke set solves
+per PATH now; wifi and cast's shallow arcs claimed as corner dashes — the dash
+clause now demands axis-aligned tangents; mic and megaphone capsules squared
+in the stroke but kept round in the fill — the offset rebuild converts them
+together; and the user family's shoulders, which now stay domed in every
+style, by name, like bell's dome and the sliders' knobs.
+
+Three union outlines no single-stroke offset can rebuild (megaphone,
+pencil-ruler, cursor-off) take a snap pass: any corner unit standing proud of
+the painted stroke moves onto it, except where the rounded drawing itself
+stands proud (the -off clips). And megaphone's handle taught the sharpeners
+one more guard: a circular fillet has equal control legs; an elliptical sweep
+does not, and de-filleting one redraws the drawing.
+
+All 1497 drawings paint inside the rounded envelope (worst 0.46, the diagonal
+butt allowance); the bars sit at gap 2 in all styles; 117 board cells
+re-pushed. The registration metric is saturated by its own corner artifact on
+sharp geometry (an arc 1 from a VERTEX is not 1 from the segments), so eyes,
+not that number, closed every finding.

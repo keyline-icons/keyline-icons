@@ -60,7 +60,8 @@ function sameArc(a, b) {
   return x.sign === y.sign && Math.abs(x.R - y.R) / Math.max(x.R, y.R) < 0.35;
 }
 
-export function sharpen2(d) {
+export function sharpen2(d, opts = {}) {
+  const maxClaimRadius = opts.maxClaimRadius ?? Infinity;
   const runs = segsOf(d);
   if (!runs) return null;
   let out = '', removed = 0, kept = 0;
@@ -111,6 +112,13 @@ export function sharpen2(d) {
       const V = isect(cur.p0, u, cur.p3, mul(v, -1));
       if (!V) { kept++; continue; }
       if (len(sub(V, cur.p0)) > 6 || len(sub(V, cur.p3)) > 6) { kept++; continue; }
+      // the user family's shoulders are an organic dome like bell's, not a
+      // corner: the drawn radius stays, by name, in every style
+      if (maxClaimRadius < Infinity) {
+        const alpha2 = Math.acos(Math.max(-1, Math.min(1, dot(unit(mul(u, -1)), unit(v)))));
+        const rr = len(sub(V, cur.p0)) * Math.tan((Math.PI - alpha2) / 2);
+        if (rr > maxClaimRadius) { kept++; continue; }
+      }
       // replace the ARC with its corner and leave the neighbours alone, so a
       // one-sided fillet does not swallow the edge beyond it
       parts[i] = { t: 'corner', p0: cur.p0, V, p3: cur.p3 };
@@ -168,7 +176,11 @@ export function sharpen2(d) {
       const cornerSized = fitc && fitc.R <= 4 && len(sub(last.p3, first.p0)) <= 6;
       // a corner dash is a QUARTER turn. bell-x's clapper is a 120 degree arc
       // at the same radius, and it is a curve, not a corner
-      if (deg > 80 && deg < 100 && cornerSized) {
+      // and its tangents must be axis-aligned: a panel's corner dash turns
+      // from horizontal to vertical, while wifi's shallow cup arcs enter and
+      // leave on symmetric diagonals and are curves, not corners
+      const axisAligned = (t) => { const a = Math.abs(Math.atan2(t[1], t[0])) % (Math.PI / 2); return Math.min(a, Math.PI / 2 - a) < 20 * Math.PI / 180; };
+      if (deg > 80 && deg < 100 && cornerSized && axisAligned(inTan) && axisAligned(outTan)) {
         const V = isect(first.p0, unit(inTan), last.p3, unit(mul(outTan, -1)));
         if (V && len(sub(V, first.p0)) < 8 && len(sub(V, last.p3)) < 8) {
           const start = first.p0, end = last.p3;
@@ -193,6 +205,11 @@ export function sharpen2(d) {
         const mid = cubicAt(cur.p0, cur.p1, cur.p2, cur.p3, 0.5);
         const fit = circleThrough(cur.p0, mid, cur.p3);
         if (!fit || fit.R > 8 || fit.R < 0.2) continue;
+        // a circular fillet's control legs are equal; an elliptical sweep's
+        // are not, and a circle fitted to one recovers a corner far off the
+        // drawing — megaphone's handle wall reached x=2.5 that way
+        const leg1 = len(sub(cur.p1, cur.p0)), leg2 = len(sub(cur.p3, cur.p2));
+        if (leg1 > 1e-9 && leg2 > 1e-9 && Math.max(leg1, leg2) / Math.min(leg1, leg2) > 1.5) continue;
         const { C, R } = fit;
         const turned = Math.acos(Math.max(-1, Math.min(1, dot(unit(sub(joint,C)), unit(sub(free,C))))));
         const sign = Math.sign(cross(sub(joint,C), sub(free,C))) || 1;
@@ -222,7 +239,7 @@ export function sharpen2(d) {
   return { d: out, removed, kept };
 }
 
-if (process.argv[1].endsWith('sharpen2.mjs')) {
+if (process.argv[1] && process.argv[1].endsWith('sharpen2.mjs')) {
   mkdirSync('sharp2', { recursive: true });
   const SHARP = { join: 'miter', cap: 'round', limit: 4 };
   const ROUND = { join: 'round', cap: 'round' };
@@ -230,8 +247,11 @@ if (process.argv[1].endsWith('sharpen2.mjs')) {
   for (const f of readdirSync(K).filter(x => x.endsWith('.svg'))) {
     const src = readFileSync(`${K}/${f}`, 'utf8');
     let r = 0;
-    let out = src.replace(/ d="([^"]+)"/g, (m, d) => { const s = sharpen2(d); if (!s) return m; r += s.removed; return ` d="${s.d}"`; });
-    out = out.replace('stroke-linejoin="round"', 'stroke-linejoin="miter"');
+    const DOMED = /^(user|users|circle-user)/.test(f) ? { maxClaimRadius: 3.2 } : {};
+    let out = src.replace(/ d="([^"]+)"/g, (m, d) => { const s = sharpen2(d, DOMED); if (!s) return m; r += s.removed; return ` d="${s.d}"`; });
+    // the middle rung KEEPS the house round join (Zafar's decision): a sharp
+    // vertex paints a radius-1 corner. The mitre swap belonged to the rejected
+    // fully-sharp rung and was leaking spikes into every local render.
     writeFileSync(`sharp2/${f}`, out);
     removed += r;
     const T = paintedBBox(readPaths(src), ROUND), B = paintedBBox(readPaths(out), SHARP);

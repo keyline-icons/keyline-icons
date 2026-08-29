@@ -8,13 +8,17 @@
 // span too. The dot is untouched: circle stays circle.
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 
+// Zafar, 29 Aug, round two: the butt bar's gap to the dot must paint 2, the
+// same as the rounded original's, and the bar keeps its length. So every bar
+// slides DOWN one unit: the bottom lands where the round cap used to paint,
+// the top gives up the unit instead.
 const BARS = {
-  'alert':            { x: 12, a: 5,  b: 15 },
-  'circle-alert':     { x: 12, a: 7,  b: 13 },
-  'square-alert':     { x: 12, a: 7,  b: 13 },
-  'octagon-alert':    { x: 12, a: 8,  b: 12 },
-  'triangle-alert':   { x: 12, a: 9,  b: 13 },
-  'wifi-exclamation': { x: 17, a: 12, b: 14 },
+  'alert':            { x: 12, a: 6,  b: 16 },
+  'circle-alert':     { x: 12, a: 8,  b: 14 },
+  'square-alert':     { x: 12, a: 8,  b: 14 },
+  'octagon-alert':    { x: 12, a: 9,  b: 13 },
+  'triangle-alert':   { x: 12, a: 10, b: 14 },
+  'wifi-exclamation': { x: 17, a: 13, b: 15 },
 };
 
 let touched = 0;
