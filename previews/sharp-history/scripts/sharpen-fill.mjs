@@ -254,7 +254,11 @@ if (process.argv[1].endsWith('sharpen-fill.mjs')) {
         const stroked = rootStrokes && !/ stroke="none"/.test(tag);
         const outline = / fill="currentColor"/.test(tag) && !stroked;
         const tinted = /(fill-)?opacity="0/.test(tag);
-        const mode = style === 'fill' || !tinted ? 'fill' : 'tint';
+        // 29 Aug, Zafar: the sharp fill takes the MATCHED rule — the tint's
+        // corner language (1 outside, 0 inside), so fill, tint and stroke all
+        // paint the same silhouette. Only a solid glyph inside a duotone file
+        // still goes to true points.
+        const mode = style === 'fill' || tinted ? 'tint' : 'fill';
         // The sliders and toggles carry capsule KNOBS: the sharp stroke keeps
         // them oval, so their fills and tints stay oval too — the one family
         // where the outline sharpener must not touch anything.

@@ -394,3 +394,28 @@ caught what the numbers cleared: the caret bases, the globe bar steps, the
 squared knob tints, the clock knockouts. Painted boxes: stroke 418 exact and
 none past 0.45, fill 346/0, duotone 369/0, with the six alert icons
 deliberately short.
+
+## 20. The matched fill
+
+Section 19 ended with an asymmetry: the fill went to true points while the
+tint kept 1-outside-0-inside, so the three styles of one icon no longer shared
+a silhouette. Shown the two options side by side, Zafar picked the matched
+one, 29 Aug: the sharp FILL takes the tint's corner rule too. A fill built
+that way is the round-join stroke's painted silhouette exactly — the tint
+shape, filled black — so stroke, duotone and fill now speak one corner
+language: radius 1 outside, pinched to the vertex inside.
+
+The change is one line in the driver — fill-style outlines route through
+'tint' mode instead of 'fill' — and the pipeline behind it did not move:
+sharpen, tidy, solve the growers, square the caps, tidy, exclamation bars
+last. Everything section 19 fought for holds: knockout bars keep source
+length, knobs stay oval by name, the cursor pair still clamps per subpath.
+
+Proof, three ways. 309 of the 432 fills now share their outline subpaths with
+the duotone tint verbatim; the 123 that do not (circle and square plates,
+carets, mail, smartphone) differ in the SOURCE drawings, not the corner rule,
+and passed a render pass against those sources. Painted boxes: 346 exact, one
+0.03 remainder, and the only new excursions are 0.01–0.02 arc bulges on
+filter, list-video and star, the cubic's approximation of a true arc. On the
+board, 75 of the 86 fill cells changed and were re-pushed; the other 11 had
+no claimed corner to move.
