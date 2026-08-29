@@ -27,8 +27,10 @@ pnpm paper:verify    # check the paper.design file against those sheets
 the Figma file, which CI does not have. Everything else here reads `icons/`, so
 a defect that exists only in the design file passes every check — which is how
 twelve `smartphone-<modifier>` fills once sat in Figma with their arrows and
-ticks missing while the shipped SVGs were perfect. Run it after a drawing
-session:
+ticks missing while the shipped SVGs were perfect. Since 29 Aug 2026 it is also
+blind to the `Corners` axis the component sets now carry, so it cannot match
+today's variant names until the sharp release teaches it the third property.
+Run it after a drawing session:
 
 `brand:check` sits out of `icons:ci` for the same reason, and the reason is
 worth naming precisely: not that the check is unimportant, but that it cannot
@@ -834,6 +836,14 @@ The build reads the icon name from the folder and the container/style from the
 filename, so there is no renaming step. Hand-authored icons can still go
 straight into `raw/<style>/<name>.svg`; defining the same icon in both layouts
 fails the build rather than letting one silently win.
+
+Since 29 Aug 2026 the component sets carry a third property, `Corners`, which
+this pipeline does not parse yet. An export today names every file
+`Container=…, Style=…, Corners=….svg`: the build rejects the name, and the
+export brings the `Corners=sharp` variants with it, which stay out of `raw/`
+until the sharp release. Until the exporter learns the axis, export only the
+`Corners=regular` variants and strip `, Corners=regular` from the filenames,
+which is, for now, a renaming step after all.
 
 > Export from the Components page, not the catalogue. The catalogue's frames
 > carry no style information — that is what the component sets encode.
