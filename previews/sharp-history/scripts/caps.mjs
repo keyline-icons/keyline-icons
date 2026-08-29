@@ -107,7 +107,21 @@ export function buttCaps(src, reach = 1, T = null) {
           near = Math.min(near, distToRun(end, run.pts));
           nearMoved = Math.min(nearMoved, distToRun(moved, run.pts));
         }
-        if (near < 1.2 && nearMoved < 1.2) { held++; continue; }
+        if (near < 1.2 && nearMoved < 1.2) {
+          // An end that stops short of a neighbour leaves a NOTCH where the
+          // round cap used to bulge into it — arrow-down-left's diagonal sat
+          // 1.1 off its elbow and the wedge showed. Bury the butt exactly on
+          // the neighbour's centreline: its band covers a unit past that, so
+          // the joint closes, and nothing ever punches through the far edge.
+          // home's door ends ON its base (near 0) and correctly stays put.
+          if (near > 0.05) {
+            const t = Math.min(reach, near);
+            const buried = add(end, mul(dir, t));
+            if (atFirst) s.p0 = buried; else { if (s.t === 'c') s.p3 = buried; else s.p1 = buried; }
+            extended++;
+          } else held++;
+          continue;
+        }
         if (atFirst) { if (s.t === 'c') s.p0 = moved; else s.p0 = moved; }
         else { if (s.t === 'c') s.p3 = moved; else s.p1 = moved; }
         extended++;

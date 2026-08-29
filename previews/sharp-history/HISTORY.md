@@ -354,3 +354,43 @@ rounded box exactly, the rest within 0.45.
 `check-sheet.mjs` renders any list of names as rounded-vs-sharp across all three
 styles into one page for headless Chrome, which is how the last three of these
 were caught. Looking is cheaper than measuring.
+
+## 19. The day the fills went fully sharp
+
+Zafar's call, 29 Aug: "why the fuck is fills rounded in sharp" — the radius-1
+fill corner was my rationalisation, not his design. So the sharp FILL is now
+fully sharp: every claimed corner goes to the true vertex, knockouts and
+modifiers included. The duotone TINT alone keeps 1-outside-0-inside, because it
+has to sit flush against a stroke whose round join still paints a radius-1 arc.
+
+What it took to make that hold across 585 icons, three styles:
+
+* **stroke-opacity carried end to end.** 46 duotone paths (signal's inactive
+  bars, the dashed panels, wifi, sunrise) are 40-percent STROKES, and the Figma
+  encoder dropped the attribute — they landed full black. encode.mjs is now the
+  single encoder, flag for flag with the single svgOf.
+* **Exclamation bars: size 4 from 6.** The butt bars keep their SOURCE geometry
+  — no cap extension — across all six alert icons and all three styles
+  (excl-fix.mjs, run last in every pipeline).
+* **Held ends bury on the neighbour's centreline.** An end that stops short
+  leaves a notch where the round cap used to bulge into its neighbour —
+  arrow-down-left's elbow. Extend by min(1, distance-to-neighbour): the joint
+  closes and nothing punches through. home's door, ON its base, still stays.
+* **The corner guard is turn-aware.** A quarter-turn at radius 5 is a corner
+  (the file bodies); a near-half-turn at radius 5 is a shape (bell's dome).
+  orig ≤ 6.5 when the run turns ≤ 120 degrees, ≤ 4.6 otherwise, turn cap 176.
+* **Knobs stay knobs, by name.** sliders* and toggle* keep capsule knobs that
+  the sharp stroke keeps oval, so their fills and tints are exempt from the
+  outline sharpener entirely. Every shape-based discriminator tried — arc
+  fraction, endpoint bbox, stroke-corner proximity — either squared the knobs
+  or un-sharpened calendar's notch; the honest rule is a two-entry list.
+* **cursor-in-a-box clamps per subpath, by name.** circle-cursor's knockout
+  tail runs 1/sin of its half-angle past the glyph and speared its own rim
+  under the whole-path box. Per-subpath clamping everywhere regressed image's
+  mountain peak, so it applies to circle-cursor and square-cursor alone.
+
+A fifteen-agent render sweep read every icon against its rounded original and
+caught what the numbers cleared: the caret bases, the globe bar steps, the
+squared knob tints, the clock knockouts. Painted boxes: stroke 418 exact and
+none past 0.45, fill 346/0, duotone 369/0, with the six alert icons
+deliberately short.

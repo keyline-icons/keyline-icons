@@ -16,6 +16,7 @@ import { polylines } from './stroke-bbox.mjs';
 import { sharpen2 } from './sharpen2.mjs';
 
 const ROOT = '/Users/zafarismatullaev/Documents/GitHub/keyline-icons/icons';
+const KNOBBED = /^(sliders|toggle)/;
 const n = (v) => { const r = +v.toFixed(4); return Object.is(r,-0) ? '0' : String(r); };
 const sub=(a,b)=>[a[0]-b[0],a[1]-b[1]], add=(a,b)=>[a[0]+b[0],a[1]+b[1]];
 const mul=(a,k)=>[a[0]*k,a[1]*k], len=a=>Math.hypot(a[0],a[1]), unit=a=>mul(a,1/len(a));
@@ -92,7 +93,28 @@ function filletAt(V, A, B, r) {
 }
 
 /** Clamp a filled outline: outer corners to 1, inner corners to 0. */
-export function sharpenFill(d) {
+/** The corner points of a sharpened stroke drawing: places where two line
+ *  segments meet and actually turn. These are where the sharp look happens,
+ *  and a fill or tint may only sharpen where its stroke sibling did. */
+export function cornerVerts(d) {
+  const runs = segsOf(d);
+  const out = [];
+  if (!runs) return out;
+  for (const { segs, closed } of runs) {
+    const N = segs.length;
+    for (let i = 0; i < N; i++) {
+      const a = segs[i], b = segs[(i + 1) % N];
+      if (!closed && i === N - 1) break;
+      if (a.t !== 'l' || b.t !== 'l') continue;
+      const u = unit(sub(a.p1, a.p0)), w = unit(sub(b.p1, b.p0));
+      if (!isFinite(u[0]) || !isFinite(w[0])) continue;
+      if (dot(u, w) < Math.cos(15 * Math.PI / 180)) out.push(a.p1);
+    }
+  }
+  return out;
+}
+
+export function sharpenFill(d, mode = 'tint') {
   const runs = segsOf(d);
   if (!runs) return null;
   let outer = 0, inner = 0;
@@ -114,6 +136,11 @@ export function sharpenFill(d) {
     // the ink" inverts and every outer corner of the hole came out a spike —
     // circle-check's tick and circle-activity's trace both did.
     const own = runPoly(segs.map((z) => ({ ...z })));
+    // A knob or a capsule is MOSTLY arc: sliders' knob tints are rounded
+    // rects whose curves dominate the perimeter, and squaring them left grey
+    // corners poking past the still-oval stroke. Measure the cubic share of
+    // the subpath once; past 55 percent, nothing here is a corner.
+
     for (let i = 0; i < N; i++) {
       if (segs[i].t !== 'c' || segs[i].drop || segs[i].done) continue;
       // A corner in an OFFSET outline is wider than 90 degrees and gets drawn
@@ -147,16 +174,29 @@ export function sharpenFill(d) {
         const t0 = sub(segs[k].p1, segs[k].p0), t1 = sub(segs[k].p3, segs[k].p2);
         if (len(t0) > 1e-9 && len(t1) > 1e-9) turn += Math.acos(Math.max(-1, Math.min(1, dot(unit(t0), unit(t1)))));
       }
-      if (turn > 140 * Math.PI / 180) continue;
+      if (turn > 176 * Math.PI / 180) continue;
       const a = sub(prev.p0, V), b = sub(next.p1, V);
       const alpha = Math.acos(Math.max(-1, Math.min(1, dot(unit(a), unit(b)))));
       const orig = len(sub(first.p0, V)) * Math.tan(alpha/2);
+      // A fillet in an offset outline is small; a dome, a pin head or a petal
+      // is not. bell's dome reads as one run turning ~170 degrees, and only
+      // its radius (~8) tells it apart from cursor's tip (~1.5, turning 150).
+      // ...but radius alone is not the whole test: the file bodies carry
+      // radius-5 corners that must sharpen, while bell's dome (radius ~8,
+      // turning ~170) must not. A quarter-turn at radius 5 is a corner; a
+      // near-half-turn at radius 5 is a shape.
+      const quarterish = turn <= 120 * Math.PI / 180;
+      if (orig > (quarterish ? 6.5 : 4.6) || len(sub(first.p0, V)) > (quarterish ? 14 : 10)) continue;
       // nudge just past the vertex along the bisector to classify without
       // landing exactly on the boundary
       const bis = unit(add(unit(a), unit(b)));
       if (!isFinite(bis[0]) || !isFinite(bis[1])) continue;
       const probe = add(V, mul(bis, 0.05));
-      const isInner = insidePoly(own, probe);
+      // Zafar's call, 29 Aug: the sharp FILL is fully sharp — every claimed
+      // corner goes to the true vertex, knockouts and modifiers included. Only
+      // the duotone TINT keeps 1 outside / 0 inside, because it has to sit
+      // flush against a stroke whose round join still paints a radius-1 arc.
+      const isInner = mode === 'fill' ? true : insidePoly(own, probe);
       const target = isInner ? 0 : 1;
       if (orig <= target + 1e-6) continue;
       if (target === 0) {
@@ -181,6 +221,7 @@ export function sharpenFill(d) {
     const L = (p) => { const s = (Math.hypot(p[0]-at[0], p[1]-at[1]) < 1e-3) ? '' : `L${n(p[0])} ${n(p[1])}`; at = p; return s; };
     let d2 = `M${n(at[0])} ${n(at[1])}`;
     for (const s of live) {
+      d2 += L(s.p0);                                // bridge a bevel gap
       if (s.t === 'l') d2 += L(s.p1);
       else { d2 += `C${n(s.p1[0])} ${n(s.p1[1])} ${n(s.p2[0])} ${n(s.p2[1])} ${n(s.p3[0])} ${n(s.p3[1])}`; at = s.p3; }
     }
@@ -200,6 +241,8 @@ if (process.argv[1].endsWith('sharpen-fill.mjs')) {
       // path: half the fill set has no stroke attribute on the <svg> at all,
       // so its paths are outlines despite never saying stroke="none".
       const rootStrokes = / stroke="currentColor"/.test(src.slice(0, src.indexOf('>')));
+      // reference corners: this file's own strokes, sharpened, plus the sharp
+      // stroke sibling from mid/ when it exists
       const out = src.replace(/<path[^>]*>/g, (tag) => {
         const m = tag.match(/ d="([^"]+)"/);
         if (!m) return tag;
@@ -210,7 +253,13 @@ if (process.argv[1].endsWith('sharpen-fill.mjs')) {
         // rule. Anything else is a plain stroke.
         const stroked = rootStrokes && !/ stroke="none"/.test(tag);
         const outline = / fill="currentColor"/.test(tag) && !stroked;
-        const r = outline ? sharpenFill(m[1]) : sharpen2(m[1]);
+        const tinted = /(fill-)?opacity="0/.test(tag);
+        const mode = style === 'fill' || !tinted ? 'fill' : 'tint';
+        // The sliders and toggles carry capsule KNOBS: the sharp stroke keeps
+        // them oval, so their fills and tints stay oval too — the one family
+        // where the outline sharpener must not touch anything.
+        if (KNOBBED.test(f) && outline) return tag;
+        const r = outline ? sharpenFill(m[1], mode) : sharpen2(m[1]);
         if (!r) return tag;
         if (outline) { outer += r.outer; inner += r.inner; } else strokes += r.removed;
         return tag.replace(/ d="[^"]+"/, ` d="${r.d}"`);

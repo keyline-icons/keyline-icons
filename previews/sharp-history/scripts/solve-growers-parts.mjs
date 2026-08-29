@@ -20,6 +20,7 @@ import { tokenize, pathBBox } from 'file:///Users/zafarismatullaev/Documents/Git
 
 const n = (v) => { const r = +v.toFixed(4); return Object.is(r, -0) ? '0' : String(r); };
 const ds = (s) => [...s.matchAll(/ d="([^"]+)"/g)].map((m) => m[1]);
+const splitSubs = (d) => d.split(/(?=M)/).filter((x) => x.trim());
 
 // axis: 0 = x, 1 = y. Move every point beyond `bound` by `delta`.
 function shift(d, axis, bound, sign, delta) {
@@ -62,14 +63,31 @@ if (process.argv[1].endsWith('solve-growers-parts.mjs')) {
   const DIR = process.argv[2], ROUND = process.argv[3];
   let solved = 0, worst = 0, worstName = '', skipped = [];
   for (const f of readdirSync(DIR).filter((x) => x.endsWith('.svg'))) {
+    const FILE = f;
     const rSrc = readFileSync(`${ROUND}/${f}`, 'utf8'), vSrc = readFileSync(`${DIR}/${f}`, 'utf8');
     const R = ds(rSrc), V = ds(vSrc);
     if (R.length !== V.length) { skipped.push(f); continue; }
     let touched = false, i = 0;
     const out = vSrc.replace(/ d="([^"]+)"/g, (m, d) => {
-      const T = pathBBox(R[i++]);
-      if (!T) return m;
-      const fixed = fitPath(d, T);
+      // Per SUBPATH only where a knockout glyph shares its path with a
+      // container: circle-cursor's arrow spiked into its own rim under the
+      // union box. Everywhere else the whole-path box is the approved
+      // behaviour — image's mountain peak rightly rises past its knockout's
+      // own bbox, exactly as far as the stroke's recovered vertex does.
+      const perSub = /^(circle-cursor|square-cursor)\.svg$/.test(FILE);
+      const rSubs = perSub ? splitSubs(R[i++]) : [R[i++]], vSubs = perSub ? splitSubs(d) : [d];
+      if (rSubs.length !== vSubs.length) {
+        const T = pathBBox(R[i-1]);
+        if (!T) return m;
+        const fixed = fitPath(d, T);
+        if (fixed !== d) touched = true;
+        return ` d="${fixed}"`;
+      }
+      const fixedSubs = vSubs.map((vs, j) => {
+        const T = pathBBox(rSubs[j]);
+        return T ? fitPath(vs, T) : vs;
+      });
+      const fixed = fixedSubs.join('');
       if (fixed !== d) touched = true;
       return ` d="${fixed}"`;
     });
