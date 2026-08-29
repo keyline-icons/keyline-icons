@@ -59,9 +59,8 @@ zero `__matrix` leftovers. Badges preserved throughout.
 
 ## Still open, in Zafar's hands
 
-- **The Sharp page (`16256:2445`, ZOOM frame `16286:3085`) still exists.** The
-  catalog no longer needs it; deleting it is Zafar's call now that everything
-  is verified.
+- The Sharp page (`16256:2445`) was deleted on Zafar's instruction, 29 Aug
+  2026. The file is Catalog, Components, Changelog.
 - Two stray tiny `Vector` nodes sit on the Components page at (-5991,-5990),
   7x5 and 6x4, debris from some earlier import. Harmless, off-canvas, left in
   place.
