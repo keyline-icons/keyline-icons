@@ -121,6 +121,10 @@ if (process.argv[1].endsWith('sharpen-fill.mjs')) {
     let outer = 0, inner = 0, strokes = 0, grew = [];
     for (const f of readdirSync(`${ROOT}/${style}`).filter(x => x.endsWith('.svg'))) {
       const src = readFileSync(`${ROOT}/${style}/${f}`, 'utf8');
+      // Whether a path is stroked is a property of the FILE as much as the
+      // path: half the fill set has no stroke attribute on the <svg> at all,
+      // so its paths are outlines despite never saying stroke="none".
+      const rootStrokes = / stroke="currentColor"/.test(src.slice(0, src.indexOf('>')));
       const out = src.replace(/<path[^>]*>/g, (tag) => {
         const m = tag.match(/ d="([^"]+)"/);
         if (!m) return tag;
@@ -129,7 +133,8 @@ if (process.argv[1].endsWith('sharpen-fill.mjs')) {
         // offset, so its corners are 1 outside and 0 inside. A path that is
         // filled AND stroked is still a centreline, so it follows the stroke
         // rule. Anything else is a plain stroke.
-        const outline = / stroke="none"/.test(tag) && / fill="currentColor"/.test(tag);
+        const stroked = rootStrokes && !/ stroke="none"/.test(tag);
+        const outline = / fill="currentColor"/.test(tag) && !stroked;
         const r = outline ? sharpenFill(m[1]) : sharpen2(m[1]);
         if (!r) return tag;
         if (outline) { outer += r.outer; inner += r.inner; } else strokes += r.removed;

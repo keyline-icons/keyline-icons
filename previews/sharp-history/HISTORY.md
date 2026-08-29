@@ -239,3 +239,34 @@ a square end on a 45 degree diagonal, which is what a sharp cap is, not drift.
 
 The scripts read the rounded set from an absolute path. They are kept as a
 record of how this was solved, not as a build step.
+
+## 15. `solved-fill/` and `solved-duotone/` — the other two styles, sized right
+
+`fill-mid/` and `duotone-mid/` above were fitted contour by contour, which is a
+rescale, and a rescale is exactly what was ruled out. These are the same two
+styles built the way `solved-mid/` was: sharpen, then move only what sticks out.
+
+Two things had to change first.
+
+**Half the fill set was being read as strokes.** The classifier asked for
+`stroke="none"` before it would treat a path as an outline, and 220 of the fill
+paths never say it — their `<svg>` sets no stroke at all, so there is nothing to
+turn off. Whether a path is stroked is a property of the file as much as the
+path. Read the root first: 896 outer corners came through after the fix against
+368 before, and `triangle-alert`'s fill had been coming out rounded.
+
+**The clamp had to stop squashing.** A stroke can clamp a vertex outright — a
+lone point moved in one axis is still a point. A fill cannot: its corners are
+radius-1 arcs, because the fill IS the painted boundary and a sharp stroke with
+the house round join paints a radius-1 turn. Clamping the arc's coordinates
+flattens it, and `triangle-alert` grew a lid across its apex.
+
+So `solve-growers-parts.mjs` translates the offending corner instead. Every
+point that would fall outside moves by the same amount, which is the true
+overshoot of the curve rather than of its control points, so the corner keeps
+its shape and only the edges into it shift. It works **per path**, against that
+path's own box in the rounded drawing: a duotone's tint and its stroke would
+otherwise each move by their own overshoot and come apart from one another.
+
+47 fills and 80 duotones needed it. Painted box against the rounded drawings:
+**432 of 432 and 480 of 480 exact.**
