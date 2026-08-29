@@ -162,3 +162,31 @@ from the stroke arithmetic rather than by copying them.
   drawn corner.
 - **Fill and duotone**, untouched. Both are outlined strokes with their caps and
   joins baked in, so they need a stroke outliner this repo does not have.
+
+---
+
+## 13. `fill-mid/` and `duotone-mid/` — the other two styles
+
+Neither needed the stroke outliner. The same arithmetic that governs the stroke
+governs them: a fill **is** the drawing offset outward by half the stroke width,
+and offsetting adds that much to every outer corner radius and takes it off
+every inner one. The middle rung's stroke corner is radius 0, so its fill corner
+is **1 outside and 0 inside** — applied to the fills the set already has rather
+than re-derived from the stroke.
+
+Outer versus inner is decided by geometry, not by eye: at an outer corner the
+vertex the fillet was cut from lies **outside** the filled region, at an inner
+corner **inside**. 368 outer and 130 inner corners across the fills, 891 and 92
+across the duotones.
+
+**Two constructions live in these files** and they take different rules, which
+cost a wrong first pass. `calendar`'s fill is an outline (`fill` plus
+`stroke="none"`), so the 1-and-0 rule applies. `triangle-alert`'s is filled
+**and** stroked, so it is still a centreline and follows the stroke rule.
+Treating the second as the first sharpened one half of a knockout's rounded end
+and left the other, which is how the cap guard was found: the other half of a
+round cap is not a corner to be eaten, and the guard is that the curve a fillet
+dies into must have a chord of at least 2.5 units.
+
+111 fills and 114 duotones needed a contour fit. Painted box error across both
+sets: 0.

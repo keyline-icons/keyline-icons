@@ -75,6 +75,10 @@ export function sharpen2(d) {
       if (!par(myLineTan, lineDir)) continue;
       // the fillet must be short, or it is a feature rather than a corner
       if (len(sub(cur.p3, cur.p0)) > 6) continue;
+      // and the thing it dies into must be a real curve, not the other half of
+      // a round cap: a cap's sibling arc is as short as the cap itself, and
+      // eating it turns a knockout's rounded end into a notch
+      if (len(sub(curve.p3, curve.p0)) < 2.5) continue;
       const curveEnd = lineSide === 'prev' ? curve.p0 : curve.p3;
       const curveTan = lineSide === 'prev' ? sub(curve.p0, curve.p1) : sub(curve.p3, curve.p2);
       const turn = Math.acos(Math.max(-1, Math.min(1, dot(unit(myLineTan), unit(mul(curveTan, -1))))));
