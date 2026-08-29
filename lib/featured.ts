@@ -21,17 +21,26 @@ import type { StaticImageData } from "next/image"
  * wall. CollectUI and recent.design both hand-pick for the same reason, and
  * neither publishes a raw feed.
  *
- * So this is a hand-kept list, like `lib/sponsors.ts`. When a post is accepted:
+ * So this is a hand-kept list, like `lib/sponsors.ts`. Accepting a post is a
+ * judgement and stays a person's; the bookkeeping after it does not, and
+ * `pipeline/add-featured.mjs` does that part:
  *
- * 1. Save its screenshot as `public/featured/<slug>.png` (or `.jpg`), and the
- *    poster's avatar as `public/featured/avatars/<handle>.jpg`, creating either
- *    folder if this is the first one.
- * 2. Import both at the top of this file and add an entry below, newest last.
- *    `post` is the URL of the post it came from, and is not optional in
- *    practice: it is the provenance and the permission at once.
- * 3. Set `home` on it only if it should take one of the landing page's three
- *    slots, and take the flag off whatever it replaces.
- * 4. `node pipeline/check-featured.mjs` says whether the entry holds together.
+ *     npm run featured:add -- ~/Downloads/shot.png \
+ *       --title "Acme Console" --post https://x.com/adareyes/status/123 \
+ *       --alt "An admin console: a sidebar beside a table of runs." \
+ *       --url https://acme.com --name "Ada Reyes" --home
+ *
+ * It copies the screenshot to `public/featured/<slug>.png`, copies `--avatar`
+ * to `public/featured/avatars/<handle>.jpg`, writes the imports and the entry
+ * below, and runs the check. `--dry-run` prints all of it and writes nothing.
+ * The handle and the date come off the post URL and the clock.
+ *
+ * By hand it is the same four steps: save the screenshot under the slug and the
+ * face under the handle, import both at the top of this file, add an entry
+ * below with `post` filled in, since it is the provenance and the permission at
+ * once, set `home` only if it should take one of the landing page's three slots
+ * and take the flag off whatever it replaces, then run
+ * `node pipeline/check-featured.mjs`.
  *
  * Images are **static imports, never `<Image src="/featured/…">`**.
  * `components/figma-showcase.tsx` records both halves of the reason: typed

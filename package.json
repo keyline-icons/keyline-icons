@@ -32,6 +32,7 @@
     "paper:import": "node pipeline/import-paper.mjs",
     "paper:verify": "node pipeline/check-paper.mjs",
     "icons:demos": "node pipeline/check-demos.mjs",
+    "featured:add": "node pipeline/add-featured.mjs",
     "featured:check": "node pipeline/check-featured.mjs",
     "search:check": "node pipeline/check-search.mjs",
     "categories:check": "node pipeline/check-categories.mjs",
