@@ -270,3 +270,31 @@ otherwise each move by their own overshoot and come apart from one another.
 
 47 fills and 80 duotones needed it. Painted box against the rounded drawings:
 **432 of 432 and 480 of 480 exact.**
+
+## 16. Square ends for the other two styles
+
+Section 15 sharpened the corners and left the ends alone, so `circle-check`'s
+fill still had round ones while the stroke beside it had square. Two different
+reasons, in the two constructions.
+
+A **duotone**'s glyph is a stroke, so switching its cap is the renderer's job —
+but the geometry still has to grow a unit at each free end or it paints short,
+and that pass had only ever been run on the stroke set. 1978 ends extended.
+
+A **fill**'s glyph is an outline, and its round cap is baked in: a semicircle of
+radius 1 joining the two sides of the stroke. `caps-styles.mjs` finds that
+U-turn — an arc between two ANTIPARALLEL lines whose chord is about one stroke
+wide — and replaces it with a flat end pushed out a unit, which is exactly where
+the semicircle's apex was, so the painted extent does not move. 533 flattened.
+
+The join at a corner stays a radius-1 arc in both, and should: the fill is the
+painted boundary, and a sharp stroke with the house round join paints a
+radius-1 turn. Only the ends were wrong.
+
+**A closed path can start in the middle of a cap**, splitting its arc across the
+wrap. `battery`'s bars came out flat at one end and round at the other until the
+pass rotated each closed run to start on a straight segment first.
+
+Painted box, both styles: 350 of 432 fills and 373 of 480 duotones exact, the
+rest within 0.45 and none beyond — the same diagonal square-end residual the
+stroke set has.

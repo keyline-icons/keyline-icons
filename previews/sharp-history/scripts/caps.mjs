@@ -62,8 +62,13 @@ function reachFor(end, dir, T, curved) {
 
 export function buttCaps(src, reach = 1, T = null) {
   // every stroked run in the file, for the freeness test
+  // Whether a path is stroked is a property of the FILE as much as the path:
+  // a fill whose <svg> sets no stroke has outlines, not strokes, however little
+  // it says stroke="none".
+  const rootStrokes = / stroke="currentColor"/.test(src.slice(0, src.indexOf('>')));
+  const isStroked = (tag) => rootStrokes && !/ stroke="none"/.test(tag);
   const strokedPaths = [...src.matchAll(/<path[^>]*>/g)]
-    .filter((m) => !/ stroke="none"/.test(m[0]))
+    .filter((m) => isStroked(m[0]))
     .map((m) => (m[0].match(/ d="([^"]+)"/) || [])[1])
     .filter(Boolean);
   // keyed by subpath, because an end landing on ANOTHER subpath of the same
@@ -74,7 +79,7 @@ export function buttCaps(src, reach = 1, T = null) {
   let extended = 0, held = 0;
 
   const out = src.replace(/<path([^>]*)>/g, (tag, attrs) => {
-    if (/ stroke="none"/.test(tag)) return tag;
+    if (!isStroked(tag)) return tag;
     const m = attrs.match(/ d="([^"]+)"/);
     if (!m) return tag;
     const runs = segsOf(m[1]);
