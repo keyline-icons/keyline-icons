@@ -22,7 +22,9 @@ import { existsSync } from "node:fs"
 const data = JSON.parse(
   await readFile(new URL("../icons.json", import.meta.url), "utf8")
 )
-const { icons, styles, keywords = {} } = data
+// `corners` defaults for a bundle generated before the axis existed, so an
+// older icons.json still runs rather than reading `undefined.includes`.
+const { icons, styles, corners = ["regular"], keywords = {} } = data
 const NAMES = Object.keys(icons)
 const VERSION = "0.2.0"
 
@@ -49,7 +51,7 @@ function die(msg) {
  * positional, which is what lets `add a b c --style fill` work in any order.
  */
 function parseArgs(argv) {
-  const alias = { s: "style", o: "out", l: "limit", h: "help", v: "version" }
+  const alias = { s: "style", c: "corners", o: "out", l: "limit", h: "help", v: "version" }
   const flags = {}
   const positional = []
   for (let i = 0; i < argv.length; i++) {
@@ -89,10 +91,25 @@ const styleOf = (flags) => {
   return s
 }
 
+const cornersOf = (flags) => {
+  const k = flags.corners ?? "regular"
+  if (!corners.includes(k))
+    die(`unknown corner treatment \`${k}\`. One of: ${corners.join(", ")}`)
+  return k
+}
+
 /* ------------------------------------------------------------------ icons */
 
-function svgFor(name, style) {
-  const art = icons[name]?.[style]
+/**
+ * A drawing in one style and one treatment.
+ *
+ * The rounded half sits at `icons[name][style]` where it has always sat, and
+ * the sharp half one level down under `sharp`, so a project pinned to an older
+ * bundle reads the same shape it read before.
+ */
+function svgFor(name, style, corners = "regular") {
+  const art =
+    corners === "sharp" ? icons[name]?.sharp?.[style] : icons[name]?.[style]
   if (!art) return null
   const attrs = Object.entries(art.root)
     .map(([k, v]) => ` ${k}="${v}"`)
@@ -181,14 +198,14 @@ const wholeWord = (hay, needle) => {
   return false
 }
 
-function search(query, style, limit) {
+function search(query, style, limit, corners = "regular") {
   const q = query.toLowerCase().trim()
   const words = wordsOf(query)
   if (!words.length) return []
 
   return NAMES.filter(
     (n) =>
-      (!style || icons[n][style]) &&
+      (!style || svgFor(n, style, corners)) &&
       (foreign[q] === n ||
         wholeWord(n, q) ||
         words.every((w) => wholeWord(n, w)) ||
@@ -255,17 +272,20 @@ function nearest(name) {
     .map((h) => h.n)
 }
 
-function resolveOrDie(name, style) {
+function resolveOrDie(name, style, corners = "regular") {
   if (!icons[name]) {
     const near = nearest(name)
     die(
       `no icon named \`${name}\`.${near.length ? ` Did you mean: ${near.join(", ")}?` : ""}`
     )
   }
-  const svg = svgFor(name, style)
+  const svg = svgFor(name, style, corners)
   if (!svg) {
+    // `Object.keys` would list `sharp` here as though it were a fourth style,
+    // which is the axis leaking into a sentence about coverage.
+    const has = styles.filter((s) => svgFor(name, s, corners))
     die(
-      `\`${name}\` has no ${style} style. It has: ${Object.keys(icons[name]).join(", ")}.\n` +
+      `\`${name}\` has no ${style} style. It has: ${has.join(", ")}.\n` +
         `      Duotone and fill need a fillable region, and this glyph has none.`
     )
   }
@@ -288,13 +308,14 @@ ${bold("COMMANDS")}
 
 ${bold("OPTIONS")}
   -s, --style <s>    ${styles.join(" | ")}   (default: stroke)
+  -c, --corners <c>  ${corners.join(" | ")}          (default: regular)
   -o, --out <dir>    Where \`add\` writes         (default: ./icons)
   -l, --limit <n>    Max results for \`search\`   (default: 25)
 
 ${bold("EXAMPLES")}
   keyline-icons search arrow
   keyline-icons search mail --style fill
-  keyline-icons show check > check.svg
+  keyline-icons show check --corners sharp > check-sharp.svg
   keyline-icons add circle-arrow-down bell --out src/icons
   keyline-icons list | grep chart
 
@@ -309,7 +330,8 @@ const commands = {
 
   list({ flags }) {
     const style = flags.style ? styleOf(flags) : null
-    const names = style ? NAMES.filter((n) => icons[n][style]) : NAMES
+    const treatment = cornersOf(flags)
+    const names = style ? NAMES.filter((n) => svgFor(n, style, treatment)) : NAMES
     for (const n of names) out(n)
     note(dim(`\n${names.length} icons${style ? ` in ${style}` : ""}`))
   },
@@ -329,7 +351,7 @@ const commands = {
        is not a number at all earns the default. */
     const raw = parseInt(flags.limit ?? "25", 10)
     const limit = Math.min(Math.max(Number.isNaN(raw) ? 25 : raw, 1), 200)
-    const hits = search(query, style, limit)
+    const hits = search(query, style, limit, cornersOf(flags))
     if (!hits.length) {
       const near = nearest(query)
       die(
@@ -337,7 +359,7 @@ const commands = {
       )
     }
     for (const n of hits) {
-      const has = styles.filter((s) => icons[n][s])
+      const has = styles.filter((s) => svgFor(n, s, cornersOf(flags)))
       out(`${n}${tty ? "  " + dim(`[${has.join(", ")}]`) : ""}`)
     }
     note(dim(`\n${hits.length} shown${style ? ` in ${style}` : ""}`))
@@ -346,17 +368,27 @@ const commands = {
   show({ flags, positional }) {
     const [name] = positional
     if (!name) die("show needs an icon name. Try: keyline-icons show check")
-    process.stdout.write(resolveOrDie(name, styleOf(flags)))
+    process.stdout.write(resolveOrDie(name, styleOf(flags), cornersOf(flags)))
   },
 
   async add({ flags, positional }) {
     if (!positional.length) die("add needs at least one icon name.")
     const style = styleOf(flags)
+    const treatment = cornersOf(flags)
     const dir = resolve(flags.out === true || !flags.out ? "icons" : flags.out)
+
+    // The treatment rides in the filename, for the reason the style does not:
+    // two treatments of one drawing are the same name and the same style, so
+    // adding both would otherwise write one file twice and leave whichever ran
+    // last. Rounded keeps the bare name, which is what everyone means by it.
+    const suffix = treatment === "regular" ? "" : `-${treatment}`
 
     // Every name is resolved before anything is written, so a typo in the
     // third of five does not leave two files on disk and an error.
-    const files = positional.map((name) => [name, resolveOrDie(name, style)])
+    const files = positional.map((name) => [
+      `${name}${suffix}`,
+      resolveOrDie(name, style, treatment),
+    ])
 
     await mkdir(dir, { recursive: true })
     for (const [name, svg] of files) {
@@ -369,7 +401,8 @@ const commands = {
     }
     note(
       dim(
-        `\n${files.length} ${style} icon${files.length === 1 ? "" : "s"} to ${dir}`
+        `\n${files.length} ${treatment === "sharp" ? "sharp " : ""}${style} ` +
+          `icon${files.length === 1 ? "" : "s"} to ${dir}`
       )
     )
   },

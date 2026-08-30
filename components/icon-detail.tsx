@@ -141,8 +141,8 @@ export function IconDetail({
   )
 
   const code = React.useMemo(
-    () => snippet(format, icon.name, style, art, { size, stroke, pm }),
-    [format, icon.name, style, art, size, stroke, pm]
+    () => snippet(format, icon.name, style, art, { size, stroke, pm, corners }),
+    [format, icon.name, style, art, size, stroke, pm, corners]
   )
 
   /* Counted after the write resolves; see the same handler in the dock. */
@@ -165,17 +165,17 @@ export function IconDetail({
   }, [code, icon.name, style, format])
 
   const download = React.useCallback(() => {
-    const file = snippet("svg", icon.name, style, art, { size, stroke, pm })
+    const file = snippet("svg", icon.name, style, art, { size, stroke, pm, corners })
     const url = URL.createObjectURL(
       new Blob([`${file}\n`], { type: "image/svg+xml" })
     )
     const link = document.createElement("a")
     link.href = url
-    link.download = downloadName(icon.name, style)
+    link.download = downloadName(icon.name, style, corners)
     link.click()
     URL.revokeObjectURL(url)
     track("icon_download", { icon: icon.name, style, surface: "page" })
-  }, [icon.name, style, art, size, stroke, pm])
+  }, [icon.name, style, art, size, stroke, pm, corners])
 
   /*
     The specimen column steps with the window and the code takes the rest.
@@ -427,7 +427,7 @@ export function IconDetail({
                 <Download />
               </TooltipTrigger>
               <TooltipContent>
-                Download {downloadName(icon.name, style)}
+                Download {downloadName(icon.name, style, corners)}
               </TooltipContent>
             </Tooltip>
 

@@ -238,9 +238,9 @@ export function IconPreview({
   const code = React.useMemo(
     () =>
       icon && art
-        ? snippet(format, icon.name, style, art, { size, stroke, pm })
+        ? snippet(format, icon.name, style, art, { size, stroke, pm, corners })
         : "",
-    [icon, art, format, style, size, stroke, pm]
+    [icon, art, format, style, size, stroke, pm, corners]
   )
 
   /**
@@ -296,17 +296,17 @@ export function IconPreview({
 
   const download = React.useCallback(() => {
     if (!icon || !art) return
-    const file = snippet("svg", icon.name, style, art, { size, stroke, pm })
+    const file = snippet("svg", icon.name, style, art, { size, stroke, pm, corners })
     const url = URL.createObjectURL(
       new Blob([`${file}\n`], { type: "image/svg+xml" })
     )
     const link = document.createElement("a")
     link.href = url
-    link.download = downloadName(icon.name, style)
+    link.download = downloadName(icon.name, style, corners)
     link.click()
     URL.revokeObjectURL(url)
     track("icon_download", { icon: icon.name, style, surface: "dock" })
-  }, [icon, art, style, size, stroke, pm])
+  }, [icon, art, style, size, stroke, pm, corners])
 
   /*
     Escape closes, and the arrows walk the grid. Stepping between neighbours
@@ -975,7 +975,7 @@ export function IconPreview({
                     <Download />
                   </TooltipTrigger>
                   <TooltipContent>
-                    Download {downloadName(icon.name, style)}
+                    Download {downloadName(icon.name, style, corners)}
                   </TooltipContent>
                 </Tooltip>
 

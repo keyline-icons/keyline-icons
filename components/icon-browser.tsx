@@ -61,7 +61,6 @@ import {
   Glyph,
   STYLES,
   type BrowserIcon,
-  type Corners,
   type Style,
 } from "@/components/glyph"
 import { IconPreview, useIconPreview } from "@/components/icon-preview"

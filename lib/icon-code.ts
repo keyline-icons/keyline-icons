@@ -6,7 +6,7 @@
  * snippet that drifts from the package it tells you to install is worse than no
  * snippet at all. One file, so a rename of the scope reaches all of them.
  */
-import type { Style, StyleArt } from "@/components/glyph"
+import type { Corners, Style, StyleArt } from "@/components/glyph"
 
 export const FORMATS = [
   { value: "svg", label: "SVG", lang: "html" },
@@ -47,9 +47,15 @@ export const installSet = (pm: PackageManager) =>
   `${manager(pm).add} ${REACT_PACKAGE}`
 
 /** One drawing copied into the project, no dependency left behind. */
-export const installIcon = (pm: PackageManager, name: string, style: Style) =>
+export const installIcon = (
+  pm: PackageManager,
+  name: string,
+  style: Style,
+  corners: Corners = "regular"
+) =>
   `${manager(pm).exec} ${CLI_PACKAGE} add ${name}` +
-  (style === "stroke" ? "" : ` --style ${style}`)
+  (style === "stroke" ? "" : ` --style ${style}`) +
+  (corners === "regular" ? "" : ` --corners ${corners}`)
 
 /** `circle-arrow-down` -> `CircleArrowDown`, the same rule the generator uses. */
 export const componentName = (name: string) =>
@@ -58,9 +64,17 @@ export const componentName = (name: string) =>
     .map((part) => part[0].toUpperCase() + part.slice(1))
     .join("")
 
-/** Where a style's components are imported from. Stroke is the root entry. */
-export const importPath = (style: Style) =>
-  style === "stroke" ? REACT_PACKAGE : `${REACT_PACKAGE}/${style}`
+/**
+ * Where a style's components are imported from. Stroke is the root entry.
+ *
+ * A treatment is one more segment rather than a suffix on the export name, so
+ * `ArrowDown` means the same drawing at whichever path it is imported from and
+ * nothing that already compiles stops compiling.
+ */
+export const importPath = (style: Style, corners: Corners = "regular") => {
+  const base = corners === "sharp" ? `${REACT_PACKAGE}/sharp` : REACT_PACKAGE
+  return style === "stroke" ? base : `${base}/${style}`
+}
 
 /**
  * kebab-case attribute names to their React spelling, applied to the drawing
@@ -83,6 +97,16 @@ type Options = {
   stroke: number
   /** Which manager the install and run lines are written for. */
   pm: PackageManager
+  /**
+   * Which corner treatment the copied markup is of.
+   *
+   * The SVG and JSX formats need nothing from this: they are written out of the
+   * drawing's own root attributes, so the cap arrives with the art. The React
+   * and CLI lines do, because they name a module and a command rather than
+   * carrying the drawing, and a rounded import under a sharp specimen is a
+   * snippet that does not produce what is on the screen.
+   */
+  corners?: Corners
 }
 
 /**
@@ -134,7 +158,7 @@ function reactSnippet(
   name: string,
   style: Style,
   art: StyleArt,
-  { size, stroke, pm }: Options
+  { size, stroke, pm, corners }: Options
 ) {
   const component = componentName(name)
   const props = [
@@ -145,7 +169,7 @@ function reactSnippet(
 
   return (
     `${installSet(pm)}\n\n` +
-    `import { ${component} } from "${importPath(style)}"\n\n` +
+    `import { ${component} } from "${importPath(style, corners)}"\n\n` +
     `<${component}${props} />`
   )
 }
@@ -165,7 +189,7 @@ export function snippet(
     case "react":
       return reactSnippet(name, style, art, options)
     case "cli":
-      return installIcon(options.pm, name, style)
+      return installIcon(options.pm, name, style, options.corners)
   }
 }
 
@@ -177,8 +201,15 @@ export function snippet(
  * comparing all three of one icon otherwise writes the same name three times
  * into a downloads folder and the browser silently numbers them.
  */
-export const downloadName = (name: string, style: Style) =>
-  style === "stroke" ? `${name}.svg` : `${name}-${style}.svg`
+export const downloadName = (
+  name: string,
+  style: Style,
+  corners: Corners = "regular"
+) =>
+  `${name}` +
+  (style === "stroke" ? "" : `-${style}`) +
+  (corners === "regular" ? "" : `-${corners}`) +
+  ".svg"
 
 /**
  * Why a style is missing, in the words the CLI already uses.

@@ -2,6 +2,7 @@ import Link from "next/link"
 
 import { installFaq } from "@/lib/faq"
 import { importPath } from "@/lib/icon-code"
+import { artOf, CORNERS } from "@/components/glyph"
 import { loadIcons, STYLES } from "@/lib/icons"
 import { faqJsonLd, pageMetadata } from "@/lib/seo"
 import { SET_REPO_URL } from "@/lib/site-chrome"
@@ -106,17 +107,19 @@ export default async function Page() {
    * package does not export.
    */
   const icons = await loadIcons()
-  const lines = STYLES.map((style) => ({
-    style,
-    code: `import { Bell } from "${importPath(style)}"`,
-    count: icons.filter((icon) => icon.art[style]).length,
-  }))
+  const lines = CORNERS.flatMap((corners) =>
+    STYLES.map((style) => ({
+      label: corners === "sharp" ? `sharp ${style}` : style,
+      code: `import { Bell } from "${importPath(style, corners)}"`,
+      count: icons.filter((icon) => artOf(icon, style, corners)).length,
+    }))
+  )
   const codeWidth = Math.max(...lines.map((l) => l.code.length))
-  const styleWidth = Math.max(...STYLES.map((s) => s.length))
+  const labelWidth = Math.max(...lines.map((l) => l.label.length))
   const importSample = lines
     .map(
-      ({ style, code, count }) =>
-        `${code.padEnd(codeWidth + 2)}// ${`${style},`.padEnd(styleWidth + 1)} ${count}`
+      ({ label, code, count }) =>
+        `${code.padEnd(codeWidth + 2)}// ${`${label},`.padEnd(labelWidth + 1)} ${count}`
     )
     .join("\n")
 
@@ -228,8 +231,9 @@ export default async function Page() {
             </p>
             <p>Then add icons by name:</p>
             <Code>{`npx shadcn add @keyline/bell
-npx shadcn add @keyline/fill/bell   # any style but stroke is prefixed
-npx shadcn search @keyline          # browse the whole set`}</Code>
+npx shadcn add @keyline/fill/bell         # any style but stroke is prefixed
+npx shadcn add @keyline/sharp/fill/bell   # sharp corners lead the path
+npx shadcn search @keyline                # browse the whole set`}</Code>
             <p>
               This is the path that gives you <strong>source</strong> rather
               than a dependency. Each icon arrives as a self-contained component
@@ -376,7 +380,9 @@ npx shadcn search @keyline          # browse the whole set`}</Code>
             <p>
               Each style is its own entry point in the package, because they do
               not cover the same icons and a single component taking a weight
-              would have to accept a combination that does not exist:
+              would have to accept a combination that does not exist. The sharp
+              corner treatment is one segment further along, and the export is
+              called the same thing at either path:
             </p>
             <Code>{importSample}</Code>
             <p>

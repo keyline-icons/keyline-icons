@@ -21,7 +21,8 @@ const HERE = fileURLToPath(new URL(".", import.meta.url))
 const data = JSON.parse(
   await readFile(new URL("../icons.json", import.meta.url), "utf8")
 )
-const { icons, styles, keywords = {} } = data
+// `corners` defaults for a bundle generated before the axis existed.
+const { icons, styles, corners = ["regular"], keywords = {} } = data
 const NAMES = Object.keys(icons)
 
 const VERSION = "0.2.0"
@@ -32,9 +33,16 @@ const log = (...a) => process.stderr.write(a.join(" ") + "\n")
 
 /* ------------------------------------------------------------------ icons */
 
-/** The full SVG for one name and style, as it appears in `icons/<style>/`. */
-function svgFor(name, style) {
-  const art = icons[name]?.[style]
+/**
+ * The full SVG for one name, style and corner treatment.
+ *
+ * `icons/<style>/` for the rounded half, `icons/sharp/<style>/` for the sharp
+ * one, which the bundle nests under `sharp` for the same reason: everything
+ * that already reads `icons[name][style]` means the rounded drawing.
+ */
+function svgFor(name, style, corners = "regular") {
+  const art =
+    corners === "sharp" ? icons[name]?.sharp?.[style] : icons[name]?.[style]
   if (!art) return null
   const attrs = Object.entries(art.root)
     .map(([k, v]) => ` ${k}="${v}"`)
@@ -201,6 +209,22 @@ function search(query, style, limit) {
 
 const STYLE_ENUM = { type: "string", enum: styles }
 
+/**
+ * Rounded or squared corners, offered wherever a style is.
+ *
+ * Every drawing exists in both, so this never changes which icons come back,
+ * only how they are drawn. Optional everywhere and defaulting to `regular`, so
+ * an agent that has never heard of the axis asks the question it always asked
+ * and gets the answer it always got.
+ */
+const CORNERS_ENUM = {
+  type: "string",
+  enum: corners,
+  description:
+    "Corner treatment. `regular` is the rounded drawing and the default; " +
+    "`sharp` is the same icon with squared corners and butt caps.",
+}
+
 const TOOLS = [
   {
     name: "search_icons",
@@ -248,6 +272,7 @@ const TOOLS = [
           ...STYLE_ENUM,
           description: "Defaults to `stroke`, the only style every icon has.",
         },
+        corners: CORNERS_ENUM,
       },
       required: ["name"],
     },
@@ -256,7 +281,9 @@ const TOOLS = [
     name: "get_react_usage",
     description:
       "The import line and JSX for one icon from `@keyline-icons/react`. Each " +
-      "style is its own entry point because they do not cover the same icons.",
+      "style is its own entry point because they do not cover the same icons, " +
+      "and sharp is one segment further along: `@keyline-icons/react/sharp` " +
+      "and `/sharp/duotone`. The export is called the same thing either way.",
     inputSchema: {
       type: "object",
       properties: {
@@ -265,6 +292,7 @@ const TOOLS = [
           description: "Exact icon name, e.g. `circle-arrow-down`.",
         },
         style: { ...STYLE_ENUM, description: "Defaults to `stroke`." },
+        corners: CORNERS_ENUM,
       },
       required: ["name"],
     },
@@ -417,16 +445,20 @@ function callTool(name, args) {
     }
 
     case "get_icon": {
-      const { name: icon, style = "stroke" } = args
+      const { name: icon, style = "stroke", corners: k = "regular" } = args
       if (typeof icon !== "string") return fail("`name` is required.")
       if (!styles.includes(style))
         return fail(`Unknown style \`${style}\`. One of: ${styles.join(", ")}.`)
+      if (!corners.includes(k))
+        return fail(`Unknown corner treatment \`${k}\`. One of: ${corners.join(", ")}.`)
       if (!icons[icon])
         return fail(`No icon named \`${icon}\`.${nearest(icon)}`)
-      const svg = svgFor(icon, style)
+      const svg = svgFor(icon, style, k)
       if (!svg) {
+        // `Object.keys` would offer `sharp` here as though it were a style.
+        const has = styles.filter((t) => svgFor(icon, t, k))
         return fail(
-          `\`${icon}\` has no ${style} style. It has: ${Object.keys(icons[icon]).join(", ")}. ` +
+          `\`${icon}\` has no ${style} style. It has: ${has.join(", ")}. ` +
             `Duotone and fill need a fillable region and this glyph has none.`
         )
       }
@@ -434,22 +466,25 @@ function callTool(name, args) {
     }
 
     case "get_react_usage": {
-      const { name: icon, style = "stroke" } = args
+      const { name: icon, style = "stroke", corners: k = "regular" } = args
       if (typeof icon !== "string") return fail("`name` is required.")
       if (!styles.includes(style))
         return fail(`Unknown style \`${style}\`. One of: ${styles.join(", ")}.`)
-      if (!icons[icon]?.[style]) {
+      if (!corners.includes(k))
+        return fail(`Unknown corner treatment \`${k}\`. One of: ${corners.join(", ")}.`)
+      if (!svgFor(icon, style, k)) {
         return fail(
           `\`${icon}\` has no ${style} style.` +
             (icons[icon]
-              ? ` It has: ${Object.keys(icons[icon]).join(", ")}.`
+              ? ` It has: ${styles.filter((t) => svgFor(icon, t, k)).join(", ")}.`
               : nearest(icon))
         )
       }
-      const entry =
-        style === "stroke"
-          ? "@keyline-icons/react"
-          : `@keyline-icons/react/${style}`
+      // A treatment is a path segment rather than a suffix on the export name,
+      // so the component is called the same thing at whichever entry point.
+      const base =
+        k === "sharp" ? "@keyline-icons/react/sharp" : "@keyline-icons/react"
+      const entry = style === "stroke" ? base : `${base}/${style}`
       const C = pascal(icon)
       return text(
         `import { ${C} } from "${entry}"\n\n<${C} className="size-4" />\n\n` +

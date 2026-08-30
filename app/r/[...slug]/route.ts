@@ -1,4 +1,5 @@
 import { componentName, registryComponent } from "@/lib/icon-code"
+import { artOf, CORNERS, type Corners } from "@/components/glyph"
 import { loadIcons, STYLES, type Icon, type Style } from "@/lib/icons"
 import { absoluteUrl } from "@/lib/seo"
 import { SET_TITLE } from "@/lib/site-chrome"
@@ -57,47 +58,61 @@ type RegistryItem = {
 
 const AUTHOR = `${SET_TITLE} <${absoluteUrl("/")}>`
 
-/** `bell` for stroke, `fill/bell` otherwise. The install name and the URL agree. */
-const itemName = (name: string, style: Style) =>
-  style === "stroke" ? name : `${style}/${name}`
+/**
+ * `bell` for stroke, `fill/bell` for a style, `sharp/fill/bell` for a treatment.
+ *
+ * The install name, the URL and the React entry point all agree, which is the
+ * property worth having: someone who has read `@keyline-icons/react/sharp/fill`
+ * can guess `@keyline/sharp/fill/bell` and be right.
+ */
+const itemName = (name: string, style: Style, corners: Corners) =>
+  [corners === "sharp" ? "sharp" : null, style === "stroke" ? null : style, name]
+    .filter(Boolean)
+    .join("/")
 
-function describe(icon: Icon, style: Style) {
-  const styles = STYLES.filter((s) => icon.art[s])
+function describe(icon: Icon, style: Style, corners: Corners) {
+  const styles = STYLES.filter((s) => artOf(icon, s, corners))
   return (
     `${componentName(icon.name)}, the ${style} drawing of ${icon.name} on a ` +
-    `24×24 grid. Available in ${styles.join(", ")}.`
+    `24×24 grid, with ${corners === "sharp" ? "squared" : "rounded"} corners. ` +
+    `Available in ${styles.join(", ")}.`
   )
 }
 
 /** Metadata only. The catalog is for `search`, so it carries no file bodies. */
-function summary(icon: Icon, style: Style): RegistryItem {
+function summary(icon: Icon, style: Style, corners: Corners): RegistryItem {
   return {
-    name: itemName(icon.name, style),
+    name: itemName(icon.name, style, corners),
     type: "registry:component",
     title: componentName(icon.name),
-    description: describe(icon, style),
+    description: describe(icon, style, corners),
     author: AUTHOR,
-    meta: { style, container: icon.container, base: icon.base },
+    meta: { style, corners, container: icon.container, base: icon.base },
   }
 }
 
-function item(icon: Icon, style: Style): RegistryItem {
-  const art = icon.art[style]!
+function item(icon: Icon, style: Style, corners: Corners): RegistryItem {
+  const art = artOf(icon, style, corners)!
   // `@components/` resolves against components.json when the consumer has one
   // and falls back sanely when they do not, which is the case this whole route
   // exists to serve.
-  const target = `@components/icons/${style === "stroke" ? "" : `${style}/`}${icon.name}.tsx`
+  // The treatment is a directory here rather than a suffix, so a project that
+  // installs both gets two files instead of one overwriting the other.
+  const target =
+    `@components/icons/` +
+    `${corners === "sharp" ? "sharp/" : ""}${style === "stroke" ? "" : `${style}/`}` +
+    `${icon.name}.tsx`
 
   return {
     $schema: "https://ui.shadcn.com/schema/registry-item.json",
-    ...summary(icon, style),
+    ...summary(icon, style, corners),
     // No npm dependencies on purpose. The emitted file imports a type from
     // react and nothing else, so it compiles in any React project without
     // pulling `@keyline-icons/react` in behind the consumer's back.
     dependencies: [],
     files: [
       {
-        path: `registry/icons/${itemName(icon.name, style)}.tsx`,
+        path: `registry/icons/${itemName(icon.name, style, corners)}.tsx`,
         content: registryComponent(icon.name, art),
         type: "registry:component",
         target,
@@ -128,7 +143,9 @@ export async function GET(
 
   if (last === "registry" && parts.length === 0) {
     const items = icons.flatMap((icon) =>
-      STYLES.filter((s) => icon.art[s]).map((s) => summary(icon, s))
+      CORNERS.flatMap((k) =>
+        STYLES.filter((s) => artOf(icon, s, k)).map((s) => summary(icon, s, k))
+      )
     )
     return json({
       $schema: "https://ui.shadcn.com/schema/registry.json",
@@ -138,6 +155,11 @@ export async function GET(
     })
   }
 
+  // `sharp` leads when it is there, so what remains is the style segment the
+  // route has always parsed.
+  const corners: Corners = parts[0] === "sharp" ? "sharp" : "regular"
+  if (corners === "sharp") parts.shift()
+
   const style = (parts[0] ?? "stroke") as Style
   if (parts.length > 1 || !STYLES.includes(style)) {
     return json({ error: `Unknown registry path: ${slug.join("/")}` }, 404)
@@ -145,7 +167,7 @@ export async function GET(
 
   const icon = icons.find((i) => i.name === last)
   if (!icon) return json({ error: `No icon named "${last}"` }, 404)
-  if (!icon.art[style]) {
+  if (!artOf(icon, style, corners)) {
     // The coverage rule, as an answer rather than a 404 with no reason: an open
     // glyph has nothing to fill, and saying so is what stops it reading as a
     // gap in the registry.
@@ -155,7 +177,7 @@ export async function GET(
     // `["bar-chart" has no fill style] undefined` at the terminal, so the half
     // of the answer worth having never reached the person who asked. `available`
     // stays for anyone reading the route directly.
-    const available = STYLES.filter((s) => icon.art[s])
+    const available = STYLES.filter((s) => artOf(icon, s, corners))
     return json(
       {
         error: `"${last}" has no ${style} style. It has: ${available.join(", ")}.`,
@@ -165,7 +187,7 @@ export async function GET(
     )
   }
 
-  return json(item(icon, style))
+  return json(item(icon, style, corners))
 }
 
 /**
@@ -178,9 +200,15 @@ export async function generateStaticParams() {
   return [
     { slug: ["registry.json"] },
     ...icons.flatMap((icon) =>
-      STYLES.filter((s) => icon.art[s]).map((s) => ({
-        slug: s === "stroke" ? [`${icon.name}.json`] : [s, `${icon.name}.json`],
-      }))
+      CORNERS.flatMap((k) =>
+        STYLES.filter((s) => artOf(icon, s, k)).map((s) => ({
+          slug: [
+            ...(k === "sharp" ? ["sharp"] : []),
+            ...(s === "stroke" ? [] : [s]),
+            `${icon.name}.json`,
+          ],
+        }))
+      )
     ),
   ]
 }
