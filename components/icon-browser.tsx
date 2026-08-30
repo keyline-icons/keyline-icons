@@ -55,7 +55,15 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
-import { Glyph, STYLES, type BrowserIcon, type Style } from "@/components/glyph"
+import {
+  artOf,
+  CORNERS,
+  Glyph,
+  STYLES,
+  type BrowserIcon,
+  type Corners,
+  type Style,
+} from "@/components/glyph"
 import { IconPreview, useIconPreview } from "@/components/icon-preview"
 import {
   aliasesFor,
@@ -249,7 +257,7 @@ export function IconBrowser({
     paint is already what was asked for. A bare URL still opens the whole set.
   */
   const [settings, update] = useBrowserSettings(initialSettings)
-  const { size, stroke, color, showNames, columns } = settings
+  const { size, stroke, color, showNames, columns, corners } = settings
 
   const [category, setCategory] = React.useState("all")
   const [style, setStyle] = React.useState<Style>(initialStyle)
@@ -443,12 +451,12 @@ export function IconBrowser({
   const perCategory = React.useMemo(() => {
     const counts = new Map<string, number>()
     for (const icon of icons) {
-      if (!icon.art[style]) continue
+      if (!artOf(icon, style, corners)) continue
       const label = categoryOf(icon.base)
       counts.set(label, (counts.get(label) ?? 0) + 1)
     }
     return counts
-  }, [icons, style])
+  }, [icons, style, corners])
 
   /*
     A search does not run inside the active category. Typing under a picked
@@ -475,7 +483,7 @@ export function IconBrowser({
     const haystacks: string[] = []
     const vocabulary = new Map<string, number>()
     for (const icon of icons) {
-      if (!icon.art[style]) continue
+      if (!artOf(icon, style, corners)) continue
       const haystack = [icon.name, ...aliasesFor(icon.base)].join(" ")
       haystacks.push(haystack)
       for (const token of haystack.split(/[^a-z0-9]+/)) {
@@ -483,7 +491,7 @@ export function IconBrowser({
       }
     }
     return { haystacks, vocabulary }
-  }, [icons, style])
+  }, [icons, style, corners])
 
   // Everything the style, the search and the category allow, before the shape
   // filter — the shape menu counts read off this, so they stay honest about
@@ -491,7 +499,7 @@ export function IconBrowser({
   const matches = React.useMemo(() => {
     const words = terms(query)
     return icons.filter((i) => {
-      if (!i.art[style]) return false
+      if (!artOf(i, style, corners)) return false
       if (category !== "all" && categoryOf(i.base) !== category) return false
       /*
         Every word has to land somewhere in the name, in any order: "up arrow"
@@ -512,7 +520,7 @@ export function IconBrowser({
       const haystack = [i.name, ...aliasesFor(i.base)].join(" ")
       return words.every((w) => haystack.includes(w))
     })
-  }, [icons, query, style, category])
+  }, [icons, query, style, category, corners])
 
   /**
    * Drawings this search would have found in one of the other two styles.
@@ -531,12 +539,12 @@ export function IconBrowser({
     const words = terms(query)
     if (words.length === 0 && category === "all") return 0
     return icons.filter((i) => {
-      if (i.art[style]) return false
+      if (artOf(i, style, corners)) return false
       if (category !== "all" && categoryOf(i.base) !== category) return false
       const haystack = [i.name, ...aliasesFor(i.base)].join(" ")
       return words.every((w) => haystack.includes(w))
     }).length
-  }, [icons, query, style, category, matches.length])
+  }, [icons, query, style, category, corners, matches.length])
 
   /*
     The corrected query, when the search missed and a small spelling slip
@@ -799,9 +807,9 @@ export function IconBrowser({
   // its own matches instead: this never reaches zero.
   const perStyle = React.useMemo(() => {
     const c: Record<string, number> = {}
-    for (const s of STYLES) c[s] = icons.filter((i) => i.art[s]).length
+    for (const s of STYLES) c[s] = icons.filter((i) => artOf(i, s, corners)).length
     return c
-  }, [icons])
+  }, [icons, corners])
 
   /**
    * The category list: the sidebar on a wide screen, the head of the drawer on
@@ -912,6 +920,28 @@ export function IconBrowser({
             <span className="ml-1.5 text-xs text-muted-foreground tabular-nums">
               {perStyle[s]}
             </span>
+          </SegmentedItem>
+        ))}
+      </Segmented>
+    )
+
+    /**
+     * Rounded or squared, with no count beside it.
+     *
+     * Every drawing exists in both treatments, so a count here would read 585
+     * against 585 and say nothing; the style tabs carry counts because picking
+     * one genuinely removes drawings. Same reason it sits in the settings
+     * cookie while style does not.
+     */
+    const cornersGroup = (
+      <Segmented aria-label="Corner treatment">
+        {CORNERS.map((c) => (
+          <SegmentedItem
+            key={c}
+            active={corners === c}
+            onClick={() => update({ corners: c })}
+          >
+            {c === "regular" ? "Rounded" : "Sharp"}
           </SegmentedItem>
         ))}
       </Segmented>
@@ -1126,6 +1156,7 @@ export function IconBrowser({
     return (
       <>
         {styleGroup}
+        {cornersGroup}
         {sizeSlider}
         {strokeSlider}
         {shapeMenu}
@@ -1441,7 +1472,7 @@ export function IconBrowser({
                       style={color ? { color } : undefined}
                     >
                       <Glyph
-                        art={icon.art[style]!}
+                        art={artOf(icon, style, corners)!}
                         size={size}
                         stroke={stroke}
                       />
@@ -1609,6 +1640,7 @@ export function IconBrowser({
         // Grid order, so the arrow keys walk what you can see.
         order={paged.map((icon) => icon.name)}
         gridStyle={style}
+        corners={corners}
         size={size}
         stroke={stroke}
         color={color}

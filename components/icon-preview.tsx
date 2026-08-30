@@ -17,7 +17,14 @@ import {
 } from "@/components/icons"
 
 import { DesignFileLinks } from "@/components/design-file-links"
-import { Glyph, STYLES, type BrowserIcon, type Style } from "@/components/glyph"
+import {
+  artOf,
+  Glyph,
+  STYLES,
+  type BrowserIcon,
+  type Corners,
+  type Style,
+} from "@/components/glyph"
 import { Segmented, SegmentedItem } from "@/components/segmented"
 import { Button } from "@/components/ui/button"
 import {
@@ -148,6 +155,7 @@ export function IconPreview({
   closing,
   order,
   gridStyle,
+  corners,
   stroke,
   color,
   size,
@@ -167,6 +175,16 @@ export function IconPreview({
   order: string[]
   /** The grid's style, which a freshly opened panel starts on. */
   gridStyle: Style
+  /**
+   * The grid's corner treatment, which the panel simply follows.
+   *
+   * Not `pickedCorners` beside `picked`: style is picked here because a drawing
+   * may not have the grid's style and the panel has to fall back to one it does
+   * have. Every drawing exists in both treatments, so there is nothing to fall
+   * back from, and a panel showing a different treatment from the grid behind
+   * it would be two answers to one question.
+   */
+  corners: Corners
   stroke: number
   color: string | null
   /** Only reaches the copied markup; the specimen draws its own ramp. */
@@ -210,12 +228,12 @@ export function IconPreview({
   const style: Style = React.useMemo(() => {
     if (!icon) return gridStyle
     for (const candidate of [picked, gridStyle, ...STYLES]) {
-      if (candidate && icon.art[candidate]) return candidate
+      if (candidate && artOf(icon, candidate, corners)) return candidate
     }
     return gridStyle
-  }, [icon, picked, gridStyle])
+  }, [icon, picked, gridStyle, corners])
 
-  const art = icon?.art[style]
+  const art = icon ? artOf(icon, style, corners) : undefined
 
   const code = React.useMemo(
     () =>
@@ -578,7 +596,8 @@ export function IconPreview({
                       {recents.map((recent) => {
                         const entry = byName.get(recent)
                         if (!entry) return null
-                        const recentArt = entry.art[style] ?? entry.art.stroke!
+                        const recentArt =
+                          artOf(entry, style, corners) ?? artOf(entry, "stroke", corners)!
 
                         return (
                           <Tooltip key={recent}>
@@ -811,7 +830,7 @@ export function IconPreview({
                       key={s}
                       size="sm"
                       active={style === s}
-                      disabled={!icon.art[s]}
+                      disabled={!artOf(icon, s, corners)}
                       onClick={() => setPicked(s)}
                       className="capitalize"
                     >
@@ -819,7 +838,7 @@ export function IconPreview({
                     </SegmentedItem>
                   )
 
-                  return icon.art[s] ? (
+                  return artOf(icon, s, corners) ? (
                     item
                   ) : (
                     <Tooltip key={s}>
@@ -864,8 +883,8 @@ export function IconPreview({
                       <span className="flex size-5 items-center justify-center">
                         <Glyph
                           art={
-                            variant.icon!.art[style] ??
-                            variant.icon!.art.stroke!
+                            artOf(variant.icon!, style, corners) ??
+                            artOf(variant.icon!, "stroke", corners)!
                           }
                           size={18}
                           stroke={stroke}

@@ -4,7 +4,14 @@ import * as React from "react"
 import { toast } from "sonner"
 
 import { ArrowUTurnLeft, Check, Copy, Download } from "@/components/icons"
-import { Glyph, STYLES, type BrowserIcon, type Style } from "@/components/glyph"
+import {
+  artOf,
+  CORNERS,
+  Glyph,
+  STYLES,
+  type BrowserIcon,
+  type Style,
+} from "@/components/glyph"
 import { useBrowserSettings } from "@/hooks/use-browser-settings"
 import { SETTINGS_DEFAULTS, type BrowserSettings } from "@/lib/browser-settings"
 import { Segmented, SegmentedItem } from "@/components/segmented"
@@ -76,34 +83,38 @@ export function IconDetail({
   icon: BrowserIcon
   initialSettings: BrowserSettings
 }) {
-  const drawn = React.useMemo(
-    () => STYLES.filter((style) => icon.art[style]),
-    [icon]
-  )
-
-  const [style, setStyle] = React.useState<Style>(drawn[0] ?? "stroke")
-
   /**
-   * Size, stroke and colour, shared with the grid through the cookie.
+   * Size, stroke, colour and the corner treatment, shared with the grid through
+   * the cookie.
    *
    * `color` being `null` is "whatever the page's ink is", which is what the
    * drawings do on their own. None of the three reaches the copied markup as a
    * colour: every icon paints from `currentColor`, so the snippet stays
    * inheritable and the tint is a preview of the drawing in your palette rather
    * than an edit to it. Size and stroke do reach it, because they are what the
-   * markup says.
+   * markup says. So does the treatment, which is the cap.
+   *
+   * Read before `drawn`, because which styles a drawing has is a question about
+   * one treatment and the answer arrives with the settings.
    *
    * `showNames` and `columns` come along in the object and are simply not used
    * here — they describe a grid, and there is no grid on this page.
    */
   const [settings, update] = useBrowserSettings(initialSettings)
-  const { size, stroke, color } = settings
+  const { size, stroke, color, corners } = settings
+
+  const drawn = React.useMemo(
+    () => STYLES.filter((style) => artOf(icon, style, corners)),
+    [icon, corners]
+  )
+
+  const [style, setStyle] = React.useState<Style>(drawn[0] ?? "stroke")
 
   const [format, setFormat] = React.useState<Format>("svg")
   const [pm, setPm] = React.useState<PackageManager>("npm")
   const [copied, setCopied] = React.useState(false)
 
-  const art = icon.art[style] ?? icon.art[drawn[0]!]!
+  const art = artOf(icon, style, corners) ?? artOf(icon, drawn[0]!, corners)!
   const tint = color ? { color } : undefined
 
   /**
@@ -120,7 +131,7 @@ export function IconDetail({
     grid, so a reader who left the grid at 12 columns would otherwise find
     Reset lit on a page with no columns on it and nothing to undo.
   */
-  const atDefaults = (["size", "stroke", "color"] as const).every(
+  const atDefaults = (["size", "stroke", "color", "corners"] as const).every(
     (key) => settings[key] === SETTINGS_DEFAULTS[key]
   )
 
@@ -242,7 +253,7 @@ export function IconDetail({
                 <SegmentedItem
                   key={s}
                   active={style === s}
-                  disabled={!icon.art[s]}
+                  disabled={!artOf(icon, s, corners)}
                   onClick={() => setStyle(s)}
                   className="capitalize"
                 >
@@ -250,7 +261,7 @@ export function IconDetail({
                 </SegmentedItem>
               )
 
-              return icon.art[s] ? (
+              return artOf(icon, s, corners) ? (
                 item
               ) : (
                 <Tooltip key={s}>
@@ -265,6 +276,25 @@ export function IconDetail({
                 </Tooltip>
               )
             })}
+          </Segmented>
+
+          {/*
+            The same treatment switch the grid carries, and the same cookie, so
+            an icon opened from a sharp grid is already sharp and a treatment
+            picked here survives the trip back. No counts: every drawing exists
+            in both, which is also why it needs no disabled state beside the
+            style chips that do.
+          */}
+          <Segmented aria-label="Corner treatment">
+            {CORNERS.map((c) => (
+              <SegmentedItem
+                key={c}
+                active={corners === c}
+                onClick={() => update({ corners: c })}
+              >
+                {c === "regular" ? "Rounded" : "Sharp"}
+              </SegmentedItem>
+            ))}
           </Segmented>
 
           <TickSlider

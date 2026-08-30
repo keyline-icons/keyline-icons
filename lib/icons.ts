@@ -9,6 +9,8 @@ import badges from "@/lib/icon-badges.json"
 export const STYLES = ["stroke", "duotone", "fill"] as const
 export type Style = (typeof STYLES)[number]
 
+export { CORNERS, type Corners } from "@/components/glyph"
+
 /**
  * A style's markup plus the root attributes it needs.
  *
@@ -57,6 +59,15 @@ export type Icon = {
   base: string
   container: "regular" | "square" | "circle"
   art: Partial<Record<Style, StyleArt>>
+  /**
+   * The same styles again, drawn with squared corners.
+   *
+   * `icons/sharp/<style>/<name>.svg` on disk. A second field rather than a
+   * second dimension on `art`, because every existing reader of `art[style]`
+   * means the rounded drawing and should go on meaning it; `artOf` in
+   * `components/glyph.tsx` is what anything treatment-aware asks instead.
+   */
+  sharp?: Partial<Record<Style, StyleArt>>
   /** Absent only for a drawing that has never been committed. */
   history?: IconHistory
 }
@@ -334,10 +345,27 @@ async function readIcons(): Promise<Icon[]> {
       let icon = byName.get(name)
       if (!icon) {
         // container and base are settled below, once every name is known.
-        icon = { name, base: name, container: "regular", art: {} }
+        icon = { name, base: name, container: "regular", art: {}, sharp: {} }
         byName.set(name, icon)
       }
       icon.art[style] = toStyleArt(src)
+    }
+  }
+
+  /*
+   * The sharp half, read second so a treatment can never invent a name.
+   *
+   * An icon exists because it has a rounded drawing; a sharp file with no
+   * rounded sibling is drift rather than a new icon, and it is dropped here
+   * with the coverage check in `pipeline/lint.mjs` left to report it. Reading
+   * both passes into the same map would let one silently create the other.
+   */
+  for (const style of STYLES) {
+    const dir = join(ICONS_DIR, "sharp", style)
+    if (!existsSync(dir)) continue
+    for (const file of (await readdir(dir)).filter((f) => f.endsWith(".svg"))) {
+      const icon = byName.get(file.slice(0, -4))
+      if (icon) (icon.sharp ??= {})[style] = toStyleArt(await readFile(join(dir, file), "utf8"))
     }
   }
 
@@ -370,11 +398,18 @@ export const SVG_ROOT_ATTRS = {
   strokeLinejoin: "round",
 } as const
 
-/** Reassemble a full standalone SVG document, for copy-to-clipboard and download. */
-export function toSvgDocument(body: string, size = 24) {
+/**
+ * Reassemble a full standalone SVG document, for copy-to-clipboard and download.
+ *
+ * The cap is a parameter because it is the sharp treatment: squared caps are
+ * half of what makes a sharp drawing sharp, and the geometry carries only the
+ * other half. Hardcoded round, a copied sharp icon pastes as something between
+ * the two, with nothing in the markup to say which.
+ */
+export function toSvgDocument(body: string, size = 24, linecap = "round") {
   return (
     `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" ` +
     `viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ` +
-    `stroke-linecap="round" stroke-linejoin="round">\n  ${body}\n</svg>\n`
+    `stroke-linecap="${linecap}" stroke-linejoin="round">\n  ${body}\n</svg>\n`
   )
 }

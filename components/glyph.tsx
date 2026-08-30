@@ -25,6 +25,16 @@ export type Style = (typeof STYLES)[number]
 export const CONTAINERS = ["regular", "square", "circle"] as const
 export type Container = (typeof CONTAINERS)[number]
 
+/**
+ * The corner treatments, for the same reason the containers are here.
+ *
+ * `regular` rather than `rounded`, matching the Figma property, which left the
+ * name free for a third treatment. A drawing owes the same styles in both, so
+ * this is a third axis over the same set rather than a second set.
+ */
+export const CORNERS = ["regular", "sharp"] as const
+export type Corners = (typeof CORNERS)[number]
+
 export type StyleArt = { body: string; root: Record<string, string> }
 
 /** Git's answers about the drawing, baked at build. See `lib/icons.ts`. */
@@ -44,6 +54,14 @@ export type BrowserIcon = {
   base: string
   container: Container
   art: Partial<Record<Style, StyleArt>>
+  /**
+   * The same styles again, drawn with squared corners.
+   *
+   * A second field rather than a second dimension on `art`, because twenty
+   * files read `icon.art[style]` and every one of them means the rounded
+   * drawing. `artOf` is what anything treatment-aware asks instead.
+   */
+  sharp?: Partial<Record<Style, StyleArt>>
   history?: IconHistory
   /**
    * Added since the last release, so the grid can badge it.
@@ -54,6 +72,22 @@ export type BrowserIcon = {
    * component cannot import it to ask.
    */
   isNew?: boolean
+}
+
+/**
+ * One drawing, in the style and corner treatment asked for.
+ *
+ * The single place the two fields are chosen between, so nothing has to
+ * remember that `art` means rounded. Returns undefined where the icon does not
+ * carry that style, which is the same answer `art[style]` gives and what every
+ * caller already checks for.
+ */
+export function artOf(
+  icon: { art: Partial<Record<Style, StyleArt>>; sharp?: Partial<Record<Style, StyleArt>> },
+  style: Style,
+  corners: Corners = "regular"
+): StyleArt | undefined {
+  return corners === "sharp" ? icon.sharp?.[style] : icon.art[style]
 }
 
 /** kebab-case SVG attribute -> the React prop name. */
