@@ -29,6 +29,7 @@ import { join, resolve } from 'node:path';
 const ROOT = resolve(import.meta.dirname, '..');
 const ICONS = join(ROOT, 'icons');
 const STYLES = ['stroke', 'duotone', 'fill'];
+const CORNERS = ['regular', 'sharp'];
 
 const fix = process.argv.includes('--fix');
 const json = process.argv.includes('--json');
@@ -82,7 +83,23 @@ function counts() {
        file holds. The file listing quotes this one and the plugin listing does
        not, which is why it only appears now. */
     sets: names.size - contained('square') - contained('circle'),
-    files: STYLES.reduce((n, s) => n + byStyle[s], 0),
+    /*
+      Every file under `icons/`, both corner treatments. The per-style numbers
+      above describe one treatment, because coverage is a fact about a drawing
+      and does not change when its corners do — but a claim about how many SVGs
+      the set holds is a claim about the directory, and since 30 Aug 2026 the
+      directory holds each drawing twice. Counted rather than doubled, so a
+      third treatment needs no arithmetic here.
+    */
+    files: CORNERS.reduce(
+      (n, k) =>
+        n +
+        STYLES.reduce((m, s) => {
+          const dir = k === 'regular' ? join(ICONS, s) : join(ICONS, k, s);
+          return m + (existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.svg')).length : 0);
+        }, 0),
+      0
+    ),
     stroke: byStyle.stroke,
     duotone: byStyle.duotone,
     fill: byStyle.fill,

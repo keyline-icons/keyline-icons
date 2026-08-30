@@ -14,9 +14,12 @@ crafted with AI, free under MIT.
 | `duotone` | 480 | The stroke drawing over a flat plate at reduced opacity. |
 | `fill` | 432 | Solid, with the detail knocked back out of the shape. |
 
-1,497 SVGs in total. `stroke` is complete by definition: it is the drawing every
-other style is derived from. `duotone` and `fill` need a region to fill, and not
-every glyph has one. `bar-chart` is three open strokes with no interior, so it
+The table is one corner treatment. Every drawing is also cut with sharp corners,
+so 2,994 SVGs in total.
+
+`stroke` is complete by definition: it is the drawing every other style is
+derived from. `duotone` and `fill` need a region to fill, and not every glyph
+has one. `bar-chart` is three open strokes with no interior, so it
 carries stroke only, while `square-bar-chart` puts the same glyph in a container
 and gains both. Fillability is measured off the outline rather than guessed from
 the name, which is why the counts are what they are.
