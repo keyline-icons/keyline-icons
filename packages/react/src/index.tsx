@@ -1742,7 +1742,7 @@ export function CursorDashedPanel(props: IconProps) {
 export function CursorOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M7.2925 7.2925L3.4803 8.5617C2.8639 8.7669 2.8329 9.6243 3.4328 9.8732L10.5226 12.8146C10.6843 12.8817 10.8152 13.0065 10.8893 13.1647L14.3746 20.596C14.6459 21.174 15.4879 21.1195 15.6816 20.5112L16.8479 16.8479ZM18.214 12.5572L20.9659 3.9139C21.1398 3.3677 20.6184 2.8558 20.0732 3.0373L11.5364 5.8795ZM2 2L22 22" />
+      <path d="M7.2925 7.2925L3.4803 8.5617C2.8639 8.7669 2.8329 9.6243 3.4328 9.8732L10.5226 12.8146C10.6843 12.8817 10.8152 13.0065 10.8893 13.1647L14.3746 20.596C14.6459 21.174 15.4879 21.1195 15.6816 20.5112L16.8479 16.8479ZM18.214 12.5572L20.9659 3.9139C21.1398 3.3677 20.6184 2.8558 20.0732 3.0373L11.5364 5.8795M2 2L22 22" />
     </Icon>
   )
 }
@@ -3172,7 +3172,7 @@ export function Minus(props: IconProps) {
 export function MonitorOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M16 16H5C3.34315 16 2 14.65685 2 13V7C2 5.67855 2.8644 4.5126 4.129 4.129M9.657 4H19C20.65685 4 22 5.34315 22 7V13M12 16V20M8 20H16M2 2L22 22" />
+      <path d="M16 16H5C3.34315 16 2 14.65685 2 13V7C2 5.67855 2.8644 4.5126 4.129 4.129M9.657 4H19C20.65685 4 22 5.34315 22 7V14.3431M12 16V20M8 20H16M2 2L22 22" />
     </Icon>
   )
 }

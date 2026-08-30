@@ -86,6 +86,73 @@ function tangentAt(s, end) {
   return [1, 0];
 }
 
+const ptAt = (s, t) => {
+  if (s.t === 'l') return add(s.p0, mul(sub(s.p1, s.p0), t));
+  const m = 1 - t;
+  return [
+    m*m*m*s.p0[0] + 3*m*m*t*s.p1[0] + 3*m*t*t*s.p2[0] + t*t*t*s.p3[0],
+    m*m*m*s.p0[1] + 3*m*m*t*s.p1[1] + 3*m*t*t*s.p2[1] + t*t*t*s.p3[1],
+  ];
+};
+const dAt = (s, t) => {
+  if (s.t === 'l') return sub(s.p1, s.p0);
+  const m = 1 - t;
+  return [
+    3*m*m*(s.p1[0]-s.p0[0]) + 6*m*t*(s.p2[0]-s.p1[0]) + 3*t*t*(s.p3[0]-s.p2[0]),
+    3*m*m*(s.p1[1]-s.p0[1]) + 6*m*t*(s.p2[1]-s.p1[1]) + 3*t*t*(s.p3[1]-s.p2[1]),
+  ];
+};
+const casteljau = (s, t) => {
+  const a = add(s.p0, mul(sub(s.p1, s.p0), t)), b = add(s.p1, mul(sub(s.p2, s.p1), t));
+  const c = add(s.p2, mul(sub(s.p3, s.p2), t));
+  const ab = add(a, mul(sub(b, a), t)), bc = add(b, mul(sub(c, b), t));
+  return { a, c, ab, bc, mid: add(ab, mul(sub(bc, ab), t)) };
+};
+const splitLeft = (s, t) => {
+  if (s.t === 'l') return { t: 'l', p0: s.p0, p1: ptAt(s, t) };
+  const { a, ab, mid } = casteljau(s, t);
+  return { t: 'c', p0: s.p0, p1: a, p2: ab, p3: mid };
+};
+const splitRight = (s, t) => {
+  if (s.t === 'l') return { t: 'l', p0: ptAt(s, t), p1: s.p1 };
+  const { c, bc, mid } = casteljau(s, t);
+  return { t: 'c', p0: mid, p1: bc, p2: c, p3: s.p3 };
+};
+
+/**
+ * Where two offset arms overlap at a reflex corner, find the crossing that
+ * trims the least — the corner the drawing meant. Flatten both, take the
+ * polyline crossing nearest the join, then refine it with Newton on
+ * A(tA) = B(tB) so the trim lands on the true curves rather than on facets.
+ */
+function reflexCrossing(A, B) {
+  const N = 96, pa = [], pb = [];
+  for (let i = 0; i <= N; i++) { pa.push(ptAt(A, i / N)); pb.push(ptAt(B, i / N)); }
+  let best = null;
+  for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) {
+    const u = sub(pa[i + 1], pa[i]), v = sub(pb[j + 1], pb[j]), den = cross(u, v);
+    if (Math.abs(den) < 1e-12) continue;
+    const w = sub(pb[j], pa[i]);
+    const s = cross(w, v) / den, r = cross(w, u) / den;
+    if (s < 0 || s > 1 || r < 0 || r > 1) continue;
+    const tA = (i + s) / N, tB = (j + r) / N, score = (1 - tA) + tB;
+    if (!best || score < best.score) best = { tA, tB, score };
+  }
+  if (!best) return null;
+  let { tA, tB } = best;
+  for (let k = 0; k < 24; k++) {
+    const F = sub(ptAt(A, tA), ptAt(B, tB));
+    if (len(F) < 1e-12) break;
+    const da = dAt(A, tA), db = dAt(B, tB), det = -cross(da, db);
+    if (Math.abs(det) < 1e-12) break;
+    const na = tA + (db[1] * F[0] - db[0] * F[1]) / det;
+    const nb = tB + (da[1] * F[0] - da[0] * F[1]) / det;
+    if (!isFinite(na) || !isFinite(nb) || na < 0 || na > 1 || nb < 0 || nb > 1) break;
+    tA = na; tB = nb;
+  }
+  return len(sub(ptAt(A, tA), ptAt(B, tB))) < 1e-6 ? { tA, tB } : best;
+}
+
 /** Offset one CLOSED subpath (lines + cubics) by d to its outside. */
 export function offsetClosed(segs, d) {
   const poly = samplePts(segs, 10);
@@ -148,6 +215,18 @@ export function offsetClosed(segs, d) {
           const X = add(A.p0, mul(sub(A.p1, A.p0), t));
           if (len(sub(X, Aend)) < 3 * d) { A.p1 = X; B.p0 = X; continue; }
         }
+      }
+      // A curved arm has no single intersection to solve for, so trim both
+      // arms at the crossing instead. Connecting them rather than trimming
+      // drags the outgoing arm's start onto the incoming arm's end — a full
+      // 2 * d apart at a right angle — which collapses the corner into a
+      // spike: heart's notch, the cloud shoulders, the message tails.
+      const X = reflexCrossing(A, B);
+      if (X && len(sub(ptAt(A, X.tA), Aend)) < 3 * d && X.tA > 0.01 && X.tB < 0.99) {
+        const LA = splitLeft(A, X.tA), RB = splitRight(B, X.tB);
+        Object.assign(A, LA); Object.assign(B, RB);
+        B.p0 = A.t === 'l' ? A.p1 : A.p3;                // one shared point exactly
+        continue;
       }
       B.p0 = Aend;                                       // fallback: just connect
     }

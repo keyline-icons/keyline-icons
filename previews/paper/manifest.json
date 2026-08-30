@@ -27,7 +27,7 @@
       "width": 742,
       "icons": 32,
       "variants": 53,
-      "bytes": 41136
+      "bytes": 40686
     },
     {
       "file": "actions-2.html",
@@ -171,7 +171,7 @@
       "width": 742,
       "icons": 10,
       "variants": 18,
-      "bytes": 16716
+      "bytes": 16638
     },
     {
       "file": "devices-1.html",
@@ -183,7 +183,7 @@
       "width": 742,
       "icons": 29,
       "variants": 51,
-      "bytes": 41087
+      "bytes": 41064
     },
     {
       "file": "devices-2.html",
@@ -207,7 +207,7 @@
       "width": 742,
       "icons": 34,
       "variants": 54,
-      "bytes": 41040
+      "bytes": 40779
     },
     {
       "file": "files-2.html",
@@ -219,7 +219,7 @@
       "width": 742,
       "icons": 0,
       "variants": 44,
-      "bytes": 35946
+      "bytes": 35773
     },
     {
       "file": "git-1.html",
@@ -267,7 +267,7 @@
       "width": 742,
       "icons": 0,
       "variants": 50,
-      "bytes": 36639
+      "bytes": 36299
     },
     {
       "file": "mail-1.html",
@@ -279,7 +279,7 @@
       "width": 742,
       "icons": 27,
       "variants": 47,
-      "bytes": 40528
+      "bytes": 40418
     },
     {
       "file": "mail-2.html",
@@ -291,7 +291,7 @@
       "width": 742,
       "icons": 0,
       "variants": 26,
-      "bytes": 23390
+      "bytes": 23290
     },
     {
       "file": "maps.html",
@@ -303,7 +303,7 @@
       "width": 742,
       "icons": 12,
       "variants": 36,
-      "bytes": 33280
+      "bytes": 33247
     },
     {
       "file": "media-1.html",
@@ -315,7 +315,7 @@
       "width": 742,
       "icons": 54,
       "variants": 44,
-      "bytes": 39698
+      "bytes": 39262
     },
     {
       "file": "media-2.html",
@@ -327,7 +327,7 @@
       "width": 742,
       "icons": 0,
       "variants": 39,
-      "bytes": 37660
+      "bytes": 37339
     },
     {
       "file": "media-3.html",
@@ -338,8 +338,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 51,
-      "bytes": 38591
+      "variants": 54,
+      "bytes": 40667
     },
     {
       "file": "media-4.html",
@@ -350,8 +350,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 30771
+      "variants": 37,
+      "bytes": 27995
     },
     {
       "file": "pointers.html",
@@ -363,7 +363,7 @@
       "width": 742,
       "icons": 8,
       "variants": 30,
-      "bytes": 29740
+      "bytes": 30021
     },
     {
       "file": "shapes-1.html",
@@ -375,7 +375,7 @@
       "width": 742,
       "icons": 41,
       "variants": 48,
-      "bytes": 40168
+      "bytes": 39340
     },
     {
       "file": "shapes-2.html",
@@ -399,7 +399,7 @@
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 16227
+      "bytes": 16875
     },
     {
       "file": "sport.html",
@@ -423,7 +423,7 @@
       "width": 742,
       "icons": 31,
       "variants": 57,
-      "bytes": 40329
+      "bytes": 40266
     },
     {
       "file": "time-2.html",
@@ -447,7 +447,7 @@
       "width": 742,
       "icons": 4,
       "variants": 12,
-      "bytes": 19288
+      "bytes": 19373
     },
     {
       "file": "users.html",
@@ -471,7 +471,7 @@
       "width": 742,
       "icons": 8,
       "variants": 22,
-      "bytes": 17742
+      "bytes": 17609
     },
     {
       "file": "web-1.html",
@@ -483,7 +483,7 @@
       "width": 742,
       "icons": 21,
       "variants": 41,
-      "bytes": 37651
+      "bytes": 36455
     },
     {
       "file": "web-2.html",
@@ -515,7 +515,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 88286
+      "bytes": 199848
     }
   ]
 }
