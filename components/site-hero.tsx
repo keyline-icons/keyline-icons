@@ -62,7 +62,8 @@ export function SiteHero({
         `LICENSE` file the footer and the structured data both read.
       */}
       <p className="mt-3 text-base text-balance text-muted-foreground">
-        {SET_TAGLINE} · Stroke, duotone and fill · {SET_LICENSE}
+        {SET_TAGLINE} · Stroke, duotone and fill, rounded or sharp ·{" "}
+        {SET_LICENSE}
       </p>
 
       {/*
