@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
  * raw/<style>/<name>.svg  ->  icons/<style>/<name>.svg
+ * raw/<set>/Container=…, Style=…, Corners=sharp.svg  ->  icons/sharp/<style>/<name>.svg
  *
  * Normalizes every Figma export: strips export cruft, swaps hardcoded paint for
  * currentColor, and hoists stroke/cap/join onto the root so consumers can drive
@@ -21,6 +22,27 @@ const ROOT = resolve(import.meta.dirname, '..');
 const RAW = join(ROOT, 'raw');
 const OUT = join(ROOT, 'icons');
 const STYLES = ['stroke', 'duotone', 'fill'];
+
+/**
+ * The corner treatments, and where each one lands.
+ *
+ * `regular` keeps `icons/<style>/<name>.svg` exactly as it has always been, so
+ * every consumer's imports, the registry routes and the React export names go on
+ * meaning what they meant. Sharp gets its own namespace underneath rather than a
+ * `-sharp` suffix on the name: the set's naming rule is `[element]-[modifier]`,
+ * and a corner treatment is neither, so a suffix would make the name lie about
+ * what the drawing is.
+ *
+ * The cap is the treatment, not a detail of it. Sharp is the rounded drawing
+ * with its fillets removed and its caps squared, and the geometry carries only
+ * the first half of that: hoist a round cap onto a sharp drawing and it ships as
+ * something between the two, with nothing in the file to say so.
+ */
+const CORNERS = ['regular', 'sharp'];
+const LINECAP = { regular: 'round', sharp: 'butt' };
+const outDir = (corners, style) =>
+  corners === 'regular' ? join(OUT, style) : join(OUT, corners, style);
+
 const check = process.argv.includes('--check');
 
 const c = (n, s) => `\x1b[${n}m${s}\x1b[0m`;
@@ -55,7 +77,7 @@ async function discover() {
 
     if (STYLES.includes(e.name)) {
       for (const file of await listSvgs(join(RAW, e.name))) {
-        found.push({ style: e.name, name: file.replace(/\.svg$/, ''), src: join(RAW, e.name, file) });
+        found.push({ corners: 'regular', style: e.name, name: file.replace(/\.svg$/, ''), src: join(RAW, e.name, file) });
       }
       continue;
     }
@@ -67,19 +89,24 @@ async function discover() {
     // unrecognised is reported rather than dropped — a missing icon is far
     // harder to notice than a failed build.
     for (const file of await listSvgs(join(RAW, e.name))) {
-      const both = file.match(/Container=([\w-]+),\s*Style=([\w-]+)\.svg$/i);
-      const styleOnly = file.match(/^Style=([\w-]+)\.svg$/i);
+      // `, Corners=…` is optional, because a set that predates the axis exports
+      // without it and a drawing with no treatment stated is the rounded one.
+      const both = file.match(/Container=([\w-]+),\s*Style=([\w-]+)(?:,\s*Corners=([\w-]+))?\.svg$/i);
+      const styleOnly = file.match(/^Style=([\w-]+)(?:,\s*Corners=([\w-]+))?\.svg$/i);
 
       const container = both ? both[1].toLowerCase() : 'regular';
       const style = (both ? both[2] : styleOnly ? styleOnly[1] : '').toLowerCase();
+      const corners = ((both ? both[3] : styleOnly ? styleOnly[2] : '') || 'regular').toLowerCase();
 
-      if (!style || !STYLES.includes(style) || PREFIX[container] === undefined) {
+      if (!style || !STYLES.includes(style) || PREFIX[container] === undefined
+          || !CORNERS.includes(corners)) {
         rejected.push({
           file: join(e.name, file),
           why: !both && !styleOnly
             ? 'filename has no Style= property — is the component set missing its variant properties?'
             : !STYLES.includes(style) ? `unknown style "${style}"`
-            : `unknown container "${container}"`,
+            : PREFIX[container] === undefined ? `unknown container "${container}"`
+            : `unknown corner treatment "${corners}"`,
         });
         continue;
       }
@@ -90,7 +117,7 @@ async function discover() {
           warnOnly: true,
         });
       }
-      found.push({ style, name: PREFIX[container] + e.name, src: join(RAW, e.name, file) });
+      found.push({ corners, style, name: PREFIX[container] + e.name, src: join(RAW, e.name, file) });
     }
   }
   return { found, rejected };
@@ -111,11 +138,13 @@ async function main() {
     else { console.error(`  ${c(31, 'SKIP')} ${r.file} — ${r.why}`); failed++; }
   }
   const seen = new Map();
-  for (const style of STYLES) if (!check) await mkdir(join(OUT, style), { recursive: true });
+  if (!check)
+    for (const corners of CORNERS)
+      for (const style of STYLES) await mkdir(outDir(corners, style), { recursive: true });
 
   {
-    for (const { style, name, src: srcPath } of inputs) {
-      const key = `${style}/${name}`;
+    for (const { corners, style, name, src: srcPath } of inputs) {
+      const key = `${corners === 'regular' ? '' : corners + '/'}${style}/${name}`;
       if (seen.has(key)) {
         console.error(`  ${c(31, 'FAIL')} ${key} — defined twice (${seen.get(key)} and ${srcPath})`);
         failed++;
@@ -126,19 +155,19 @@ async function main() {
       const src = await readFile(srcPath, 'utf8');
       let out;
       try {
-        out = normalize(src, { label: key });
+        out = normalize(src, { label: key, linecap: LINECAP[corners] });
       } catch (err) {
         console.error(`  ${c(31, 'FAIL')} ${key} — ${err.message}`);
         failed++;
         continue;
       }
-      const dest = join(OUT, style, `${name}.svg`);
+      const dest = join(outDir(corners, style), `${name}.svg`);
       const prev = existsSync(dest) ? await readFile(dest, 'utf8') : null;
       if (prev !== out) {
         if (check) { console.error(`  ${c(33, 'DRIFT')} ${key}`); drift++; }
         else { await writeFile(dest, out); written++; }
       }
-      built.push({ style, name, bytes: out.length, before: src.length });
+      built.push({ corners, style, name, bytes: out.length, before: src.length });
     }
   }
 
@@ -149,13 +178,21 @@ async function main() {
   // abandons the old one, which then ships as a byte-identical duplicate of the
   // icon that replaced it. expand-dashed and expand-dashed-box did exactly that
   // and survived a full CI run, because nothing was looking.
-  const expected = new Set(built.map((b) => `${b.style}/${b.name}.svg`));
+  //
+  // Swept per treatment, not per style: a sharp file whose source is gone is the
+  // same leftover as a rounded one, and reading only `icons/<style>/` would have
+  // left the whole sharp half unswept and looking maintained.
+  const rel = (corners, style, file) =>
+    `${corners === 'regular' ? '' : corners + '/'}${style}/${file}`;
+  const expected = new Set(built.map((b) => rel(b.corners, b.style, `${b.name}.svg`)));
   const stale = [];
-  for (const style of STYLES) {
-    const dir = join(OUT, style);
-    if (!existsSync(dir)) continue;
-    for (const f of await readdir(dir))
-      if (f.endsWith('.svg') && !expected.has(`${style}/${f}`)) stale.push(`${style}/${f}`);
+  for (const corners of CORNERS) {
+    for (const style of STYLES) {
+      const dir = outDir(corners, style);
+      if (!existsSync(dir)) continue;
+      for (const f of await readdir(dir))
+        if (f.endsWith('.svg') && !expected.has(rel(corners, style, f))) stale.push(rel(corners, style, f));
+    }
   }
   for (const s of stale) {
     if (check) { console.error(`  ${c(33, 'STALE')} ${s} — no source in raw/`); drift++; }
@@ -171,7 +208,8 @@ async function main() {
   const before = built.reduce((a, b) => a + b.before, 0);
   const after = built.reduce((a, b) => a + b.bytes, 0);
   const byStyle = STYLES.map((s) => `${s} ${built.filter((b) => b.style === s).length}`).join(' · ');
-  console.log(`Built ${built.length} icons  (${byStyle})`);
+  const byCorners = CORNERS.map((k) => `${k} ${built.filter((b) => b.corners === k).length}`).join(' · ');
+  console.log(`Built ${built.length} icons  (${byStyle})  (${byCorners})`);
   console.log(`Wrote ${written} changed file(s) to icons/`);
   if (stale.length) console.log(`Removed ${stale.length} stale file(s) with no source in raw/`);
   const delta = Math.round((after / before - 1) * 100);

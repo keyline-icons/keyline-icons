@@ -285,6 +285,101 @@ export function outlines(d, steps = 48) {
 }
 
 /**
+ * Walk each open subpath in from both ends by `by`, leaving closed ones alone.
+ *
+ * The painted region of a butt-capped run is a rectangle; the same run trimmed
+ * by the half-width and then given round caps is the stadium inscribed in it.
+ * They agree everywhere except the rectangle's four corners, which stand
+ * `h(√2 − 1)` proud of the stadium — the same quantity `CAP_CORNER` allows for
+ * elsewhere, so every rule here understates a squared cap by the same bounded
+ * amount rather than each one being wrong in its own way.
+ */
+export function trimFreeEnds(subs, by) {
+  const walk = (pts) => {
+    let left = by, i = 0;
+    const out = pts.map((p) => [...p]);
+    while (i < out.length - 1 && left > 0) {
+      const [ax, ay] = out[i], [bx, by2] = out[i + 1];
+      const len = Math.hypot(bx - ax, by2 - ay);
+      if (len >= left) {
+        const t = left / len;
+        out[i] = [ax + (bx - ax) * t, ay + (by2 - ay) * t];
+        return out.slice(i);
+      }
+      left -= len; i++;
+    }
+    return out.slice(i);
+  };
+  return subs.map((s) => {
+    if (s.closed || by <= 0 || s.pts.length < 2) return s.pts;
+    const trimmed = walk(walk(s.pts).reverse()).reverse();
+    // A run shorter than the two caps trims to nothing. Its ink is a bar the
+    // width of the stroke and the untrimmed points are the honest answer.
+    return trimmed.length >= 2 ? trimmed : s.pts;
+  });
+}
+
+/**
+ * Bounding box of a stroked path as it actually paints.
+ *
+ * Round joins put a disc of the half-width at every vertex, so a closed subpath,
+ * and every interior vertex of an open one, grows the path's own box by the half
+ * width in all four directions. A free END is where the cap decides: `round`
+ * puts the same disc there, `butt` stops the ink dead on the endpoint and
+ * spreads it only across the line, half a width either side of the tangent.
+ *
+ * That difference is a whole unit on a 2-unit stroke, and measuring a
+ * butt-capped drawing with the round-cap assumption is not a rounding error. It
+ * reports `activity` as 24 units wide inside a 24 canvas with no padding at all,
+ * for a drawing whose ink is the same 22 units its rounded sibling paints — the
+ * sharp treatment moves the endpoint out by a unit precisely so the butt cap
+ * lands where the round cap did. Read the wrong way, every one of those reads as
+ * a drawing that overflows.
+ *
+ * A segment's own rectangle needs no separate pass: its corners are the
+ * endpoints offset by the half-width along one axis at most, so its box always
+ * sits inside the boxes of the two vertices it joins.
+ */
+export function strokedBBox(d, half, cap = 'butt', steps = 48) {
+  const { subs } = subpaths(d, steps);
+  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  const note = (px, py) => {
+    x0 = Math.min(x0, px); y0 = Math.min(y0, py);
+    x1 = Math.max(x1, px); y1 = Math.max(y1, py);
+  };
+
+  const trimmed = trimFreeEnds(subs, cap === 'butt' ? half : 0);
+
+  subs.forEach((sub, si) => {
+    if (!sub.pts.length) return;
+
+    if (sub.closed || cap !== 'butt') {
+      for (const [px, py] of sub.pts) { note(px - half, py - half); note(px + half, py + half); }
+      return;
+    }
+
+    // Within the two cap planes the ink is the ordinary disc, so the trimmed run
+    // discs exactly. Outside them there is none, and the caps themselves are the
+    // two bars. Discing the untrimmed run instead reaches a half-width back
+    // along a curve's own tangent, past a plane that paints nothing: `wifi-x`'s
+    // muted arc read 0.44 from the canvas edge for ink that stops at 0.59.
+    for (const [px, py] of trimmed[si]) { note(px - half, py - half); note(px + half, py + half); }
+
+    for (const end of [0, sub.pts.length - 1]) {
+      const [px, py] = sub.pts[end];
+      const [qx, qy] = end === 0 ? (sub.pts[1] ?? sub.pts[0]) : sub.pts[end - 1];
+      const dx = qx - px, dy = qy - py;
+      const len = Math.hypot(dx, dy);
+      if (!len) { note(px, py); continue; }
+      const nx = (-dy / len) * half, ny = (dx / len) * half;
+      note(px + nx, py + ny);
+      note(px - nx, py - ny);
+    }
+  });
+  return Number.isFinite(x0) ? [x0, y0, x1, y1] : null;
+}
+
+/**
  * Radii of rounded corners where two straight edges meet through a fillet.
  *
  * Only line-curve-line corners are reported. That is deliberate: the design

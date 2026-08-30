@@ -7,7 +7,7 @@
  * outside that shape rather than silently mangling it.
  */
 
-import { pathBBox, enclosesArea, subpaths } from './geom.mjs';
+import { pathBBox, enclosesArea, subpaths, strokedBBox } from './geom.mjs';
 
 const SHAPES = ['path', 'circle', 'ellipse', 'rect', 'line', 'polyline', 'polygon'];
 const ALLOWED = new Set([...SHAPES, 'g', 'svg', 'defs', 'title', 'desc']);
@@ -116,7 +116,7 @@ const PRIMITIVE_ATTRS = ['cx', 'cy', 'r', 'rx', 'ry', 'x', 'y', 'width', 'height
  * The cost is a few hundred bytes across the set. The primitives did read more
  * nicely; one shape type is worth more.
  */
-function emitShape(shape, strokeWidth, rootStroked) {
+function emitShape(shape, strokeWidth, rootStroked, linecap = 'round') {
   const { tag, attrs } = shape;
   const keep = {};
   for (const [k, v] of Object.entries(attrs)) {
@@ -144,7 +144,7 @@ function emitShape(shape, strokeWidth, rootStroked) {
   // Attributes carried by the root are redundant on children.
   else if (keep.stroke === 'currentColor') delete keep.stroke;
   if (keep['stroke-width'] === String(strokeWidth)) delete keep['stroke-width'];
-  if (keep['stroke-linecap'] === 'round') delete keep['stroke-linecap'];
+  if (keep['stroke-linecap'] === linecap) delete keep['stroke-linecap'];
   if (keep['stroke-linejoin'] === 'round') delete keep['stroke-linejoin'];
   // fill-rule needs its partner back if it was stripped.
   if (keep['fill-rule'] === 'evenodd') keep['clip-rule'] = 'evenodd';
@@ -236,12 +236,20 @@ function mergeAdjacent(list) {
  * Root carries stroke/cap/join so children stay minimal and consumers can
  * override strokeWidth on the root — the property Lucide's absoluteStrokeWidth needs.
  */
-export function normalize(source, { label = 'icon', strokeWidth = 2 } = {}) {
+/**
+ * @param {object}  opts
+ * @param {string}  opts.linecap  The cap the root carries, and the value a child
+ *   is allowed to drop as redundant. `round` everywhere except the sharp corner
+ *   treatment, whose whole construction is butt caps: hardcoding `round` here
+ *   would have rewritten every sharp drawing into a rounded one on the way to
+ *   `icons/`, silently, since the geometry is untouched and only the cap moves.
+ */
+export function normalize(source, { label = 'icon', strokeWidth = 2, linecap = 'round' } = {}) {
   const { shapes } = readSvg(source, label);
   if (!shapes.length) throw new Error(`${label}: no drawable shapes`);
 
   const anyStroked = shapes.some((s) => s.attrs.stroke && s.attrs.stroke !== 'none');
-  const body = mergeAdjacent(shapes.flatMap((s) => emitShape(s, strokeWidth, anyStroked)))
+  const body = mergeAdjacent(shapes.flatMap((s) => emitShape(s, strokeWidth, anyStroked, linecap)))
     .map(serialize)
     .join('\n');
 
@@ -256,7 +264,7 @@ export function normalize(source, { label = 'icon', strokeWidth = 2 } = {}) {
     rootAttrs.push(
       'stroke="currentColor"',
       `stroke-width="${strokeWidth}"`,
-      'stroke-linecap="round"',
+      `stroke-linecap="${linecap}"`,
       'stroke-linejoin="round"', // the attribute the Figma exports never carried
     );
   }
@@ -286,8 +294,14 @@ export function inspect(source, label = 'icon') {
     const sw = s.attrs['stroke-width'] ? parseFloat(s.attrs['stroke-width']) : rootSW;
     const half = strokedHere ? sw / 2 : 0;
 
-    x0 = Math.min(x0, bb[0] - half); y0 = Math.min(y0, bb[1] - half);
-    x1 = Math.max(x1, bb[2] + half); y1 = Math.max(y1, bb[3] + half);
+    // Where the paint reaches past the path depends on the cap, so ask rather
+    // than assume: a butt end stops on its own endpoint. `strokedBBox` answers
+    // the same as `bb ± half` for a round cap, so nothing rounded moves.
+    const cap = s.attrs['stroke-linecap'] ?? root['stroke-linecap'] ?? 'butt';
+    const ink = half ? strokedBBox(d, half, cap) ?? bb : bb;
+
+    x0 = Math.min(x0, ink[0]); y0 = Math.min(y0, ink[1]);
+    x1 = Math.max(x1, ink[2]); y1 = Math.max(y1, ink[3]);
 
     if (enclosesArea(d)) fillable = true;
     if (subpaths(d).hasArc && s.tag === 'path') hasArc = true;

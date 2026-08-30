@@ -17,11 +17,29 @@ import { readdir, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { inspect } from './lib/svg.mjs';
-import { outlines, minGap, roundedCorners, contains, diameter, subpaths } from './lib/geom.mjs';
+import { outlines, minGap, roundedCorners, contains, diameter, subpaths, trimFreeEnds } from './lib/geom.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const ICONS = join(ROOT, 'icons');
 const STYLES = ['stroke', 'duotone', 'fill'];
+
+/**
+ * The corner treatments, linted as two independent sets.
+ *
+ * Every rule here is about one drawing or about one icon's styles agreeing, and
+ * a treatment does not change either question: sharp owes the same coverage,
+ * the same bounds across its own styles, the same spacing. So the two are keyed
+ * apart rather than merged — merged, an icon would report six styles and every
+ * COVERAGE and CONSISTENCY answer would be nonsense.
+ *
+ * The exemption lists stay keyed on the bare name, so `LEVEL`, `SKEW_KNOWN` and
+ * the rest cover both treatments of an icon without being written out twice.
+ */
+const CORNERS = ['regular', 'sharp'];
+const iconsDir = (corners, style) =>
+  corners === 'regular' ? join(ICONS, style) : join(ICONS, corners, style);
+const qualify = (corners, s) => (corners === 'regular' ? s : `${corners}/${s}`);
+
 const json = process.argv.includes('--json');
 
 /** Optical size bands, in grid units, keyed by container. */
@@ -180,6 +198,29 @@ const SIZE_KNOWN = new Set([
   'arrow-down-left', 'arrow-down-right', 'arrow-up-left', 'arrow-up-right',
 ]);
 const MIN_PAD = 1;
+
+/**
+ * What a squared cap is allowed to add to the box, on the sharp treatment only.
+ *
+ * Sharp keeps the drawing and squares the caps, and the endpoint moves out along
+ * its own tangent by the half-width so the butt cap paints where the round cap's
+ * disc reached. The tip therefore lands in exactly the same place. What does not
+ * is the cap's two corners: a round cap reaches `h` from the endpoint in every
+ * direction, and a butt bar reaches `h` across the tangent, so on an axis the
+ * pair together reach `h·|sin θ| + h·|cos θ|`, worst at 45° where it is `h√2`.
+ *
+ * So a diagonal end can sit `h(√2 − 1)` further out than the rounded drawing it
+ * came from, and no further. 145 of the sharp icons report a padding of exactly
+ * 0.5858 for this reason, every one of them a 45° arrowhead, check or negation
+ * slash whose rounded sibling sits exactly on the 1-unit floor: `bell-check`'s
+ * tick, the `-off` slash at `M1.2929 1.2929`, the `arrow-*-narrow-wide` heads.
+ *
+ * Derived rather than chosen, which is the whole point. The floor still bites at
+ * 0.5857, so a sharp drawing that genuinely crowds the canvas is still an error,
+ * and the allowance cannot grow to cover one.
+ */
+const CAP_CORNER = (2 / 2) * (Math.SQRT2 - 1);
+const padFloor = (corners) => (corners === 'sharp' ? MIN_PAD - CAP_CORNER : MIN_PAD);
 /**
  * Allowed difference between opposing paddings.
  *
@@ -496,11 +537,20 @@ const add = (sev, rule, icon, msg) => findings.push({ sev, rule, icon, msg });
 function elements(src) {
   const rootStroked = /stroke="currentColor"/.test(src);
   const sw = parseFloat(src.match(/stroke-width="([\d.]+)"/)?.[1] ?? '2');
+  const cap = src.match(/stroke-linecap="([a-z]+)"/)?.[1] ?? 'butt';
   const out = [];
   for (const m of src.matchAll(/<path d="([^"]+)"([^/>]*)\/>/g)) {
     const stroked = /stroke="none"/.test(m[2]) ? false : rootStroked;
+    // A single `reach` describes a round cap exactly and a butt one only across
+    // the line: at a free end a butt cap paints nothing past the endpoint, so
+    // subtracting the half-width there invents a unit of daylight that is not
+    // in the drawing. `alert` reported 1.00 between its stem and its dot, for a
+    // gap that measures 2.00 on the canvas and 2.00 on its rounded sibling.
+    // Trimming the free ends back by the half-width and keeping the reach puts
+    // the paint where it actually is, exact except at the cap's two corners.
+    const subs = subpaths(m[1], 48).subs;
     out.push({
-      polys: outlines(m[1]),
+      polys: stroked && cap === 'butt' ? trimFreeEnds(subs, sw / 2) : subs.map((x) => x.pts),
       reach: stroked ? sw / 2 : 0,
       filled: /fill="currentColor"/.test(m[2]),
     });
@@ -563,13 +613,15 @@ async function main() {
 
   const set = new Map(); // name -> { styles:Set, geom:{} }
 
+  for (const corners of CORNERS) {
   for (const style of STYLES) {
-    const dir = join(ICONS, style);
+    const dir = iconsDir(corners, style);
     if (!existsSync(dir)) continue;
     for (const file of (await readdir(dir)).filter((f) => f.endsWith('.svg')).sort()) {
       const name = file.replace(/\.svg$/, '');
+      const key = qualify(corners, name);
       const src = await readFile(join(dir, file), 'utf8');
-      const id = `${style}/${name}`;
+      const id = qualify(corners, `${style}/${name}`);
 
       if (/stroke="(?!currentColor|none)[^"]+"/.test(src) || /fill="(?!none|currentColor)[^"]+"/.test(src))
         add('error', 'COLOR', id, 'hardcoded paint — must be currentColor');
@@ -646,8 +698,9 @@ async function main() {
 
       if (g.viewBox !== '0 0 24 24') add('error', 'VIEWBOX', id, `viewBox is "${g.viewBox}", expected "0 0 24 24"`);
       if (g.hasArc) add('warn', 'ARC', id, 'uses arc commands — bounds are approximated');
-      if (g.minPad < MIN_PAD - EPS)
-        add('error', 'PADDING', id, `padding ${g.minPad.toFixed(2)} < ${MIN_PAD} (geometry too close to the edge)`);
+      const floor = padFloor(corners);
+      if (g.minPad < floor - EPS)
+        add('error', 'PADDING', id, `padding ${g.minPad.toFixed(2)} < ${floor.toFixed(2)} (geometry too close to the edge)`);
       if (g.skew > MAX_SKEW + EPS && !isLevel(name) && !OPEN_CONTAINER.test(name))
         add('warn', 'CENTERING', id, `off-centre by ${g.skew.toFixed(3)} units`);
 
@@ -673,7 +726,13 @@ async function main() {
           ['horizontally', g.pads.left, g.pads.right],
           ['vertically', g.pads.top, g.pads.bottom],
         ]) {
-          if (Math.abs(a - b) > 0.05)
+          // A squared cap on one side and not the other is a difference the
+          // drawing did not make: sharp keeps the rounded placement and moves
+          // each free end out along its own tangent, so an arrowhead pointing
+          // left puts CAP_CORNER of extra box on the left and none on the
+          // right. Allowed once, so a genuinely off-centre sharp drawing still
+          // reports.
+          if (Math.abs(a - b) > 0.05 + (corners === 'sharp' ? CAP_CORNER : 0))
             add('warn', 'CENTERING', id,
               `${axis} ${a.toFixed(2)} vs ${b.toFixed(2)} — opposing padding must be equal`);
         }
@@ -696,8 +755,12 @@ async function main() {
       else if (CHEVRON.test(name)) { /* sized by the facing-apart pair — see CHEVRON */ }
       else if (shape && !SIZE_KNOWN.has(name) && !OPEN_CONTAINER.test(name)) {
         const [tw, th] = SHAPE_SIZES[shape];
+        // Twice CAP_CORNER, because a drawing can carry a diagonal free end at
+        // each extreme of an axis: `arrow-down-narrow-wide` measures 22.83 for
+        // the 22-unit glyph its rounded sibling draws exactly.
+        const sizeTol = SIZE_TOL + (corners === 'sharp' ? 2 * CAP_CORNER : 0);
         for (const [axis, got, want] of [['wide', g.width, tw], ['tall', g.height, th]])
-          if (want !== null && Math.abs(got - want) > SIZE_TOL)
+          if (want !== null && Math.abs(got - want) > sizeTol)
             add('warn', 'OPTICAL', id,
               `${got.toFixed(2)} units ${axis} — a ${shape} icon is drawn ${want}` +
               (NARROW.has(name) ? ' (narrow: 16 on the short axis)' : ''));
@@ -765,18 +828,22 @@ async function main() {
           `corner radius ${[...offLadder].sort().join(', ')} — off the set's ladder (${CORNER_RADII.join(', ')})`);
 
       const offDot = new Set();
+      // A mark drawn as a short diagonal run measures its own box: squared, the
+      // signal family's 2-unit mark spans 2√2. Same allowance, same reason.
+      const dotTol = DOT_TOL + (corners === 'sharp' ? 2 * CAP_CORNER : 0);
       for (const d of dotSizes(src))
-        if (!DOT_SIZES.some((s) => Math.abs(s - d) <= DOT_TOL)) offDot.add(d.toFixed(2));
+        if (!DOT_SIZES.some((s) => Math.abs(s - d) <= dotTol)) offDot.add(d.toFixed(2));
       if (offDot.size)
         add('warn', 'DOT', id,
           `dot ${[...offDot].sort().join(', ')} units across — the ladder is 2 (mark) or 3 (bead), ` +
           'or 2.67 where a box caps the bead');
 
-      if (!set.has(name)) set.set(name, { styles: new Set(), fillable: null, dims: {}, solid: false });
-      set.get(name).styles.add(style);
-      set.get(name).dims[style] = [g.width, g.height];
+      if (!set.has(key))
+        set.set(key, { corners, name, styles: new Set(), fillable: null, dims: {}, solid: false });
+      set.get(key).styles.add(style);
+      set.get(key).dims[style] = [g.width, g.height];
       if (style === 'stroke') {
-        set.get(name).fillable = g.fillable;
+        set.get(key).fillable = g.fillable;
         // A drawing with no stroke anywhere is a solid silhouette. It has no
         // outline to fill, so there is nothing to derive a second or third
         // style from — and it reads as a heavy block beside its neighbours.
@@ -784,14 +851,16 @@ async function main() {
         // nothing but dots is the one exception, and it is a real one rather than
         // a waiver: a dot is filled at every size on the ladder, so `more-*` has
         // no stroke to carry and no outline anyone declined to draw.
-        set.get(name).solid = !/stroke="currentColor"/.test(src) && !onlyDots(src);
+        set.get(key).solid = !/stroke="currentColor"/.test(src) && !onlyDots(src);
       }
     }
   }
+  }
 
   // Coverage — the architecture rule.
-  for (const [name, info] of [...set].sort()) {
-    if (!info.styles.has('stroke')) { add('error', 'COVERAGE', name, 'no stroke style — stroke is the base of every icon'); continue; }
+  for (const [key, info] of [...set].sort()) {
+    const { name } = info;
+    if (!info.styles.has('stroke')) { add('error', 'COVERAGE', key, 'no stroke style — stroke is the base of every icon'); continue; }
     const missing = STYLES.filter((s) => !info.styles.has(s));
     // The stroke style has to be drawn with stroke. A filled silhouette has no
     // outline to derive duotone or fill from, ignores stroke-width, gives the
@@ -800,7 +869,7 @@ async function main() {
     // because a solid double-arrow has no faithful 2-unit-stroke form. Enforced
     // so the next one cannot arrive unnoticed the way those did.
     if (info.solid)
-      add('error', 'SOLID', name,
+      add('error', 'SOLID', key,
         'stroke style is a filled silhouette with no stroke — draw it as an outline, or let a container carry the solid');
 
     if (info.solid && missing.length) {
@@ -810,14 +879,14 @@ async function main() {
     } else if (COUNTER.has(name)) {
       // The enclosed region is the mark's counter, not a fillable body.
     } else if (info.fillable && missing.length)
-      add('error', 'COVERAGE', name, `outline encloses a fillable region but ${missing.join(' and ')} ${missing.length > 1 ? 'are' : 'is'} missing`);
+      add('error', 'COVERAGE', key, `outline encloses a fillable region but ${missing.join(' and ')} ${missing.length > 1 ? 'are' : 'is'} missing`);
     // An open-stroke glyph has no interior, so it cannot carry a solid — that
     // comes from a container. It CAN carry a duotone by muting one stroke
     // against another, which is only meaningful when the glyph has separable
     // parts (double-check greys one tick). That is a drawing judgement, so a
     // duotone here is accepted rather than required.
-    if (!info.fillable && info.styles.has('fill') && !inheritedFill(set, name))
-      add('warn', 'COVERAGE', name, 'open-stroke glyph has a fill — nothing to fill; fills should come from a container');
+    if (!info.fillable && info.styles.has('fill') && !inheritedFill(set, key))
+      add('warn', 'COVERAGE', key, 'open-stroke glyph has a fill — nothing to fill; fills should come from a container');
 
     // Every style of an icon must occupy the same visual bounds. A solid is the
     // outline filled to its stroke's OUTER edge, so it matches the outline exactly
@@ -834,13 +903,22 @@ async function main() {
         // stroke-width small. A duotone may legitimately be LARGER, because its
         // muted layer can show context the stroke omits (signal-low's empty bars).
         // Larger duotone: warn. Smaller duotone, or any fill mismatch: error.
+        // On sharp the stroke carries caps and a solid does not, so a filled
+        // style is legitimately shorter by the cap corners its outline sticks
+        // out — up to one at each end of an axis. `map-pin-check`'s stroke
+        // measures 22.41 against its fill's 22.00, which is that and nothing
+        // else. A fill built from the inner path is a whole stroke width small,
+        // so the allowance cannot hide one.
+        const capSlack = info.corners === 'sharp' ? 2 * CAP_CORNER : 0;
+        if (capSlack && dw <= SIZE_TOL && dh <= SIZE_TOL
+            && Math.max(-dw, -dh) <= capSlack + SIZE_TOL) continue;
         const duotoneGrew = s === 'duotone' && dw >= -SIZE_TOL && dh >= -SIZE_TOL;
         if (isLevel(name)) continue; // the solid shows the whole, the outline a part
         // An open container has to close before it can be filled, and closing
         // it adds area the outline never covered.
         if (OPEN_CONTAINER.test(name) && dw >= -SIZE_TOL && dh >= -SIZE_TOL) continue;
         if (Math.abs(dw) > SIZE_TOL || Math.abs(dh) > SIZE_TOL)
-          add(duotoneGrew ? 'warn' : 'error', 'CONSISTENCY', `${s}/${name}`,
+          add(duotoneGrew ? 'warn' : 'error', 'CONSISTENCY', qualify(info.corners, `${s}/${name}`),
             `${d[0].toFixed(2)}×${d[1].toFixed(2)} vs stroke ${ref[0].toFixed(2)}×${ref[1].toFixed(2)} ` +
             `(${dw >= 0 ? '+' : ''}${dw.toFixed(2)}, ${dh >= 0 ? '+' : ''}${dh.toFixed(2)}) — styles must share bounds`);
       }
