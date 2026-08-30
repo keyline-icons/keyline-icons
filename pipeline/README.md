@@ -210,6 +210,13 @@ plate came out at `2.5`. Pick from the radii whose successor is also on the
 ladder — `0.5`, `1`, `2`, `3`, `4` — for anything that gains a filled style.
 `1.5` and `5` are safe only on a shape that stays an outline.
 
+The level-indicator family is the standing exception (2026-08-30): its
+duotone/fill inner solids are the stroke drawing's painted contour, and the
+stroke's inner square corners are a shipped `1.5`, so the solids carry `2.5`
+by arithmetic. The rule skips exactly that value on exactly those names
+(`LEVEL` and `DASHED_LEVEL`, non-stroke styles) rather than widening the
+ladder — a `2.5` anywhere else is still drift.
+
 Two consequences worth knowing when reading a `RADIUS` report:
 
 - the rule measures line-curve-line, so a fillet that *ends* a path is invisible

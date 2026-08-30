@@ -750,6 +750,13 @@ async function main() {
       const offLadder = new Set();
       for (const m of src.matchAll(/<path d="([^"]+)"/g))
         for (const { radius } of roundedCorners(m[1])) {
+          // A level indicator's duotone/fill inner solid is the stroke
+          // drawing's painted contour, so its corners sit at r+1 of the
+          // stroke's r=1.5 — 2.5 by arithmetic, not by drift. Derived, not
+          // drawn: the ladder measures decisions, and this one is a
+          // consequence. (2026-08-30, the family re-run.)
+          if (style !== 'stroke' && (isLevel(name) || DASHED_LEVEL.test(name)) && Math.abs(radius - 2.5) <= RADIUS_TOL)
+            continue;
           const near = CORNER_RADII.reduce((a, b) => (Math.abs(b - radius) < Math.abs(a - radius) ? b : a));
           if (Math.abs(near - radius) > RADIUS_TOL) offLadder.add(radius.toFixed(2));
         }
