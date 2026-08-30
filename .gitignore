@@ -76,6 +76,22 @@ next-env.d.ts
 # is caught here rather than on the Community page.
 previews/community/
 
+# The sharp treatment's working record: the prototype history, the handover
+# documents, the one-shot scripts, the staged geometry and the drawings handed
+# over by hand.
+#
+# Ignored for the reason `.claude/skills/` is: this is how the work was done,
+# not what the work produced. A handover is written from one session to the
+# next and reads like it, and a public repository is not where an internal note
+# about what is unfinished and who has to decide it belongs. The drawings it
+# was staging now live in `raw/`, which is the source this project does give
+# away, so nothing here is load-bearing for anyone outside it.
+#
+# The whole directory rather than a list of names, for the reason the two
+# blocks below give: a document written tomorrow is private by default and
+# cannot be published by forgetting a line here.
+previews/sharp-history/
+
 # Announcement banners, and the copy that goes out with them.
 #
 # `marketing/` is its own git repository pointed at a private remote, and this
