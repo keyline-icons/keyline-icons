@@ -19,6 +19,7 @@ import {
 import { DesignFileLinks } from "@/components/design-file-links"
 import {
   artOf,
+  CORNERS,
   Glyph,
   STYLES,
   type BrowserIcon,
@@ -155,7 +156,7 @@ export function IconPreview({
   closing,
   order,
   gridStyle,
-  corners,
+  gridCorners,
   stroke,
   color,
   size,
@@ -175,16 +176,8 @@ export function IconPreview({
   order: string[]
   /** The grid's style, which a freshly opened panel starts on. */
   gridStyle: Style
-  /**
-   * The grid's corner treatment, which the panel simply follows.
-   *
-   * Not `pickedCorners` beside `picked`: style is picked here because a drawing
-   * may not have the grid's style and the panel has to fall back to one it does
-   * have. Every drawing exists in both treatments, so there is nothing to fall
-   * back from, and a panel showing a different treatment from the grid behind
-   * it would be two answers to one question.
-   */
-  corners: Corners
+  /** The grid's corner treatment, which a freshly opened panel starts on. */
+  gridCorners: Corners
   stroke: number
   color: string | null
   /** Only reaches the copied markup; the specimen draws its own ramp. */
@@ -214,6 +207,19 @@ export function IconPreview({
    */
   const [picked, setPicked] = React.useState<Style | null>(null)
   /**
+   * Rounded or squared, on the same terms as the style above it.
+   *
+   * Local rather than the shared setting, and that is the whole point of it:
+   * the panel is where one drawing is inspected, and flipping the treatment to
+   * compare should no more re-draw the grid underneath than flipping to duotone
+   * does. `null` follows the grid, and a pick sticks across icons, because
+   * someone comparing corners is comparing corners and not one drawing.
+   *
+   * No fallback, unlike `picked`: every drawing exists in both treatments, so
+   * there is never a treatment to fall back from.
+   */
+  const [pickedCorners, setPickedCorners] = React.useState<Corners | null>(null)
+  /**
    * Which manager the install lines are written for.
    *
    * Local, not a persisted setting. The cookie carries how the set is *drawn*;
@@ -224,6 +230,8 @@ export function IconPreview({
   /** Whether the code block was just copied. The name owns its own state,
    *  inside `CopyName`. */
   const [copied, setCopied] = React.useState(false)
+
+  const corners = pickedCorners ?? gridCorners
 
   const style: Style = React.useMemo(() => {
     if (!icon) return gridStyle
@@ -855,6 +863,24 @@ export function IconPreview({
                     </Tooltip>
                   )
                 })}
+              </Segmented>
+
+              {/*
+                No counts and no disabled state: every drawing exists in both,
+                which is exactly why this sits beside the style chips rather
+                than among them.
+              */}
+              <Segmented size="sm" aria-label="Corner treatment">
+                {CORNERS.map((k) => (
+                  <SegmentedItem
+                    key={k}
+                    size="sm"
+                    active={corners === k}
+                    onClick={() => setPickedCorners(k)}
+                  >
+                    {k === "regular" ? "Rounded" : "Sharp"}
+                  </SegmentedItem>
+                ))}
               </Segmented>
 
               {/*

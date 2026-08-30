@@ -1639,7 +1639,7 @@ export function IconBrowser({
         // Grid order, so the arrow keys walk what you can see.
         order={paged.map((icon) => icon.name)}
         gridStyle={style}
-        corners={corners}
+        gridCorners={corners}
         size={size}
         stroke={stroke}
         color={color}
