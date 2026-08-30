@@ -124,6 +124,35 @@ function read(summary) {
   return { drawings, captions, truncated }
 }
 
+/**
+ * The same drawings, walked rather than summarised.
+ *
+ * `get_tree_summary` stops after a fixed number of lines and says nothing when
+ * it does: no ellipsis, no marker, just a last line cut off mid-structure, so
+ * the truncation `read` looks for never appears. Measured at 1000 lines on
+ * 30 Aug 2026, the day the Changelog board crossed it, which is the first
+ * release to record its redraws as before-and-after pairs. Read from the
+ * summary alone, that board reports 162 of the 195 drawings it actually holds
+ * and fails as STALE on every run, and a check that cannot pass is a check
+ * nobody keeps running.
+ *
+ * One call per container rather than one per board, so this is the second
+ * opinion and not the first: it is taken only where the summary and the sheets
+ * already disagree and the run was going to fail anyway. `childCount` keeps it
+ * off the leaves. Captions are not here because `get_children` carries names
+ * and geometry, no text.
+ */
+async function walkDrawings(nodeId, id, into = []) {
+  const kids = JSON.parse(await call("get_children", { nodeId, fileId: id })).children ?? []
+  for (const kid of kids) {
+    /* Stop at the drawing, as the summary does: descending collects its own
+       paths, which come back as SVGVisualElement. */
+    if (kid.component === "SVG") into.push(kid.name)
+    else if (kid.childCount) await walkDrawings(kid.id, id, into)
+  }
+  return into
+}
+
 /** What the sheets say that artboard should hold. */
 async function expected(files) {
   const drawings = []
@@ -181,13 +210,12 @@ for (const [name, files] of boards) {
   ).summary
   const got = read(summary)
 
-  if (got.truncated) {
-    findings.push({
-      board: name,
-      kind: "UNREADABLE",
-      detail: `the tree summary is partial, so ${want.drawings.length} drawings cannot be checked`,
-    })
-    continue
+  /* A capped summary under-reports, and under-reporting looks exactly like a
+     board that never took its import. So a disagreement is read a second time,
+     the slow way, before it is believed. */
+  if (got.truncated || got.drawings.length !== want.drawings.length) {
+    got.drawings = await walkDrawings(board.id, id)
+    got.truncated = false
   }
 
   if (got.drawings.length !== want.drawings.length) {
