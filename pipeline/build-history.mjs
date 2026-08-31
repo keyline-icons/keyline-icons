@@ -18,7 +18,7 @@
 // ignore it. Run it with the icon build when you have changed drawings.
 
 import { readdir, readFile, writeFile } from "node:fs/promises"
-import { readFileSync } from "node:fs"
+import { existsSync, readdirSync, readFileSync } from "node:fs"
 import { execFileSync } from "node:child_process"
 import { join } from "node:path"
 import { fileURLToPath } from "node:url"
@@ -42,6 +42,33 @@ const OUT = join(ROOT, "lib", "icon-history.json")
 const NOTES = JSON.parse(
   readFileSync(join(ROOT, "lib", "icon-release-notes.json"), "utf8")
 )
+
+/**
+ * The counts a note is allowed to quote, filled in here rather than typed.
+ *
+ * A number in a sentence is a claim with an expiry date, and this repository
+ * has shipped three stale ones on the install page and built a checker to stop
+ * the fourth. The prose is the part a person writes; the arithmetic is not.
+ *
+ * `{names}` is drawings and `{files}` is SVGs on disk across both corner
+ * treatments, which are different questions and the reason a note wants both:
+ * the set gained no names at all when sharp landed and doubled its files.
+ */
+function fill(note) {
+  if (!note) return null
+  const names = Object.keys(icons).length
+  let files = 0
+  for (const corners of ["", "sharp/"])
+    for (const style of STYLES) {
+      const dir = join(ROOT, "icons", corners, style)
+      if (!existsSync(dir)) continue
+      files += readdirSync(dir).filter((f) => f.endsWith(".svg")).length
+    }
+  const values = { names, files }
+  return note.replace(/\{(\w+)\}/g, (whole, key) =>
+    key in values ? values[key].toLocaleString("en-US") : whole
+  )
+}
 const check = process.argv.includes("--check")
 
 const c = (n, s) => `\x1b[${n}m${s}\x1b[0m`
@@ -516,7 +543,7 @@ const out =
             label: show(r.date),
             /* Absent unless someone wrote one; every surface treats it as
                optional prose above the tiles rather than instead of them. */
-            note: NOTES[r.version] ?? null,
+            note: fill(NOTES[r.version]),
             /* The oldest tag, and only ever the oldest. The surfaces print
                "Initial release" off this instead of assuming the second entry
                on the board is the first one that happened. */
@@ -567,7 +594,7 @@ const out =
         /* A note keeps the section alive on its own. Work that adds an axis
            rather than a drawing leaves both lists empty, and returning null
            there would drop the announcement along with them. */
-        const note = NOTES.unreleased ?? null
+        const note = fill(NOTES.unreleased)
         if (!names.length && !updated.length && !note) return null
         return {
           note,
