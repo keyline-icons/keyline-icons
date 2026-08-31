@@ -859,13 +859,16 @@ filename, so there is no renaming step. Hand-authored icons can still go
 straight into `raw/<style>/<name>.svg`; defining the same icon in both layouts
 fails the build rather than letting one silently win.
 
-Since 29 Aug 2026 the component sets carry a third property, `Corners`, which
-this pipeline does not parse yet. An export today names every file
-`Container=…, Style=…, Corners=….svg`: the build rejects the name, and the
-export brings the `Corners=sharp` variants with it, which stay out of `raw/`
-until the sharp release. Until the exporter learns the axis, export only the
-`Corners=regular` variants and strip `, Corners=regular` from the filenames,
-which is, for now, a renaming step after all.
+The component sets have carried a third property, `Corners`, since 29 Aug 2026,
+and the build reads it: `Container=…, Style=…, Corners=….svg`, with the
+property optional so a set drawn before the axis still lands. Sharp goes to
+`icons/sharp/<style>/<name>.svg` — its own namespace rather than a suffix on
+the name, so every rounded import that predates the axis still resolves and
+`[element]-[modifier]` goes on meaning what it says.
+
+This paragraph used to say the pipeline did not parse the property and to
+strip `, Corners=regular` from every filename by hand, which was true for four
+days and is a renaming step nobody needs now.
 
 > Export from the Components page, not the catalogue. The catalogue's frames
 > carry no style information — that is what the component sets encode.
