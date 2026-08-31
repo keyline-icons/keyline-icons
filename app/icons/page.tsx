@@ -4,6 +4,7 @@ import { cookies } from "next/headers"
 import { parseSettings, SETTINGS_COOKIE } from "@/lib/browser-settings"
 import { CONTAINERS } from "@/components/glyph"
 import { isNewSince, loadIcons, STYLES } from "@/lib/icons"
+import { CORNERS } from "@/components/glyph"
 import { pageMetadata } from "@/lib/seo"
 import { IconLibrary } from "@/components/icon-library"
 import { SET_LICENSE, SET_TAGLINE } from "@/lib/site-chrome"
@@ -80,6 +81,7 @@ export default async function Page({
     icon?: string | string[]
     style?: string | string[]
     shape?: string | string[]
+    corners?: string | string[]
   }>
 }) {
   /*
@@ -129,10 +131,28 @@ export default async function Page({
    * control can name and no icon matches: a blank library with every filter
    * looking untouched.
    */
-  const { icon, style, shape } = await searchParams
+  const { icon, style, shape, corners } = await searchParams
   const initialQuery = typeof icon === "string" ? icon.trim().slice(0, 64) : ""
   const initialStyle = STYLES.find((known) => known === style)
   const initialShape = CONTAINERS.find((known) => known === shape)
+
+  /*
+   * `?corners=sharp` arrives as a seed like the three above, and lands one
+   * level down from them: the treatment is a persisted setting rather than
+   * component state, so it seeds by overriding the cookie for this render
+   * instead of by a prop.
+   *
+   * The changelog's preview is what needs it. A link that shows you thirty
+   * sharp drawings and then opens the browser on rounded is the same mismatch
+   * as a snippet that does not produce what is on the screen.
+   *
+   * Narrowed against `CORNERS`, for the reason the note above gives: an
+   * unchecked string out of the URL reaching `artOf` draws nothing at all.
+   * It does not write the cookie by arriving — the reader's own preference
+   * survives until they change something themselves.
+   */
+  const seeded = CORNERS.find((known) => known === corners)
+  const initialSettings = seeded ? { ...settings, corners: seeded } : settings
 
   return (
     <>
@@ -154,7 +174,7 @@ export default async function Page({
       <div className="mx-auto w-full max-w-360 px-6 py-10 lg:px-8">
         <IconLibrary
           icons={icons}
-          initialSettings={settings}
+          initialSettings={initialSettings}
           initialQuery={initialQuery}
           initialStyle={initialStyle}
           initialShape={initialShape}

@@ -11,7 +11,8 @@ import {
 import { pageMetadata } from "@/lib/seo"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
-import { Glyph } from "@/components/glyph"
+import { artOf, Glyph } from "@/components/glyph"
+import Link from "next/link"
 
 /**
  * What has shipped, release by release.
@@ -57,7 +58,7 @@ const plural = (n: number, one: string, many = one + "s") =>
  */
 function Tiles({ icons }: { icons: Icon[] }) {
   return (
-    <ul className="grid grid-cols-[repeat(auto-fill,minmax(104px,1fr))] gap-2 not-prose">
+    <ul className="not-prose grid grid-cols-[repeat(auto-fill,minmax(104px,1fr))] gap-2">
       {icons.map((icon) => (
         <li
           key={icon.name}
@@ -72,6 +73,79 @@ function Tiles({ icons }: { icons: Icon[] }) {
         </li>
       ))}
     </ul>
+  )
+}
+
+/**
+ * How many of the sharp drawings the preview shows.
+ *
+ * Thirty is five rows of six in this column's width, which is what the section
+ * wants: enough to read as a treatment rather than a sample of one, and short
+ * enough that the announcement above it is still the point. Narrower screens
+ * lay the same thirty out in more rows, which is the grid doing its job.
+ */
+const SHARP_PREVIEW = 30
+
+/**
+ * A taste of the sharp half, faded out at the bottom.
+ *
+ * The tiles are the ones above with the other treatment in them, deliberately:
+ * a second tile component is how one surface starts disagreeing with another
+ * about what an icon looks like, and the only thing that differs here is which
+ * drawing goes in.
+ *
+ * The fade is a mask rather than a gradient laid over the top. An overlay has
+ * to know the colour behind it, so it is a white rectangle that turns into a
+ * white rectangle on a dark page unless someone remembers to theme it; a mask
+ * takes the tiles out of the paint and lets whatever is behind them through,
+ * which is right in both themes and needs no token.
+ */
+function SharpPreview({ icons, total }: { icons: Icon[]; total: number }) {
+  return (
+    <div className="not-prose">
+      <ul
+        className="grid grid-cols-[repeat(auto-fill,minmax(104px,1fr))] gap-2"
+        style={{
+          maskImage: "linear-gradient(to bottom, #000 55%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, #000 55%, transparent 100%)",
+        }}
+      >
+        {icons.map((icon) => (
+          <li
+            key={icon.name}
+            className="flex flex-col items-center gap-2 rounded-lg bg-muted p-3"
+          >
+            <span className="text-foreground">
+              <Glyph
+                art={artOf(icon, "stroke", "sharp")!}
+                size={24}
+                stroke={2}
+              />
+            </span>
+            <span className="w-full truncate text-center text-[11px] leading-tight">
+              {icon.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      {/*
+        The count is the whole set rather than what the fade hides, and that is
+        the point of writing it this way: how many are cut off depends on how
+        wide the window is, so a remainder would be a number that is only true
+        at one size. `?corners=sharp` lands the browser on the treatment it just
+        showed you, which is the same seed `?style=` already offers.
+      */}
+      <p className="-mt-2 text-sm">
+        <Link
+          href="/icons?corners=sharp"
+          className="font-medium text-foreground underline underline-offset-4 hover:no-underline"
+        >
+          See all {total} in sharp
+        </Link>
+      </p>
+    </div>
   )
 }
 
@@ -111,7 +185,7 @@ function Redrawn({ pairs }: { pairs: Pair[] }) {
     )
 
   return (
-    <ul className="grid grid-cols-[repeat(auto-fill,minmax(148px,1fr))] gap-2 not-prose">
+    <ul className="not-prose grid grid-cols-[repeat(auto-fill,minmax(148px,1fr))] gap-2">
       {pairs.map((pair) => (
         <li
           key={pair.name}
@@ -148,7 +222,7 @@ const pairs = (redraws: Redraw[], byName: Map<string, Icon>): Pair[] =>
     before: redraw.before ? toStyleArt(redraw.before) : null,
     after: redraw.after
       ? toStyleArt(redraw.after)
-      : byName.get(redraw.name)?.art.stroke ?? null,
+      : (byName.get(redraw.name)?.art.stroke ?? null),
   }))
 
 /**
@@ -165,8 +239,22 @@ async function release() {
   const dated = icons.filter((icon) => icon.history)
   const byName = new Map(icons.map((icon) => [icon.name, icon]))
 
+  /*
+   * A spread across the set rather than the first thirty by name, which would
+   * be `activity`, `alert` and then twenty-eight variations on `align-` and
+   * `arrow-`. Every nth drawing shows what the treatment does to a rounded
+   * corner, a cap and a fillet in one screen, and it needs no curated list
+   * anyone has to remember to refresh.
+   */
+  const withSharp = icons.filter((icon) => artOf(icon, "stroke", "sharp"))
+  const step = Math.max(1, Math.floor(withSharp.length / SHARP_PREVIEW))
+  const sharpSample = withSharp
+    .filter((_, i) => i % step === 0)
+    .slice(0, SHARP_PREVIEW)
+
   return {
     count: dated.length,
+    sharp: { sample: sharpSample, total: withSharp.length },
     /*
       One entry per release, newest first, straight off the generated list.
       Counts and membership are as of each tag rather than as of today: the
@@ -228,7 +316,7 @@ export async function generateMetadata() {
 }
 
 export default async function Page() {
-  const { entries, unreleased } = await release()
+  const { entries, unreleased, sharp } = await release()
 
   return (
     <>
@@ -247,7 +335,6 @@ export default async function Page() {
             carries a <span className="text-foreground">New</span> badge for its
             first {NEW_FOR_DAYS} days, whatever ships in between.
           </p>
-
         </header>
 
         {/*
@@ -284,6 +371,15 @@ export default async function Page() {
               */}
               {unreleased.note && (
                 <p className="text-foreground">{unreleased.note}</p>
+              )}
+              {/*
+                A look at the treatment, under the sentence that announces it.
+                Only where there is a note: this is the announcement's evidence,
+                not a fixture of the section, and an unreleased stretch that is
+                three drawings and a correction has no use for it.
+              */}
+              {unreleased.note && sharp.total > 0 && (
+                <SharpPreview icons={sharp.sample} total={sharp.total} />
               )}
               <p>
                 {/*
@@ -346,32 +442,31 @@ export default async function Page() {
                   MIT licence, shipping as SVGs, JSX snippets and React
                   components.
                 </p>
+              ) : entry.icons.length === 0 && entry.redrawn.length === 0 ? (
+                <p>
+                  No drawing changes since {entry.previous}. The set still holds{" "}
+                  {entry.count}.
+                </p>
+              ) : entry.icons.length === 0 ? (
+                <p>
+                  No new drawings.{" "}
+                  {plural(entry.redrawn.length, "redrawn", "redrawn")} since{" "}
+                  {entry.previous}, so the set still holds {entry.count}:
+                </p>
+              ) : entry.redrawn.length === 0 ? (
+                <p>
+                  {plural(entry.icons.length, "drawing")} added since{" "}
+                  {entry.previous}, bringing the set to {entry.count}:
+                </p>
               ) : (
-                entry.icons.length === 0 && entry.redrawn.length === 0 ? (
-                  <p>
-                    No drawing changes since {entry.previous}. The set still
-                    holds {entry.count}.
-                  </p>
-                ) : entry.icons.length === 0 ? (
-                  <p>
-                    No new drawings. {plural(entry.redrawn.length, "redrawn", "redrawn")}{" "}
-                    since {entry.previous}, so the set still holds {entry.count}:
-                  </p>
-                ) : entry.redrawn.length === 0 ? (
-                  <p>
-                    {plural(entry.icons.length, "drawing")} added since{" "}
-                    {entry.previous}, bringing the set to {entry.count}:
-                  </p>
-                ) : (
-                  /* A release that both adds and corrects used to announce
+                /* A release that both adds and corrects used to announce
                      only the additions, and then draw only their tiles. Every
                      redrawn icon in a release like that went out unmentioned. */
-                  <p>
-                    {plural(entry.icons.length, "drawing")} added since{" "}
-                    {entry.previous}, bringing the set to {entry.count}, and{" "}
-                    {plural(entry.redrawn.length, "redrawn", "redrawn")}:
-                  </p>
-                )
+                <p>
+                  {plural(entry.icons.length, "drawing")} added since{" "}
+                  {entry.previous}, bringing the set to {entry.count}, and{" "}
+                  {plural(entry.redrawn.length, "redrawn", "redrawn")}:
+                </p>
               )}
               {/*
                 Drawn at grid size, not at display size. These are being
@@ -387,7 +482,6 @@ export default async function Page() {
             </div>
           </section>
         ))}
-
       </main>
 
       <SiteFooter />
