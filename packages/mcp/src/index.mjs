@@ -25,7 +25,7 @@ const data = JSON.parse(
 const { icons, styles, corners = ["regular"], keywords = {} } = data
 const NAMES = Object.keys(icons)
 
-const VERSION = "0.2.0"
+const VERSION = "0.3.0"
 /** Fallback only. The client's requested version is echoed when it sends one. */
 const PROTOCOL = "2024-11-05"
 

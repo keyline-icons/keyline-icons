@@ -26,7 +26,7 @@ const data = JSON.parse(
 // older icons.json still runs rather than reading `undefined.includes`.
 const { icons, styles, corners = ["regular"], keywords = {} } = data
 const NAMES = Object.keys(icons)
-const VERSION = "0.2.0"
+const VERSION = "0.3.0"
 
 /** Colour only when a human is looking. Piped output stays clean. */
 const tty = process.stdout.isTTY
