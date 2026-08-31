@@ -561,6 +561,12 @@ function catalogSheet(icons, totals, release) {
  * countable thing counted, and this is the same sentences off the same data. It
  * is short enough for one write, so it is one file and one artboard.
  */
+/* The notes are the one string on this board written by a person rather than
+   derived, so they are the one that can carry an ampersand or an angle bracket
+   into markup that is otherwise all ours. */
+const esc = (t) =>
+  t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+
 function changelogSheet(icons, release) {
   /* "1 drawing", not "1 drawings". The board said the second for years, and a
      release that adds one icon is the common case rather than an edge. */
@@ -681,6 +687,10 @@ function changelogSheet(icons, release) {
               `<p style="margin:8px 0 0;font-size:13px;color:${MUTED}">` +
                 `Drawn since ${release.unreleased.since} &middot; not in a release yet` +
               `</p>` +
+              (release.unreleased.note
+                ? `<p style="margin:16px 0 0;font-size:14px;line-height:1.7">` +
+                  `${esc(release.unreleased.note)}</p>`
+                : "") +
               `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
                 /* Both halves, always. The sentence used to name whichever
                    list was non-empty and drop the other, so a stretch that
@@ -710,6 +720,12 @@ function changelogSheet(icons, release) {
                release's predecessor as the first cut of the set. */
             `${entry.initial ? "Initial release" : "Released"} &middot; ${entry.label}` +
           `</p>` +
+          /* The hand-written note leads where there is one, in full-strength
+             ink, because it is the announcement and the counts under it are the
+             detail. Same order as the page that owns the words. */
+          (entry.note
+            ? `<p style="margin:16px 0 0;font-size:14px;line-height:1.7">${esc(entry.note)}</p>`
+            : "") +
           `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
             (entry.initial
               ? `The first cut of the set: ${entry.count} drawings on one 24 × 24 grid, ` +

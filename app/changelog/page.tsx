@@ -276,6 +276,15 @@ export default async function Page() {
             </p>
 
             <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
+              {/*
+                The hand-written note leads, where there is one. A release that
+                added drawings describes itself out of the counts below; one
+                that added an axis without adding a name has nothing for them to
+                count, and the sentence is the whole announcement.
+              */}
+              {unreleased.note && (
+                <p className="text-foreground">{unreleased.note}</p>
+              )}
               <p>
                 {/*
                   Both halves, always. The sentence used to name whichever list
@@ -329,6 +338,7 @@ export default async function Page() {
             </p>
 
             <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
+              {entry.note && <p className="text-foreground">{entry.note}</p>}
               {entry.initial ? (
                 <p>
                   The first cut of the set: {entry.count} drawings on one 24×24

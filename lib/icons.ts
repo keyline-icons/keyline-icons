@@ -129,6 +129,15 @@ export type Release = {
   version: string
   date: string
   label: string
+  /**
+   * A hand-written sentence about the release, from `lib/icon-release-notes.json`.
+   *
+   * Null for most of them, which is the resting state: a release that added
+   * drawings describes itself out of the lists below. This is for the ones that
+   * did something a count cannot say, like adding a corner treatment across the
+   * whole set without adding a name to it.
+   */
+  note: string | null
   /** True for the oldest tag only. The one entry that gets the first-cut copy. */
   initial: boolean
   /** What the set held at that tag, not what it holds today. */
@@ -150,6 +159,15 @@ export type Release = {
  * it.
  */
 export type Unreleased = {
+  /**
+   * A hand-written sentence about the release, from `lib/icon-release-notes.json`.
+   *
+   * Null for most of them, which is the resting state: a release that added
+   * drawings describes itself out of the lists below. This is for the ones that
+   * did something a count cannot say, like adding a corner treatment across the
+   * whole set without adding a name to it.
+   */
+  note: string | null
   /** The tag this is measured from. */
   since: string | null
   sinceDate: string | null

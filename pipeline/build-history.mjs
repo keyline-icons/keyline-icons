@@ -25,6 +25,23 @@ import { fileURLToPath } from "node:url"
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url))
 const OUT = join(ROOT, "lib", "icon-history.json")
+
+/**
+ * The hand-written half of the changelog, keyed by version plus `unreleased`.
+ *
+ * Everything else this file bakes is read off git, which is right for drawings:
+ * a list of what was added or redrawn should never be typed. A release is not
+ * always drawings, though. The corner treatment added a whole axis without
+ * adding a single name, so git had nothing to report about it and the page
+ * would have announced the redraws it happened to carry and nothing else.
+ *
+ * Read here rather than in the page, so the site, the Paper board and anything
+ * else downstream all take the sentence from one place. Missing is fine and
+ * common: most releases are drawings and describe themselves.
+ */
+const NOTES = JSON.parse(
+  readFileSync(join(ROOT, "lib", "icon-release-notes.json"), "utf8")
+)
 const check = process.argv.includes("--check")
 
 const c = (n, s) => `\x1b[${n}m${s}\x1b[0m`
@@ -497,6 +514,9 @@ const out =
             version: r.version,
             date: r.date,
             label: show(r.date),
+            /* Absent unless someone wrote one; every surface treats it as
+               optional prose above the tiles rather than instead of them. */
+            note: NOTES[r.version] ?? null,
             /* The oldest tag, and only ever the oldest. The surfaces print
                "Initial release" off this instead of assuming the second entry
                on the board is the first one that happened. */
@@ -544,8 +564,13 @@ const out =
         const names = Object.keys(icons)
           .filter((name) => !was.has(name))
           .sort((a, b) => a.localeCompare(b))
-        if (!names.length && !updated.length) return null
+        /* A note keeps the section alive on its own. Work that adds an axis
+           rather than a drawing leaves both lists empty, and returning null
+           there would drop the announcement along with them. */
+        const note = NOTES.unreleased ?? null
+        if (!names.length && !updated.length && !note) return null
         return {
+          note,
           since: since?.version ?? null,
           sinceDate: since?.date ?? null,
           sinceLabel: since ? show(since.date) : null,
