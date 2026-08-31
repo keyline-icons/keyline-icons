@@ -274,6 +274,11 @@ export function StyleShowcase({
               key={c}
               active={corners === c}
               onClick={() => setCorners(c)}
+              /* Only here, and only while it is true. This is the page that
+                 announces the set, so it is the one place the flag earns its
+                 keep — the same switch in the filter row, the dock and the icon
+                 page is being used by someone who has already found it. */
+              badge={c === "sharp" ? "New" : undefined}
             >
               {c === "regular" ? "Rounded" : "Sharp"}
             </SegmentedItem>
