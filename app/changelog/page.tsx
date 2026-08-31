@@ -137,7 +137,7 @@ function SharpPreview({ icons, total }: { icons: Icon[]; total: number }) {
         at one size. `?corners=sharp` lands the browser on the treatment it just
         showed you, which is the same seed `?style=` already offers.
       */}
-      <p className="-mt-2 text-sm">
+      <p className="mt-3 text-sm">
         <Link
           href="/icons?corners=sharp"
           className="font-medium text-foreground underline underline-offset-4 hover:no-underline"
