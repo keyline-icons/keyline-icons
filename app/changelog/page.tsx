@@ -8,7 +8,7 @@ import {
   type Redraw,
   type StyleArt,
 } from "@/lib/icons"
-import { CHANGELOG_SHARP_ICON_NAMES } from "@/lib/changelog"
+import { CHANGELOG_SHARP_ICON_NAMES, SHARP_RELEASE } from "@/lib/changelog"
 import { pageMetadata } from "@/lib/seo"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
@@ -373,15 +373,6 @@ export default async function Page() {
               {unreleased.note && (
                 <p className="text-foreground">{unreleased.note}</p>
               )}
-              {/*
-                A look at the treatment, under the sentence that announces it.
-                Only where there is a note: this is the announcement's evidence,
-                not a fixture of the section, and an unreleased stretch that is
-                three drawings and a correction has no use for it.
-              */}
-              {unreleased.note && sharp.total > 0 && (
-                <SharpPreview icons={sharp.sample} total={sharp.total} />
-              )}
               <p>
                 {/*
                   Both halves, always. The sentence used to name whichever list
@@ -436,6 +427,15 @@ export default async function Page() {
 
             <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
               {entry.note && <p className="text-foreground">{entry.note}</p>}
+              {/*
+                A look at the treatment, under the sentence that announces it.
+                Pinned to the release that introduced it rather than to whatever
+                carries a note: every later release may have a note of its own,
+                and none of them is announcing sharp.
+              */}
+              {entry.version === SHARP_RELEASE && sharp.total > 0 && (
+                <SharpPreview icons={sharp.sample} total={sharp.total} />
+              )}
               {entry.initial ? (
                 <p>
                   The first cut of the set: {entry.count} drawings on one 24×24

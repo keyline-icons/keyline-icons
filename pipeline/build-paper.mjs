@@ -387,9 +387,13 @@ async function sharpShowcase() {
   if (!names.length) {
     throw new Error("lib/changelog.ts: CHANGELOG_SHARP_ICON_NAMES parsed empty")
   }
-  return names
+  /* The entry the preview belongs to, from the same file for the same reason:
+     the board and the page have to agree about which release announced sharp. */
+  const release = /SHARP_RELEASE\s*=\s*"([^"]+)"/.exec(src)?.[1]
+  if (!release) throw new Error("lib/changelog.ts: no SHARP_RELEASE export")
+  return { names, release }
 }
-const SHARP_SHOWCASE = await sharpShowcase()
+const { names: SHARP_SHOWCASE, release: SHARP_RELEASE } = await sharpShowcase()
 
 /**
  * Every rule written on the element it applies to, because a `<style>` block
@@ -929,10 +933,6 @@ function changelogSheet(icons, release) {
                 ? `<p style="margin:16px 0 0;font-size:14px;line-height:1.7">` +
                   `${esc(release.unreleased.note)}</p>`
                 : "") +
-              /* The announcement's evidence, so only where there is an
-                 announcement: a stretch that is three drawings and a correction
-                 has no use for it. Same condition as the page's. */
-              (release.unreleased.note ? sharpPreview() : "") +
               `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
                 /* Both halves, always. The sentence used to name whichever
                    list was non-empty and drop the other, so a stretch that
@@ -968,6 +968,10 @@ function changelogSheet(icons, release) {
           (entry.note
             ? `<p style="margin:16px 0 0;font-size:14px;line-height:1.7">${esc(entry.note)}</p>`
             : "") +
+          /* Pinned to the release that introduced the treatment rather than to
+             whatever carries a note, and it stays there: a changelog only
+             grows, so that entry goes on showing what it announced. */
+          (entry.version === SHARP_RELEASE ? sharpPreview() : "") +
           `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
             (entry.initial
               ? `The first cut of the set: ${entry.count} drawings on one 24 × 24 grid, ` +

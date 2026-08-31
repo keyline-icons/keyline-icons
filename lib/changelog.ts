@@ -33,6 +33,18 @@
  * Figma Changelog page, which is drawn by hand and has to be re-drawn when
  * this list changes.
  */
+/**
+ * The release that introduced the corner treatment.
+ *
+ * The preview below belongs to that entry and stays with it: a changelog only
+ * grows, so the release that announced sharp goes on showing what it announced
+ * rather than handing the evidence to whatever is newest. It hung off the
+ * `unreleased` block until v0.3.0 was tagged, at which point that block emptied
+ * and took the preview with it — which is the bug this constant exists to stop
+ * happening again.
+ */
+export const SHARP_RELEASE = "0.3.0"
+
 export const CHANGELOG_SHARP_ICON_NAMES = [
   "triangle-alert",
   "building",
