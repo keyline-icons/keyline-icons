@@ -67,14 +67,14 @@ Keyline Icons
 ## Tagline
 
 ```
-585 icons in three styles, searchable inside Figma and FigJam.
+585 icons, three styles, rounded or sharp corners. Searchable in Figma and FigJam.
 ```
 
-Capped at 100 characters. The line above is 62, so there is room. A shorter
-alternative if it ever needs one:
+Capped at 100 characters. The line above is 81, so there is still room. A
+shorter alternative if it ever needs one:
 
 ```
-527 icons in three styles, drawn on one 24 × 24 grid.
+585 icons in three styles, cut rounded or sharp.
 ```
 
 ## Description
@@ -88,7 +88,12 @@ Three styles
   duotone   480 icons, a 40% plate under the line
   fill      432 icons, solid where the glyph has a region to fill
 
-56 icons also come in a square- form and 57 in a circle- form, so a container
+Two corner treatments, and every drawing has both. Rounded is the keyline the
+set was drawn on; sharp takes every corner to a true point and ends each stroke
+square. Coverage is identical, so switching never costs you a drawing. 2,994
+SVGs in total.
+
+55 icons also come in a square- form and 54 in a circle- form, so a container
 is a search away rather than a second drawing.
 
 Search knows more than the file names. 465 icons carry curated words, so
@@ -127,7 +132,7 @@ appears not to count against the five, though that is unverified.
 ```
 figjam
 duotone
-ui icons
+sharp icons
 open source
 design system
 ```
@@ -139,8 +144,14 @@ expectation for an icon set. `free icons` overlaps `open source`, and page four
 marks the plugin Free natively.
 
 That leaves the five that actually distinguish it: FigJam support is rare among
-icon plugins, 437 duotone drawings are rare among icon sets, and the rest name
-the audience rather than the artefact.
+icon plugins, 480 duotone drawings are rare among icon sets, a set that ships
+every drawing rounded *and* sharp is rarer still, and the rest name the audience
+rather than the artefact.
+
+`sharp icons` took `ui icons`'s slot in 0.3.0. `ui icons` was the weakest of the
+five on the file's own test — the Icon Packs category and the description
+already say it — and the corner treatment is the thing someone is searching for
+who would otherwise leave.
 
 `lucide alternative` is deliberately absent. It is the highest-intent term
 available and Figma's review criteria mention trademark compliance, so a
@@ -159,6 +170,21 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 0.3.0
+
+```
+Sharp corners. Every drawing now comes rounded or sharp — 2,994 SVGs against
+585 names — and the plugin has a second row under the styles to switch between
+them. Coverage is identical in both, so nothing goes missing when you switch.
+
+48 drawings were redrawn along the way, mostly the -off family and the level
+indicators, in both treatments.
+```
+
+The plugin's own code changed this time, so this republish is required rather
+than optional: the corners row is new. The drawings themselves would have
+arrived on their own.
 
 ### 0.1.4
 
@@ -316,21 +342,27 @@ Keyline Icons
 ### Description
 
 ```
-585 icons on a 24×24 grid, in three styles: stroke, duotone and fill.
-MIT licensed, free for commercial work, no attribution required.
+585 icons on a 24×24 grid, in three styles and two corner treatments: stroke,
+duotone and fill, cut rounded or sharp. MIT licensed, free for commercial work,
+no attribution required.
 
-472 component sets, each with two variant properties, Container and Style, so
-you switch between regular, square and circle, and between the three styles,
-without swapping components. 56 icons carry a square- form and 57 a circle-.
+476 component sets, each with three variant properties, Container, Style and
+Corners, so you switch between regular, square and circle, between the three
+styles, and between rounded and sharp,
+without swapping components. 55 icons carry a square- form and 54 a circle-.
 
 Which styles an icon has is measured rather than chosen: duotone and fill need
 a fillable region, so an open glyph like bar-chart is stroke-only, and
 square-bar-chart has all three. That is why the three counts differ: stroke
 585, duotone 480, fill 432.
 
-The Catalog page files every icon under one of 19 categories, and the Changelog
-page records what landed in each version, so the file says what is in it
-without anyone having to count.
+Every drawing exists in both treatments, so sharp is a switch rather than a
+second library: 2,994 variants over the same 585 names.
+
+The Catalog page files every icon under one of 21 categories, each card laid out
+as a matrix so a name's rounded and sharp forms sit side by side, and the
+Changelog page records what landed in each version, so the file says what is in
+it without anyone having to count.
 
 Also available as React components, a shadcn registry, an MCP server for
 agents, a CLI, and a Figma plugin that searches the set and drops an icon
@@ -349,17 +381,20 @@ regenerated together; re-upload whichever modal you are in.
 ### What changed, for the final details page
 
 ```
-Two releases of new drawings since this description was written.
+Sharp corners, across the whole set.
 
-Playback   captions, subtitles, cast, podcast, queue, repeat, repeat-1 and
-           list-video, with shuffle redrawn
-Gallery    gallery-horizontal and gallery-vertical, each with a start and an
-           end form
-Screen     fullscreen, fullscreen-exit, maximize, minimize and
-           picture-in-picture
-Sport      trophy, award, and podium with 1, 2 and 3 place variants
-Devices    monitor, monitor-off, bluetooth, and battery at four levels
-Layout     layout-dashboard, and grid in 2x2, 2x3, 3x2 and 3x3
-Also       alert, in bare, circle and square forms; building; loader;
-           heart-hand; megaphone; copy-plus
+Every component set gained a third variant property, Corners, with a regular
+and a sharp value, so the file went from 1,497 variants to 2,994 over the same
+585 names. Nothing was renamed and no component was replaced, so instances
+already placed in your files keep their link and pick the new property up.
+
+Sharp takes every corner to a true point and ends each stroke square. Coverage
+matches rounded exactly, so switching a variant never leaves an empty frame.
+
+The Catalog page is rebuilt as a matrix: one row per name, the three styles
+under Regular and again under Sharp. Categories went from 19 to 21 when the
+carets and chevrons took a shelf of their own.
+
+48 drawings were redrawn in both treatments, mostly the -off family and the
+level indicators.
 ```

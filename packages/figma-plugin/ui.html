@@ -109,6 +109,7 @@
 <header>
   <input id="q" type="search" placeholder="Search icons" autocomplete="off" autofocus />
   <div class="styles" id="styles"></div>
+  <div class="styles" id="corners"></div>
 </header>
 
 <main>
@@ -141,6 +142,13 @@
   let KEYWORDS = {}
   let NAMES = []
   let style = "stroke"
+  /*
+    Rounded until asked otherwise, which is what every caller of the set
+    defaults to: someone who has never heard of the axis gets the drawing they
+    have always got. The row below only appears if the data offers the axis, so
+    a stale cached bundle degrades to the plugin this was before.
+  */
+  let corners = "regular"
 
   /* ------------------------------------------------------------------ data */
 
@@ -176,6 +184,7 @@
       NAMES = Object.keys(ICONS)
 
       renderStyles(data.styles)
+      renderCorners(data.corners)
       render()
     } catch (err) {
       note.textContent = `Could not load the icon set (${err.message}). `
@@ -250,12 +259,12 @@
     // Browsing, not searching. The ranked order below breaks ties on length,
     // which is right for a query and reads as random with nothing typed: it
     // opens on `x`, `at`, `bin`. Alphabetical is the only useful browse order.
-    if (!q) return NAMES.filter((n) => ICONS[n][style]).map((name) => ({ name }))
+    if (!q) return NAMES.filter((n) => artOf(n)).map((name) => ({ name }))
 
     const words = wordsOf(raw ?? q)
     const hits = []
     for (const name of NAMES) {
-      if (!ICONS[name][style]) continue
+      if (!artOf(name)) continue
       const i = name.indexOf(q)
       if (i !== -1) {
         const boundary = /(^|-)/.test(name[i - 1] ?? "-")
@@ -280,7 +289,7 @@
     const words = wordsOf(raw ?? q)
     return NAMES.filter(
       (n) =>
-        !ICONS[n][style] &&
+        !artOf(n) &&
         (n.includes(q) ||
           (words.length &&
             (words.every((w) => n.includes(w)) ||
@@ -290,8 +299,25 @@
 
   /* ---------------------------------------------------------------- render */
 
+  /**
+   * One drawing, by name, style and treatment.
+   *
+   * The bundle nests rather than spreads — `icons[name][style]` is still the
+   * rounded drawing and `icons[name].sharp[style]` is its squared twin — so
+   * every existing lookup went on meaning what it meant and this is the only
+   * place that has to know the axis exists. Five call sites used to index the
+   * bundle directly; they all come through here now, because a treatment that
+   * four of them honour and the fifth does not is a grid that draws one thing
+   * and inserts another.
+   */
+  const artOf = (name) => {
+    const icon = ICONS[name]
+    if (!icon) return undefined
+    return corners === "sharp" ? icon.sharp && icon.sharp[style] : icon[style]
+  }
+
   function svgFor(name) {
-    const art = ICONS[name][style]
+    const art = artOf(name)
     const attrs = Object.entries(art.root)
       .map(([k, v]) => ` ${k}="${v}"`)
       .join("")
@@ -304,6 +330,32 @@
   function renderStyles(styles) {
     $("styles").innerHTML = styles
       .map((s) => `<button data-style="${s}" aria-pressed="${s === style}">${s}</button>`)
+      .join("")
+  }
+
+  /*
+    Read off the bundle rather than written here, exactly as the styles are, so
+    a treatment added later needs no plugin update to appear — which is the
+    whole point of fetching the set instead of shipping it. A bundle that
+    predates the axis offers nothing and the row stays empty, so an offline
+    copy from before this release still works.
+
+    "Rounded" rather than "regular": the property is called `regular` in Figma
+    to leave room for a third treatment, and the word a designer reads should
+    say what the corner does.
+  */
+  function renderCorners(list) {
+    const row = $("corners")
+    if (!list || list.length < 2) {
+      row.style.display = "none"
+      return
+    }
+    row.innerHTML = list
+      .map(
+        (c) =>
+          `<button data-corners="${c}" aria-pressed="${c === corners}">` +
+          `${c === "regular" ? "rounded" : c}</button>`
+      )
       .join("")
   }
 
@@ -341,10 +393,14 @@
         : `Nothing matches “${q}”.`
     note.style.display = note.textContent ? "block" : "none"
 
-    $("count").textContent = `${hits.length} ${style}`
+    $("count").textContent =
+      `${hits.length} ${style}` + (corners === "sharp" ? " sharp" : "")
 
     for (const b of $("styles").children) {
       b.setAttribute("aria-pressed", String(b.dataset.style === style))
+    }
+    for (const b of $("corners").children) {
+      b.setAttribute("aria-pressed", String(b.dataset.corners === corners))
     }
   }
 
@@ -356,6 +412,13 @@
     const b = e.target.closest("button")
     if (!b) return
     style = b.dataset.style
+    render()
+  }
+
+  $("corners").onclick = (e) => {
+    const b = e.target.closest("button")
+    if (!b) return
+    corners = b.dataset.corners
     render()
   }
 

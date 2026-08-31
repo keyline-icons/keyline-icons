@@ -59,9 +59,27 @@ function counts() {
     the numbers here are lower than a prefix count. `circle-half` is a shape in
     its own right; there is no `half` for it to contain.
   */
+  /*
+    `lib/icon-not-containers.json` is the same list `containerOf` in lib/icons.ts
+    consults, and leaving it out was worth four sets and three published numbers:
+    `square-pen`, `circle-pen`, `circle-square` and `circle-square-dashed` all
+    wear a prefix over a base that exists, so a bare prefix test calls them
+    container forms and subtracts them from the set count. The file listing has
+    been saying 472 component sets, 56 square and 57 circle where the Figma file
+    holds 476, 55 and 54 — and `raw/`, which is one directory per set, agrees
+    with the site rather than with this check.
+  */
+  const notContainers = new Set(
+    JSON.parse(
+      readFileSync(join(ROOT, 'lib', 'icon-not-containers.json'), 'utf8')
+    ).names
+  );
   const contained = (prefix) =>
     [...names].filter(
-      (n) => n.startsWith(`${prefix}-`) && names.has(n.slice(prefix.length + 1))
+      (n) =>
+        !notContainers.has(n) &&
+        n.startsWith(`${prefix}-`) &&
+        names.has(n.slice(prefix.length + 1))
     ).length;
 
   /*

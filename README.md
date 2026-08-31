@@ -92,7 +92,7 @@ is the whole set as components.
 
 ## Containers
 
-56 icons come in a `square-` form and 57 in a `circle-` form, which wrap the
+55 icons come in a `square-` form and 54 in a `circle-` form, which wrap the
 base drawing rather than replacing it:
 
 ```
