@@ -21,9 +21,10 @@
  *
  * Four things, and the last is the one that matters:
  *
- *  1. AGREEMENT. The shared expression is lifted out of all four files and
+ *  1. AGREEMENT. The shared expressions are lifted out of all four files and
  *     compared with indentation flattened. They have to be the same code. This
- *     catches a fix that lands in three files.
+ *     catches a fix that lands in three files. Two of them are shared: the word
+ *     split, and the singular rule that lets a plural find the family.
  *  2. BEHAVIOUR. That expression is run against the table below. This catches a
  *     fix that lands in all four and is wrong in all four.
  *  3. VOCABULARY. The words each icon answers to are computed the site's way
@@ -104,6 +105,33 @@ const HAYSTACK = /const haystackFor = \(name\) =>[^\n]*/
  */
 const BODY = /const identifier =[\s\S]*?\.filter\(\(w\) => w && !\(identifier && \/\^\\d\+\$\/\.test\(w\)\)\)/
 
+/**
+ * The singular rule, and the pass that applies it to a haystack.
+ *
+ * Captured from the parameter rather than from `const`, because the site
+ * annotates it, `(w: string)`, and the packages cannot. Everything after the
+ * arrow is the part that has to be identical, and it is the part that decides
+ * whether `arrows` finds the arrows or the one drawing whose name happens to
+ * carry the letter.
+ */
+const SINGULAR = /const singular[^=]*= \(w[^)]*\) =>([\s\S]*?w\.slice\(0, -1\))/
+const STEMMED = /const stemmed[^=]*= \(hay[^)]*\) =>([^\n]+)/
+
+/**
+ * The concept words, which only the two substring surfaces carry.
+ *
+ * The site and the plugin match inside a word, so `arrow` would otherwise be
+ * handed every drawing keyworded `arrows`. The packages match whole words and
+ * need nothing. Compared across the two that have it, for the same reason
+ * everything else here is compared: the last time these two disagreed about a
+ * search rule, the plugin was the one left behind.
+ */
+const CONCEPT_FILES = [
+  ["components/icon-browser.tsx", "site"],
+  ["packages/figma-plugin/ui.html", "plugin"],
+]
+const CONCEPTS = /const CONCEPTS = (\/[^\n]+\/g)/
+
 /* Indentation differs by nesting depth and the plugin folds two `.replace`
    calls onto one line. Neither is a difference in the code, so whitespace is
    collapsed and then dropped entirely before a `.`, which is what turns
@@ -163,11 +191,45 @@ const FINDS = [
   ["spinner", "loader", "and the word for the state, same"],
   ["office", "building", "nobody types `building` first"],
 
+  // The plural, which is what the category rail is written in and what every
+  // other set answers. `arrows` matched `git-compare-arrows` and nothing else:
+  // one drawing out of 585, on the word printed above 66 of them.
+  //
+  // It is the one plural that does not mean "the family". It asks for the
+  // drawings carrying more than one arrowhead, so it is a keyword rather than
+  // a stem, and MISSES below is the other half of this rule.
+  ["arrows", "fullscreen", "two arrows, and the name says neither word"],
+  ["arrows", "chevrons-up-down", "the doubled chevrons are arrows too"],
+  ["arrows", "refresh-cw", "two curved ones, filed under Arrows on the site"],
+  ["charts", "bar-chart", "found nothing at all before the singular rule"],
+  ["bells", "bell", "same, and there are seven of them"],
+  ["files", "file", "matched the eleven `files-*` names and not `file`"],
+  ["folders", "folder", "same shape as files"],
+  ["chevron", "chevrons-left", "and the other direction, which whole words missed"],
+
   // Word order, which is the other way a name from elsewhere fails to land.
   ["CheckCircle2", "circle-check", "compounds here read base-first"],
   ["check circle", "circle-check", "same, typed as words"],
   ["down arrow", "arrow-down", "either order asks the same question"],
   ["AlertCircle", "circle-alert", "lucide's old spelling, mark first"],
+]
+
+/**
+ * Queries that must NOT reach a drawing.
+ *
+ * The other half of a search: every rule that widens one is one row away from
+ * answering everything. These are the rows that say where a widening stops.
+ *
+ * All four here are the same distinction, asked twice in each direction:
+ * `arrow` is the single-arrow question and `arrows` is the doubled one. The
+ * singular rule collapses every other plural into its family on purpose, and
+ * collapsing this one would leave the set with no way to ask either question.
+ */
+const MISSES = [
+  ["arrow", "fullscreen", "the singular must not inherit the plural's drawings"],
+  ["arrow", "chevrons-up-down", "same, and this is the pair someone would notice"],
+  ["arrows", "arrow-down", "the plural asks for more than one arrowhead"],
+  ["arrows", "file-arrow-up", "same, one arrow on a document"],
 ]
 
 const same = (a, b) => a.length === b.length && a.every((x, i) => x === b[i])
@@ -210,6 +272,7 @@ function vocabularies(bundle, described, aliases) {
 
 async function main() {
   const found = []
+  const stems = []
   for (const [file, label] of SOURCES) {
     const src = await readFile(join(ROOT, file), "utf8")
     const m = src.match(BODY)
@@ -222,6 +285,24 @@ async function main() {
       )
       process.exit(1)
     }
+    const sing = src.match(SINGULAR)
+    const stem = src.match(STEMMED)
+    if (!sing || !stem) {
+      console.error(
+        `  ${c(31, "MISSING")}  ${file}\n` +
+          `    No singular rule. Without it a plural only finds the names that carry\n` +
+          `    the letter: \`arrows\` came back with \`git-compare-arrows\` and nothing\n` +
+          `    else, on the word printed above 66 drawings.`
+      )
+      process.exit(1)
+    }
+    stems.push({
+      file,
+      label,
+      singular: sing[1],
+      stemmed: stem[1],
+      flat: flatten(`${sing[1]} ${stem[1]}`),
+    })
     /* Two forms: the original runs, the flattened one compares. Flattening
        strips the newlines that terminate these statements, so the flat form
        is not executable and must never be the thing that runs. */
@@ -232,8 +313,21 @@ async function main() {
   const [first, ...rest] = found
   const drifted = rest.filter((f) => f.flat !== first.flat)
 
+  const stemDrift = stems.slice(1).filter((s) => s.flat !== stems[0].flat)
+
   /* 2. Behaviour, run on the one they all agree on. */
   const wordsOf = new Function("query", found[0].code)
+  /* Wrapped in parentheses on purpose. The lifted body starts on the line after
+     the arrow, so `return ${body}` is `return` followed by a newline, which is
+     `return undefined` and nothing else. That shipped for one commit: `singular`
+     handed back undefined, `stemmed` painted the word "undefined" over every
+     haystack, and section 5 below matched all 585 icons for every query it was
+     given, which is a table of 23 rows that cannot fail. */
+  const singular = new Function("w", `return (${stems[0].singular})`)
+  const stemmed = new Function(
+    "singular",
+    `return (hay) => (${stems[0].stemmed})`
+  )(singular)
   const failures = []
   for (const [query, want, why] of CASES) {
     let got
@@ -249,12 +343,24 @@ async function main() {
   if (json) {
     console.log(
       JSON.stringify(
-        { surfaces: found.map((f) => f.label), drifted: drifted.map((d) => d.file), failures },
+        {
+          surfaces: found.map((f) => f.label),
+          drifted: [...drifted, ...stemDrift].map((d) => d.file),
+          failures,
+        },
         null,
         2
       )
     )
-    process.exit(drifted.length || failures.length ? 1 : 0)
+    process.exit(drifted.length || stemDrift.length || failures.length ? 1 : 0)
+  }
+
+  if (stemDrift.length) {
+    console.error(`  ${c(31, "DRIFTED")}  the singular rule is not the same code\n`)
+    for (const d of [stems[0], ...stemDrift]) {
+      console.error(`    ${d.label} (${d.file}):`)
+      console.error(`      ${d.flat}\n`)
+    }
   }
 
   if (drifted.length) {
@@ -278,9 +384,9 @@ async function main() {
     )
   }
 
-  if (drifted.length || failures.length) {
+  if (drifted.length || stemDrift.length || failures.length) {
     console.error(
-      `\n${drifted.length ? `${drifted.length} surface(s) drifted. ` : ""}` +
+      `\n${drifted.length + stemDrift.length ? `${drifted.length + stemDrift.length} surface(s) drifted. ` : ""}` +
         `${failures.length ? `${failures.length} case(s) wrong. ` : ""}`
     )
     process.exit(1)
@@ -308,6 +414,41 @@ async function main() {
     console.error(`  ${c(31, "DRIFTED")}  haystackFor is not the same in every package\n`)
     for (const h of [hay[0], ...hayDrift]) console.error(`    ${h.label}: ${h.flat}`)
     process.exit(1)
+  }
+
+  /* 3b. The concept words, on the two surfaces that match substrings. */
+  const concepts = []
+  for (const [file, label] of CONCEPT_FILES) {
+    const src = await readFile(join(ROOT, file), "utf8")
+    const m = src.match(CONCEPTS)
+    if (!m) {
+      console.error(
+        `  ${c(31, "MISSING")}  ${file}\n` +
+          `    No CONCEPTS. This surface matches inside a word, so without it \`arrow\`\n` +
+          `    is handed every drawing keyworded \`arrows\` and the two questions become\n` +
+          `    one again.`
+      )
+      process.exit(1)
+    }
+    concepts.push({ file, label, source: m[1], flat: flatten(m[1]) })
+  }
+  const conceptDrift = concepts.slice(1).filter((x) => x.flat !== concepts[0].flat)
+  if (conceptDrift.length) {
+    console.error(`  ${c(31, "DRIFTED")}  CONCEPTS is not the same in both\n`)
+    for (const x of [concepts[0], ...conceptDrift]) console.error(`    ${x.label}: ${x.flat}`)
+    process.exit(1)
+  }
+
+  /* The rule the two substring surfaces actually run, rebuilt from their own
+     source: concept words cut out unless the query asked for one whole, then
+     the raw word, then the singular. */
+  const conceptsRe = new RegExp(concepts[0].source.slice(1, -2), "g")
+  const answers = (haystack, words) => {
+    const hay = haystack.replace(conceptsRe, (m, lead, word) =>
+      words.includes(word) ? m : lead
+    )
+    const stem = stemmed(hay)
+    return words.every((w) => hay.includes(w) || stem.includes(singular(w)))
   }
 
   /* 4. The vocabulary itself, which the check above cannot see.
@@ -341,18 +482,25 @@ async function main() {
      Matched with the shared rule rather than with any one surface's copy of it,
      so a row failing here means the words are missing, not that one file drifted
      — sections 1 and 3 have already ruled that out by this point. */
-  const missed = []
-  for (const [query, want, why] of FINDS) {
+  const found2 = (query) => {
     const words = wordsOf(query)
     const q = query.toLowerCase().trim()
-    const hits = Object.keys(bundle.icons).filter(
-      (n) =>
-        n.includes(q) ||
-        (words.length &&
-          (words.every((w) => n.includes(w)) ||
-            words.every((w) => vocab.packages[n].includes(w))))
+    return Object.keys(bundle.icons).filter(
+      (n) => n.includes(q) || (words.length && answers(vocab.packages[n], words))
     )
+  }
+
+  const missed = []
+  for (const [query, want, why] of FINDS) {
+    const hits = found2(query)
     if (!hits.includes(want)) missed.push({ query, want, why, hits: hits.slice(0, 5) })
+  }
+
+  /* 6. The rows that must not match, which is the only section that can fail
+     by a search getting wider. */
+  const overreach = []
+  for (const [query, avoid, why] of MISSES) {
+    if (found2(query).includes(avoid)) overreach.push({ query, avoid, why })
   }
 
   if (vocabDrift.length) {
@@ -381,10 +529,18 @@ async function main() {
     )
   }
 
-  if (vocabDrift.length || missed.length) {
+  for (const o of overreach) {
+    console.error(
+      `  ${c(31, "WIDE")}     ${JSON.stringify(o.query)} should not find \`${o.avoid}\`\n` +
+        `           ${o.why}`
+    )
+  }
+
+  if (vocabDrift.length || missed.length || overreach.length) {
     console.error(
       `\n${vocabDrift.length ? `${vocabDrift.length} icon(s) with a split vocabulary. ` : ""}` +
-        `${missed.length ? `${missed.length} quer${missed.length === 1 ? "y" : "ies"} found nothing. ` : ""}`
+        `${missed.length ? `${missed.length} quer${missed.length === 1 ? "y" : "ies"} found nothing. ` : ""}` +
+        `${overreach.length ? `${overreach.length} reached too far. ` : ""}`
     )
     process.exit(1)
   }
@@ -394,8 +550,10 @@ async function main() {
   )
   console.log(`  ${found.map((f) => f.label).join(", ")}`)
   console.log(`  haystackFor identical across ${hay.map((h) => h.label).join(", ")}`)
+  console.log(`  one singular rule across ${stems.map((s) => s.label).join(", ")}`)
+  console.log(`  one concept rule across ${concepts.map((x) => x.label).join(", ")}`)
   console.log(
-    `  one vocabulary across ${Object.keys(bundle.icons).length} icons, ${FINDS.length} queries reach their drawing`
+    `  one vocabulary across ${Object.keys(bundle.icons).length} icons, ${FINDS.length} queries reach their drawing, ${MISSES.length} stop short of one`
   )
 }
 

@@ -135,6 +135,54 @@ function keywordsFor(name) {
 const haystackFor = (name) => `${name} ${keywordsFor(name).join(" ")}`
 
 /**
+ * A word reduced to its singular, so a plural finds the family.
+ *
+ * Every name in the set is singular: `arrow-down`, `file`, `bar-chart`. Every
+ * heading on the site's category rail is plural. So "Arrows" sat on the screen
+ * while typing `arrows` returned one drawing out of 585, `git-compare-arrows`,
+ * the only name carrying the letter. `charts`, `stars` and `bells` returned
+ * nothing at all. The plural is what someone reads off our own sidebar and
+ * what every other set answers, and here it was the one word that could not
+ * work.
+ *
+ * Applied to both sides, the query word and each word of the haystack, which
+ * also carries the other direction: `chevron` reaches `chevrons-left`, which
+ * whole words alone could not.
+ *
+ * Deliberately blunt: no dictionary, no suffix ladder, one `s`. The guards are
+ * the whole design, and they are read off this vocabulary rather than guessed.
+ * Every `-ss`, `-us` and `-is` word in it is already a word: `progress`,
+ * `compass`, `plus`, `minus`, `status`, `axis`. Past those, `lens`, `atlas`
+ * and `sideways` are the only three that end in `s` without being a plural.
+ * `lens` is the one that mattered. Cut to `len` it lands inside `calendar` and
+ * `silence`, and the word someone types for the camera came back with
+ * seventeen drawings that are not it.
+ *
+ * `arrows` is in the list for the opposite reason. The rule would not damage
+ * it, it would erase it: the plural asks for the drawings carrying more than
+ * one arrowhead, `fullscreen`, `chevrons-up-down`, `refresh-cw`, and folding it
+ * into `arrow` answers with the ninety-nine single arrows instead. The word is
+ * a keyword on those drawings, in lib/icon-aliases.json, and this is what keeps
+ * the two questions apart.
+ *
+ * Same rule as the site, the CLI and the Figma plugin, checked by
+ * pipeline/check-search.mjs.
+ */
+const singular = (w) =>
+  w.length < 4 ||
+  !w.endsWith("s") ||
+  /(ss|us|is|arrows|lens|atlas|sideways)$/.test(w)
+    ? w
+    : w.endsWith("ies")
+      ? `${w.slice(0, -3)}y`
+      : /(ch|sh|x|z)es$/.test(w)
+        ? w.slice(0, -2)
+        : w.slice(0, -1)
+
+/** Every word in `hay` singular, delimiters kept so `wholeWord` still works. */
+const stemmed = (hay) => hay.replace(/[a-z0-9]+/g, singular)
+
+/**
  * What another set calls a drawing here: `message-square` for `message`,
  * `arrow-big-up` for `arrow-up`, `loader-2` for `loader`.
  *
@@ -173,6 +221,12 @@ const wholeWord = (hay, needle) => {
   return false
 }
 
+/** Whether one haystack answers every word of a query, whole words only. */
+const answers = (hay, words) =>
+  words.every(
+    (w) => wholeWord(hay, w) || wholeWord(stemmed(hay), singular(w))
+  )
+
 function search(query, style, limit) {
   const q = query.toLowerCase().trim()
   const words = wordsOf(query)
@@ -187,8 +241,8 @@ function search(query, style, limit) {
     else if (foreign[q] === name) rank = 1
     else if (name.startsWith(q + "-")) rank = 2
     else if (wholeWord(name, q)) rank = 3
-    else if (words.every((w) => wholeWord(name, w))) rank = 4
-    else if (words.every((w) => wholeWord(haystackFor(name), w))) rank = 5
+    else if (answers(name, words)) rank = 4
+    else if (answers(haystackFor(name), words)) rank = 5
     else continue
 
     hits.push({ name, rank })

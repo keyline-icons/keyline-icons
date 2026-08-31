@@ -181,6 +181,86 @@ function pageNumbers(current: number, total: number): (number | "gap")[] {
 const byName = (a: BrowserIcon, b: BrowserIcon) => a.name.localeCompare(b.name)
 
 /**
+ * A word reduced to its singular, so a plural finds the family.
+ *
+ * Every name in the set is singular: `arrow-down`, `file`, `bar-chart`. Every
+ * heading on the site's category rail is plural. So "Arrows" sat on the screen
+ * while typing `arrows` returned one drawing out of 585, `git-compare-arrows`,
+ * the only name carrying the letter. `charts`, `stars` and `bells` returned
+ * nothing at all. The plural is what someone reads off our own sidebar and
+ * what every other set answers, and here it was the one word that could not
+ * work.
+ *
+ * Applied to both sides, the query word and each word of the haystack, which
+ * also carries the other direction: `chevron` reaches `chevrons-left`, which
+ * whole words alone could not.
+ *
+ * Deliberately blunt: no dictionary, no suffix ladder, one `s`. The guards are
+ * the whole design, and they are read off this vocabulary rather than guessed.
+ * Every `-ss`, `-us` and `-is` word in it is already a word: `progress`,
+ * `compass`, `plus`, `minus`, `status`, `axis`. Past those, `lens`, `atlas`
+ * and `sideways` are the only three that end in `s` without being a plural.
+ * `lens` is the one that mattered. Cut to `len` it lands inside `calendar` and
+ * `silence`, and the word someone types for the camera came back with
+ * seventeen drawings that are not it.
+ *
+ * `arrows` is in the list for the opposite reason. The rule would not damage
+ * it, it would erase it: the plural asks for the drawings carrying more than
+ * one arrowhead, `fullscreen`, `chevrons-up-down`, `refresh-cw`, and folding it
+ * into `arrow` answers with the ninety-nine single arrows instead. The word is
+ * a keyword on those drawings, in lib/icon-aliases.json, and this is what keeps
+ * the two questions apart.
+ *
+ * Same rule as the MCP server, the CLI and the Figma plugin, checked by
+ * pipeline/check-search.mjs.
+ */
+const singular = (w: string) =>
+  w.length < 4 ||
+  !w.endsWith("s") ||
+  /(ss|us|is|arrows|lens|atlas|sideways)$/.test(w)
+    ? w
+    : w.endsWith("ies")
+      ? `${w.slice(0, -3)}y`
+      : /(ch|sh|x|z)es$/.test(w)
+        ? w.slice(0, -2)
+        : w.slice(0, -1)
+
+/** Every word in `hay` singular, delimiters kept so the words stay separate. */
+const stemmed = (hay: string) => hay.replace(/[a-z0-9]+/g, singular)
+
+/**
+ * A word that answers only to itself, never to a piece of itself.
+ *
+ * The grid matches substrings, because someone typing `arro` has not finished
+ * the word yet, and that is exactly what would hand `arrows` to `arrow` too.
+ * The plural is a different question here, so the token is cut out of the
+ * haystack unless the query asked for it whole. Nothing else in the vocabulary
+ * wants this: `users` answers to `user` through the singular rule, which is
+ * what the singular rule is for.
+ *
+ * The packages need no equivalent. They match whole words already, so `arrow`
+ * cannot reach `arrows` there in the first place.
+ *
+ * Same rule as the Figma plugin, the other surface that matches substrings.
+ */
+const CONCEPTS = /(^|[ -])(arrows)(?=$|[ -])/g
+
+/**
+ * Whether one icon's haystack answers every word of a query.
+ *
+ * The raw word first, so nothing that matched before stops matching. The
+ * singular pass is the fallback, and it reads the haystack through the same
+ * rule, so the two forms meet in the middle whichever side carried the `s`.
+ */
+const answers = (haystack: string, words: string[]) => {
+  const hay = haystack.replace(CONCEPTS, (m, lead, word) =>
+    words.includes(word) ? m : lead
+  )
+  const stem = stemmed(hay)
+  return words.every((w) => hay.includes(w) || stem.includes(singular(w)))
+}
+
+/**
  * Split a query into the words it is actually asking for.
  *
  * Names on disk are kebab-case, so a raw substring test made "arrow up right"
@@ -517,8 +597,7 @@ export function IconBrowser({
         lib/icon-taxonomy.ts for what putting it in there did to `square`.
       */
       if (iconNamedElsewhere(query) === i.base) return true
-      const haystack = [i.name, ...aliasesFor(i.base)].join(" ")
-      return words.every((w) => haystack.includes(w))
+      return answers([i.name, ...aliasesFor(i.base)].join(" "), words)
     })
   }, [icons, query, style, category, corners])
 
@@ -541,8 +620,7 @@ export function IconBrowser({
     return icons.filter((i) => {
       if (artOf(i, style, corners)) return false
       if (category !== "all" && categoryOf(i.base) !== category) return false
-      const haystack = [i.name, ...aliasesFor(i.base)].join(" ")
-      return words.every((w) => haystack.includes(w))
+      return answers([i.name, ...aliasesFor(i.base)].join(" "), words)
     }).length
   }, [icons, query, style, category, corners, matches.length])
 
@@ -561,7 +639,7 @@ export function IconBrowser({
 
     const { haystacks, vocabulary } = searchable
     const corrected: (string | null)[] = words.map((word) =>
-      haystacks.some((h) => h.includes(word))
+      haystacks.some((h) => answers(h, [word]))
         ? word
         : nearestWord(word, vocabulary)
     )
@@ -569,9 +647,7 @@ export function IconBrowser({
     if (corrected.every((w, i) => w === words[i])) return null
 
     const fixed = corrected as string[]
-    return haystacks.some((h) => fixed.every((w) => h.includes(w)))
-      ? fixed.join(" ")
-      : null
+    return haystacks.some((h) => answers(h, fixed)) ? fixed.join(" ") : null
   }, [matches, query, searchable])
 
   const perShape = React.useMemo(() => {

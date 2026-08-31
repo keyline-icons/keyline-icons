@@ -217,6 +217,75 @@
   const haystackFor = (name) => `${name} ${keywordsFor(name).join(" ")}`
 
   /**
+   * A word reduced to its singular, so a plural finds the family.
+   *
+   * Every name in the set is singular: `arrow-down`, `file`, `bar-chart`. Every
+   * heading on the site's category rail is plural. So "Arrows" sat on the screen
+   * while typing `arrows` returned one drawing out of 585, `git-compare-arrows`,
+   * the only name carrying the letter. `charts`, `stars` and `bells` returned
+   * nothing at all. The plural is what someone reads off our own sidebar and
+   * what every other set answers, and here it was the one word that could not
+   * work.
+   *
+   * Applied to both sides, the query word and each word of the haystack, which
+   * also carries the other direction: `chevron` reaches `chevrons-left`, which
+   * whole words alone could not.
+   *
+   * Deliberately blunt: no dictionary, no suffix ladder, one `s`. The guards are
+   * the whole design, and they are read off this vocabulary rather than guessed.
+   * Every `-ss`, `-us` and `-is` word in it is already a word: `progress`,
+   * `compass`, `plus`, `minus`, `status`, `axis`. Past those, `lens`, `atlas`
+   * and `sideways` are the only three that end in `s` without being a plural.
+   * `lens` is the one that mattered. Cut to `len` it lands inside `calendar` and
+   * `silence`, and the word someone types for the camera came back with
+   * seventeen drawings that are not it.
+   *
+   * `arrows` is in the list for the opposite reason. The rule would not damage
+   * it, it would erase it: the plural asks for the drawings carrying more than
+   * one arrowhead, `fullscreen`, `chevrons-up-down`, `refresh-cw`, and folding it
+   * into `arrow` answers with the ninety-nine single arrows instead. The word is
+   * a keyword on those drawings, in lib/icon-aliases.json, and this is what keeps
+   * the two questions apart.
+   *
+   * Same rule as the site, the MCP server and the CLI, checked by
+   * pipeline/check-search.mjs.
+   */
+  const singular = (w) =>
+    w.length < 4 ||
+    !w.endsWith("s") ||
+    /(ss|us|is|arrows|lens|atlas|sideways)$/.test(w)
+      ? w
+      : w.endsWith("ies")
+        ? `${w.slice(0, -3)}y`
+        : /(ch|sh|x|z)es$/.test(w)
+          ? w.slice(0, -2)
+          : w.slice(0, -1)
+
+  /** Every word in `hay` singular, delimiters kept so the words stay separate. */
+  const stemmed = (hay) => hay.replace(/[a-z0-9]+/g, singular)
+
+  /**
+   * A word that answers only to itself, never to a piece of itself.
+   *
+   * The panel matches substrings, because someone typing `arro` has not
+   * finished the word yet, and that is what would hand `arrows` to `arrow` too.
+   * The plural is a different question, so the token is cut out of the haystack
+   * unless the query asked for it whole.
+   *
+   * Same rule as the site, the other surface that matches substrings.
+   */
+  const CONCEPTS = /(^|[ -])(arrows)(?=$|[ -])/g
+
+  /** Whether one haystack answers every word of a query. */
+  const answers = (haystack, words) => {
+    const hay = haystack.replace(CONCEPTS, (m, lead, word) =>
+      words.includes(word) ? m : lead
+    )
+    const stem = stemmed(hay)
+    return words.every((w) => hay.includes(w) || stem.includes(singular(w)))
+  }
+
+  /**
    * The query as words, matching `packages/mcp/src/index.mjs`.
    *
    * A query carrying a camelCase boundary is a component identifier someone
@@ -269,9 +338,9 @@
       if (i !== -1) {
         const boundary = /(^|-)/.test(name[i - 1] ?? "-")
         hits.push({ name, rank: name === q ? 0 : i === 0 ? 1 : boundary ? 2 : 3 })
-      } else if (words.length && words.every((w) => name.includes(w))) {
+      } else if (words.length && answers(name, words)) {
         hits.push({ name, rank: 4 })
-      } else if (words.length && words.every((w) => haystackFor(name).includes(w))) {
+      } else if (words.length && answers(haystackFor(name), words)) {
         hits.push({ name, rank: 5 })
       }
     }
@@ -292,8 +361,7 @@
         !artOf(n) &&
         (n.includes(q) ||
           (words.length &&
-            (words.every((w) => n.includes(w)) ||
-              words.every((w) => haystackFor(n).includes(w)))))
+            (answers(n, words) || answers(haystackFor(n), words))))
     ).length
   }
 

@@ -41,6 +41,13 @@
       ]
     },
     {
+      "match": "^(chevrons-|expand-dashed-|fullscreen$|fullscreen-exit$|git-compare-arrows$|list-collapse|list-sort|refresh-(ccw|cw)$|repeat|reply-all$|shuffle$)",
+      "note": "The plural as a concept: every drawing carrying more than one arrowhead, which is the question `arrows` is asking and the one word the name of each of these does not answer. Counted off the drawings rather than the names: `maximize` and `minimize` are corner brackets with no arrow in them, `fast-forward`, `rewind` and `skip-*` are play heads, and `rotate-ccw` and `rotate-cw` carry exactly one. `arrows` is held apart from `arrow` by the singular rule, which leaves it alone, so the two words stay two questions.",
+      "terms": [
+        "arrows"
+      ]
+    },
+    {
       "match": "^arrow-u-turn",
       "terms": [
         "undo",
