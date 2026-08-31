@@ -5,6 +5,16 @@
 // Writes previews/paper/*.html plus a manifest, one sheet per catalogue
 // section, and each sheet is one artboard's worth of markup.
 //
+// **A card is a matrix, because the set has three axes now.** Since the Corners
+// property landed in Figma, a row is one *name* and carries the same three
+// styles twice, rounded against sharp, in six 24px cells under two headings. It
+// used to be one row per *set* with every variant of it laid out in a line,
+// which worked while a drawing had one corner treatment: eighteen tiles on a
+// line cannot say which of them are the same drawing differently cornered, and
+// six cells in two labelled groups say it by position. A style a name does not
+// own is drawn as an empty cell rather than skipped, so the columns hold and
+// the gap is legible as coverage rather than as a layout accident.
+//
 // **Why HTML and not SVG.** Paper's canvas is HTML and CSS rather than a scene
 // graph, and the only write its MCP server exposes is `write_html`. So the unit
 // a Paper file imports is a document, not a folder of assets: there is no
@@ -19,10 +29,11 @@
 // note under SHEET below. A browser wraps a fragment on its own, so these still
 // open locally for review.
 //
-// **Sheets are chunked by bytes, not by category.** Media alone is 174
-// drawings and over 100KB of path data (Arrows was 220 before the Chevrons &
-// Carets split), which is more than one MCP call should carry. Pages break on a block boundary and never inside one, so an icon's
-// variants always land on the same artboard as each other.
+// **Sheets are chunked by bytes, not by category.** Media alone is 348 drawings
+// and over 250KB of path data, which is more than one MCP call should carry.
+// Pages break on a row boundary and never inside one, so a name's six cells
+// always land on the same artboard as each other, and the stripe is numbered
+// across the whole card rather than per part so no seam shows.
 //
 // **The manifest is the import script's input.** Driving the migration means a
 // `create_artboard` and a `write_html` per sheet, in order, with a name for
@@ -44,6 +55,15 @@ const ICONS = join(ROOT, "icons")
 const OUT = join(ROOT, "previews", "paper")
 const STYLES = ["stroke", "duotone", "fill"]
 const CONTAINERS = ["regular", "square", "circle"]
+/**
+ * The corner treatments, in the order the cards read left to right.
+ *
+ * Figma's third variant property, `Corners: regular | sharp`, and its two words
+ * rather than the site's. The site's prose calls the first one "rounded"; these
+ * boards are the design file's own cards drawn a second time, so where the two
+ * vocabularies differ the file's wins.
+ */
+const CORNERS = ["regular", "sharp"]
 const check = process.argv.includes("--check")
 
 const c = (n, s) => `\x1b[${n}m${s}\x1b[0m`
@@ -134,14 +154,36 @@ function parse(svg) {
   return { attrs, body }
 }
 
+/**
+ * Both treatments, out of the two shapes `icons/` keeps them in.
+ *
+ * Rounded is `icons/<style>/<name>.svg` and sharp is
+ * `icons/sharp/<style>/<name>.svg`, which is `build.mjs`'s own layout: the
+ * rounded paths were left where they were so that every import predating the
+ * axis still resolves, and sharp got a namespace of its own rather than a
+ * suffix on the name, since `[element]-[modifier]` is what a name means here.
+ *
+ * Coverage is identical across the two by construction — 585 stroke, 480
+ * duotone, 432 fill each — so a sharp file that is missing is a defect and not
+ * a decision. The cell is drawn empty rather than skipped, which keeps the six
+ * columns lined up and makes the hole visible on the board.
+ */
+const dirOf = (corners, style) =>
+  corners === "sharp" ? join(ICONS, "sharp", style) : join(ICONS, style)
+
 const byName = new Map()
-for (const style of STYLES) {
-  const dir = join(ICONS, style)
-  if (!existsSync(dir)) continue
-  for (const file of (await readdir(dir)).filter((f) => f.endsWith(".svg"))) {
-    const name = file.slice(0, -4)
-    if (!byName.has(name)) byName.set(name, { name, art: {} })
-    byName.get(name).art[style] = parse(await readFile(join(dir, file), "utf8"))
+for (const corners of CORNERS) {
+  for (const style of STYLES) {
+    const dir = dirOf(corners, style)
+    if (!existsSync(dir)) continue
+    for (const file of (await readdir(dir)).filter((f) => f.endsWith(".svg"))) {
+      const name = file.slice(0, -4)
+      if (!byName.has(name)) byName.set(name, { name, art: {}, sharp: {} })
+      const icon = byName.get(name)
+      const art = parse(await readFile(join(dir, file), "utf8"))
+      if (corners === "sharp") icon.sharp[style] = art
+      else icon.art[style] = art
+    }
   }
 }
 
@@ -237,20 +279,40 @@ for (const icon of byName.values()) {
       base,
       category: CATEGORIES.find((x) => x.match.test(base))?.label ?? OTHER,
       variants: [],
+      rows: [],
     })
   }
   for (const style of STYLES) {
-    if (icon.art[style]) {
-      blocks.get(base).variants.push({ name: icon.name, container, style, art: icon.art[style] })
+    for (const corners of CORNERS) {
+      const art = corners === "sharp" ? icon.sharp[style] : icon.art[style]
+      if (art) {
+        blocks.get(base).variants.push({ name: icon.name, container, style, corners, art })
+      }
     }
   }
+  /* The row the card draws for this name. A block is still the family, because
+     that is what a Figma component set is and what the header counts, but the
+     line on the card is one name: `arrow-down`, `square-arrow-down` and
+     `circle-arrow-down` are three rows of six cells rather than one row of
+     eighteen drawings. */
+  blocks.get(base).rows.push({
+    name: icon.name,
+    base,
+    container,
+    art: icon.art,
+    sharp: icon.sharp,
+  })
 }
 
 for (const block of blocks.values()) {
   block.variants.sort(
     (a, b) =>
       CONTAINERS.indexOf(a.container) - CONTAINERS.indexOf(b.container) ||
-      STYLES.indexOf(a.style) - STYLES.indexOf(b.style)
+      STYLES.indexOf(a.style) - STYLES.indexOf(b.style) ||
+      CORNERS.indexOf(a.corners) - CORNERS.indexOf(b.corners)
+  )
+  block.rows.sort(
+    (a, b) => CONTAINERS.indexOf(a.container) - CONTAINERS.indexOf(b.container)
   )
 }
 
@@ -337,46 +399,132 @@ const LABEL = `font-size:14px;font-weight:500;color:${INK};white-space:nowrap`
 const BADGE =
   `flex-shrink:0;padding:2px 7px;border-radius:999px;background:${INK};color:#ffffff;` +
   `font-size:10px;font-weight:600;letter-spacing:0.3px;line-height:16px;white-space:nowrap`
+/** A treatment's three cells, stroke then duotone then fill. */
 const GROUP = "display:flex;align-items:center;gap:6px"
+/** The name and its badge, held together so the spacer pushes both. */
+const NAME = "display:flex;align-items:center;gap:6px;min-width:0"
+/**
+ * A cell with nothing in it, which is how a name that owes a style keeps the
+ * column it does not fill. An open glyph owes no fill, so most cards have
+ * them, and a row that simply dropped the tile would slide its later columns
+ * left and stop the six reading as a grid.
+ */
+const CELL = `width:${SIZE}px;height:${SIZE}px;flex-shrink:0`
 
-/** A row's own line, striped on the even ones exactly as the Figma card is. */
+/**
+ * The two column headings over the matrix, and the legend that expands them.
+ *
+ * Figma's `Legend` sits above the divider and its `Column header` below, a
+ * treatment line over a style line, both 28 apart and both padded 10 so they
+ * land on the cells rather than near them. 84 is not a chosen width: it is
+ * three 24 cells and two 6 gaps, so a heading is exactly as wide as the group
+ * it names.
+ */
+const GROUP_WIDTH = SIZE * 3 + 6 * 2
+const LEGEND = `margin:0;font-size:12px;font-weight:500;color:${MUTED}`
+const COLUMNS = "display:flex;flex-direction:column;gap:3px;padding-bottom:4px"
+const HEAD_ROW = "display:flex;align-items:center;gap:28px;padding:0 10px"
+const HEAD_GROUP =
+  `width:${GROUP_WIDTH}px;text-align:center;font-size:12px;font-weight:600;color:${INK}`
+const HEAD_STYLES = "display:flex;gap:6px"
+const HEAD_STYLE =
+  `width:${SIZE}px;text-align:center;font-size:10px;font-weight:500;color:#a3a3a3`
+
+/**
+ * A row's own line, striped on the even ones exactly as the Figma card is.
+ *
+ * The gap is 28 because the column headings above it are 28 apart: name,
+ * spacer, Regular, Sharp, at the card's own spacing, so a heading sits over
+ * its own three cells rather than approximately over them.
+ */
 const rowStyle = (index) =>
-  `display:flex;align-items:center;gap:10px;height:38px;padding:7px 10px;` +
+  `display:flex;align-items:center;gap:28px;height:38px;padding:7px 10px;` +
   `box-sizing:border-box;border-radius:10px` +
   (index % 2 === 0 ? `;background:${STRIPE}` : "")
+
+/**
+ * What one drawing is called, on the sheet and in the Paper layer tree.
+ *
+ * The treatment is part of the name because a board now carries both, and
+ * `check-paper.mjs` compares these strings against the file position for
+ * position: two drawings called `arrow-down stroke` on one board would make a
+ * sharp cell holding a rounded drawing unreportable. Rounded stays unsuffixed
+ * so every name already in the file keeps the name it has.
+ */
+const layerName = (name, style, corners) =>
+  `${name} ${style}${corners === "sharp" ? " sharp" : ""}`
 
 /** One drawing, named twice: once for the layer tree, once for a reader. */
 const tile = (v) =>
   `<svg width="${SIZE}" height="${SIZE}" xmlns="http://www.w3.org/2000/svg" ` +
-  `role="img" aria-label="${v.name} ${v.style}" data-icon="${v.name}" ` +
-  `data-style="${v.style}" ${v.art.attrs}>${v.art.body}</svg>`
+  `role="img" aria-label="${layerName(v.name, v.style, v.corners)}" data-icon="${v.name}" ` +
+  `data-style="${v.style}" data-corners="${v.corners}" ${v.art.attrs}>${v.art.body}</svg>`
+
+/** One treatment of one name: stroke, duotone, fill, gaps included. */
+const group = (item, corners) =>
+  `<div style="${GROUP}" data-group="${corners}">` +
+    STYLES.map((style) => {
+      const art = (corners === "sharp" ? item.sharp : item.art)[style]
+      return art
+        ? tile({ name: item.name, style, corners, art })
+        : `<div style="${CELL}"></div>`
+    }).join("") +
+  `</div>`
 
 /**
- * One icon, as Figma draws it: the bare drawing, its name, then every other
- * variant of it pushed to the right edge.
+ * One name, as Figma's cards draw it since the matrix landed: the name on the
+ * left, then the same three styles twice, rounded against sharp.
  *
- * The first tile is the regular stroke where there is one, which is the drawing
- * the name refers to. Everything else is the variant group, in container then
- * style order, so a row reads left to right as "this icon, and these are the
- * forms it takes".
+ * The card used to put one row per *set* and lay every variant of it out in a
+ * line, which worked while a drawing had one corner treatment and stops working
+ * the moment it has two: eighteen tiles on a line say nothing about which of
+ * them are the same drawing. Six cells in two labelled groups say it by
+ * position, and the empty cells are as much of the answer as the full ones.
+ *
+ * The badge is the set's, repeated on each of its rows, which is what the Figma
+ * card does — a container variant is drawn the day its base is, so badging the
+ * family rather than the name says the same thing without three dates to keep.
  */
-function row(block, index) {
-  const [lead, ...rest] = block.variants
-  const isNew = NEW_NAMES.has(block.base)
+function row(item, index) {
+  const isNew = NEW_NAMES.has(item.base)
   return (
-    `<div style="${rowStyle(index)}" data-icon-set="${block.base}"` +
+    `<div style="${rowStyle(index)}" data-icon-set="${item.base}" data-icon-name="${item.name}"` +
       (isNew ? ` data-new="true"` : "") + `>` +
-      tile(lead) +
-      `<div style="${LABEL}">${block.base}</div>` +
-      (isNew ? `<span style="${BADGE}">New</span>` : "") +
-      /* The spacer, not the label, is what pushes the variants right. The label
+      `<div style="${NAME}">` +
+        `<div style="${LABEL}">${item.name}</div>` +
+        (isNew ? `<span style="${BADGE}">New</span>` : "") +
+      `</div>` +
+      /* The spacer, not the label, is what pushes the groups right. The label
          used to carry `flex:1` and a badge next to it then sat against the far
          edge instead of against the name it badges. */
       `<div style="flex:1"></div>` +
-      `<div style="${GROUP}">${rest.map(tile).join("")}</div>` +
+      CORNERS.map((corners) => group(item, corners)).join("") +
     `</div>`
   )
 }
+
+/** The legend and the two heading lines, drawn once per card. */
+const columns = () =>
+  `<div style="${COLUMNS}" data-columns="true">` +
+    `<div style="${HEAD_ROW}">` +
+      `<div style="flex:1"></div>` +
+      CORNERS.map(
+        (corners) =>
+          `<div style="${HEAD_GROUP}">${corners === "sharp" ? "Sharp" : "Regular"}</div>`
+      ).join("") +
+    `</div>` +
+    `<div style="${HEAD_ROW}">` +
+      `<div style="flex:1"></div>` +
+      CORNERS.map(
+        () =>
+          `<div style="${HEAD_STYLES}">` +
+            STYLES.map(
+              (style) => `<div style="${HEAD_STYLE}">${style[0].toUpperCase()}</div>`
+            ).join("") +
+          `</div>`
+      ).join("") +
+    `</div>` +
+  `</div>`
 
 /**
  * A category card: header, blurb, rule, rows.
@@ -406,7 +554,12 @@ function card({ label, blurb, icons, names, rows }) {
         `<span style="${COUNT}">${icons} ${icons === 1 ? "icon" : "icons"} · ${names} ${names === 1 ? "name" : "names"}</span>` +
       `</div>` +
       `<p style="${BLURB}">${blurb}</p>` +
+      /* Above the divider, as it is in Figma: the legend explains the initials
+         the heading line uses, so it belongs with the prose rather than with
+         the grid. */
+      `<p style="${LEGEND}">S stroke &middot; D duotone &middot; F fill</p>` +
       `<div style="${DIVIDER}"></div>` +
+      columns() +
       `<div style="${ROWS}" data-rows="${label}">${rows}</div>` +
     `</div>\n`
   )
@@ -487,21 +640,33 @@ const meta = (label, value) =>
  * stroke-first order. It is a specimen of the axis, so it follows the drawing
  * that specified it.
  */
-function chip(icons, name, style, label) {
-  const art = icons.get(name)?.art[style]
+function chip(icons, name, style, corners, caption) {
+  const icon = icons.get(name)
+  const art = (corners === "sharp" ? icon?.sharp : icon?.art)?.[style]
   if (!art) return ""
   return (
     `<div style="display:flex;align-items:center;gap:10px;padding:8px 14px 8px 10px;` +
       `border-radius:10px;background:#f5f5f5">` +
       `<svg width="${SIZE}" height="${SIZE}" xmlns="http://www.w3.org/2000/svg" role="img" ` +
-      `aria-label="${name} ${style}" data-icon="${name}" data-style="${style}" ${art.attrs}>${art.body}</svg>` +
-      `<span style="font-size:12px;color:${MUTED};white-space:nowrap">${label}</span>` +
+      `aria-label="${layerName(name, style, corners)}" data-icon="${name}" data-style="${style}" ` +
+      `data-corners="${corners}" ${art.attrs}>${art.body}</svg>` +
+      `<span style="font-size:12px;color:${MUTED};white-space:nowrap">${caption}</span>` +
     `</div>`
   )
 }
 
 function catalogSheet(icons, totals, release) {
-  const specimen = [
+  /*
+   * One drawing in every treatment, now twice over.
+   *
+   * The specimen is the one place this file states the variant system rather
+   * than listing its output, so it is the place the third axis has to appear:
+   * the same seven chips under each corner treatment, same drawing, same
+   * order, so the only thing that differs between the two lines is the thing
+   * the axis changes. A sentence claiming two treatments over one row of chips
+   * would be the cover asserting something the cover does not show.
+   */
+  const SPECIMEN = [
     ["arrow-down", "stroke", "regular"],
     ["square-arrow-down", "fill", "square-fill"],
     ["square-arrow-down", "duotone", "square-duotone"],
@@ -509,7 +674,17 @@ function catalogSheet(icons, totals, release) {
     ["circle-arrow-down", "fill", "circle-fill"],
     ["circle-arrow-down", "duotone", "circle-duotone"],
     ["circle-arrow-down", "stroke", "circle-stroke"],
-  ].map(([name, style, label]) => chip(icons, name, style, label))
+  ]
+  const specimen = CORNERS.map(
+    (corners) =>
+      `<div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px">` +
+        `<span style="width:72px;flex-shrink:0;font-size:13px;font-weight:600">` +
+          `${corners === "sharp" ? "Sharp" : "Regular"}</span>` +
+        SPECIMEN.map(([name, style, caption]) =>
+          chip(icons, name, style, corners, caption)
+        ).join("") +
+      `</div>`
+  )
 
   return (
     `<section style="box-sizing:border-box;width:1224px;background:${BG};color:${INK};` +
@@ -545,9 +720,9 @@ function catalogSheet(icons, totals, release) {
         `<h2 style="margin:0;font-size:24px;font-weight:600;letter-spacing:-0.4px">Variant specimen</h2>` +
         `<p style="margin:8px 0 20px;font-size:14px;color:${MUTED}">` +
           `One drawing in every treatment the set offers: two container shapes ` +
-          `against three styles, plus the bare glyph.` +
+          `against three styles against two corner treatments, plus the bare glyph.` +
         `</p>` +
-        `<div style="display:flex;flex-wrap:wrap;gap:12px">${specimen.join("")}</div>` +
+        `<div style="display:flex;flex-direction:column;gap:12px">${specimen.join("")}</div>` +
 
       `</div>` +
     `</section>\n`
@@ -593,7 +768,7 @@ function changelogSheet(icons, release) {
               `background:${STRIPE}">` +
               `<svg width="${SIZE}" height="${SIZE}" xmlns="http://www.w3.org/2000/svg" ` +
               `role="img" aria-label="${name} stroke" data-icon="${name}" ` +
-              `data-style="stroke" ${art.attrs}>${art.body}</svg>` +
+              `data-style="stroke" data-corners="regular" ${art.attrs}>${art.body}</svg>` +
               `<span style="font-size:11px;line-height:1.2;color:${MUTED};` +
                 `text-align:center">${name}</span>` +
             `</div>`
@@ -623,7 +798,8 @@ function changelogSheet(icons, release) {
               ? `<div style="display:flex;flex-direction:column;align-items:center;gap:6px">` +
                   `<svg width="${SIZE}" height="${SIZE}" xmlns="http://www.w3.org/2000/svg" ` +
                   `role="img" aria-label="${redraw.name} ${label}" data-icon="${redraw.name}" ` +
-                  `data-style="${redraw.style ?? "stroke"}" ${art.attrs}>${art.body}</svg>` +
+                  `data-style="${redraw.style ?? "stroke"}" data-corners="regular" ` +
+                  `${art.attrs}>${art.body}</svg>` +
                   `<span style="font-size:10px;line-height:1;color:${MUTED}">${label}</span>` +
                 `</div>`
               : ""
@@ -777,7 +953,12 @@ const files = new Map()
 const entries = []
 
 for (const section of SECTIONS) {
-  const rows = section.blocks.map((block, i) => row(block, i))
+  /* One row per name rather than per set, in the block's own container order,
+     and numbered across the whole card so the stripe does not restart where a
+     part boundary happens to fall. */
+  const rows = section.blocks
+    .flatMap((block) => block.rows)
+    .map((item, i) => row(item, i))
 
   const parts = []
   let current = []
@@ -801,10 +982,9 @@ for (const section of SECTIONS) {
             label: section.label,
             blurb: section.blurb,
             icons: section.blocks.length,
-            names: section.blocks.reduce(
-              (n, b) => n + new Set(b.variants.map((v) => v.name)).size,
-              0
-            ),
+            /* Counted off the rows the card draws, so the number in the header
+               and the number of lines under it cannot disagree. */
+            names: section.blocks.reduce((n, b) => n + b.rows.length, 0),
             rows: part.join(""),
           })
         : part.join("") + "\n"
@@ -975,7 +1155,7 @@ files.set(
         "Sheets are fragments: write them as-is, do not wrap them in a document.",
         "An artboard clips rather than hugs, so after the writes set height: fit-content on it with update_styles and it takes the height of what it holds.",
         "update_styles takes updates: [{ nodeIds: [...], styles }] — nodeIds, plural, an array. Handed a singular nodeId it answers with a schema error in the tool result rather than throwing, so a caller that does not read isError sees a call that reported nothing and changed nothing, and reads it as the property being unsettable.",
-        "Paper names every node it parses after its type, so the file arrives as Frame holding SVG. Rename from the sheets: each svg carries data-icon and data-style in document order.",
+        "Paper names every node it parses after its type, so the file arrives as Frame holding SVG. Rename from the sheets: each svg carries data-icon, data-style and data-corners in document order, and the layer name is `<icon> <style>` for a rounded drawing and `<icon> <style> sharp` for a sharp one.",
         "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
         "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape.",
       ],

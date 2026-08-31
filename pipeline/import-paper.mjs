@@ -142,11 +142,24 @@ for (const sheet of manifest.sheets) {
 }
 for (const parts of boards.values()) parts.sort((a, b) => (a.part ?? 1) - (b.part ?? 1))
 
-/** The layer names for one sheet's drawings, in document order. */
+/**
+ * The layer names for one sheet's drawings, in document order.
+ *
+ * The corner treatment is part of the name, because a category board now draws
+ * every icon twice: the same six columns per row, rounded then sharp. Without
+ * it a board would hold two layers called `arrow-down stroke` and nothing in
+ * the file, or in `check-paper.mjs`, could say which cell held which.
+ *
+ * Rounded stays unsuffixed so nothing already named in the file is renamed for
+ * the sake of symmetry, and `build-paper.mjs` writes the three attributes in
+ * this order on every drawing it emits, the covers included.
+ */
 async function drawingNames(file) {
   const html = await readFile(join(SHEETS, file), "utf8")
-  return [...html.matchAll(/data-icon="([^"]+)" data-style="([^"]+)"/g)].map(
-    ([, name, style]) => `${name} ${style}`
+  return [
+    ...html.matchAll(/data-icon="([^"]+)" data-style="([^"]+)" data-corners="([^"]+)"/g),
+  ].map(([, name, style, corners]) =>
+    `${name} ${style}${corners === "sharp" ? " sharp" : ""}`
   )
 }
 

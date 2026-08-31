@@ -159,10 +159,14 @@ async function expected(files) {
   const captions = []
   for (const file of files) {
     const html = await readFile(join(SHEETS, file), "utf8")
-    for (const [, name, style] of html.matchAll(
-      /data-icon="([^"]+)" data-style="([^"]+)"/g
+    /* Name, style and treatment, in the order `build-paper.mjs` writes them.
+       The suffix is what tells a sharp cell from the rounded one beside it:
+       both draw the same icon in the same style, so on names alone a board
+       with the two halves swapped would compare equal. */
+    for (const [, name, style, corners] of html.matchAll(
+      /data-icon="([^"]+)" data-style="([^"]+)" data-corners="([^"]+)"/g
     )) {
-      drawings.push(`${name} ${style}`)
+      drawings.push(`${name} ${style}${corners === "sharp" ? " sharp" : ""}`)
     }
     for (const [, base] of html.matchAll(/data-icon-set="([^"]+)"/g)) captions.push(base)
   }

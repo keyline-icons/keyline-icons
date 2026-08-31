@@ -6,8 +6,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Keyline Icons
 
-A 24×24 icon set in three styles, its build pipeline, the site that browses it,
-and three packages. 414 icons, 1,059 SVGs, MIT.
+A 24×24 icon set in three styles and two corner treatments, its build pipeline,
+the site that browses it, and three packages. 476 icons, 2,994 SVGs, MIT.
 
 ## The one rule
 

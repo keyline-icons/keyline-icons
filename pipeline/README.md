@@ -699,14 +699,29 @@ Three things about the output are decisions rather than defaults:
   result named the CSS as the cause. A browser wraps a fragment on its own, so
   they still open locally for review.
 - **The card is Figma's card, measured rather than designed.** 742 wide, 28 of
-  padding, a 14 corner; a header with the icon count pushed right, the
-  category's `blurb` from `lib/icon-taxonomy.ts`, a hairline, then rows. Rows
-  are 38 tall on a 10 corner, striped `#f5f5f5` on the even ones, and read left
-  to right as the bare drawing, its name, then every other variant of it pushed
-  right. The ink is `#111111`, which is Figma's rather than the site's
-  `#0a0a0a`. All of it was read out of `Category / Core Interface` with the
-  plugin API: the two surfaces are meant to be indistinguishable and only one of
-  them gets to decide.
+  padding, a 14 corner; a header with the counts pushed right, the category's
+  `blurb` from `lib/icon-taxonomy.ts`, the legend, a hairline, the column
+  headings, then rows. Rows are 38 tall on a 10 corner, striped `#f5f5f5` on the
+  even ones. The ink is `#111111`, which is Figma's rather than the site's
+  `#0a0a0a`. All of it was read out of the catalogue cards themselves: the two
+  surfaces are meant to be indistinguishable and only one of them gets to
+  decide.
+- **A row is a name, and it draws the matrix.** The name and its badge on the
+  left, a spacer, then `Regular` and `Sharp`, each three 24px cells in stroke,
+  duotone, fill order — six cells, 6 apart within a group and 28 between the
+  groups, which is what puts an 84-wide heading exactly over its own three
+  columns. So `arrow-down`, `square-arrow-down` and `circle-arrow-down` are
+  three rows rather than one row of eighteen drawings, and the card's header
+  counts both: sets as `icons`, rows as `names`.
+- **A cell a name does not own is drawn empty.** Coverage is derived (an open
+  glyph owes no fill), so most cards have holes in them, and a row that dropped
+  the tile instead would slide its later columns left and stop the six reading
+  as a grid. Rounded and sharp cover exactly the same names, so a hole on one
+  side only is a defect the board makes visible.
+- **The layer name carries the treatment.** `arrow-down stroke` for a rounded
+  drawing and `arrow-down stroke sharp` for its sharp sibling. `check-paper`
+  compares those strings against the file position for position, and two layers
+  called the same thing on one board would make a swapped pair unreportable.
 - **One card per category**, cut into parts only for the wire. The first part
   carries the card and an empty rows container; the rest are bare rows the
   importer appends into that container, so the board holds one card however many
