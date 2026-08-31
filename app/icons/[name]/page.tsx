@@ -409,7 +409,7 @@ export default async function Page({
             >
               {/*
                 Text, not links. The obvious destination is
-                `/icons?icon=<alias>`, which is a query-string variant of the
+                `/icons?search=<alias>`, which is a query-string variant of the
                 browser and canonicals back to it; internal links point at
                 canonical URLs only, so a row of them here would be 400-odd
                 links into one page's duplicate address.

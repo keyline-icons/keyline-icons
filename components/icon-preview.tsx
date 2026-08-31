@@ -95,10 +95,53 @@ const CONTAINERS = [
  * Nothing here is persisted. It is a record of this visit, and a "recent" strip
  * restored from a previous one is a list of icons you no longer remember
  * looking at.
+ *
+ * The two picks live here rather than in the panel for the reason the recents
+ * do: both stick across icons, so both outlive any one drawing being shown.
+ * Being here is also what lets the browser put them in the address, which it
+ * cannot do with state held below it.
+ *
+ * `initial` is the exception to nothing being persisted, and it is not
+ * persistence: `?icon=` in the address opens the panel on that drawing, and
+ * `?icon-style=` / `?icon-corners=` say how it was being looked at, so a link
+ * copied out of the browser arrives showing what the sender was seeing. The
+ * icon seeds the recents too, because the strip is a record of what this visit
+ * has shown and the seeded icon is the first thing it showed.
  */
-export function useIconPreview() {
-  const [name, setName] = React.useState<string | null>(null)
-  const [recents, setRecents] = React.useState<string[]>([])
+export function useIconPreview(initial?: {
+  icon?: string
+  style?: Style
+  corners?: Corners
+}) {
+  const [name, setName] = React.useState<string | null>(initial?.icon ?? null)
+  const [recents, setRecents] = React.useState<string[]>(
+    initial?.icon ? [initial.icon] : []
+  )
+  /**
+   * The style the panel is showing, which is the grid's until you change it.
+   *
+   * `null` means "follow the grid". Once you pick one it sticks across icons —
+   * you are comparing a weight, not one drawing — and falls back only where the
+   * icon in hand has nothing drawn in it.
+   */
+  const [picked, setPicked] = React.useState<Style | null>(
+    initial?.style ?? null
+  )
+  /**
+   * Rounded or squared, on the same terms as the style above it.
+   *
+   * Local rather than the shared setting, and that is the whole point of it:
+   * the panel is where one drawing is inspected, and flipping the treatment to
+   * compare should no more re-draw the grid underneath than flipping to duotone
+   * does. `null` follows the grid, and a pick sticks across icons, because
+   * someone comparing corners is comparing corners and not one drawing.
+   *
+   * No fallback, unlike `picked`: every drawing exists in both treatments, so
+   * there is never a treatment to fall back from.
+   */
+  const [pickedCorners, setPickedCorners] = React.useState<Corners | null>(
+    initial?.corners ?? null
+  )
   /**
    * The panel is on its way out but still mounted.
    *
@@ -147,7 +190,17 @@ export function useIconPreview() {
 
   React.useEffect(() => cancelClose, [cancelClose])
 
-  return { name, recents, closing, select, close }
+  return {
+    name,
+    recents,
+    closing,
+    select,
+    close,
+    picked,
+    setPicked,
+    pickedCorners,
+    setPickedCorners,
+  }
 }
 
 export function IconPreview({
@@ -158,6 +211,10 @@ export function IconPreview({
   order,
   gridStyle,
   gridCorners,
+  picked,
+  setPicked,
+  pickedCorners,
+  setPickedCorners,
   stroke,
   color,
   size,
@@ -179,6 +236,18 @@ export function IconPreview({
   gridStyle: Style
   /** The grid's corner treatment, which a freshly opened panel starts on. */
   gridCorners: Corners
+  /**
+   * The panel's own two picks, held above it by `useIconPreview`.
+   *
+   * They were state in here until the address had to carry them: a pick is
+   * part of what someone is looking at, so a link that names the drawing and
+   * not the treatment reproduces the wrong screen. `null` in either means
+   * "follow the grid".
+   */
+  picked: Style | null
+  setPicked: (next: Style) => void
+  pickedCorners: Corners | null
+  setPickedCorners: (next: Corners) => void
   stroke: number
   color: string | null
   /** Only reaches the copied markup; the specimen draws its own ramp. */
@@ -199,27 +268,6 @@ export function IconPreview({
   const icon = name ? byName.get(name) : undefined
 
   const [format, setFormat] = React.useState<Format>("svg")
-  /**
-   * The style the panel is showing, which is the grid's until you change it.
-   *
-   * `null` means "follow the grid". Once you pick one it sticks across icons —
-   * you are comparing a weight, not one drawing — and falls back only where the
-   * icon in hand has nothing drawn in it.
-   */
-  const [picked, setPicked] = React.useState<Style | null>(null)
-  /**
-   * Rounded or squared, on the same terms as the style above it.
-   *
-   * Local rather than the shared setting, and that is the whole point of it:
-   * the panel is where one drawing is inspected, and flipping the treatment to
-   * compare should no more re-draw the grid underneath than flipping to duotone
-   * does. `null` follows the grid, and a pick sticks across icons, because
-   * someone comparing corners is comparing corners and not one drawing.
-   *
-   * No fallback, unlike `picked`: every drawing exists in both treatments, so
-   * there is never a treatment to fall back from.
-   */
-  const [pickedCorners, setPickedCorners] = React.useState<Corners | null>(null)
   /**
    * Which manager the install lines are written for.
    *
@@ -305,7 +353,12 @@ export function IconPreview({
 
   const download = React.useCallback(() => {
     if (!icon || !art) return
-    const file = snippet("svg", icon.name, style, art, { size, stroke, pm, corners })
+    const file = snippet("svg", icon.name, style, art, {
+      size,
+      stroke,
+      pm,
+      corners,
+    })
     const url = URL.createObjectURL(
       new Blob([`${file}\n`], { type: "image/svg+xml" })
     )
@@ -606,7 +659,8 @@ export function IconPreview({
                         const entry = byName.get(recent)
                         if (!entry) return null
                         const recentArt =
-                          artOf(entry, style, corners) ?? artOf(entry, "stroke", corners)!
+                          artOf(entry, style, corners) ??
+                          artOf(entry, "stroke", corners)!
 
                         return (
                           <Tooltip key={recent}>

@@ -15,8 +15,9 @@ import { IconSearch, type SearchSuggestion } from "@/components/icon-search"
  * whole component: the same field, the same placeholder animation and the same
  * ⌘K, wired to a navigation instead of to a filter.
  *
- * **It emits no link.** `?icon=` seeds the browser's search and is deliberately
- * not an address for anything: the route policy gives every icon `/icons/<name>`
+ * **It emits no link.** `?search=` seeds the browser's search and is
+ * deliberately not an address for anything: the route policy gives every icon
+ * `/icons/<name>`
  * and canonicalises the query form away, and it holds because nothing on the
  * site *links* to it. A form submit is a navigation the reader asks for, not an
  * `<a href>` in the markup, so there is nothing here for a crawler to follow
@@ -60,7 +61,9 @@ export function HomeSearch({
         // No link was clicked, so the top bar has nothing to read this
         // navigation from and has to be told. See `route-progress.tsx`.
         startRouteProgress()
-        router.push(term ? `/icons?icon=${encodeURIComponent(term)}` : "/icons")
+        router.push(
+          term ? `/icons?search=${encodeURIComponent(term)}` : "/icons"
+        )
       }}
     >
       <IconSearch

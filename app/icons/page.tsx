@@ -82,6 +82,9 @@ export default async function Page({
 }: {
   searchParams: Promise<{
     icon?: string | string[]
+    "icon-style"?: string | string[]
+    "icon-corners"?: string | string[]
+    search?: string | string[]
     style?: string | string[]
     shape?: string | string[]
     corners?: string | string[]
@@ -102,19 +105,29 @@ export default async function Page({
   const settings = parseSettings((await cookies()).get(SETTINGS_COOKIE)?.value)
 
   /**
-   * `?icon=circle-arrow-down` seeds the search, so a link can arrive at the
-   * grid already narrowed to one icon.
+   * `?search=circle+arrow` seeds the search, so a link can arrive at the grid
+   * already narrowed, and `?icon=circle-arrow-down` opens the dock on one
+   * drawing.
    *
-   * It is no longer how an icon is addressed — `/icons/circle-arrow-down` is,
-   * and it is the canonical, indexed page. This parameter survives because the
-   * two do different jobs: the page is about one drawing, while a seeded search
-   * is the grid with a starting point, which is what a link into a comparison
-   * wants. It canonicalises to `/icons` on its own, because this page's
-   * canonical is already absolute and self-referencing.
+   * Both are written back by the browser as you use it, which is the point:
+   * the address of a search you ran and an icon you opened can be copied out
+   * and sent. Neither is how an icon is *addressed* for a crawler.
+   * `/icons/circle-arrow-down` is, and it is the canonical, indexed page; this
+   * one canonicalises to a bare `/icons` on its own, because its canonical is
+   * already absolute and self-referencing.
    *
-   * Repeating the key gives an array, so only a lone string is honoured. It is
-   * a search term and nothing else: it reaches a text input and is never used
-   * to look anything up, so a junk value filters to nothing and stops there.
+   * Repeating a key gives an array, so only a lone string is honoured.
+   *
+   * The search seed is a search term and nothing else: it reaches a text input
+   * and is never used to look anything up, so a junk value filters to nothing
+   * and stops there. The icon seed *is* looked up, against the set itself, for
+   * the reason the style and shape notes below give: an unchecked name would
+   * open a panel with no drawing in it.
+   *
+   * `?icon=` used to be the search seed, and the fallback below is what keeps
+   * every link that still spells it that way working. `/` submits its hero
+   * search as `?search=`, so the only `?icon=` values that are not icon names
+   * now come from links made before the split.
    */
   /**
    * `?style=duotone` seeds the style filter, on the same terms.
@@ -134,10 +147,37 @@ export default async function Page({
    * control can name and no icon matches: a blank library with every filter
    * looking untouched.
    */
-  const { icon, style, shape, corners } = await searchParams
-  const initialQuery = typeof icon === "string" ? icon.trim().slice(0, 64) : ""
+  const params = await searchParams
+  const { icon, search, style, shape, corners } = params
+  const named = typeof icon === "string" ? icon.trim().slice(0, 64) : ""
+  const initialIcon = icons.some((known) => known.name === named)
+    ? named
+    : undefined
+  const initialQuery =
+    typeof search === "string"
+      ? search.trim().slice(0, 64)
+      : // The legacy spelling: `?icon=arrow up` was a search term, and only a
+        // value that is not a drawing can still be one.
+        initialIcon
+        ? ""
+        : named
   const initialStyle = STYLES.find((known) => known === style)
   const initialShape = CONTAINERS.find((known) => known === shape)
+
+  /*
+   * How the dock is showing the drawing `?icon=` names.
+   *
+   * Their own keys rather than a second meaning for `?style=` and `?corners=`,
+   * because the panel's picks are deliberately local: the grid can be rounded
+   * stroke while the panel is sharp fill, and that screen has to survive being
+   * linked to. Validated against the same two lists, for the same reason.
+   */
+  const initialIconStyle = STYLES.find(
+    (known) => known === params["icon-style"]
+  )
+  const initialIconCorners = CORNERS.find(
+    (known) => known === params["icon-corners"]
+  )
 
   /*
    * `?corners=sharp` arrives as a seed like the three above, and lands one
@@ -151,8 +191,12 @@ export default async function Page({
    *
    * Narrowed against `CORNERS`, for the reason the note above gives: an
    * unchecked string out of the URL reaching `artOf` draws nothing at all.
-   * It does not write the cookie by arriving — the reader's own preference
+   * It does not write the cookie by arriving: the reader's own preference
    * survives until they change something themselves.
+   *
+   * The browser writes this one back too, whenever the treatment on screen is
+   * not the shipped default, so the switch produces the link that reproduces
+   * it. Reading a parameter nothing can write is half a feature.
    */
   const seeded = CORNERS.find((known) => known === corners)
   const initialSettings = seeded ? { ...settings, corners: seeded } : settings
@@ -181,6 +225,9 @@ export default async function Page({
           initialQuery={initialQuery}
           initialStyle={initialStyle}
           initialShape={initialShape}
+          initialIcon={initialIcon}
+          initialIconStyle={initialIconStyle}
+          initialIconCorners={initialIconCorners}
         />
 
         {/*

@@ -62,6 +62,7 @@ import {
   Glyph,
   STYLES,
   type BrowserIcon,
+  type Corners,
   type Style,
 } from "@/components/glyph"
 import { IconPreview, useIconPreview } from "@/components/icon-preview"
@@ -82,11 +83,7 @@ import { PhoneToggle } from "@/components/phone-toggle"
 import { TickSlider } from "@/components/tick-slider"
 import { useBrowserSettings } from "@/hooks/use-browser-settings"
 import { type BrowserSettings, SETTINGS_DEFAULTS } from "@/lib/browser-settings"
-import {
-  SEARCH_MIN_LENGTH,
-  SEARCH_SETTLE_MS,
-  track,
-} from "@/lib/analytics"
+import { SEARCH_MIN_LENGTH, SEARCH_SETTLE_MS, track } from "@/lib/analytics"
 import { nearestWord } from "@/lib/did-you-mean"
 import {
   NAV_HEIGHT,
@@ -306,6 +303,9 @@ export function IconBrowser({
   initialSettings,
   initialStyle = "stroke",
   initialShape = "all",
+  initialIcon,
+  initialIconStyle,
+  initialIconCorners,
   query,
   onQueryChange,
 }: {
@@ -319,6 +319,26 @@ export function IconBrowser({
   initialStyle?: Style
   /** Seeded from `?shape=`, on the same terms as the style above. */
   initialShape?: ShapeFilter
+  /**
+   * Seeded from `?icon=`, so a link opens with the dock already on one drawing.
+   *
+   * Unlike the three seeds above, this one is also *written*: see the effect
+   * that keeps the address on the icon being looked at. It is validated on the
+   * server against the set, so an unknown name arrives here as `undefined`
+   * rather than opening a panel with nothing in it.
+   */
+  initialIcon?: string
+  /**
+   * Seeded from `?icon-style=` and `?icon-corners=`: how the dock was showing
+   * that drawing.
+   *
+   * Separate keys from `?style=` and `?corners=` because they are separate
+   * facts. The panel's picks are local by design, so a link where the grid is
+   * rounded and the panel is sharp is a screen that exists and has to be
+   * reproducible.
+   */
+  initialIconStyle?: Style
+  initialIconCorners?: Corners
   /** Owned by `IconLibrary` — the field that drives it lives in the hero. */
   query: string
   onQueryChange: (next: string) => void
@@ -331,10 +351,12 @@ export function IconBrowser({
     all start fresh. They narrow the library, and a narrowed library on arrival
     looks like a missing one.
 
-    The exception is a link that asks for a narrowing on purpose: `?icon=` seeds
-    the search, `?style=` the weight and `?shape=` the container. All three
-    arrive as props from the server rather than being read here, so the first
-    paint is already what was asked for. A bare URL still opens the whole set.
+    The exception is a link that asks for a narrowing on purpose: `?search=`
+    seeds the search, `?style=` the weight, `?shape=` the container and `?icon=`
+    the open dock. All four arrive as props from the server rather than being
+    read here, so the first paint is already what was asked for, and all four
+    are written back as you use the page, so the link exists to be made. A bare
+    URL still opens the whole set.
   */
   const [settings, update] = useBrowserSettings(initialSettings)
   const { size, stroke, color, showNames, columns, corners } = settings
@@ -356,7 +378,11 @@ export function IconBrowser({
    * its measured height and pads itself by that much, otherwise the last row of
    * icons sits under the panel and cannot be clicked.
    */
-  const preview = useIconPreview()
+  const preview = useIconPreview({
+    icon: initialIcon,
+    style: initialIconStyle,
+    corners: initialIconCorners,
+  })
   const [dockHeight, setDockHeight] = React.useState(0)
 
   /**
@@ -878,12 +904,99 @@ export function IconBrowser({
     if (!isNarrow) scrollAfterDrawer.current = false
   }, [isNarrow])
 
+  /**
+   * The address follows what is on screen: the query, the drawing the dock is
+   * showing, and the three axes the filter row sets.
+   *
+   * Every one of these was already a seed a link could carry *in*. This is the
+   * other direction, and it is the whole point: what you narrowed to and what
+   * you opened can now be copied out of the address bar and sent to someone,
+   * and what comes back is the same screen. A parameter that can only be read
+   * is a URL nobody can produce.
+   *
+   * Five decisions in it:
+   *
+   * - **`replaceState`, not `push`.** A click is not a page, and a visit that
+   *   compares six icons would otherwise take seven presses of Back to leave.
+   *   The address stays copyable; the history stays one entry long.
+   * - **Written through the native history API rather than `router.replace`.**
+   *   This route is dynamic, because it reads the settings cookie, so a router
+   *   call would re-render it on the server on every keystroke to produce the
+   *   grid that is already on screen. Next keeps its own router state in step
+   *   with the native call.
+   * - **Debounced.** Typing would otherwise call it per keystroke, which some
+   *   browsers rate-limit and all of them do for nothing: the URL is read when
+   *   it is copied, not while it is being typed into.
+   * - **A value at its neutral is dropped rather than spelled out.** The whole
+   *   set in stroke, every shape, rounded corners: that is `/icons`, and a bare
+   *   address is what it should say. `?style=stroke&shape=all&corners=regular`
+   *   is three parameters that mean "no filters".
+   * - **Neutral means the shipped default, not the cookie.** `corners` is a
+   *   persisted setting, so a reader who prefers sharp sees a `?corners=sharp`
+   *   appear on arrival without touching anything. That is correct: the link
+   *   has to reproduce the screen for someone whose cookie says otherwise, and
+   *   a link that quietly drew rounded for them is the failure this fixes.
+   *   It still does not write the cookie, so their preference is theirs.
+   *
+   * Anything else already in the query string is left alone.
+   *
+   * A closing dock drops its name immediately rather than at the end of the
+   * exit: the panel is on its way out, and an address naming it for another
+   * fifth of a second is an address that can be copied wrong.
+   */
+  const openIcon = preview.closing ? null : preview.name
+  React.useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const params = new URLSearchParams(window.location.search)
+
+      const carry = (key: string, value: string | null, neutral: string) => {
+        if (value && value !== neutral) params.set(key, value)
+        else params.delete(key)
+      }
+
+      carry("search", query, "")
+      carry("icon", openIcon, "")
+      carry("style", style, "stroke")
+      carry("shape", shape, "all")
+      carry("corners", corners, SETTINGS_DEFAULTS.corners)
+
+      /*
+        The dock's own two picks, and only where they say something the grid
+        does not: a panel showing what the grid shows needs no parameter,
+        because a freshly opened panel starts on the grid anyway. They go
+        nowhere while the dock is closed, there being no panel to describe.
+      */
+      carry("icon-style", openIcon ? preview.picked : null, style)
+      carry("icon-corners", openIcon ? preview.pickedCorners : null, corners)
+
+      const search = params.toString()
+      window.history.replaceState(
+        null,
+        "",
+        // The hash rides along: `#icons` is how the nav's "Get started" lands
+        // here, and dropping it would jump the page back to the top.
+        `${window.location.pathname}${search ? `?${search}` : ""}${window.location.hash}`
+      )
+    }, 250)
+
+    return () => window.clearTimeout(timer)
+  }, [
+    query,
+    openIcon,
+    style,
+    shape,
+    corners,
+    preview.picked,
+    preview.pickedCorners,
+  ])
+
   // How many icons the set has in each style, for the badge on each style tab.
   // Set-wide and independent of the search, which is why the empty state counts
   // its own matches instead: this never reaches zero.
   const perStyle = React.useMemo(() => {
     const c: Record<string, number> = {}
-    for (const s of STYLES) c[s] = icons.filter((i) => artOf(i, s, corners)).length
+    for (const s of STYLES)
+      c[s] = icons.filter((i) => artOf(i, s, corners)).length
     return c
   }, [icons, corners])
 
@@ -913,7 +1026,10 @@ export function IconBrowser({
           name no pattern claims, not a shelf: `build-paper.mjs` fails the build
           rather than publishing one.
         */
-        ...[...CATEGORIES.map((c) => c.label).sort((a, b) => a.localeCompare(b)), OTHER_CATEGORY]
+        ...[
+          ...CATEGORIES.map((c) => c.label).sort((a, b) => a.localeCompare(b)),
+          OTHER_CATEGORY,
+        ]
           .map((label) => ({
             label,
             value: label,
@@ -1718,6 +1834,10 @@ export function IconBrowser({
         order={paged.map((icon) => icon.name)}
         gridStyle={style}
         gridCorners={corners}
+        picked={preview.picked}
+        setPicked={preview.setPicked}
+        pickedCorners={preview.pickedCorners}
+        setPickedCorners={preview.setPickedCorners}
         size={size}
         stroke={stroke}
         color={color}

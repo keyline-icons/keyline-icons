@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import type { BrowserIcon, Container, Style } from "@/components/glyph"
+import type { BrowserIcon, Container, Corners, Style } from "@/components/glyph"
 import type { BrowserSettings } from "@/lib/browser-settings"
 import { IconBrowser } from "@/components/icon-browser"
 import { SiteHero } from "@/components/site-hero"
@@ -21,22 +21,30 @@ export function IconLibrary({
   initialQuery = "",
   initialStyle,
   initialShape,
+  initialIcon,
+  initialIconStyle,
+  initialIconCorners,
 }: {
   icons: BrowserIcon[]
   initialSettings: BrowserSettings
-  /** Seeded from `?icon=`, so a link to one icon opens filtered to it. */
+  /** Seeded from `?search=`, so a link can open the grid already narrowed. */
   initialQuery?: string
   /** Seeded from `?style=`, so a link can open on one weight. */
   initialStyle?: Style
   /** Seeded from `?shape=`, so a link can open on one container form. */
   initialShape?: Container
+  /** Seeded from `?icon=`, so a link can open with the dock on one drawing. */
+  initialIcon?: string
+  /** Seeded from `?icon-style=` / `?icon-corners=`: how the dock shows it. */
+  initialIconStyle?: Style
+  initialIconCorners?: Corners
 }) {
   /**
    * Deliberately not persisted: a search that survives a reload greets you with
    * a library that looks half-built. See `lib/browser-settings.ts`.
    *
    * The seed is the exception, and it arrives as a prop rather than being read
-   * here. `?icon=circle-arrow-down` gives a single icon an address that can be
+   * here. `?search=circle+arrow` gives a narrowed grid an address that can be
    * sent to someone, and the page already renders per request for the settings
    * cookie, so the server can read the parameter and hand it down.
    *
@@ -46,9 +54,11 @@ export function IconLibrary({
    * grid before replacing it, which is a visible flash of the wrong content.
    * Reading it on the server means the first paint is already filtered.
    *
-   * Nothing writes back to the URL afterwards. Typing replaces the seed and
-   * leaves the address alone, because rewriting it on every keystroke would put
-   * a hundred entries in the back button for one visit.
+   * Typing *does* write back to the URL, but from inside the browser rather
+   * than from here. `IconBrowser` owns the other half of what the address says,
+   * which icon the dock is on, and one writer for the two keys is what stops
+   * them overwriting each other. It replaces rather than pushes, so a hundred
+   * keystrokes still leave one entry in the back button.
    */
   const [query, setQuery] = React.useState(initialQuery)
 
@@ -82,6 +92,9 @@ export function IconLibrary({
           initialSettings={initialSettings}
           initialStyle={initialStyle}
           initialShape={initialShape}
+          initialIcon={initialIcon}
+          initialIconStyle={initialIconStyle}
+          initialIconCorners={initialIconCorners}
           query={query}
           onQueryChange={setQuery}
         />
