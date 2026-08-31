@@ -55,12 +55,13 @@ export function Segmented({
  * name than "Sharp". The news itself is on /changelog, which is the surface that
  * owes it.
  *
- * The track sets no `overflow`, so it is free to straddle the edge, but what
- * the badge hangs over is worth measuring rather than assuming. Where it is
- * used today: on `/icons` it overhangs 8px into a 10px gutter before the size
- * slider, and below `lg` that switch moves into the Browse drawer, whose body
- * is an `overflow-y-auto` scroller — the badge sits inside its box at present,
- * and that container is the one to re-check if the row ever tightens.
+ * It follows `size` like everything else here: a badge sized for the 36px
+ * track is half the height of the 32px one.
+ *
+ * The track sets no `overflow`, so the badge is free to straddle the edge, but
+ * what it hangs over is worth measuring rather than assuming — each of the four
+ * corner switches has a different neighbour to its right, and the preview
+ * dock's is a fixed panel rather than a page.
  */
 export function SegmentedItem({
   active,
@@ -101,7 +102,12 @@ export function SegmentedItem({
           /* `bg-foreground` / `text-background` rather than a literal black on
              white: the pair inverts together, so the badge stays legible in
              dark mode instead of turning into a black pill on a dark track. */
-          className="pointer-events-none absolute -top-2 -right-2.5 rounded-full bg-foreground px-1.5 py-px text-[10px] leading-[1.3] font-semibold text-background"
+          className={cn(
+            "pointer-events-none absolute rounded-full bg-foreground font-semibold text-background",
+            size === "sm"
+              ? "-top-1.5 -right-2 px-1 text-[9px] leading-[1.4]"
+              : "-top-2 -right-2.5 px-1.5 py-px text-[10px] leading-[1.3]"
+          )}
         >
           {badge}
         </span>

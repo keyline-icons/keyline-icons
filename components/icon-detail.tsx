@@ -7,6 +7,7 @@ import { ArrowUTurnLeft, Check, Copy, Download } from "@/components/icons"
 import {
   artOf,
   CORNERS,
+  SHARP_BADGE,
   Glyph,
   STYLES,
   type BrowserIcon,
@@ -291,6 +292,7 @@ export function IconDetail({
                 key={c}
                 active={corners === c}
                 onClick={() => update({ corners: c })}
+                badge={c === "sharp" ? SHARP_BADGE : undefined}
               >
                 {c === "regular" ? "Rounded" : "Sharp"}
               </SegmentedItem>

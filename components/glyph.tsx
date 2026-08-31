@@ -35,6 +35,20 @@ export type Container = (typeof CONTAINERS)[number]
 export const CORNERS = ["regular", "sharp"] as const
 export type Corners = (typeof CORNERS)[number]
 
+/**
+ * The flag the sharp option wears while the treatment is still news.
+ *
+ * One constant behind all four corner switches — the landing page, the filter
+ * row, the preview dock and the icon page — because a flag is temporary by
+ * definition and four call sites is four places to find when it stops being
+ * true. Set it to `undefined` and it comes off everywhere at once.
+ *
+ * It lives next to `CORNERS` rather than in the switch component because it is
+ * a fact about this treatment, not about segmented controls: the style and
+ * format groups use the same control and want nothing to do with it.
+ */
+export const SHARP_BADGE: string | undefined = "New"
+
 export type StyleArt = { body: string; root: Record<string, string> }
 
 /**

@@ -20,6 +20,7 @@ import { DesignFileLinks } from "@/components/design-file-links"
 import {
   artOf,
   CORNERS,
+  SHARP_BADGE,
   Glyph,
   STYLES,
   type BrowserIcon,
@@ -877,6 +878,7 @@ export function IconPreview({
                     size="sm"
                     active={corners === k}
                     onClick={() => setPickedCorners(k)}
+                    badge={k === "sharp" ? SHARP_BADGE : undefined}
                   >
                     {k === "regular" ? "Rounded" : "Sharp"}
                   </SegmentedItem>

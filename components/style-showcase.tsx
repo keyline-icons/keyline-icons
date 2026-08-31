@@ -5,6 +5,7 @@ import Link from "next/link"
 
 import {
   CORNERS,
+  SHARP_BADGE,
   Glyph,
   artOf,
   type Corners,
@@ -274,15 +275,7 @@ export function StyleShowcase({
               key={c}
               active={corners === c}
               onClick={() => setCorners(c)}
-              /* Here and in the browser's filter row, which are the two
-                 places a reader meets the treatment rather than operates it:
-                 this page announces the set, and /icons is where someone who
-                 arrived straight at the grid finds out there is a second
-                 treatment at all. Not the dock or the icon page, where the
-                 switch is being worked by someone who already knows. Retire
-                 the flag by deleting this line and its twin in
-                 icon-browser.tsx. */
-              badge={c === "sharp" ? "New" : undefined}
+              badge={c === "sharp" ? SHARP_BADGE : undefined}
             >
               {c === "regular" ? "Rounded" : "Sharp"}
             </SegmentedItem>
