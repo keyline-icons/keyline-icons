@@ -8,6 +8,7 @@ import {
   type Redraw,
   type StyleArt,
 } from "@/lib/icons"
+import { CHANGELOG_SHARP_ICON_NAMES } from "@/lib/changelog"
 import { pageMetadata } from "@/lib/seo"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
@@ -75,16 +76,6 @@ function Tiles({ icons }: { icons: Icon[] }) {
     </ul>
   )
 }
-
-/**
- * How many of the sharp drawings the preview shows.
- *
- * Thirty is five rows of six in this column's width, which is what the section
- * wants: enough to read as a treatment rather than a sample of one, and short
- * enough that the announcement above it is still the point. Narrower screens
- * lay the same thirty out in more rows, which is the grid doing its job.
- */
-const SHARP_PREVIEW = 30
 
 /**
  * A taste of the sharp half, faded out at the bottom.
@@ -246,17 +237,21 @@ async function release() {
   const byName = new Map(icons.map((icon) => [icon.name, icon]))
 
   /*
-   * A spread across the set rather than the first thirty by name, which would
-   * be `activity`, `alert` and then twenty-eight variations on `align-` and
-   * `arrow-`. Every nth drawing shows what the treatment does to a rounded
-   * corner, a cap and a fillet in one screen, and it needs no curated list
-   * anyone has to remember to refresh.
+   * The thirty are named in `lib/changelog.ts`, not sampled here.
+   *
+   * This was a spread — every nineteenth name — on the reasoning that a rule
+   * needs no maintenance and a list does. The rule put six `circle-*` names in
+   * the preview, and a circle has no corners: the ring is the biggest thing in
+   * the tile and it is the same drawing in both treatments. The argument, and
+   * what replaces the maintenance, are written where the list lives.
+   *
+   * The count under it stays the whole treatment, so it does not move when the
+   * list does.
    */
   const withSharp = icons.filter((icon) => artOf(icon, "stroke", "sharp"))
-  const step = Math.max(1, Math.floor(withSharp.length / SHARP_PREVIEW))
-  const sharpSample = withSharp
-    .filter((_, i) => i % step === 0)
-    .slice(0, SHARP_PREVIEW)
+  const sharpSample = CHANGELOG_SHARP_ICON_NAMES.map((name) =>
+    byName.get(name)
+  ).filter((icon): icon is Icon => Boolean(icon && artOf(icon, "stroke", "sharp")))
 
   return {
     count: dated.length,

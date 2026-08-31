@@ -366,13 +366,30 @@ const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-")
 const SIZE = 24
 
 /**
- * How many of the sharp drawings the changelog's preview shows.
+ * The drawings the changelog's sharp preview shows, read out of the file the
+ * site reads them from.
  *
- * Thirty, which is `/changelog`'s number and the Figma page's: five rows of six
- * at this width, enough to read as a treatment rather than as a sample of one,
- * and short enough that the sentence above it is still the point.
+ * Parsed rather than copied, the same call this file makes about the category
+ * table: a second list of thirty names is a second thing to keep in step, and
+ * the copy that drifts is always the one nobody renders. The declaration has
+ * the shape `check-demos.mjs` looks for, so every name in it is proved against
+ * `icons/` by a check that already runs.
  */
-const SHARP_PREVIEW = 30
+async function sharpShowcase() {
+  const src = await readFile(join(ROOT, "lib", "changelog.ts"), "utf8")
+  const open = src.indexOf("export const CHANGELOG_SHARP_ICON_NAMES = [")
+  if (open < 0) {
+    throw new Error("lib/changelog.ts: no CHANGELOG_SHARP_ICON_NAMES export")
+  }
+  const names = [
+    ...src.slice(open, src.indexOf("]", open)).matchAll(/"([^"]+)"/g),
+  ].map(([, name]) => name)
+  if (!names.length) {
+    throw new Error("lib/changelog.ts: CHANGELOG_SHARP_ICON_NAMES parsed empty")
+  }
+  return names
+}
+const SHARP_SHOWCASE = await sharpShowcase()
 
 /**
  * Every rule written on the element it applies to, because a `<style>` block
@@ -790,13 +807,11 @@ function changelogSheet(icons, release) {
   /*
    * A taste of the sharp half, under the sentence that announces it.
    *
-   * The same thirty drawings `/changelog` shows and the Figma page draws, and
-   * the same way of arriving at them: every nineteenth name in the order
-   * `loadIcons` returns — base, then container by `localeCompare`, so `circle-`
-   * comes before the bare name — rather than the first thirty, which would be
-   * `activity`, `alert` and twenty-eight variations on `arrow-`. Three surfaces
-   * pick this sample independently, so they have to pick it by the same rule; a
-   * curated list is the thing that would drift.
+   * The same drawings `/changelog` shows and the Figma page draws, out of the
+   * same file, because three surfaces drawing a different thirty is three
+   * answers to one question. It was a spread across the set until the spread
+   * put six `circle-*` names in a preview of a corner treatment; the argument
+   * for naming them instead is in `lib/changelog.ts`.
    *
    * The fade is a mask, as it is on the site: an overlay has to know the colour
    * behind it and a mask does not. If Paper drops the property the block still
@@ -804,16 +819,11 @@ function changelogSheet(icons, release) {
    * the reason it is a mask here rather than a rectangle laid over the top.
    */
   const sharpPreview = () => {
-    const ordered = [...blocks.values()]
-      .sort((a, b) => a.base.localeCompare(b.base))
-      .flatMap((block) =>
-        [...block.rows].sort((a, b) => a.container.localeCompare(b.container))
-      )
-      .map((row) => row.name)
-      .filter((name) => icons.get(name)?.sharp?.stroke)
-    if (!ordered.length) return ""
-    const step = Math.max(1, Math.floor(ordered.length / SHARP_PREVIEW))
-    const sample = ordered.filter((_, i) => i % step === 0).slice(0, SHARP_PREVIEW)
+    /* The count is the treatment's whole coverage, not the preview's length, so
+       it does not move when the list does. */
+    const total = [...icons.values()].filter((icon) => icon.sharp?.stroke).length
+    const sample = SHARP_SHOWCASE.filter((name) => icons.get(name)?.sharp?.stroke)
+    if (!sample.length || !total) return ""
     const fade =
       ";mask-image:linear-gradient(to bottom, #000 55%, transparent 100%)" +
       ";-webkit-mask-image:linear-gradient(to bottom, #000 55%, transparent 100%)"
@@ -824,7 +834,7 @@ function changelogSheet(icons, release) {
          that is only true at one size. */
       `<p style="margin:12px 0 0;font-size:14px;line-height:1.7">` +
         `<span style="font-weight:500;text-decoration:underline;` +
-          `text-underline-offset:4px">See all ${ordered.length} in sharp</span>` +
+          `text-underline-offset:4px">See all ${total} in sharp</span>` +
       `</p>`
     )
   }
