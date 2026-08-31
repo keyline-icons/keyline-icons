@@ -37,7 +37,12 @@
  * `SET_FIGMA_URL` was filled in with the Community file, that answer moved and
  * this one did not need to.
  */
-import { REACT_PACKAGE } from "@/lib/icon-code"
+import {
+  ICONIFY_PREFIX,
+  REACT_PACKAGE,
+  SVELTE_PACKAGE,
+  VUE_PACKAGE,
+} from "@/lib/icon-code"
 import {
   SET_LICENSE_NAME,
   SET_REPO_URL,
@@ -228,9 +233,11 @@ export function installFaq(): FaqEntry[] {
     {
       question: `Can I use the set without React?`,
       answer:
-        `Yes. icons/<style>/<name>.svg in the repository are plain normalised SVGs with no wrapper, no ids ` +
-        `and no classes to strip out, so they drop into any framework or none. Treat them as build output: ` +
-        `to change a drawing, change it in raw/ and rebuild.`,
+        `Yes, two ways. The set is on Iconify as ${ICONIFY_PREFIX}, so ${VUE_PACKAGE}, ${SVELTE_PACKAGE} ` +
+        `and the iconify-icon web component cover Vue, Svelte, Angular, Solid and plain HTML between them, ` +
+        `none of them a package of ours. Or take the files: icons/<style>/<name>.svg in the repository are ` +
+        `plain normalised SVGs with no wrapper, no ids and no classes to strip out. Treat those as build ` +
+        `output: to change a drawing, change it in raw/ and rebuild.`,
     },
     {
       question: `Is the set free for commercial use?`,

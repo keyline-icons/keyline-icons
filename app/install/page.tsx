@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 import { installFaq } from "@/lib/faq"
-import { importPath } from "@/lib/icon-code"
+import { ICONIFY_PREFIX, ICONIFY_URL, importPath } from "@/lib/icon-code"
 import { artOf, CORNERS } from "@/components/glyph"
 import { loadIcons, STYLES } from "@/lib/icons"
 import { faqJsonLd, pageMetadata } from "@/lib/seo"
@@ -114,6 +114,12 @@ export default async function Page() {
       count: icons.filter((icon) => artOf(icon, style, corners)).length,
     }))
   )
+  /*
+    What Iconify serves, summed from the same six counts rather than typed. It
+    is the one number the frameworks section states, and the repo has already
+    shipped three stale counts on this page by typing them.
+  */
+  const published = lines.reduce((n, l) => n + l.count, 0)
   const codeWidth = Math.max(...lines.map((l) => l.code.length))
   const labelWidth = Math.max(...lines.map((l) => l.label.length))
   const importSample = lines
@@ -247,6 +253,88 @@ npx shadcn search @keyline                # browse the whole set`}</Code>
               and want redraws to arrive with a version bump. Take the registry
               if you want a handful of icons and would rather own the files than
               track someone else&apos;s releases.
+            </p>
+          </Section>
+
+          {/*
+            The section that stops this page reading as React-only.
+ 
+            It sits after both install paths and before everything below, which
+            is React-specific from here down: sizing inside Button, stroke
+            weight, the lucide swap. A reader who is not on React should meet
+            their answer before the page stops being about them, rather than
+            after five sections that assume a `className`.
+ 
+            **None of these packages are ours, and the section says so.** They
+            are Iconify's, reading the set from its published copy, which is
+            also why there is no `@keyline-icons/vue` to look for on npm. A page
+            that showed a Vue install without naming whose package it was would
+            send the next reader hunting for the matching scope.
+          */}
+          <Section id="frameworks" title="Vue, Svelte and everything else">
+            <p>
+              The whole set is published on{" "}
+              <a
+                href={ICONIFY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-0.5 underline underline-offset-2 hover:text-foreground"
+              >
+                Iconify
+                <ArrowUpRight className="size-3" />
+                <span className="sr-only">{" (opens in a new tab)"}</span>
+              </a>{" "}
+              as <code>{ICONIFY_PREFIX}</code>, all {published.toLocaleString()}{" "}
+              drawings, which is how every framework without a package here gets
+              it. Iconify re-imports from the repository, so it carries whatever
+              the last release drew.
+            </p>
+            <Code>{`npm i @iconify/vue      # Vue 3
+npm i @iconify/svelte   # Svelte 5`}</Code>
+            {/*
+              The two imports differ and the comment is the point: Vue exports
+              `Icon` by name and Svelte exports it as its default, which was
+              read off each package's own type definitions rather than
+              remembered. Getting it backwards puts a line on this page that
+              does not compile.
+            */}
+            <Code>{`import { Icon } from "@iconify/vue"   // named
+import Icon from "@iconify/svelte"    // default
+
+<Icon icon="${ICONIFY_PREFIX}:bell" />
+<Icon icon="${ICONIFY_PREFIX}:bell-fill" width="16" />
+<Icon icon="${ICONIFY_PREFIX}:bell-sharp-duotone" />`}</Code>
+            <p>
+              Names carry the style rather than the path doing it, which is
+              Iconify&apos;s convention for a set with weights and not a choice
+              made here: stroke is the bare name, and everything else is a
+              suffix on it. <code>-duotone</code>, <code>-fill</code>,{" "}
+              <code>-sharp</code>, <code>-sharp-duotone</code>,{" "}
+              <code>-sharp-fill</code>.
+            </p>
+            <p>
+              Anywhere with no framework package, including Angular, Solid and
+              plain HTML, there is a web component. And for a project with no
+              build step at all, the Tailwind plugin renders each icon as a
+              mask, so it takes <code>text-*</code> like any glyph here:
+            </p>
+            <Code>{`npm i iconify-icon
+<iconify-icon icon="${ICONIFY_PREFIX}:bell"></iconify-icon>
+
+npm i -D @iconify/tailwind4
+@plugin "@iconify/tailwind4";
+<span class="icon-[${ICONIFY_PREFIX}--bell] size-4"></span>`}</Code>
+            <p>
+              Note the doubled hyphen in the class. Tailwind cannot take a colon
+              inside a bracket, so Iconify spells the separator <code>--</code>{" "}
+              there and <code>:</code> everywhere else.
+            </p>
+            <p>
+              These fetch icon data from Iconify&apos;s API on demand rather
+              than bundling it, which is the trade against the React package:
+              nothing ships in your bundle, and a drawing arrives over the
+              network the first time it renders. Every one of them has an
+              offline entry point if that is the wrong trade for you.
             </p>
           </Section>
 

@@ -15,7 +15,7 @@
  * check reads `lib/` and nothing else.
  */
 
-import type { IconArt } from "@/components/glyph"
+import type { IconArt, StyleArt } from "@/components/glyph"
 import type { Icon } from "@/lib/icons"
 
 /**
@@ -138,6 +138,56 @@ export const CORNER_SAMPLE_ICON_NAMES = [
  * the search suggestions.
  */
 export const INSTALL_EXAMPLE_ICON_NAMES = ["bell"] as const
+
+/**
+ * The two marks the framework chips' tooltips carry: a tick for the one chip
+ * that installs this project's own package, a warning for the two that install
+ * somebody else's.
+ *
+ * **In fill, which is why they are here at all.** Every other glyph in the site
+ * chrome comes from `@/components/icons`, and that module is stroke only, so a
+ * fill drawing cannot be imported into a client component. It has to be read off
+ * disk on the server and handed down as art, the same route
+ * `pickStyleSampleIcons` takes. Two drawings in the page payload rather than the
+ * whole set.
+ *
+ * Fill rather than stroke because these are read at 14px beside 12px text, where
+ * a 2px keyline on a 24 grid is most of the glyph and both marks turn to mush. A
+ * solid tick and a solid triangle hold their silhouette at that size, which is
+ * the same argument the fill style exists for.
+ */
+export const FRAMEWORK_HINT_ICON_NAMES = [
+  "circle-check",
+  "triangle-alert",
+] as const
+
+/** The hint marks' fill art, keyed by name. */
+export type FrameworkHintArt = Partial<
+  Record<(typeof FRAMEWORK_HINT_ICON_NAMES)[number], StyleArt>
+>
+
+/**
+ * Narrow a full `loadIcons()` result down to the two tooltip marks, in fill.
+ *
+ * Partial and silent on a miss, following `pickStyleSampleIcons` rather than the
+ * two mockup pickers that throw: a renamed drawing should cost the tooltip its
+ * glyph, not the landing page its render. The chip still says "Vue" and the
+ * tooltip still says who serves it. `check-demos` holds the names to what is on
+ * disk, and note what it cannot hold them to — it verifies a *stroke* form
+ * exists, so a name with no fill drawing would pass the check and render
+ * nothing here. Both were confirmed against `icons/fill/` before being written.
+ */
+export function pickFrameworkHintIcons(icons: Icon[]): FrameworkHintArt {
+  const byName = new Map(icons.map((icon) => [icon.name, icon]))
+  const marks: FrameworkHintArt = {}
+
+  for (const name of FRAMEWORK_HINT_ICON_NAMES) {
+    const fill = byName.get(name)?.art.fill
+    if (fill) marks[name] = fill
+  }
+
+  return marks
+}
 
 /**
  * The glyph on each of the hero's three fact cards, in the order they appear.

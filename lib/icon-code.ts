@@ -22,6 +22,27 @@ export const REACT_PACKAGE = "@keyline-icons/react"
 export const CLI_PACKAGE = "@keyline-icons/cli"
 
 /**
+ * The set on Iconify, and the two entry points that read it.
+ *
+ * Vue and Svelte have no package of this project's own and are not getting one.
+ * The set is published at <https://icon-sets.iconify.design/keyline-icons/>,
+ * all 2994 drawings, re-imported from `main` several times a week, and
+ * Iconify's own components render it in React, Vue, Svelte, Solid and plain web
+ * components. A `@keyline-icons/vue` would be one more tarball to build,
+ * version, publish and keep in step, for reach that already exists.
+ *
+ * **The prefix is the whole name on that side.** `keyline-icons:bell` is
+ * stroke, and every other treatment is a suffix on it: `-duotone`, `-fill`,
+ * `-sharp`, `-sharp-duotone`, `-sharp-fill`. That is Iconify's convention for a
+ * set with weights rather than a decision made here, which is why it does not
+ * go through `importPath` and must not be made to.
+ */
+export const ICONIFY_PREFIX = "keyline-icons"
+export const ICONIFY_URL = "https://icon-sets.iconify.design/keyline-icons/"
+export const VUE_PACKAGE = "@iconify/vue"
+export const SVELTE_PACKAGE = "@iconify/svelte"
+
+/**
  * The four ways to say "install this" and "run this once".
  *
  * Both verbs are needed and they do not move together: the React entry point is
@@ -42,9 +63,16 @@ export type PackageManager = (typeof PACKAGE_MANAGERS)[number]["value"]
 const manager = (pm: PackageManager) =>
   PACKAGE_MANAGERS.find((m) => m.value === pm) ?? PACKAGE_MANAGERS[0]
 
-/** The whole set as a dependency. */
-export const installSet = (pm: PackageManager) =>
-  `${manager(pm).add} ${REACT_PACKAGE}`
+/**
+ * The whole set as a dependency.
+ *
+ * The package is a parameter because it is not always this project's: React
+ * installs `@keyline-icons/react`, Vue and Svelte install Iconify's component
+ * for their framework. It defaults to the React package, so `reactSnippet`
+ * below and every existing caller keep the line they already had.
+ */
+export const installSet = (pm: PackageManager, pkg: string = REACT_PACKAGE) =>
+  `${manager(pm).add} ${pkg}`
 
 /** One drawing copied into the project, no dependency left behind. */
 export const installIcon = (

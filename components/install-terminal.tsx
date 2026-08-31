@@ -9,6 +9,7 @@ import {
   installIcon,
   installSet,
   PACKAGE_MANAGERS,
+  REACT_PACKAGE,
   type PackageManager,
 } from "@/lib/icon-code"
 import { track } from "@/lib/analytics"
@@ -25,10 +26,16 @@ import { track } from "@/lib/analytics"
  * page cannot drift from what the packages are actually called.
  *
  * **Two commands, because they are two different things.** `add` is a
- * dependency: every icon, as React components, updated when you update it.
- * `exec` runs the CLI once and leaves a drawing in your project with nothing in
- * your lockfile. Every manager spells the second one differently, which is the
- * whole reason `PACKAGE_MANAGERS` carries a pair of verbs rather than a name.
+ * dependency: every icon, as components, updated when you update it. `exec`
+ * runs the CLI once and leaves a drawing in your project with nothing in your
+ * lockfile. Every manager spells the second one differently, which is the whole
+ * reason `PACKAGE_MANAGERS` carries a pair of verbs rather than a name.
+ *
+ * **Only the first line moves with the framework.** `cli add` writes a plain
+ * SVG file, so it is the same command and the same result whatever you are
+ * building in; the dependency above it is not, because only React has a package
+ * of this project's own. That asymmetry is why `install` is one prop rather
+ * than a whole framework object: there is exactly one line to swap.
  *
  * The picker is `Segmented`, the site's one-of-many control, and its choice is
  * component state rather than the settings cookie: the cookie is for how the
@@ -47,15 +54,23 @@ export function InstallTerminal({
    * look like a section header rather than a control on this block.
    */
   leading,
+  /**
+   * The dependency the first line installs, and the comment written above it.
+   *
+   * It defaults to the React package, so a caller that passes nothing gets the
+   * line this terminal has always shown.
+   */
+  install = { note: "Every icon, as React components", pkg: REACT_PACKAGE },
 }: {
   example: string
   leading?: React.ReactNode
+  install?: { note: string; pkg: string }
 }) {
   const [pm, setPm] = React.useState<PackageManager>("npm")
   const [copied, setCopied] = React.useState(false)
 
   const lines = [
-    { note: "Every icon, as React components", command: installSet(pm) },
+    { note: install.note, command: installSet(pm, install.pkg) },
     {
       note: "Or copy one drawing in, with nothing left in your lockfile",
       command: installIcon(pm, example, "stroke"),

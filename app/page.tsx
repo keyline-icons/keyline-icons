@@ -26,6 +26,7 @@ import {
   HERO_FACT_ICON_NAMES,
   INSTALL_EXAMPLE_ICON_NAMES,
   SPONSOR_ICON_NAMES,
+  pickFrameworkHintIcons,
   pickStyleSampleIcons,
 } from "@/lib/home"
 import { pickMobileIcons } from "@/lib/mobile-demo"
@@ -653,13 +654,18 @@ export default async function Page() {
             // introduce themselves. They do not: the framework picker is inside
             // the terminal now, so the heading stands alone over a card and the
             // section loses the one line that says what the card is for.
-            lead="One React component per icon, generated from the same files as the SVGs."
+            // It names all three frameworks the picker offers, and attaches the
+            // "same files" claim only to React, which is the only one this repo
+            // generates. Vue and Svelte read the set from Iconify.
+            lead="React components generated from the same files as the SVGs, plus Vue and Svelte through Iconify."
           />
 
           {/*
             The stack first, then what it costs: a framework row over a
-            terminal, with the frameworks that do not exist yet disabled rather
-            than hidden. This was two cards side by side, an SVG and an install,
+            terminal, and every chip in the row is one a reader can actually
+            run. Nothing is disabled today, though `ready` in `FRAMEWORKS` still
+            makes a chip arrive that way if one is ever added ahead of its
+            install. This was two cards side by side, an SVG and an install,
             which asked the reader to compare two things instead of picking the
             one that applies. See `components/framework-installer.tsx`.
 
@@ -668,7 +674,10 @@ export default async function Page() {
             alone: 40px under a single line left the card floating.
           */}
           <div className="mt-10">
-            <FrameworkInstaller example={installExample} />
+            <FrameworkInstaller
+              example={installExample}
+              marks={pickFrameworkHintIcons(icons)}
+            />
           </div>
         </section>
 

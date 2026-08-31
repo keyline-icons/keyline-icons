@@ -3,14 +3,27 @@
 import * as React from "react"
 import Link from "next/link"
 
-import { ReactLogo } from "@/components/brand-logos"
-import { CircleDashed } from "@/components/icons"
+import { ReactLogo, SvelteLogo, VueLogo } from "@/components/brand-logos"
 import { InstallTerminal } from "@/components/install-terminal"
+import { Glyph } from "@/components/glyph"
 import { Segmented, SegmentedItem } from "@/components/segmented"
-import { REACT_PACKAGE } from "@/lib/icon-code"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import {
+  ICONIFY_PREFIX,
+  ICONIFY_URL,
+  REACT_PACKAGE,
+  SVELTE_PACKAGE,
+  VUE_PACKAGE,
+} from "@/lib/icon-code"
+import type { FrameworkHintArt } from "@/lib/home"
+import { cn } from "@/lib/utils"
 
 /**
- * The framework row, the terminal under it, and the two notes that keep both
+ * The framework row, the terminal under it, and the note that keeps both
  * honest.
  *
  * The shape is Font Awesome's "works where you work" block: the stack you are
@@ -19,33 +32,87 @@ import { REACT_PACKAGE } from "@/lib/icon-code"
  * and one for installing the package, which asked the reader to compare two
  * things instead of picking the one that applies to them.
  *
- * **Only what ships is named.** The row carried Vue, Svelte and Angular as
- * disabled chips, then as chips with "Soon" badges, and both versions promised
- * three specific packages that nobody has started. The line under the row says
- * more are coming and names none of them, which is the version that cannot come
- * back as a broken promise.
- *
- * The row is one chip today, so the state below never changes. It is here
- * rather than hardcoded because the day a second package ships, the change is
- * one row in `FRAMEWORKS` and the terminal follows.
+ * **Only what ships is named**, and three things ship now. The row carried Vue,
+ * Svelte and Angular as disabled chips, then as chips with "Soon" badges, and
+ * both versions promised three specific packages that nobody had started. Vue
+ * and Svelte are back as real chips because the set is on Iconify, which is a
+ * different promise: not a package of ours, an install that works today. Angular
+ * is not here, because Iconify reaches it through the `iconify-icon` web
+ * component rather than a framework package, and a chip whose command is a
+ * different shape from the two beside it belongs on `/install`, not in a picker.
  */
 
 /**
- * What the set can be installed into. One entry, and that is the point.
+ * What the set can be installed into, what installing it costs, and what you
+ * type afterwards. Three entries, and the third column is the point: the chips
+ * do not select a label, they select a command and the snippet under it.
  *
- * Vue, Svelte and Angular sat here as disabled chips for a while, which read as
- * a roadmap and was not one: nothing in this repo builds any of them, and four
- * names on a landing page is four promises. The line under the row says more
- * are coming without naming which, so the only thing that can be wrong about it
- * is the timing.
+ * **Only React installs something of ours.** Vue and Svelte install Iconify's
+ * component for their framework, which reads the set from
+ * `ICONIFY_PREFIX` over Iconify's API. That is why `pkg` is here rather than
+ * derived: two of these three are somebody else's package, and a table that
+ * assumed the scope would quietly emit `@keyline-icons/vue`, which does not
+ * exist and is not planned. See the note on `ICONIFY_PREFIX` in
+ * `lib/icon-code.ts` for why it is not going to.
  *
- * `ready` stays for the day a second package ships. It is a fact about the repo
- * rather than a plan: `packages/react` exists and builds, and nothing else
- * does. A name here with `ready: true` before its package builds is a command
- * on the landing page that fails.
+ * `ready` stays, and all three are true today. It is a fact about what a reader
+ * can run rather than a plan: a name here with `ready: true` is a command on the
+ * landing page that has to work, so anything added before its install resolves
+ * goes in as `false` and arrives disabled.
+ *
+ * The Vue and Svelte imports differ on purpose and are not a typo to tidy:
+ * `@iconify/vue` exports `Icon` as a named export and `@iconify/svelte` exports
+ * it as its default. Both were read off the packages' own type definitions.
  */
 const FRAMEWORKS = [
-  { value: "react", label: "React", logo: ReactLogo, ready: true },
+  {
+    value: "react",
+    label: "React",
+    logo: ReactLogo,
+    ready: true,
+    pkg: REACT_PACKAGE,
+    mark: "circle-check",
+    markClass: "text-green-400 dark:text-green-600",
+    hint: "This project's own package",
+    note: "Every icon, as React components",
+    usage: `import { Bell, Check, Search } from "${REACT_PACKAGE}"
+
+<Bell className="size-4" />
+<Check size={16} />
+<Search strokeWidth={1.5} />`,
+  },
+  {
+    value: "vue",
+    label: "Vue",
+    logo: VueLogo,
+    ready: true,
+    pkg: VUE_PACKAGE,
+    mark: "triangle-alert",
+    markClass: "text-orange-400 dark:text-orange-600",
+    hint: "Served by Iconify, not a package of ours",
+    note: "Every icon, through Iconify's Vue component",
+    usage: `import { Icon } from "${VUE_PACKAGE}"
+
+<Icon icon="${ICONIFY_PREFIX}:bell" class="size-4" />
+<Icon icon="${ICONIFY_PREFIX}:check" width="16" />
+<Icon icon="${ICONIFY_PREFIX}:search-duotone" />`,
+  },
+  {
+    value: "svelte",
+    label: "Svelte",
+    logo: SvelteLogo,
+    ready: true,
+    pkg: SVELTE_PACKAGE,
+    mark: "triangle-alert",
+    markClass: "text-orange-400 dark:text-orange-600",
+    hint: "Served by Iconify, not a package of ours",
+    note: "Every icon, through Iconify's Svelte component",
+    usage: `import Icon from "${SVELTE_PACKAGE}"
+
+<Icon icon="${ICONIFY_PREFIX}:bell" class="size-4" />
+<Icon icon="${ICONIFY_PREFIX}:check" width="16" />
+<Icon icon="${ICONIFY_PREFIX}:search-duotone" />`,
+  },
 ] as const
 
 type Framework = (typeof FRAMEWORKS)[number]["value"]
@@ -53,10 +120,21 @@ type Framework = (typeof FRAMEWORKS)[number]["value"]
 export function FrameworkInstaller({
   /** The drawing the terminal's `cli add` line names. See `lib/home.ts`. */
   example,
+  /**
+   * The tooltips' two fill marks, resolved on the server.
+   *
+   * They arrive as art rather than as components because `@/components/icons`
+   * is stroke only, and these have to be fill to survive 14px. See
+   * `pickFrameworkHintIcons` in `lib/home.ts`.
+   */
+  marks,
 }: {
   example: string
+  marks: FrameworkHintArt
 }) {
   const [framework, setFramework] = React.useState<Framework>("react")
+  const current =
+    FRAMEWORKS.find((entry) => entry.value === framework) ?? FRAMEWORKS[0]
 
   return (
     <div>
@@ -65,12 +143,14 @@ export function FrameworkInstaller({
         install into and what you type to do it are one decision, and two
         surfaces made the chips read as a section heading rather than a control.
 
-        The second chip is the roadmap, and it is a chip rather than a sentence
-        because that is where a reader looks for the answer: having found the
-        one framework in the picker, the next question is whether theirs is
-        coming, and the picker should answer it without them reading on. It is
-        disabled and names nothing, so it cannot become a promise about a
-        package that has not been started.
+        There was a fourth chip here, disabled, reading "More coming soon". It
+        went when Vue and Svelte became real: with three working chips in the
+        row, a reader on Solid or Angular reads it as "not yet", when the honest
+        answer is "today, from the same Iconify set". A vague chip that has
+        become wrong is worse than a concrete sentence, so that answer moved
+        down to the note under the snippet, which can carry the link that
+        settles it. The picker now holds only what it can switch the terminal
+        to.
       */}
       {/*
         `max-w-3xl` and centred, not the full page column. A terminal is lines
@@ -98,48 +178,108 @@ export function FrameworkInstaller({
               <Segmented role="group" aria-label="Framework">
                 {FRAMEWORKS.map((entry) => {
                   const Logo = entry.logo
+                  // Hoisted rather than indexed inside the JSX: an index
+                  // access keyed by a union does not narrow across a ternary,
+                  // so `marks[entry.mark]` stays `StyleArt | undefined` in the
+                  // branch that has already tested it.
+                  const mark = marks[entry.mark]
 
                   return (
-                    <SegmentedItem
-                      key={entry.value}
-                      active={framework === entry.value}
-                      disabled={!entry.ready}
-                      onClick={() => setFramework(entry.value)}
-                      className="gap-2"
-                    >
-                      {/*
-                        The mark is in its own brand colour rather than the
-                        chip's ink, which is most of what makes a logo legible
-                        at 16px. See `components/brand-logos.tsx`.
-                      */}
-                      <Logo className="size-4 shrink-0" />
-                      {entry.label}
-                    </SegmentedItem>
+                    /*
+                      `hint` is a tooltip rather than anything on the face of
+                      the chip, and it answers the question the row raises
+                      before a reader clicks: two of these three install
+                      somebody else's package, and a chip reading "Vue" cannot
+                      say so on its own. In the chip it would be a second line
+                      of text in a 32px control, or a badge, and the badge slot
+                      is spoken for.
+
+                      It repeats nothing. The terminal's own comment line says
+                      what you are installing once you have picked; this says
+                      whose package it is before you do, which is the moment
+                      somebody would otherwise go looking on npm for a
+                      `@keyline-icons/vue` that does not exist.
+
+                      **The hint is also the accessible name, and that is not
+                      belt and braces.** This repo's `TooltipContent` renders a
+                      popup with no `role="tooltip"` and sets no
+                      `aria-describedby` on the trigger, checked in the DOM
+                      rather than assumed: the tooltip is paint, and a screen
+                      reader is told nothing by it. So the fact rides
+                      `aria-label`, which is exactly what `design-file-links`
+                      does with the same primitive. Hover is then an echo of the
+                      name rather than the only place the name's content lives,
+                      which also covers the phone, where there is no hover at
+                      all.
+
+                      `TooltipProvider` is already in `app/layout.tsx`, so there
+                      is none to add here.
+                    */
+                    <Tooltip key={entry.value}>
+                      <TooltipTrigger
+                        render={
+                          <SegmentedItem
+                            active={framework === entry.value}
+                            disabled={!entry.ready}
+                            onClick={() => setFramework(entry.value)}
+                            aria-label={`${entry.label}. ${entry.hint}`}
+                            className="gap-2"
+                          />
+                        }
+                      >
+                        {/*
+                          The mark is in its own brand colour rather than the
+                          chip's ink, which is most of what makes a logo legible
+                          at 16px. See `components/brand-logos.tsx`.
+                        */}
+                        <Logo className="size-4 shrink-0" />
+                        {entry.label}
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        {/*
+                          The mark carries the verdict and the sentence explains
+                          it, which is the order a tooltip is read in. The popup
+                          is already `inline-flex items-center gap-1.5`, so it
+                          needs no layout of its own.
+
+                          **The pair of colours is per theme because the pill
+                          inverts.** `bg-foreground` is near-black in light and
+                          near-white in dark, so one green cannot sit on both:
+                          the 400s read on the dark pill, the 600s on the light
+                          one. These are raw palette utilities rather than
+                          tokens deliberately — the theme is neutral by design
+                          and has no status colours in it, and inventing `--ok`
+                          and `--warn` for two glyphs in one tooltip is a bigger
+                          commitment than the need. If a third status mark shows
+                          up anywhere on the site, that is the moment they
+                          become tokens.
+
+                          14px against the popup's 12px text. `Glyph` skips
+                          `strokeWidth` when the drawing's root carries no
+                          `stroke-width`, which a pure-fill drawing does not, so
+                          the 2 here is passed and ignored rather than painting
+                          an outline over the knockouts.
+
+                          Guarded, because `pickFrameworkHintIcons` returns a
+                          partial: a renamed drawing costs the tooltip its mark
+                          and nothing else.
+                        */}
+                        {mark ? (
+                          <Glyph
+                            art={mark}
+                            size={14}
+                            stroke={2}
+                            className={cn("shrink-0", entry.markClass)}
+                          />
+                        ) : null}
+                        {entry.hint}
+                      </TooltipContent>
+                    </Tooltip>
                   )
                 })}
-
-                {/*
-                  The roadmap chip, in the one place a reader asks the question:
-                  having found the single framework in the picker, the next
-                  thing they want to know is whether theirs is coming.
-
-                  `CircleDashed` is the set's own pending mark, and it is still.
-                  It turned slowly for a version, which is what a spinner does,
-                  and a spinner means something is happening now: on a chip that
-                  reports a plan it promised progress the reader cannot see and
-                  the page cannot report. A dashed ring says unfinished without
-                  claiming to be working on it.
-                */}
-                <SegmentedItem
-                  active={false}
-                  disabled
-                  className="gap-2 text-muted-foreground"
-                >
-                  <CircleDashed className="size-4 shrink-0" />
-                  More coming soon
-                </SegmentedItem>
               </Segmented>
             }
+            install={{ note: current.note, pkg: current.pkg }}
           />
 
           {/*
@@ -157,20 +297,23 @@ export function FrameworkInstaller({
             The usage, under the install rather than beside it: what you type
             after the command has run. `bg-background` because the panel around
             it is muted.
+
+            It follows the picker, because an install line and the import it
+            enables are one answer. This block was React's snippet hardcoded
+            while the row had one chip, and leaving it that way would have put a
+            React import under a Vue install, which is the exact failure the
+            terminal above is written to avoid.
           */}
             <pre className="overflow-x-auto rounded-md bg-background p-4 font-mono text-[13px] leading-relaxed">
-              <code>{`import { Bell, Check, Search } from "${REACT_PACKAGE}"
-
-<Bell className="size-4" />
-<Check size={16} />
-<Search strokeWidth={1.5} />`}</code>
+              <code>{current.usage}</code>
             </pre>
 
             {/*
-            One note now, and it is the escape hatch: the SVG path is the other
-            half of the section's own heading, and the one that needs no
-            framework at all. It was a whole pane beside the terminal and reads
-            better as this line.
+            One note, carrying the two answers the picker above cannot: the SVG
+            path, which needs no framework at all and is the other half of the
+            section's own heading, and Iconify, which is where a framework that
+            has no chip gets the set. It was a whole pane beside the terminal and
+            reads better as this line.
 
             **What came out.** This paragraph opened with "Not published yet."
             for as long as the package was not on npm, on the argument that a
@@ -192,7 +335,23 @@ export function FrameworkInstaller({
               >
                 browser
               </Link>{" "}
-              copies as plain SVG that works in any framework, or none.{" "}
+              copies as plain SVG that works in any framework, or none. Beyond
+              the three above, the whole set is on{" "}
+              {/*
+                External, so a real anchor rather than `Link`: this is the one
+                pointer on the block that leaves the site, and it is here because
+                the picker stopped answering it. See the note by the picker.
+              */}
+              <a
+                href={ICONIFY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-foreground"
+              >
+                Iconify
+              </a>{" "}
+              as <code>{ICONIFY_PREFIX}</code>, which covers Solid, Angular and
+              plain web components.{" "}
               <Link
                 href="/install"
                 prefetch={false}
