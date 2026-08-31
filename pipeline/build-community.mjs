@@ -1,10 +1,10 @@
-// Compose the six Figma Community carousel sheets, then rasterise them.
+// Compose the seven Figma Community carousel sheets, then rasterise them.
 //
 //   node pipeline/build-community.mjs [--check]
 //
 // Writes previews/community/*.png at 1920x1080, the size Figma asks for on a
-// Community listing's carousel. Three sheets argue for the set itself (styles,
-// containers, range) and three show it inside FigJam, which is where a plugin
+// Community listing's carousel. Four sheets argue for the set itself (styles,
+// containers, range, corners) and three show it inside FigJam, which is where a plugin
 // insert behaves differently enough to be worth its own frames.
 //
 // Every drawing is read out of icons/ rather than exported from the Figma file.
@@ -16,7 +16,7 @@
 // cannot rasterise. It composes HTML rather than SVG, because the FigJam sheets
 // want stickies, shadows and rotation, and CSS does those in a line each.
 //
-// --check composes all six without rasterising and fails on any icon name that
+// --check composes all seven without rasterising and fails on any icon name that
 // is no longer in icons/, which is the failure this guards against: a rename
 // leaves a hole in a sheet and nothing on the Community page says so. It
 // deliberately does not diff the PNGs. Two Chrome versions disagree by a pixel
@@ -65,14 +65,18 @@ const missing = new Set()
  * A miss is recorded and returns null rather than throwing, so one rename does
  * not hide the other five behind it.
  */
-async function read(style, name) {
-  used.add(`${style}/${name}`)
+async function read(style, name, corners = "regular") {
+  const key = corners === "sharp" ? `sharp/${style}/${name}` : `${style}/${name}`
+  used.add(key)
   let src
+  const dir = corners === "sharp" ? join(ICONS, "sharp", style) : join(ICONS, style)
   try {
-    src = await readFile(join(ICONS, style, `${name}.svg`), "utf8")
+    src = await readFile(join(dir, `${name}.svg`), "utf8")
   } catch (e) {
     if (e.code !== "ENOENT") throw e
-    missing.add(`${style}/${name}`)
+    /* Keyed with its treatment, or a sharp drawing that went missing would be
+       reported as the rounded one, which exists. */
+    missing.add(key)
     return null
   }
   const open = src.match(/<svg\b([^>]*)>/)?.[1] ?? ""
@@ -90,8 +94,8 @@ async function read(style, name) {
 }
 
 /** One drawing at a px size, colour inherited from whatever is in scope. */
-async function glyph(style, name, size) {
-  const parts = await read(style, name)
+async function glyph(style, name, size, corners = "regular") {
+  const parts = await read(style, name, corners)
   if (!parts) return `<svg width="${size}" height="${size}"></svg>`
   return `<svg width="${size}" height="${size}" ${parts.attrs}>${parts.body}</svg>`
 }
@@ -371,7 +375,64 @@ async function sheetRange(total) {
   }
 }
 
-/* ── sheet 4: a board with a job on it ─────────────────────────────────── */
+/* sheet 4: the corner treatments */
+
+/**
+ * Chosen for corners rather than for coverage.
+ *
+ * The treatment is only visible on a drawing that has corners to square, so a
+ * spread across the set is the wrong sample here: half of it would be circles
+ * and arcs, identical in both columns, and the sheet would argue against its
+ * own headline. Panels, screens and documents first, where a right angle loses
+ * its fillet; the apex and the lid last, where the change lands somewhere other
+ * than a right angle.
+ */
+const SHARP_ICONS = [
+  "panel-left", "layout-dashboard", "grid-2x2", "monitor",
+  "folder", "file-text", "calendar", "camera",
+  "archive", "package", "shield", "triangle-alert",
+]
+
+async function sheetSharp() {
+  let cols = ""
+  for (const corners of ["regular", "sharp"]) {
+    let cells = ""
+    for (const name of SHARP_ICONS) {
+      cells += `<div class="c">${await glyph("stroke", name, 104, corners)}</div>`
+    }
+    cols +=
+      `<section><div class="lab">${corners === "sharp" ? "sharp" : "rounded"}</div>` +
+      `<div class="grid">${cells}</div></section>`
+  }
+
+  return {
+    name: "4-sharp",
+    html: shell(
+      "#ffffff",
+      "#0a0a0a",
+      `<style>
+        body{padding:64px 72px 56px}
+        .head{margin-bottom:36px}
+        .row{display:flex;gap:72px;flex:1;min-height:0}
+        section{flex:1;display:flex;flex-direction:column;min-height:0}
+        .lab{font-size:19px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+             opacity:.38;margin-bottom:18px}
+        .grid{display:grid;grid-template-columns:repeat(4,1fr);
+              grid-template-rows:repeat(3,1fr);gap:10px;
+              border-top:2px solid #e5e5e5;padding-top:20px;flex:1;min-height:0}
+        .c{display:flex;align-items:center;justify-content:center}
+        svg{display:block}
+      </style>
+      <div class="head">
+        <h1>Rounded or sharp, every drawing</h1>
+        <p>The same 585 names in both, so switching the treatment never costs you an icon.</p>
+      </div>
+      <div class="row">${cols}</div>`
+    ),
+  }
+}
+
+/* ── sheet 5: a board with a job on it ─────────────────────────────────── */
 
 async function sheetBoard() {
   const g = (n, size, colour) => inked("stroke", n, size, colour)
@@ -444,10 +505,10 @@ async function sheetBoard() {
     `<span class="pill">${await g("message", 24, FJ.pink)}Feedback</span>` +
     `<span class="pill">${await g("arrow-right", 24, FJ.teal)}Next</span></div>`
 
-  return { name: "4-figjam-board", html: board(inner) }
+  return { name: "5-figjam-board", html: board(inner) }
 }
 
-/* ── sheets 5 and 6: colour, and a colour per path ─────────────────────── */
+/* ── sheets 6 and 7: colour, and a colour per path ─────────────────────── */
 
 const SWATCH = [FJ.red, FJ.orange, FJ.yellow, FJ.green, FJ.teal, FJ.blue, FJ.purple, FJ.pink]
 const SWATCH_ICONS = ["bell", "heart", "star", "bookmark", "gift", "cloud", "sun", "package"]
@@ -506,7 +567,7 @@ async function sheetColour() {
     `</div>`
 
   return {
-    name: "5-figjam-colour",
+    name: "6-figjam-colour",
     html: board(
       inner,
       `.lab{font-size:18px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;` +
@@ -555,7 +616,7 @@ async function sheetTwoTone() {
     `its own colour.</p></div>` +
     placed
 
-  return { name: "6-figjam-two-tone", html: board(inner) }
+  return { name: "7-figjam-two-tone", html: board(inner) }
 }
 
 /* ── rasterising ───────────────────────────────────────────────────────── */
@@ -620,6 +681,7 @@ const sheets = [
   await sheetStyles(),
   await sheetContainers(),
   await sheetRange(total),
+  await sheetSharp(),
   await sheetBoard(),
   await sheetColour(),
   await sheetTwoTone(),
@@ -645,5 +707,20 @@ if (check) {
   await mkdir(OUT, { recursive: true })
   const chrome = findChrome()
   for (const { name, html } of sheets) await shoot(chrome, name, html)
+
+  /*
+    Sheets that no longer exist, removed rather than left lying.
+    Renumbering the carousel when `4-sharp` was inserted renamed three files and
+    left their old copies beside the new ones: ten PNGs in a directory that
+    builds seven, all of them looking equally current, and the upload is a human
+    picking files out of a folder. The `--check` half cannot see this — it
+    deliberately does not touch the PNGs — so the cleanup belongs here.
+  */
+  const want = new Set(sheets.map((s) => `${s.name}.png`))
+  for (const file of await readdir(OUT)) {
+    if (!file.endsWith(".png") || want.has(file)) continue
+    await unlink(join(OUT, file))
+    console.log(`Removed previews/community/${file} (no longer generated)`)
+  }
   console.log(`${sheets.length} sheets, ${used.size} icon references, ${total} icons in the set`)
 }

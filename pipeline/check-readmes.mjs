@@ -169,7 +169,11 @@ const CLAIMS = [
   ['packages/figma-plugin/LISTING.md', /^([\d,]+) component sets, each with/m, 'sets'],
   ['packages/figma-plugin/LISTING.md', /without swapping components\. ([\d,]+) icons carry a square- form/, 'square'],
   ['packages/figma-plugin/LISTING.md', /square- form and ([\d,]+) a circle-/, 'circle'],
-  ['packages/figma-plugin/LISTING.md', /three counts differ: stroke\n([\d,]+), duotone/, 'stroke'],
+  /* `\s+` rather than `\n`: this pattern was written against a wrapped copy of
+     the listing and broke the moment the paragraph was unwrapped, reporting a
+     MISSING count on prose whose number was correct. A claim is about the words
+     and the number, never about where the line happens to end. */
+  ['packages/figma-plugin/LISTING.md', /three counts differ: stroke\s+([\d,]+), duotone/, 'stroke'],
   ['packages/figma-plugin/LISTING.md', /, duotone ([\d,]+), fill/, 'duotone'],
   ['packages/figma-plugin/LISTING.md', /, fill ([\d,]+)\./, 'fill'],
 ];
