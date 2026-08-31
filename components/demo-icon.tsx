@@ -2,6 +2,7 @@
 
 import * as React from "react"
 
+import { artOf, type Corners } from "@/components/glyph"
 import type { IconProps } from "@/components/icons"
 import type { DashboardIconSet, Style } from "@/lib/dashboard-demo"
 
@@ -18,16 +19,24 @@ const REACT_ATTR: Record<string, string> = {
 const toReactProps = (a: Record<string, string>) =>
   Object.fromEntries(Object.entries(a).map(([k, v]) => [REACT_ATTR[k] ?? k, v]))
 
-type DemoIconContextValue = { icons: DashboardIconSet; style: Style }
+type DemoIconContextValue = {
+  icons: DashboardIconSet
+  style: Style
+  corners: Corners
+}
 
 const DemoIconContext = React.createContext<DemoIconContextValue | null>(null)
 
 function DemoIconProvider({
   icons,
   style,
+  corners,
   children,
 }: DemoIconContextValue & { children: React.ReactNode }) {
-  const value = React.useMemo(() => ({ icons, style }), [icons, style])
+  const value = React.useMemo(
+    () => ({ icons, style, corners }),
+    [icons, style, corners]
+  )
 
   return (
     <DemoIconContext.Provider value={value}>
@@ -53,7 +62,9 @@ function DemoIconProvider({
  * Presentation attributes come from the icon's own file rather than being
  * hardcoded: a pure-fill drawing carries no stroke, and inheriting one paints a
  * 2px outline over every knockout. Stroke is the one style every icon has, so
- * it is what a glyph with no duotone or fill sibling falls back to.
+ * it is what a glyph with no duotone or fill sibling falls back to, and the
+ * rounded drawing is one further step out, for a treatment that is somehow
+ * missing. Sharp covers exactly what rounded covers, so it should not be.
  *
  * `width`/`height` are set to 24 to match what the generated components
  * default to, so a caller's `size-4` overrides the same way in both paths and a
@@ -88,8 +99,12 @@ function DemoIcon({
   delete (props as { children?: unknown }).children
 
   const context = React.useContext(DemoIconContext)
-  const art = context?.icons[name]
-  const drawn = art ? (art[context.style] ?? art.stroke) : undefined
+  const entry = context?.icons[name]
+  const drawn = entry
+    ? (artOf(entry, context.style, context.corners) ??
+      artOf(entry, "stroke", context.corners) ??
+      artOf(entry, "stroke"))
+    : undefined
 
   if (!drawn) {
     return <Fallback className={className} {...props} />

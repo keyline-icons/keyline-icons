@@ -2,6 +2,7 @@
 
 import * as React from "react"
 
+import { artOf, type Corners } from "@/components/glyph"
 import { cn } from "@/lib/utils"
 import type { MobileIconName, MobileIconSet, Style } from "@/lib/mobile-demo"
 
@@ -18,16 +19,24 @@ const REACT_ATTR: Record<string, string> = {
 const toReactProps = (a: Record<string, string>) =>
   Object.fromEntries(Object.entries(a).map(([k, v]) => [REACT_ATTR[k] ?? k, v]))
 
-type PhoneIconContextValue = { icons: MobileIconSet; style: Style }
+type PhoneIconContextValue = {
+  icons: MobileIconSet
+  style: Style
+  corners: Corners
+}
 
 const PhoneIconContext = React.createContext<PhoneIconContextValue | null>(null)
 
 function PhoneIconProvider({
   icons,
   style,
+  corners,
   children,
 }: PhoneIconContextValue & { children: React.ReactNode }) {
-  const value = React.useMemo(() => ({ icons, style }), [icons, style])
+  const value = React.useMemo(
+    () => ({ icons, style, corners }),
+    [icons, style, corners]
+  )
 
   return (
     <PhoneIconContext.Provider value={value}>
@@ -43,6 +52,11 @@ function PhoneIconProvider({
  * hardcoded: a pure-fill drawing carries no stroke, and inheriting one paints a
  * 2px outline over every knockout. Stroke is the one style every icon has, so
  * it is the fallback when a glyph has no duotone or fill sibling.
+ *
+ * The corner treatment falls back the same way, one step further out. Sharp
+ * covers exactly what rounded covers today, so the last step should never be
+ * reached; the rule this component was built on is that a switch can never
+ * leave a hole in the UI, and a treatment is one more switch to hold to it.
  */
 function PhoneIcon({
   name,
@@ -60,8 +74,11 @@ function PhoneIcon({
     throw new Error("PhoneIcon must be used inside PhoneIconProvider.")
   }
 
-  const art = context.icons[name]
-  const drawn = art[variant ?? context.style] ?? art.stroke
+  const entry = context.icons[name]
+  const drawn =
+    artOf(entry, variant ?? context.style, context.corners) ??
+    artOf(entry, "stroke", context.corners) ??
+    artOf(entry, "stroke")
 
   if (!drawn) return null
 

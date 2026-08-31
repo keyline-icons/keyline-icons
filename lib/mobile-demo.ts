@@ -1,3 +1,4 @@
+import type { IconArt } from "@/components/glyph"
 import type { Icon, Style } from "@/lib/icons"
 
 export type { Style }
@@ -46,12 +47,16 @@ export const MOBILE_ICON_NAMES = [
 
 export type MobileIconName = (typeof MOBILE_ICON_NAMES)[number]
 
-/** Same shape as `Icon["art"][style]`, restated so client code never imports `lib/icons` (it reads the filesystem). */
-export type MobileIconArt = { body: string; root: Record<string, string> }
-export type MobileIconSet = Record<
-  MobileIconName,
-  Partial<Record<Style, MobileIconArt>>
->
+/**
+ * One glyph in both corner treatments.
+ *
+ * `IconArt` comes from `components/glyph.tsx` rather than from `lib/icons.ts`,
+ * which reads the filesystem and so cannot be imported by client code. It is
+ * also the shape `artOf` picks between, which is the whole reason the mockup
+ * borrows it: the phone chooses rounded or sharp with the same function the
+ * grid and the preview dock use, rather than with a second rule of its own.
+ */
+export type MobileIconSet = Record<MobileIconName, IconArt>
 
 /**
  * Narrow a full `loadIcons()` result down to what the mockup draws.
@@ -70,7 +75,9 @@ export function pickMobileIcons(icons: Icon[]): MobileIconSet {
       missing.push(name)
       continue
     }
-    set[name] = icon.art
+    // Both treatments. Sharp is optional on `Icon` and the drawings cover it
+    // completely today, so this copies whatever is there rather than asserting.
+    set[name] = { art: icon.art, sharp: icon.sharp }
   }
 
   if (missing.length > 0) {

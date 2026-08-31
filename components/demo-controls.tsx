@@ -4,6 +4,7 @@ import * as React from "react"
 import type { CSSProperties } from "react"
 import { useTheme } from "next-themes"
 
+import { CORNERS, type Corners } from "@/components/glyph"
 import { Moon, Sun } from "@/components/icons"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -25,6 +26,23 @@ export const STYLE_OPTIONS: { value: Style; label: string }[] = [
   { value: "duotone", label: "Duotone" },
   { value: "fill", label: "Fill" },
 ]
+
+/**
+ * Rounded or squared, beside the styles for the reason this file exists: both
+ * mockups put the row in their settings stack, and one list is what stops the
+ * phone offering a treatment the dashboard has not heard of.
+ *
+ * Derived from `CORNERS` rather than written out, so a third treatment arrives
+ * in both panels at once. `regular` reads "Rounded" because that is what it is
+ * on screen; the value keeps the Figma property's own name, which is what the
+ * filenames, the cookie and the packages all spell.
+ *
+ * No counts and no disabled chip, unlike the style row: every drawing exists in
+ * both treatments, so there is nothing here to grey out.
+ */
+export const CORNERS_OPTIONS: { value: Corners; label: string }[] = CORNERS.map(
+  (value) => ({ value, label: value === "regular" ? "Rounded" : "Sharp" })
+)
 
 /**
  * Accents are written straight onto `--primary`, so every `text-primary` and

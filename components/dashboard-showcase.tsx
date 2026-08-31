@@ -11,6 +11,7 @@ import {
   ACCENTS,
   AccentSwatches,
   AppearanceToggle,
+  CORNERS_OPTIONS,
   Segmented,
   SettingRow,
   STYLE_OPTIONS,
@@ -18,6 +19,7 @@ import {
   accentStyle,
   type AccentValue,
 } from "@/components/demo-controls"
+import type { Corners } from "@/components/glyph"
 import { ArrowRight } from "@/components/icons"
 import { SectionCards } from "@/components/section-cards"
 import { SiteHeader } from "@/components/site-header"
@@ -85,6 +87,9 @@ export function DashboardShowcase({
   heading?: boolean
 }) {
   const [style, setStyle] = React.useState<Style>("stroke")
+  /* Component state rather than the settings cookie, for the reason the phone
+     gives: this panel describes the mockup, not how the reader likes the set. */
+  const [corners, setCorners] = React.useState<Corners>("regular")
   const [accent, setAccent] = React.useState<AccentValue>("default")
   const [desk, setDesk] = React.useState<DeskValue>("none")
 
@@ -92,7 +97,7 @@ export function DashboardShowcase({
   const wallpaper = WALLPAPERS.find((option) => option.value === desk)
 
   return (
-    <DemoIconProvider icons={icons} style={style}>
+    <DemoIconProvider icons={icons} style={style} corners={corners}>
       {/*
         `w-full` is load-bearing, not belt-and-braces. The layout wraps every
         page in `flex min-h-svh flex-col`, so this is a flex item, and an auto
@@ -110,8 +115,8 @@ export function DashboardShowcase({
             </h1>
             <p className="mt-3 text-pretty text-muted-foreground">
               A sidebar, a data table and three cards, drawn at the 16px they
-              actually ship at. Switch the style or the accent and watch the
-              layout hold still.
+              actually ship at. Switch the style, the corners or the accent and
+              watch the layout hold still.
             </p>
           </header>
         )}
@@ -262,6 +267,22 @@ export function DashboardShowcase({
                   Every glyph in the window switches, down to the checkbox ticks
                   and the chevrons in the table&apos;s menus. Not one row
                   reflows.
+                </p>
+              </div>
+
+              <div className="border-b p-3">
+                <p className="text-xs font-medium">Corners</p>
+                <Segmented
+                  label="Corner treatment"
+                  value={corners}
+                  options={CORNERS_OPTIONS}
+                  onChange={setCorners}
+                  className="mt-2 flex w-full"
+                />
+                <p className="mt-2.5 text-xs leading-relaxed text-muted-foreground">
+                  The same drawings cut with squared corners and butt caps.
+                  Every glyph exists in both, so nothing in the window falls
+                  back, and the column widths do not move either.
                 </p>
               </div>
 

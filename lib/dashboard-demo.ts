@@ -1,3 +1,4 @@
+import type { IconArt } from "@/components/glyph"
 import type { Icon, Style } from "@/lib/icons"
 
 export type { Style }
@@ -74,12 +75,8 @@ export const DASHBOARD_ICON_NAMES = [
 
 export type DashboardIconName = (typeof DASHBOARD_ICON_NAMES)[number]
 
-/** Same shape as `Icon["art"][style]`, restated so client code never imports `lib/icons` (it reads the filesystem). */
-export type DashboardIconArt = { body: string; root: Record<string, string> }
-export type DashboardIconSet = Record<
-  string,
-  Partial<Record<Style, DashboardIconArt>>
->
+/** Both corner treatments per glyph. See the note on `MobileIconSet`. */
+export type DashboardIconSet = Record<string, IconArt>
 
 /**
  * Narrow a full `loadIcons()` result down to what the mockup draws.
@@ -98,7 +95,7 @@ export function pickDashboardIcons(icons: Icon[]): DashboardIconSet {
       missing.push(name)
       continue
     }
-    set[name] = icon.art
+    set[name] = { art: icon.art, sharp: icon.sharp }
   }
 
   if (missing.length > 0) {

@@ -64,13 +64,16 @@ export async function generateMetadata(): Promise<Metadata> {
     // "Browse 414 free icons · Keyline Icons": the job first, the set second,
     // and no page on the site claiming the name twice.
     title: `Browse ${total} free icons`,
+    // The same phrase the hero under it carries, word for word. This page said
+    // "three weights" while its own first line said "Stroke, duotone and fill,
+    // rounded or sharp", which is one page describing itself two ways.
     description:
       `Search ${total} free ${SET_LICENSE}-licensed icons drawn on one 24×24 ` +
-      `grid, in three weights: stroke, duotone and fill. Set the size and ` +
+      `grid, in stroke, duotone and fill, rounded or sharp. Set the size and ` +
       `stroke you actually ship at, and copy any icon as SVG or JSX.`,
     // The card has no keyword job and less room, so it says the thing the
     // page says out loud instead.
-    socialDescription: `${SET_TAGLINE}. ${total} free icons in stroke, duotone and fill.`,
+    socialDescription: `${SET_TAGLINE}. ${total} free icons in stroke, duotone and fill, rounded or sharp.`,
   })
 }
 

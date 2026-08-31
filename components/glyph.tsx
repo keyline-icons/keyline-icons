@@ -37,6 +37,24 @@ export type Corners = (typeof CORNERS)[number]
 
 export type StyleArt = { body: string; root: Record<string, string> }
 
+/**
+ * One drawing in both corner treatments: `art` is the rounded styles, `sharp`
+ * the squared ones.
+ *
+ * A second field rather than a second dimension on `art`, because twenty files
+ * read `icon.art[style]` and every one of them means the rounded drawing.
+ * `artOf` below is what anything treatment-aware asks instead.
+ *
+ * Named rather than restated per surface, which is what it was: the browser's
+ * `BrowserIcon` carried it, and then the landing page and the two demos each
+ * needed their own narrowed set of it. Four spellings of one shape is how one
+ * of them ends up shipping half the treatments and nothing fails to compile.
+ */
+export type IconArt = {
+  art: Partial<Record<Style, StyleArt>>
+  sharp?: Partial<Record<Style, StyleArt>>
+}
+
 /** Git's answers about the drawing, baked at build. See `lib/icons.ts`. */
 export type IconHistory = {
   added: string
@@ -49,19 +67,10 @@ export type IconHistory = {
   by: { name: string; email: string }[]
 }
 
-export type BrowserIcon = {
+export type BrowserIcon = IconArt & {
   name: string
   base: string
   container: Container
-  art: Partial<Record<Style, StyleArt>>
-  /**
-   * The same styles again, drawn with squared corners.
-   *
-   * A second field rather than a second dimension on `art`, because twenty
-   * files read `icon.art[style]` and every one of them means the rounded
-   * drawing. `artOf` is what anything treatment-aware asks instead.
-   */
-  sharp?: Partial<Record<Style, StyleArt>>
   history?: IconHistory
   /**
    * Added since the last release, so the grid can badge it.
@@ -83,7 +92,7 @@ export type BrowserIcon = {
  * caller already checks for.
  */
 export function artOf(
-  icon: { art: Partial<Record<Style, StyleArt>>; sharp?: Partial<Record<Style, StyleArt>> },
+  icon: IconArt,
   style: Style,
   corners: Corners = "regular"
 ): StyleArt | undefined {

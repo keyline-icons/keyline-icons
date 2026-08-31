@@ -62,6 +62,7 @@ const repo = SET_REPO_URL.replace("https://", "")
  * - free for commercial work → the hero's licence card
  * - shadcn/ui, installing → "Works in your stack" and the demos
  * - square and circle → "Square and circle containers"
+ * - rounded and sharp → "Rounded and sharp corners"
  * - Figma → "Design files"
  *
  * Drop a section and the matching question goes with it.
@@ -72,15 +73,25 @@ const repo = SET_REPO_URL.replace("https://", "")
 export function homeFaq({
   total,
   byStyle,
+  files,
   containers,
 }: {
   total: number
-  /** How many drawings exist per style, in weight order. */
+  /** How many drawings exist per style, in weight order. One treatment. */
   byStyle: { style: string; count: number }[]
+  /**
+   * Every SVG under `icons/`, both corner treatments, counted by the page.
+   *
+   * It was the sum of `byStyle` and that stopped being the same number when
+   * sharp landed: the per-style counts describe one treatment, because coverage
+   * is a fact about a drawing rather than about its corners, while a count of
+   * files is a claim about the directory. Passed in rather than derived here,
+   * so the page and this answer cannot arrive at two different totals.
+   */
+  files: number
   /** How many icons wear each container prefix. */
   containers: { square: number; circle: number }
 }): FaqEntry[] {
-  const files = byStyle.reduce((sum, entry) => sum + entry.count, 0)
   const stroke = byStyle.find((entry) => entry.style === "stroke")?.count ?? 0
 
   return [
@@ -88,13 +99,14 @@ export function homeFaq({
       question: `What is ${SET_TITLE}?`,
       answer:
         `A free icon set: ${total} icons drawn on one 24×24 grid, each in up to three weights: ` +
-        `stroke, duotone and fill. ${SET_TAGLINE}, released under the ${SET_LICENSE_NAME}, ` +
-        `and crafted with AI.`,
+        `stroke, duotone and fill, with rounded or sharp corners. ${SET_TAGLINE}, released under ` +
+        `the ${SET_LICENSE_NAME}, and crafted with AI.`,
     },
     {
       question: `How many icons are there, and why do the three styles differ?`,
       answer:
-        `${byStyle.map((entry) => `${entry.count} ${entry.style}`).join(", ")}, so ${files} SVGs in total. ` +
+        `${byStyle.map((entry) => `${entry.count} ${entry.style}`).join(", ")}, each cut with rounded ` +
+        `and with sharp corners, so ${files} SVGs in total. ` +
         `Stroke is complete by definition, because it is the drawing the other two are derived from. ` +
         `Duotone and fill need an area to fill, and not every glyph encloses one: bar-chart is three open ` +
         `strokes with no interior, so it carries stroke only. That is measured off each outline rather than ` +
@@ -132,10 +144,26 @@ export function homeFaq({
         `fill needs, which is why boxed variants often have all three weights where the bare drawing has one.`,
     },
     {
+      /*
+        Under the containers question because the sections are in that order on
+        the page, and the two answers lean on each other: a container is a
+        different icon and a corner treatment is not, which is the distinction
+        this one opens with and that one closes with.
+      */
+      question: `What is the difference between the rounded and sharp icons?`,
+      answer:
+        `Only the corners and the stroke caps. All ${total} drawings are cut both ways, in every ` +
+        `weight they carry, so the two are one set with a switch on it rather than two sets: same ` +
+        `names, same 24×24 grid, same coverage in stroke, duotone and fill. Rounded takes a radius ` +
+        `off one ladder at every corner and ends each stroke round; sharp takes every corner to a ` +
+        `true point and squares every cap. The ink reaches exactly as far either way, so nothing in ` +
+        `a layout moves when you swap one for the other.`,
+    },
+    {
       question: `Is there a Figma file?`,
       answer:
-        `The set is drawn in one Figma file, as a component set per icon with two variant properties on it, ` +
-        `Container and Style. What is public today is the repository at ${repo}: raw/ holds the export of ` +
+        `The set is drawn in one Figma file, as a component set per icon with three variant properties on ` +
+        `it: Container, Style and Corners. What is public today is the repository at ${repo}: raw/ holds the export of ` +
         `every variant straight out of Figma, under the name Figma gives it, and icons/ holds the normalised ` +
         `SVGs the site, the React components and the packages are all built from.`,
     },

@@ -14,12 +14,14 @@ import {
   AccentSwatches,
   Swatches,
   AppearanceToggle,
+  CORNERS_OPTIONS,
   Segmented,
   SettingRow,
   STYLE_OPTIONS,
   accentStyle,
   type AccentValue,
 } from "@/components/demo-controls"
+import type { Corners } from "@/components/glyph"
 import { MenuPanel } from "@/components/menu-panel"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -158,7 +160,7 @@ function PhoneFrame({
                 `-webkit-` beside it because unprefixed `mask-image` is Safari
                 15.4 and up.
               */
-              "[-webkit-mask-image:linear-gradient(#000,#000)] [mask-image:linear-gradient(#000,#000)]"
+              "[mask-image:linear-gradient(#000,#000)] [-webkit-mask-image:linear-gradient(#000,#000)]"
             )}
           >
             {/* Every wallpaper is mounted and the inactive ones are held at
@@ -357,6 +359,14 @@ export function MobileShowcase({
   heading?: boolean
 }) {
   const [style, setStyle] = React.useState<Style>("stroke")
+  /*
+    Component state, beside the style, rather than the settings cookie the grid
+    and the icon pages keep their treatment in. Everything in this panel is a
+    fact about the mockup rather than about how the reader likes the set drawn,
+    and a phone that arrives sharp because of something chosen on `/icons` is a
+    demo that starts in the middle of a comparison it never made.
+  */
+  const [corners, setCorners] = React.useState<Corners>("regular")
   const [settling, setSettling] = React.useState(false)
   const [screen, setScreen] = React.useState<ScreenId>("island")
   const [accent, setAccent] = React.useState<AccentValue>("default")
@@ -436,7 +446,7 @@ export function MobileShowcase({
   )
 
   return (
-    <PhoneIconProvider icons={icons} style={style}>
+    <PhoneIconProvider icons={icons} style={style} corners={corners}>
       {/*
         `w-full` is load-bearing, the same way it is on the dashboard's frame.
         Every page is wrapped in `flex min-h-svh flex-col`, so this is a flex
@@ -482,7 +492,8 @@ export function MobileShowcase({
           */}
             <p className="mt-3 text-pretty text-muted-foreground">
               The set in an app instead of a grid, at the size icons actually
-              ship at. Switch the style, the tab or the accent to compare.
+              ship at. Switch the style, the corners, the tab or the accent to
+              compare.
             </p>
           </header>
         )}
@@ -554,7 +565,8 @@ export function MobileShowcase({
             <p className="mt-6 border-t pt-4 text-xs leading-relaxed text-muted-foreground">
               Not every glyph has a duotone or fill drawing yet. Those fall back
               to stroke instead of disappearing, so a style switch can never
-              leave a hole in the UI.
+              leave a hole in the UI. Corners are not like that: every drawing
+              is cut both ways, so nothing falls back when you square them.
             </p>
           </aside>
 
@@ -615,6 +627,20 @@ export function MobileShowcase({
                   value={style}
                   options={STYLE_OPTIONS}
                   onChange={setStyle}
+                  className="mt-2 flex w-full"
+                />
+              </div>
+
+              {/* Under the style rather than beside it: they are two axes over
+                  one drawing, and the order is the order the set derives them,
+                  so the panel reads stroke first and its corners second. */}
+              <div className="border-b p-3">
+                <p className="text-xs font-medium">Corners</p>
+                <Segmented
+                  label="Corner treatment"
+                  value={corners}
+                  options={CORNERS_OPTIONS}
+                  onChange={setCorners}
                   className="mt-2 flex w-full"
                 />
               </div>

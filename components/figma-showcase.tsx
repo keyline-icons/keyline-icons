@@ -64,7 +64,7 @@ import {
  * What this section had before the screenshot: a `Container` × `Style` matrix
  * built from `check`, `square-check` and `circle-check`, drawn with `Glyph` off
  * `loadIcons()`. It is worth knowing why that came out, because it was the one
- * thing here that could not go stale. It said what the screenshot says, two
+ * thing here that could not go stale. It said what the screenshot says, the
  * variant properties and one set per drawing, and said it with nine tiles against
  * a picture of the actual file, so the two together read as the same fact twice.
  * If the image is ever dropped, `FIGMA_SAMPLE_ICON_NAMES` and that component are
@@ -335,21 +335,27 @@ export function FigmaShowcase({ icons }: { icons: Icon[] }) {
               <Mockup mockup={MOCKUP} />
               <Notes>
                 <Note icon={setGlyph} title="One component set per icon">
-                  Two variant properties on it, <Code>Container</Code> and{" "}
-                  <Code>Style</Code>, and nothing else. The names in Figma are
-                  the names on disk.
+                  Three variant properties on it, <Code>Container</Code>,{" "}
+                  <Code>Style</Code> and <Code>Corners</Code>, and nothing else.
+                  The names in Figma are the names on disk.
                 </Note>
 
                 <Note icon={exportGlyph} title="Exports land untouched">
                   <Code>raw/</Code> holds what came out of Figma, one file per
                   variant, under the name Figma gives it:{" "}
-                  <Code>Container=circle, Style=duotone.svg</Code>.
+                  <Code>
+                    Container=circle, Style=duotone, Corners=sharp.svg
+                  </Code>
+                  .
                 </Note>
 
-                <Note icon={searchGlyph} title="Search words come from the file">
-                  Each set&rsquo;s own description in Figma is the alias list the
-                  browser searches, baked out by the keyword step rather than
-                  kept in a second table.
+                <Note
+                  icon={searchGlyph}
+                  title="Search words come from the file"
+                >
+                  Each set&rsquo;s own description in Figma is the alias list
+                  the browser searches, baked out by the keyword step rather
+                  than kept in a second table.
                 </Note>
 
                 <Note icon={checkGlyph} title="Checked against the repository">
@@ -371,8 +377,9 @@ export function FigmaShowcase({ icons }: { icons: Icon[] }) {
                 </Note>
 
                 <Note icon={layerGlyph} title="Layers carry the icon's name">
-                  Every drawing is named in the layer tree the way it is named on
-                  disk, down to the variant: <Code>circle-check duotone</Code>.
+                  Every drawing is named in the layer tree the way it is named
+                  on disk, down to the variant:{" "}
+                  <Code>circle-check duotone</Code>.
                 </Note>
 
                 <Note icon={builtGlyph} title="Generated, not redrawn">

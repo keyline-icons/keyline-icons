@@ -85,7 +85,7 @@ export const TWITTER_DEFAULTS = {
  */
 export const SITE_DESCRIPTION =
   `${SET_TITLE} is a free, ${SET_LICENSE}-licensed 24×24 icon set built for ` +
-  `shadcn/ui, drawn on one grid in three weights: stroke, duotone and fill.`
+  `shadcn/ui, drawn on one grid in stroke, duotone and fill, rounded or sharp.`
 
 type PageMetadata = {
   /** Route path, e.g. `/demo`. Becomes the canonical and `og:url`. */
@@ -362,6 +362,10 @@ export function homeJsonLd({
           "react icons",
           "24px icons",
           ...styles.map((style) => `${style} icons`),
+          // Spelled out rather than derived from `CORNERS`, which would put
+          // "regular icons" in the list: the values are the Figma property's
+          // names and only one of the two is a phrase anyone searches.
+          "sharp icons",
         ].join(", "),
         license: SET_LICENSE_URL,
         offers: {

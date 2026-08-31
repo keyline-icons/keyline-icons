@@ -1,5 +1,6 @@
+import { artOf } from "@/components/glyph"
 import { repoStars } from "@/lib/github"
-import { loadIcons, STYLES } from "@/lib/icons"
+import { CORNERS, loadIcons, STYLES } from "@/lib/icons"
 import { SiteNavBar } from "@/components/site-nav-bar"
 
 /**
@@ -32,16 +33,29 @@ export async function SiteNav() {
         from a server component, and this is the only server component the bar
         has.
 
-        `files` is not `icons * 3`. Stroke is complete by definition, duotone
+        `files` is not `icons * 6`. Stroke is complete by definition, duotone
         and fill are not: they need a region to paint, and an open drawing like
-        `bar-chart` has no interior. Counted per style and summed, exactly as
-        `app/page.tsx` counts the same figure for the landing page, so a post
-        and the page it links to can never quote different numbers.
+        `bar-chart` has no interior. Both corner treatments are in it, because
+        the claim is about how many SVGs the set holds and since sharp landed
+        it holds each drawing twice.
+
+        Counted exactly as `app/page.tsx` counts the same figure for the
+        landing page, so a post and the page it links to can never quote
+        different numbers. That promise was already broken once, quietly: the
+        page learned to count the treatments and this did not, so a share said
+        half what the page it linked to said.
       */
       counts={{
         icons: icons.length,
-        files: STYLES.reduce(
-          (sum, style) => sum + icons.filter((icon) => icon.art[style]).length,
+        files: icons.reduce(
+          (sum, icon) =>
+            sum +
+            CORNERS.reduce(
+              (n, corners) =>
+                n +
+                STYLES.filter((style) => artOf(icon, style, corners)).length,
+              0
+            ),
           0
         ),
       }}

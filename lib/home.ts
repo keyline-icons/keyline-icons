@@ -15,6 +15,9 @@
  * check reads `lib/` and nothing else.
  */
 
+import type { IconArt } from "@/components/glyph"
+import type { Icon } from "@/lib/icons"
+
 /**
  * The twelve drawings the style cards are built from. All three cards, all
  * twelve, one style each.
@@ -54,6 +57,73 @@ export const STYLE_SAMPLE_ICON_NAMES = [
   "package",
   "calendar",
   "gift",
+] as const
+
+/** The twelve sample drawings, keyed by name, in both corner treatments. */
+export type StyleSampleSet = Record<string, IconArt>
+
+/**
+ * Narrow a full `loadIcons()` result down to what the style cards draw.
+ *
+ * The cards became a client component when they grew a corner switch, and one
+ * handed the whole `Icon[]` would serialise every drawing in the set into the
+ * page payload to show twelve of them. Same job `pickMobileIcons` and
+ * `pickDashboardIcons` do for the two mockups, for the same reason.
+ *
+ * Unlike those two it does not throw on a missing name. That is this page's own
+ * rule rather than an oversight: a landing page that 500s on a renamed icon is a
+ * worse failure than one gap in a scatter of twelve, and `check-demos` holds the
+ * list to what is on disk anyway.
+ */
+export function pickStyleSampleIcons(icons: Icon[]): StyleSampleSet {
+  const byName = new Map(icons.map((icon) => [icon.name, icon]))
+  const set: StyleSampleSet = {}
+
+  for (const name of STYLE_SAMPLE_ICON_NAMES) {
+    const icon = byName.get(name)
+    if (icon) set[name] = { art: icon.art, sharp: icon.sharp }
+  }
+
+  return set
+}
+
+/**
+ * The six drawings the corners section is built from: one specimen and the
+ * five under it, in that order, and the same six in both panels.
+ *
+ * Six that no other row on this page uses, which is the rule the design notes
+ * below already follow: the corners panels sit two sections under the styles
+ * scatter, and a reader who meets `folder` in both reads the second row as the
+ * first one again rather than as a different claim.
+ *
+ * `image` leads because it carries the whole treatment in one drawing: a
+ * container whose four corners take a radius, a polyline whose ends are capped
+ * and whose apex is a join. Squaring it changes all three at once, which is
+ * what makes the pair legible at a glance rather than a spot-the-difference.
+ *
+ * `triangle-alert` is in the five for the case a corner ladder cannot answer by
+ * rounding a right angle: three oblique apexes, filleted in the rounded drawing
+ * and taken to true points in the sharp one, which is where the two treatments
+ * diverge furthest. Note that its stem is redrawn rather than merely re-capped,
+ * 9 to 13 rounded against 10 to 14 sharp, so it is not the drawing to cite for
+ * anything about a cap.
+ *
+ * `smartphone` is that drawing: a rounded shell that squares off, plus a
+ * speaker slot whose ends hold the same 9.5 to 14.5 either way, because a
+ * 2-unit round cap adds exactly the half-unit at each end that the squared one
+ * gives up.
+ *
+ * The other three are chosen for the kind of corner they carry: `bookmark` for
+ * a notch that becomes a true point, `battery` and `square-pen` for container
+ * corners of two different radii.
+ */
+export const CORNER_SAMPLE_ICON_NAMES = [
+  "image",
+  "smartphone",
+  "bookmark",
+  "battery",
+  "triangle-alert",
+  "square-pen",
 ] as const
 
 /**

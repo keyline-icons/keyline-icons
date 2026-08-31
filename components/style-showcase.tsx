@@ -1,8 +1,21 @@
+"use client"
+
+import * as React from "react"
 import Link from "next/link"
 
-import { Glyph } from "@/components/glyph"
-import { STYLE_BLURBS, STYLE_SAMPLE_ICON_NAMES } from "@/lib/home"
-import type { Icon, Style } from "@/lib/icons"
+import {
+  CORNERS,
+  Glyph,
+  artOf,
+  type Corners,
+  type Style,
+} from "@/components/glyph"
+import { Segmented, SegmentedItem } from "@/components/segmented"
+import {
+  STYLE_BLURBS,
+  STYLE_SAMPLE_ICON_NAMES,
+  type StyleSampleSet,
+} from "@/lib/home"
 
 /**
  * The three style cards: the same twelve drawings, in the same twelve places,
@@ -101,16 +114,28 @@ const SPOTS: { x: number; y: number; size: number }[] = [
   { x: 92, y: 8, size: 28 },
 ]
 
-/** One card's scene: the shared spots, drawn in one style. */
-function Scene({ icons, style }: { icons: Icon[]; style: Style }) {
+/** One card's scene: the shared spots, drawn in one style and one treatment. */
+function Scene({
+  icons,
+  style,
+  corners,
+}: {
+  icons: StyleSampleSet
+  style: Style
+  corners: Corners
+}) {
   return (
     <>
       {STYLE_SAMPLE_ICON_NAMES.map((name, index) => {
         const spot = SPOTS[index]
-        const icon = icons.find((entry) => entry.name === name)
+        const icon = icons[name]
         // Stroke is the fallback and should never be hit: every name in the
         // list is checked against all three style folders. See `lib/home.ts`.
-        const art = icon?.art[style] ?? icon?.art.stroke
+        // The treatment needs no fallback of its own, because every drawing is
+        // cut both ways and sharp covers exactly what rounded covers.
+        const art =
+          icon &&
+          (artOf(icon, style, corners) ?? artOf(icon, "stroke", corners))
         if (!spot || !art) return null
 
         return (
@@ -141,10 +166,12 @@ function Card({
   style,
   count,
   icons,
+  corners,
 }: {
   style: Style
   count: number
-  icons: Icon[]
+  icons: StyleSampleSet
+  corners: Corners
 }) {
   return (
     /*
@@ -154,13 +181,28 @@ function Card({
       canonical, so the three cards do not create three indexed pages. See
       `app/icons/page.tsx`.
 
+      `?corners=` rides along on the same terms, and only where it has something
+      to say: the treatment is a persisted setting, so a card showing the
+      squared drawings has to hand the grid the treatment it is showing or the
+      click lands on whatever the reader last left in the cookie. Left off for
+      rounded rather than spelled out, because that is the reader's own setting
+      talking and a link should not overrule it to say "the default".
+
       An `aria-label` because the link's own text is a heading, a count and a
       sentence about how the style is derived, which is a long thing to announce
       and a poor description of where it goes.
     */
     <Link
-      href={`/icons?style=${style}`}
-      aria-label={`Browse the ${style} icons`}
+      href={
+        corners === "sharp"
+          ? `/icons?style=${style}&corners=sharp`
+          : `/icons?style=${style}`
+      }
+      aria-label={
+        corners === "sharp"
+          ? `Browse the sharp ${style} icons`
+          : `Browse the ${style} icons`
+      }
       className="group block"
     >
       <div className="flex items-baseline justify-between gap-3">
@@ -179,7 +221,7 @@ function Card({
         as the icons themselves reacting.
       */}
       <div className="relative mt-4 aspect-4/3 overflow-hidden rounded-lg bg-muted transition-colors group-hover:bg-muted-hover">
-        <Scene icons={icons} style={style} />
+        <Scene icons={icons} style={style} corners={corners} />
       </div>
 
       <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
@@ -193,20 +235,81 @@ export function StyleShowcase({
   icons,
   perStyle,
 }: {
-  icons: Icon[]
+  /** The twelve sample drawings in both treatments. See `pickStyleSampleIcons`. */
+  icons: StyleSampleSet
   /** Each style with its own count, read off disk. Never typed. */
   perStyle: { style: Style; count: number }[]
 }) {
+  /*
+    The third axis, and the only control on this page.
+
+    Component state rather than the settings cookie the grid and the icon pages
+    share. This is a specimen row, not the library: someone who last browsed in
+    sharp should still meet the landing page drawn the way the set is described
+    everywhere else on it, and the switch is here to be used rather than to be
+    arrived at already thrown.
+  */
+  const [corners, setCorners] = React.useState<Corners>("regular")
+
   const countOf = (style: Style) =>
     perStyle.find((entry) => entry.style === style)?.count ?? 0
 
   return (
-    // The same grid the container section below uses, so the two rows of three
-    // sit on one rhythm rather than each having their own.
-    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 xl:gap-8">
-      <Card style="stroke" count={countOf("stroke")} icons={icons} />
-      <Card style="duotone" count={countOf("duotone")} icons={icons} />
-      <Card style="fill" count={countOf("fill")} icons={icons} />
+    <div>
+      {/*
+        Centred under the section head, because the whole page is, and above the
+        cards rather than inside one: it moves all three at once, and a control
+        sitting in a card would read as belonging to that card. It also could
+        not sit in one, since every card is a link and a button inside a link is
+        not a thing a browser will render.
+
+        The site's own picker, not the demos' pill row: this is page chrome, so
+        it wears the same recessed track and white chip as the corner switch in
+        the icon grid and the preview dock.
+      */}
+      <div className="flex justify-center">
+        <Segmented aria-label="Corner treatment">
+          {CORNERS.map((c) => (
+            <SegmentedItem
+              key={c}
+              active={corners === c}
+              onClick={() => setCorners(c)}
+            >
+              {c === "regular" ? "Rounded" : "Sharp"}
+            </SegmentedItem>
+          ))}
+        </Segmented>
+      </div>
+
+      {/*
+        The same grid the container section below uses, so the two rows of three
+        sit on one rhythm rather than each having their own.
+
+        The counts do not move with the switch, and that is right rather than an
+        oversight: coverage is a fact about a drawing, and squaring its corners
+        does not change whether it encloses a region a fill needs. The same
+        reason the grid's own treatment chips carry no counts beside them.
+      */}
+      <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 xl:gap-8">
+        <Card
+          style="stroke"
+          count={countOf("stroke")}
+          icons={icons}
+          corners={corners}
+        />
+        <Card
+          style="duotone"
+          count={countOf("duotone")}
+          icons={icons}
+          corners={corners}
+        />
+        <Card
+          style="fill"
+          count={countOf("fill")}
+          icons={icons}
+          corners={corners}
+        />
+      </div>
     </div>
   )
 }

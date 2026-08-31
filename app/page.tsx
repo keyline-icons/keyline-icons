@@ -13,6 +13,7 @@ import { DashboardShowcase } from "@/components/dashboard-showcase"
 import { Faq } from "@/components/faq"
 import { FigmaShowcase } from "@/components/figma-showcase"
 import { FrameworkInstaller } from "@/components/framework-installer"
+import { CornersShowcase } from "@/components/corners-showcase"
 import { KeylineShowcase } from "@/components/keyline-showcase"
 import { MobileShowcase } from "@/components/mobile-showcase"
 import { StyleShowcase } from "@/components/style-showcase"
@@ -23,9 +24,11 @@ import {
   HERO_FACT_ICON_NAMES,
   INSTALL_EXAMPLE_ICON_NAMES,
   SPONSOR_ICON_NAMES,
+  pickStyleSampleIcons,
 } from "@/lib/home"
 import { pickMobileIcons } from "@/lib/mobile-demo"
-import { loadIcons, STYLES, type Icon } from "@/lib/icons"
+import { artOf } from "@/components/glyph"
+import { CORNERS, loadIcons, STYLES, type Icon } from "@/lib/icons"
 import { searchSuggestions } from "@/lib/search-suggestions"
 import { cn } from "@/lib/utils"
 import { homeJsonLd, pageMetadata } from "@/lib/seo"
@@ -79,11 +82,21 @@ export async function generateMetadata(): Promise<Metadata> {
     title: {
       absolute: `${SET_TITLE}: ${total} free shadcn/ui icons, crafted with AI`,
     },
+    /*
+      "stroke, duotone and fill, rounded or sharp" is one phrase, spelled the
+      same way here, on the browser's description, in `SITE_DESCRIPTION` and in
+      the hero over the grid. It is one claim about what the set offers, and a
+      second wording of it is how two surfaces start disagreeing about the set.
+
+      "three weights" came out to pay for it. The count was already redundant
+      beside the three names, and a page that lists three weights and then a
+      treatment reads as four of something.
+    */
     description:
       `${total} free ${SET_LICENSE}-licensed icons for shadcn/ui, drawn on ` +
-      `one 24×24 grid in three weights: stroke, duotone and fill. Search the ` +
-      `set, copy any icon as SVG or JSX, or import the React components.`,
-    socialDescription: `${total} free icons for shadcn/ui, in stroke, duotone and fill. ${SET_LICENSE} licensed.`,
+      `one 24×24 grid in stroke, duotone and fill, rounded or sharp. Search ` +
+      `the set, copy any icon as SVG or JSX, or import the React components.`,
+    socialDescription: `${total} free icons for shadcn/ui, in stroke, duotone and fill, rounded or sharp. ${SET_LICENSE} licensed.`,
   })
 }
 
@@ -172,7 +185,28 @@ export default async function Page() {
     style,
     count: icons.filter((icon) => icon.art[style]).length,
   }))
-  const files = perStyle.reduce((sum, entry) => sum + entry.count, 0)
+  /*
+    Every file the set ships, both corner treatments, and it is deliberately not
+    the sum of `perStyle`. Those three numbers describe one treatment, because
+    coverage is a fact about a drawing and squaring its corners does not change
+    whether it encloses a region a fill needs. A count of files is a claim about
+    the directory, and since sharp landed the directory holds each drawing twice.
+
+    Counted across the treatments rather than doubled, which is the rule
+    `pipeline/check-readmes.mjs` writes down for the same number in the README: a
+    third treatment then needs no arithmetic here, and a derived count cannot go
+    stale in a way nobody notices.
+  */
+  const files = icons.reduce(
+    (sum, icon) =>
+      sum +
+      CORNERS.reduce(
+        (n, corners) =>
+          n + STYLES.filter((style) => artOf(icon, style, corners)).length,
+        0
+      ),
+    0
+  )
   const contained = icons.filter((icon) => icon.container !== "regular").length
   /* Split by form as well as counted together: the containers section states the
      total, and the FAQ's answer about square and circle states each. Both come
@@ -197,7 +231,7 @@ export default async function Page() {
     is one variable rather than two calls: the markup may only describe what the
     page shows, and two calls is how the two start to disagree.
   */
-  const faq = homeFaq({ total, byStyle: perStyle, containers })
+  const faq = homeFaq({ total, byStyle: perStyle, files, containers })
 
   /* The closing sponsor card's glyph, resolved here beside the hero's three
      rather than at the bottom of the tree, so every drawing this page names is
@@ -404,7 +438,13 @@ export default async function Page() {
                   // The file count, kept as the clause it always was. Dropping
                   // its tile is not the same as dropping the fact, and it reads
                   // as a consequence here rather than as a score.
-                  rest: ` per drawing: stroke, duotone and fill, ${files.toLocaleString("en-US")} files in all.`,
+                  //
+                  // The treatments are named in the same clause rather than
+                  // given a fourth card: they are a second axis over the same
+                  // drawings, not a fourth weight, and a card of their own
+                  // would put them beside the count and the licence as though
+                  // they were the same kind of fact.
+                  rest: ` per drawing: stroke, duotone and fill, each cut rounded or sharp. ${files.toLocaleString("en-US")} files in all.`,
                 },
                 {
                   name: licenceGlyph,
@@ -458,9 +498,16 @@ export default async function Page() {
               mood.
             */
             title="Stroke, duotone and fill"
-            // The lead no longer opens by repeating all three names back, now
-            // that the heading above it is those three names.
-            lead="Stroke is the drawing; the other two are derived from it. A family stays recognisable whichever weight a surface calls for."
+            /*
+              The lead no longer opens by repeating all three names back, now
+              that the heading above it is those three names. It names the two
+              corner treatments instead, which the heading deliberately does not:
+              that line is three nouns someone would type into a search, and
+              "rounded or sharp" is not one of them. The switch under this is
+              what shows them; the sentence says they exist before anyone has
+              touched it.
+            */
+            lead="Stroke is the drawing; the other two are derived from it, and every one of them is cut both rounded and sharp. A family stays recognisable whichever weight a surface calls for."
           />
 
           {/*
@@ -471,7 +518,10 @@ export default async function Page() {
             and the grid, and `lib/home.ts` for the three lists behind them.
           */}
           <div className="mt-10">
-            <StyleShowcase icons={icons} perStyle={perStyle} />
+            <StyleShowcase
+              icons={pickStyleSampleIcons(icons)}
+              perStyle={perStyle}
+            />
           </div>
         </section>
 
@@ -514,6 +564,55 @@ export default async function Page() {
 
           <div className="mt-10 lg:mt-12">
             <KeylineShowcase />
+          </div>
+        </section>
+
+        {/*
+          The third axis, and the last thing the page says about what the set is
+          before it moves on to how to get it.
+
+          Here rather than up beside the styles, which was the other candidate:
+          a corner treatment and a weight are both things done to one drawing,
+          so the two belong together by that reading. Two arguments won out for
+          putting it third. The styles row and the containers row are the same
+          three-up on the same grid and read as one rhythm with a gap in it if
+          anything is dropped between them; and the axes get further from the
+          drawing as the page goes down, weight, then form, then the corner,
+          which is also the order they arrived in.
+
+          The styles row carries a switch of its own. It is not this section in
+          miniature: that one holds a treatment still and varies the weight,
+          which is the question "what does duotone look like sharp", and this
+          one holds everything still and varies only the corner.
+        */}
+        <section className={`${CONTAINER} py-16 lg:py-24`}>
+          <SectionHead
+            /*
+              Two nouns and the thing they describe, which is the shape the
+              containers heading above it takes. "Sharp icons" is the phrase
+              anyone looking for this would type, and it is in here as words a
+              heading can carry rather than as a keyword bolted on.
+            */
+            title="Rounded and sharp corners"
+            /*
+              One sentence, and the count in it is read off disk like every
+              other number on this page. It makes the claim that matters about a
+              second treatment: that it is a switch over the set and not a
+              smaller set beside it, which is only true because the coverage is
+              identical.
+
+              A second sentence followed, "Same names, same grid, same 2,994
+              files split evenly between the two", and it came out. The panels
+              under it already say same drawing and same box, the FAQ answers it
+              at length, and the file count is on the hero three screens up: a
+              lead that lists the evidence for the sentence before it is a lead
+              doing the section's job for it.
+            */
+            lead={`All ${total} drawings are cut both ways, in every weight they carry, so this is a switch over the set rather than a second set beside it.`}
+          />
+
+          <div className="mt-10 lg:mt-12">
+            <CornersShowcase icons={icons} />
           </div>
         </section>
 

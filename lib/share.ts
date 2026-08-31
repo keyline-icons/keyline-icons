@@ -37,12 +37,17 @@ export type ShareCounts = {
   /** Drawings in the set. The headline figure. */
   icons: number
   /**
-   * SVG files across all three weights, which is not `icons * 3`.
+   * SVG files across both corner treatments, which is not `icons * 6`.
    *
    * Stroke is complete by definition, duotone and fill are not: they need a
    * region to paint, and an open drawing like `bar-chart` has no interior. The
    * gap between the two numbers is the honest version of a "three styles"
    * claim, which is why both are in the copy rather than just the first.
+   *
+   * Coverage is a fact about a drawing and squaring its corners does not change
+   * it, so the treatments do double this figure exactly. It is still counted
+   * rather than doubled, for the reason every number on this site is: a third
+   * treatment then needs no arithmetic anywhere.
    */
   files: number
 }
@@ -75,8 +80,8 @@ export function shareCopy({ icons, files }: ShareCounts): ShareCopy {
   return {
     text:
       `${SET_TITLE}: ${format(icons)} free icons for shadcn/ui, in stroke, ` +
-      `duotone and fill on one 24×24 grid. ${format(files)} SVGs in all, ` +
-      `${SET_LICENSE} licensed.`,
+      `duotone and fill, rounded or sharp, on one 24×24 grid. ` +
+      `${format(files)} SVGs in all, ${SET_LICENSE} licensed.`,
     /*
       Reddit submits a link with a headline rather than a post with a link in
       it, so the sentence above is the wrong shape: one ending in a full stop
@@ -85,7 +90,7 @@ export function shareCopy({ icons, files }: ShareCounts): ShareCopy {
     */
     title:
       `${SET_TITLE}: ${format(icons)} free ${SET_LICENSE}-licensed icons for ` +
-      `shadcn/ui, in stroke, duotone and fill`,
+      `shadcn/ui, in stroke, duotone and fill, rounded or sharp`,
   }
 }
 
