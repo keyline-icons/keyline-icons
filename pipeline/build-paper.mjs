@@ -775,7 +775,10 @@ const esc = (t) =>
 function changelogSheet(icons, release) {
   /* "1 drawing", not "1 drawings". The board said the second for years, and a
      release that adds one icon is the common case rather than an edge. */
-  const plural = (n, one, many = one + "s") => `${n} ${n === 1 ? one : many}`
+  /* Grouped, for the reason the page gives: these reach four figures once a
+     release counts drawings rather than names. */
+  const plural = (n, one, many = one + "s") =>
+    `${n.toLocaleString("en-US")} ${n === 1 ? one : many}`
 
   /* The redraws an entry carries, from a file that may predate them. Older
      copies of `lib/icon-history.json` have `updatedNames` and no `updated`,
@@ -983,7 +986,19 @@ function changelogSheet(icons, release) {
               : entry.names.length === 0 && entry.updatedNames.length === 0
                 ? `No drawing changes since ${entry.previous}. The set still ` +
                   `holds ${entry.count}.`
-                : entry.names.length === 0
+                /* Drawings without names, which is what a new treatment is. The
+                 branch below reads "No new drawings", and it was the only one
+                 v0.3.0 matched: 1,497 drawings landed and the board announced
+                 nothing, directly under a note saying the file count doubled. */
+              : entry.names.length === 0 && entry.files > entry.previousFiles
+                ? `${plural(entry.files - entry.previousFiles, "drawing")} added ` +
+                  `since ${entry.previous} without a new name, taking the set from ` +
+                  `${entry.previousFiles.toLocaleString("en-US")} drawings to ` +
+                  `${entry.files.toLocaleString("en-US")}.` +
+                  (entry.updatedNames.length
+                    ? ` ${entry.updatedNames.length} redrawn:`
+                    : "")
+              : entry.names.length === 0
                 ? `No new drawings. ${entry.updatedNames.length} redrawn since ` +
                   `${entry.previous}, so the set still holds ${entry.count}:`
                 : entry.updatedNames.length === 0

@@ -126,6 +126,24 @@ const held = (ref) =>
       .map((f) => f.slice(0, -4))
   )
 
+/**
+ * How many drawings a release actually shipped, across the whole of `icons/`.
+ *
+ * `held` counts *names*, off `icons/stroke/` alone, and that is the right unit
+ * for "what is in the set" — but it is not the unit for "what landed". v0.3.0
+ * added 1,497 drawings and not one new name, so every surface counting names
+ * announced the largest release the set has had as "No new drawings", directly
+ * under a note saying the file count had doubled.
+ *
+ * A treatment is the case that breaks the equivalence, and there will be
+ * others: anything that draws the existing names a new way adds drawings
+ * without adding names. So the entry carries both, and the sentence picks.
+ */
+const drawings = (ref) =>
+  git("ls-tree", "-r", "--name-only", `${ref}:icons`)
+    .split("\n")
+    .filter((f) => f.endsWith(".svg")).length
+
 
 /**
  * A redrawn icon as the two drawings a reader is being asked to compare.
@@ -550,6 +568,11 @@ const out =
             initial: !before,
             /* What the set held at that tag, not what it holds now. */
             count: now.size,
+            /* Drawings rather than names: the two moved together until the
+               corners axis, and a surface that only has `count` cannot tell a
+               release that added a treatment from one that added nothing. */
+            files: drawings(r.tag),
+            previousFiles: before ? drawings(before.tag) : 0,
             names,
             /* Kept beside `updated` because five surfaces already count off it
                and a name is all a count needs. */

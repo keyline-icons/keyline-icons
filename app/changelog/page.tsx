@@ -47,8 +47,11 @@ import Link from "next/link"
  * a machine talking. A release that adds a single icon is the common case, so
  * this is not an edge.
  */
+/* Grouped, because these reach four figures now: a release that adds a
+   treatment counts drawings rather than names, and "1497" beside "2,994" in the
+   same sentence reads as two different kinds of number. */
 const plural = (n: number, one: string, many = one + "s") =>
-  `${n} ${n === 1 ? one : many}`
+  `${n.toLocaleString("en-US")} ${n === 1 ? one : many}`
 
 /**
  * The drawings themselves, at grid size.
@@ -447,6 +450,27 @@ export default async function Page() {
                 <p>
                   No drawing changes since {entry.previous}. The set still holds{" "}
                   {entry.count}.
+                </p>
+              ) : entry.icons.length === 0 &&
+                entry.files > entry.previousFiles ? (
+                /*
+                  Drawings without names, which is what a new treatment is. The
+                  branch below reads "No new drawings" and was the only one this
+                  release matched, so the biggest thing the set has ever shipped
+                  announced itself as nothing — under a note saying the file
+                  count had doubled.
+                */
+                <p>
+                  {plural(entry.files - entry.previousFiles, "drawing")} added
+                  since {entry.previous} without a new name, taking the set from{" "}
+                  {entry.previousFiles.toLocaleString("en-US")} drawings to{" "}
+                  {entry.files.toLocaleString("en-US")}.
+                  {entry.redrawn.length > 0 && (
+                    <>
+                      {" "}
+                      {plural(entry.redrawn.length, "redrawn", "redrawn")}:
+                    </>
+                  )}
                 </p>
               ) : entry.icons.length === 0 ? (
                 <p>

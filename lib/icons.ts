@@ -142,6 +142,16 @@ export type Release = {
   initial: boolean
   /** What the set held at that tag, not what it holds today. */
   count: number
+  /**
+   * Drawings at that tag and at the one before it, across all of `icons/`.
+   *
+   * `count` is names, and the two moved together until the corners axis: v0.3.0
+   * added 1,497 drawings and no name at all, so a surface holding only `count`
+   * could not tell it from a release that added nothing, and announced the
+   * largest release the set has had as "No new drawings".
+   */
+  files: number
+  previousFiles: number
   names: string[]
   /** Drawings that already existed and were redrawn in this release. */
   updatedNames: string[]
