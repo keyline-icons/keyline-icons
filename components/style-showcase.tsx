@@ -274,10 +274,14 @@ export function StyleShowcase({
               key={c}
               active={corners === c}
               onClick={() => setCorners(c)}
-              /* Only here, and only while it is true. This is the page that
-                 announces the set, so it is the one place the flag earns its
-                 keep — the same switch in the filter row, the dock and the icon
-                 page is being used by someone who has already found it. */
+              /* Here and in the browser's filter row, which are the two
+                 places a reader meets the treatment rather than operates it:
+                 this page announces the set, and /icons is where someone who
+                 arrived straight at the grid finds out there is a second
+                 treatment at all. Not the dock or the icon page, where the
+                 switch is being worked by someone who already knows. Retire
+                 the flag by deleting this line and its twin in
+                 icon-browser.tsx. */
               badge={c === "sharp" ? "New" : undefined}
             >
               {c === "regular" ? "Rounded" : "Sharp"}

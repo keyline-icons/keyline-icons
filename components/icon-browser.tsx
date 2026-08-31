@@ -939,6 +939,11 @@ export function IconBrowser({
             key={c}
             active={corners === c}
             onClick={() => update({ corners: c })}
+            /* The switch is the only thing on the page that says the treatment
+               exists — the row it sits in carries no other announcement, and a
+               reader who came straight to /icons has passed nothing that would
+               have told them. Retire it by deleting this line. */
+            badge={c === "sharp" ? "New" : undefined}
           >
             {c === "regular" ? "Rounded" : "Sharp"}
           </SegmentedItem>

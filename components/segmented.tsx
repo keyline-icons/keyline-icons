@@ -55,8 +55,12 @@ export function Segmented({
  * name than "Sharp". The news itself is on /changelog, which is the surface that
  * owes it.
  *
- * Nothing clips it. The track sets no `overflow`, so the badge is free to
- * straddle the edge — check that before putting one on a control that does.
+ * The track sets no `overflow`, so it is free to straddle the edge, but what
+ * the badge hangs over is worth measuring rather than assuming. Where it is
+ * used today: on `/icons` it overhangs 8px into a 10px gutter before the size
+ * slider, and below `lg` that switch moves into the Browse drawer, whose body
+ * is an `overflow-y-auto` scroller — the badge sits inside its box at present,
+ * and that container is the one to re-check if the row ever tightens.
  */
 export function SegmentedItem({
   active,
