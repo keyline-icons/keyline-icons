@@ -366,6 +366,15 @@ const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-")
 const SIZE = 24
 
 /**
+ * How many of the sharp drawings the changelog's preview shows.
+ *
+ * Thirty, which is `/changelog`'s number and the Figma page's: five rows of six
+ * at this width, enough to read as a treatment rather than as a sample of one,
+ * and short enough that the sentence above it is still the point.
+ */
+const SHARP_PREVIEW = 30
+
+/**
  * Every rule written on the element it applies to, because a `<style>` block
  * does not survive the import.
  *
@@ -756,19 +765,20 @@ function changelogSheet(icons, release) {
      them up, which is the one thing this surface is here to save them. Drawn
      at grid size: they are being identified rather than admired, and 24 is the
      size the set is built at. */
-  const tiles = (names) =>
-    `<div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0">` +
+  const tiles = (names, corners = "regular", extra = "") =>
+    `<div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0${extra}">` +
       names
         .map((name) => {
-          const art = icons.get(name)?.art?.stroke
+          const icon = icons.get(name)
+          const art = (corners === "sharp" ? icon?.sharp : icon?.art)?.stroke
           if (!art) return ""
           return (
             `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;` +
               `width:104px;padding:12px 4px;box-sizing:border-box;border-radius:10px;` +
               `background:${STRIPE}">` +
               `<svg width="${SIZE}" height="${SIZE}" xmlns="http://www.w3.org/2000/svg" ` +
-              `role="img" aria-label="${name} stroke" data-icon="${name}" ` +
-              `data-style="stroke" data-corners="regular" ${art.attrs}>${art.body}</svg>` +
+              `role="img" aria-label="${layerName(name, "stroke", corners)}" data-icon="${name}" ` +
+              `data-style="stroke" data-corners="${corners}" ${art.attrs}>${art.body}</svg>` +
               `<span style="font-size:11px;line-height:1.2;color:${MUTED};` +
                 `text-align:center">${name}</span>` +
             `</div>`
@@ -776,6 +786,48 @@ function changelogSheet(icons, release) {
         })
         .join("") +
     `</div>`
+
+  /*
+   * A taste of the sharp half, under the sentence that announces it.
+   *
+   * The same thirty drawings `/changelog` shows and the Figma page draws, and
+   * the same way of arriving at them: every nineteenth name in the order
+   * `loadIcons` returns — base, then container by `localeCompare`, so `circle-`
+   * comes before the bare name — rather than the first thirty, which would be
+   * `activity`, `alert` and twenty-eight variations on `arrow-`. Three surfaces
+   * pick this sample independently, so they have to pick it by the same rule; a
+   * curated list is the thing that would drift.
+   *
+   * The fade is a mask, as it is on the site: an overlay has to know the colour
+   * behind it and a mask does not. If Paper drops the property the block still
+   * reads — thirty drawings and a line saying how many more there are — which is
+   * the reason it is a mask here rather than a rectangle laid over the top.
+   */
+  const sharpPreview = () => {
+    const ordered = [...blocks.values()]
+      .sort((a, b) => a.base.localeCompare(b.base))
+      .flatMap((block) =>
+        [...block.rows].sort((a, b) => a.container.localeCompare(b.container))
+      )
+      .map((row) => row.name)
+      .filter((name) => icons.get(name)?.sharp?.stroke)
+    if (!ordered.length) return ""
+    const step = Math.max(1, Math.floor(ordered.length / SHARP_PREVIEW))
+    const sample = ordered.filter((_, i) => i % step === 0).slice(0, SHARP_PREVIEW)
+    const fade =
+      ";mask-image:linear-gradient(to bottom, #000 55%, transparent 100%)" +
+      ";-webkit-mask-image:linear-gradient(to bottom, #000 55%, transparent 100%)"
+    return (
+      tiles(sample, "sharp", fade) +
+      /* The count is the whole treatment rather than what the fade hides: how
+         many are cut off depends on the width, so a remainder would be a number
+         that is only true at one size. */
+      `<p style="margin:12px 0 0;font-size:14px;line-height:1.7">` +
+        `<span style="font-weight:500;text-decoration:underline;` +
+          `text-underline-offset:4px">See all ${ordered.length} in sharp</span>` +
+      `</p>`
+    )
+  }
 
   /*
    * What was redrawn, shown as the change rather than as a claim.
@@ -867,6 +919,10 @@ function changelogSheet(icons, release) {
                 ? `<p style="margin:16px 0 0;font-size:14px;line-height:1.7">` +
                   `${esc(release.unreleased.note)}</p>`
                 : "") +
+              /* The announcement's evidence, so only where there is an
+                 announcement: a stretch that is three drawings and a correction
+                 has no use for it. Same condition as the page's. */
+              (release.unreleased.note ? sharpPreview() : "") +
               `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
                 /* Both halves, always. The sentence used to name whichever
                    list was non-empty and drop the other, so a stretch that
