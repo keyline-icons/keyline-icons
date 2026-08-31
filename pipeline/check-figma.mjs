@@ -89,17 +89,30 @@ const c = (n, s) => `\x1b[${n}m${s}\x1b[0m`;
  */
 const CONTAINERS = { regular: 'r', circle: 'c', square: 'q' };
 const STYLES = { stroke: 's', duotone: 'd', fill: 'f' };
+/* `h` for sharp: `s` is already the stroke style, and a tag whose letters mean
+   different things in different columns is unreadable in a digest. */
+const CORNERS = { regular: 'r', sharp: 'h' };
+
+/* `Corners=` is optional so a set that predates the axis still tags, and the
+   style is `[^,]+` rather than `.+` so it cannot swallow the third property:
+   greedy, `Style=(.+)` captured `stroke, Corners=regular`, missed the table and
+   emitted the whole variant name verbatim — which is correct output and blows
+   the payload budget these two-letter tags exist to stay inside. */
+const VARIANT = /^Container=([^,]+), Style=([^,]+)(?:, Corners=(.+))?$/;
 
 const tagOf = (variant) => {
-  const m = variant.match(/^Container=([^,]+), Style=(.+)$/);
+  const m = variant.match(VARIANT);
   if (!m) return variant;
-  const ct = CONTAINERS[m[1]], st = STYLES[m[2]];
-  return ct && st ? ct + st : variant;
+  const ct = CONTAINERS[m[1]], st = STYLES[m[2]], kt = CORNERS[m[3] ?? 'regular'];
+  return ct && st && kt ? ct + st + kt : variant;
 };
 const untag = (tag) => {
   const ct = Object.keys(CONTAINERS).find((k) => CONTAINERS[k] === tag[0]);
   const st = Object.keys(STYLES).find((k) => STYLES[k] === tag[1]);
-  return tag.length === 2 && ct && st ? `${ct}/${st}` : tag;
+  const kt = Object.keys(CORNERS).find((k) => CORNERS[k] === tag[2]);
+  return tag.length === 3 && ct && st && kt
+    ? `${ct}/${st}${kt === 'sharp' ? '/sharp' : ''}`
+    : tag;
 };
 
 /**
@@ -195,6 +208,7 @@ const BUDGET = 16000;
 
 const CT = { regular: "r", circle: "c", square: "q" };
 const ST = { stroke: "s", duotone: "d", fill: "f" };
+const KT = { regular: "r", sharp: "h" };
 ${POINTS_FN}
 const p = figma.root.children.find(x => x.name === "Components");
 await p.loadAsync();
@@ -210,8 +224,9 @@ for (const s of sets) {
   if (AFTER && s.name <= AFTER) continue;
   const parts = [];
   for (const v of [...s.children].sort((a, b) => a.name.localeCompare(b.name))) {
-    const m = v.name.match(/^Container=([^,]+), Style=(.+)$/);
-    const tag = m && CT[m[1]] && ST[m[2]] ? CT[m[1]] + ST[m[2]] : v.name;
+    const m = v.name.match(/^Container=([^,]+), Style=([^,]+)(?:, Corners=(.+))?$/);
+    const kn = m ? (m[3] || "regular") : "";
+    const tag = m && CT[m[1]] && ST[m[2]] && KT[kn] ? CT[m[1]] + ST[m[2]] + KT[kn] : v.name;
     const buckets = {};
     let bad = 0, x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
     for (const n of v.children) {
