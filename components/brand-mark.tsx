@@ -45,11 +45,33 @@ export function BrandMark({
     >
       <path
         d="M31.916 0H8.07899C3.61455 0 0 3.615 0 8.08V31.925C0 36.385 3.61455 40 8.07899 40H31.921C36.3805 40 40 36.385 40 31.92V8.08C39.995 3.615 36.3805 0 31.916 0Z"
-        className="fill-primary"
+        /*
+          Inline declarations rather than `fill-primary`, and each reads a
+          custom property that falls back to the token. The mark has to invert
+          on a `--primary` surface: the tile is `--primary` too, so on the
+          design-files button it painted black on black and only the pennant
+          survived. A parent sets `--brand-mark-tile` / `--brand-mark-glyph` to
+          the opposite pair and this repaints, with nothing to thread through
+          the components in between — custom properties inherit into a nested
+          `<svg>`, and an inline declaration beats every class rule, which a
+          Tailwind utility on this element would not.
+
+          Both properties take the *pair*, never a literal colour, so the swap
+          still inverts with the theme: `--primary` and `--primary-foreground`
+          trade places in dark mode, and a hardcoded white tile would be
+          white-on-white there.
+        */
+        style={{ fill: "var(--brand-mark-tile, var(--primary))" }}
       />
       <path
         d="M13 28.3445V11.6597C13 11.3284 13.3162 11.0887 13.6351 11.1783L26.6351 14.8269C26.8509 14.8874 27 15.0842 27 15.3083V24.7811C27 25.0064 26.8494 25.2038 26.6322 25.2634L13.6322 28.8267C13.314 28.9139 13 28.6745 13 28.3445Z"
-        className="fill-primary-foreground stroke-primary-foreground"
+        /* Filled and stroked in one colour: the stroke is what fattens the
+           pennant to its drawn weight and rounds its tips, so the two have to
+           stay equal or a seam shows. */
+        style={{
+          fill: "var(--brand-mark-glyph, var(--primary-foreground))",
+          stroke: "var(--brand-mark-glyph, var(--primary-foreground))",
+        }}
         strokeWidth="3"
         strokeLinecap="round"
       />

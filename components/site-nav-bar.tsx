@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import {
+  Camera,
   Check,
   ChevronDown,
   Menu,
@@ -61,6 +62,7 @@ const MENU_ICONS: Record<
 > = {
   "/demo": PanelLeft,
   "/demo/mobile": Smartphone,
+  "/examples": Camera,
 }
 
 /**
