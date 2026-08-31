@@ -156,9 +156,12 @@ const CLAIMS = [
      exactly the reason it belongs here rather than in a scratch file. */
   ['packages/figma-plugin/LISTING.md', /^([\d,]+) icons in three styles/m, 'icons'],
   ['packages/figma-plugin/LISTING.md', /Search ([\d,]+) icons and drop/, 'icons'],
-  ['packages/figma-plugin/LISTING.md', /stroke {4}([\d,]+) icons, 2px/, 'stroke'],
-  ['packages/figma-plugin/LISTING.md', /duotone {3}([\d,]+) icons, a 40%/, 'duotone'],
-  ['packages/figma-plugin/LISTING.md', /fill {6}([\d,]+) icons, solid/, 'fill'],
+  /* The style block is a bulleted list rather than the indented table it was
+     drafted as, because that is what the modal's own editor produces. These
+     matched runs of spaces and would have gone MISSING on the reformat. */
+  ['packages/figma-plugin/LISTING.md', /\* Stroke: ([\d,]+) icons, 2px/, 'stroke'],
+  ['packages/figma-plugin/LISTING.md', /\* Duotone: ([\d,]+) icons, a 40%/, 'duotone'],
+  ['packages/figma-plugin/LISTING.md', /\* Fill: ([\d,]+) icons, solid/, 'fill'],
   ['packages/figma-plugin/LISTING.md', /([\d,]+) icons also come in a square- form/, 'square'],
   ['packages/figma-plugin/LISTING.md', /form and ([\d,]+) in a circle- form/, 'circle'],
   ['packages/figma-plugin/LISTING.md', /([\d,]+) icons carry curated words/, 'keywords'],

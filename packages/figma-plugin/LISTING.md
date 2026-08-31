@@ -79,41 +79,83 @@ shorter alternative if it ever needs one:
 
 ## Description
 
+**One line per paragraph**, for the reason given under *The file listing*: the
+field keeps newlines rather than reflowing. The style bullets are the exception,
+where the breaks are the list.
+
+The changelog is part of the description rather than the Release notes field,
+which only ever shows the newest entry. Someone deciding whether to install
+wants to see the set is maintained, and that is what a history says.
+
 ```
-Search 585 icons and drop one on the canvas. No library to publish, no file to
-duplicate, no plan requirement.
+Search 585 icons and drop one on the canvas. No library to publish, no file to duplicate, no plan requirement.
 
 Three styles
-  stroke    585 icons, 2px, round caps and joins
-  duotone   480 icons, a 40% plate under the line
-  fill      432 icons, solid where the glyph has a region to fill
 
-Two corner treatments, and every drawing has both. Rounded is the keyline the
-set was drawn on; sharp takes every corner to a true point and ends each stroke
-square. Coverage is identical, so switching never costs you a drawing. 2,994
-SVGs in total.
+* Stroke: 585 icons, 2px, round caps and joins
+* Duotone: 480 icons, a 40% plate under the line
+* Fill: 432 icons, solid where the glyph has a region to fill
 
-55 icons also come in a square- form and 54 in a circle- form, so a container
-is a search away rather than a second drawing.
+Two corner treatments, and every drawing has both. Rounded is the keyline the set was drawn on; sharp takes every corner to a true point and ends each stroke square. Coverage is identical, so switching never costs you a drawing. 2,994 SVGs in total.
 
-Search knows more than the file names. 465 icons carry curated words, so
-"south" finds arrow-down, "hamburger" finds menu and "trash" finds bin. Paste a
-component name straight out of your code and it resolves: CheckCircle2 finds
-circle-check.
+55 icons also come in a square- form and 54 in a circle- form, so a container is a search away rather than a second drawing.
 
-In a design file an insert arrives as a 24 × 24 frame, which is what makes a row
-of icons line up. In FigJam it arrives as a group, so FigJam's colour control
-reaches the drawing instead of painting a box around it. Double-click into one
-and every path takes its own colour, which is how a gift gets a red box and a
-yellow bow, and how duotone keeps both of its tones.
+Search knows more than the file names. 465 icons carry curated words, so "south" finds arrow-down, "hamburger" finds menu and "trash" finds bin. Paste a component name straight out of your code and it resolves: CheckCircle2 finds circle-check.
 
-Every drawing sits on one 24 × 24 grid with a shared keyline, so icons of
-different weights still read as one family at the same size.
+In a design file an insert arrives as a 24 × 24 frame, which is what makes a row of icons line up. In FigJam it arrives as a group, so FigJam's colour control reaches the drawing instead of painting a box around it. Double-click into one and every path takes its own colour, which is how a gift gets a red box and a yellow bow, and how duotone keeps both of its tones.
+
+Every drawing sits on one 24 × 24 grid with a shared keyline, so icons of different weights still read as one family at the same size.
 
 MIT licensed. The set, the site and this plugin are all open source.
 
 keylineicons.com
 github.com/keyline-icons/keyline-icons
+
+Changelog
+
+0.3.0 — 31 August 2026
+Sharp corners, across the whole set. Every drawing gained a squared-off twin, taking the set from 1,497 SVGs to 2,994 over the same 585 names, and the plugin gained a second row to switch between them. Coverage matches rounded exactly, so switching never leaves you without an icon. 48 drawings redrawn in both treatments, mostly the -off family and the level indicators.
+
+0.2.0 — 27 August 2026
+39 new drawings, and one rename: tag-horizontal is now tag-horizontal-start, because the batch drew its mirror and neither form is the other's variant. That breaks the React import, which is why this is 0.2.0 and not 0.1.5.
+
+* Security: shield, with check, plus, minus and x
+* Tools: toolbox, wrench, hammer and pencil-ruler
+* Controls: power and power-off, grip-horizontal and grip-vertical, sliders-2-horizontal and sliders-2-vertical
+* Layout: grid-circles and grid-squares, each with a check and an x
+* Shapes: circles and circles-dashed, circle-square and circle-square-dashed
+* Commerce: percent, with circle- and square- forms, and the horizontal tag as tag-horizontal-start and tag-horizontal-end with a percent form of each
+* Others: plug, lightbulb, lightbulb-on, ban, octagon-x, cursor-off and megaphone
+
+Also redrawn: pause in bare, circle and square forms, and play in its circle and square.
+
+0.1.4 — 25 August 2026
+No drawing changes. The CLI and MCP packages were shipping 527 icons while the React package shipped 547, so all three are reissued together: 0.1.4 is the same set in every package.
+
+0.1.3 — 25 August 2026
+Two corrections: queue redrawn to 22×18, the horizontal size the set uses for a plate with rules beneath it; repeat-1's numeral given two more units of stem.
+
+0.1.2 — 24 August 2026
+20 new drawings:
+
+* Playback: repeat, repeat-1, queue, podcast and cast
+* Captions: captions and subtitles, the double-C and the ruled plate
+* Video: list-video, picture-in-picture, and six galleries, horizontal and vertical with a -start and an -end for each
+* Screen: fullscreen, fullscreen-exit, maximize and minimize
+* Files: copy-plus
+
+Also redrawn: shuffle, cut where its strands cross.
+
+0.1.1 — 23 August 2026
+24 new drawings:
+
+* Sport: trophy, award, and podium with 1, 2 and 3 place variants
+* Devices: monitor, monitor-off, bluetooth, and battery at four levels
+* Layout: layout-dashboard, and grid in 2x2, 2x3, 3x2 and 3x3
+* Others: alert, in bare, circle and square forms; building; loader; heart-hand
+
+0.1.0 — 20 August 2026
+The first cut of the set: 503 drawings on one 24 × 24 grid, at a 2px keyline, built for shadcn/ui and free under the MIT licence.
 ```
 
 ## Category
