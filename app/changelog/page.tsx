@@ -102,7 +102,13 @@ const SHARP_PREVIEW = 30
  */
 function SharpPreview({ icons, total }: { icons: Icon[]; total: number }) {
   return (
-    <div className="not-prose">
+    /*
+      A margin under it as well as the column's own gap. What follows is the
+      next announcement rather than more of this one, and at the bare `gap-4`
+      the redraws sat as close to the sharp preview as the preview sits to the
+      sentence that introduces it — the same distance doing two different jobs.
+    */
+    <div className="not-prose mb-4">
       <ul
         className="grid grid-cols-[repeat(auto-fill,minmax(104px,1fr))] gap-2"
         style={{
@@ -354,7 +360,7 @@ export default async function Page() {
           the newest release does not contain it.
         */}
         {unreleased && (
-          <section className="border-t pt-8 pb-8">
+          <section className="border-t pt-10 pb-10">
             <h2 className="text-xl font-semibold tracking-tight">Unreleased</h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Drawn since {unreleased.since}
@@ -407,7 +413,7 @@ export default async function Page() {
         )}
 
         {entries.map((entry) => (
-          <section key={entry.version} className="border-t pt-8 pb-8">
+          <section key={entry.version} className="border-t pt-10 pb-10">
             {/*
               Headed by the version it shipped as. "New drawings" named the
               contents rather than the release, which is a heading a reader
