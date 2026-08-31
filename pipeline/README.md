@@ -887,6 +887,7 @@ what the next version is called.
 ```bash
 git checkout main && git pull
 git tag v0.1.1 && git push origin v0.1.1
+# move the note: lib/icon-release-notes.json, "unreleased" -> "0.1.1"
 pnpm history:build          # releasedVersion and releasedAt, off the new tag
 pnpm paper:build            # the boards are dated by the release
 pnpm icons:ci
@@ -894,6 +895,27 @@ pnpm icons:ci
 
 Then commit `lib/icon-history.json` and `previews/paper/`, run
 `pnpm paper:import` with the file open, and confirm with `pnpm paper:verify`.
+
+**The note does not graduate on its own, and nothing fails when it doesn't.**
+`lib/icon-release-notes.json` is hand-written and keyed by version, with an
+`unreleased` key for work that has no version yet. Tagging does not move it, so
+`history:build` reads a release with no note and an unreleased block that still
+has one. Re-key the string to the version — the text does not change, and
+graduating it is not editing a published entry, it is giving it the version it
+turned out to be.
+
+The reason this needs writing down is that every changelog surface is generated,
+so the mistake renders perfectly. v0.3.0 was published announcing nothing but a
+redraw count, under a heading nobody reads twice, while an otherwise-empty
+"Unreleased" block below it carried the sharp announcement and its thirty-drawing
+preview. The page, the board and `history:check` were all green.
+
+**Anything hung off the note's presence has to hang off the version instead.**
+The changelog's sharp preview was gated on `unreleased.note`, so it vanished
+with the block the moment the tag existed; it is pinned to `SHARP_RELEASE` in
+`lib/changelog.ts` now, and stays on that entry for good, because a changelog
+only grows and the release that announced a thing goes on showing what it
+announced.
 
 **The tag cannot contain the file the tag produces**, and this reads as a
 mistake every time. `history:build` needs the tag to exist before it can date
