@@ -381,6 +381,23 @@ export default async function Page() {
                 className="mx-auto mt-8 max-w-xl"
               />
 
+              {/*
+                This pair is where the site's prefetching now lives, and the
+                only in-page link on the landing page that keeps it is the
+                first button.
+
+                Next loads a route as soon as its link enters the viewport. The
+                landing page names `/icons` seven times and `/install` five,
+                across the buttons, the prose and the two mockups, and every one
+                of them was loading the page behind it for a reader who had
+                merely scrolled past. Thirteen route loads per view, for four
+                addresses, on a plan that meters requests.
+
+                So: the bar keeps its prefetch, this button keeps its prefetch,
+                and every other link to those pages sets `prefetch={false}` and
+                loads when someone actually clicks. The one that stays is the
+                one the page is built to be clicked on.
+              */}
               <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
                 <Button
                   size="lg"
@@ -393,7 +410,7 @@ export default async function Page() {
                 <Button
                   size="lg"
                   variant="ghost"
-                  render={<Link href="/install" />}
+                  render={<Link href="/install" prefetch={false} />}
                   nativeButton={false}
                 >
                   Install
@@ -789,6 +806,7 @@ export default async function Page() {
             More on installing, importing and switching from another set:{" "}
             <Link
               href="/install"
+              prefetch={false}
               className="underline underline-offset-2 transition-colors hover:text-foreground"
             >
               How to install

@@ -165,7 +165,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton
               className="data-[slot=sidebar-menu-button]:p-1.5!"
-              render={<Link href="/icons" />}
+              // A mockup's own brand mark. It is a real link, so it was
+              // loading `/icons` in advance for anyone who scrolled the demo
+              // past. See the hero pair in `app/page.tsx`.
+              render={<Link href="/icons" prefetch={false} />}
             >
               <BrandMark className="size-5!" />
               <span className="text-base font-semibold">{SET_TITLE}</span>

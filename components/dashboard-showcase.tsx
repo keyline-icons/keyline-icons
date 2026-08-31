@@ -315,8 +315,10 @@ export function DashboardShowcase({
               </SettingRow>
             </div>
 
+            {/* No prefetch: the hero button above owns that. */}
             <Link
               href="/icons"
+              prefetch={false}
               className={cn(
                 buttonVariants({ variant: "outline", size: "sm" }),
                 "mt-4 w-full"
