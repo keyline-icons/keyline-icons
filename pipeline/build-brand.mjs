@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
  * public/logo/logo.svg  ->  app/icon.svg, app/favicon.ico, app/apple-icon.png
+ *                       ->  public/logo/icon-192.png, public/logo/icon-512.png
  *                       ->  packages/figma-plugin/icon.png
  *
  * Every one of these is the same mark wearing different constraints, and before
@@ -57,6 +58,29 @@ const ICO_SIZES = [16, 32, 48, 64, 128, 256]
 
 /** What Apple asks for: iPhone @3x of a 60pt slot. */
 const APPLE_SIZE = 180
+
+/**
+ * The two icons `app/manifest.ts` links, which is what makes the site
+ * installable on Android. Chrome asks for both: 192 for the home screen and
+ * 512 for the splash and the install dialog, and it will not offer to install
+ * a site missing either.
+ *
+ * They land in `public/` rather than in `app/`, and that is forced rather than
+ * chosen. Next's app-icon convention matches `icon` and `icon<N>` only, so a
+ * file named for its size matches nothing, and a file in `app/` that matches
+ * no convention is not served at all — the manifest would link a 404. `public/`
+ * gives them a stable path the manifest can name. Not `public/icons/`, which
+ * would sit on top of the `/icons/[name]` route.
+ *
+ * Bled and opaque like the apple icon, for a second reason as well as Apple's:
+ * the manifest declares them `maskable`, and Android crops a maskable icon to
+ * a circle 80% of the width. The glyph runs 11.5–28.5 across a 40 viewBox once
+ * its 3-unit stroke is counted, so it sits about 13.4 from the centre against
+ * that circle's 16 — inside the safe zone, which is what lets one rendering
+ * serve `any` and `maskable` both. Redraw the mark wider than that and they
+ * have to become two files.
+ */
+const MANIFEST_SIZES = [192, 512]
 
 /**
  * The Figma plugin's Community icon, which the publish dialog asks for at
@@ -257,13 +281,27 @@ async function main() {
       PLUGIN_ICON_SIZE,
       "plugin",
     )
-    assertOpaque(pluginIcon)
+    assertOpaque(pluginIcon, "figma-plugin/icon.png")
+
+    const manifestIcons = []
+    for (const size of MANIFEST_SIZES) {
+      const png = await rasterize(
+        chrome,
+        dir,
+        flatSvg(mark, size, { bleed: true }),
+        size,
+        `manifest-${size}`,
+      )
+      assertOpaque(png, `icon-${size}.png`)
+      manifestIcons.push([join(ROOT, "public", "logo", `icon-${size}.png`), png])
+    }
 
     // Full paths, because these no longer all land in app/.
     outputs = [
       [join(APP, "icon.svg"), Buffer.from(iconSvg(mark))],
       [join(APP, "favicon.ico"), buildIco(icoParts)],
       [join(APP, "apple-icon.png"), apple],
+      ...manifestIcons,
       [join(ROOT, "packages", "figma-plugin", "icon.png"), pluginIcon],
     ]
   } finally {
@@ -304,7 +342,7 @@ async function main() {
  * stray transparent pixel becomes a black one. Cheaper to catch here than on a
  * home screen, so walk the decoded image rather than trusting the source.
  */
-function assertOpaque(png) {
+function assertOpaque(png, label = "apple-icon") {
   const { width, height, rows, channels } = decodePng(png)
   // Chrome drops the alpha channel entirely when nothing is translucent, so
   // three channels is itself the proof — there is no alpha left to be wrong.
@@ -312,7 +350,7 @@ function assertOpaque(png) {
     for (let y = 0; y < height; y++) {
       for (let x = 0; x < width; x++) {
         if (rows[y][x * 4 + 3] !== 255) {
-          throw new Error(`apple-icon has a transparent pixel at ${x},${y}`)
+          throw new Error(`${label} has a transparent pixel at ${x},${y}`)
         }
       }
     }
@@ -331,7 +369,7 @@ function assertOpaque(png) {
         .join("")
     if (hex !== LIGHT.tile) {
       throw new Error(
-        `apple-icon corner ${x},${y} is ${hex}, expected a full bleed of ${LIGHT.tile}`,
+        `${label} corner ${x},${y} is ${hex}, expected a full bleed of ${LIGHT.tile}`,
       )
     }
   }
