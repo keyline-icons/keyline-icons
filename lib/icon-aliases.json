@@ -1902,6 +1902,17 @@
         "live",
         "under way"
       ]
+    },
+    {
+      "match": "^umbrella-closed$",
+      "terms": [
+        "furled",
+        "dry",
+        "no cover",
+        "uninsured",
+        "lapsed",
+        "fair weather"
+      ]
     }
   ],
   "names": {

@@ -3932,6 +3932,15 @@ export function Truck(props: IconProps) {
   )
 }
 
+export function UmbrellaClosed(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M6 14C6 8.7897 7.5676 4.5569 10.2318 1.3598C10.6316 0.8801 11.3684 0.8801 11.7682 1.3598C14.4324 4.5569 16 8.7897 16 14C16 14.961 14.7766 15.3688 14.2 14.6C13.6 13.8 12.4 13.8 11.8 14.6C11.4 15.1333 10.6 15.1333 10.2 14.6C9.6 13.8 8.4 13.8 7.8 14.6C7.2234 15.3688 6 14.961 6 14Z" fill="currentColor" stroke="none" />
+      <path d="M11 14V19C11 20.6569 12.3431 22 14 22C15.6569 22 17 20.6569 17 19" />
+    </Icon>
+  )
+}
+
 export function Umbrella(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
