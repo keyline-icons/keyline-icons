@@ -1111,6 +1111,15 @@ export function CircleProgressHalf(props: IconProps) {
   )
 }
 
+export function CircleProgressPlay(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M9.4927 6.4533L17.0107 11.152C17.6374 11.5437 17.6374 12.4563 17.0107 12.848L9.4927 17.5467C8.8266 17.963 7.9627 17.4841 7.9627 16.6987L7.9627 7.3013C7.9627 6.5159 8.8266 6.037 9.4927 6.4533Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M13 22C6.4771 22 2 17.5229 2 12C2 6.4771 6.4771 2 13 2M17.0688 3.322C18.7268 4.5266 19.4734 5.2732 20.678 6.9312M21.7205 9.448C22.041 11.4721 22.041 12.5279 21.7205 14.552M20.678 17.0688C19.4734 18.7268 18.7268 19.4734 17.0688 20.678M8.9627 7.3013L16.4807 12L8.9627 16.6987L8.9627 7.3013Z" />
+    </Icon>
+  )
+}
+
 export function CircleProgressQuarter(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -1567,8 +1576,8 @@ export function Coupon(props: IconProps) {
 export function CreditCard2(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3 3L21 3C21.5523 3 22 3.4477 22 4L22 20C22 20.5523 21.5523 21 21 21L3 21C2.4477 21 2 20.5523 2 20L2 4C2 3.4477 2.4477 3 3 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M3 15L21 15M13 9.5L18 9.5M3 4L21 4L21 20L3 20L3 4Z" />
+      <path d="M2 3L22 3C22.5523 3 23 3.4477 23 4L23 20C23 20.5523 22.5523 21 22 21L2 21C1.4477 21 1 20.5523 1 20L1 4C1 3.4477 1.4477 3 2 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M2 15L22 15M13 9.5L18 9.5M2 4L22 4L22 20L2 20L2 4Z" />
     </Icon>
   )
 }
@@ -1576,8 +1585,8 @@ export function CreditCard2(props: IconProps) {
 export function CreditCard(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3 3L21 3C21.5523 3 22 3.4477 22 4L22 20C22 20.5523 21.5523 21 21 21L3 21C2.4477 21 2 20.5523 2 20L2 4C2 3.4477 2.4477 3 3 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M3 9L21 9M3 4L21 4L21 20L3 20L3 4Z" />
+      <path d="M2 3L22 3C22.5523 3 23 3.4477 23 4L23 20C23 20.5523 22.5523 21 22 21L2 21C1.4477 21 1 20.5523 1 20L1 4C1 3.4477 1.4477 3 2 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M2 9L22 9M2 4L22 4L22 20L2 20L2 4Z" />
     </Icon>
   )
 }

@@ -811,6 +811,15 @@ export function CirclePlus(props: IconProps) {
   )
 }
 
+export function CircleProgressPlay(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M7.962734 9.105541C7.962734 7.53467 9.690636 6.576985 11.022732 7.409545L16.332265 10.728003C17.272267 11.315504 17.272267 12.684496 16.332265 13.271998L11.022732 16.590456C9.690636 17.423016 7.962734 16.465331 7.962734 14.89446Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M12 22C6.47715 22 2 17.5229 2 12C2 6.47715 6.47715 2 12 2M17.8778 3.90983C18.7268 4.52663 19.4734 5.2732 20.0902 6.12215M21.8769 10.4357C22.041 11.4721 22.041 12.5279 21.8769 13.5643M20.0902 17.8778C19.4734 18.7268 18.7268 19.4734 17.8778 20.0902" />
+    </Icon>
+  )
+}
+
 export function CircleQuarter(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
@@ -1204,7 +1213,7 @@ export function Coupon(props: IconProps) {
 export function CreditCard2(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
-      <path d="M2 7C2 4.7909 3.7909 3 6 3H18C20.2091 3 22 4.7909 22 7V17C22 19.2091 20.2091 21 18 21H6C3.7909 21 2 19.2091 2 17V7ZM4 14H20V16H4V14ZM14 8.5H17C17.5523 8.5 18 8.9477 18 9.5C18 10.0523 17.5523 10.5 17 10.5H14C13.4477 10.5 13 10.0523 13 9.5C13 8.9477 13.4477 8.5 14 8.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+      <path d="M1 7C1 4.7909 2.7909 3 5 3H19C21.2091 3 23 4.7909 23 7V17C23 19.2091 21.2091 21 19 21H5C2.7909 21 1 19.2091 1 17V7ZM3 14H21V16H3V14ZM14 8.5H17C17.5523 8.5 18 8.9477 18 9.5C18 10.0523 17.5523 10.5 17 10.5H14C13.4477 10.5 13 10.0523 13 9.5C13 8.9477 13.4477 8.5 14 8.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
     </Icon>
   )
 }
@@ -1212,7 +1221,7 @@ export function CreditCard2(props: IconProps) {
 export function CreditCard(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
-      <path d="M2 7C2 4.7909 3.7909 3 6 3H18C20.2091 3 22 4.7909 22 7V17C22 19.2091 20.2091 21 18 21H6C3.7909 21 2 19.2091 2 17V7ZM4 8H20V10H4V8Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+      <path d="M1 7C1 4.7909 2.7909 3 5 3H19C21.2091 3 23 4.7909 23 7V17C23 19.2091 21.2091 21 19 21H5C2.7909 21 1 19.2091 1 17V7ZM3 8H21V10H3V8Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
     </Icon>
   )
 }

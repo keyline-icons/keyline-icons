@@ -119,6 +119,7 @@
     "circle-pen": "A pen over a round, the edit mark where a boxed shape suits the row better.",
     "circle-progress-check": "A tick closing a progress ring, for a task finished and a step verified.",
     "circle-progress-half": "A progress ring at half, for loading, fifty per cent and a spinner at midway.",
+    "circle-progress-play": "A progress ring around a play mark, for a run that is already under way.",
     "circle-progress-quarter": "A progress ring at a quarter, for loading and an early stage of a job.",
     "circle-progress-three-quarter": "A progress ring at three quarters, for loading and a job nearly finished.",
     "circle-progress-x": "A cross closing a progress ring, for a job failed, aborted or stopped.",

@@ -195,7 +195,7 @@ const SIZE_KNOWN = new Set([
   'pause', 'skip-back', 'skip-forward', 'stop',
   'git-commit-horizontal', 'git-commit-vertical',
   'terminal', 'terminal-asterisk',
-  'credit-card', 'credit-card-2', 'octagon-alert', 'octagon-x', 'package', 'package-check', 'settings', 'user', 'x',
+  'octagon-alert', 'octagon-x', 'package', 'package-check', 'settings', 'user', 'x',
   'bell', 'paperclip', 'wifi', 'wifi-info', 'wifi-exclamation',
   'repeat', 'repeat-1',
   'arrow-down-left', 'arrow-down-right', 'arrow-up-left', 'arrow-up-right',

@@ -1891,6 +1891,17 @@
         "shelter",
         "risk"
       ]
+    },
+    {
+      "match": "^circle-progress-play$",
+      "terms": [
+        "playing",
+        "in progress",
+        "running",
+        "now playing",
+        "live",
+        "under way"
+      ]
     }
   ],
   "names": {
