@@ -213,6 +213,15 @@ export function Bookmark(props: IconProps) {
   )
 }
 
+export function Briefcase(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M5 7H19C21.2091 7 23 8.7909 23 11V18C23 20.2091 21.2091 22 19 22H5C2.7909 22 1 20.2091 1 18V11C1 8.7909 2.7909 7 5 7ZM3 13H21V15H3V13Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M8 8V5C8 3.8954 8.8954 3 10 3H14C15.1046 3 16 3.8954 16 5V8" />
+    </Icon>
+  )
+}
+
 export function Bug(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -3910,6 +3919,15 @@ export function Truck(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M9 18C9 16.8954 8.1046 16 7 16C5.8954 16 5 16.8954 5 18H3C2.44772 18 2 17.5523 2 17V7C2 5.34315 3.34315 4 5 4H11C12.6569 4 14 5.34315 14 7V18H9Z" fill="currentColor" stroke="none" />
       <path d="M14 18V7C14 5.34315 12.6569 4 11 4H5C3.34315 4 2 5.34315 2 7V17C2 17.5523 2.44772 18 3 18H4M10 18H14M20 18H21C21.5523 18 22 17.5523 22 17V13C22 12.4696 21.7893 11.9609 21.4142 11.5858L18.4142 8.58579C18.0391 8.21071 17.5304 8 17 8H14M9 18C9 19.1046 8.1046 20 7 20C5.8954 20 5 19.1046 5 18C5 16.8954 5.8954 16 7 16C8.1046 16 9 16.8954 9 18ZM19 18C19 19.1046 18.1046 20 17 20C15.8954 20 15 19.1046 15 18C15 16.8954 15.8954 16 17 16C18.1046 16 19 16.8954 19 18Z" />
+    </Icon>
+  )
+}
+
+export function Umbrella(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12C23 12.5523 22.5523 13 22 13H2C1.4477 13 1 12.5523 1 12Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M12 12V19C12 20.6569 13.3431 22 15 22C16.6569 22 18 20.6569 18 19" />
     </Icon>
   )
 }

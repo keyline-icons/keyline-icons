@@ -397,6 +397,15 @@ export function Bookmark(props: IconProps) {
   )
 }
 
+export function Briefcase(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M2 7L22 7C22.5523 7 23 7.4477 23 8L23 21C23 21.5523 22.5523 22 22 22L2 22C1.4477 22 1 21.5523 1 21L1 8C1 7.4477 1.4477 7 2 7Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M8 8L8 3L16 3L16 8M2 14L22 14M2 8L22 8L22 21L2 21L2 8Z" />
+    </Icon>
+  )
+}
+
 export function Bug(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -4576,6 +4585,15 @@ export function Truck(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M2 3L11 3C13.2091 3 15 4.7909 15 7L17 7C17.2652 7 17.5196 7.1054 17.7071 7.2929L22.7071 12.2929C22.8946 12.4804 23 12.7348 23 13L23 18C23 18.5523 22.5523 19 22 19L2 19C1.4477 19 1 18.5523 1 18L1 4C1 3.4477 1.4477 3 2 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <path d="M14 18L14 4L2 4L2 18L5 18M9 18L14 18M19 18L22 18L22 12.1716L17.8284 8L14 8M9 18C9 19.1046 8.1046 20 7 20C5.8954 20 5 19.1046 5 18C5 16.8954 5.8954 16 7 16C8.1046 16 9 16.8954 9 18ZM19 18C19 19.1046 18.1046 20 17 20C15.8954 20 15 19.1046 15 18C15 16.8954 15.8954 16 17 16C18.1046 16 19 16.8954 19 18Z" />
+    </Icon>
+  )
+}
+
+export function Umbrella(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12L23 13L1 13L1 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM12 12L12 19C12 20.6569 13.3431 22 15 22C16.6569 22 18 20.6569 18 19L18 18" />
     </Icon>
   )
 }
