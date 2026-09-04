@@ -36,6 +36,18 @@ const FIGMA_KEYWORDS = (keywords as { keywords: Record<string, string[]> })
  * families of exactly one.
  */
 export const CATEGORIES = [
+  // The review shelf, and the only row here that is not about what a drawing
+  // is. It sits first so it beats each icon's real shelf, and every name in it
+  // is also listed in its real category below, so deleting this one row files
+  // the whole batch at once, with no second edit to forget. That deletion is
+  // what "reviewed" means. It is recreated whenever a batch starts and removed
+  // once the batch graduates, so an empty repo state is the resting state
+  // rather than a loose end.
+  {
+    label: "New",
+    match: /^(crown|flag|flag-chequered|traffic-light|tyre|engine|helmet|car|car-racing|bug)$/,
+    blurb: "Drawn since the last release and waiting to be reviewed.",
+  },
   // `refresh` and `rotate` are here because they are arrow glyphs, whatever they
   // are used for. The anchor is what keeps `git-refresh` in Git below.
   {
@@ -91,9 +103,12 @@ export const CATEGORIES = [
     blurb: "Carts, bags, receipts, cards, shipping and the discount marks.",
   },
   {
+    // `flag` alone: the chequered one is a finish line and files under Sport
+    // with the podium, and the family splits on meaning the way `wifi` and
+    // `signal` do.
     label: "Maps",
-    match: /^(map|compass|building|route)/,
-    blurb: "Pins, maps, compasses and routes.",
+    match: /^(map|compass|building|route|flag$)/,
+    blurb: "Pins, maps, compasses, routes and flags.",
   },
   {
     // Ahead of Layout, whose `list` prefix would otherwise claim `list-music`.
@@ -125,9 +140,11 @@ export const CATEGORIES = [
   // `code` sits with `terminal` rather than on a shelf of its own: the label is
   // the developer surface, and two names do not earn a row in a rail of 18.
   {
+    // `bug` is the software bug, so it sits with `code` rather than in a
+    // shelf of creatures the set does not have.
     label: "Devices",
-    match: /^(smartphone|monitor|terminal|database|server|battery|bluetooth|code|plug)/,
-    blurb: "Phones, servers, databases, terminals, code and what plugs into them.",
+    match: /^(smartphone|monitor|terminal|database|server|battery|bluetooth|code|plug|bug)/,
+    blurb: "Phones, servers, databases, terminals, code, bugs and what plugs into them.",
   },
   {
     label: "Pointers",
@@ -167,9 +184,19 @@ export const CATEGORIES = [
     blurb: "Toggles, sliders and the drag handle.",
   },
   {
+    // `crown` and the chequered flag are what a winner gets, so they sit with
+    // the trophy rather than with the marks in Actions or the car in Motoring.
     label: "Sport",
-    match: /^(trophy|award|podium|medal)/,
-    blurb: "Trophies, awards and the places on the podium.",
+    match: /^(trophy|award|podium|medal|crown|flag-chequered)/,
+    blurb: "Trophies, awards, crowns, the chequered flag and the places on the podium.",
+  },
+  {
+    // The shelf follows what the thing is: `truck` stays in Commerce because
+    // it means shipping, and the helmet is here rather than in Sport because
+    // it is a driver's, drawn full-face with a visor.
+    label: "Motoring",
+    match: /^(car|engine|tyre|traffic-light|helmet)/,
+    blurb: "Cars, engines, tyres, the helmet and the lights at the junction.",
   },
   {
     // The shelf follows what the thing is, not what the drawing is made of: a

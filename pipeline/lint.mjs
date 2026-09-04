@@ -77,6 +77,9 @@ const SHAPE_SIZES = { circle: [22, 22], square: [20, 20], horizontal: [22, null]
  * here to record which drawings are allowed the 16, and why.
  */
 const NARROW = new Set([
+  // A traffic light is a narrow housing: at 18 wide its three lamps float in a
+  // box that reads as a domino.
+  'traffic-light',
   'mic', 'smartphone', 'smartphone-horizontal',
   'smartphone-arrow-down', 'smartphone-arrow-down-left', 'smartphone-arrow-in-down-right',
   'smartphone-arrow-in-right', 'smartphone-arrow-in-up', 'smartphone-arrow-in-up-right',
@@ -196,6 +199,10 @@ const SIZE_KNOWN = new Set([
   'bell', 'paperclip', 'wifi', 'wifi-info', 'wifi-exclamation',
   'repeat', 'repeat-1',
   'arrow-down-left', 'arrow-down-right', 'arrow-up-left', 'arrow-up-right',
+  // `helmet` is a 22-unit disc with its neck cut flat, 22 x 20 by
+  // construction: a full circle read as Pac-Man, and the chord is what makes
+  // it a helmet. The classifier still reads the shell as a circle.
+  'helmet',
 ]);
 const MIN_PAD = 1;
 

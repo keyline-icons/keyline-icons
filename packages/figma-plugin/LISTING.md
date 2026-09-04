@@ -74,7 +74,7 @@ Capped at 100 characters. The line above is 81, so there is still room. A
 shorter alternative if it ever needs one:
 
 ```
-585 icons in three styles, cut rounded or sharp.
+595 icons in three styles, cut rounded or sharp.
 ```
 
 ## Description
@@ -88,19 +88,19 @@ which only ever shows the newest entry. Someone deciding whether to install
 wants to see the set is maintained, and that is what a history says.
 
 ```
-Search 585 icons and drop one on the canvas. No library to publish, no file to duplicate, no plan requirement.
+Search 595 icons and drop one on the canvas. No library to publish, no file to duplicate, no plan requirement.
 
 Three styles
 
-* Stroke: 585 icons, 2px, round caps and joins
-* Duotone: 480 icons, a 40% plate under the line
-* Fill: 432 icons, solid where the glyph has a region to fill
+* Stroke: 595 icons, 2px, round caps and joins
+* Duotone: 490 icons, a 40% plate under the line
+* Fill: 442 icons, solid where the glyph has a region to fill
 
 Two corner treatments, and every drawing has both. Rounded is the keyline the set was drawn on; sharp takes every corner to a true point and ends each stroke square. Coverage is identical, so switching never costs you a drawing. 2,994 SVGs in total.
 
 55 icons also come in a square- form and 54 in a circle- form, so a container is a search away rather than a second drawing.
 
-Search knows more than the file names. 466 icons carry curated words, so "south" finds arrow-down, "hamburger" finds menu and "trash" finds bin. Paste a component name straight out of your code and it resolves: CheckCircle2 finds circle-check.
+Search knows more than the file names. 476 icons carry curated words, so "south" finds arrow-down, "hamburger" finds menu and "trash" finds bin. Paste a component name straight out of your code and it resolves: CheckCircle2 finds circle-check.
 
 In a design file an insert arrives as a 24 × 24 frame, which is what makes a row of icons line up. In FigJam it arrives as a group, so FigJam's colour control reaches the drawing instead of painting a box around it. Double-click into one and every path takes its own colour, which is how a gift gets a red box and a yellow bow, and how duotone keeps both of its tones.
 
@@ -391,11 +391,11 @@ Keyline Icons
 ### Description
 
 ```
-585 icons on a 24×24 grid, in three styles and two corner treatments: stroke, duotone and fill, cut rounded or sharp. MIT licensed, free for commercial work, no attribution required.
+595 icons on a 24×24 grid, in three styles and two corner treatments: stroke, duotone and fill, cut rounded or sharp. MIT licensed, free for commercial work, no attribution required.
 
-476 component sets, each with three variant properties, Container, Style and Corners, so you switch between regular, square and circle, between the three styles, and between rounded and sharp, without swapping components. 55 icons carry a square- form and 54 a circle-.
+486 component sets, each with three variant properties, Container, Style and Corners, so you switch between regular, square and circle, between the three styles, and between rounded and sharp, without swapping components. 55 icons carry a square- form and 54 a circle-.
 
-Which styles an icon has is measured rather than chosen: duotone and fill need a fillable region, so an open glyph like bar-chart is stroke-only, and square-bar-chart has all three. That is why the three counts differ: stroke 585, duotone 480, fill 432.
+Which styles an icon has is measured rather than chosen: duotone and fill need a fillable region, so an open glyph like bar-chart is stroke-only, and square-bar-chart has all three. That is why the three counts differ: stroke 595, duotone 490, fill 442.
 
 Every drawing exists in both treatments, so sharp is a switch rather than a second library: 2,994 variants over the same 585 names.
 

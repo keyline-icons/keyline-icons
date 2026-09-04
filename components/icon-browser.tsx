@@ -6,6 +6,7 @@ import {
   ArrowRight,
   ArrowUTurnLeft,
   BarChart,
+  Car,
   Check,
   ChevronDown,
   ChevronLeft,
@@ -30,6 +31,7 @@ import {
   SlidersHorizontal,
   Smartphone,
   Square,
+  Star,
   Trophy,
   Sun,
   User,
@@ -120,6 +122,7 @@ const CATEGORY_ICONS: Record<
   string,
   React.ComponentType<{ className?: string }>
 > = {
+  New: Star,
   Arrows: ArrowRight,
   "Chevrons & Carets": ChevronRight,
   Git: GitBranch,
@@ -142,6 +145,7 @@ const CATEGORY_ICONS: Record<
   Weather: Sun,
   Shapes: Shapes,
   Sport: Trophy,
+  Motoring: Car,
   Tools: Wrench,
   Web: Globe,
   [OTHER_CATEGORY]: Circle,
