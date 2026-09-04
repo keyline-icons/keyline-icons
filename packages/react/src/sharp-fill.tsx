@@ -1083,6 +1083,14 @@ export function Clock(props: IconProps) {
   )
 }
 
+export function CloudAlert(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M6 20L18 20C20.6233 20 23 17.6233 23 15C23 12.6937 21.163 10.578 18.9365 10.1004C18.4644 6.7612 15.4245 4 12 4C8.5755 4 5.5356 6.7612 5.0635 10.1004C2.837 10.578 1 12.6937 1 15C1 17.6233 3.3767 20 6 20ZM11 8L13 8L13 13L11 13ZM13 15C13 15.5523 12.5523 16 12 16C11.4477 16 11 15.5523 11 15C11 14.4477 11.4477 14 12 14C12.5523 14 13 14.4477 13 15Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+    </Icon>
+  )
+}
+
 export function CloudCheck(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
@@ -2548,6 +2556,16 @@ export function OctagonX(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
       <path d="M2 15.6L2 8.4C2 8.1348 2.1054 7.8804 2.2929 7.6929L7.6929 2.2929C7.8804 2.1054 8.1348 2 8.4 2L15.6 2C15.8652 2 16.1196 2.1054 16.3071 2.2929L21.7071 7.6929C21.8946 7.8804 22 8.1348 22 8.4L22 15.6C22 15.8652 21.8946 16.1196 21.7071 16.3071L16.3071 21.7071C16.1196 21.8946 15.8652 22 15.6 22L8.4 22C8.1348 22 7.8804 21.8946 7.6929 21.7071L2.2929 16.3071C2.1054 16.1196 2 15.8652 2 15.6ZM15.2294 7.2152L12 10.4445L8.7706 7.2152L7.2152 8.7706L10.4445 12L7.2152 15.2294L8.7706 16.7848L12 13.5555L15.2294 16.7848L16.7848 15.2294L13.5555 12L16.7848 8.7706L15.2294 7.2152Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+    </Icon>
+  )
+}
+
+export function PackageAlert(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M21 8.0073L21 13L13 13L13 22L12 22L3.5032 17.4403C3.192 17.2622 3 16.9311 3 16.5725L3 8.0073C3 7.6482 3.0963 7.3028 3.2706 7.0027L12 12L20.7293 7.0027C20.9037 7.3028 21 7.6482 21 8.0073Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M3.0408 6.8711L12 12M12 12L20.9591 6.8711M7.3837 4.205L16.5 9.4239M12 12L12 22L3 17.1523L3 6.8477L12 2L21 6.8477L21 13M19 15L19 19" />
+      <path d="M20 22C20 22.5523 19.5523 23 19 23C18.4477 23 18 22.5523 18 22C18 21.4477 18.4477 21 19 21C19.5523 21 20 21.4477 20 22Z" fill="currentColor" stroke="none" />
     </Icon>
   )
 }
