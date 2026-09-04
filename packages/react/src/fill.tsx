@@ -1823,8 +1823,8 @@ export function GitMergeConflict(props: IconProps) {
 export function GitMerge(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M6 21V9C6.16667 12 8.2 18 15 18" />
-      <path d="M10 6C10 8.20914 8.20914 10 6 10C3.79086 10 2 8.20914 2 6C2 3.79086 3.79086 2 6 2C8.20914 2 10 3.79086 10 6ZM22 18C22 20.2091 20.2091 22 18 22C15.7909 22 14 20.2091 14 18C14 15.7909 15.7909 14 18 14C20.2091 14 22 15.7909 22 18Z" fill="currentColor" stroke="none" />
+      <path d="M6 3V15C6.16667 12 8.2 6 15 6" />
+      <path d="M10 18C10 15.79086 8.20914 14 6 14C3.79086 14 2 15.79086 2 18C2 20.20914 3.79086 22 6 22C8.20914 22 10 20.20914 10 18ZM22 6C22 3.79086 20.20914 2 18 2C15.79086 2 14 3.79086 14 6C14 8.20914 15.79086 10 18 10C20.20914 10 22 8.20914 22 6Z" fill="currentColor" stroke="none" />
     </Icon>
   )
 }
