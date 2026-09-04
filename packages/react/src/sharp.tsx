@@ -685,22 +685,6 @@ export function Captions(props: IconProps) {
   )
 }
 
-export function CarRacing(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M7 18L2 18L2 14L7 14L9 9L11 9L13 12L22 15L22 18L19 18M11 18L15 18M11 18C11 19.1046 10.1046 20 9 20C7.8954 20 7 19.1046 7 18C7 16.8954 7.8954 16 9 16C10.1046 16 11 16.8954 11 18ZM19 18C19 19.1046 18.1046 20 17 20C15.8954 20 15 19.1046 15 18C15 16.8954 15.8954 16 17 16C18.1046 16 19 16.8954 19 18ZM4 15L4 3M1 4L7 4" />
-    </Icon>
-  )
-}
-
-export function Car(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M5 18L2 18L2 12L6 12L9 4L15 4L18 12L22 12L22 18L19 18M9 18L15 18M9 18C9 19.1046 8.1046 20 7 20C5.8954 20 5 19.1046 5 18C5 16.8954 5.8954 16 7 16C8.1046 16 9 16.8954 9 18ZM19 18C19 19.1046 18.1046 20 17 20C15.8954 20 15 19.1046 15 18C15 16.8954 15.8954 16 17 16C18.1046 16 19 16.8954 19 18Z" />
-    </Icon>
-  )
-}
-
 export function CaretDown(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -1906,14 +1890,6 @@ export function Download(props: IconProps) {
   )
 }
 
-export function Engine(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M5 21L5 16L2 16L2 12L5 12L5 7L12 7L12 10L16 10L18 12L22 12L22 16L18 16L18 21L5 21ZM5.5 3L11.5 3M8.5 2L8.5 8" />
-    </Icon>
-  )
-}
-
 export function ExpandDashedDownLeftBox(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -2115,18 +2091,10 @@ export function Filter(props: IconProps) {
   )
 }
 
-export function FlagChequered(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M4 4C5.2311 3.3434 6.6048 3 8 3C9.3952 3 10.7689 3.3434 12 4C13.2311 4.6566 14.6048 5 16 5C17.3952 5 18.7689 4.6566 20 4L20 15C18.7689 15.6566 17.3952 16 16 16C14.6048 16 13.2311 15.6566 12 15C10.7689 14.3434 9.3952 14 8 14C6.6048 14 5.2311 14.3434 4 15L4 4ZM4 22L4 14M9.3333 2.1052L9.3333 15.1052M14.6667 3.8948L14.6667 16.8948M4 9.5C5.2311 8.8434 6.6048 8.5 8 8.5C9.3952 8.5 10.7689 8.8434 12 9.5C13.2311 10.1566 14.6048 10.5 16 10.5C17.3952 10.5 18.7689 10.1566 20 9.5" />
-    </Icon>
-  )
-}
-
 export function Flag(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M4 4C5.2311 3.3434 6.6048 3 8 3C9.3952 3 10.7689 3.3434 12 4C13.2311 4.6566 14.6048 5 16 5C17.3952 5 18.7689 4.6566 20 4L20 15C18.7689 15.6566 17.3952 16 16 16C14.6048 16 13.2311 15.6566 12 15C10.7689 14.3434 9.3952 14 8 14C6.6048 14 5.2311 14.3434 4 15L4 4ZM4 22L4 14" />
+      <path d="M4 14C5.2311 14.6566 6.6048 15 8 15C9.3952 15 10.7689 14.6566 12 14C13.2311 13.3434 14.6048 13 16 13C17.3952 13 18.7689 13.3434 20 14L20 3C18.7689 2.3434 17.3952 2 16 2C14.6048 2 13.2311 2.3434 12 3C10.7689 3.6566 9.3952 4 8 4C6.6048 4 5.2311 3.6566 4 3L4 23" />
     </Icon>
   )
 }
@@ -2668,14 +2636,6 @@ export function Handbag(props: IconProps) {
   )
 }
 
-export function HardHat(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M4 19C3.1582 17.5715 2.7143 15.9437 2.7143 14.2857C2.7143 9.1574 6.8716 5 12 5C17.1284 5 21.2857 9.1574 21.2857 14.2857C21.2857 15.9437 20.8418 17.5715 20 19ZM1 19L23 19M12 4L12 13M8.1619 4.9189L6.8381 12.9868M15.8381 4.9189L17.1619 12.9868" />
-    </Icon>
-  )
-}
-
 export function HeadphonesOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -2736,15 +2696,6 @@ export function Heart(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M12 21C7.4376 17.1033 2 13.75 2 8.75C2 5.5743 4.6862 3 8 3C9.5 3 10.8426 3.5459 12 4.5C13.1574 3.5459 14.5 3 16 3C19.3138 3 22 5.5743 22 8.75C22 13.75 16.5624 17.1033 12 21Z" fill="none" />
-    </Icon>
-  )
-}
-
-export function Helmet(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M11 21C6.0294 21 2 16.9706 2 12C2 7.0294 6.0294 3 11 3C14.419 3 17.5427 4.9373 19.0623 8L22 8L22 12L17 12L17 21L11 21Z" />
-      <path d="M10.5 15C10.5 15.8284 9.8284 16.5 9 16.5C8.1716 16.5 7.5 15.8284 7.5 15C7.5 14.1716 8.1716 13.5 9 13.5C9.8284 13.5 10.5 14.1716 10.5 15Z" fill="currentColor" stroke="none" />
     </Icon>
   )
 }
@@ -4784,14 +4735,6 @@ export function Truck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M14 18L14 4L2 4L2 18L5 18M9 18L14 18M19 18L22 18L22 12.1716L17.8284 8L14 8M9 18C9 19.1046 8.1046 20 7 20C5.8954 20 5 19.1046 5 18C5 16.8954 5.8954 16 7 16C8.1046 16 9 16.8954 9 18ZM19 18C19 19.1046 18.1046 20 17 20C15.8954 20 15 19.1046 15 18C15 16.8954 15.8954 16 17 16C18.1046 16 19 16.8954 19 18Z" />
-    </Icon>
-  )
-}
-
-export function Tyre(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M21.6273 9.1165L21.8175 10.0982C21.9389 10.7249 22 11.3617 22 12C22 12.6383 21.9389 13.2751 21.8175 13.9018L21.6273 14.8835M20.8465 16.7686L20.2868 17.5973C19.5706 18.6576 18.6576 19.5706 17.5973 20.2868L16.7686 20.8465M14.8835 21.6273L13.9018 21.8175C13.2751 21.9389 12.6383 22 12 22C11.3617 22 10.7249 21.9389 10.0982 21.8175L9.1165 21.6273M7.2314 20.8465L6.4027 20.2868C5.3424 19.5706 4.4294 18.6576 3.7132 17.5973L3.1535 16.7686M2.3727 14.8835L2.1825 13.9018C2.0611 13.2751 2 12.6383 2 12C2 11.3617 2.0611 10.7249 2.1825 10.0982L2.3727 9.1165M3.1535 7.2314L3.7132 6.4027C4.4294 5.3424 5.3424 4.4294 6.4027 3.7132L7.2314 3.1535M9.1165 2.3727L10.0982 2.1825C10.7249 2.0611 11.3617 2 12 2C12.6383 2 13.2751 2.0611 13.9018 2.1825L14.8835 2.3727M16.7686 3.1535L17.5973 3.7132C18.6576 4.4294 19.5706 5.3424 20.2868 6.4027L20.8465 7.2314M18 12C18 15.3137 15.3137 18 12 18C8.6863 18 6 15.3137 6 12C6 8.6863 8.6863 6 12 6C15.3137 6 18 8.6863 18 12Z" />
     </Icon>
   )
 }

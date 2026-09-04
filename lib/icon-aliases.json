@@ -1674,21 +1674,6 @@
       ]
     },
     {
-      "match": "^flag-chequered$",
-      "terms": [
-        "checkered",
-        "chequered flag",
-        "checkered flag",
-        "finish",
-        "finish line",
-        "race",
-        "racing",
-        "winner",
-        "done",
-        "complete"
-      ]
-    },
-    {
       "match": "^traffic-light$",
       "terms": [
         "traffic",
@@ -1702,68 +1687,6 @@
       ]
     },
     {
-      "match": "^tyre$",
-      "note": "Both spellings, so a search from either side of the Atlantic lands.",
-      "terms": [
-        "tire",
-        "wheel",
-        "tread",
-        "rubber",
-        "pit stop",
-        "rim"
-      ]
-    },
-    {
-      "match": "^engine$",
-      "terms": [
-        "motor",
-        "power unit",
-        "mechanical",
-        "horsepower",
-        "performance",
-        "spark plug"
-      ]
-    },
-    {
-      "match": "^helmet$",
-      "terms": [
-        "driver",
-        "rider",
-        "safety",
-        "head",
-        "crash helmet",
-        "motorcycle",
-        "protection"
-      ]
-    },
-    {
-      "match": "^car$",
-      "terms": [
-        "vehicle",
-        "automobile",
-        "auto",
-        "drive",
-        "driving",
-        "parking",
-        "transport",
-        "taxi"
-      ]
-    },
-    {
-      "match": "^car-racing$",
-      "terms": [
-        "f1",
-        "formula 1",
-        "formula one",
-        "race car",
-        "racing car",
-        "grand prix",
-        "motorsport",
-        "single-seater",
-        "speed"
-      ]
-    },
-    {
       "match": "^bug$",
       "terms": [
         "insect",
@@ -1774,19 +1697,6 @@
         "error",
         "report a bug",
         "pest"
-      ]
-    },
-    {
-      "match": "^hard-hat$",
-      "terms": [
-        "construction",
-        "construction helmet",
-        "safety helmet",
-        "builder",
-        "site",
-        "under construction",
-        "work in progress",
-        "maintenance"
       ]
     }
   ],

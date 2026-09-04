@@ -479,14 +479,7 @@
     "x": "A cross, for close, cancel, dismiss, remove and every no in a confirmation.",
     "crown": "A crown, for winners, premium tiers, top ranks and anything royal.",
     "flag": "A flag on a pole, for markers, milestones, reports and points of interest.",
-    "flag-chequered": "A chequered flag, for finish lines, race results and a job seen through.",
     "traffic-light": "A traffic light, for status, go and stop states and anything at a junction.",
-    "tyre": "A tyre seen side on, with its tread, for wheels, pit stops and motoring.",
-    "engine": "An engine block with its spark plug, for motors, performance and mechanical settings.",
-    "helmet": "A full-face helmet with its visor, for drivers, riders and safety gear.",
-    "car": "A car seen side on, for vehicles, driving, parking and transport.",
-    "car-racing": "A single-seater racing car with its rear wing, for Formula 1, motorsport and speed.",
-    "bug": "A beetle, for software bugs, issue reports and anything that needs debugging.",
-    "hard-hat": "A hard hat with its ridge and ribs, for construction, site safety and work in progress."
+    "bug": "A beetle, for software bugs, issue reports and anything that needs debugging."
   }
 }

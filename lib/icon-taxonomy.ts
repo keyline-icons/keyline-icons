@@ -45,7 +45,7 @@ export const CATEGORIES = [
   // rather than a loose end.
   {
     label: "New",
-    match: /^(crown|flag|flag-chequered|traffic-light|tyre|engine|helmet|hard-hat|car|car-racing|bug)$/,
+    match: /^(crown|flag|traffic-light|bug)$/,
     blurb: "Drawn since the last release and waiting to be reviewed.",
   },
   // `refresh` and `rotate` are here because they are arrow glyphs, whatever they
@@ -103,12 +103,11 @@ export const CATEGORIES = [
     blurb: "Carts, bags, receipts, cards, shipping and the discount marks.",
   },
   {
-    // `flag` alone: the chequered one is a finish line and files under Sport
-    // with the podium, and the family splits on meaning the way `wifi` and
-    // `signal` do.
+    // `flag` and `traffic-light` are both road furniture: a marker you plant
+    // and the lights at the junction, next to the routes they sit on.
     label: "Maps",
-    match: /^(map|compass|building|route|flag$)/,
-    blurb: "Pins, maps, compasses, routes and flags.",
+    match: /^(map|compass|building|route|flag$|traffic-light)/,
+    blurb: "Pins, maps, compasses, routes, flags and the lights at the junction.",
   },
   {
     // Ahead of Layout, whose `list` prefix would otherwise claim `list-music`.
@@ -184,19 +183,11 @@ export const CATEGORIES = [
     blurb: "Toggles, sliders and the drag handle.",
   },
   {
-    // `crown` and the chequered flag are what a winner gets, so they sit with
-    // the trophy rather than with the marks in Actions or the car in Motoring.
+    // `crown` is what a winner gets, so it sits with the trophy rather than
+    // with the marks in Actions.
     label: "Sport",
-    match: /^(trophy|award|podium|medal|crown|flag-chequered)/,
-    blurb: "Trophies, awards, crowns, the chequered flag and the places on the podium.",
-  },
-  {
-    // The shelf follows what the thing is: `truck` stays in Commerce because
-    // it means shipping, and the helmet is here rather than in Sport because
-    // it is a driver's, drawn full-face with a visor.
-    label: "Motoring",
-    match: /^(car|engine|tyre|traffic-light|helmet)/,
-    blurb: "Cars, engines, tyres, the helmet and the lights at the junction.",
+    match: /^(trophy|award|podium|medal|crown)/,
+    blurb: "Trophies, awards, crowns and the places on the podium.",
   },
   {
     // The shelf follows what the thing is, not what the drawing is made of: a
@@ -204,11 +195,9 @@ export const CATEGORIES = [
     // rather than in Files, the same call `gallery-*` gets against Layout.
     // Prefixes, so the family this is being drawn towards lands here too: a
     // `screwdriver`, a `wrench-plus`.
-    // `hard-hat` is site kit, not a helmet variant: the racing helmet is in
-    // Motoring with its driver, the hard hat here with the tools.
     label: "Tools",
-    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler|hard-hat)/,
-    blurb: "The toolbox, the hard hat and what comes out of it.",
+    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler)/,
+    blurb: "The toolbox and what comes out of it.",
   },
   {
     label: "Shapes",

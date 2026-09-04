@@ -199,10 +199,6 @@ const SIZE_KNOWN = new Set([
   'bell', 'paperclip', 'wifi', 'wifi-info', 'wifi-exclamation',
   'repeat', 'repeat-1',
   'arrow-down-left', 'arrow-down-right', 'arrow-up-left', 'arrow-up-right',
-  // `helmet` is a 22-unit disc with its neck cut flat, 22 x 20 by
-  // construction: a full circle read as Pac-Man, and the chord is what makes
-  // it a helmet. The classifier still reads the shell as a circle.
-  'helmet',
 ]);
 const MIN_PAD = 1;
 
@@ -503,6 +499,21 @@ const DASHED_LEVEL = /^(?:circle|square)-dashed-(?:full|half|quarter|three-quart
  * `circle-check` does with its mark.
  */
 const COUNTER = new Set(['at', 'percent']);
+
+/**
+ * Drawings whose fillable region is closed by another of the icon's own
+ * strokes rather than by a closed subpath.
+ *
+ * `flag` is one continuous run — up the pole, along the top wave, down the tip,
+ * back along the bottom — so the pole IS the flag's left edge and the region it
+ * encloses never appears as a closed subpath. Spelling that edge a second time
+ * to close the outline would paint it twice, which is the thing the single run
+ * was drawn to avoid. `podium` reaches the same place from the other side: it
+ * closes its stairs along their own foot, under the ground bar, and so needs no
+ * entry here. Add a name only when the closing edge is genuinely painted by
+ * another part of the same drawing.
+ */
+const CLOSED_BY_STROKE = new Set(['flag']);
 
 /**
  * A compound's fillability comes from its base.
@@ -892,7 +903,7 @@ async function main() {
     // against another, which is only meaningful when the glyph has separable
     // parts (double-check greys one tick). That is a drawing judgement, so a
     // duotone here is accepted rather than required.
-    if (!info.fillable && info.styles.has('fill') && !inheritedFill(set, key))
+    if (!info.fillable && !CLOSED_BY_STROKE.has(name) && info.styles.has('fill') && !inheritedFill(set, key))
       add('warn', 'COVERAGE', key, 'open-stroke glyph has a fill — nothing to fill; fills should come from a container');
 
     // Every style of an icon must occupy the same visual bounds. A solid is the
