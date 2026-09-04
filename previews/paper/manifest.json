@@ -639,7 +639,7 @@
       "width": 742,
       "icons": 4,
       "variants": 24,
-      "bytes": 24753
+      "bytes": 25229
     },
     {
       "file": "pointers-1.html",
@@ -887,7 +887,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 230855
+      "bytes": 230920
     }
   ]
 }
