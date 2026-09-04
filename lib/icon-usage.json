@@ -1,5 +1,6 @@
 {
   "$comment": "Hand-written per-icon copy: what the drawing is for, in one line. Source, not generated — there is nothing to generate it from, since the Figma descriptions are search terms rather than prose. Keyed by BASE name, so one drawing boxed three ways shares a line and lib/icon-pages.ts adds the container clause. Every line has to fit USAGE_LIMIT in lib/icon-usage.ts; pipeline/check-usage.mjs measures the real descriptions and lists anything missing.",
+  "umbrella-off": "An umbrella struck through, for no cover, a lapsed policy and protection switched off.",
   "usage": {
     "activity": "A pulse line, for health readouts, live monitors and anything reporting a heartbeat.",
     "alert": "Warnings, failed validation and the confirm step in front of something destructive.",

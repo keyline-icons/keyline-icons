@@ -1915,6 +1915,17 @@
       ]
     },
     {
+      "match": "^umbrella-off$",
+      "terms": [
+        "unprotected",
+        "exposed",
+        "no cover",
+        "uncovered",
+        "unshielded",
+        "no insurance"
+      ]
+    },
+    {
       "match": "^parasol$",
       "terms": [
         "shade",

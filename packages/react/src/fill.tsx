@@ -3950,6 +3950,15 @@ export function UmbrellaClosed(props: IconProps) {
   )
 }
 
+export function UmbrellaOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M12.7076 12.7076C12.2693 13.1497 11.5023 13.0905 11.152 12.53C10.2937 11.1567 8.7063 11.1567 7.848 12.53C7.4563 13.1567 6.5437 13.1567 6.152 12.53C5.2937 11.1567 3.7063 11.1567 2.848 12.53C2.3155 13.382 1 13.0047 1 12C1 8.9625 2.2312 6.2125 4.2218 4.2218ZM7.6385 3.3959C7.4001 3.1574 7.2978 2.8148 7.3667 2.4847C7.4355 2.1545 7.6661 1.8813 7.98 1.758C9.2252 1.2686 10.5812 1 12 1C18.0751 1 23 5.9249 23 12C23 13.0047 21.6845 13.382 21.152 12.53C20.3567 11.2575 18.9354 11.1641 18.0482 12.2498C17.8693 12.4686 17.6062 12.6015 17.3239 12.6157C17.0417 12.6299 16.7666 12.5239 16.5667 12.3241L7.6385 3.3959Z" fill="currentColor" stroke="none" />
+      <path d="M12 12V19C12 20.6569 13.3431 22 15 22C16.6569 22 18 20.6569 18 19C18 18.5526 17.8999 18.1108 17.7071 17.7071M2 2L22 22" />
+    </Icon>
+  )
+}
+
 export function Umbrella(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
