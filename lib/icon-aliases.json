@@ -1775,6 +1775,19 @@
         "report a bug",
         "pest"
       ]
+    },
+    {
+      "match": "^hard-hat$",
+      "terms": [
+        "construction",
+        "construction helmet",
+        "safety helmet",
+        "builder",
+        "site",
+        "under construction",
+        "work in progress",
+        "maintenance"
+      ]
     }
   ],
   "names": {

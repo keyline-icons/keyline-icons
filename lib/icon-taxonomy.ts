@@ -45,7 +45,7 @@ export const CATEGORIES = [
   // rather than a loose end.
   {
     label: "New",
-    match: /^(crown|flag|flag-chequered|traffic-light|tyre|engine|helmet|car|car-racing|bug)$/,
+    match: /^(crown|flag|flag-chequered|traffic-light|tyre|engine|helmet|hard-hat|car|car-racing|bug)$/,
     blurb: "Drawn since the last release and waiting to be reviewed.",
   },
   // `refresh` and `rotate` are here because they are arrow glyphs, whatever they
@@ -204,9 +204,11 @@ export const CATEGORIES = [
     // rather than in Files, the same call `gallery-*` gets against Layout.
     // Prefixes, so the family this is being drawn towards lands here too: a
     // `screwdriver`, a `wrench-plus`.
+    // `hard-hat` is site kit, not a helmet variant: the racing helmet is in
+    // Motoring with its driver, the hard hat here with the tools.
     label: "Tools",
-    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler)/,
-    blurb: "The toolbox and what comes out of it.",
+    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler|hard-hat)/,
+    blurb: "The toolbox, the hard hat and what comes out of it.",
   },
   {
     label: "Shapes",

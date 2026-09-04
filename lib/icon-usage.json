@@ -486,6 +486,7 @@
     "helmet": "A full-face helmet with its visor, for drivers, riders and safety gear.",
     "car": "A car seen side on, for vehicles, driving, parking and transport.",
     "car-racing": "A single-seater racing car with its rear wing, for Formula 1, motorsport and speed.",
-    "bug": "A beetle, for software bugs, issue reports and anything that needs debugging."
+    "bug": "A beetle, for software bugs, issue reports and anything that needs debugging.",
+    "hard-hat": "A hard hat with its ridge and ribs, for construction, site safety and work in progress."
   }
 }
