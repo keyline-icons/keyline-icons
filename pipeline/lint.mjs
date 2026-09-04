@@ -195,7 +195,7 @@ const SIZE_KNOWN = new Set([
   'pause', 'skip-back', 'skip-forward', 'stop',
   'git-commit-horizontal', 'git-commit-vertical',
   'terminal', 'terminal-asterisk',
-  'credit-card', 'octagon-alert', 'octagon-x', 'package', 'settings', 'user', 'x',
+  'credit-card', 'credit-card-2', 'octagon-alert', 'octagon-x', 'package', 'package-check', 'settings', 'user', 'x',
   'bell', 'paperclip', 'wifi', 'wifi-info', 'wifi-exclamation',
   'repeat', 'repeat-1',
   'arrow-down-left', 'arrow-down-right', 'arrow-up-left', 'arrow-up-right',
@@ -247,6 +247,11 @@ const MAX_SKEW = 1;
  * `circle-navigation` — predate the rule and have not been adjudicated. They are
  * silenced, not blessed; see *A fractional extent is almost always a defect*.
  *
+ * `package-*` joins the answered half on 4 Sep 2026, for the bell-and-user
+ * reason exactly: the parcel's ink stops at 22 and its seam runs down x=12, so
+ * a six-unit sign clearing the seam by 2 cannot start before 15 and cannot end
+ * before 23. One unit outside the body, and no arrangement inside it.
+ *
  * `bin` used to be listed here at 18 x 21 with 2/1 padding. It was adjudicated
  * on 16 Aug 2026 and is now 18 x 22 with 3/3/1/1 — the vertical size, centred
  * exactly — so it is neither in this set nor a finding. Do not re-raise it.
@@ -254,6 +259,8 @@ const MAX_SKEW = 1;
 const SKEW_KNOWN = new Set([
   'bell-check', 'bell-dot', 'bell-minus', 'bell-plus', 'bell-x',
   'circle-navigation', 'git-graph', 'git-pull-request-arrow',
+  'package-arrow-down', 'package-arrow-left', 'package-arrow-right', 'package-arrow-up',
+  'package-check', 'package-minus', 'package-plus', 'package-x',
   'signal-high', 'signal-low', 'signal-medium', 'terminal-cursor',
   'user', 'user-check', 'user-minus', 'user-plus', 'user-x', 'users',
 ]);
@@ -513,7 +520,12 @@ const COUNTER = new Set(['at', 'percent']);
  * entry here. Add a name only when the closing edge is genuinely painted by
  * another part of the same drawing.
  */
-const CLOSED_BY_STROKE = new Set(['flag']);
+// `app-*` is the same measurement problem `inheritedFill` fixes for every other
+// corner-sign family, with nowhere to inherit from: the tile they are drawn on
+// is `square`, and a bare `app` would be the first drawing this set ships under
+// two names, and there are none today in either corner style. The form is plainly
+// closed and its fill paints a solid tile, so the measurement is what is wrong.
+const CLOSED_BY_STROKE = new Set(['flag', 'app-check', 'app-minus', 'app-plus', 'app-x']);
 
 /**
  * A compound's fillability comes from its base.

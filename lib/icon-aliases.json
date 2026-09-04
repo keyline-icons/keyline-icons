@@ -1749,7 +1749,7 @@
       ]
     },
     {
-      "match": "^cloud-(check|x|plus|minus)$",
+      "match": "^cloud-(check|x|plus|minus|alert)$",
       "note": "The sign is inside the cloud, so these read as the state of a sync rather than of a file.",
       "terms": [
         "sync",
@@ -1757,7 +1757,139 @@
         "cloud storage",
         "upload state",
         "synced",
-        "offline"
+        "offline",
+        "sync error",
+        "warning"
+      ]
+    },
+    {
+      "match": "^package-(plus|minus|check|x|alert|arrow-(down|up|left|right))$",
+      "note": "The sign is on the parcel's own corner, so these read as the state of an order rather than of a file.",
+      "terms": [
+        "order",
+        "shipment",
+        "delivery",
+        "parcel",
+        "fulfilment",
+        "stock",
+        "release",
+        "inbound",
+        "outbound",
+        "dispatch",
+        "return",
+        "damaged",
+        "delayed",
+        "exception",
+        "held"
+      ]
+    },
+    {
+      "match": "^app(-|$)",
+      "note": "No bare `app`: the tile is `square`, and only the badged members carry the word.",
+      "terms": [
+        "application",
+        "tile",
+        "install",
+        "uninstall",
+        "software",
+        "launcher",
+        "badge"
+      ]
+    },
+    {
+      "match": "-alert$",
+      "note": "wifi-exclamation is the one icon that spells this mark the other way, so the word it uses has to find the rest.",
+      "terms": [
+        "exclamation",
+        "warning",
+        "attention",
+        "problem",
+        "error",
+        "caution"
+      ]
+    },
+    {
+      "match": "^move$",
+      "terms": [
+        "drag",
+        "reposition",
+        "pan",
+        "handle",
+        "four arrows",
+        "relocate"
+      ]
+    },
+    {
+      "match": "^maximize-2$",
+      "terms": [
+        "expand",
+        "fullscreen",
+        "enlarge",
+        "zoom in",
+        "open"
+      ]
+    },
+    {
+      "match": "^credit-card-2$",
+      "terms": [
+        "payment",
+        "card",
+        "billing",
+        "checkout",
+        "debit"
+      ]
+    },
+    {
+      "match": "^replay$",
+      "terms": [
+        "restart",
+        "again",
+        "rerun",
+        "rewatch",
+        "loop"
+      ]
+    },
+    {
+      "match": "^circle-dashed-play$",
+      "terms": [
+        "queued",
+        "pending",
+        "draft run",
+        "not started",
+        "scheduled"
+      ]
+    },
+    {
+      "match": "^settings-dot$",
+      "terms": [
+        "update available",
+        "preferences",
+        "attention",
+        "badge",
+        "unread setting"
+      ]
+    },
+    {
+      "match": "^briefcase$",
+      "terms": [
+        "work",
+        "business",
+        "job",
+        "portfolio",
+        "case",
+        "office",
+        "career"
+      ]
+    },
+    {
+      "match": "^umbrella$",
+      "terms": [
+        "insurance",
+        "cover",
+        "protection",
+        "rain",
+        "shelter",
+        "risk"
       ]
     }
   ],

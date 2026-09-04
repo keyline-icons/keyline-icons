@@ -45,14 +45,14 @@ export const CATEGORIES = [
   // rather than a loose end.
   {
     label: "New",
-    match: /^(crown|flag|flag-chequered|traffic-light|bug|search-2?-(?:plus|minus|check|x|list)|cloud-(?:plus|minus|check|x))$/,
+    match: /^(crown|flag|flag-chequered|traffic-light|bug|search-2?-(?:plus|minus|check|x|list)|cloud-(?:plus|minus|check|x|alert)|package-(?:plus|minus|check|x|alert|arrow-(?:down|up|left|right))|settings-dot|briefcase|umbrella|move|maximize-2|credit-card-2|replay|circle-dashed-play|app-(?:plus|minus|check|x|dot))$/,
     blurb: "Drawn since the last release and waiting to be reviewed.",
   },
   // `refresh` and `rotate` are here because they are arrow glyphs, whatever they
   // are used for. The anchor is what keeps `git-refresh` in Git below.
   {
     label: "Arrows",
-    match: /^(arrow|bracket-arrow|expand|refresh|rotate)/,
+    match: /^(arrow|bracket-arrow|expand|refresh|rotate|move$)/,
     blurb:
       "Direction, movement and resizing, with the brackets, u-turns and dashed panels.",
   },
@@ -99,7 +99,7 @@ export const CATEGORIES = [
     // Shapes on their prefix like every other contained glyph.
     label: "Commerce",
     match:
-      /^(shopping-|handbag|receipt|credit-card|tag|package|truck|gift|coupon|percent)/,
+      /^(shopping-|handbag|briefcase|receipt|credit-card|tag|package|truck|gift|coupon|percent)/,
     blurb: "Carts, bags, receipts, cards, shipping and the discount marks.",
   },
   {
@@ -125,7 +125,7 @@ export const CATEGORIES = [
     // wherever the two disagree — the same call the taxonomy makes for `wifi`.
     label: "Media",
     match:
-      /^(play|pause|stop|record|skip-|fast-forward|rewind|repeat|volume|audio-lines|mic|megaphone|headphones|headset|shuffle|music-note|list-music|list-video|camera|image|cast|subtitles|captions|picture-in-picture|gallery-|podcast|queue)/,
+      /^(play|pause|stop|record|skip-|fast-forward|rewind|repeat|replay|volume|audio-lines|mic|megaphone|headphones|headset|shuffle|music-note|list-music|list-video|camera|image|cast|subtitles|captions|picture-in-picture|gallery-|podcast|queue)/,
     blurb:
       "Playback, volume, capture, casting and the sound and image marks.",
   },
@@ -142,7 +142,7 @@ export const CATEGORIES = [
     // `bug` is the software bug, so it sits with `code` rather than in a
     // shelf of creatures the set does not have.
     label: "Devices",
-    match: /^(smartphone|monitor|terminal|database|server|battery|bluetooth|code|plug|bug)/,
+    match: /^(smartphone|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|app)/,
     blurb: "Phones, servers, databases, terminals, code, bugs and what plugs into them.",
   },
   {
@@ -219,7 +219,7 @@ export const CATEGORIES = [
     // Prefixes rather than exact names, so the compounds this family is being
     // drawn towards land here too: `cloud-rain`, `sunrise`, `moon-star`.
     label: "Weather",
-    match: /^(sun|moon|cloud)/,
+    match: /^(sun|moon|cloud|umbrella)/,
     blurb: "Sun, moon, cloud and the states between them.",
   },
 ] as const
