@@ -938,6 +938,15 @@ export function CircleDashedHalf(props: IconProps) {
   )
 }
 
+export function CircleDashedPlay(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M9.4927 6.4533L17.0107 11.152C17.6374 11.5437 17.6374 12.4563 17.0107 12.848L9.4927 17.5467C8.8266 17.963 7.9627 17.4841 7.9627 16.6987L7.9627 7.3013C7.9627 6.5159 8.8266 6.037 9.4927 6.4533Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M21.7205 9.448C22.041 11.4721 22.041 12.5279 21.7205 14.552M20.678 17.0688C19.4734 18.7268 18.7268 19.4734 17.0688 20.678M14.552 21.7205C12.5279 22.041 11.4721 22.041 9.448 21.7205M6.93196 20.678C5.2732 19.4734 4.52663 18.7268 3.32199 17.0688M2.27953 14.552C1.95896 12.5279 1.95896 11.4721 2.27953 9.448M3.32199 6.93196C4.52663 5.2732 5.2732 4.52663 6.93196 3.32199M9.448 2.27953C11.4721 1.95896 12.5279 1.95896 14.552 2.27953M17.0688 3.32199C18.7268 4.52663 19.4734 5.2732 20.678 6.93196M8.9627 7.3013L16.4807 12L8.9627 16.6987L8.9627 7.3013Z" />
+    </Icon>
+  )
+}
+
 export function CircleDashedQuarter(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -1542,6 +1551,15 @@ export function Coupon(props: IconProps) {
       <path d="M2 3L22 3C22.5523 3 23 3.4477 23 4L23 9C23 9.5523 22.5523 10 22 10C20.7574 10 20 10.7573 20 12C20 13.2427 20.7574 14 22 14C22.5523 14 23 14.4477 23 15L23 20C23 20.5523 22.5523 21 22 21L2 21C1.4477 21 1 20.5523 1 20L1 15C1 14.4477 1.4477 14 2 14C3.2426 14 4 13.2427 4 12C4 10.7573 3.2426 10 2 10C1.4477 10 1 9.5523 1 9L1 4C1 3.4477 1.4477 3 2 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <path d="M2 4L22 4L22 9C20.3432 9 19 10.3431 19 12C19 13.6569 20.3432 15 22 15L22 20L2 20L2 15C3.6568 15 5 13.6569 5 12C5 10.3431 3.6568 9 2 9L2 4ZM8.2929 15.7071L15.7071 8.2929" />
       <path d="M10.5 8.5C10.5 9.3284 9.8284 10 9 10C8.1716 10 7.5 9.3284 7.5 8.5C7.5 7.6716 8.1716 7 9 7C9.8284 7 10.5 7.6716 10.5 8.5ZM16.5 15.5C16.5 16.3284 15.8284 17 15 17C14.1716 17 13.5 16.3284 13.5 15.5C13.5 14.6716 14.1716 14 15 14C15.8284 14 16.5 14.6716 16.5 15.5Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function CreditCard2(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M3 3L21 3C21.5523 3 22 3.4477 22 4L22 20C22 20.5523 21.5523 21 21 21L3 21C2.4477 21 2 20.5523 2 20L2 4C2 3.4477 2.4477 3 3 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M3 15L21 15M13 9.5L18 9.5M3 4L21 4L21 20L3 20L3 4Z" />
     </Icon>
   )
 }
@@ -3323,6 +3341,15 @@ export function Record(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M21 12C21 16.8325 16.8325 21 12 21C7.1675 21 3 16.8325 3 12C3 7.1675 7.1675 3 12 3C16.8325 3 21 7.1675 21 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <path d="M20 12C20 16.4183 16.4183 20 12 20C7.5817 20 4 16.4183 4 12C4 7.5817 7.5817 4 12 4C16.4183 4 20 7.5817 20 12Z" />
+    </Icon>
+  )
+}
+
+export function Replay(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M9.4927 6.4533L17.0107 11.152C17.6374 11.5437 17.6374 12.4563 17.0107 12.848L9.4927 17.5467C8.8266 17.963 7.9627 17.4841 7.9627 16.6987L7.9627 7.3013C7.9627 6.5159 8.8266 6.037 9.4927 6.4533Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M20.5727 9.0828C20.929 10.6966 21 11.3473 21 12C21 16.9706 16.9706 21 12 21C7.0294 21 3 16.9706 3 12C3 7.0294 7.0294 3 12 3C14.4831 3 16.8559 4.0259 19.0133 6.3204M19.8557 2.01L19.2001 6.5999L14.61 5.9443M8.9627 7.3013L16.4807 12L8.9627 16.6987L8.9627 7.3013Z" />
     </Icon>
   )
 }

@@ -1,6 +1,6 @@
 # @keyline-icons/react
 
-619 icons on one 24×24 grid, as React components. Built for shadcn/ui, free
+624 icons on one 24×24 grid, as React components. Built for shadcn/ui, free
 under MIT.
 
 [keylineicons.com](https://keylineicons.com) to browse the full set.
@@ -41,9 +41,9 @@ scope. There is no provider, no context and no theme object.
 **Three weights, three entry points.**
 
 ```tsx
-import { Bell } from "@keyline-icons/react"          // stroke,  619 icons
-import { Bell } from "@keyline-icons/react/duotone"  // duotone, 514 icons
-import { Bell } from "@keyline-icons/react/fill"     // fill,    466 icons
+import { Bell } from "@keyline-icons/react"          // stroke,  624 icons
+import { Bell } from "@keyline-icons/react/duotone"  // duotone, 517 icons
+import { Bell } from "@keyline-icons/react/fill"     // fill,    469 icons
 ```
 
 Separate imports rather than one component with a `weight` prop, because the
