@@ -1795,6 +1795,14 @@ export function Code(props: IconProps) {
   )
 }
 
+export function Coins(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M10.0503 4.0503C11.363 2.7375 13.1435 2 15 2C18.866 2 22 5.134 22 9C22 10.8565 21.2625 12.637 19.9497 13.9497M16 15C16 18.866 12.866 22 9 22C5.134 22 2 18.866 2 15C2 11.134 5.134 8 9 8C12.866 8 16 11.134 16 15Z" />
+    </Icon>
+  )
+}
+
 export function Compass(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
