@@ -66,25 +66,44 @@ async function fileId() {
    carrying the JSON-RPC body, and the session id comes back on the first call. */
 let session = null
 
-async function rpc(method, params) {
+const CLIENT = { name: "keyline-check-paper", version: "1" }
+
+/* Paper drops a session mid-run and the socket comes back ECONNRESET, which is
+   indistinguishable from the app being closed if you only catch `fetch`
+   throwing. It is not the same thing: the server is still there and a fresh
+   handshake gets a working session straight back. Told apart, the reset costs
+   one extra round trip; conflated, it reads as "Paper is not listening" while
+   Paper is plainly open, which is what the `New` board did every run from
+   27 Aug 2026 until 4 Sep. `initialize` is excluded because retrying it is what
+   the retry does. */
+async function post(method, params) {
   const headers = {
     "content-type": "application/json",
     accept: "application/json, text/event-stream",
   }
   if (session) headers["mcp-session-id"] = session
+  return fetch(ENDPOINT, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
+  })
+}
 
+const wasReset = (e) => (e?.cause?.code ?? e?.code) === "ECONNRESET"
+
+async function rpc(method, params) {
   let res
   try {
-    res = await fetch(ENDPOINT, {
-      method: "POST",
-      headers,
-      body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
-    })
-  } catch {
-    throw new Error(
-      `${c(31, "Paper is not listening")} on ${ENDPOINT}.\n` +
-        `Open Paper Desktop with the file, or set PAPER_MCP to its endpoint.`
-    )
+    res = await post(method, params)
+  } catch (e) {
+    if (!wasReset(e) || method === "initialize")
+      throw new Error(
+        `${c(31, "Paper is not listening")} on ${ENDPOINT}.\n` +
+          `Open Paper Desktop with the file, or set PAPER_MCP to its endpoint.`
+      )
+    session = null
+    await rpc("initialize", { protocolVersion: "2025-06-18", capabilities: {}, clientInfo: CLIENT })
+    res = await post(method, params)
   }
 
   session ??= res.headers.get("mcp-session-id")
@@ -186,7 +205,7 @@ const id = await fileId()
 await rpc("initialize", {
   protocolVersion: "2025-06-18",
   capabilities: {},
-  clientInfo: { name: "keyline-check-paper", version: "1" },
+  clientInfo: CLIENT,
 })
 
 /* Every page, because the file puts the changelog on its own and an artboard
