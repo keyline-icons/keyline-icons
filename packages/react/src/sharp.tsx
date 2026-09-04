@@ -1650,6 +1650,22 @@ export function Clock(props: IconProps) {
   )
 }
 
+export function CloudCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M6 19L18 19C20.2091 19 22 17.2091 22 15C22 12.7909 20.2091 11 18 11C18 7.6863 15.3137 5 12 5C8.6863 5 6 7.6863 6 11C3.7909 11 2 12.7909 2 15C2 17.2091 3.7909 19 6 19ZM9.4029 12.163L11.5778 14.4L14.4214 9.7467" />
+    </Icon>
+  )
+}
+
+export function CloudMinus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M6 19L18 19C20.2091 19 22 17.2091 22 15C22 12.7909 20.2091 11 18 11C18 7.6863 15.3137 5 12 5C8.6863 5 6 7.6863 6 11C3.7909 11 2 12.7909 2 15C2 17.2091 3.7909 19 6 19ZM8.75 12.5L15.25 12.5" />
+    </Icon>
+  )
+}
+
 export function CloudOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -1658,10 +1674,26 @@ export function CloudOff(props: IconProps) {
   )
 }
 
+export function CloudPlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M6 19L18 19C20.2091 19 22 17.2091 22 15C22 12.7909 20.2091 11 18 11C18 7.6863 15.3137 5 12 5C8.6863 5 6 7.6863 6 11C3.7909 11 2 12.7909 2 15C2 17.2091 3.7909 19 6 19ZM8.75 12.5L15.25 12.5M12 9.25L12 15.75" />
+    </Icon>
+  )
+}
+
 export function CloudRain(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M6 16L18 16C20.2091 16 22 14.2091 22 12C22 9.7909 20.2091 8 18 8C18 4.6863 15.3137 2 12 2C8.6863 2 6 4.6863 6 8C3.7909 8 2 9.7909 2 12C2 14.2091 3.7909 16 6 16ZM8 19L8 23M12 19L12 23M16 19L16 23" fill="none" />
+    </Icon>
+  )
+}
+
+export function CloudX(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M6 19L18 19C20.2091 19 22 17.2091 22 15C22 12.7909 20.2091 11 18 11C18 7.6863 15.3137 5 12 5C8.6863 5 6 7.6863 6 11C3.7909 11 2 12.7909 2 15C2 17.2091 3.7909 19 6 19ZM9.3483 9.8483L14.6517 15.1517M14.6517 9.8483L9.3483 15.1517" />
     </Icon>
   )
 }
@@ -2087,6 +2119,14 @@ export function Filter(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M3 3L21 3L14 11.5001L14 19L10 21L10 11.5001L3 3Z" fill="none" />
+    </Icon>
+  )
+}
+
+export function FlagChequered(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M4 4C5.2311 3.3434 6.6048 3 8 3C9.3952 3 10.7689 3.3434 12 4C13.2311 4.6566 14.6048 5 16 5C17.3952 5 18.7689 4.6566 20 4L20 15C18.7689 15.6566 17.3952 16 16 16C14.6048 16 13.2311 15.6566 12 15C10.7689 14.3434 9.3952 14 8 14C6.6048 14 5.2311 14.3434 4 15L4 4ZM4 22L4 14M9.3333 2.1052L9.3333 15.1052M14.6667 3.8948L14.6667 16.8948M4 9.5C5.2311 8.8434 6.6048 8.5 8 8.5C9.3952 8.5 10.7689 8.8434 12 9.5C13.2311 10.1566 14.6048 10.5 16 10.5C17.3952 10.5 18.7689 10.1566 20 9.5" />
     </Icon>
   )
 }

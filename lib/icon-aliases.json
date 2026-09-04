@@ -1732,6 +1732,33 @@
         "directory",
         "browse"
       ]
+    },
+    {
+      "match": "^flag-chequered$",
+      "note": "The finish line, not a country.",
+      "terms": [
+        "checkered",
+        "checkered flag",
+        "finish",
+        "finish line",
+        "race",
+        "racing",
+        "complete",
+        "winner",
+        "lap"
+      ]
+    },
+    {
+      "match": "^cloud-(check|x|plus|minus)$",
+      "note": "The sign is inside the cloud, so these read as the state of a sync rather than of a file.",
+      "terms": [
+        "sync",
+        "backup",
+        "cloud storage",
+        "upload state",
+        "synced",
+        "offline"
+      ]
     }
   ],
   "names": {
