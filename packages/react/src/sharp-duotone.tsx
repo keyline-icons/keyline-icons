@@ -1828,7 +1828,7 @@ export function FlagChequered(props: IconProps) {
 export function Flag(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3 3C3 3.5523 3.4477 4 4 4C4.5523 4 5 3.5523 5 3CNaN NaN NaN NaN NaN NaNCNaN NaN NaN NaN NaN NaNCNaN NaN NaN NaN NaN NaNL21 14CNaN NaN NaN NaN NaN NaNCNaN NaN NaN NaN NaN NaNCNaN NaN NaN NaN NaN NaNL3 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M3 3C3 2.4477 3.4477 2 4 2C5.3817 2 6.7468 2.3014 8 2.8832C9.1975 3.5993 10.5843 4 12 4C13.4157 4 14.8025 3.5993 16 2.8443C17.2532 2.3014 18.6183 2 20 2C20.5523 2 21 2.4477 21 3L21 14C21 14.5523 20.5523 15 20 15C18.5843 15 17.1975 15.4007 16 16.1557C14.7468 16.6986 13.3817 17 12 17C10.6183 17 9.2532 16.6986 8 16.1168C6.8025 15.4007 5.4157 15 4 15L3 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <path d="M4 3C5.3952 3 6.7689 3.3434 8 4C9.2311 4.6566 10.6048 5 12 5C13.3952 5 14.7689 4.6566 16 4C17.2311 3.3434 18.6048 3 20 3L20 14C18.6048 14 17.2311 14.3434 16 15C14.7689 15.6566 13.3952 16 12 16C10.6048 16 9.2311 15.6566 8 15C6.7689 14.3434 5.3952 14 4 14L4 3ZM4 22L4 13" />
     </Icon>
   )
