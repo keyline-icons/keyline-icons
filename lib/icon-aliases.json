@@ -1913,6 +1913,18 @@
         "lapsed",
         "fair weather"
       ]
+    },
+    {
+      "match": "^parasol$",
+      "terms": [
+        "shade",
+        "sunshade",
+        "beach",
+        "terrace",
+        "patio",
+        "sun",
+        "awning"
+      ]
     }
   ],
   "names": {
