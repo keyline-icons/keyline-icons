@@ -568,7 +568,7 @@ export function BracketArrowUp(props: IconProps) {
 export function Bug(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M9 8L15 8C16.6569 8 18 9.3431 18 11L18 18C18 19.6569 16.6569 21 15 21L9 21C7.3431 21 6 19.6569 6 18L6 11C6 9.3431 7.3431 8 9 8ZM9.5 8C9.5 6.6193 10.6193 5.5 12 5.5C13.3807 5.5 14.5 6.6193 14.5 8M12 12L12 21M10.2322 6.2322L7 3M13.7678 6.2322L17 3M6 11L3 9M18 11L21 9M6 15L3 15M18 15L21 15M6.1716 19L3.1716 21M17.8284 19L20.8284 21" />
+      <path d="M8 9L16 9C16.5523 9 17 9.4477 17 10L17 20C17 20.5523 16.5523 21 16 21L8 21C7.4477 21 7 20.5523 7 20L7 10C7 9.4477 7.4477 9 8 9ZM8 9C8 6.7909 9.7909 5 12 5C14.2091 5 16 6.7909 16 9M12 9L12 21M8 9L3 3M16 9L21 3M7 14.5L3 11.5M7 18.5L3 21M17 14.5L21 11.5M17 18.5L21 21" />
     </Icon>
   )
 }
@@ -2094,7 +2094,7 @@ export function Filter(props: IconProps) {
 export function Flag(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M4 13.3739C4 13.7715 4.2356 14.1313 4.6 14.2904C5.6724 14.7584 6.8299 15 8 15C9.3952 15 10.7689 14.6566 12 14C13.2311 13.3434 14.6048 13 16 13C16.9123 13 17.8186 13.1469 18.6842 13.435C18.786 13.4688 18.8927 13.4861 19 13.4861C19.5523 13.4861 20 13.0384 20 12.4861L20 3.6261C20 3.2285 19.7644 2.8687 19.4 2.7096C18.3276 2.2416 17.1701 2 16 2C14.6048 2 13.2311 2.3434 12 3C10.7689 3.6566 9.3952 4 8 4C6.6048 4 5.2311 3.6566 4 3L4 22" />
+      <path d="M4 4.6261C4 4.2285 4.2356 3.8687 4.6 3.7096C5.6724 3.2416 6.8299 3 8 3C9.3952 3 10.7689 3.3434 12 4C13.2311 4.6566 14.6048 5 16 5C16.9123 5 17.8186 4.8531 18.6842 4.565C18.786 4.5312 18.8927 4.5139 19 4.5139C19.5523 4.5139 20 4.9616 20 5.5139L20 14.3739C20 14.7715 19.7644 15.1313 19.4 15.2904C18.3276 15.7584 17.1701 16 16 16C14.6048 16 13.2311 15.6566 12 15C10.7689 14.3434 9.3952 14 8 14C6.6048 14 5.2311 14.3434 4 15L4 4.6261ZM4 21L4 15" />
     </Icon>
   )
 }
@@ -3634,10 +3634,90 @@ export function ScanFace(props: IconProps) {
   )
 }
 
+export function Search2Check(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M19 11C19 15.4183 15.4183 19 11 19C6.5817 19 3 15.4183 3 11C3 6.5817 6.5817 3 11 3C15.4183 3 19 6.5817 19 11ZM17 17L21 21M8.8787 11.4243L10.5285 13.1213L13.1213 8.8787" />
+    </Icon>
+  )
+}
+
+export function Search2List(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M19 11C19 15.4183 15.4183 19 11 19C6.5817 19 3 15.4183 3 11C3 6.5817 6.5817 3 11 3C15.4183 3 19 6.5817 19 11ZM17 17L21 21M8.8 9L11.2 9M8.8 13L13.2 13" />
+    </Icon>
+  )
+}
+
+export function Search2Minus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M19 11C19 15.4183 15.4183 19 11 19C6.5817 19 3 15.4183 3 11C3 6.5817 6.5817 3 11 3C15.4183 3 19 6.5817 19 11ZM17 17L21 21M8 11L14 11" />
+    </Icon>
+  )
+}
+
+export function Search2Plus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M19 11C19 15.4183 15.4183 19 11 19C6.5817 19 3 15.4183 3 11C3 6.5817 6.5817 3 11 3C15.4183 3 19 6.5817 19 11ZM17 17L21 21M8 11L14 11M11 8L11 14" />
+    </Icon>
+  )
+}
+
+export function Search2X(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M19 11C19 15.4183 15.4183 19 11 19C6.5817 19 3 15.4183 3 11C3 6.5817 6.5817 3 11 3C15.4183 3 19 6.5817 19 11ZM17 17L21 21M8.8787 8.8787L13.1213 13.1213M13.1213 8.8787L8.8787 13.1213" />
+    </Icon>
+  )
+}
+
 export function Search2(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M19 11C19 15.4184 15.4184 19 11 19C6.5816 19 3 15.4184 3 11C3 6.5816 6.5816 3 11 3C15.4184 3 19 6.5816 19 11ZM17 17L21 21" />
+    </Icon>
+  )
+}
+
+export function SearchCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M17 10C17 13.866 13.866 17 10 17C6.134 17 3 13.866 3 10C3 6.134 6.134 3 10 3C13.866 3 17 6.134 17 10ZM15 15L21 21M7.8787 10.4243L9.5285 12.1213L12.1213 7.8787" />
+    </Icon>
+  )
+}
+
+export function SearchList(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M17 10C17 13.866 13.866 17 10 17C6.134 17 3 13.866 3 10C3 6.134 6.134 3 10 3C13.866 3 17 6.134 17 10ZM15 15L21 21M7.8 8L10.2 8M7.8 12L12.2 12" />
+    </Icon>
+  )
+}
+
+export function SearchMinus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M17 10C17 13.866 13.866 17 10 17C6.134 17 3 13.866 3 10C3 6.134 6.134 3 10 3C13.866 3 17 6.134 17 10ZM15 15L21 21M7 10L13 10" />
+    </Icon>
+  )
+}
+
+export function SearchPlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M17 10C17 13.866 13.866 17 10 17C6.134 17 3 13.866 3 10C3 6.134 6.134 3 10 3C13.866 3 17 6.134 17 10ZM15 15L21 21M7 10L13 10M10 7L10 13" />
+    </Icon>
+  )
+}
+
+export function SearchX(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M17 10C17 13.866 13.866 17 10 17C6.134 17 3 13.866 3 10C3 6.134 6.134 3 10 3C13.866 3 17 6.134 17 10ZM15 15L21 21M7.8787 7.8787L12.1213 12.1213M12.1213 7.8787L7.8787 12.1213" />
     </Icon>
   )
 }

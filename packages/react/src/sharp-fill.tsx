@@ -172,8 +172,8 @@ export function Bookmark(props: IconProps) {
 export function Bug(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M8.6459 7C9.0881 5.5167 10.4522 4.5 12 4.5C13.5478 4.5 14.9119 5.5167 15.3541 7L18 7C18.5523 7 19 7.4477 19 8L19 21C19 21.5523 18.5523 22 18 22L6 22C5.4477 22 5 21.5523 5 21L5 8C5 7.4477 5.4477 7 6 7ZM11 12L13 12L13 20L11 20L11 12Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <path d="M10.9393 6.9393L6.2929 2.2929M13.0607 6.9393L17.7071 2.2929M6.8321 11.5547L2.1679 8.4453M17.1679 11.5547L21.8321 8.4453M7 15L2 15M17 15L22 15M6.8321 18.4453L2.1679 21.5547M17.1679 18.4453L21.8321 21.5547" />
+      <path d="M7 8L7.101 8C7.5762 5.672 9.624 4 12 4C14.376 4 16.4238 5.672 16.899 8L17 8C17.5523 8 18 8.4477 18 9L18 21C18 21.5523 17.5523 22 17 22L7 22C6.4477 22 6 21.5523 6 21L6 9C6 8.4477 6.4477 8 7 8ZM11 10L13 10L13 20L11 20L11 10Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M8.6402 9.7682L2.3598 2.2318M15.3598 9.7682L21.6402 2.2318M7.8 15.1L2.2 10.9M7.848 17.97L2.152 21.53M16.2 15.1L21.8 10.9M16.152 17.97L21.848 21.53" />
     </Icon>
   )
 }
@@ -1400,8 +1400,8 @@ export function Filter(props: IconProps) {
 export function Flag(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3 14C3 14.3693 3.2035 14.7086 3.5294 14.8824C4.9053 15.6162 6.4407 16 8 16C9.5593 16 11.0947 15.6162 12.4706 14.8824C13.5568 14.303 14.7689 14 16 14C17.2311 14 18.4432 14.303 19.5294 14.8824C19.6742 14.9596 19.8359 15 20 15C20.5523 15 21 14.5523 21 14L21 3C21 2.6307 20.7965 2.2914 20.4706 2.1176C19.0947 1.3838 17.5593 1 16 1C14.4407 1 12.9053 1.3838 11.5294 2.1176C10.4432 2.697 9.2311 3 8 3C6.7689 3 5.5568 2.697 4.4706 2.1176C4.3258 2.0404 4.1641 2 4 2C3.4477 2 3 2.4477 3 3L3 14Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <path d="M4 14C5.2311 14.6566 6.6048 15 8 15C9.3952 15 10.7689 14.6566 12 14C13.2311 13.3434 14.6048 13 16 13C17.3952 13 18.7689 13.3434 20 14L20 3C18.7689 2.3434 17.3952 2 16 2C14.6048 2 13.2311 2.3434 12 3C10.7689 3.6566 9.3952 4 8 4C6.6048 4 5.2311 3.6566 4 3L4 23" />
+      <path d="M3 4C3 3.6307 3.2035 3.2914 3.5294 3.1176C5.2532 2.3014 6.6183 2 8 2C9.3817 2 10.7468 2.3014 12 2.8832C13.1975 3.5993 14.5843 4 16 4C17.2311 4 18.4432 3.697 19.5294 3.1176C19.6742 3.0404 19.8359 3 20 3C20.5523 3 21 3.4477 21 4L21 15C21 15.3693 20.7965 15.7086 20.4706 15.8824C18.7468 16.6986 17.3817 17 16 17C14.6183 17 13.2532 16.6986 12 16.1168C10.8025 15.4007 9.4157 15 8 15C6.5843 15 5.1975 15.4007 4 16.1557L3 4Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M4 4C5.2311 3.3434 6.6048 3 8 3C9.3952 3 10.7689 3.3434 12 4C13.2311 4.6566 14.6048 5 16 5C17.3952 5 18.7689 4.6566 20 4L20 15C18.7689 15.6566 17.3952 16 16 16C14.6048 16 13.2311 15.6566 12 15C10.7689 14.3434 9.3952 14 8 14C6.6048 14 5.2311 14.3434 4 15L4 4ZM4 22L4 14" />
     </Icon>
   )
 }
@@ -2707,11 +2707,101 @@ export function Route(props: IconProps) {
   )
 }
 
+export function Search2Check(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M20 11C20 15.9706 15.9706 20 11 20C6.0294 20 2 15.9706 2 11C2 6.0294 6.0294 2 11 2C15.9706 2 20 6.0294 20 11ZM7.4646 11.4044L9.8115 13.8184C9.9998 14.012 10.2584 14.1213 10.5285 14.1213C10.8769 14.1213 11.2001 13.94 11.3818 13.6428L14.496 8.5469L12.7895 7.504L10.3472 11.5002L11.2455 12.4242L8.8986 10.0102L7.4646 11.4044Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M16.2929 16.2929L21.7071 21.7071" />
+    </Icon>
+  )
+}
+
+export function Search2List(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M20 11C20 15.9706 15.9706 20 11 20C6.0294 20 2 15.9706 2 11C2 6.0294 6.0294 2 11 2C15.9706 2 20 6.0294 20 11ZM7.8 10L12.2 10L12.2 8L7.8 8L7.8 10ZM7.8 14L14.2 14L14.2 12L7.8 12L7.8 14Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M16.2929 16.2929L21.7071 21.7071" />
+    </Icon>
+  )
+}
+
+export function Search2Minus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M20 11C20 15.9706 15.9706 20 11 20C6.0294 20 2 15.9706 2 11C2 6.0294 6.0294 2 11 2C15.9706 2 20 6.0294 20 11ZM7 12L15 12L15 10L7 10L7 12Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M16.2929 16.2929L21.7071 21.7071" />
+    </Icon>
+  )
+}
+
+export function Search2Plus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M20 11C20 15.9706 15.9706 20 11 20C6.0294 20 2 15.9706 2 11C2 6.0294 6.0294 2 11 2C15.9706 2 20 6.0294 20 11ZM12 10L15 10L15 12L12 12L12 15L10 15L10 12L7 12L7 10L10 10L10 7L12 7L12 10Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M16.2929 16.2929L21.7071 21.7071" />
+    </Icon>
+  )
+}
+
+export function Search2X(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M20 11C20 15.9706 15.9706 20 11 20C6.0294 20 2 15.9706 2 11C2 6.0294 6.0294 2 11 2C15.9706 2 20 6.0294 20 11ZM12.4142 11L14.5355 13.1213L13.1213 14.5355L11 12.4142L8.8787 14.5355L7.4645 13.1213L9.5858 11L7.4645 8.8787L8.8787 7.4645L11 9.5858L13.1213 7.4645L14.5355 8.8787L12.4142 11Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M16.2929 16.2929L21.7071 21.7071" />
+    </Icon>
+  )
+}
+
 export function Search2(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M20 11C20 15.8326 15.8326 20 11 20C6.1674 20 2 15.8326 2 11C2 6.1674 6.1674 2 11 2C15.8326 2 20 6.1674 20 11Z" fill="currentColor" stroke="none" />
       <path d="M16.2929 16.2929L21.7071 21.7071" />
+    </Icon>
+  )
+}
+
+export function SearchCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M18 10C18 14.4183 14.4183 18 10 18C5.5817 18 2 14.4183 2 10C2 5.5817 5.5817 2 10 2C14.4183 2 18 5.5817 18 10ZM6.4646 10.4044L8.8115 12.8184C8.9998 13.012 9.2584 13.1213 9.5285 13.1213C9.8769 13.1213 10.2001 12.94 10.3818 12.6428L13.496 7.5469L11.7895 6.504L9.3472 10.5002L10.2455 11.4242L7.8986 9.0102L6.4646 10.4044Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M14.2929 14.2929L21.7071 21.7071" />
+    </Icon>
+  )
+}
+
+export function SearchList(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M18 10C18 14.4183 14.4183 18 10 18C5.5817 18 2 14.4183 2 10C2 5.5817 5.5817 2 10 2C14.4183 2 18 5.5817 18 10ZM6.8 9L11.2 9L11.2 7L6.8 7L6.8 9ZM6.8 13L13.2 13L13.2 11L6.8 11L6.8 13Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M14.2929 14.2929L21.7071 21.7071" />
+    </Icon>
+  )
+}
+
+export function SearchMinus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M18 10C18 14.4183 14.4183 18 10 18C5.5817 18 2 14.4183 2 10C2 5.5817 5.5817 2 10 2C14.4183 2 18 5.5817 18 10ZM6 11L14 11L14 9L6 9L6 11Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M14.2929 14.2929L21.7071 21.7071" />
+    </Icon>
+  )
+}
+
+export function SearchPlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M18 10C18 14.4183 14.4183 18 10 18C5.5817 18 2 14.4183 2 10C2 5.5817 5.5817 2 10 2C14.4183 2 18 5.5817 18 10ZM11 9L14 9L14 11L11 11L11 14L9 14L9 11L6 11L6 9L9 9L9 6L11 6L11 9Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M14.2929 14.2929L21.7071 21.7071" />
+    </Icon>
+  )
+}
+
+export function SearchX(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M18 10C18 14.4183 14.4183 18 10 18C5.5817 18 2 14.4183 2 10C2 5.5817 5.5817 2 10 2C14.4183 2 18 5.5817 18 10ZM11.4142 10L13.5355 12.1213L12.1213 13.5355L10 11.4142L7.8787 13.5355L6.4645 12.1213L8.5858 10L6.4645 7.8787L7.8787 6.4645L10 8.5858L12.1213 6.4645L13.5355 7.8787L11.4142 10Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M14.2929 14.2929L21.7071 21.7071" />
     </Icon>
   )
 }

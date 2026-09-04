@@ -226,15 +226,6 @@
       ]
     },
     {
-      "match": "^caret",
-      "terms": [
-        "triangle",
-        "dropdown",
-        "sort",
-        "select"
-      ]
-    },
-    {
       "match": "^check$",
       "terms": [
         "done",
@@ -313,16 +304,6 @@
         "clipboard",
         "clone",
         "paste"
-      ]
-    },
-    {
-      "match": "^credit-card$",
-      "terms": [
-        "payment",
-        "checkout",
-        "billing",
-        "card",
-        "pay"
       ]
     },
     {
@@ -1697,6 +1678,59 @@
         "error",
         "report a bug",
         "pest"
+      ]
+    },
+    {
+      "match": "^search(-2)?-plus$",
+      "note": "The magnifier with a plus: zoom in, and add-to-search.",
+      "terms": [
+        "zoom in",
+        "magnify",
+        "enlarge",
+        "add filter",
+        "new search"
+      ]
+    },
+    {
+      "match": "^search(-2)?-minus$",
+      "terms": [
+        "zoom out",
+        "shrink",
+        "reduce",
+        "remove filter",
+        "narrow"
+      ]
+    },
+    {
+      "match": "^search(-2)?-check$",
+      "terms": [
+        "found",
+        "match",
+        "verified result",
+        "search complete",
+        "validated"
+      ]
+    },
+    {
+      "match": "^search(-2)?-x$",
+      "terms": [
+        "no results",
+        "not found",
+        "clear search",
+        "cancel search",
+        "empty state"
+      ]
+    },
+    {
+      "match": "^search(-2)?-list$",
+      "note": "Results, rather than the act of searching.",
+      "terms": [
+        "results",
+        "search results",
+        "matches",
+        "index",
+        "directory",
+        "browse"
       ]
     }
   ],

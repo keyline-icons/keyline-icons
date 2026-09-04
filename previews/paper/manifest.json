@@ -13,9 +13,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 480,
-  "names": 589,
-  "variants": 3018,
+  "icons": 490,
+  "names": 599,
+  "variants": 3078,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -630,16 +630,28 @@
       "bytes": 4311
     },
     {
-      "file": "new.html",
+      "file": "new-1.html",
       "artboard": "New",
       "category": "New",
       "part": 1,
-      "parts": 1,
+      "parts": 2,
       "into": "artboard",
       "width": 742,
-      "icons": 4,
-      "variants": 24,
-      "bytes": 25185
+      "icons": 9,
+      "variants": 48,
+      "bytes": 41372
+    },
+    {
+      "file": "new-2.html",
+      "artboard": "New",
+      "category": "New",
+      "part": 2,
+      "parts": 2,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 6,
+      "bytes": 5936
     },
     {
       "file": "pointers-1.html",
@@ -829,7 +841,7 @@
       "parts": 4,
       "into": "artboard",
       "width": 742,
-      "icons": 21,
+      "icons": 26,
       "variants": 50,
       "bytes": 42237
     },
@@ -842,8 +854,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 26525
+      "variants": 50,
+      "bytes": 39698
     },
     {
       "file": "web-3.html",
@@ -855,7 +867,7 @@
       "width": 742,
       "icons": 0,
       "variants": 28,
-      "bytes": 39810
+      "bytes": 37075
     },
     {
       "file": "web-4.html",
@@ -866,8 +878,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 8,
-      "bytes": 7305
+      "variants": 20,
+      "bytes": 19244
     },
     {
       "file": "catalog.html",
@@ -887,7 +899,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 230920
+      "bytes": 238132
     }
   ]
 }

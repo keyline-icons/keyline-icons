@@ -45,7 +45,7 @@ export const CATEGORIES = [
   // rather than a loose end.
   {
     label: "New",
-    match: /^(crown|flag|traffic-light|bug)$/,
+    match: /^(crown|flag|traffic-light|bug|search-2?-(?:plus|minus|check|x|list))$/,
     blurb: "Drawn since the last release and waiting to be reviewed.",
   },
   // `refresh` and `rotate` are here because they are arrow glyphs, whatever they
