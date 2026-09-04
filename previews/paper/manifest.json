@@ -638,8 +638,8 @@
       "into": "artboard",
       "width": 742,
       "icons": 40,
-      "variants": 48,
-      "bytes": 42779
+      "variants": 42,
+      "bytes": 37283
     },
     {
       "file": "new-2.html",
@@ -651,7 +651,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 40534
+      "bytes": 39773
     },
     {
       "file": "new-3.html",
@@ -663,7 +663,7 @@
       "width": 742,
       "icons": 0,
       "variants": 34,
-      "bytes": 37279
+      "bytes": 38107
     },
     {
       "file": "new-4.html",
@@ -675,7 +675,7 @@
       "width": 742,
       "icons": 0,
       "variants": 42,
-      "bytes": 39841
+      "bytes": 40077
     },
     {
       "file": "new-5.html",
@@ -687,7 +687,7 @@
       "width": 742,
       "icons": 0,
       "variants": 36,
-      "bytes": 39084
+      "bytes": 28323
     },
     {
       "file": "new-6.html",
@@ -698,8 +698,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 22511
+      "variants": 30,
+      "bytes": 39413
     },
     {
       "file": "pointers-1.html",
@@ -947,7 +947,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 268140
+      "bytes": 268215
     }
   ]
 }
