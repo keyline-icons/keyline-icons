@@ -634,36 +634,24 @@
       "artboard": "New",
       "category": "New",
       "part": 1,
-      "parts": 3,
+      "parts": 2,
       "into": "artboard",
       "width": 742,
       "icons": 11,
       "variants": 36,
-      "bytes": 37656
+      "bytes": 37429
     },
     {
       "file": "new-2.html",
       "artboard": "New",
       "category": "New",
       "part": 2,
-      "parts": 3,
+      "parts": 2,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 27843
-    },
-    {
-      "file": "new-3.html",
-      "artboard": "New",
-      "category": "New",
-      "part": 3,
-      "parts": 3,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 6,
-      "bytes": 13374
+      "variants": 30,
+      "bytes": 39475
     },
     {
       "file": "pointers-1.html",
@@ -911,7 +899,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 238781
+      "bytes": 238511
     }
   ]
 }
