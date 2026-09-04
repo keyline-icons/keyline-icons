@@ -13,9 +13,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 518,
-  "names": 627,
-  "variants": 3238,
+  "icons": 522,
+  "names": 631,
+  "variants": 3262,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -255,7 +255,7 @@
       "width": 742,
       "icons": 15,
       "variants": 44,
-      "bytes": 39581
+      "bytes": 39577
     },
     {
       "file": "commerce-2.html",
@@ -637,9 +637,9 @@
       "parts": 6,
       "into": "artboard",
       "width": 742,
-      "icons": 37,
+      "icons": 41,
       "variants": 42,
-      "bytes": 35852
+      "bytes": 36891
     },
     {
       "file": "new-2.html",
@@ -651,7 +651,7 @@
       "width": 742,
       "icons": 0,
       "variants": 42,
-      "bytes": 36230
+      "bytes": 38363
     },
     {
       "file": "new-3.html",
@@ -663,7 +663,7 @@
       "width": 742,
       "icons": 0,
       "variants": 34,
-      "bytes": 37372
+      "bytes": 35340
     },
     {
       "file": "new-4.html",
@@ -675,7 +675,7 @@
       "width": 742,
       "icons": 0,
       "variants": 42,
-      "bytes": 39874
+      "bytes": 39976
     },
     {
       "file": "new-5.html",
@@ -686,8 +686,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 36,
-      "bytes": 28323
+      "variants": 48,
+      "bytes": 39998
     },
     {
       "file": "new-6.html",
@@ -698,8 +698,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 18,
-      "bytes": 27317
+      "variants": 30,
+      "bytes": 39658
     },
     {
       "file": "pointers-1.html",
@@ -947,7 +947,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 264158
+      "bytes": 269476
     }
   ]
 }

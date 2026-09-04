@@ -199,6 +199,39 @@ const redrawn = (name, from, to) => {
   return existed ? { name, style: null, before: null, after: null } : null
 }
 
+/**
+ * The drawings whose files differ between two refs.
+ *
+ * Candidates used to be nominated from each icon's `updated` date, the window
+ * its *latest* commit falls in. That reads the past wrong the second time a
+ * drawing is corrected: redrawing `credit-card` on 4 September 2026 moved its
+ * date out of v0.3.0's window, so the entry v0.3.0 had already published came
+ * back one redraw shorter and the guard below stopped the build. A date
+ * answers "when was this last touched"; the question here is "what changed
+ * between these two trees", which git answers exactly, once per release, for
+ * about what the heuristic was buying. The same lesson as reading release
+ * membership off `ls-tree` rather than off dates, one level down.
+ */
+const changedBetween = (from, to) =>
+  new Set(
+    git(
+      "diff",
+      "--name-only",
+      from,
+      to,
+      "--",
+      /* Exactly the paths `redrawn` reads, and no others. Widening this to
+         `icons` nominates every name whose sharp file moved, which in v0.3.0
+         is the whole set — and `redrawn`, which looks only at the three
+         regular folders, then reports each of them as a redraw with no pair
+         to show. Nominate from what will be compared. */
+      ...STYLES.map((style) => `icons/${style}`)
+    )
+      .split("\n")
+      .map((path) => path.match(/^icons\/[^/]+\/(.+)\.svg$/)?.[1])
+      .filter(Boolean)
+  )
+
 /** The redraws of a window, sorted, with anything the window did not carry dropped. */
 const redraws = (candidates, from, to) =>
   candidates
@@ -529,23 +562,17 @@ const out =
            * as "0 drawings added", which is true and tells the reader nothing
            * about what they are being asked to upgrade for.
            *
-           * The dates only nominate candidates here, cheaply: a redraw is a
-           * drawing both tags carry whose file differs between them, and
-           * `redrawn` is what settles it. Running it over all 547 names would
-           * be 1,600 subprocesses to answer what two dates rule out in one
-           * pass.
+           * `changedBetween` nominates candidates here: a redraw is a drawing
+           * both tags carry whose file differs between them, and `redrawn` is
+           * what settles it. Running `redrawn` over all 547 names would be
+           * 1,600 subprocesses to answer what one `git diff` rules out.
            */
           const updated = redraws(
-            Object.entries(icons)
-              .filter(
-                ([name, h]) =>
-                  before &&
-                  was.has(name) &&
-                  now.has(name) &&
-                  h.updated > before.date &&
-                  h.updated <= r.date
-              )
-              .map(([name]) => name),
+            before
+              ? [...changedBetween(before.tag, r.tag)].filter(
+                  (name) => was.has(name) && now.has(name)
+                )
+              : [],
             before?.tag,
             r.tag
           )
