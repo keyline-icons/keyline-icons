@@ -34,12 +34,16 @@ import { artOf } from "@/components/glyph"
 import { CORNERS, loadIcons, STYLES, type Icon } from "@/lib/icons"
 import { searchSuggestions } from "@/lib/search-suggestions"
 import { cn } from "@/lib/utils"
-import { homeJsonLd, pageMetadata } from "@/lib/seo"
+import {
+  homeCardDescription,
+  homeCardTitle,
+  homeJsonLd,
+  pageMetadata,
+} from "@/lib/seo"
 import {
   SET_LICENSE,
   SET_LICENSE_NAME,
   SET_SPONSOR_URL,
-  SET_TITLE,
   SITE_LINKS,
 } from "@/lib/site-chrome"
 import { siteSponsors, sponsorHref } from "@/lib/sponsors"
@@ -83,7 +87,7 @@ export async function generateMetadata(): Promise<Metadata> {
       skill.
     */
     title: {
-      absolute: `${SET_TITLE}: ${total} free shadcn/ui icons, crafted with AI`,
+      absolute: homeCardTitle(total),
     },
     /*
       "stroke, duotone and fill, rounded or sharp" is one phrase, spelled the
@@ -99,7 +103,7 @@ export async function generateMetadata(): Promise<Metadata> {
       `${total} free ${SET_LICENSE}-licensed icons for shadcn/ui, drawn on ` +
       `one 24×24 grid in stroke, duotone and fill, rounded or sharp. Search ` +
       `the set, copy any icon as SVG or JSX, or import the React components.`,
-    socialDescription: `${total} free icons for shadcn/ui, in stroke, duotone and fill, rounded or sharp. ${SET_LICENSE} licensed.`,
+    socialDescription: homeCardDescription(total),
   })
 }
 

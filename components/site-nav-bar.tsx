@@ -21,7 +21,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { ShareMenu } from "@/components/share-menu"
+import { ShareDialog } from "@/components/share-dialog"
 import type { ShareCounts } from "@/lib/share"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { formatStars } from "@/lib/github"
@@ -385,7 +385,7 @@ export function SiteNavBar({
               below `md` is an ask missed by every visitor who found the set on
               a phone, which is most of them.
             */}
-            <ShareMenu counts={counts} />
+            <ShareDialog counts={counts} />
 
             {/* The link row is gone below md, so it needs a way back. */}
             <DropdownMenu>

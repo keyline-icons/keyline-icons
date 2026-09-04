@@ -87,6 +87,41 @@ export const SITE_DESCRIPTION =
   `${SET_TITLE} is a free, ${SET_LICENSE}-licensed 24×24 icon set built for ` +
   `shadcn/ui, drawn on one grid in stroke, duotone and fill, rounded or sharp.`
 
+/**
+ * The homepage's card, in the two strings a network actually reads.
+ *
+ * Functions of the count rather than constants, for the reason every figure on
+ * this site is counted: `app/page.tsx` awaits `loadIcons()` already and hands
+ * the number in, so the card cannot claim a size the set does not have.
+ *
+ * They are here rather than inline in that page's `generateMetadata` because
+ * two surfaces render them now. The page emits them as `og:title` and
+ * `og:description`, which is what X, LinkedIn and the rest fetch; the share
+ * dialog quotes them back in its preview of what those networks will make of
+ * the link. A preview that quotes a second wording is a preview that lies, and
+ * the wording it would go on quoting is whichever one nobody remembered to
+ * change.
+ *
+ * `homeCardTitle` is the page's `<title>` as well. The homepage is the one
+ * route that opts out of the layout's `%s · Keyline Icons` template, so the
+ * absolute title and the card title are the same string by definition.
+ */
+export const homeCardTitle = (icons: number) =>
+  `${SET_TITLE}: ${icons} free shadcn/ui icons, crafted with AI`
+
+/**
+ * The card's line under that title.
+ *
+ * Shorter than the page's own description on purpose: that one is written for a
+ * search result and says what you can do here, this one is written for a feed
+ * card and has to survive being cut off. "stroke, duotone and fill, rounded or
+ * sharp" is the site's one phrase for what the set offers, spelled the same way
+ * here as in `SITE_DESCRIPTION` and in the hero.
+ */
+export const homeCardDescription = (icons: number) =>
+  `${icons} free icons for shadcn/ui, in stroke, duotone and fill, rounded or ` +
+  `sharp. ${SET_LICENSE} licensed.`
+
 type PageMetadata = {
   /** Route path, e.g. `/demo`. Becomes the canonical and `og:url`. */
   path: string

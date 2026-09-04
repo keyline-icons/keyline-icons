@@ -176,7 +176,8 @@ export default async function Page() {
         <p>
           On top of those, a handful of things you do with the set are counted:
           copying an icon&apos;s snippet or its name, downloading an SVG,
-          copying an install command, and a search that found nothing.
+          copying an install command, sharing the set or copying its link, and a
+          search that found nothing.
         </p>
         <p>
           <strong className="font-medium text-foreground">
