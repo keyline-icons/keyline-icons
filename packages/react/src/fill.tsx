@@ -172,7 +172,7 @@ export function Bookmark(props: IconProps) {
 export function Bug(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M8.6411 7.0161C9.078 5.5247 10.4459 4.5 12 4.5C13.5541 4.5 14.922 5.5247 15.3589 7.0161C17.4206 7.2019 19 8.9299 19 11L19 18C19 20.2091 17.2091 22 15 22L9 22C6.7909 22 5 20.2091 5 18L5 11C5 8.7909 6.7909 7 9 7C5 8.9299 6.5794 7.2019 8.6411 7.0161ZM11 12L13 12L13 20L11 20L11 12Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M8.6411 7.0161C9.078 5.5247 10.4459 4.5 12 4.5C13.5541 4.5 14.922 5.5247 15.3589 7.0161C17.4206 7.2019 19 8.9299 19 11L19 18C19 20.2091 17.2091 22 15 22L9 22C6.7909 22 5 20.2091 5 18L5 11C5 8.9299 6.5794 7.2019 8.6411 7.0161ZM11 12L13 12L13 20L11 20L11 12Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
       <path d="M10.2322 6.2322L7 3M13.7678 6.2322L17 3M6 11L3 9M18 11L21 9M6 15L3 15M18 15L21 15M6.1716 19L3.1716 21M17.8284 19L20.8284 21" />
     </Icon>
   )
