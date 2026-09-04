@@ -41,7 +41,7 @@ export function Award(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M19 9C19 12.866 15.866 16 12 16C8.134 16 5 12.866 5 9C5 5.134 8.134 2 12 2C15.866 2 19 5.134 19 9Z" fill="currentColor" stroke="none" />
-      <path d="M19 9C19 12.866 15.866 16 12 16C8.134 16 5 12.866 5 9C5 5.134 8.134 2 12 2C15.866 2 19 5.134 19 9ZM16.1787 14.6159L17.8979 19.9266L19 22L12 19.2077L5 22L6.1021 19.9266L7.8213 14.6159" />
+      <path d="M19 9C19 12.866 15.866 16 12 16C8.134 16 5 12.866 5 9C5 5.134 8.134 2 12 2C15.866 2 19 5.134 19 9ZM16.1787 14.6159L19 22L12 19.2077L5 22L7.8213 14.6159" />
     </Icon>
   )
 }
@@ -2710,7 +2710,7 @@ export function Route(props: IconProps) {
 export function Search2Check(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M20 11C20 15.9706 15.9706 20 11 20C6.0294 20 2 15.9706 2 11C2 6.0294 6.0294 2 11 2C15.9706 2 20 6.0294 20 11ZM7.4646 11.4044L9.8115 13.8184C9.9998 14.012 10.2584 14.1213 10.5285 14.1213C10.8769 14.1213 11.2001 13.94 11.3818 13.6428L14.496 8.5469L12.7895 7.504L10.3472 11.5002L11.2455 12.4242L8.8986 10.0102L7.4646 11.4044Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M20 11C20 15.9706 15.9706 20 11 20C6.0294 20 2 15.9706 2 11C2 6.0294 6.0294 2 11 2C15.9706 2 20 6.0294 20 11ZM7.4646 11.4044L9.8115 13.8184C9.9998 14.012 10.2584 14.1213 10.5285 14.1213C10.8769 14.1213 11.2001 13.94 11.3818 13.6428L14.496 8.5469L12.7895 7.504L10.3472 11.5002L8.8986 10.0102L7.4646 11.4044Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
       <path d="M16.2929 16.2929L21.7071 21.7071" />
     </Icon>
   )
@@ -2764,7 +2764,7 @@ export function Search2(props: IconProps) {
 export function SearchCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M18 10C18 14.4183 14.4183 18 10 18C5.5817 18 2 14.4183 2 10C2 5.5817 5.5817 2 10 2C14.4183 2 18 5.5817 18 10ZM6.4646 10.4044L8.8115 12.8184C8.9998 13.012 9.2584 13.1213 9.5285 13.1213C9.8769 13.1213 10.2001 12.94 10.3818 12.6428L13.496 7.5469L11.7895 6.504L9.3472 10.5002L10.2455 11.4242L7.8986 9.0102L6.4646 10.4044Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M18 10C18 14.4183 14.4183 18 10 18C5.5817 18 2 14.4183 2 10C2 5.5817 5.5817 2 10 2C14.4183 2 18 5.5817 18 10ZM6.4646 10.4044L8.8115 12.8184C8.9998 13.012 9.2584 13.1213 9.5285 13.1213C9.8769 13.1213 10.2001 12.94 10.3818 12.6428L13.496 7.5469L11.7895 6.504L9.3472 10.5002L7.8986 9.0102L6.4646 10.4044Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
       <path d="M14.2929 14.2929L21.7071 21.7071" />
     </Icon>
   )

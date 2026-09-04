@@ -344,7 +344,7 @@ export function AudioLines(props: IconProps) {
 export function Award(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M19 9C19 12.866 15.866 16 12 16C8.134 16 5 12.866 5 9C5 5.134 8.134 2 12 2C15.866 2 19 5.134 19 9ZM16.1787 14.6159L17.8979 19.9266L19 22L12 19.2077L5 22L6.1021 19.9266L7.8213 14.6159" />
+      <path d="M19 9C19 12.866 15.866 16 12 16C8.134 16 5 12.866 5 9C5 5.134 8.134 2 12 2C15.866 2 19 5.134 19 9ZM16.1787 14.6159L19 22L12 19.2077L5 22L7.8213 14.6159" />
     </Icon>
   )
 }
@@ -3834,7 +3834,7 @@ export function ShoppingCart(props: IconProps) {
 export function Shuffle(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M2 6L8.4692 6L9.6 8.1L10.7628 9.9896M13.2372 14.0104L14.4 15.9L15.5308 18L21 18M2 18L8.4692 18L9.6 15.9L14.4 8.1L15.5308 6L21 6M17.2929 2.2929L21 6L17.2929 9.7071M17.2929 14.2929L21 18L17.2929 21.7071" />
+      <path d="M2 6L8.308 6L10.7628 9.9896M13.2372 14.0104L15.692 18L21 18M2 18L8.308 18L15.692 6L21 6M17.2929 2.2929L21 6L17.2929 9.7071M17.2929 14.2929L21 18L17.2929 21.7071" />
     </Icon>
   )
 }
