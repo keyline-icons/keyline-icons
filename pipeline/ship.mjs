@@ -82,6 +82,14 @@ const OWNED = [
   "lib/icon-history.json",
   "README.md",
   "packages/react/README.md",
+  /* The other two files `check-readmes --fix` rewrites. It is run above, by
+     `ship` itself, so leaving these out does not merely fail to stage work
+     someone else did: it edits them and then walks past them, and the counts
+     land in the *next* commit that happens to touch the plugin, or in none.
+     That went out three times before it was noticed. Anything --fix writes
+     belongs here; `check-readmes`'s CLAIMS list is the set. */
+  "packages/figma-plugin/README.md",
+  "packages/figma-plugin/LISTING.md",
 ]
 
 /* ------------------------------------------------------------ preflight */
