@@ -45,7 +45,7 @@ export const CATEGORIES = [
   // rather than a loose end.
   {
     label: "New",
-    match: /^(crown|flag|flag-chequered|traffic-light|bug|search-2?-(?:plus|minus|check|x|list)|cloud-(?:plus|minus|check|x|alert)|package-(?:plus|minus|check|x|alert|arrow-(?:down|up|left|right))|settings-dot|briefcase|umbrella|umbrella-off|umbrella-closed|parasol|move|maximize-2|credit-card-2|replay|circle-dashed-play|circle-progress-play|app-(?:plus|minus|check|x|dot))$/,
+    match: /^(crown|flag|flag-chequered|traffic-light|bug|search-2?-(?:plus|minus|check|x|list)|cloud-(?:plus|minus|check|x|alert)|package-(?:plus|minus|check|x|alert|arrow-(?:down|up|left|right))|settings-dot|briefcase|umbrella|umbrella-off|umbrella-closed|parasol|move|maximize-2|credit-card-2|replay|circle-progress-play|app-(?:plus|minus|check|x|dot))$/,
     blurb: "Drawn since the last release and waiting to be reviewed.",
   },
   // `refresh` and `rotate` are here because they are arrow glyphs, whatever they

@@ -1,6 +1,5 @@
 {
   "$comment": "Hand-written per-icon copy: what the drawing is for, in one line. Source, not generated — there is nothing to generate it from, since the Figma descriptions are search terms rather than prose. Keyed by BASE name, so one drawing boxed three ways shares a line and lib/icon-pages.ts adds the container clause. Every line has to fit USAGE_LIMIT in lib/icon-usage.ts; pipeline/check-usage.mjs measures the real descriptions and lists anything missing.",
-  "umbrella-off": "An umbrella struck through, for no cover, a lapsed policy and protection switched off.",
   "usage": {
     "activity": "A pulse line, for health readouts, live monitors and anything reporting a heartbeat.",
     "alert": "Warnings, failed validation and the confirm step in front of something destructive.",
@@ -111,7 +110,6 @@
     "circle-dashed-check": "A tick inside a dashed round, for a task done inside a pending flow.",
     "circle-dashed-full": "A dashed round complete, for one hundred per cent and a finished segment.",
     "circle-dashed-half": "A dashed round half filled, for fifty per cent and a midway step.",
-    "circle-dashed-play": "A dashed ring around a play mark, for a queued run not yet started.",
     "circle-dashed-quarter": "A dashed round a quarter filled, for twenty-five per cent and early progress.",
     "circle-dashed-three-quarter": "A dashed round three quarters filled, for seventy-five per cent and nearly done.",
     "circle-full": "A round filled whole, for one hundred per cent, complete and solid status.",
@@ -501,6 +499,7 @@
     "truck": "A delivery lorry, for shipping, freight, logistics and order tracking.",
     "umbrella": "A canopy with a hooked handle, for cover, insurance and protection from risk.",
     "umbrella-closed": "A furled umbrella, for dry weather, a lapsed policy and cover not in force.",
+    "umbrella-off": "An umbrella struck through, for no cover, a lapsed policy and protection switched off.",
     "unlock": "An open padlock, for granting access, decrypting and unlocking a record.",
     "upload": "An arrow up out of a tray, for sending a file, submitting and publishing.",
     "user": "A single person, for accounts, profiles, avatars and members.",

@@ -13,9 +13,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 522,
-  "names": 631,
-  "variants": 3262,
+  "icons": 521,
+  "names": 630,
+  "variants": 3256,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -637,9 +637,9 @@
       "parts": 6,
       "into": "artboard",
       "width": 742,
-      "icons": 41,
-      "variants": 42,
-      "bytes": 36891
+      "icons": 40,
+      "variants": 48,
+      "bytes": 42779
     },
     {
       "file": "new-2.html",
@@ -650,8 +650,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 42,
-      "bytes": 38363
+      "variants": 48,
+      "bytes": 40534
     },
     {
       "file": "new-3.html",
@@ -663,7 +663,7 @@
       "width": 742,
       "icons": 0,
       "variants": 34,
-      "bytes": 35340
+      "bytes": 37279
     },
     {
       "file": "new-4.html",
@@ -675,7 +675,7 @@
       "width": 742,
       "icons": 0,
       "variants": 42,
-      "bytes": 39976
+      "bytes": 39841
     },
     {
       "file": "new-5.html",
@@ -686,8 +686,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 39998
+      "variants": 36,
+      "bytes": 40346
     },
     {
       "file": "new-6.html",
@@ -698,8 +698,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 30,
-      "bytes": 39658
+      "variants": 24,
+      "bytes": 22511
     },
     {
       "file": "pointers-1.html",
@@ -947,7 +947,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 269476
+      "bytes": 268150
     }
   ]
 }

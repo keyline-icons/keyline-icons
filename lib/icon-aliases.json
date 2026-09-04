@@ -1850,16 +1850,6 @@
       ]
     },
     {
-      "match": "^circle-dashed-play$",
-      "terms": [
-        "queued",
-        "pending",
-        "draft run",
-        "not started",
-        "scheduled"
-      ]
-    },
-    {
       "match": "^settings-dot$",
       "terms": [
         "update available",
