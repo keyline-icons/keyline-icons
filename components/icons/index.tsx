@@ -608,7 +608,7 @@ export function BracketArrowUp(props: IconProps) {
 export function Briefcase(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M8 8V5C8 3.8954 8.8954 3 10 3H14C15.1046 3 16 3.8954 16 5V8M2 14H22M5 8H19C20.6569 8 22 9.3431 22 11V18C22 19.6569 20.6569 21 19 21H5C3.3431 21 2 19.6569 2 18V11C2 9.3431 3.3431 8 5 8Z" />
+      <path d="M8 7V6C8 4.3431 9.3431 3 11 3H13C14.6569 3 16 4.3431 16 6V7M2 11C6 13 18 13 22 11M9.5 12.4339V13.5C9.5 14.6046 10.3954 15.5 11.5 15.5H12.5C13.6046 15.5 14.5 14.6046 14.5 13.5V12.4339M5 7H19C20.6569 7 22 8.3431 22 10V18C22 19.6569 20.6569 21 19 21H5C3.3431 21 2 19.6569 2 18V10C2 8.3431 3.3431 7 5 7Z" />
     </Icon>
   )
 }
@@ -5045,7 +5045,7 @@ export function Truck(props: IconProps) {
 export function Umbrella(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM12 12V19C12 20.6569 13.3431 22 15 22C16.6569 22 18 20.6569 18 19" />
+      <path d="M2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12C20.75 10 18.25 10 17 12C15.75 10 13.25 10 12 12C10.75 10 8.25 10 7 12C5.75 10 3.25 10 2 12ZM12 12V19C12 20.6569 13.3431 22 15 22C16.6569 22 18 20.6569 18 19" />
     </Icon>
   )
 }

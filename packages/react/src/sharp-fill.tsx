@@ -216,8 +216,8 @@ export function Bookmark(props: IconProps) {
 export function Briefcase(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M2 7L22 7C22.5523 7 23 7.4477 23 8L23 21C23 21.5523 22.5523 22 22 22L2 22C1.4477 22 1 21.5523 1 21L1 8C1 7.4477 1.4477 7 2 7ZM3 13H21V15H3V13Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <path d="M8 8L8 3L16 3L16 8" />
+      <path d="M2 6L22 6C22.5523 6 23 6.4477 23 7L23 21C23 21.5523 22.5523 22 22 22L2 22C1.4477 22 1 21.5523 1 21L1 7C1 6.4477 1.4477 6 2 6ZM20.6817 10.4588C16.5473 11.8471 7.4527 11.8471 3.3183 10.4588L2.6817 12.3548C7.2291 13.8817 16.7709 13.8817 21.3183 12.3548L20.6817 10.4588ZM8.5 12.4339L8.5 13.5C8.5 15.1569 9.8431 16.5 11.5 16.5L12.5 16.5C14.1569 16.5 15.5 15.1569 15.5 13.5L15.5 12.4339L13.5 12.4339L13.5 13.5C13.5 14.0523 13.0523 14.5 12.5 14.5L11.5 14.5C10.9477 14.5 10.5 14.0523 10.5 13.5L10.5 12.4339L8.5 12.4339Z" fill="currentColor" stroke="none" />
+      <path d="M8 7L8 3L16 3L16 7" />
     </Icon>
   )
 }
@@ -3938,7 +3938,7 @@ export function Truck(props: IconProps) {
 export function Umbrella(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12L23 13L1 13L1 12Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12C23 13.0047 21.6845 13.382 21.152 12.53C20.2937 11.1567 18.7063 11.1567 17.848 12.53C17.4563 13.1567 16.5437 13.1567 16.152 12.53C15.2937 11.1567 13.7063 11.1567 12.848 12.53C12.4563 13.1567 11.5437 13.1567 11.152 12.53C10.2937 11.1567 8.7063 11.1567 7.848 12.53C7.4563 13.1567 6.5437 13.1567 6.152 12.53C5.2937 11.1567 3.7063 11.1567 2.848 12.53C2.3155 13.382 1 13.0047 1 12Z" fill="currentColor" stroke="none" />
       <path d="M12 12L12 19C12 20.6569 13.3431 22 15 22C16.6569 22 18 20.6569 18 19L18 18" />
     </Icon>
   )

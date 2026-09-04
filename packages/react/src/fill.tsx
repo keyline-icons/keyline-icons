@@ -216,8 +216,8 @@ export function Bookmark(props: IconProps) {
 export function Briefcase(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 7H19C21.2091 7 23 8.7909 23 11V18C23 20.2091 21.2091 22 19 22H5C2.7909 22 1 20.2091 1 18V11C1 8.7909 2.7909 7 5 7ZM3 13H21V15H3V13Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <path d="M8 8V5C8 3.8954 8.8954 3 10 3H14C15.1046 3 16 3.8954 16 5V8" />
+      <path d="M5 6H19C21.2091 6 23 7.7909 23 10V18C23 20.2091 21.2091 22 19 22H5C2.7909 22 1 20.2091 1 18V10C1 7.7909 2.7909 6 5 6ZM20.6817 10.4588C16.5473 11.8471 7.4527 11.8471 3.3183 10.4588L2.6817 12.3548C7.2291 13.8817 16.7709 13.8817 21.3183 12.3548L20.6817 10.4588ZM13.5 12.4339L13.5 13.5C13.5 14.0523 13.0523 14.5 12.5 14.5L11.5 14.5C10.9477 14.5 10.5 14.0523 10.5 13.5L10.5 12.4339L8.5 12.4339L8.5 13.5C8.5 15.1569 9.8431 16.5 11.5 16.5L12.5 16.5C14.1569 16.5 15.5 15.1569 15.5 13.5L15.5 12.4339L13.5 12.4339Z" fill="currentColor" stroke="none" />
+      <path d="M8 7V6C8 4.3431 9.3431 3 11 3H13C14.6569 3 16 4.3431 16 6V7" />
     </Icon>
   )
 }
@@ -3935,7 +3935,7 @@ export function Truck(props: IconProps) {
 export function Umbrella(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12C23 12.5523 22.5523 13 22 13H2C1.4477 13 1 12.5523 1 12Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12C23 13.0047 21.6845 13.382 21.152 12.53C20.2937 11.1567 18.7063 11.1567 17.848 12.53C17.4563 13.1567 16.5437 13.1567 16.152 12.53C15.2937 11.1567 13.7063 11.1567 12.848 12.53C12.4563 13.1567 11.5437 13.1567 11.152 12.53C10.2937 11.1567 8.7063 11.1567 7.848 12.53C7.4563 13.1567 6.5437 13.1567 6.152 12.53C5.2937 11.1567 3.7063 11.1567 2.848 12.53C2.3155 13.382 1 13.0047 1 12Z" fill="currentColor" stroke="none" />
       <path d="M12 12V19C12 20.6569 13.3431 22 15 22C16.6569 22 18 20.6569 18 19" />
     </Icon>
   )
