@@ -247,6 +247,9 @@ const MAX_SKEW = 1;
  * `circle-navigation` — predate the rule and have not been adjudicated. They are
  * silenced, not blessed; see *A fractional extent is almost always a defect*.
  *
+ * `settings-dot` joins for the bell reason too: the gear fills its own box, so
+ * the badge sits outside it at the corner every other -dot uses.
+ *
  * `package-*` joins the answered half on 4 Sep 2026, for the bell-and-user
  * reason exactly: the parcel's ink stops at 22 and its seam runs down x=12, so
  * a six-unit sign clearing the seam by 2 cannot start before 15 and cannot end
@@ -259,6 +262,7 @@ const MAX_SKEW = 1;
 const SKEW_KNOWN = new Set([
   'bell-check', 'bell-dot', 'bell-minus', 'bell-plus', 'bell-x',
   'circle-navigation', 'git-graph', 'git-pull-request-arrow',
+  'settings-dot',
   'package-arrow-down', 'package-arrow-left', 'package-arrow-right', 'package-arrow-up',
   'package-check', 'package-minus', 'package-plus', 'package-x',
   'signal-high', 'signal-low', 'signal-medium', 'terminal-cursor',
