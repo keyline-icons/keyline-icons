@@ -200,11 +200,14 @@ nudged off the grid rather than a decision.
 
 Only corners where two straight edges meet through a fillet are measured. A
 curve arriving into a fillet is a dome or a lozenge, whose radius is the drawing
-itself rather than a corner treatment. And a straight run of at most a unit on
-each side of a curve is a sharp end's stub rather than an edge: a free arc end
-takes a unit of tangent so its butt cap paints where the round cap's disc
-reached, and a lone quarter arc between two such stubs would otherwise read as
-a corner of the arc's own radius (`circle-progress-quarter` at 10).
+itself rather than a corner treatment. And an open run of exactly three
+segments, a curve between two straight runs of at most a unit, is a sharp free
+arc with its two stubs rather than a corner: a free arc end takes a unit of
+tangent so its butt cap paints where the round cap's disc reached, and a lone
+quarter arc between two such stubs would otherwise read as a corner of the
+arc's own radius (`circle-progress-quarter` at 10). Closed rings are not
+exempted, because the flats between `settings`' gear teeth are under a unit
+and are real fillet edges.
 
 **The ladder is not closed under the +1 an outline adds.** A duotone plate or a
 solid is the stroke drawing outlined by one unit, and outlining raises every
