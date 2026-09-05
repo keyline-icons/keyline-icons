@@ -1645,7 +1645,7 @@ export function Clock9(props: IconProps) {
 export function ClockArrowDown(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M13 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 13M12 5L12 12L18 12M19 15L19 22M22.7071 18.2929L19 22L15.2929 18.2929" />
+      <path d="M13 22L12 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 12L22 13M12 5L12 12L18 12M19 15L19 22M22.7071 18.2929L19 22L15.2929 18.2929" />
     </Icon>
   )
 }
@@ -1653,7 +1653,7 @@ export function ClockArrowDown(props: IconProps) {
 export function ClockArrowLeft(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M13 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 13M12 5L12 12L18 12M23 19L16 19M19.7071 22.7071L16 19L19.7071 15.2929" />
+      <path d="M13 22L12 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 12L22 13M12 5L12 12L18 12M23 19L16 19M19.7071 22.7071L16 19L19.7071 15.2929" />
     </Icon>
   )
 }
@@ -1661,7 +1661,7 @@ export function ClockArrowLeft(props: IconProps) {
 export function ClockArrowRight(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M13 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 13M12 5L12 12L18 12M15 19L22 19M18.2929 22.7071L22 19L18.2929 15.2929" />
+      <path d="M13 22L12 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 12L22 13M12 5L12 12L18 12M15 19L22 19M18.2929 22.7071L22 19L18.2929 15.2929" />
     </Icon>
   )
 }
@@ -1669,7 +1669,7 @@ export function ClockArrowRight(props: IconProps) {
 export function ClockArrowUp(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M13 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 13M12 5L12 12L18 12M19 23L19 16M22.7071 19.7071L19 16L15.2929 19.7071" />
+      <path d="M13 22L12 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 12L22 13M12 5L12 12L18 12M19 23L19 16M22.7071 19.7071L19 16L15.2929 19.7071" />
     </Icon>
   )
 }
@@ -1677,7 +1677,7 @@ export function ClockArrowUp(props: IconProps) {
 export function ClockCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M13 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 13M12 5L12 12L18 12M15.2929 18.2929L18 21L22.7071 16.2929" />
+      <path d="M13 22L12 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 12L22 13M12 5L12 12L18 12M15.2929 18.2929L18 21L22.7071 16.2929" />
     </Icon>
   )
 }
@@ -1685,7 +1685,7 @@ export function ClockCheck(props: IconProps) {
 export function ClockMinus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M13 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 13M12 5L12 12L18 12M15 19L23 19" />
+      <path d="M13 22L12 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 12L22 13M12 5L12 12L18 12M15 19L23 19" />
     </Icon>
   )
 }
@@ -1693,7 +1693,7 @@ export function ClockMinus(props: IconProps) {
 export function ClockPlus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M13 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 13M12 5L12 12L18 12M19 15L19 23M15 19L23 19" />
+      <path d="M13 22L12 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 12L22 13M12 5L12 12L18 12M19 15L19 23M15 19L23 19" />
     </Icon>
   )
 }
@@ -1701,7 +1701,7 @@ export function ClockPlus(props: IconProps) {
 export function ClockX(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M13 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 13M12 5L12 12L18 12M15.2929 15.2929L22.7071 22.7071M22.7071 15.2929L15.2929 22.7071" />
+      <path d="M13 22L12 22C6.4771 22 2 17.5228 2 12C2 6.4771 6.4771 2 12 2C17.5228 2 22 6.4771 22 12L22 13M12 5L12 12L18 12M15.2929 15.2929L22.7071 22.7071M22.7071 15.2929L15.2929 22.7071" />
     </Icon>
   )
 }
