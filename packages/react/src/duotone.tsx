@@ -1536,15 +1536,6 @@ export function Cloud(props: IconProps) {
   )
 }
 
-export function Coins(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M17 15C17 19.4183 13.4183 23 9 23C4.5817 23 1 19.4183 1 15C1 10.5817 4.5817 7 9 7C13.4183 7 17 10.5817 17 15Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M10.0503 4.0503C11.363 2.7375 13.1435 2 15 2C18.866 2 22 5.134 22 9C22 10.8565 21.2625 12.637 19.9497 13.9497M16 15C16 18.866 12.866 22 9 22C5.134 22 2 18.866 2 15C2 11.134 5.134 8 9 8C12.866 8 16 11.134 16 15Z" />
-    </Icon>
-  )
-}
-
 export function Compass(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
