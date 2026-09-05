@@ -303,7 +303,7 @@
       "width": 742,
       "icons": 29,
       "variants": 54,
-      "bytes": 40900
+      "bytes": 41636
     },
     {
       "file": "devices-2.html",
@@ -947,7 +947,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 291120
+      "bytes": 294125
     }
   ]
 }
