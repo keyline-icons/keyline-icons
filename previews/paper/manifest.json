@@ -466,48 +466,36 @@
       "artboard": "Mail",
       "category": "Mail",
       "part": 1,
-      "parts": 4,
+      "parts": 3,
       "into": "artboard",
       "width": 742,
       "icons": 27,
-      "variants": 38,
-      "bytes": 37364
+      "variants": 44,
+      "bytes": 42518
     },
     {
       "file": "mail-2.html",
       "artboard": "Mail",
       "category": "Mail",
       "part": 2,
-      "parts": 4,
+      "parts": 3,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 50,
-      "bytes": 36927
+      "variants": 56,
+      "bytes": 39539
     },
     {
       "file": "mail-3.html",
       "artboard": "Mail",
       "category": "Mail",
       "part": 3,
-      "parts": 4,
+      "parts": 3,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 39664
-    },
-    {
-      "file": "mail-4.html",
-      "artboard": "Mail",
-      "category": "Mail",
-      "part": 4,
-      "parts": 4,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 10,
-      "bytes": 9359
+      "variants": 46,
+      "bytes": 40380
     },
     {
       "file": "maps-1.html",
@@ -519,7 +507,7 @@
       "width": 742,
       "icons": 12,
       "variants": 42,
-      "bytes": 38414
+      "bytes": 38286
     },
     {
       "file": "maps-2.html",
@@ -531,7 +519,7 @@
       "width": 742,
       "icons": 0,
       "variants": 30,
-      "bytes": 24759
+      "bytes": 24567
     },
     {
       "file": "media-1.html",
