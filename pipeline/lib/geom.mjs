@@ -409,6 +409,15 @@ export function roundedCorners(d) {
         const v = [next.p1[0] - next.p0[0], next.p1[1] - next.p0[1]];
         const lu = Math.hypot(...u), lv = Math.hypot(...v);
         if (lu < 1e-6 || lv < 1e-6) continue;
+        // A lone arc between two straight runs of at most a unit, open at both
+        // ends, is a sharp free arc with its two stubs, not a corner: a free arc
+        // end takes a unit of tangent so its butt cap paints where the round
+        // cap's disc reached, and a quarter arc between two such stubs would
+        // otherwise read as a corner of the arc's own radius
+        // (circle-progress-quarter at 10, cursor-signal at 8). Open runs of
+        // exactly three segments only: on a closed ring the flats between
+        // settings' gear teeth are under a unit and are real fillet edges.
+        if (!closed && n === 3 && i === 1 && lu <= 1.001 && lv <= 1.001) continue;
         // Perpendicular edges only — a fillet between edges meeting at any other
         // angle is not the square corner the radius rule is written for.
         if (Math.abs((u[0] * v[0] + u[1] * v[1]) / (lu * lv)) > 1e-3) continue;

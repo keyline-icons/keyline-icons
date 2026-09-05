@@ -223,7 +223,15 @@ const MIN_PAD = 1;
  * and the allowance cannot grow to cover one.
  */
 const CAP_CORNER = (2 / 2) * (Math.SQRT2 - 1);
-const padFloor = (corners) => (corners === 'sharp' ? MIN_PAD - CAP_CORNER : MIN_PAD);
+// PADDING asks the full unit of sharp again since 5 Sep 2026: every sharp
+// diagonal free end is cut back to its round cap's box (sharp-cap-cut.mjs), so
+// no sharp drawing paints outside its rounded sibling and a padding under 1 is
+// a regression, not the cap being itself. The allowance stays where it was
+// derived for the interior corners below. A hundredth of slack is the
+// converter's four decimals: bookmark, play and triangle-alert carry sharp
+// plates a ten-thousandth inside 1.00, and 0.99 catches every real breach
+// (the shipped overshoot padded 0.586).
+const padFloor = (corners) => (corners === 'sharp' ? MIN_PAD - 0.01 : MIN_PAD);
 /**
  * Allowed difference between opposing paddings.
  *
@@ -804,7 +812,11 @@ async function main() {
             add('warn', 'OPTICAL', id,
               `${got.toFixed(2)} units ${axis} — a ${shape} icon is drawn ${want}` +
               (NARROW.has(name) ? ' (narrow: 16 on the short axis)' : ''));
-      } else if (spread < band[0] - EPS)
+      } else if (spread < band[0] - EPS - (corners === 'sharp' ? 2 * (1 - CAP_CORNER) : 0))
+        // A sharp diagonal end is cut back to its disc box, so its chisel face
+        // sits 1 - 0.414 short of where the disc's tip reached along the arm;
+        // a drawing read along its diagonal (`x`) spans up to 1.17 less than
+        // its rounded sibling while painting the same box.
         add('warn', 'OPTICAL', id, `spans ${spread.toFixed(2)} units — below the ${band[0]} floor for ${container(name)} icons`);
       else if (size > band[1] + EPS)
         add('warn', 'OPTICAL', id, `${size.toFixed(2)} units wide — above the ${band[1]} ceiling for ${container(name)} icons`);

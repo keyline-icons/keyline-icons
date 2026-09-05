@@ -200,7 +200,11 @@ nudged off the grid rather than a decision.
 
 Only corners where two straight edges meet through a fillet are measured. A
 curve arriving into a fillet is a dome or a lozenge, whose radius is the drawing
-itself rather than a corner treatment.
+itself rather than a corner treatment. And a straight run of at most a unit on
+each side of a curve is a sharp end's stub rather than an edge: a free arc end
+takes a unit of tangent so its butt cap paints where the round cap's disc
+reached, and a lone quarter arc between two such stubs would otherwise read as
+a corner of the arc's own radius (`circle-progress-quarter` at 10).
 
 **The ladder is not closed under the +1 an outline adds.** A duotone plate or a
 solid is the stroke drawing outlined by one unit, and outlining raises every
@@ -308,6 +312,13 @@ any two points — because that is how big a glyph reads. A diagonal arrow drawn
 at 14x14 spans 19 units along its own axis, and diagonal glyphs are deliberately
 drawn smaller so they do not look oversized next to axis-aligned ones. Measuring
 their bounding box punishes exactly that compensation.
+
+**A sharp drawing may span `2 × (1 − 0.414)` less than the floor asks.** A
+sharp diagonal free end is cut back so its butt corners land on the round cap's
+box, which puts its chisel face 0.586 short of where the disc's tip reached
+along the arm; a drawing read along its diagonal, `x`, spans 1.17 less than its
+rounded sibling while painting exactly the same box. The floor measures the
+hull, so it allows that much on sharp and no more.
 
 The ceiling still measures the bounding box, since overflowing the canvas is a
 question about the box rather than about how the glyph reads.
