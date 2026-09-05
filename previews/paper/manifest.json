@@ -123,7 +123,7 @@
       "width": 742,
       "icons": 0,
       "variants": 52,
-      "bytes": 39400
+      "bytes": 39399
     },
     {
       "file": "arrows-4.html",
@@ -147,7 +147,7 @@
       "width": 742,
       "icons": 0,
       "variants": 26,
-      "bytes": 23329
+      "bytes": 23335
     },
     {
       "file": "charts-1.html",
@@ -399,7 +399,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 39652
+      "bytes": 39657
     },
     {
       "file": "git-3.html",
@@ -675,7 +675,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 39998
+      "bytes": 40001
     },
     {
       "file": "new-6.html",
@@ -699,7 +699,7 @@
       "width": 742,
       "icons": 8,
       "variants": 42,
-      "bytes": 38210
+      "bytes": 38207
     },
     {
       "file": "pointers-2.html",
