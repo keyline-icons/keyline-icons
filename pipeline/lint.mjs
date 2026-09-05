@@ -523,13 +523,19 @@ const COUNTER = new Set(['at', 'percent']);
  * closes its stairs along their own foot, under the ground bar, and so needs no
  * entry here. Add a name only when the closing edge is genuinely painted by
  * another part of the same drawing.
+ *
+ * `flag-chequered` is the same drawing with a grid on it, and it joined the list
+ * on 5 Sep 2026 when it was rebuilt on that banner. It had not needed an entry
+ * before because it was built on an older flag whose outline was a closed
+ * subpath and whose pole was drawn separately — which is exactly how the two
+ * came to be different sizes.
  */
 // `app-*` is the same measurement problem `inheritedFill` fixes for every other
 // corner-sign family, with nowhere to inherit from: the tile they are drawn on
 // is `square`, and a bare `app` would be the first drawing this set ships under
 // two names, and there are none today in either corner style. The form is plainly
 // closed and its fill paints a solid tile, so the measurement is what is wrong.
-const CLOSED_BY_STROKE = new Set(['flag', 'app-check', 'app-minus', 'app-plus', 'app-x']);
+const CLOSED_BY_STROKE = new Set(['flag', 'flag-chequered', 'app-check', 'app-minus', 'app-plus', 'app-x']);
 
 /**
  * A compound's fillability comes from its base.
