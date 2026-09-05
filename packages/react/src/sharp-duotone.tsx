@@ -1595,7 +1595,7 @@ export function Crown(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M2.5057 20.1065L1.0057 6.1065C0.9077 5.1921 1.9921 4.6414 2.6727 5.2601L7.298 9.4649L11.1588 3.4592C11.5525 2.8469 12.4475 2.8469 12.8412 3.4592L16.702 9.4649L21.3273 5.2601C22.0079 4.6414 23.0923 5.1921 22.9943 6.1065L21.4943 20.1065C21.4399 20.6147 21.011 21 20.5 21L3.5 21C2.989 21 2.5601 20.6147 2.5057 20.1065Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M3.5 20L2 6L7.5 11L12 4L16.5 11L22 6L20.5 20L3.5 20ZM1.9643 15L22.0357 15" />
+      <path d="M3.5 20L2 6L7.5 11L12 4L16.5 11L22 6L20.5 20L3.5 20ZM2.9643 15L21.0357 15" />
     </Icon>
   )
 }
@@ -3012,7 +3012,7 @@ export function MusicNoteOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M10 18C10 20.0711 8.0711 22 6 22C3.9289 22 2 20.0711 2 18C2 15.9289 3.9289 14 6 14C8.0711 14 10 15.9289 10 18Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M17.7835 12.8452L18.7518 13.095C19.8046 13.3666 20.6334 14.1954 20.905 15.2482L21.1548 16.2165M9.4338 4.9277L21 3V16.3431" strokeOpacity={0.4} />
+      <path d="M17.7835 12.8452L18.7518 13.095C20.0754 13.4383 21 14.6326 21 16M9.4338 4.9277L21 3V16.3431" strokeOpacity={0.4} />
       <path d="M9 18C9 19.6569 7.6569 21 6 21C4.3431 21 3 19.6569 3 18C3 16.3431 4.3431 15 6 15C7.6569 15 9 16.3431 9 18ZM9 18V9M18.8715 18.8715C18.5957 18.9551 18.3031 19 18 19C16.3431 19 15 17.6569 15 16C15 15.6969 15.0449 15.4043 15.1285 15.1285M1.2929 1.2929L22.7071 22.7071" />
     </Icon>
   )
