@@ -3424,7 +3424,7 @@ export function OctagonX(props: IconProps) {
 export function PackageAlert(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3.0408 6.8711L12 12M12 12L20.9591 6.8711M7.3837 4.205L16.5 9.4239M12 12L12 22L3 17.1523L3 6.8477L12 2L21 6.8477L21 13M19 15L19 19" />
+      <path d="M2 6.8477L12 12M12 12L22 6.8477M7 4.4239L17 9.4239M12 12L12 22L2 17.1523L2 6.8477L12 2L22 6.8477L22 13M19 15L19 19" />
       <path d="M20 22C20 22.5523 19.5523 23 19 23C18.4477 23 18 22.5523 18 22C18 21.4477 18.4477 21 19 21C19.5523 21 20 21.4477 20 22Z" fill="currentColor" stroke="none" />
     </Icon>
   )
@@ -3433,7 +3433,7 @@ export function PackageAlert(props: IconProps) {
 export function PackageArrowDown(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3.0408 6.8711L12 12M12 12L20.9591 6.8711M7.3837 4.205L16.5 9.4239M12 12L12 22L3 17.1523L3 6.8477L12 2L21 6.8477L21 13M19 15L19 22M15.2929 18.2929L19 22L22.7071 18.2929" />
+      <path d="M2 6.8477L12 12M12 12L22 6.8477M7 4.4239L17 9.4239M12 12L12 22L2 17.1523L2 6.8477L12 2L22 6.8477L22 13M19 15L19 22M15.2929 18.2929L19 22L22.7071 18.2929" />
     </Icon>
   )
 }
@@ -3441,7 +3441,7 @@ export function PackageArrowDown(props: IconProps) {
 export function PackageArrowLeft(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3.0408 6.8711L12 12M12 12L20.9591 6.8711M7.3837 4.205L16.5 9.4239M12 12L12 22L3 17.1523L3 6.8477L12 2L21 6.8477L21 13M23 19L16 19M19.7071 15.2929L16 19L19.7071 22.7071" />
+      <path d="M2 6.8477L12 12M12 12L22 6.8477M7 4.4239L17 9.4239M12 12L12 22L2 17.1523L2 6.8477L12 2L22 6.8477L22 13M23 19L16 19M19.7071 15.2929L16 19L19.7071 22.7071" />
     </Icon>
   )
 }
@@ -3449,7 +3449,7 @@ export function PackageArrowLeft(props: IconProps) {
 export function PackageArrowRight(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3.0408 6.8711L12 12M12 12L20.9591 6.8711M7.3837 4.205L16.5 9.4239M12 12L12 22L3 17.1523L3 6.8477L12 2L21 6.8477L21 13M15 19L22 19M18.2929 15.2929L22 19L18.2929 22.7071" />
+      <path d="M2 6.8477L12 12M12 12L22 6.8477M7 4.4239L17 9.4239M12 12L12 22L2 17.1523L2 6.8477L12 2L22 6.8477L22 13M15 19L22 19M18.2929 15.2929L22 19L18.2929 22.7071" />
     </Icon>
   )
 }
@@ -3457,7 +3457,7 @@ export function PackageArrowRight(props: IconProps) {
 export function PackageArrowUp(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3.0408 6.8711L12 12M12 12L20.9591 6.8711M7.3837 4.205L16.5 9.4239M12 12L12 22L3 17.1523L3 6.8477L12 2L21 6.8477L21 13M19 23L19 16M15.2929 19.7071L19 16L22.7071 19.7071" />
+      <path d="M2 6.8477L12 12M12 12L22 6.8477M7 4.4239L17 9.4239M12 12L12 22L2 17.1523L2 6.8477L12 2L22 6.8477L22 13M19 23L19 16M15.2929 19.7071L19 16L22.7071 19.7071" />
     </Icon>
   )
 }
@@ -3465,7 +3465,7 @@ export function PackageArrowUp(props: IconProps) {
 export function PackageCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3.0408 6.8711L12 12M12 12L20.9591 6.8711M7.3837 4.205L16.5 9.4239M12 12L12 22L3 17.1523L3 6.8477L12 2L21 6.8477L21 13M15.2929 18.2929L18 21L22.7071 16.2929" />
+      <path d="M2 6.8477L12 12M12 12L22 6.8477M7 4.4239L17 9.4239M12 12L12 22L2 17.1523L2 6.8477L12 2L22 6.8477L22 13M15.2929 18.2929L18 21L22.7071 16.2929" />
     </Icon>
   )
 }
@@ -3473,7 +3473,7 @@ export function PackageCheck(props: IconProps) {
 export function PackageMinus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3.0408 6.8711L12 12M12 12L20.9591 6.8711M7.3837 4.205L16.5 9.4239M12 12L12 22L3 17.1523L3 6.8477L12 2L21 6.8477L21 13M15 19L23 19" />
+      <path d="M2 6.8477L12 12M12 12L22 6.8477M7 4.4239L17 9.4239M12 12L12 22L2 17.1523L2 6.8477L12 2L22 6.8477L22 13M15 19L23 19" />
     </Icon>
   )
 }
@@ -3481,7 +3481,7 @@ export function PackageMinus(props: IconProps) {
 export function PackagePlus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3.0408 6.8711L12 12M12 12L20.9591 6.8711M7.3837 4.205L16.5 9.4239M12 12L12 22L3 17.1523L3 6.8477L12 2L21 6.8477L21 13M19 15L19 23M15 19L23 19" />
+      <path d="M2 6.8477L12 12M12 12L22 6.8477M7 4.4239L17 9.4239M12 12L12 22L2 17.1523L2 6.8477L12 2L22 6.8477L22 13M19 15L19 23M15 19L23 19" />
     </Icon>
   )
 }
@@ -3489,7 +3489,7 @@ export function PackagePlus(props: IconProps) {
 export function PackageX(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3.0408 6.8711L12 12M12 12L20.9591 6.8711M7.3837 4.205L16.5 9.4239M12 12L12 22L3 17.1523L3 6.8477L12 2L21 6.8477L21 13M15.2929 15.2929L22.7071 22.7071M22.7071 15.2929L15.2929 22.7071" />
+      <path d="M2 6.8477L12 12M12 12L22 6.8477M7 4.4239L17 9.4239M12 12L12 22L2 17.1523L2 6.8477L12 2L22 6.8477L22 13M15.2929 15.2929L22.7071 22.7071M22.7071 15.2929L15.2929 22.7071" />
     </Icon>
   )
 }
@@ -3497,7 +3497,7 @@ export function PackageX(props: IconProps) {
 export function Package(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3.0408 6.8711L12 12M12 12L20.9591 6.8711M12 12L12 22M7.3837 4.205L16.5 9.4239M12 2L21 6.8477L21 17.1523L12 22L3 17.1523L3 6.8477L12 2Z" />
+      <path d="M2 6.8477L12 12M12 12L22 6.8477M12 12L12 22M7 4.4239L17 9.4239M12 2L22 6.8477L22 17.1523L12 22L2 17.1523L2 6.8477L12 2Z" />
     </Icon>
   )
 }
