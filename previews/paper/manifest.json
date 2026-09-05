@@ -13,9 +13,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 521,
-  "names": 630,
-  "variants": 3256,
+  "icons": 520,
+  "names": 629,
+  "variants": 3250,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -634,10 +634,10 @@
       "artboard": "New",
       "category": "New",
       "part": 1,
-      "parts": 7,
+      "parts": 6,
       "into": "artboard",
       "width": 742,
-      "icons": 40,
+      "icons": 39,
       "variants": 42,
       "bytes": 37283
     },
@@ -646,7 +646,7 @@
       "artboard": "New",
       "category": "New",
       "part": 2,
-      "parts": 7,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -658,7 +658,7 @@
       "artboard": "New",
       "category": "New",
       "part": 3,
-      "parts": 7,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -670,7 +670,7 @@
       "artboard": "New",
       "category": "New",
       "part": 4,
-      "parts": 7,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -682,7 +682,7 @@
       "artboard": "New",
       "category": "New",
       "part": 5,
-      "parts": 7,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -694,24 +694,12 @@
       "artboard": "New",
       "category": "New",
       "part": 6,
-      "parts": 7,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 35403
-    },
-    {
-      "file": "new-7.html",
-      "artboard": "New",
-      "category": "New",
-      "part": 7,
-      "parts": 7,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 6,
-      "bytes": 6256
+      "bytes": 34620
     },
     {
       "file": "pointers-1.html",
@@ -959,7 +947,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 268550
+      "bytes": 267471
     }
   ]
 }

@@ -1894,17 +1894,6 @@
       ]
     },
     {
-      "match": "^umbrella-closed$",
-      "terms": [
-        "furled",
-        "dry",
-        "no cover",
-        "uninsured",
-        "lapsed",
-        "fair weather"
-      ]
-    },
-    {
       "match": "^umbrella-off$",
       "terms": [
         "unprotected",
