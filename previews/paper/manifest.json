@@ -471,7 +471,7 @@
       "width": 742,
       "icons": 27,
       "variants": 44,
-      "bytes": 42518
+      "bytes": 42697
     },
     {
       "file": "mail-2.html",
@@ -935,7 +935,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 271242
+      "bytes": 291120
     }
   ]
 }
