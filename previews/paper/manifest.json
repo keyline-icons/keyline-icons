@@ -255,7 +255,7 @@
       "width": 742,
       "icons": 15,
       "variants": 44,
-      "bytes": 39577
+      "bytes": 39257
     },
     {
       "file": "commerce-2.html",
@@ -650,8 +650,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 34,
-      "bytes": 35340
+      "variants": 40,
+      "bytes": 40709
     },
     {
       "file": "new-4.html",
@@ -663,7 +663,7 @@
       "width": 742,
       "icons": 0,
       "variants": 42,
-      "bytes": 39976
+      "bytes": 38430
     },
     {
       "file": "new-5.html",
@@ -674,8 +674,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 40001
+      "variants": 42,
+      "bytes": 34297
     },
     {
       "file": "new-6.html",
@@ -935,7 +935,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 271265
+      "bytes": 273228
     }
   ]
 }
