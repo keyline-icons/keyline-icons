@@ -113,6 +113,18 @@ github.com/keyline-icons/keyline-icons
 
 Changelog
 
+0.4.0 — 6 September 2026
+44 new drawings, taking the set to 629 names and 3,250 SVGs, and every sharp diagonal end cut back onto its rounded twin's box. A butt cap on a diagonal reaches further than the round cap it replaces, so 329 icons painted up to 0.414 of a unit wide of where the rounded drawing ends; they sit on the same box now, and the rounded drawings are untouched.
+
+* Search: search and search-2, each with check, list, minus, plus and x
+* Cloud: cloud with alert, check, minus, plus and x
+* Package: package with alert, check, minus, plus, x, and an arrow for each direction
+* App: app with check, dot, minus, plus and x
+* Weather: umbrella, umbrella-off and parasol
+* Others: briefcase, bug, crown, flag, flag-chequered, traffic-light, settings-dot, credit-card-2, move, maximize-2, replay and circle-progress-play
+
+Also redrawn in both treatments: the seven bells, which carry their plate offset into the fills, plus circle-navigation, credit-card, database, git-merge and package.
+
 0.3.0 — 31 August 2026
 Sharp corners, across the whole set. Every drawing gained a squared-off twin, taking the set from 1,497 SVGs to 2,994 over the same 585 names, and the plugin gained a second row to switch between them. Coverage matches rounded exactly, so switching never leaves you without an icon. 48 drawings redrawn in both treatments, mostly the -off family and the level indicators.
 
