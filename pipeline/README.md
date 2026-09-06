@@ -898,6 +898,13 @@ difficulty.
 a release is a tag plus a rebuild, and bumping the React package is what decides
 what the next version is called.
 
+**Any new icon moves the second number.** 0.3.0 plus 44 new drawings is 0.4.0,
+never 0.3.1; the third number is only for a release that adds no icons. The tag
+list is not precedent for this — 0.1.1 through 0.1.4 each carried new drawings
+and should have moved the second number, which is a mistake this file is
+recording rather than repeating. `lib/icon-history.json`'s `unreleased.names`
+answers it: non-empty means the second number moves.
+
 ```bash
 git checkout main && git pull
 git tag v0.1.1 && git push origin v0.1.1
