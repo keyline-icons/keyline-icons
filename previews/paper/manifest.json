@@ -915,7 +915,7 @@
       "width": 742,
       "icons": 0,
       "variants": 12,
-      "bytes": 35815
+      "bytes": 36069
     },
     {
       "file": "web-6.html",
@@ -947,7 +947,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 307083
+      "bytes": 307087
     }
   ]
 }

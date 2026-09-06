@@ -255,17 +255,22 @@ const MAX_SKEW = 1;
  * adjudicated. They are silenced, not blessed; see *A fractional extent is
  * almost always a defect*.
  *
- * `settings-dot` joins for the bell reason too: the gear fills its own box, so
- * the badge sits outside it. **Adjudicated with arithmetic on 6 Sep 2026**,
- * because "the corner every other -dot uses" was not quite true — `app-dot`
- * inscribes its badge at (18,6) and `mail-dot` at (19,17), both inside the
- * base's box, and the question was why the gear cannot. It is the hub. A badge
- * clearing the hub's ink by the 2 the guide asks must sit 2.5 + 1 + 2 + 4 = 9.5
- * from (12,12); a badge whose ink stays inside 2..22 must sit at (18,6) or
- * nearer, which is 8.485 away. The two cannot both hold, and at (18,6) the
- * badge lands 0.985 from the hub. The bell is the same story with no arithmetic
- * needed: an inscribed badge at (16,6) sits 2.24 from the dome's shoulder where
- * it needs 7, which is through the bell, not beside it.
+ * `settings-dot` is NOT here any more, and how it left is the useful part. Its
+ * badge still cannot be inscribed — `app-dot` puts one at (18,6) and `mail-dot`
+ * at (19,17), both inside the base's box, and the gear cannot because of the
+ * hub: a badge clearing the hub's ink by the guide's 2 must sit 2.5 + 1 + 2 + 4
+ * = 9.5 from (12,12), a badge whose ink stays inside 2..22 must sit at (18,6)
+ * or nearer, which is 8.485 away, and at (18,6) it lands 0.985 from the hub.
+ * All true, and all beside the point: the drawing did not need a different
+ * badge, it needed moving. Its extent is 21, so on integer coordinates the
+ * spare 3 units fall 1 and 2 — which is what Zafar reported, 1 at the top and 2
+ * at the bottom. Moved half a unit, it is 1.5 on all four sides and centred.
+ * **An odd extent is not a defence; 21 centres perfectly well on half-units**,
+ * which is what the tier below already said. The bell is a different case and
+ * stays: an inscribed badge at (16,6) sits 2.24 from the dome's shoulder where
+ * it needs 7, which is through the bell rather than beside it, and the bells
+ * are 16 wide against the gear's 20, so they have room to sit off-centre in a
+ * way the gear does not.
  *
  * `git-pull-request-arrow` is adjudicated the same day and is NOT a placement
  * error. Its shaft stands on x=18 and its head is a 2-unit chevron, both the
@@ -287,7 +292,6 @@ const MAX_SKEW = 1;
 const SKEW_KNOWN = new Set([
   'bell-check', 'bell-dot', 'bell-minus', 'bell-plus', 'bell-x',
   'git-graph', 'git-pull-request-arrow',
-  'settings-dot',
   'package-arrow-down', 'package-arrow-left', 'package-arrow-right', 'package-arrow-up',
   'package-check', 'package-minus', 'package-plus', 'package-x',
   'signal-high', 'signal-low', 'signal-medium', 'terminal-cursor',
