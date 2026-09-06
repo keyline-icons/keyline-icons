@@ -947,15 +947,6 @@ export function CircleDashedHalf(props: IconProps) {
   )
 }
 
-export function CircleDashedPlay(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M9.4927 6.4533L17.0107 11.152C17.6374 11.5437 17.6374 12.4563 17.0107 12.848L9.4927 17.5467C8.8266 17.963 7.9627 17.4841 7.9627 16.6987L7.9627 7.3013C7.9627 6.5159 8.8266 6.037 9.4927 6.4533Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M21.7205 9.448L21.8769 10.4357C22.041 11.4721 22.041 12.5279 21.8769 13.5643L21.7205 14.552M20.678 17.0688L20.0902 17.8778C19.4734 18.7268 18.7268 19.4734 17.8778 20.0902L17.0688 20.678M14.552 21.7205L13.5643 21.8769C12.5279 22.041 11.4721 22.041 10.4357 21.8769L9.448 21.7205M6.9317 20.6784L6.1222 20.0902C5.2732 19.4734 4.52663 18.7268 3.9098 17.8778L3.3221 17.0688M2.2796 14.552L2.1231 13.5643C1.95896 12.5279 1.95896 11.4721 2.1231 10.4357L2.2796 9.448M3.3216 6.9317L3.9098 6.1222C4.52663 5.2732 5.2732 4.52663 6.1222 3.9098L6.9317 3.3216M9.448 2.2796L10.4357 2.1231C11.4721 1.95896 12.5279 1.95896 13.5643 2.1231L14.552 2.2796M17.0688 3.3221L17.8778 3.9098C18.7268 4.52663 19.4734 5.2732 20.0902 6.1222L20.6784 6.9317M8.9627 7.3013L16.4807 12L8.9627 16.6987L8.9627 7.3013Z" />
-    </Icon>
-  )
-}
-
 export function CircleDashedQuarter(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -4603,15 +4594,6 @@ export function Truck(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M2 3L11 3C13.2091 3 15 4.7909 15 7L17 7C17.2652 7 17.5196 7.1054 17.7071 7.2929L22.7071 12.2929C22.8946 12.4804 23 12.7348 23 13L23 18C23 18.5523 22.5523 19 22 19L2 19C1.4477 19 1 18.5523 1 18L1 4C1 3.4477 1.4477 3 2 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <path d="M14 18L14 4L2 4L2 18L5 18M9 18L14 18M19 18L22 18L22 12.1716L17.8284 8L14 8M9 18C9 19.1046 8.1046 20 7 20C5.8954 20 5 19.1046 5 18C5 16.8954 5.8954 16 7 16C8.1046 16 9 16.8954 9 18ZM19 18C19 19.1046 18.1046 20 17 20C15.8954 20 15 19.1046 15 18C15 16.8954 15.8954 16 17 16C18.1046 16 19 16.8954 19 18Z" />
-    </Icon>
-  )
-}
-
-export function UmbrellaClosed(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M6 14C6 8.7897 7.5676 4.5569 10.2318 1.3598C10.6316 0.8801 11.3684 0.8801 11.7682 1.3598C14.4324 4.5569 16 8.7897 16 14C16 14.961 14.7766 15.3688 14.2 14.6C13.6 13.8 12.4 13.8 11.8 14.6C11.4 15.1333 10.6 15.1333 10.2 14.6C9.6 13.8 8.4 13.8 7.8 14.6C7.2234 15.3688 6 14.961 6 14Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M7 14C7 9 8.5 5 11 2C13.5 5 15 9 15 14C14 12.6667 12 12.6667 11 14C10 12.6667 8 12.6667 7 14ZM11 14L11 19C11 20.6569 12.3431 22 14 22C15.6569 22 17 20.6569 17 19L17 18" />
     </Icon>
   )
 }

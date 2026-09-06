@@ -1850,16 +1850,6 @@
       ]
     },
     {
-      "match": "^circle-dashed-play$",
-      "terms": [
-        "queued",
-        "pending",
-        "draft run",
-        "not started",
-        "scheduled"
-      ]
-    },
-    {
       "match": "^settings-dot$",
       "terms": [
         "update available",
@@ -1901,17 +1891,6 @@
         "now playing",
         "live",
         "under way"
-      ]
-    },
-    {
-      "match": "^umbrella-closed$",
-      "terms": [
-        "furled",
-        "dry",
-        "no cover",
-        "uninsured",
-        "lapsed",
-        "fair weather"
       ]
     },
     {

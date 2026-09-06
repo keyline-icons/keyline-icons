@@ -1231,14 +1231,6 @@ export function CircleDashedHalf(props: IconProps) {
   )
 }
 
-export function CircleDashedPlay(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M21.7205 9.448L21.8769 10.4357C22.041 11.4721 22.041 12.5279 21.8769 13.5643L21.7205 14.552M20.678 17.0688L20.0902 17.8778C19.4734 18.7268 18.7268 19.4734 17.8778 20.0902L17.0688 20.678M14.552 21.7205L13.5643 21.8769C12.5279 22.041 11.4721 22.041 10.4357 21.8769L9.448 21.7205M6.9317 20.6784L6.1222 20.0902C5.2732 19.4734 4.52663 18.7268 3.9098 17.8778L3.3221 17.0688M2.2796 14.552L2.1231 13.5643C1.95896 12.5279 1.95896 11.4721 2.1231 10.4357L2.2796 9.448M3.3216 6.9317L3.9098 6.1222C4.52663 5.2732 5.2732 4.52663 6.1222 3.9098L6.9317 3.3216M9.448 2.2796L10.4357 2.1231C11.4721 1.95896 12.5279 1.95896 13.5643 2.1231L14.552 2.2796M17.0688 3.3221L17.8778 3.9098C18.7268 4.52663 19.4734 5.2732 20.0902 6.1222L20.6784 6.9317M8.9627 7.3013L16.4807 12L8.9627 16.6987L8.9627 7.3013Z" />
-    </Icon>
-  )
-}
-
 export function CircleDashedQuarter(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -5049,14 +5041,6 @@ export function Truck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M14 18L14 4L2 4L2 18L5 18M9 18L14 18M19 18L22 18L22 12.1716L17.8284 8L14 8M9 18C9 19.1046 8.1046 20 7 20C5.8954 20 5 19.1046 5 18C5 16.8954 5.8954 16 7 16C8.1046 16 9 16.8954 9 18ZM19 18C19 19.1046 18.1046 20 17 20C15.8954 20 15 19.1046 15 18C15 16.8954 15.8954 16 17 16C18.1046 16 19 16.8954 19 18Z" />
-    </Icon>
-  )
-}
-
-export function UmbrellaClosed(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M7 14C7 9 8.5 5 11 2C13.5 5 15 9 15 14C14 12.6667 12 12.6667 11 14C10 12.6667 8 12.6667 7 14ZM11 14L11 19C11 20.6569 12.3431 22 14 22C15.6569 22 17 20.6569 17 19L17 18" />
     </Icon>
   )
 }
