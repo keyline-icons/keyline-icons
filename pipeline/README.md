@@ -984,11 +984,30 @@ same size, same ink, same ground.
 `unreleased`, out of the two refs that bound the window — the previous tag and
 this one, or the newest tag and the working tree. Both sides come off the refs,
 never off disk for a released entry, so redrawing the same icon again does not
-rewrite what an older entry was published showing. The style shown is the first
-one that genuinely differs across the window; where nothing differs, the pair is
-null and the surfaces fall back to naming the icon. Where the window did not
-open with the drawing at all, it is an addition rather than a redraw, whatever
-its dates say — `megaphone` was drawn, retired and drawn again across v0.1.4.
+rewrite what an older entry was published showing. The pair shown is the first
+of a name's **six** files that genuinely differs across the window — stroke,
+duotone and fill, rounded first and then sharp — and `updated` carries both
+`style` and `corners` to say which. Where nothing differs, the pair is null and
+the surfaces fall back to naming the icon. Where the window did not open with
+the drawing at all, it is an addition rather than a redraw, whatever its dates
+say — `megaphone` was drawn, retired and drawn again across v0.1.4.
+
+**A sharp pair is labelled sharp, on every surface.** Rounded first is what
+makes the label mean something: a correction that moved both treatments shows
+the rounded drawing, the one a reader recognises, and sharp is reached only
+where the rounded files are identical across the window — a change confined to
+the treatment, whose pair is the only pair there is. Shown unlabelled, those
+read as corrections to drawings nobody touched, which is what the diagonal end
+cut would have published across 304 names.
+
+**Candidates are nominated by `git diff --diff-filter=M` over exactly those six
+folders, and the filter is load-bearing.** A redraw is a file both trees carry
+whose content differs, and `M` is that sentence: nominating from it means every
+candidate has a pair before `redrawn` is called, which is what keeps the rule
+that a changelog never names a redraw it cannot show. Drop the filter and
+v0.3.0 — which *added* a sharp drawing for every name — nominates 585 names
+against the 48 it published, 537 of them with nothing to look at, and rewrites
+an entry that has already shipped.
 
 **A release's membership is a fact about its tree, not about dates.** The same
 `megaphone` decides this one too, and it was wrong on every generated surface

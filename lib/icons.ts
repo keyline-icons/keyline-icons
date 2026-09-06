@@ -9,7 +9,10 @@ import badges from "@/lib/icon-badges.json"
 export const STYLES = ["stroke", "duotone", "fill"] as const
 export type Style = (typeof STYLES)[number]
 
-export { CORNERS, type Corners } from "@/components/glyph"
+/* Imported and re-exported rather than passed straight through, because
+   `Redraw` below names the type: a bare `export … from` binds nothing here. */
+import { CORNERS, type Corners } from "@/components/glyph"
+export { CORNERS, type Corners }
 
 /**
  * A style's markup plus the root attributes it needs.
@@ -117,10 +120,18 @@ export const toStyleArt = (svg: string): StyleArt => ({
  * `style` is the style the change is visible in, and it is null — with both
  * documents null — where a commit touched the drawing without moving it. The
  * surfaces then name the icon rather than printing two identical tiles.
+ *
+ * `corners` is the treatment those two documents came out of, and every
+ * surface that prints a pair prints it. A change can be confined to the sharp
+ * half — the diagonal end cut moved 315 drawings and not one rounded one — and
+ * a sharp pair shown unlabelled reads as a correction to the rounded drawing
+ * the reader already knows, which is the opposite of what happened. Rounded is
+ * still what a pair is by default: `redrawn` looks there first.
  */
 export type Redraw = {
   name: string
   style: Style | null
+  corners: Corners | null
   before: string | null
   after: string | null
 }
@@ -153,7 +164,11 @@ export type Release = {
   files: number
   previousFiles: number
   names: string[]
-  /** Drawings that already existed and were redrawn in this release. */
+  /**
+   * Drawings that already existed and were redrawn in this release, in either
+   * corner treatment. A name appears once however many of its six files moved;
+   * `updated` carries the one pair that is being shown for it.
+   */
   updatedNames: string[]
   /** The same drawings, before and after. Never narrower than `updatedNames`. */
   updated: Redraw[]
