@@ -4,6 +4,7 @@ import {
   SET_RELEASES,
   SET_UNRELEASED,
   toStyleArt,
+  type Corners,
   type Icon,
   type Redraw,
   type StyleArt,
@@ -155,7 +156,13 @@ function SharpPreview({ icons, total }: { icons: Icon[]; total: number }) {
  * The two documents are parsed once in `release()` rather than in the markup,
  * so the component below is a layout and nothing else.
  */
-type Pair = { name: string; before: StyleArt | null; after: StyleArt | null }
+type Pair = {
+  name: string
+  before: StyleArt | null
+  after: StyleArt | null
+  /** The treatment both halves were drawn in. See `Redraw` in `lib/icons.ts`. */
+  corners: Corners | null
+}
 
 /**
  * What was redrawn, shown as the change rather than as a claim.
@@ -170,6 +177,14 @@ type Pair = { name: string; before: StyleArt | null; after: StyleArt | null }
  * does to one of them it does to both. The pair falls back to whichever half
  * exists, which is the resting state for a drawing that was committed without
  * visibly moving.
+ *
+ * A sharp pair says so under the name. Two squared-off drawings shown with the
+ * bare name read as the rounded drawing having been squared off, and a release
+ * spent entirely in the sharp half — the diagonal end cut, 315 drawings, not
+ * one rounded one — would be published as 315 corrections to drawings nobody
+ * touched. Rounded carries no marker: it is what a pair is unless it says
+ * otherwise, and marking both halves of a distinction is how a caption stops
+ * being read at all.
  */
 function Redrawn({ pairs }: { pairs: Pair[] }) {
   const face = (art: StyleArt | null, label: string) =>
@@ -202,6 +217,9 @@ function Redrawn({ pairs }: { pairs: Pair[] }) {
           </span>
           <span className="w-full truncate text-center text-[11px] leading-tight">
             {pair.name}
+            {pair.corners === "sharp" && (
+              <span className="text-muted-foreground"> · sharp</span>
+            )}
           </span>
         </li>
       ))}
@@ -214,16 +232,23 @@ function Redrawn({ pairs }: { pairs: Pair[] }) {
  *
  * A redraw that the generator could not find a visible change for carries no
  * pair, and the honest thing to show for it is the drawing as it stands rather
- * than nothing at all — the icon was still touched in that release.
+ * than nothing at all — the icon was still touched in that release. It is the
+ * drawing in that redraw's own treatment: falling back to the rounded stroke
+ * for a sharp redraw would put the wrong drawing under the caption saying
+ * sharp, which is worse than showing nothing.
  */
 const pairs = (redraws: Redraw[], byName: Map<string, Icon>): Pair[] =>
-  redraws.map((redraw) => ({
-    name: redraw.name,
-    before: redraw.before ? toStyleArt(redraw.before) : null,
-    after: redraw.after
-      ? toStyleArt(redraw.after)
-      : (byName.get(redraw.name)?.art.stroke ?? null),
-  }))
+  redraws.map((redraw) => {
+    const icon = byName.get(redraw.name)
+    return {
+      name: redraw.name,
+      corners: redraw.corners,
+      before: redraw.before ? toStyleArt(redraw.before) : null,
+      after: redraw.after
+        ? toStyleArt(redraw.after)
+        : ((icon && artOf(icon, "stroke", redraw.corners ?? "regular")) ?? null),
+    }
+  })
 
 /**
  * The release, and anything drawn since it.

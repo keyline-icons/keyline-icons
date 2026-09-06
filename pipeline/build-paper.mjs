@@ -857,27 +857,44 @@ function changelogSheet(icons, release) {
    *
    * Same size, same ink, same ground for both halves: the difference between
    * them is the only thing that should differ.
+   *
+   * A sharp pair says so under the name, as `/changelog` does. Two squared-off
+   * drawings captioned with the bare name read as the rounded drawing having
+   * been squared off, and a release spent entirely in the sharp half would be
+   * published as corrections to drawings nobody touched. Rounded carries no
+   * marker: it is what a pair is unless it says otherwise.
    */
   const redraws = (updated) =>
     `<div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0">` +
       updated
         .map((redraw) => {
+          /* Older copies of `lib/icon-history.json` predate the field, and
+             every pair in them is a rounded one. */
+          const corners = redraw.corners ?? "regular"
+          const style = redraw.style ?? "stroke"
           const face = (art, label) =>
             art
               ? `<div style="display:flex;flex-direction:column;align-items:center;gap:6px">` +
                   `<svg width="${SIZE}" height="${SIZE}" xmlns="http://www.w3.org/2000/svg" ` +
-                  `role="img" aria-label="${redraw.name} ${label}" data-icon="${redraw.name}" ` +
-                  `data-style="${redraw.style ?? "stroke"}" data-corners="regular" ` +
+                  /* The treatment is in the layer name for the reason
+                     `layerName` gives: on the name alone, a sharp cell holding
+                     a rounded drawing is unreportable. */
+                  `role="img" aria-label="${layerName(redraw.name, style, corners)} ${label}" ` +
+                  `data-icon="${redraw.name}" ` +
+                  `data-style="${style}" data-corners="${corners}" ` +
                   `${art.attrs}>${art.body}</svg>` +
                   `<span style="font-size:10px;line-height:1;color:${MUTED}">${label}</span>` +
                 `</div>`
               : ""
           const before = redraw.before ? parse(redraw.before) : null
           /* A drawing committed without visibly moving carries no pair, and
-             what it still has is today's drawing. */
+             what it still has is today's drawing — in this redraw's own
+             treatment, or the caption would say sharp over a rounded tile. */
           const after = redraw.after
             ? parse(redraw.after)
-            : icons.get(redraw.name)?.art?.stroke ?? null
+            : (corners === "sharp"
+                ? icons.get(redraw.name)?.sharp?.stroke
+                : icons.get(redraw.name)?.art?.stroke) ?? null
           return (
             `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;` +
               `width:148px;padding:12px 4px;box-sizing:border-box;border-radius:10px;` +
@@ -890,7 +907,9 @@ function changelogSheet(icons, release) {
                 face(after, "After") +
               `</div>` +
               `<span style="font-size:11px;line-height:1.2;color:${MUTED};` +
-                `text-align:center">${redraw.name}</span>` +
+                `text-align:center">${redraw.name}` +
+                (corners === "sharp" ? ` &middot; sharp` : "") +
+              `</span>` +
             `</div>`
           )
         })
