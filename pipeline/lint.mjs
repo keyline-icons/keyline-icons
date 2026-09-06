@@ -872,6 +872,16 @@ async function main() {
           // consequence. (2026-08-30, the family re-run.)
           if (style !== 'stroke' && (isLevel(name) || DASHED_LEVEL.test(name)) && Math.abs(radius - 2.5) <= RADIUS_TOL)
             continue;
+          // A badged drawing's plate turns around the badge on the clearance
+          // circle, whose radius is arithmetic and not a corner: the badge's
+          // ink is 4 across the radius and the guide asks 2 between elements,
+          // so the plate keeps 6. On the rounded treatment that arc meets the
+          // caps' own r=1 arcs and reads as arc-to-arc; on sharp it meets two
+          // butt-cap LINES tangentially, which is the exact shape of a filleted
+          // corner and is measured as one. Derived, like the level solids
+          // above. (2026-09-06, settings-dot's butt-cap cut.)
+          if (style !== 'stroke' && corners === 'sharp' && /-dot$/.test(name) && Math.abs(radius - 6) <= RADIUS_TOL)
+            continue;
           const near = CORNER_RADII.reduce((a, b) => (Math.abs(b - radius) < Math.abs(a - radius) ? b : a));
           if (Math.abs(near - radius) > RADIUS_TOL) offLadder.add(radius.toFixed(2));
         }
