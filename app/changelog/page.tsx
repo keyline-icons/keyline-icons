@@ -186,7 +186,23 @@ type Pair = {
  * otherwise, and marking both halves of a distinction is how a caption stops
  * being read at all.
  */
+/**
+ * How many sharp corrections the list draws before it hands over to a link.
+ *
+ * The cut moves a diagonal end by 0.414 of a unit and these are drawn at 24px,
+ * so past the first few the reader is shown the same two thumbnails over and
+ * over: 303 pairs whose files genuinely differ and whose pictures do not. Six
+ * is a row of the grid at its narrowest, which reads as a sample rather than as
+ * a list that gave up. Rounded pairs are never capped — those are corrections a
+ * reader can actually see.
+ */
+const SHARP_SHOWN = 6
+
 function Redrawn({ pairs }: { pairs: Pair[] }) {
+  const rounded = pairs.filter((pair) => pair.corners !== "sharp")
+  const sharp = pairs.filter((pair) => pair.corners === "sharp")
+  const shown = [...rounded, ...sharp.slice(0, SHARP_SHOWN)]
+
   const face = (art: StyleArt | null, label: string) =>
     art && (
       <span className="flex flex-col items-center gap-1.5">
@@ -200,8 +216,9 @@ function Redrawn({ pairs }: { pairs: Pair[] }) {
     )
 
   return (
-    <ul className="not-prose grid grid-cols-[repeat(auto-fill,minmax(148px,1fr))] gap-2">
-      {pairs.map((pair) => (
+    <div>
+      <ul className="not-prose grid grid-cols-[repeat(auto-fill,minmax(148px,1fr))] gap-2">
+        {shown.map((pair) => (
         <li
           key={pair.name}
           className="flex flex-col items-center gap-2 rounded-lg bg-muted p-3"
@@ -222,8 +239,26 @@ function Redrawn({ pairs }: { pairs: Pair[] }) {
             )}
           </span>
         </li>
-      ))}
-    </ul>
+        ))}
+      </ul>
+
+      {/*
+        The count is every sharp correction, not the remainder behind the cut:
+        how many the grid shows is fixed but how many fit a row is not, so a
+        remainder would be a number that is only true at one width. Same
+        reasoning, and the same destination, as the sharp preview above.
+      */}
+      {sharp.length > SHARP_SHOWN && (
+        <p className="mt-3 text-sm">
+          <Link
+            href="/icons?corners=sharp"
+            className="font-medium text-foreground underline underline-offset-4 hover:no-underline"
+          >
+            See all {sharp.length} in sharp
+          </Link>
+        </p>
+      )}
+    </div>
   )
 }
 
@@ -383,8 +418,20 @@ export default async function Page() {
           the newest release does not contain it.
         */}
         {unreleased && (
-          <section className="border-t pt-10 pb-10">
-            <h2 className="text-xl font-semibold tracking-tight">Unreleased</h2>
+          <section id="unreleased" className="scroll-mt-24 border-t pt-10 pb-10">
+            {/*
+              Every entry is addressable, because the way this page gets used is
+              one person sending another a release. A static heading makes them
+              send the page and say "scroll down to 0.3.0".
+            */}
+            <h2 className="text-xl font-semibold tracking-tight">
+              <a
+                href="#unreleased"
+                className="underline-offset-4 hover:underline"
+              >
+                Unreleased
+              </a>
+            </h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Drawn since {unreleased.since}
               <span aria-hidden="true"> · </span>
@@ -427,14 +474,23 @@ export default async function Page() {
         )}
 
         {entries.map((entry) => (
-          <section key={entry.version} className="border-t pt-10 pb-10">
+          <section
+            key={entry.version}
+            id={`v${entry.version}`}
+            className="scroll-mt-24 border-t pt-10 pb-10"
+          >
             {/*
               Headed by the version it shipped as. "New drawings" named the
               contents rather than the release, which is a heading a reader
               cannot place against anything.
             */}
             <h2 className="text-xl font-semibold tracking-tight">
-              {entry.version}
+              <a
+                href={`#v${entry.version}`}
+                className="underline-offset-4 hover:underline"
+              >
+                {entry.version}
+              </a>
             </h2>
 
             {/*

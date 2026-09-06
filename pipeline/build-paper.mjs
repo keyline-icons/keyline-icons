@@ -864,9 +864,24 @@ function changelogSheet(icons, release) {
    * published as corrections to drawings nobody touched. Rounded carries no
    * marker: it is what a pair is unless it says otherwise.
    */
-  const redraws = (updated) =>
+  /* The cut moves a diagonal end by 0.414 of a unit and these are drawn at 24,
+     so past the first few the board repeats one picture: 303 pairs whose files
+     differ and whose drawings do not. Six is a row, which reads as a sample.
+     Rounded pairs are never capped — those are corrections that can be seen.
+     It is also what keeps this sheet inside one write: uncapped it reached
+     824KB and 899 drawings against a BUDGET of 40KB, and Paper kept 469 of
+     them without saying so. */
+  const SHARP_SHOWN = 6
+  const redraws = (updated) => {
+    const cornersOf = (r) => r.corners ?? "regular"
+    const sharp = updated.filter((r) => cornersOf(r) === "sharp")
+    const shown = [
+      ...updated.filter((r) => cornersOf(r) !== "sharp"),
+      ...sharp.slice(0, SHARP_SHOWN),
+    ]
+    return (
     `<div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0">` +
-      updated
+      shown
         .map((redraw) => {
           /* Older copies of `lib/icon-history.json` predate the field, and
              every pair in them is a rounded one. */
@@ -914,7 +929,17 @@ function changelogSheet(icons, release) {
           )
         })
         .join("") +
-    `</div>`
+    `</div>` +
+    /* The count is every sharp correction rather than the remainder behind the
+       cut, for the reason the sharp preview above gives. */
+    (sharp.length > SHARP_SHOWN
+      ? `<p style="margin:12px 0 0;font-size:14px;line-height:1.7">` +
+          `<span style="font-weight:500;text-decoration:underline;` +
+            `text-underline-offset:4px">See all ${sharp.length} in sharp</span>` +
+        `</p>`
+      : "")
+    )
+  }
 
   return (
     `<section style="box-sizing:border-box;width:768px;background:${BG};color:${INK};` +
