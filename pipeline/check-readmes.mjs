@@ -179,6 +179,16 @@ const CLAIMS = [
   ['packages/figma-plugin/LISTING.md', /three counts differ: stroke\s+([\d,]+), duotone/, 'stroke'],
   ['packages/figma-plugin/LISTING.md', /, duotone ([\d,]+), fill/, 'duotone'],
   ['packages/figma-plugin/LISTING.md', /, fill ([\d,]+)\./, 'fill'],
+  /* Four more that were NOT here and went stale exactly as the note above
+     predicts: the tagline said 585 while the description beside it said 629,
+     the plugin's own total and the file description's both said 2,994 after
+     the set reached 3,250, and the tag rationale argued from 480 duotone
+     drawings when there were 522. Every claim, not the convenient ones. */
+  ['packages/figma-plugin/LISTING.md', /^([\d,]+) icons, three styles, rounded/m, 'icons'],
+  ['packages/figma-plugin/LISTING.md', /costs you a drawing\. ([\d,]+) SVGs in total/, 'files'],
+  ['packages/figma-plugin/LISTING.md', /icon plugins, ([\d,]+) duotone drawings are rare/, 'duotone'],
+  ['packages/figma-plugin/LISTING.md', /a second library: ([\d,]+) variants over the same/, 'files'],
+  ['packages/figma-plugin/LISTING.md', /variants over the same ([\d,]+) names\./, 'icons'],
 ];
 
 /* The prose commas are part of the claim: "1,286 SVGs" reads as prose and

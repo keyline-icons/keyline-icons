@@ -67,7 +67,7 @@ Keyline Icons
 ## Tagline
 
 ```
-585 icons, three styles, rounded or sharp corners. Searchable in Figma and FigJam.
+629 icons, three styles, rounded or sharp corners. Searchable in Figma and FigJam.
 ```
 
 Capped at 100 characters. The line above is 81, so there is still room. A
@@ -96,7 +96,7 @@ Three styles
 * Duotone: 522 icons, a 40% plate under the line
 * Fill: 474 icons, solid where the glyph has a region to fill
 
-Two corner treatments, and every drawing has both. Rounded is the keyline the set was drawn on; sharp takes every corner to a true point and ends each stroke square. Coverage is identical, so switching never costs you a drawing. 2,994 SVGs in total.
+Two corner treatments, and every drawing has both. Rounded is the keyline the set was drawn on; sharp takes every corner to a true point and ends each stroke square. Coverage is identical, so switching never costs you a drawing. 3,250 SVGs in total.
 
 55 icons also come in a square- form and 54 in a circle- form, so a container is a search away rather than a second drawing.
 
@@ -186,7 +186,7 @@ expectation for an icon set. `free icons` overlaps `open source`, and page four
 marks the plugin Free natively.
 
 That leaves the five that actually distinguish it: FigJam support is rare among
-icon plugins, 480 duotone drawings are rare among icon sets, a set that ships
+icon plugins, 522 duotone drawings are rare among icon sets, a set that ships
 every drawing rounded *and* sharp is rarer still, and the rest name the audience
 rather than the artefact.
 
@@ -212,6 +212,27 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 0.4.0
+
+```
+44 new drawings, taking the set to 629 names and 3,250 SVGs. Two search
+families, the cloud and package families with the five signs the app tiles
+carry, and the badged icons.
+
+Every sharp diagonal end is cut back onto its rounded twin's box. A butt cap on
+a diagonal reaches further than the round cap it replaces, so 329 icons painted
+up to 0.414 of a unit wide of where the rounded drawing ends; they sit on the
+same box now. The rounded drawings are untouched.
+
+12 drawings were redrawn in both treatments: the seven bells, circle-navigation,
+credit-card, database, git-merge and package.
+```
+
+**No republish is required for the drawings**, which reach every user from
+jsDelivr on their own. It is required for the listing, whose counts moved: the
+tagline, the style bullets and the totals all changed with the set. The plugin's
+own code did not change this time.
 
 ### 0.3.0
 
@@ -397,7 +418,7 @@ Keyline Icons
 
 Which styles an icon has is measured rather than chosen: duotone and fill need a fillable region, so an open glyph like bar-chart is stroke-only, and square-bar-chart has all three. That is why the three counts differ: stroke 629, duotone 522, fill 474.
 
-Every drawing exists in both treatments, so sharp is a switch rather than a second library: 2,994 variants over the same 585 names.
+Every drawing exists in both treatments, so sharp is a switch rather than a second library: 3,250 variants over the same 629 names.
 
 The Catalog page files every icon under one of 21 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
 
@@ -425,6 +446,30 @@ It is a different image from the plugin's `plugin-cover.png` and the two are
 regenerated together; re-upload whichever modal you are in.
 
 ### What changed, for the final details page
+
+```
+44 new drawings, and every sharp end squared.
+
+The set is 629 names now, 520 component sets and 3,250 variants, up from 585
+and 2,994. Nothing was renamed and no component was replaced, so instances
+already placed in your files keep their link.
+
+A butt cap on a diagonal reaches further than the round cap it replaces, so
+329 icons painted up to 0.414 of a unit outside their rounded twin. Every one
+of those ends is cut back along its own axis, and the rounded drawings are
+untouched.
+
+Two search families join the set, the cloud and package families take the five
+signs the app tiles do, and the badged icons, briefcase, crown, flag, umbrella
+and parasol land with them.
+
+12 drawings were redrawn in both treatments: the seven bells, which carry their
+plate offset into the fills, plus circle-navigation, credit-card, database,
+git-merge and package.
+```
+
+The 0.3.0 entry this replaced, kept because a listing's history is worth
+reading back:
 
 ```
 Sharp corners, across the whole set.
