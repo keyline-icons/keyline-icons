@@ -315,7 +315,7 @@
       "width": 742,
       "icons": 35,
       "variants": 56,
-      "bytes": 40330
+      "bytes": 40345
     },
     {
       "file": "devices-2.html",
@@ -841,9 +841,9 @@
       "parts": 2,
       "into": "artboard",
       "width": 742,
-      "icons": 16,
-      "variants": 48,
-      "bytes": 40629
+      "icons": 10,
+      "variants": 50,
+      "bytes": 41347
     },
     {
       "file": "weather-2.html",
@@ -854,51 +854,63 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 44,
-      "bytes": 37273
+      "variants": 6,
+      "bytes": 6256
     },
     {
       "file": "web-1.html",
       "artboard": "Web",
       "category": "Web",
       "part": 1,
-      "parts": 5,
+      "parts": 6,
       "into": "artboard",
       "width": 742,
-      "icons": 32,
-      "variants": 50,
-      "bytes": 42234
+      "icons": 38,
+      "variants": 48,
+      "bytes": 40491
     },
     {
       "file": "web-2.html",
       "artboard": "Web",
       "category": "Web",
       "part": 2,
-      "parts": 5,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 50,
-      "bytes": 39757
+      "variants": 46,
+      "bytes": 39154
     },
     {
       "file": "web-3.html",
       "artboard": "Web",
       "category": "Web",
       "part": 3,
-      "parts": 5,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 42,
-      "bytes": 31723
+      "variants": 48,
+      "bytes": 37052
     },
     {
       "file": "web-4.html",
       "artboard": "Web",
       "category": "Web",
       "part": 4,
-      "parts": 5,
+      "parts": 6,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 36,
+      "bytes": 27330
+    },
+    {
+      "file": "web-5.html",
+      "artboard": "Web",
+      "category": "Web",
+      "part": 5,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -906,11 +918,11 @@
       "bytes": 36111
     },
     {
-      "file": "web-5.html",
+      "file": "web-6.html",
       "artboard": "Web",
       "category": "Web",
-      "part": 5,
-      "parts": 5,
+      "part": 6,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,

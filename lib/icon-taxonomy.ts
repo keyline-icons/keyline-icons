@@ -52,7 +52,9 @@ export const CATEGORIES = [
       "Direction, movement and resizing, with the brackets, u-turns and dashed panels.",
   },
   // Split out of Arrows on 29 Aug 2026: the sharp matrix doubled every catalog
-  // card, and 104 rows stopped being one readable shelf.
+  // card's cells, and 104 rows, one per name on a card of 60 sets, stopped
+  // being one readable shelf. Media, the next-largest card that day, stood at
+  // 62 names and was left whole; that count is the bar a new shelf clears.
   {
     label: "Chevrons & Carets",
     match: /^(caret|chevron)/,
@@ -92,6 +94,10 @@ export const CATEGORIES = [
     // drew it drew the percent tags with it, and a bare `%` reads as a discount
     // next to `coupon` and `tag`, not as a verb. Its containered forms go to
     // Shapes on their prefix like every other contained glyph.
+    //
+    // `briefcase` is filed as the third bag, beside `handbag` and
+    // `shopping-bag`, not because business is commerce: Files is documents,
+    // and one name does not earn a row.
     label: "Commerce",
     match:
       /^(shopping-|handbag|briefcase|receipt|credit-card|tag|package|truck|gift|coupon|percent)/,
@@ -131,14 +137,20 @@ export const CATEGORIES = [
     match: /^(bar-chart|trending|signal|progress|loader|activity)/,
     blurb: "Trends, bar charts, signal strength and activity markers.",
   },
-  // `code` sits with `terminal` rather than on a shelf of its own: the label is
-  // the developer surface, and two names do not earn a row in a rail of 18.
+  // `code`, `terminal`, `bug` and the `app-*` tiles are the developer surface
+  // of the devices around them, eleven sets today, and they stay here until
+  // this card reaches the count that split Chevrons & Carets out of Arrows.
+  // `app-*` is the tile on a phone's home screen with its badge, so it files
+  // beside `smartphone-check`; the bare tile is `square`, in Shapes, and only
+  // the badged members carry the word. The prefix is anchored for the reason
+  // `at$` gives under Mail: unanchored, `app` would take every future
+  // `apple` or `approve`.
   {
     // `bug` is the software bug, so it sits with `code` rather than in a
     // shelf of creatures the set does not have.
     label: "Devices",
-    match: /^(smartphone|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|app)/,
-    blurb: "Phones, servers, databases, terminals, code, bugs and what plugs into them.",
+    match: /^(smartphone|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|app(?=-|$))/,
+    blurb: "Phones, servers, databases, terminals, code, bugs, the app tiles and what plugs into them.",
   },
   {
     label: "Pointers",
@@ -206,9 +218,15 @@ export const CATEGORIES = [
     // and a fan of arcs reads as connectivity next to `globe` and `link`, while
     // signal's bars read as a chart. Same reasoning that keeps `activity` out of
     // Media.
+    //
+    // The badged clouds and `cloud-off` are here rather than in Weather, which
+    // follows: the sign is inside the cloud, so they read as the state of a
+    // sync, and the person looking for one is looking where `globe-check` and
+    // `wifi-x` are. `cloud` and `cloud-rain` stay weather.
     label: "Web",
-    match: /^(globe|link|share|navigation|home|search|settings|bookmark|wifi)/,
-    blurb: "Globes, links, connectivity and web-scoped actions.",
+    match:
+      /^(globe|link|share|navigation|home|search|settings|bookmark|wifi|cloud-(?:check|x|plus|minus|alert|dot|off|arrow|backup|cog))/,
+    blurb: "Globes, links, connectivity, sync states and web-scoped actions.",
   },
   {
     // Prefixes rather than exact names, so the compounds this family is being
