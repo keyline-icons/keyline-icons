@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 
+import { BLOG_POSTS, postHref } from "@/lib/blog"
 import { iconHref } from "@/lib/icon-pages"
 import { loadIcons } from "@/lib/icons"
 import { absoluteUrl } from "@/lib/seo"
@@ -65,5 +66,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }))
 
-  return [...pages, ...icons]
+  /*
+    The posts, which are the second set of URLs `SITE_LINKS` cannot carry: the
+    bar links `/blog`, and what hangs under it is a list that grows without the
+    bar changing. Same argument as the icon pages, one level shallower.
+
+    `lastModified` is the post's own `updated` field rather than build time,
+    for the reason the icon pages take their drawing's commit date: these are
+    documents with a real history, and a `lastmod` that moves every deploy
+    without the text moving is one crawlers learn to ignore.
+
+    Priority sits one step under `/blog` itself and level with the icon pages.
+    A post is real content and worth indexing; the index is the page that
+    should come up for the blog as a whole.
+  */
+  const posts = BLOG_POSTS.map((post) => ({
+    url: absoluteUrl(postHref(post.slug)),
+    lastModified: new Date(post.updated),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }))
+
+  return [...pages, ...posts, ...icons]
 }

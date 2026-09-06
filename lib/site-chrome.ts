@@ -501,6 +501,23 @@ export const SITE_LINKS: readonly SiteLink[] = [
     group: "Examples",
     description: "Interfaces built with the set, sent in by their makers",
   },
+  /*
+    The writing about the set: one post per update, saying why rather than
+    what.
+
+    A bar link of its own rather than a row in a menu with the changelog. The
+    two are about the same events and it is tempting to gather them under an
+    "Updates" heading, but they are not two views of one thing: the changelog
+    is generated and complete, these are written and selective, and a reader
+    arriving from a search for "shadcn icons" has a use for one of them and not
+    the other. A menu would put both behind a click to save one slot in a bar
+    that has room.
+
+    Above the changelog at 0.7, and above the icon pages: a post is the page
+    most likely to be the answer to something typed into a search box that is
+    not an icon's name, which is exactly what the icon pages cannot be.
+  */
+  { href: "/blog", label: "Blog", priority: 0.7 },
   // What changed and when, off the same commit dates every icon page prints.
   //
   // Last, and lowest of the hand-written pages. It is worth indexing and worth

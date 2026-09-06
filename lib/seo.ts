@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 
+import { BLOG_DESCRIPTION, BLOG_SEGMENT } from "@/lib/blog"
 import {
   SET_LICENSE,
   SET_LICENSE_URL,
@@ -138,6 +139,30 @@ type PageMetadata = {
   socialTitle?: string
   /** Card description, if the card should be shorter than the snippet. */
   socialDescription?: string
+  /**
+   * Present only on a route that is a piece of writing with a date on it, which
+   * so far means one blog post.
+   *
+   * It flips `og:type` from `website` to `article` and adds the three tags that
+   * only exist under that type: `article:published_time`,
+   * `article:modified_time` and `article:author`. A dated post shared under
+   * `og:type=website` is not broken, it is just filed as a page, and the
+   * platforms that lay out an article card differently from a link card have
+   * nothing to go on.
+   *
+   * A field on this helper rather than a hand-built `openGraph` at the call
+   * site, because of the merge rule this file keeps repeating: a page writing
+   * its own `openGraph` object replaces the whole thing, and the first casualty
+   * would be `og:site_name` and `og:locale` on exactly the pages most likely to
+   * be shared.
+   */
+  article?: {
+    /** ISO date. Becomes `article:published_time`. */
+    publishedTime: string
+    /** ISO date. Equal to `publishedTime` until the post is genuinely revised. */
+    modifiedTime: string
+    authors: string[]
+  }
 }
 
 /**
@@ -161,6 +186,7 @@ export function pageMetadata({
   description,
   socialTitle,
   socialDescription,
+  article,
 }: PageMetadata): Metadata {
   const url = absoluteUrl(path)
   const cardTitle =
@@ -173,6 +199,10 @@ export function pageMetadata({
     alternates: { canonical: url },
     openGraph: {
       ...OG_DEFAULTS,
+      // `type` after the spread, so an article overrides the default rather
+      // than the default overriding it. The other way round compiles and
+      // silently ships every post as a website.
+      ...(article ? { type: "article" as const, ...article } : null),
       title: cardTitle,
       description: socialDescription ?? description,
       url,
@@ -417,6 +447,129 @@ export function homeJsonLd({
       // The bare node rather than `faqJsonLd`, which is the document form: this
       // graph declares the context already. Same call the icon pages make.
       faqNode({ faq, path: "/" }),
+    ],
+  }
+}
+
+/**
+ * One post's JSON-LD, as one `@graph`.
+ *
+ * Three nodes. `BlogPosting` is the one that does the work: it is the type
+ * Google reads for an article result, and the four properties it actually acts
+ * on are `headline`, `datePublished`, `dateModified` and `author`. All four
+ * come off the post rather than being written here, so a post cannot claim a
+ * date the page does not print.
+ *
+ * `isPartOf` points at the blog itself, which points at the website, so a
+ * consumer reads one site with a blog in it rather than three loose entities.
+ *
+ * **No `image`.** It is the property every article guide tells you to add, and
+ * every URL this file could write for it would be a guess: the card is a
+ * generated route whose production URL carries a build hash. `og:image` is
+ * emitted by the route convention and is what every crawler and every social
+ * platform actually fetches. A broken `contentUrl` in structured data is worse
+ * than an absent one, which is the same rule the icon pages follow and for the
+ * same reason.
+ *
+ * The breadcrumb mirrors the one the page draws, off the same two links, and
+ * the last crumb carries no `item`: a self-link in the trail is what makes
+ * Google drop the whole thing.
+ */
+export function blogPostJsonLd({
+  title,
+  description,
+  path,
+  datePublished,
+  dateModified,
+  author,
+  keywords,
+}: {
+  title: string
+  description: string
+  path: string
+  datePublished: string
+  dateModified: string
+  author: string
+  keywords: readonly string[]
+}) {
+  const url = absoluteUrl(path)
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `${url}#post`,
+        url,
+        headline: title,
+        description,
+        inLanguage: "en",
+        datePublished,
+        dateModified,
+        keywords: keywords.join(", "),
+        author: { "@type": "Person", name: author },
+        publisher: { "@id": `${SITE_URL}/#icon-set` },
+        mainEntityOfPage: url,
+        isPartOf: { "@id": `${SITE_URL}${BLOG_SEGMENT}#blog` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Blog",
+            item: absoluteUrl(BLOG_SEGMENT),
+          },
+          { "@type": "ListItem", position: 2, name: title },
+        ],
+      },
+    ],
+  }
+}
+
+/**
+ * The blog index's JSON-LD.
+ *
+ * A `Blog` node whose `blogPost` array names each post by the `@id` its own
+ * page declares, so the two documents describe one graph rather than two
+ * overlapping ones. Nothing here restates a post's body or its dates: the post
+ * page is the authority for those, and a second copy on the index is a second
+ * copy to keep in step.
+ */
+export function blogJsonLd({
+  posts,
+}: {
+  posts: readonly { slug: string; title: string; date: string }[]
+}) {
+  const url = absoluteUrl(BLOG_SEGMENT)
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog",
+        "@id": `${url}#blog`,
+        url,
+        name: `${SET_TITLE} blog`,
+        description: BLOG_DESCRIPTION,
+        inLanguage: "en",
+        publisher: { "@id": `${SITE_URL}/#icon-set` },
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        blogPost: posts.map((post) => ({
+          "@type": "BlogPosting",
+          "@id": `${absoluteUrl(`${BLOG_SEGMENT}/${post.slug}`)}#post`,
+          headline: post.title,
+          datePublished: post.date,
+          url: absoluteUrl(`${BLOG_SEGMENT}/${post.slug}`),
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [{ "@type": "ListItem", position: 1, name: "Blog" }],
+      },
     ],
   }
 }

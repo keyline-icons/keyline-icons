@@ -139,19 +139,52 @@ export function Glyph({
   size,
   stroke,
   className,
+  style,
+  viewBox = "0 0 24 24",
 }: {
   art: StyleArt
   size: number
   stroke: number
   className?: string
+  /**
+   * Inline styles on the `svg`, for the two things a class cannot carry: a
+   * colour computed rather than named, and a blend mode.
+   *
+   * The blog's diagnostic figures are the caller. They paint one drawing over
+   * another in two fixed inks and multiply the second, which is a measurement
+   * rather than a theme, so the values are hexadecimal and belong at the call
+   * site rather than in a token.
+   *
+   * Not an escape hatch for layout. Sizing goes through `size` and the class,
+   * and anything that wants to move a drawing around wants a wrapper.
+   */
+  style?: React.CSSProperties
+  /**
+   * A crop, in grid units, for a figure that has to magnify one corner of a
+   * drawing. Defaults to the whole grid, which is what every surface drawing
+   * an icon as an icon wants.
+   *
+   * A prop here rather than a second renderer in the one place that needs it:
+   * the stroke width, the root attributes and the fill rules all have to come
+   * off the icon's own file, and a copy of that logic is how one surface
+   * starts disagreeing with another about what a drawing looks like. The only
+   * thing a crop changes is which part of it you are looking at.
+   *
+   * Note what it does *not* change: `stroke` is in grid units, so a cropped
+   * drawing keeps the keyline weight it has at 24px, scaled up with
+   * everything else. That is the point. A figure showing a fault in the ink
+   * has to show the ink at the proportion it actually ships at.
+   */
+  viewBox?: string
 }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
-      viewBox="0 0 24 24"
+      viewBox={viewBox}
       className={className}
+      style={style}
       {...toReactProps(art.root)}
       // Only where the file itself sets one. A pure-fill icon carries no stroke
       // at all, and handing it a width would be the first step toward painting
