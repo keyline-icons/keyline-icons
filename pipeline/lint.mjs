@@ -250,13 +250,30 @@ const MAX_SKEW = 1;
  *
  * Two are answered: `bell-*` and `user-*` are the documented cases where a
  * narrow body cannot reach its own ink corner, so the modifier sits outside it,
- * and `user`'s body geometry forces H = W/2 + 2 — an odd 19. The rest —
- * `git-graph`, `git-pull-request-arrow`, `terminal-cursor`, `signal-*` and
- * `circle-navigation` — predate the rule and have not been adjudicated. They are
- * silenced, not blessed; see *A fractional extent is almost always a defect*.
+ * and `user`'s body geometry forces H = W/2 + 2 — an odd 19. `git-graph`,
+ * `terminal-cursor` and `signal-*` predate the rule and have not been
+ * adjudicated. They are silenced, not blessed; see *A fractional extent is
+ * almost always a defect*.
  *
  * `settings-dot` joins for the bell reason too: the gear fills its own box, so
- * the badge sits outside it at the corner every other -dot uses.
+ * the badge sits outside it. **Adjudicated with arithmetic on 6 Sep 2026**,
+ * because "the corner every other -dot uses" was not quite true — `app-dot`
+ * inscribes its badge at (18,6) and `mail-dot` at (19,17), both inside the
+ * base's box, and the question was why the gear cannot. It is the hub. A badge
+ * clearing the hub's ink by the 2 the guide asks must sit 2.5 + 1 + 2 + 4 = 9.5
+ * from (12,12); a badge whose ink stays inside 2..22 must sit at (18,6) or
+ * nearer, which is 8.485 away. The two cannot both hold, and at (18,6) the
+ * badge lands 0.985 from the hub. The bell is the same story with no arithmetic
+ * needed: an inscribed badge at (16,6) sits 2.24 from the dome's shoulder where
+ * it needs 7, which is through the bell, not beside it.
+ *
+ * `git-pull-request-arrow` is adjudicated the same day and is NOT a placement
+ * error. Its shaft stands on x=18 and its head is a 2-unit chevron, both the
+ * Git family's standard — `git-return`, `git-compare-arrows` and
+ * `git-pull-request-create-arrow` use the same two. Its right edge falls a unit
+ * short of `git-pull-request`'s only because an arrowhead is 6 units of ink
+ * where a circle is 8. Reaching 22 would mean widening the head past the
+ * family's or shifting the shaft off the family's column, so the extent stays.
  *
  * `package-*` joins the answered half on 4 Sep 2026, for the bell-and-user
  * reason exactly: the parcel's ink stops at 22 and its seam runs down x=12, so
@@ -269,7 +286,7 @@ const MAX_SKEW = 1;
  */
 const SKEW_KNOWN = new Set([
   'bell-check', 'bell-dot', 'bell-minus', 'bell-plus', 'bell-x',
-  'circle-navigation', 'git-graph', 'git-pull-request-arrow',
+  'git-graph', 'git-pull-request-arrow',
   'settings-dot',
   'package-arrow-down', 'package-arrow-left', 'package-arrow-right', 'package-arrow-up',
   'package-check', 'package-minus', 'package-plus', 'package-x',
@@ -465,10 +482,13 @@ const CHEVRON = /^chevrons?-(?:up|down|left|right)(?:-(?:down|right))?$/;
  * - CONSISTENCY assumes a fill is the outline filled to its own edge, which
  *   holds only when the outline already encloses the shape. A solid built from
  *   an open arc has to close it, so it covers more ground than the outline.
- * - CENTERING measures padding on all four sides. On the open side the box
- *   stops where the outline stops rather than where the container would be, so
- *   it reports the gap as a glyph pushed to one side. `circle-navigation` reads
- *   as centred because the eye completes the arc; the box cannot.
+ * CENTERING used to be exempted here too, on the argument that the eye
+ * completes the arc where the box cannot. That was wrong twice over: the box is
+ * what sits in a row of neighbours, and `square-navigation` was even all along,
+ * so the exemption only ever covered `circle-navigation` being 22 wide and 20
+ * tall. Zafar called it on 6 Sep 2026 and the drawing moved a unit down, which
+ * is all it needed — 1 2 23 22, even on both axes. CENTERING now applies here
+ * like anywhere else.
  *
  * Named explicitly so nothing else inherits either exemption by accident. The
  * failures these rules exist to catch — a *smaller* fill, a glyph genuinely
@@ -749,7 +769,7 @@ async function main() {
       const floor = padFloor(corners);
       if (g.minPad < floor - EPS)
         add('error', 'PADDING', id, `padding ${g.minPad.toFixed(2)} < ${floor.toFixed(2)} (geometry too close to the edge)`);
-      if (g.skew > MAX_SKEW + EPS && !isLevel(name) && !OPEN_CONTAINER.test(name))
+      if (g.skew > MAX_SKEW + EPS && !isLevel(name))
         add('warn', 'CENTERING', id, `off-centre by ${g.skew.toFixed(3)} units`);
 
       // MAX_SKEW's unit of slack exists for extents that are genuinely odd, and
@@ -769,7 +789,7 @@ async function main() {
       // known rounding artefact and fillet tangents quantise at a similar
       // scale. A real placement error is a whole unit, so nothing is missed in
       // between.
-      if (!isLevel(name) && !OPEN_CONTAINER.test(name) && !SKEW_KNOWN.has(name)) {
+      if (!isLevel(name) && !SKEW_KNOWN.has(name)) {
         for (const [axis, a, b] of [
           ['horizontally', g.pads.left, g.pads.right],
           ['vertically', g.pads.top, g.pads.bottom],

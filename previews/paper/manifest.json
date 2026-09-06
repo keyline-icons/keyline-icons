@@ -891,7 +891,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 37052
+      "bytes": 37022
     },
     {
       "file": "web-4.html",
@@ -947,7 +947,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 294407
+      "bytes": 296511
     }
   ]
 }

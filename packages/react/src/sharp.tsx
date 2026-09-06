@@ -1314,7 +1314,7 @@ export function CircleMoreVertical(props: IconProps) {
 export function CircleNavigation(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M19.4 18.8L20 18C21.2982 16.269 22 14.1637 22 12C22 6.4771 17.5229 2 12 2C6.4771 2 2 6.4771 2 12C2 14.1637 2.7018 16.269 4 18L4.6 18.8M6.9168 20L12 10.8355L17.0832 20L12 19.0794L6.9168 20Z" />
+      <path d="M19.4 19.8L20 19C21.2982 17.269 22 15.1637 22 13C22 7.4771 17.5229 3 12 3C6.4771 3 2 7.4771 2 13C2 15.1637 2.7018 17.269 4 19L4.6 19.8M6.9168 21L12 11.8355L17.0832 21L12 20.0794L6.9168 21Z" />
     </Icon>
   )
 }
