@@ -64,6 +64,34 @@ function redrawnPairs(): Map<string, Redraw> {
   return pairs
 }
 
+/**
+ * The keyline every figure in a post is drawn at.
+ *
+ * 1.5 rather than the 2 the set is built at, and it is a display choice rather
+ * than a change to the drawings: the browser's stroke control runs 1 to 3 in
+ * quarters, so this is a weight a reader can actually set, not one invented
+ * for the article. At the 40px these figures are drawn at, a 2-unit keyline
+ * scales to something heavier than the prose around it; 1.5 sits with the
+ * text.
+ *
+ * One constant behind all three call sites — the grids, the before-and-after
+ * pairs and both layers of a diagnostic panel — because a figure drawn at a
+ * different weight from the one above it reads as a different set.
+ *
+ * **The diagnostic panels take it too, and that was checked rather than
+ * assumed.** The worry was that a narrower stroke would uncover plate the
+ * black had been hiding and paint a false fault down every drawing. It does
+ * not: a panel is the *difference* between two layers rendered with identical
+ * parameters, so the stroke contributes the same to both and cancels.
+ * Rendered side by side at 2 and at 1.5, the rose sliver is the same sliver,
+ * marginally clearer at 1.5 because less of it sits under black.
+ *
+ * `app/blog/[slug]/opengraph-image.tsx` deliberately stays at 2. A card is
+ * seen beside the icon pages' cards in a feed and shares their look; it is
+ * never seen beside these figures.
+ */
+const FIGURE_STROKE = 1.5
+
 /** A drawing's tile, linking to its own page. */
 function Tile({ icon }: { icon: Icon }) {
   return (
@@ -76,7 +104,7 @@ function Tile({ icon }: { icon: Icon }) {
           <Glyph
             art={icon.art.stroke!}
             size={24}
-            stroke={2}
+            stroke={FIGURE_STROKE}
             className="size-10"
           />
         </span>
@@ -173,7 +201,12 @@ function PairsFigure({ pairs, caption }: { pairs: Pair[]; caption: string }) {
     art && (
       <span className="flex flex-col items-center gap-1.5">
         <span className="text-foreground">
-          <Glyph art={art} size={24} stroke={2} className="size-10" />
+          <Glyph
+            art={art}
+            size={24}
+            stroke={FIGURE_STROKE}
+            className="size-10"
+          />
         </span>
         <span className="text-[10px] leading-none text-muted-foreground">
           {label}
@@ -287,7 +320,7 @@ function DiagnosticPanelFigure({
       <Glyph
         art={flatten(art)}
         size={320}
-        stroke={2}
+        stroke={FIGURE_STROKE}
         viewBox={viewBox}
         className="absolute inset-0 h-full w-full"
         style={{

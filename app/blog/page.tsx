@@ -68,6 +68,16 @@ export function generateMetadata() {
  * stays a white rectangle on a dark page unless someone remembers to theme it.
  * Both the prefixed and unprefixed properties, same as there.
  */
+/**
+ * The band's keyline, matching the figures inside a post.
+ *
+ * Its own constant rather than an import from `components/blog-body.tsx`: a
+ * number shared between a page and a component is the kind of import that
+ * turns into a cycle the first time either grows. The two are meant to agree,
+ * and the comment on `FIGURE_STROKE` over there is the one that explains 1.5.
+ */
+const BAND_STROKE = 1.5
+
 const PANEL_MASK =
   "linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%)"
 
@@ -151,9 +161,9 @@ function Thumbnail({ icons }: { icons: Icon[] }) {
           <Glyph
             key={icon.name}
             art={icon.art.stroke!}
-            size={32}
-            stroke={2}
-            className="shrink-0"
+            size={24}
+            stroke={BAND_STROKE}
+            className="size-8 shrink-0"
           />
         ))}
       </div>
