@@ -309,22 +309,6 @@ export default async function Page() {
             <Entry key={post.slug} post={post} icons={field} />
           ))}
         </ul>
-
-        {/*
-          The pointer at the generated record. Every post here is about a set
-          of commits, and a reader who wants the commits rather than the
-          commentary should not have to find the changelog from the bar.
-        */}
-        <p className="border-t pt-6 text-sm text-muted-foreground">
-          For the record rather than the account, see the{" "}
-          <Link
-            href="/changelog"
-            className="font-medium text-foreground underline underline-offset-4 hover:no-underline"
-          >
-            changelog
-          </Link>
-          , which is generated from the commits themselves.
-        </p>
       </main>
 
       <SiteFooter />
