@@ -89,7 +89,21 @@ export function SiteFooter() {
         is the right weight for a link that has to be on every page.
       */}
       <div className="mx-auto w-full max-w-360 px-6 lg:px-8">
-        <div className="flex flex-col gap-8 pb-10 md:flex-row md:items-center md:justify-between">
+        {/*
+          Side by side at `xl`, stacked below it, and the number is measured
+          rather than picked: the row of links wants 781px and the notice
+          opposite wants 284, so with the gap between them the pair needs about
+          1160 before both fit on one line. It stood at `md`, which offered
+          them 720 — the links wrapped to a second line that started under the
+          middle of the row above it, and the notice broke "under the MIT
+          License" onto its own line to make room for them.
+
+          Stacked, each block gets the whole column and neither has to wrap at
+          all. Add a link to `SITE_LINKS` and this threshold moves: `Blog` cost
+          the row 53px on its own, which is what took the wrap from ugly to
+          obvious.
+        */}
+        <div className="flex flex-col gap-8 pb-10 xl:flex-row xl:items-center xl:justify-between">
           {/*
             The mark and the year as one block, so the line reads as the
             wordmark's own small print rather than as a separate band.
@@ -190,63 +204,84 @@ export function SiteFooter() {
             navigate with, and the instant transition there is worth what it
             costs. Nobody has ever felt the latency of a footer link.
           */}
+          {/*
+            Two groups rather than one wrapping row, and the split is the same
+            one the bar draws with a hairline: pages on one side, the places
+            that leave the site on the other.
+
+            It was a single `flex-wrap` row, which is fine while it fits on one
+            line and looks like a mistake the moment it does not — at 800px it
+            broke after "Changelog" and left "Sponsor" alone on a second line.
+            Twelve links want 781px and no arrangement of them fits a narrower
+            column, so the wrap itself is not avoidable; where it falls is.
+            Grouped, the break lands where the meaning already changes, and
+            each group still wraps within itself on a phone.
+
+            At `xl`, where the notice moves back alongside, the outer row
+            rejoins the two at the same 24px the links inside them use, so the
+            wide layout is exactly what it was.
+          */}
           <nav
             aria-label="Footer"
-            className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm"
+            className="flex flex-col gap-4 text-sm xl:flex-row xl:items-center xl:gap-6"
           >
-            {SITE_FOOTER_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                prefetch={false}
-                className="text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {link.label}
-              </Link>
-            ))}
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              {SITE_FOOTER_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  prefetch={false}
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
 
-            {/*
-              Deliberately not rows in `SITE_LINKS`. That list is also what
-              `app/sitemap.ts` reads, and a sitemap is only allowed to name URLs
-              on its own origin: adding the repo there would put a github.com
-              entry in it and invalidate the file. External destinations belong
-              in the markup that renders them.
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              {/*
+                Deliberately not rows in `SITE_LINKS`. That list is also what
+                `app/sitemap.ts` reads, and a sitemap is only allowed to name URLs
+                on its own origin: adding the repo there would put a github.com
+                entry in it and invalidate the file. External destinations belong
+                in the markup that renders them.
 
-              Plain anchors rather than `Link`s for the same reason, and the
-              screen-reader warning matches the licence link above.
+                Plain anchors rather than `Link`s for the same reason, and the
+                screen-reader warning matches the licence link above.
 
-              The same three the bar carries, in the same order, because a
-              footer that offers less than the chrome above it is the reason
-              people scroll back up.
-            */}
-            {OUTBOUND.map(({ href, label, logo: Logo }) => (
-              <a
-                key={href}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {/*
-                  `size-4` against a 14px row: a mark reads at the size of the
-                  words beside it rather than at their cap height, or it sits in
-                  the line looking shrunken. The Figma mark is taller than it is
-                  wide and keeps its aspect inside that box, so it comes out
-                  narrower than the square, which is correct for the mark.
-                */}
-                {Logo ? <Logo className="size-4" /> : label}
-                {/*
-                  The name a mark does not say out loud, plus the new-tab
-                  warning both kinds need. Written as one string so the
-                  accessible name cannot run its words together.
-                */}
-                <span className="sr-only">
-                  {Logo
-                    ? `${label} (opens in a new tab)`
-                    : " (opens in a new tab)"}
-                </span>
-              </a>
-            ))}
+                The same three the bar carries, in the same order, because a
+                footer that offers less than the chrome above it is the reason
+                people scroll back up.
+              */}
+              {OUTBOUND.map(({ href, label, logo: Logo }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {/*
+                    `size-4` against a 14px row: a mark reads at the size of the
+                    words beside it rather than at their cap height, or it sits in
+                    the line looking shrunken. The Figma mark is taller than it is
+                    wide and keeps its aspect inside that box, so it comes out
+                    narrower than the square, which is correct for the mark.
+                  */}
+                  {Logo ? <Logo className="size-4" /> : label}
+                  {/*
+                    The name a mark does not say out loud, plus the new-tab
+                    warning both kinds need. Written as one string so the
+                    accessible name cannot run its words together.
+                  */}
+                  <span className="sr-only">
+                    {Logo
+                      ? `${label} (opens in a new tab)`
+                      : " (opens in a new tab)"}
+                  </span>
+                </a>
+              ))}
+            </div>
           </nav>
         </div>
       </div>

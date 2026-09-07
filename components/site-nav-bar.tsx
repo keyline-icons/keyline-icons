@@ -134,9 +134,19 @@ export function SiteNavBar({
             the origin was a redirect, which made the brand the only mark on the
             site that did not go to the site's own address.
           */}
+          {/*
+            `shrink-0`, because a wordmark is not a thing that may be squeezed.
+
+            The bar is one flex row, so whatever the group opposite cannot fit
+            comes out of this side: adding "Blog" pushed that group past the
+            room left over between `md` and `lg`, and the brand paid for it by
+            breaking "Keyline Icons" onto two lines. Holding it at its own
+            width puts the pressure back on the group that has a fold built
+            into it.
+          */}
           <Link
             href="/"
-            className="flex items-center gap-2 rounded-xl p-2 pr-3"
+            className="flex shrink-0 items-center gap-2 rounded-xl p-2 pr-3"
           >
             <BrandMark className="size-7" />
             <span className="text-sm font-medium tracking-tight">
@@ -269,9 +279,28 @@ export function SiteNavBar({
                 controls leaves the rule clearly shorter than what it separates,
                 which is what stops it reading as a border.
               */}
+              {/*
+                `max-lg:hidden` here and on the three marks below, which is the
+                bar's second fold and the reason it needs one.
+
+                Everything in this row wants 775px next to the brand, and the
+                page's own box only offers that from about 820 — so between
+                `md` and `lg` the bar was full to both edges, and before the
+                brand was pinned it was over them. Something has to go, and it
+                is these: the routes are what a reader came for, while X,
+                GitHub and Figma are where *we* are, they are all three in the
+                menu one control to the right, and the footer lists them again
+                at the bottom of every page.
+
+                So the bar folds in two steps rather than one. Below `lg` the
+                marks go and the routes stay; below `md` the routes follow them
+                into the menu. Change either half here and the menu's own
+                `md:hidden` rows have to move with it, or a route is offered
+                twice at once, or not at all.
+              */}
               <span
                 aria-hidden="true"
-                className="mx-1.5 h-5 w-px shrink-0 bg-border"
+                className="mx-1.5 h-5 w-px shrink-0 bg-border max-lg:hidden"
               />
 
               {/*
@@ -296,7 +325,7 @@ export function SiteNavBar({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow on X (opens in a new tab)"
-                className="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground max-lg:hidden"
               >
                 <XLogo className="size-4" />
               </a>
@@ -325,7 +354,7 @@ export function SiteNavBar({
                     ? "View the source on GitHub (opens in a new tab)"
                     : `Star on GitHub, ${stars} stars (opens in a new tab)`
                 }
-                className="flex h-9 items-center gap-1.5 rounded-lg px-2.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="flex h-9 items-center gap-1.5 rounded-lg px-2.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground max-lg:hidden"
               >
                 <GitHubLogo className="size-4" />
                 {stars !== null && (
@@ -359,17 +388,22 @@ export function SiteNavBar({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Figma profile (opens in a new tab)"
-                className="flex size-9 items-center justify-center rounded-lg transition-colors hover:bg-muted"
+                className="flex size-9 items-center justify-center rounded-lg transition-colors hover:bg-muted max-lg:hidden"
               >
                 <FigmaLogo className="size-4" />
               </a>
             </div>
 
             {/*
-              A second hairline, and the same one: the three marks above point
-              at us, this points at whoever is reading. Only at `md` and up,
-              because below it the marks are in the phone's menu and there is
-              nothing on this side of the rule to separate from.
+              A second hairline, and the same one: everything above it is a
+              destination, everything below it is something to do here. At `lg`
+              that is the routes and the three marks on one side; between `md`
+              and `lg` the marks have folded and it separates the routes alone,
+              which is the same distinction and still worth drawing.
+
+              Only at `md` and up, because below it the whole link row is in the
+              menu and there is nothing on this side of the rule to separate
+              from.
             */}
             <span
               aria-hidden="true"
@@ -379,15 +413,20 @@ export function SiteNavBar({
             {/*
               Outside the `md:` group on purpose, unlike everything above it.
 
-              That group is the bar's link row and it folds into the phone's
-              menu whole. This is not a link, it is the one thing on the bar
+              That group is the bar's link row and it folds into the menu, in
+              two steps. This is not a link, it is the one thing on the bar
               asking the reader to do something, and an ask that disappears
               below `md` is an ask missed by every visitor who found the set on
               a phone, which is most of them.
             */}
             <ShareDialog counts={counts} />
 
-            {/* The link row is gone below md, so it needs a way back. */}
+            {/*
+              Where both folds land, which is why it is `lg:hidden` and not
+              `md:hidden`: below `lg` it carries the three marks, and below `md`
+              it carries them under the routes as well. Its rows are gated to
+              match, so nothing in it is ever offered twice.
+            */}
             <DropdownMenu>
               <DropdownMenuTrigger
                 aria-label="Menu"
@@ -395,7 +434,7 @@ export function SiteNavBar({
                 // which it never shares a row with: it is the phone's version
                 // of that group, so it should not be the one icon button in the
                 // bar that behaves differently.
-                className="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:hidden"
+                className="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground lg:hidden"
               >
                 <Menu className="size-4" />
               </DropdownMenuTrigger>
@@ -414,6 +453,11 @@ export function SiteNavBar({
                   <DropdownMenuItem
                     key={link.href}
                     render={<Link href={link.href} />}
+                    // Gone at `md`, where the bar draws these itself. A row in
+                    // a menu whose trigger sits beside the same link, lit as
+                    // the current page, is a second way to reach a place the
+                    // reader can already see.
+                    className="md:hidden"
                   >
                     {link.label}
                     {isCurrent(link.href) && (
@@ -426,16 +470,17 @@ export function SiteNavBar({
                 ))}
 
                 {/*
-                  The outbound pair again, because the row that holds them is
-                  `md:` only and this menu is the whole bar below that. Left out,
-                  X and the repo would be reachable on a desktop and nowhere at
-                  all on a phone.
+                  The outbound trio again, because the row that holds them is
+                  `lg:` only and this menu is where they go below it. Left out,
+                  X and the repo would be reachable on a wide screen and nowhere
+                  at all on a tablet or a phone.
 
                   Labelled here rather than icon-only: a menu row has the space
                   for a word, and "GitHub" plus a count says what the number is
                   counting, which the bar's version leaves to its aria-label.
                 */}
-                <DropdownMenuSeparator />
+                {/* Nothing above it at `md`, so the rule goes with the rows. */}
+                <DropdownMenuSeparator className="md:hidden" />
                 <DropdownMenuItem
                   render={
                     <a
