@@ -18,6 +18,7 @@ import {
   Volume as VolumeIcon,
 } from "@/components/icons"
 import { DemoIcon } from "@/components/demo-icon"
+import { PhoneToggleFace } from "@/components/phone-toggle"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
@@ -229,13 +230,7 @@ export function DashboardExampleCards() {
                 Hue Color Ambient
               </p>
             </div>
-            <button
-              type="button"
-              className="relative mt-1 h-6 w-11 rounded-full bg-foreground"
-              aria-label="Kitchen Island power"
-            >
-              <span className="absolute top-1 right-1 size-4 rounded-full bg-background" />
-            </button>
+            <PhoneToggleFace on className="mt-1" />
           </div>
 
           <div className="flex flex-wrap gap-2">
