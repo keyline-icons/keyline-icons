@@ -421,7 +421,7 @@ export const BLOG_BELL_ICON_NAMES = [
  * **The first six are the social card**, in the order a reader meets them: a
  * parcel with an arrow for the family that drove the batch, a search glass for
  * the ten that took the most work, an umbrella because it is the one drawing
- * here nobody expects, a briefcase for Zafar's own, a traffic light for the
+ * here nobody expects, a briefcase for the one drawn by hand, a traffic light for the
  * motorsport batch that mostly did not survive, and git-merge for the story.
  * Reordering this list changes what a shared link unfurls into.
  */
@@ -547,7 +547,7 @@ const BATCH_0_3_1: BlogPost = {
       text:
         "Most of a batch this size is not forty-four separate calls. It is four " +
         "or five, applied consistently. The parcel is the clearest example, " +
-        "and it is the one where the set answered the question for us.",
+        "and it is the one where the set answered the question for me.",
     },
     {
       kind: "p",
@@ -625,10 +625,11 @@ const BATCH_0_3_1: BlogPost = {
       kind: "p",
       text:
         "The cloud took the same five signs on the same reasoning, and the " +
-        "umbrella turned into four drawings out of one: the canopy with its " +
-        "hem, the same canopy closed and stood upright, the canopy with a " +
-        "slash across it, and a parasol, which is the umbrella with a pole " +
-        "where the hook should be.",
+        "umbrella turned into three drawings out of one: the canopy with its " +
+        "hem, the canopy with a slash across it, and a parasol, which is the " +
+        "umbrella with a pole where the hook should be. There was a fourth, " +
+        "the same canopy closed and stood upright, and I dropped it before " +
+        "the tag.",
     },
     {
       kind: "figure",
@@ -683,8 +684,8 @@ const BATCH_0_3_1: BlogPost = {
     {
       kind: "p",
       text:
-        "Both were drawn on 8 August. The fault was found on 4 September, by " +
-        "which point it had gone out in every release the set has ever cut: " +
+        "I drew both on 8 August and found the fault on 4 September, by which " +
+        "point it had gone out in every release the set has ever cut: " +
         "v0.1.0 through v0.3.0, seven of them, on npm, in the Figma library " +
         "and in the plugin. Nobody reported it, and I would not expect anyone " +
         "to have. You reach for git-merge, you get a picture of some lines " +
@@ -773,8 +774,8 @@ const BATCH_0_3_1: BlogPost = {
     {
       kind: "p",
       text:
-        "Zafar found it by recolouring the plate in Figma, which is the only " +
-        "way anyone was ever going to. The worst of it was 0.10 of a grid " +
+        "I found it by recolouring the plate in Figma, which is the only way " +
+        "anyone was ever going to. The worst of it was 0.10 of a grid " +
         "unit, on the plain bell in sharp. The grid is 24 units across and the " +
         "icon is 24 pixels across, so that is a tenth of a pixel. Which is why " +
         "it shipped, and why it kept shipping.",
@@ -821,7 +822,7 @@ const BATCH_0_3_1: BlogPost = {
     {
       kind: "p",
       text:
-        "Twenty-one such runs across fourteen files were rebuilt as real " +
+        "I rebuilt twenty-one such runs across fourteen files as real " +
         "offsets: endpoints and end tangents held, handle lengths solved from " +
         "the midpoint, each piece split until every sample sits at exactly one " +
         "unit from the stroke. Worst error is now 0.0026, down from 0.10. Five " +
@@ -861,26 +862,27 @@ const BATCH_0_3_1: BlogPost = {
         "A batch that started as motorsport ended up mostly not being one. " +
         "Eleven drawings came out of it: a crown, two flags, a traffic light, " +
         "a tyre, an engine, a helmet, a hard hat, a car, a racing car and a " +
-        "bug. Zafar reviewed them and kept four. The tyre, the engine, the " +
-        "helmet, the hard hat, the car and the racing car went, and so, at " +
-        "first, did the chequered flag.",
+        "bug. I kept four. The tyre, the engine, the helmet, the hard hat, " +
+        "the car and the racing car went, and so, at first, did the chequered " +
+        "flag.",
     },
     {
       kind: "p",
       text:
-        "He redrew the flag himself, and it went in coordinate for coordinate " +
-        "rather than being re-derived, because two things about his version are " +
-        "better than the one it replaced. The wave's phase runs the other way, " +
-        "trough at the pole and crest at the tip, which is how a blown flag " +
-        "actually hangs. And it is one continuous run, so the pole carries the " +
-        "flag's left edge instead of the body closing over it. The chequered " +
-        "flag was then rebuilt on that same wave, which is how it came back.",
+        "Then I redrew the flag by hand, and it went in coordinate for " +
+        "coordinate rather than being re-derived, because two things about it " +
+        "are better than the one it replaced. The wave's phase runs the other " +
+        "way, trough at the pole and crest at the tip, which is how a blown " +
+        "flag actually hangs. And it is one continuous run, so the pole " +
+        "carries the flag's left edge instead of the body closing over it. " +
+        "The chequered flag was then rebuilt on that same wave, which is how " +
+        "it came back.",
     },
     {
       kind: "p",
       text:
-        "Coins was drawn later in the same batch, on a premise that turned out " +
-        "not to hold, and dropped the next morning. That is a normal week. " +
+        "I drew coins later in the same batch, on a premise that turned out " +
+        "not to hold, and dropped it the next morning. That is a normal week. " +
         "Roughly a fifth of what gets drawn here does not ship, and the ones " +
         "that do not are usually not the ones you would guess.",
     },
