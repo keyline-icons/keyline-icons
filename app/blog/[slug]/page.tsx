@@ -53,6 +53,19 @@ export async function generateMetadata({
     title: postHeadline(post),
     description: post.description,
     /*
+      The card headline drops the "· Keyline Icons" that `pageMetadata` would
+      otherwise append, and it is the one place on the site that should.
+
+      A search result has to say whose page it is, because the brand may be the
+      thing someone typed; the `<title>` keeps the suffix for exactly that. A
+      feed card does not: X, Slack and LinkedIn all render `og:site_name`
+      beside the headline already, and this post's card *draws* the mark and
+      the words "Keyline Icons" across its top. The suffix would be the third
+      copy in one unfurl, and it would spend characters a 62-character headline
+      has better uses for.
+    */
+    socialTitle: postHeadline(post),
+    /*
       The card takes the post's standfirst rather than its description. The
       description is written for a search result and says what is inside; the
       standfirst is written for someone who has already clicked, and it is
