@@ -54,21 +54,6 @@ export function generateMetadata() {
 }
 
 /**
- * The fade that makes the panel below a picture rather than a box with icons
- * in it.
- *
- * Top and bottom only. The field is laid out taller than the panel and centred
- * in it, so the first and last rows are already running off the edges; the mask
- * is what turns a cut into a fade. Horizontal fading was tried and taken out:
- * it thins the drawings at the ends of every row, which reads as a rendering
- * fault rather than as depth.
- *
- * A mask and not a gradient overlay, for the reason `icon-wall.tsx` gives: an
- * overlay has to know the colour behind it, so it is a white rectangle that
- * stays a white rectangle on a dark page unless someone remembers to theme it.
- * Both the prefixed and unprefixed properties, same as there.
- */
-/**
  * The band's keyline, matching the figures inside a post.
  *
  * Its own constant rather than an import from `components/blog-body.tsx`: a
@@ -78,8 +63,22 @@ export function generateMetadata() {
  */
 const BAND_STROKE = 1.5
 
-const PANEL_MASK =
-  "linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%)"
+/**
+ * The band's row geometry, in pixels, because its height has to be derived
+ * from this rather than picked.
+ *
+ * A drawing is `size-8` and the rows are `gap-y-6`, so a row occupies 32 and
+ * the next starts 56 below it. `bandHeight` is the height that holds exactly
+ * `rows` of them with nothing over: two rows is 32 + 24 + 32, not 2 x 56,
+ * because the last row has no gap under it.
+ *
+ * Written out rather than a round number being chosen, because these have to
+ * move together with the classes below. That is what a hard edge costs. See
+ * the note on `Thumbnail`.
+ */
+const GLYPH = 32
+const ROW_GAP = 24
+const bandHeight = (rows: number) => rows * GLYPH + (rows - 1) * ROW_GAP
 
 /**
  * The post's drawings, as a band of ink under the standfirst rather than a
@@ -95,26 +94,32 @@ const PANEL_MASK =
  * like a settings screen.
  *
  * So the frame is gone and the field stayed. It sits on the page's own ground,
- * cropped by height alone and faded out at both ends, which is exactly what
- * `components/icon-wall.tsx` does behind the landing page's headline. Nothing
- * encloses it. The hairline above each entry is the only chrome on this page,
- * and it is the same rule `/changelog` separates its releases with.
+ * cropped by height alone. Nothing encloses it. The hairline above each entry
+ * is the only chrome on this page, and it is the same rule `/changelog`
+ * separates its releases with.
+ *
+ * **There was a fade over the ends and it has been dropped, which changes how
+ * the height has to be chosen.** With a mask the height was free: the block
+ * was centred, ran off both ends, and the gradient turned each cut into an
+ * edge, so a row sliced through the middle simply faded out. With a hard edge
+ * a sliced row is a row of half drawings. So the block is pinned to the top
+ * and the height is `bandHeight(rows)`, which is the arithmetic that lands the
+ * cut in the gap under the last visible row rather than through it. Change the
+ * glyph size or the row gap and those constants change with them, or the band
+ * starts slicing.
  *
  * Decoration, so it is inert: `aria-hidden`, because the entry's heading and
  * standfirst already say what the post is and a screen reader reading forty
  * drawings before them would make the index unusable.
  *
- * Stroke at 30px, with the gaps tight. Both numbers are measurements against
- * the panel rather than tastes, and they have been wrong in both directions:
+ * The drawings are 32px with tight gaps, which is a measurement against the
+ * column rather than a taste: at 36px in a narrow one the field fell to three
+ * a row with air around them, which reads as a scatter rather than a set.
  *
- * - **Too large and the field stops being a field.** At 36px in a 270px
- *   column this became three drawings a row with air around them, which reads
- *   as a scatter of icons rather than a set.
- * - **Too small, or too generously spaced, and nothing bleeds.** The effect
- *   depends on the list wrapping to *more rows than the panel is tall*, so the
- *   first and last are genuinely cut and the mask has a cut to turn into an
- *   edge. An earlier version fitted inside the frame and left a ragged last
- *   row sitting in the middle of it with nothing to fade.
+ * How many rows show is the whole of the sizing decision now. Two: enough that
+ * it is a field rather than a row, few enough that an index of several entries
+ * is still a list of headings rather than a wall of icons. The rest of the
+ * list is cut off, which is what a band is.
  *
  * The ink is held back to 70 per cent, which is the other half of not being a
  * component: at full strength forty drawings under a heading compete with it
@@ -125,8 +130,9 @@ const PANEL_MASK =
  * shares its left edge, so a centred field would be the only thing in the
  * column that does not line up with the text above it.
  *
- * Check it rather than trusting the classes: the block's `scrollHeight` has to
- * be larger than the frame's height, at every width.
+ * Check it rather than trusting the classes, and check the right thing: no
+ * drawing may straddle the bottom edge. Every glyph has to be either wholly
+ * inside the band or wholly outside it, at every width.
  */
 function Thumbnail({ icons }: { icons: Icon[] }) {
   return (
@@ -143,20 +149,17 @@ function Thumbnail({ icons }: { icons: Icon[] }) {
         There is no background and no radius: a tinted rounded rectangle here
         is the card coming back in through the picture.
       */
-      className="relative my-1 h-32 overflow-hidden sm:h-40"
+      className="relative my-1 overflow-hidden"
+      style={{ height: bandHeight(2) }}
     >
       {/*
-        Vertically the block is allowed to be taller than the frame and is
-        centred in it, so what runs off the top and bottom is what the mask
-        fades out. Horizontally it fills the column exactly: with no frame
-        drawn there is no edge for a drawing to be cut against, and the inset
-        that used to keep them clear of one now only makes the field narrower
-        than the space it has.
+        Pinned to the top and `content-start`, not centred. Centring was what
+        the mask wanted: it split the overflow evenly so both ends had
+        something to fade. With a hard edge the overflow has to be all at one
+        end, and the edge has to land in the gap between two rows rather than
+        through a drawing.
       */}
-      <div
-        className="absolute inset-x-0 inset-y-0 flex flex-wrap content-center justify-start gap-x-6 gap-y-6 text-foreground/70 transition-colors group-hover:text-foreground"
-        style={{ maskImage: PANEL_MASK, WebkitMaskImage: PANEL_MASK }}
-      >
+      <div className="absolute inset-x-0 top-0 flex flex-wrap content-start justify-start gap-x-6 gap-y-6 text-foreground/70 transition-colors group-hover:text-foreground">
         {icons.map((icon) => (
           <Glyph
             key={icon.name}
