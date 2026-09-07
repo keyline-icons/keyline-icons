@@ -136,10 +136,12 @@ export type BlogPost = {
    * The URL segment, and the one field that must never change once a post is
    * up. A slug rewrite is a 404 for every link anyone has already shared.
    *
-   * Named for the story rather than for a version. The batch below is not
-   * tagged yet — `0.3.0` is the newest tag on the day it went up — and a URL
-   * announcing a version that has not been cut is a URL that has to be
-   * corrected later.
+   * Named for the story rather than for a version, which is a rule about
+   * timing rather than taste: a post is written while its batch is still
+   * untagged, so a URL announcing a version is a URL that has to be corrected
+   * when the number turns out to be a different one. It did here. The post
+   * below was drafted as 0.3.1 and shipped as 0.4.0; only the `version` field
+   * had to change, because the slug never named either.
    */
   slug: string
   /**
@@ -251,14 +253,21 @@ export const isReleased = (version?: string) =>
  * it was not in, and the changelog's answer is to head untagged work
  * "Unreleased" until the tag lands.
  *
- * So the headline graduates on its own. Write `version: "0.3.1"` on the post
- * the day the branch is opened; the title stays bare until `0.3.1` appears in
+ * So the headline graduates on its own. Write the version on the post the day
+ * the branch is opened; the title stays bare until that version appears in
  * `lib/icon-history.json`, and the next build after the tag adds the prefix
  * everywhere at once. Nobody has to remember to come back and edit it.
  *
- * **The prefix is the bare version, not "Keyline Icons v0.3.1".** The root
+ * The post below is what that looks like from both sides. It was drafted
+ * carrying `version: "0.3.1"`, the number its branches were named for, and
+ * printed "Unreleased" for as long as no such tag existed. The batch then
+ * shipped as **0.4.0**, because forty-four new names bump the second number
+ * and the third is for a release that adds none. The field was corrected, the
+ * tag exists, and the prefix appeared on its own.
+ *
+ * **The prefix is the bare version, not "Keyline Icons v0.4.0".** The root
  * layout's title template already appends the set name, so spelling it out
- * here renders "Keyline Icons v0.3.1: ... · Keyline Icons" in the tab and on
+ * here renders "Keyline Icons v0.4.0: ... · Keyline Icons" in the tab and on
  * every card. That was written the long way first and caught by rendering a
  * released version rather than by reading the code, which is the only way this
  * class of mistake ever surfaces.
@@ -294,7 +303,7 @@ export const postVersionLabel = (post: BlogPost) =>
 export const BLOG_AUTHOR = "Zafar Ismatullaev"
 
 /* ------------------------------------------------------------------------ *
- * The 0.3.1 batch.
+ * v0.4.0.
  * ------------------------------------------------------------------------ */
 
 /**
@@ -345,10 +354,15 @@ export const BLOG_APP_ICON_NAMES = [
   "app-dot",
 ] as const
 
-/** The four that came out of one drawing: a canopy, a hem and a pole. */
+/**
+ * The three that came out of one drawing: a canopy, a hem and a pole.
+ *
+ * There were four. `umbrella-closed` was drawn, written up here, and then
+ * dropped before the tag; `check-demos` is what caught it still being named,
+ * which is the whole reason these lists are `*_ICON_NAMES`.
+ */
 export const BLOG_UMBRELLA_ICON_NAMES = [
   "umbrella",
-  "umbrella-closed",
   "umbrella-off",
   "parasol",
 ] as const
@@ -366,7 +380,6 @@ export const BLOG_SINGLES_ICON_NAMES = [
   "replay",
   "move",
   "maximize-2",
-  "circle-dashed-play",
   "circle-progress-play",
 ] as const
 
@@ -392,18 +405,18 @@ export const BLOG_BELL_ICON_NAMES = [
 /**
  * The batch itself, as the picture on its card.
  *
- * Forty-four names, which is what fills the card's panel past its own height:
- * forty-two of the batch's forty-six new drawings, plus two that are not new
- * and belong here anyway. `package` is the base the nine new parcel modifiers
+ * Forty-three names, which is what fills the card's panel past its own height:
+ * forty-one of v0.4.0's forty-four new drawings, plus two that are not new and
+ * belong here anyway. `package` is the base the nine new parcel modifiers
  * hang off, and a family shown without it is nine variations on something the
  * reader has to picture; `git-merge` is a redraw rather than a new name and is
  * the post's best story.
  *
- * The four new drawings left out are an editorial call rather than a rule:
- * `circle-dashed-play` and `circle-progress-play` are rings, and a ring in a
- * dense field of drawings reads as a hole punched in it, while `move` and
- * `maximize-2` are arrow clusters that go to noise at 36px. All four are in
- * the post, in the singles grid, at the size where they read.
+ * The three new drawings left out are an editorial call rather than a rule:
+ * `circle-progress-play` is a ring, and a ring in a dense field of drawings
+ * reads as a hole punched in it, while `move` and `maximize-2` are arrow
+ * clusters that go to noise at 36px. All three are in the post, in the singles
+ * grid, at the size where they read.
  *
  * **The first six are the social card**, in the order a reader meets them: a
  * parcel with an arrow for the family that drove the batch, a search glass for
@@ -447,7 +460,6 @@ export const BLOG_BATCH_THUMBNAIL_ICON_NAMES = [
   "app-check",
   "app-x",
   "app-dot",
-  "umbrella-closed",
   "umbrella-off",
   "parasol",
   "crown",
@@ -470,22 +482,26 @@ export const BLOG_BATCH_THUMBNAIL_ICON_NAMES = [
 export const BLOG_SOCIAL_CARD_ICONS = 6
 
 const BATCH_0_3_1: BlogPost = {
-  slug: "46-new-icons-and-30-redraws",
-  /* The version this batch will ship as. Every branch behind it is named
-     `release/0.3.1-*`, and no tag exists yet, so every surface prints
-     "Unreleased" until one does. */
-  version: "0.3.1",
-  title: "46 new icons, 30 redraws, and a duplicate that shipped seven times",
+  slug: "44-new-icons-and-a-duplicate-that-shipped-seven-times",
+  /* It shipped as 0.4.0, not the 0.3.1 the branches were named for: forty-four
+     new names bump the second number, and the third is for a release that adds
+     none. The tag exists, so every surface prints `v0.4.0` and the title takes
+     the prefix. */
+  version: "0.4.0",
+  title: "44 new icons, and a duplicate that shipped seven times",
   description:
-    "Inside the newest batch of Keyline Icons: the parcel, search, cloud " +
-    "and app families, a redrawn bell whose plate was standing outside its " +
-    "own outline, and the day git-merge turned out to be git-branch under a " +
-    "second name.",
+    "Inside Keyline Icons v0.4.0: the parcel, search, cloud and app families, " +
+    "a redrawn bell whose plate was standing outside its own outline, and the " +
+    "day git-merge turned out to be git-branch under a second name.",
   standfirst:
-    "Everything that landed since v0.3.0, and what each of it was actually " +
-    "for. Free SVG icons for shadcn/ui, drawn on one 24×24 grid.",
+    "Everything that landed in v0.4.0, and what each of it was actually for. " +
+    "Free SVG icons for shadcn/ui, drawn on one 24×24 grid.",
   date: "2026-09-06",
-  updated: "2026-09-06",
+  /* Revised on the 7th, against what the tag actually shipped: the batch went
+     out as 0.4.0 rather than the 0.3.1 its branches were named for, two of the
+     drawings named here were dropped before the tag, and the redraw count is
+     the release's own rather than the one this post was drafted with. */
+  updated: "2026-09-07",
   readingMinutes: 7,
   thumbnail: BLOG_BATCH_THUMBNAIL_ICON_NAMES,
   keywords: [
@@ -502,29 +518,34 @@ const BATCH_0_3_1: BlogPost = {
     {
       kind: "p",
       text:
-        "Forty-six new drawings have landed since v0.3.0, and thirty existing " +
-        "ones were redrawn. The changelog will tell you that much on its own, " +
-        "off the commit dates, without anyone having to write it down. What it " +
-        "cannot tell you is why any of it happened, and that turns out to be " +
-        "the more interesting half. So here it is: the families, the faults, " +
-        "and the drawings that were made and then turned down.",
+        "v0.4.0 added forty-four drawings and redrew three hundred and " +
+        "fifteen. The changelog will tell you that much on its own, off the " +
+        "commit dates, without anyone having to write it down. What it cannot " +
+        "tell you is why any of it happened, and that turns out to be the more " +
+        "interesting half. So here it is: the families, the faults, and the " +
+        "drawings that were made and then turned down.",
     },
     {
       kind: "p",
       text:
-        "None of this is on npm yet. It is in the repository and in the design " +
-        "files, and it goes out with the next release.",
+        "Two things about that redraw count before anything else, because it " +
+        "is the number that looks wrong. The overwhelming majority of it is " +
+        "one change applied across the set: how a sharp stroke ends, which is " +
+        "its own story and not this one. What this post covers is the " +
+        "forty-four new drawings, and the handful of redraws that were faults " +
+        "rather than a treatment: seven bells, a database, a credit card and " +
+        "the duplicate below.",
     },
 
     {
       kind: "h2",
-      text: "Four families, not forty-six decisions",
+      text: "Four families, not forty-four decisions",
       id: "families",
     },
     {
       kind: "p",
       text:
-        "Most of a batch this size is not forty-six separate calls. It is four " +
+        "Most of a batch this size is not forty-four separate calls. It is four " +
         "or five, applied consistently. The parcel is the clearest example, " +
         "and it is the one where the set answered the question for us.",
     },
@@ -623,7 +644,7 @@ const BATCH_0_3_1: BlogPost = {
         kind: "grid",
         names: BLOG_UMBRELLA_ICON_NAMES,
         caption:
-          "One canopy, four icons. The parasol differs by its pole and by " +
+          "One canopy, three icons. The parasol differs by its pole and by " +
           "nothing else.",
       },
     },
@@ -636,8 +657,7 @@ const BATCH_0_3_1: BlogPost = {
       figure: {
         kind: "grid",
         names: BLOG_SINGLES_ICON_NAMES,
-        caption:
-          "Thirteen singles, including two that came back from the dead.",
+        caption: "Twelve singles, including two that came back from the dead.",
       },
     },
 
@@ -862,9 +882,8 @@ const BATCH_0_3_1: BlogPost = {
     {
       kind: "p",
       text:
-        "Everything above is in the browser now, in stroke, duotone and fill, " +
-        "rounded or sharp, free under the MIT licence. The npm packages follow " +
-        "at the next release.",
+        "All of it shipped in v0.4.0, in stroke, duotone and fill, rounded or " +
+        "sharp, free under the MIT licence.",
     },
     {
       kind: "link",
