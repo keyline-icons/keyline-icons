@@ -293,14 +293,20 @@ export const postVersionLabel = (post: BlogPost) =>
       : "Unreleased"
     : null
 
-/**
- * The set's own author, for the `author` node and the byline.
- *
- * One constant rather than a field per post: this is a project blog with one
- * writer, and a per-post author field would be four posts of the same string
- * waiting for one of them to be spelled differently.
- */
-export const BLOG_AUTHOR = "Zafar Ismatullaev"
+/*
+  `BLOG_AUTHOR` was here, set to Zafar's name, and it is gone rather than
+  changed.
+
+  It put a person's byline on a post that person did not write. The drawings,
+  the calls about what ships and every fact in the prose are his; the prose is
+  not, and the commit trailers on this branch say so in the one place that
+  cannot be edited to flatter anybody. A byline is a claim of authorship, not a
+  credit for the work being written about, and the two are not the same thing.
+
+  What replaces it is the set itself as the author, which is honest at both
+  ends: `Keyline Icons` publishes the post, and nobody is credited with writing
+  it who did not. See `blogPostJsonLd`, where the node is an `Organization`.
+*/
 
 /* ------------------------------------------------------------------------ *
  * v0.4.0.

@@ -161,7 +161,14 @@ type PageMetadata = {
     publishedTime: string
     /** ISO date. Equal to `publishedTime` until the post is genuinely revised. */
     modifiedTime: string
-    authors: string[]
+    /**
+     * `article:author`, and optional because the blog does not set one.
+     *
+     * These posts are about work Zafar did and are not written by him, so a
+     * name here would be a byline nobody has earned. `og:site_name` already
+     * says which site published it, which is the true answer.
+     */
+    authors?: string[]
   }
 }
 
@@ -456,9 +463,10 @@ export function homeJsonLd({
  *
  * Three nodes. `BlogPosting` is the one that does the work: it is the type
  * Google reads for an article result, and the four properties it actually acts
- * on are `headline`, `datePublished`, `dateModified` and `author`. All four
- * come off the post rather than being written here, so a post cannot claim a
- * date the page does not print.
+ * on are `headline`, `datePublished`, `dateModified` and `author`. The three
+ * that vary come off the post rather than being written here, so a post cannot
+ * claim a date the page does not print; `author` is the set itself, for the
+ * reason given at the node.
  *
  * `isPartOf` points at the blog itself, which points at the website, so a
  * consumer reads one site with a blog in it rather than three loose entities.
@@ -481,7 +489,6 @@ export function blogPostJsonLd({
   path,
   datePublished,
   dateModified,
-  author,
   keywords,
 }: {
   title: string
@@ -489,7 +496,6 @@ export function blogPostJsonLd({
   path: string
   datePublished: string
   dateModified: string
-  author: string
   keywords: readonly string[]
 }) {
   const url = absoluteUrl(path)
@@ -507,7 +513,14 @@ export function blogPostJsonLd({
         datePublished,
         dateModified,
         keywords: keywords.join(", "),
-        author: { "@type": "Person", name: author },
+        /*
+          The set, not a person. These posts are written about work Zafar did
+          and decisions he made, and they are not written by him: a `Person`
+          node here would be structured data asserting an authorship that the
+          commit history contradicts. An `Organization` author is valid for
+          `BlogPosting` and is the true one.
+        */
+        author: { "@id": `${SITE_URL}/#icon-set` },
         publisher: { "@id": `${SITE_URL}/#icon-set` },
         mainEntityOfPage: url,
         isPartOf: { "@id": `${SITE_URL}${BLOG_SEGMENT}#blog` },

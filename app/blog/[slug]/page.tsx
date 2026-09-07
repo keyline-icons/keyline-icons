@@ -2,7 +2,6 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 
 import {
-  BLOG_AUTHOR,
   BLOG_POSTS,
   findPost,
   postDateLabel,
@@ -11,7 +10,6 @@ import {
   postVersionLabel,
 } from "@/lib/blog"
 import { blogPostJsonLd, pageMetadata } from "@/lib/seo"
-import { SET_X_URL } from "@/lib/site-chrome"
 import { BlogBody } from "@/components/blog-body"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
@@ -75,7 +73,6 @@ export async function generateMetadata({
     article: {
       publishedTime: post.date,
       modifiedTime: post.updated,
-      authors: [BLOG_AUTHOR],
     },
   })
 }
@@ -112,7 +109,6 @@ export default async function Page({
                 path: postHref(post.slug),
                 datePublished: post.date,
                 dateModified: post.updated,
-                author: BLOG_AUTHOR,
                 keywords: post.keywords,
               })
             ),
@@ -160,19 +156,11 @@ export default async function Page({
               </span>
             )}
             {/*
-              The byline links to the handle the set posts from, which is the
-              one place a reader can check who wrote this. `rel="author"` is a
-              hint rather than a ranking signal and costs nothing.
+              No byline. There was one, carrying Zafar's name and linking his
+              handle, and it claimed something untrue: he did the work these
+              posts are about, and did not write them. The set is the author,
+              which is what the structured data now says too.
             */}
-            <a
-              href={SET_X_URL}
-              rel="author noopener noreferrer"
-              target="_blank"
-              className="font-medium text-foreground underline underline-offset-4 hover:no-underline"
-            >
-              {BLOG_AUTHOR}
-            </a>
-            <span aria-hidden="true"> · </span>
             <time dateTime={post.date}>{postDateLabel(post.date)}</time>
             <span aria-hidden="true"> · </span>
             {post.readingMinutes} min read
