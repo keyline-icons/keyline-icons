@@ -522,8 +522,7 @@ const BATCH_0_3_1: BlogPost = {
         "fifteen. The changelog will tell you that much on its own, off the " +
         "commit dates, without anyone having to write it down. What it cannot " +
         "tell you is why any of it happened, and that turns out to be the more " +
-        "interesting half. So here it is: the families, the faults, and the " +
-        "drawings that were made and then turned down.",
+        "interesting half. So here it is: the families, and the faults.",
     },
     {
       kind: "p",
@@ -658,7 +657,7 @@ const BATCH_0_3_1: BlogPost = {
       figure: {
         kind: "grid",
         names: BLOG_SINGLES_ICON_NAMES,
-        caption: "Twelve singles, including two that came back from the dead.",
+        caption: "Twelve singles, which belong to no family and to each other.",
       },
     },
 
@@ -853,38 +852,6 @@ const BATCH_0_3_1: BlogPost = {
         "What both have in common is the lesson: a treatment applied across " +
         "three thousand files finds you every drawing that was only " +
         "approximately right.",
-    },
-
-    { kind: "h2", text: "The ones that did not ship", id: "dropped" },
-    {
-      kind: "p",
-      text:
-        "A batch that started as motorsport ended up mostly not being one. " +
-        "Eleven drawings came out of it: a crown, two flags, a traffic light, " +
-        "a tyre, an engine, a helmet, a hard hat, a car, a racing car and a " +
-        "bug. I kept four. The tyre, the engine, the helmet, the hard hat, " +
-        "the car and the racing car went, and so, at first, did the chequered " +
-        "flag.",
-    },
-    {
-      kind: "p",
-      text:
-        "Then I redrew the flag by hand, and it went in coordinate for " +
-        "coordinate rather than being re-derived, because two things about it " +
-        "are better than the one it replaced. The wave's phase runs the other " +
-        "way, trough at the pole and crest at the tip, which is how a blown " +
-        "flag actually hangs. And it is one continuous run, so the pole " +
-        "carries the flag's left edge instead of the body closing over it. " +
-        "The chequered flag was then rebuilt on that same wave, which is how " +
-        "it came back.",
-    },
-    {
-      kind: "p",
-      text:
-        "I drew coins later in the same batch, on a premise that turned out " +
-        "not to hold, and dropped it the next morning. That is a normal week. " +
-        "Roughly a fifth of what gets drawn here does not ship, and the ones " +
-        "that do not are usually not the ones you would guess.",
     },
 
     { kind: "h2", text: "Getting it", id: "getting-it" },

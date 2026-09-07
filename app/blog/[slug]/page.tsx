@@ -11,7 +11,7 @@ import {
   postVersionLabel,
 } from "@/lib/blog"
 import { blogPostJsonLd, pageMetadata } from "@/lib/seo"
-import { SET_X_HANDLE, SET_X_URL } from "@/lib/site-chrome"
+import { SET_X_URL } from "@/lib/site-chrome"
 import { BlogBody } from "@/components/blog-body"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
@@ -169,34 +169,6 @@ export default async function Page({
         <article>
           <BlogBody post={post} />
         </article>
-
-        {/*
-          A way back and a way to say something. Not a comment form: there is
-          no server here to hold one, and the set already has two places
-          feedback goes.
-        */}
-        <footer className="mt-12 flex flex-col gap-3 border-t pt-6 text-sm text-muted-foreground">
-          <p>
-            <Link
-              href="/blog"
-              className="font-medium text-foreground underline underline-offset-4 hover:no-underline"
-            >
-              All posts
-            </Link>
-          </p>
-          <p>
-            Questions, or a drawing you want and cannot find? Say so at{" "}
-            <a
-              href={SET_X_URL}
-              rel="noopener noreferrer"
-              target="_blank"
-              className="font-medium text-foreground underline underline-offset-4 hover:no-underline"
-            >
-              @{SET_X_HANDLE}
-            </a>
-            .
-          </p>
-        </footer>
       </main>
 
       <SiteFooter />
