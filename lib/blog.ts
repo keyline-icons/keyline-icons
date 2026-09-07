@@ -788,7 +788,10 @@ const BATCH_0_3_1: BlogPost = {
             title: "The whole bell, old plate over new",
             a: { name: "bell", take: "before" },
             b: { name: "bell", take: "after" },
-            verdict: { text: "Nothing visible at this size", tone: "good" },
+            verdict: {
+              text: "Barely a hairline, and this is fifteen times icon size",
+              tone: "good",
+            },
           },
           {
             title: "Three units of its left flank, same two plates",
@@ -802,10 +805,11 @@ const BATCH_0_3_1: BlogPost = {
           "The same two drawings in both panels, one painted over the other. " +
           "The rose down the edge of the second panel is the whole fault: " +
           "plate the old drawing put outside the outline it was meant to sit " +
-          "one unit inside. The first panel is that same rose at the size the " +
-          "icon ships at, which is to say invisible, which is how it survived " +
-          "fourteen files and seven releases. There is no emerald in either " +
-          "panel, and that is a finding too: the correction never added " +
+          "one unit inside. The first panel is the whole bell at roughly " +
+          "fifteen times the size it ships at, where that same rose is barely " +
+          "a hairline; at 24px it is 0.054 of a pixel, which is how it " +
+          "survived fourteen files and seven releases. There is no emerald in " +
+          "either panel, and that is a finding too: the correction never added " +
           "plate anywhere, it only ever pulled it back.",
         legend: {
           a: "plate as it shipped",
@@ -839,12 +843,15 @@ const BATCH_0_3_1: BlogPost = {
     {
       kind: "p",
       text:
-        "The rest of the thirty redraws are the same shape of fault in the " +
-        "sharp treatment, found the same way: sharp caps standing outside the " +
-        "ink on the music notes, the map pins and the message dot; the clock " +
-        "rings sitting off their own circle; the database cylinder's plate " +
-        "offset the way the bells' now are. A treatment applied across three " +
-        "thousand files finds you the drawings that were approximately right.",
+        "A handful of the other redraws are the same shape of fault, found the " +
+        "same way: sharp caps standing outside the ink on the music notes, the " +
+        "map pins and the message dot; the clock rings sitting off their own " +
+        "circle; the database cylinder's plate offset the way the bells' now " +
+        "are. The remaining three hundred are the sharp end cut, one rule " +
+        "applied to every drawing at once, and they are a post of their own. " +
+        "What both have in common is the lesson: a treatment applied across " +
+        "three thousand files finds you every drawing that was only " +
+        "approximately right.",
     },
 
     { kind: "h2", text: "The ones that did not ship", id: "dropped" },

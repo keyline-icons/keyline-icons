@@ -70,10 +70,15 @@ function Tile({ icon }: { icon: Icon }) {
     <li>
       <Link
         href={iconHref(icon.name)}
-        className="flex flex-col items-center gap-2 rounded-lg bg-muted p-3 transition-colors hover:bg-accent"
+        className="flex flex-col items-center gap-2.5 rounded-lg bg-muted px-3 py-4 transition-colors hover:bg-accent"
       >
         <span className="text-foreground">
-          <Glyph art={icon.art.stroke!} size={24} stroke={2} />
+          <Glyph
+            art={icon.art.stroke!}
+            size={24}
+            stroke={2}
+            className="size-10"
+          />
         </span>
         {/*
           Wrapped rather than truncated, which is where this differs from the
@@ -82,7 +87,7 @@ function Tile({ icon }: { icon: Icon }) {
           above, and `package-arrow-right` rendered as `package-ar…` is a
           figure that cannot be matched to the prose that introduces it.
         */}
-        <span className="w-full text-center text-[10px] leading-tight break-words text-muted-foreground">
+        <span className="w-full text-center text-[11px] leading-tight break-words text-muted-foreground">
           {icon.name}
         </span>
       </Link>
@@ -106,19 +111,34 @@ function Caption({ children }: { children: ReactNode }) {
 }
 
 /**
- * The drawings named, at grid size.
+ * The drawings named, at display size.
  *
- * 24px, the size the set is built at and used at, for the same reason the
- * changelog draws them there: a reader is identifying an icon rather than
- * admiring it. Each tile is a link into the icon's own page, which is worth
- * saying out loud as an editorial rule and not only an SEO one: a post that
- * names forty-six drawings and gives you no way to reach any of them is a
- * post that has made you go and search for them.
+ * **Drawn at 40px, but still a 24 x 24 icon**, which is the distinction worth
+ * keeping: `size={24}` writes the intrinsic `width` and `height` the set
+ * actually ships, and `size-10` scales it. Passing `size={40}` would render
+ * the same picture and put `width="40"` in the markup, which quietly says the
+ * asset is a 40px icon. It is not; there is one drawing on one grid, shown
+ * larger. `components/icon-detail.tsx` sizes the same way with `size-full`,
+ * and it is how anyone consuming the set writes it: a class on the element,
+ * not a different export.
+ *
+ * The size is a departure rather than an oversight. `/icons`, the related
+ * strip on an icon page and the changelog all draw at 24 because a reader
+ * there is *scanning*: they have a name in mind and are looking for it. An
+ * article is the opposite situation. Nobody arrives at a figure looking for
+ * `package-arrow-left`; they are being shown a family and asked to see what it
+ * has in common, and a drawing at 24px inside 16px prose is smaller than the
+ * text around it.
+ *
+ * Each tile is a link into the icon's own page, which is worth saying out loud
+ * as an editorial rule and not only an SEO one: a post that names forty-four
+ * drawings and gives you no way to reach any of them is a post that has made
+ * you go and search for them.
  */
 function GridFigure({ icons, caption }: { icons: Icon[]; caption: string }) {
   return (
     <figure className="my-8">
-      <ul className="grid grid-cols-[repeat(auto-fill,minmax(112px,1fr))] gap-2">
+      <ul className="grid grid-cols-[repeat(auto-fill,minmax(132px,1fr))] gap-2">
         {icons.map((icon) => (
           <Tile key={icon.name} icon={icon} />
         ))}
@@ -139,13 +159,21 @@ type Pair = { name: string; before: StyleArt | null; after: StyleArt | null }
  * to look like, and nobody can, which is precisely why the icon was worth
  * correcting. Both drawings at one size, in one ink, on one ground, so the
  * difference between them is the only thing that differs.
+ *
+ * Drawn at 40px through `size-10`, matching the grid above rather than the
+ * changelog's 24, and a 24 x 24 icon in the markup either way. **This does
+ * not weaken the caption that says the fix is invisible here**, which was
+ * checked rather than assumed: the bells' plate ran 0.054 of a grid unit
+ * proud, and the grid is 24 units wide, so at 40px that is 0.09 of a pixel.
+ * It would still be invisible at four times this size. The figure that shows
+ * it is the `diagnostic` below, which crops to three units.
  */
 function PairsFigure({ pairs, caption }: { pairs: Pair[]; caption: string }) {
   const face = (art: StyleArt | null, label: string) =>
     art && (
       <span className="flex flex-col items-center gap-1.5">
         <span className="text-foreground">
-          <Glyph art={art} size={24} stroke={2} />
+          <Glyph art={art} size={24} stroke={2} className="size-10" />
         </span>
         <span className="text-[10px] leading-none text-muted-foreground">
           {label}
@@ -155,13 +183,13 @@ function PairsFigure({ pairs, caption }: { pairs: Pair[]; caption: string }) {
 
   return (
     <figure className="my-8">
-      <ul className="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-2">
+      <ul className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-2">
         {pairs.map((pair) => (
           <li
             key={pair.name}
-            className="flex flex-col items-center gap-2 rounded-lg bg-muted p-3"
+            className="flex flex-col items-center gap-2.5 rounded-lg bg-muted px-3 py-4"
           >
-            <span className="flex items-center gap-3">
+            <span className="flex items-center gap-4">
               {face(pair.before, "Before")}
               {pair.before && pair.after && (
                 <span aria-hidden="true" className="text-muted-foreground">
@@ -170,7 +198,7 @@ function PairsFigure({ pairs, caption }: { pairs: Pair[]; caption: string }) {
               )}
               {face(pair.after, "After")}
             </span>
-            <span className="w-full text-center text-[10px] leading-tight break-words text-muted-foreground">
+            <span className="w-full text-center text-[11px] leading-tight break-words text-muted-foreground">
               {pair.name}
             </span>
           </li>
