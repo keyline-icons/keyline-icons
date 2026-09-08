@@ -1017,14 +1017,14 @@ const BATCH_0_5_0: BlogPost = {
   title: "35 new icons, and two names that were the wrong way round",
   description:
     "Inside Keyline Icons v0.5.0: a Text shelf for the formatting marks, the " +
-    "day link and link-2 turned out to be on each other's drawings, and four " +
-    "sharp icons painting outside their own box that no check could see.",
+    "day link and link-2 turned out to be on each other's drawings, and a " +
+    "pair of sliders that broke their rails to give the knob air.",
   standfirst:
     "Everything that landed in v0.5.0, and what each of it was actually for. " +
     "Free SVG icons for shadcn/ui, drawn on one 24×24 grid.",
   date: "2026-09-08",
   updated: "2026-09-08",
-  readingMinutes: 6,
+  readingMinutes: 5,
   thumbnail: BLOG_V050_THUMBNAIL_ICON_NAMES,
   keywords: [
     "icon set update",
@@ -1033,7 +1033,7 @@ const BATCH_0_5_0: BlogPost = {
     "text formatting icons",
     "quotation mark icons",
     "link icons",
-    "sharp icons",
+    "slider icons",
     "icon redraw",
   ],
   body: [
@@ -1051,8 +1051,8 @@ const BATCH_0_5_0: BlogPost = {
         "exception. Fourteen of the thirty-five are formatting marks that " +
         "arrived with a shelf of their own. Two of the seven redraws are a " +
         "pair of names that had been on each other's drawings since the " +
-        "beginning. And four of the new icons were painting outside their own " +
-        "box in a way nothing in the pipeline could see.",
+        "beginning. And the sliders gave up four units of rail each, so the " +
+        "knob has air without a knockout.",
     },
 
     {
@@ -1066,15 +1066,17 @@ const BATCH_0_5_0: BlogPost = {
         "This set follows Lucide's naming, and that is a decision worth being " +
         "boring about: somebody arriving with an import list should not have " +
         "to learn a second vocabulary to use a second icon set. Lucide calls " +
-        "the interlocked diagonal chain link, and the horizontal one with the " +
-        "bar through it link-2. This set had them the other way round, and " +
+        "the interlocked diagonal chain `link`, and the horizontal one with " +
+        "the bar through it `link-2`. This set had them the other way round, " +
+        "and " +
         "had done from the start.",
     },
     {
       kind: "p",
       text:
-        "So they swapped bodies. link is the diagonal chain now and link-2 is " +
-        "the horizontal one. The component sets in Figma kept their ids " +
+        "So they swapped bodies. `link` is the diagonal chain now and " +
+        "`link-2` is the horizontal one. The component sets in Figma kept " +
+        "their ids " +
         "through it, so every instance in the catalogue stayed linked to the " +
         "thing it was already pointing at, and only the geometry inside moved.",
     },
@@ -1084,7 +1086,7 @@ const BATCH_0_5_0: BlogPost = {
         kind: "diagnostic",
         panels: [
           {
-            title: "link as it shipped, laid over link-2 as it ships now",
+            title: "`link` as it shipped, laid over `link-2` as it ships now",
             a: { name: "link", take: "before" },
             b: { name: "link-2", take: "current" },
             verdict: {
@@ -1093,7 +1095,7 @@ const BATCH_0_5_0: BlogPost = {
             },
           },
           {
-            title: "link as it ships now, laid over link-2",
+            title: "`link` as it ships now, laid over `link-2`",
             a: { name: "link", take: "current" },
             b: { name: "link-2", take: "current" },
             verdict: { text: "Two drawings", tone: "good" },
@@ -1102,13 +1104,14 @@ const BATCH_0_5_0: BlogPost = {
         caption:
           "Each panel is one drawing painted on top of the other. Where the " +
           "two disagree, one of them keeps its colour. The left panel has no " +
-          "colour anywhere, because the drawing that used to answer to link " +
-          "is the drawing that answers to link-2 now: a swap, stated as " +
+          "colour anywhere, because the drawing that used to answer to " +
+          "`link` is the drawing that answers to `link-2` now: a swap, " +
+          "stated as " +
           "plainly as it can be. The right panel is the same comparison after " +
           "it, and there is nothing subtle about that one.",
         legend: {
-          a: "link only",
-          b: "link-2 only",
+          a: "`link` only",
+          b: "`link-2` only",
           both: "ink the two share",
         },
       },
@@ -1116,12 +1119,13 @@ const BATCH_0_5_0: BlogPost = {
     {
       kind: "p",
       text:
-        "link-off came with them. It draws the horizontal chain with a slash " +
-        "through it, which makes it the negated form of link-2 rather than of " +
-        "link, so it is link-2-off now. That is the one change here that will " +
-        "break a build: LinkOff leaves the React exports and Link2Off " +
-        "replaces it. The old name is kept as a search alias, so looking for " +
-        "link-off on the site still lands on the drawing.",
+        "`link-off` came with them. It draws the horizontal chain with a " +
+        "slash through it, which makes it the negated form of `link-2` " +
+        "rather than of `link`, so it is `link-2-off` now. That is the one " +
+        "change here that will break a build: `LinkOff` leaves the React " +
+        "exports and `Link2Off` replaces it. The old name is kept as a " +
+        "search alias, so looking for `link-off` on the site still lands on " +
+        "the drawing.",
     },
     {
       kind: "note",
@@ -1135,8 +1139,9 @@ const BATCH_0_5_0: BlogPost = {
         kind: "grid",
         names: BLOG_LINK_ICON_NAMES,
         caption:
-          "The chain after the swap: link, link-2, link-2-off and unlink. " +
-          "unlink is new, and it is the diagonal chain come apart rather than " +
+          "The chain after the swap: `link`, `link-2`, `link-2-off` and " +
+          "`unlink`. `unlink` is new, and it is the diagonal chain come " +
+          "apart rather than " +
           "the horizontal one, which is Lucide's reading of that name too.",
       },
     },
@@ -1150,9 +1155,9 @@ const BATCH_0_5_0: BlogPost = {
       kind: "p",
       text:
         "Fourteen names, and a category that did not exist before this " +
-        "release: bold, italic, underline and strikethrough, the four-way " +
-        "alignment stack, the double and single quotation marks in both " +
-        "hands, and language.",
+        "release: `bold`, `italic`, `underline` and `strikethrough`, the " +
+        "four-way alignment stack, the double and single quotation marks in " +
+        "both hands, and `language`.",
     },
     {
       kind: "figure",
@@ -1168,23 +1173,12 @@ const BATCH_0_5_0: BlogPost = {
       },
     },
     {
-      kind: "p",
-      text:
-        "The quotation marks are here rather than with the speech bubbles, " +
-        "and the reason is worth stating because it is not obvious from the " +
-        "drawings: a quotation mark is a typographic mark, and a bubble is " +
-        "the thing one goes inside. language was the one that could honestly " +
-        "have gone either way. It is an A beside a CJK glyph, so it is " +
-        "letterforms first and internationalisation second, and it sits with " +
-        "the letters.",
-    },
-    {
       kind: "figure",
       figure: {
         kind: "grid",
         names: BLOG_V050_SINGLES_ICON_NAMES,
         caption:
-          "The rest of what is new. bell-ring is the bell with two waves " +
+          "The rest of what is new. `bell-ring` is the bell with two waves " +
           "concentric with its own dome, which is what makes the clearance " +
           "one number instead of a curve-to-curve solve: the dome paints out " +
           "to 6, so a wave whose centre line sits at 9 paints in to 8, and " +
@@ -1196,76 +1190,15 @@ const BATCH_0_5_0: BlogPost = {
 
     {
       kind: "h2",
-      text: "A fault that no check could see",
-      id: "sharp-overshoot",
-    },
-    {
-      kind: "p",
-      text:
-        "Four of the new drawings were painting outside their own sharp box, " +
-        "and every check in the repository was happy with them.",
-    },
-    {
-      kind: "p",
-      text:
-        "The sharp treatment takes a drawing's fillets out. What that does to " +
-        "an acute vertex is not obvious until it is written down. A fillet " +
-        "sits r / sin t along the bisector from the vertex and reaches back " +
-        "r, so it holds the painted extreme r (1 / sin t − 1) short of the " +
-        "true point. Take it away and a round join paints a disc about the " +
-        "vertex itself, so the drawing grows by exactly the amount the fillet " +
-        "was absorbing. On zap that is 0.91 of a unit at the apex. On both " +
-        "sparkles it is 0.86 at every tip.",
-    },
-    {
-      kind: "p",
-      text:
-        "All four passed the linter, and each rule had a good reason to be " +
-        "quiet. Padding was satisfied because there was still a unit of " +
-        "canvas left over. Centring was satisfied because they grew evenly. " +
-        "Nothing in the rule set compares a sharp drawing against the rounded " +
-        "one it was converted from, so nothing had an opinion at all.",
-    },
-    {
-      kind: "p",
-      text:
-        "What found them was scaffolding, not a rule: a highlighter drawn " +
-        "over every cell of the catalogue in Figma, with a green box on the " +
-        "drawing's ink, a blue one on its 24 by 24 cell and the four gaps " +
-        "written out as numbers. Green goes on every icon always, so that two " +
-        "neighbours whose boxes disagree are visible side by side. Red is " +
-        "drawn only when a sharp drawing paints outside its rounded sibling " +
-        "or the ink leaves the one-unit floor. Four cells out of a hundred " +
-        "and twenty-four came up red.",
-    },
-    {
-      kind: "note",
-      text:
-        "The fix is not to drop the radii and live with the growth. It is to " +
-        "put the sharp vertex where the fillet's extreme used to be, so both " +
-        "treatments paint the same box.",
-    },
-    {
-      kind: "p",
-      text:
-        "share-2 was the interesting one, because it grew unevenly. Its apex " +
-        "carried a bigger fillet than its other corners, so taking them all " +
-        "out pushed the point 0.56 to the right against 0.07 to the left, and " +
-        "the drawing came out off-centre as well as too big: 1.93 units of " +
-        "padding on one side against 1.44 on the other. Both treatments " +
-        "measure 20 by 16 now, centred.",
-    },
-
-    {
-      kind: "h2",
       text: "The sliders broke their rails",
       id: "sliders",
     },
     {
       kind: "p",
       text:
-        "sliders-horizontal and sliders-vertical used to draw three unbroken " +
-        "rails with a tick crossing each. They break at the knob now, which " +
+        "`sliders-horizontal` and `sliders-vertical` used to draw three " +
+        "unbroken rails with a tick crossing each. They break at the knob " +
+        "now, which " +
         "gives it air without a knockout the stroke style is not allowed to " +
         "have.",
     },
@@ -1275,7 +1208,7 @@ const BATCH_0_5_0: BlogPost = {
         kind: "diagnostic",
         panels: [
           {
-            title: "sliders-horizontal, old rails over new",
+            title: "`sliders-horizontal`, old rails over new",
             a: { name: "sliders-horizontal", take: "before" },
             b: { name: "sliders-horizontal", take: "after" },
             verdict: { text: "Three breaks and one knob moved", tone: "good" },
@@ -1319,9 +1252,9 @@ const BATCH_0_5_0: BlogPost = {
         caption:
           "All seven redraws, before beside after. At 24px most of these are " +
           "honestly hard to tell apart, which is the argument for the " +
-          "superimposed figures above: the pen family is the same drawing " +
-          "scaled 10/9 with its band moved from the nib to the cap, and clock " +
-          "is now exactly clock-3, both names kept.",
+          "superimposed figures above: the `pen` family is the same drawing " +
+          "scaled 10/9 with its band moved from the nib to the cap, and " +
+          "`clock` is now exactly `clock-3`, both names kept.",
       },
     },
 

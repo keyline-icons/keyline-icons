@@ -124,6 +124,42 @@ function Tile({ icon }: { icon: Icon }) {
 }
 
 /**
+ * Prose, with anything in backticks set as code.
+ *
+ * The one piece of inline markup a post has, and it exists for a single job:
+ * an icon's name is a name, not an English word, and a sentence that says the
+ * chain is link now reads as a sentence with a word missing. `link` does not.
+ * It also settles `link-2` against a numeral, and `10/9` against a date.
+ *
+ * A split on backticks rather than a markdown parser, because that is the
+ * whole grammar: odd segments are code, even ones are text, an unclosed
+ * backtick leaves its tail as prose, and nothing else in a post is markup. A
+ * parser here would accept emphasis and headings that the block types already
+ * carry and that nothing renders.
+ *
+ * The code ink is the foreground against the muted paragraph it sits in, which
+ * is what makes a name legible as a name without a tinted box behind every one
+ * of them: a paragraph naming six icons would otherwise read as a row of
+ * buttons.
+ */
+function prose(text: string): ReactNode {
+  const parts = text.split("`")
+  if (parts.length < 2) return text
+  return parts.map((part, i) =>
+    i % 2 === 0 ? (
+      part
+    ) : (
+      <code
+        key={`${i}-${part}`}
+        className="font-mono text-[0.9em] text-foreground"
+      >
+        {part}
+      </code>
+    )
+  )
+}
+
+/**
  * A figure's caption.
  *
  * Under the picture rather than over it, and in the muted ink the rest of the
@@ -171,7 +207,7 @@ function GridFigure({ icons, caption }: { icons: Icon[]; caption: string }) {
           <Tile key={icon.name} icon={icon} />
         ))}
       </ul>
-      <Caption>{caption}</Caption>
+      <Caption>{prose(caption)}</Caption>
     </figure>
   )
 }
@@ -237,7 +273,7 @@ function PairsFigure({ pairs, caption }: { pairs: Pair[]; caption: string }) {
           </li>
         ))}
       </ul>
-      <Caption>{caption}</Caption>
+      <Caption>{prose(caption)}</Caption>
     </figure>
   )
 }
@@ -333,7 +369,7 @@ function DiagnosticPanelFigure({
   return (
     <figure className="flex min-w-0 flex-1 flex-col gap-2">
       <figcaption className="text-[11px] leading-tight text-muted-foreground">
-        {title}
+        {prose(title)}
       </figcaption>
       <div
         className="relative aspect-square w-full overflow-hidden rounded-lg"
@@ -362,7 +398,7 @@ function DiagnosticPanelFigure({
           }`}
           style={verdict.tone === "bad" ? { color: DIAGNOSTIC.a } : undefined}
         >
-          {verdict.text}
+          {prose(verdict.text)}
         </span>
       )}
     </figure>
@@ -382,7 +418,9 @@ function DiagnosticLegend({
         className="size-2.5 shrink-0 rounded-[3px]"
         style={{ background: color }}
       />
-      {label}
+      {/* one flex item, so a code span in the label does not take the row's
+          own gap between the name and the word after it */}
+      <span>{prose(label)}</span>
     </span>
   )
 
@@ -422,7 +460,7 @@ function LinkRow({
       <span className="text-muted-foreground">
         {" "}
         <span aria-hidden="true">· </span>
-        {text}
+        {prose(text)}
       </span>
     </p>
   )
@@ -520,7 +558,7 @@ export async function BlogBody({ post }: { post: BlogPost }) {
                 />
               ))}
             </div>
-            <Caption>{spec.caption}</Caption>
+            <Caption>{prose(spec.caption)}</Caption>
             <DiagnosticLegend legend={spec.legend} />
           </figure>
         )
@@ -554,7 +592,7 @@ export async function BlogBody({ post }: { post: BlogPost }) {
                 key={key}
                 className="text-base leading-relaxed text-muted-foreground"
               >
-                {block.text}
+                {prose(block.text)}
               </p>
             )
           case "note":
@@ -568,7 +606,7 @@ export async function BlogBody({ post }: { post: BlogPost }) {
                 key={key}
                 className="border-l-2 border-foreground/20 py-1 pl-4 text-base leading-relaxed text-balance text-foreground"
               >
-                {block.text}
+                {prose(block.text)}
               </p>
             )
           case "list":
@@ -578,7 +616,7 @@ export async function BlogBody({ post }: { post: BlogPost }) {
                 className="flex list-disc flex-col gap-2 pl-5 text-base leading-relaxed text-muted-foreground"
               >
                 {block.items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>{prose(item)}</li>
                 ))}
               </ul>
             )
