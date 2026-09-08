@@ -68,23 +68,60 @@ const PENNANT =
  */
 const WISHLIST = [
   // Row 1: the glyphs every set is judged on.
-  "check", "x", "plus", "search", "user", "settings", "mail", "calendar",
-  "file", "folder",
+  "check",
+  "x",
+  "plus",
+  "search",
+  "user",
+  "settings",
+  "mail",
+  "calendar",
+  "file",
+  "folder",
   // Row 2: the next tier of universals.
-  "home", "bell", "lock", "globe", "play", "download", "upload", "bin",
-  "copy", "clock",
+  "home",
+  "bell",
+  "lock",
+  "globe",
+  "play",
+  "download",
+  "upload",
+  "bin",
+  "copy",
+  "clock",
   // Row 3: range, so the cover is not thirty variations on a rectangle.
-  "smartphone", "shopping-cart", "credit-card", "map-pin", "git-branch",
-  "terminal", "bar-chart", "tag", "arrow-right", "menu",
+  "smartphone",
+  "shopping-cart",
+  "credit-card",
+  "map-pin",
+  "git-branch",
+  "terminal",
+  "bar-chart",
+  "tag",
+  "arrow-right",
+  "menu",
   // Row 4, which the Figma cover added when it went to 16:9. It was briefly
   // filled by the alphabetical top-up and ended on `align-offset-bottom`,
   // `-left` and `-right`: three near-identical glyphs closing the one image
   // most people judge the set by.
-  "link", "package", "bookmark", "share", "gift", "heart", "star", "eye",
-  "image", "code",
+  "link",
+  "package",
+  "bookmark",
+  "share",
+  "gift",
+  "heart",
+  "star",
+  "eye",
+  "image",
+  "code",
   // Spares. The list is longer than the grid so a rename is absorbed here
   // rather than by the alphabetical top-up, which opens on align-offset.
-  "chevron-down", "cloud", "sun", "wifi", "filter", "database",
+  "chevron-down",
+  "cloud",
+  "sun",
+  "wifi",
+  "filter",
+  "database",
 ]
 
 const COLS = 10
@@ -106,8 +143,20 @@ const GLYPH = 64
  * same distance from it.
  */
 const COVERS = [
-  { svg: "figma-cover.svg", png: "figma-cover.png", h: 1080, rows: 4, raster: [1920, 1080] },
-  { svg: "social-preview.svg", png: "social-preview.png", h: 960, rows: 3, raster: [1280, 640] },
+  {
+    svg: "figma-cover.svg",
+    png: "figma-cover.png",
+    h: 1080,
+    rows: 4,
+    raster: [1920, 1080],
+  },
+  {
+    svg: "social-preview.svg",
+    png: "social-preview.png",
+    h: 960,
+    rows: 3,
+    raster: [1280, 640],
+  },
 ]
 
 /**
@@ -147,7 +196,9 @@ async function readGlyph(name) {
     .filter(([, k]) => !ROOT_DROP.has(k))
     .map(([, k, v]) => `${k}="${v}"`)
     .join(" ")
-  const body = svg.replace(/^[\s\S]*?<svg\b[^>]*>/, "").replace(/<\/svg>[\s\S]*$/, "")
+  const body = svg
+    .replace(/^[\s\S]*?<svg\b[^>]*>/, "")
+    .replace(/<\/svg>[\s\S]*$/, "")
   return { attrs, body: body.trim() }
 }
 
@@ -159,14 +210,32 @@ async function readGlyph(name) {
  * than as twenty things.
  */
 const COVER_BLOCK = [
-  "bell", "heart", "star", "gift", "cloud",
-  "sun", "camera", "bookmark", "message", "folder",
-  "shopping-cart", "package", "calendar", "image", "lock",
-  "map-pin", "user", "search", "settings", "share",
+  "bell",
+  "heart",
+  "star",
+  "gift",
+  "cloud",
+  "sun",
+  "camera",
+  "bookmark",
+  "message",
+  "folder",
+  "shopping-cart",
+  "package",
+  "calendar",
+  "image",
+  "lock",
+  "map-pin",
+  "user",
+  "search",
+  "settings",
+  "share",
 ]
 
 const available = new Set(
-  (await readdir(SRC)).filter((f) => f.endsWith(".svg")).map((f) => f.slice(0, -4))
+  (await readdir(SRC))
+    .filter((f) => f.endsWith(".svg"))
+    .map((f) => f.slice(0, -4))
 )
 
 /* Enough for whichever wants the most. The covers slice what they need, so the
@@ -275,56 +344,6 @@ function findChrome() {
  * freeze whatever the set said the day it was taken, and this file already
  * carries that argument for the Figma mockup on the landing page.
  */
-function pluginPanel(x, y, scale) {
-  const W = 400
-  const H = 560
-  const PADDING = 8
-  const CELL = 40
-  const GAP = 2
-  const COLS = PANEL_COLS
-  const GRID_ROWS = PANEL_ROWS
-
-  const cells = []
-  const start = 30
-  for (let i = 0; i < COLS * GRID_ROWS; i++) {
-    const name = picked[(start + i) % picked.length]
-    const cx = PADDING + (i % COLS) * (CELL + GAP)
-    const cy = 108 + Math.floor(i / COLS) * (CELL + GAP)
-    // 24px drawing centred in a 40px cell, which is what the grid does.
-    cells.push(
-      `<g transform="translate(${cx + 8} ${cy + 8})">${glyphAt(name, 24)}</g>`
-    )
-  }
-
-  return (
-    `<g transform="translate(${x} ${y}) scale(${scale})">` +
-    `<rect width="${W}" height="${H}" rx="12" fill="${BG}"/>` +
-    // The search field.
-    `<rect x="${PADDING}" y="${PADDING}" width="${W - PADDING * 2}" height="30" rx="5" ` +
-    `fill="none" stroke="${HAIRLINE}" stroke-width="1"/>` +
-    `<text x="${PADDING + 9}" y="${PADDING + 20}" font-family="${FONT}" font-size="12" fill="${MUTED}">Search icons</text>` +
-    // Three equal tabs, the first one pressed.
-    `<rect x="${PADDING}" y="46" width="${(W - PADDING * 2) / 3}" height="24" rx="4" fill="#e5f4ff"/>` +
-    ["stroke", "duotone", "fill"]
-      .map((s, i) => {
-        const tw = (W - PADDING * 2) / 3
-        return (
-          `<text x="${PADDING + tw * i + tw / 2}" y="62" text-anchor="middle" ` +
-          `font-family="${FONT}" font-size="12" fill="${i === 0 ? INK : MUTED}">${s}</text>`
-        )
-      })
-      .join("") +
-    `<line x1="0" y1="82" x2="${W}" y2="82" stroke="${HAIRLINE}" stroke-width="1"/>` +
-    `<g fill="none" stroke="${INK}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">` +
-    cells.join("") +
-    `</g>` +
-    `<line x1="0" y1="${H - 28}" x2="${W}" y2="${H - 28}" stroke="${HAIRLINE}" stroke-width="1"/>` +
-    `<text x="${PADDING}" y="${H - 10}" font-family="${FONT}" font-size="11" fill="${MUTED}">503 stroke</text>` +
-    `<text x="${W - PADDING}" y="${H - 10}" text-anchor="end" font-family="${FONT}" font-size="11" fill="${MUTED}">keylineicons.com</text>` +
-    `</g>`
-  )
-}
-
 /** One drawing at a size, without the wrapper the grid composer adds. */
 function glyphAt(name, size) {
   const art = art24[name]
@@ -433,7 +452,8 @@ if (check) {
     const path = join(OUT, file)
     const prev = existsSync(path) ? await readFile(path, "utf8") : null
     if (prev === text) continue
-    const why = prev === null ? "does not exist" : "is out of sync with icons/stroke/"
+    const why =
+      prev === null ? "does not exist" : "is out of sync with icons/stroke/"
     console.error(`  ${c(33, "DRIFT")} previews/${file} ${why}`)
     drift = true
   }
@@ -443,7 +463,10 @@ if (check) {
   }
   const sizes = built.map((b) => `${b.raster[0]}×${b.raster[1]}`).join(", ")
   console.log(
-    c(32, `previews/ covers are in sync with icons/stroke/ (${sizes}, ${picked.length} glyphs)`)
+    c(
+      32,
+      `previews/ covers are in sync with icons/stroke/ (${sizes}, ${picked.length} glyphs)`
+    )
   )
 } else {
   await mkdir(OUT, { recursive: true })
@@ -468,12 +491,15 @@ if (check) {
       // Chrome chatters on stderr about macOS task policy even on success.
       if (!existsSync(pngPath)) throw e
     })
-    if (!existsSync(pngPath)) throw new Error(`Chrome produced no PNG for ${pngFile}`)
+    if (!existsSync(pngPath))
+      throw new Error(`Chrome produced no PNG for ${pngFile}`)
 
     const png = await readFile(pngPath)
     const [gotW, gotH] = [png.readUInt32BE(16), png.readUInt32BE(20)]
     if (gotW !== w || gotH !== h) {
-      throw new Error(`${pngFile}: expected ${w}x${h}, Chrome gave ${gotW}x${gotH}`)
+      throw new Error(
+        `${pngFile}: expected ${w}x${h}, Chrome gave ${gotW}x${gotH}`
+      )
     }
     console.log(`Wrote previews/${pngFile} (${w}×${h})`)
   }

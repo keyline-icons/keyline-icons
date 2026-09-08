@@ -561,7 +561,7 @@ async function sheetSharp() {
       </style>
       <div class="head">
         <h1>Rounded or sharp, every drawing</h1>
-        <p>The same 585 names in both, so switching the treatment never costs you an icon.</p>
+        <p>Every name in both, so switching the treatment never costs you an icon.</p>
       </div>
       <div class="row">${cols}</div>`
     ),
@@ -664,7 +664,7 @@ async function sheetBoard() {
       -1.5,
       `<div class="row">${await gf("circle-check", 28, FJ.green)}<span class="t">Packages on npm</span></div>` +
         `<div class="row" style="margin-top:auto;opacity:.55">${await g("check", 24, FJ.ink)}` +
-        `<span style="font-size:19px">0.1.0</span></div>`
+        `<span style="font-size:19px">Shipped</span></div>`
     ) +
     sticky(
       1312,
