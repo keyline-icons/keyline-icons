@@ -207,8 +207,8 @@ export function plate(k, opts = {}) {
 export const CREASE_REACH = 0.5;
 
 /**
- * The crease, knocked out of the fill: a wedge that leaves the tail notch at
- * the fold's own width and closes to a point half way along it.
+ * The crease, knocked out of the fill: a wedge that starts at the notch's ink
+ * and closes to a point half way along the fold.
  *
  * This is the drawing's one deliberate exception, and it is Zafar's call from a
  * reference rather than anything the guide would produce. `map`'s rule — a
@@ -220,21 +220,22 @@ export const CREASE_REACH = 0.5;
  * what says that is a wedge: widest where the sheet is doubled over at the
  * tail, closing as the two halves come back together toward the nose.
  *
- * So the fill's silhouette is not the stroke's. Its notch runs a third of the
- * way into the body where the stroke's is two units deep, and the styles are
- * allowed to diverge here for the same reason `map`'s duotone and fill do: only
- * one of them has to explain the structure.
+ * What the exception does NOT get to do is spend the notch's ink. The wedge was
+ * built once with its mouth on the plate's own dent, so the white ran straight
+ * out of the tail — and where its side crossed the dent's edge it pinched the
+ * near wing to a needle, which is the fault Zafar drew an arrow at. So the
+ * wedge is an island: its back is the notch's INNER ink edge, the notch keeps
+ * its two units all the way round, and every edge here is ink the stroke draws.
  *
- * The knockout closes ON the plate rather than past it. A knockout that runs
- * outside the shape does not stop existing there — nonzero counts it and paints
- * it — which is a dark stub left floating off the tail. So the wedge's mouth is
- * the plate's own dent: two sides meeting the dent exactly where it crosses the
- * fold's ink edge, and a base that is the dent, taken at its own radius.
+ *   the sides    from the notch's ink at the fold's own width, closing on a
+ *                point at CREASE_REACH along the fold
+ *   the back     where the notch's two inner offsets cross, on the axis
+ *                1 / cos t forward of it, cut by the notch's own arc
+ *   the radius   the notch's fillet plus the unit the stroke paints on the tip
+ *                side of it: 4 rounded, and 1 sharp, where there is no fillet
+ *                and the round JOIN is the whole of the ink on that side
  *
- *   mouth      uN - (1 - sin t) / cos t, on the fold's ink edge and the dent
- *   dent       uN - 1 / cos t, where the dent's two offsets cross on the axis
- *   radius     the notch's fillet less the plate's unit, 2 rounded and 0 sharp,
- *              which is the same arc the plate already draws there
+ * Wound against the plate, so nonzero knocks it out.
  */
 export function spine(k, { sharp = false } = {}) {
   const { u } = AXIS[k];
@@ -243,12 +244,11 @@ export function spine(k, { sharp = false } = {}) {
   const at = (along, across) => add(C0, add(mul(u, along), mul(nrm, across)));
   const st = Math.sin(THETA), ct = Math.cos(THETA);
   const uN = -b + d;
-  const mouth = uN - (1 - st) / ct;
-  const dent = uN - 1 / ct;
+  const shoulder = uN + (1 - st) / ct;
+  const back = uN + 1 / ct;
   const apex = uN + CREASE_REACH * (a - uN);
-  // wound against the plate, so nonzero knocks it out
   return polyContour(
-    [at(apex, 0), at(mouth, -1), at(dent, 0), at(mouth, 1)],
-    [0, 0, sharp ? 0 : R_NOTCH - 1, 0],
+    [at(apex, 0), at(shoulder, -1), at(back, 0), at(shoulder, 1)],
+    [0, 0, (sharp ? 0 : R_NOTCH) + 1, 0],
   ).toString();
 }
