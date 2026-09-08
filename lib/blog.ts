@@ -487,6 +487,115 @@ export const BLOG_BATCH_THUMBNAIL_ICON_NAMES = [
  */
 export const BLOG_SOCIAL_CARD_ICONS = 6
 
+/**
+ * The v0.5.0 batch, most representative first.
+ *
+ * The chain leads because the release's story is that two of its names were on
+ * the wrong drawing, and a feed card shows the first six: `link`, `link-2` and
+ * `unlink` say chain at a glance, and `bell-ring` and `sparkles` say the rest
+ * of it is drawings rather than housekeeping. The formatting marks follow,
+ * because fourteen of the thirty-three are one shelf.
+ */
+export const BLOG_V050_THUMBNAIL_ICON_NAMES = [
+  "link",
+  "link-2",
+  "unlink",
+  "bell-ring",
+  "sparkles",
+  "zap",
+  "link-2-off",
+  "quote",
+  "quote-end",
+  "quote-single",
+  "quote-single-end",
+  "text-quote",
+  "bold",
+  "italic",
+  "underline",
+  "strikethrough",
+  "align-left",
+  "align-center",
+  "align-right",
+  "align-justify",
+  "language",
+  "list",
+  "list-ordered",
+  "layers",
+  "phone",
+  "phone-off",
+  "message-lines",
+  "share-2",
+  "sparkle",
+  "sun-dim",
+  "sun-medium",
+  "zap-off",
+  "fullscreen-2",
+  "fullscreen-exit-2",
+  "clock",
+  "pen",
+  "pen-line",
+  "pen-off",
+  "sliders-horizontal",
+  "sliders-vertical",
+] as const
+
+/** The chain, after the swap: two names moved and one was renamed with them. */
+export const BLOG_LINK_ICON_NAMES = [
+  "link",
+  "link-2",
+  "link-2-off",
+  "unlink",
+] as const
+
+/** The Text shelf, which this release created. */
+export const BLOG_TEXT_SHELF_ICON_NAMES = [
+  "bold",
+  "italic",
+  "underline",
+  "strikethrough",
+  "align-left",
+  "align-center",
+  "align-right",
+  "align-justify",
+  "quote",
+  "quote-end",
+  "quote-single",
+  "quote-single-end",
+  "text-quote",
+  "language",
+] as const
+
+/** Everything else new this round: no family, one decision each. */
+export const BLOG_V050_SINGLES_ICON_NAMES = [
+  "bell-ring",
+  "phone",
+  "phone-off",
+  "message-lines",
+  "layers",
+  "list",
+  "list-ordered",
+  "share-2",
+  "sparkle",
+  "sparkles",
+  "zap",
+  "zap-off",
+  "sun-dim",
+  "sun-medium",
+  "fullscreen-2",
+  "fullscreen-exit-2",
+] as const
+
+/** The seven redrawn, which is what the changelog's pairs column carries. */
+export const BLOG_V050_REDRAWN_ICON_NAMES = [
+  "link",
+  "clock",
+  "sliders-horizontal",
+  "sliders-vertical",
+  "pen",
+  "pen-line",
+  "pen-off",
+] as const
+
 const BATCH_0_3_1: BlogPost = {
   slug: "44-new-icons-and-a-duplicate-that-shipped-seven-times",
   /* It shipped as 0.4.0, not the 0.3.1 the branches were named for: forty-four
@@ -895,7 +1004,398 @@ const BATCH_0_3_1: BlogPost = {
  * reorder the page the day two posts share one, and there is nothing to gain
  * from deriving an order that is already visible here.
  */
-export const BLOG_POSTS: readonly BlogPost[] = [BATCH_0_3_1]
+const BATCH_0_5_0: BlogPost = {
+  /* Named for the story, never for a version: a batch is usually untagged when
+     the post goes up, and a URL announcing a number is a URL that has to be
+     corrected. */
+  slug: "33-new-icons-and-two-names-the-wrong-way-round",
+  version: "0.5.0",
+  title: "33 new icons, and two names that were the wrong way round",
+  description:
+    "Inside Keyline Icons v0.5.0: a Text shelf for the formatting marks, the " +
+    "day link and link-2 turned out to be on each other's drawings, and four " +
+    "sharp icons painting outside their own box that no check could see.",
+  standfirst:
+    "Everything that landed in v0.5.0, and what each of it was actually for. " +
+    "Free SVG icons for shadcn/ui, drawn on one 24×24 grid.",
+  date: "2026-09-08",
+  updated: "2026-09-08",
+  readingMinutes: 6,
+  thumbnail: BLOG_V050_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "icon set update",
+    "free svg icons",
+    "shadcn/ui icons",
+    "text formatting icons",
+    "quotation mark icons",
+    "link icons",
+    "sharp icons",
+    "icon redraw",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "Thirty-three new drawings and seven redrawn, which takes the set to " +
+        "661 names. All of it is in the repository and in both design files. " +
+        "None of it is on npm yet: the tag is what publishes, and this is " +
+        "written the day the work landed rather than the day it ships.",
+    },
+    {
+      kind: "p",
+      text:
+        "Most of a batch this size is four or five decisions applied " +
+        "consistently rather than forty separate ones, and this one is no " +
+        "exception. Fourteen of the thirty-three are formatting marks that " +
+        "arrived with a shelf of their own. Two of the seven redraws are a " +
+        "pair of names that had been on each other's drawings since the " +
+        "beginning. And four of the new icons were painting outside their own " +
+        "box in a way nothing in the pipeline could see.",
+    },
+
+    {
+      kind: "h2",
+      text: "Two names on the wrong drawings",
+      id: "the-swap",
+    },
+    {
+      kind: "p",
+      text:
+        "This set follows Lucide's naming, and that is a decision worth being " +
+        "boring about: somebody arriving with an import list should not have " +
+        "to learn a second vocabulary to use a second icon set. Lucide calls " +
+        "the interlocked diagonal chain link, and the horizontal one with the " +
+        "bar through it link-2. This set had them the other way round, and " +
+        "had done from the start.",
+    },
+    {
+      kind: "p",
+      text:
+        "So they swapped bodies. link is the diagonal chain now and link-2 is " +
+        "the horizontal one. The component sets in Figma kept their ids " +
+        "through it, so every instance in the catalogue stayed linked to the " +
+        "thing it was already pointing at, and only the geometry inside moved.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "diagnostic",
+        panels: [
+          {
+            title: "link as it shipped, laid over link-2 as it ships now",
+            a: { name: "link", take: "before" },
+            b: { name: "link-2", take: "current" },
+            verdict: {
+              text: "Nothing to see. That is the finding.",
+              tone: "bad",
+            },
+          },
+          {
+            title: "link as it ships now, laid over link-2",
+            a: { name: "link", take: "current" },
+            b: { name: "link-2", take: "current" },
+            verdict: { text: "Two drawings", tone: "good" },
+          },
+        ],
+        caption:
+          "Each panel is one drawing painted on top of the other. Where the " +
+          "two disagree, one of them keeps its colour. The left panel has no " +
+          "colour anywhere, because the drawing that used to answer to link " +
+          "is the drawing that answers to link-2 now: a swap, stated as " +
+          "plainly as it can be. The right panel is the same comparison after " +
+          "it, and there is nothing subtle about that one.",
+        legend: {
+          a: "link only",
+          b: "link-2 only",
+          both: "ink the two share",
+        },
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "link-off came with them. It draws the horizontal chain with a slash " +
+        "through it, which makes it the negated form of link-2 rather than of " +
+        "link, so it is link-2-off now. That is the one change here that will " +
+        "break a build: LinkOff leaves the React exports and Link2Off " +
+        "replaces it. The old name is kept as a search alias, so looking for " +
+        "link-off on the site still lands on the drawing.",
+    },
+    {
+      kind: "note",
+      text:
+        "A rename reads to every check in this repository as one name added " +
+        "and one quietly absent. Nothing counts what left.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_LINK_ICON_NAMES,
+        caption:
+          "The chain after the swap: link, link-2, link-2-off and unlink. " +
+          "unlink is new, and it is the diagonal chain come apart rather than " +
+          "the horizontal one, which is Lucide's reading of that name too.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "The formatting marks got a shelf",
+      id: "text-shelf",
+    },
+    {
+      kind: "p",
+      text:
+        "Fourteen names, and a category that did not exist before this " +
+        "release: bold, italic, underline and strikethrough, the four-way " +
+        "alignment stack, the double and single quotation marks in both " +
+        "hands, and language.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_TEXT_SHELF_ICON_NAMES,
+        caption:
+          "The Text shelf. The set otherwise draws no letters, and the eight " +
+          "sort icons that carried an A and a Z were drawn and dropped for " +
+          "it: a counter closes into a blob at 24px. These survive because a " +
+          "B and a U at this size are bowls and a bar rather than letterforms " +
+          "with a typographic proportion to hold.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The quotation marks are here rather than with the speech bubbles, " +
+        "and the reason is worth stating because it is not obvious from the " +
+        "drawings: a quotation mark is a typographic mark, and a bubble is " +
+        "the thing one goes inside. language was the one that could honestly " +
+        "have gone either way. It is an A beside a CJK glyph, so it is " +
+        "letterforms first and internationalisation second, and it sits with " +
+        "the letters.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V050_SINGLES_ICON_NAMES,
+        caption:
+          "The rest of what is new. bell-ring is the bell with two waves " +
+          "concentric with its own dome, which is what makes the clearance " +
+          "one number instead of a curve-to-curve solve: the dome paints out " +
+          "to 6, so a wave whose centre line sits at 9 paints in to 8, and " +
+          "the gap is exactly the two units the guide asks for.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "A fault that no check could see",
+      id: "sharp-overshoot",
+    },
+    {
+      kind: "p",
+      text:
+        "Four of the new drawings were painting outside their own sharp box, " +
+        "and every check in the repository was happy with them.",
+    },
+    {
+      kind: "p",
+      text:
+        "The sharp treatment takes a drawing's fillets out. What that does to " +
+        "an acute vertex is not obvious until it is written down. A fillet " +
+        "sits r / sin t along the bisector from the vertex and reaches back " +
+        "r, so it holds the painted extreme r (1 / sin t − 1) short of the " +
+        "true point. Take it away and a round join paints a disc about the " +
+        "vertex itself, so the drawing grows by exactly the amount the fillet " +
+        "was absorbing. On zap that is 0.91 of a unit at the apex. On both " +
+        "sparkles it is 0.86 at every tip.",
+    },
+    {
+      kind: "p",
+      text:
+        "All four passed the linter, and each rule had a good reason to be " +
+        "quiet. Padding was satisfied because there was still a unit of " +
+        "canvas left over. Centring was satisfied because they grew evenly. " +
+        "Nothing in the rule set compares a sharp drawing against the rounded " +
+        "one it was converted from, so nothing had an opinion at all.",
+    },
+    {
+      kind: "p",
+      text:
+        "What found them was scaffolding, not a rule: a highlighter drawn " +
+        "over every cell of the catalogue in Figma, with a green box on the " +
+        "drawing's ink, a blue one on its 24 by 24 cell and the four gaps " +
+        "written out as numbers. Green goes on every icon always, so that two " +
+        "neighbours whose boxes disagree are visible side by side. Red is " +
+        "drawn only when a sharp drawing paints outside its rounded sibling " +
+        "or the ink leaves the one-unit floor. Four cells out of a hundred " +
+        "and twenty-four came up red.",
+    },
+    {
+      kind: "note",
+      text:
+        "The fix is not to drop the radii and live with the growth. It is to " +
+        "put the sharp vertex where the fillet's extreme used to be, so both " +
+        "treatments paint the same box.",
+    },
+    {
+      kind: "p",
+      text:
+        "share-2 was the interesting one, because it grew unevenly. Its apex " +
+        "carried a bigger fillet than its other corners, so taking them all " +
+        "out pushed the point 0.56 to the right against 0.07 to the left, and " +
+        "the drawing came out off-centre as well as too big: 1.93 units of " +
+        "padding on one side against 1.44 on the other. Both treatments " +
+        "measure 20 by 16 now, centred.",
+    },
+
+    {
+      kind: "h2",
+      text: "The sliders broke their rails",
+      id: "sliders",
+    },
+    {
+      kind: "p",
+      text:
+        "sliders-horizontal and sliders-vertical used to draw three unbroken " +
+        "rails with a tick crossing each. They break at the knob now, which " +
+        "gives it air without a knockout the stroke style is not allowed to " +
+        "have.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "diagnostic",
+        panels: [
+          {
+            title: "sliders-horizontal, old rails over new",
+            a: { name: "sliders-horizontal", take: "before" },
+            b: { name: "sliders-horizontal", take: "after" },
+            verdict: { text: "Three breaks and one knob moved", tone: "good" },
+          },
+          {
+            title: "Seven units of the top rail, same two drawings",
+            a: { name: "sliders-horizontal", take: "before" },
+            b: { name: "sliders-horizontal", take: "after" },
+            viewBox: "11 2 7 6",
+            verdict: { text: "Four units of rail, gone", tone: "good" },
+          },
+        ],
+        caption:
+          "The rose is rail the old drawing painted and the new one does " +
+          "not. The emerald in the first panel is the middle knob, which " +
+          "moved two units along its rail to sit where the break leaves it " +
+          "room. The cut lands on the knob's position minus four: the knob's " +
+          "own ink reaches one unit, the guide asks for two, and the rail's " +
+          "cap adds the last one.",
+        legend: {
+          a: "rail as it was",
+          b: "as it is now",
+          both: "ink that did not move",
+        },
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "Which side breaks is not a choice made per row. It is the longer " +
+        "side every time, so the gap lands where there is room for it, and " +
+        "the vertical is the horizontal transposed exactly. That last part is " +
+        "not tidiness: a pair drawn twice drifts apart one member at a time, " +
+        "and the only reliable defence is for there to be one drawing.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "pairs",
+        names: BLOG_V050_REDRAWN_ICON_NAMES,
+        caption:
+          "All seven redraws, before beside after. At 24px most of these are " +
+          "honestly hard to tell apart, which is the argument for the " +
+          "superimposed figures above: the pen family is the same drawing " +
+          "scaled 10/9 with its band moved from the nib to the cap, and clock " +
+          "is now exactly clock-3, both names kept.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "What did not ship",
+      id: "not-shipped",
+    },
+    {
+      kind: "p",
+      text:
+        "A bigger bell. A redrawn bell came in at 18 by 22, which is the house " +
+        "size for a vertical drawing and better than the 16 by 20 it has been " +
+        "carrying under an exemption. The trouble is that it is not " +
+        "one scale: it is 8/7 across and 10/9 down, and a non-uniform scale " +
+        "turns a circular dome into an ellipse. No uniform scale reaches both " +
+        "numbers either, because the stroke stays 2 units wide whatever the " +
+        "drawing does, so 22 tall lands at 17.56 wide and 18 wide lands at " +
+        "22.57 tall. It was turned down, and bell-ring was drawn on the bell " +
+        "as it stands instead.",
+    },
+    {
+      kind: "p",
+      text:
+        "Two units between the links. link measures 1.54 between its two halves " +
+        "where the guide asks for 2, and this one has no solution at " +
+        "the size it is drawn. Write b for each link's own offset from the " +
+        "diagonal. The binding pair is one link's free end against the " +
+        "other's flank, and their separation is exactly twice that offset, " +
+        "while the width is pinned at 22. So the gap is 2 |b| − 2 and the " +
+        "height is 22 − 2 √2 |b|, and buying the last half unit of daylight " +
+        "costs a unit and a half of height. It ships at 1.54, which is what " +
+        "the drawing it replaces measured too.",
+    },
+    {
+      kind: "p",
+      text:
+        "unlink at four fifths. The version that shipped is the earlier one " +
+        "scaled 0.8 about the centre, and the cost of that is on the " +
+        "page: the break ticks sit 1.20 from the arcs where they used to sit " +
+        "2.03. A stroke is 2 units wide at any scale, so shrinking a drawing " +
+        "eats the daylight between its parts and leaves the ink alone. It is " +
+        "the same arithmetic that keeps paperclip out of a container, and it " +
+        "is worth re-deriving every time rather than trusting that a drawing " +
+        "which looked right at full size still holds.",
+    },
+
+    {
+      kind: "h2",
+      text: "Getting it",
+      id: "getting-it",
+    },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the set",
+      text: "All 661 drawings, in three styles and two corner treatments.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text:
+        "The React package, the CLI, the shadcn registry, the MCP server and " +
+        "the Figma plugin. Everything here reaches npm at the tag.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Changelog",
+      text:
+        "What moved, generated off git, with every redraw shown before and " +
+        "after.",
+    },
+  ],
+}
+
+export const BLOG_POSTS: readonly BlogPost[] = [BATCH_0_5_0, BATCH_0_3_1]
 
 export const findPost = (slug: string) =>
   BLOG_POSTS.find((post) => post.slug === slug)
