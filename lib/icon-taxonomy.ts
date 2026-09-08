@@ -43,6 +43,15 @@ export const CATEGORIES = [
   // what "reviewed" means. It is recreated whenever a batch starts and removed
   // once the batch graduates, so an empty repo state is the resting state
   // rather than a loose end.
+  //
+  // Recreated 8 Sep 2026, empty of the batch that just graduated and holding
+  // the two drawn after it. Both are also matched by Mail below, so deleting
+  // this row is still the whole of what filing them means.
+  {
+    label: "New",
+    match: /^(send|send-horizontal)$/,
+    blurb: "Drawn or redrawn this round, and waiting to be looked at.",
+  },
   // `refresh` and `rotate` are here because they are arrow glyphs, whatever they
   // are used for. The anchor is what keeps `git-refresh` in Git below.
   {
@@ -86,8 +95,11 @@ export const CATEGORIES = [
   // compounds each is being drawn towards land here too.
   {
     label: "Mail",
-    match: /^(mail|message|bell|inbox|reply|forward|at$)/,
-    blurb: "Envelopes, messages, bells and the marks that badge them.",
+    // `send` is here with `forward` and `reply` rather than in Actions: a
+    // paper plane is the verb a message takes, and the family it reads against
+    // is the one it is sent from.
+    match: /^(mail|message|bell|inbox|reply|forward|send|at$)/,
+    blurb: "Envelopes, messages, bells, the paper plane and the marks that badge them.",
   },
   {
     // `percent` is here rather than with the marks in Actions: the batch that

@@ -4117,6 +4117,22 @@ export function Search(props: IconProps) {
   )
 }
 
+export function SendHorizontal(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M2 4L22 12L2 20L5.7764 12.4472C5.9172 12.1657 5.9172 11.8343 5.7764 11.5528L2 4ZM6 12L22 12" fill="none" />
+    </Icon>
+  )
+}
+
+export function Send(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M2 10.6863L22 2L13.3137 22L10.6434 13.9891C10.5439 13.6905 10.3095 13.4561 10.0109 13.3566L2 10.6863ZM10.4853 13.5147L22 2" fill="none" />
+    </Icon>
+  )
+}
+
 export function Server(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>

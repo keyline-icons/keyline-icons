@@ -6,6 +6,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import * as I from './icons.mjs';
 import * as PEN from './pen.mjs';
+import * as SEND from './send.mjs';
 import { writeSet } from './raw.mjs';
 import { offsetContour, contourPath, verify, mirrorSegs, clipContour, clipByDistance } from './offset.mjs';
 import { circlePath, Path, onArc, n } from './geom.mjs';
@@ -219,6 +220,21 @@ const SETS = {
     'stroke.regular': [S(I.textMark[name](false))],
     'stroke.sharp': [S(I.textMark[name](true))],
   })])),
+
+  // The paper plane, twice. One construction and two sets of numbers, so a
+  // change to the plane reaches both rather than one of them.
+  ...Object.fromEntries(['send', 'send-horizontal'].map((name) => [name, () => {
+    const out = {};
+    for (const corners of ['regular', 'sharp']) {
+      const sharp = corners === 'sharp';
+      const drawing = String(SEND.body(name, { sharp })) + SEND.fold(name);
+      const solid = SEND.plate(name, { sharp }) + SEND.panel(name, { sharp });
+      out[`stroke.${corners}`] = [S(drawing)];
+      out[`duotone.${corners}`] = [P(solid), S(drawing)];
+      out[`fill.${corners}`] = [F(solid)];
+    }
+    return out;
+  }])),
 
   // The pen family: one drawing, three names, and every derived layer comes out
   // of the same contour so a change reaches all three.

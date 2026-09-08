@@ -13,9 +13,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 552,
-  "names": 661,
-  "variants": 3380,
+  "icons": 554,
+  "names": 663,
+  "variants": 3392,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -531,7 +531,7 @@
       "width": 742,
       "icons": 29,
       "variants": 38,
-      "bytes": 37509
+      "bytes": 37526
     },
     {
       "file": "mail-2.html",
@@ -688,6 +688,18 @@
       "icons": 0,
       "variants": 12,
       "bytes": 8553
+    },
+    {
+      "file": "new.html",
+      "artboard": "New",
+      "category": "New",
+      "part": 1,
+      "parts": 1,
+      "into": "artboard",
+      "width": 742,
+      "icons": 2,
+      "variants": 12,
+      "bytes": 11161
     },
     {
       "file": "pointers-1.html",
@@ -1007,7 +1019,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 350481
+      "bytes": 351857
     }
   ]
 }
