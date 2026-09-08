@@ -1037,9 +1037,7 @@ const BATCH_0_5_0: BlogPost = {
       kind: "p",
       text:
         "Thirty-three new drawings and seven redrawn, which takes the set to " +
-        "661 names. All of it is in the repository and in both design files. " +
-        "None of it is on npm yet: the tag is what publishes, and this is " +
-        "written the day the work landed rather than the day it ships.",
+        "661 names.",
     },
     {
       kind: "p",
@@ -1323,50 +1321,6 @@ const BATCH_0_5_0: BlogPost = {
 
     {
       kind: "h2",
-      text: "What did not ship",
-      id: "not-shipped",
-    },
-    {
-      kind: "p",
-      text:
-        "A bigger bell. A redrawn bell came in at 18 by 22, which is the house " +
-        "size for a vertical drawing and better than the 16 by 20 it has been " +
-        "carrying under an exemption. The trouble is that it is not " +
-        "one scale: it is 8/7 across and 10/9 down, and a non-uniform scale " +
-        "turns a circular dome into an ellipse. No uniform scale reaches both " +
-        "numbers either, because the stroke stays 2 units wide whatever the " +
-        "drawing does, so 22 tall lands at 17.56 wide and 18 wide lands at " +
-        "22.57 tall. It was turned down, and bell-ring was drawn on the bell " +
-        "as it stands instead.",
-    },
-    {
-      kind: "p",
-      text:
-        "Two units between the links. link measures 1.54 between its two halves " +
-        "where the guide asks for 2, and this one has no solution at " +
-        "the size it is drawn. Write b for each link's own offset from the " +
-        "diagonal. The binding pair is one link's free end against the " +
-        "other's flank, and their separation is exactly twice that offset, " +
-        "while the width is pinned at 22. So the gap is 2 |b| − 2 and the " +
-        "height is 22 − 2 √2 |b|, and buying the last half unit of daylight " +
-        "costs a unit and a half of height. It ships at 1.54, which is what " +
-        "the drawing it replaces measured too.",
-    },
-    {
-      kind: "p",
-      text:
-        "unlink at four fifths. The version that shipped is the earlier one " +
-        "scaled 0.8 about the centre, and the cost of that is on the " +
-        "page: the break ticks sit 1.20 from the arcs where they used to sit " +
-        "2.03. A stroke is 2 units wide at any scale, so shrinking a drawing " +
-        "eats the daylight between its parts and leaves the ink alone. It is " +
-        "the same arithmetic that keeps paperclip out of a container, and it " +
-        "is worth re-deriving every time rather than trusting that a drawing " +
-        "which looked right at full size still holds.",
-    },
-
-    {
-      kind: "h2",
       text: "Getting it",
       id: "getting-it",
     },
@@ -1382,7 +1336,7 @@ const BATCH_0_5_0: BlogPost = {
       label: "Install",
       text:
         "The React package, the CLI, the shadcn registry, the MCP server and " +
-        "the Figma plugin. Everything here reaches npm at the tag.",
+        "the Figma plugin.",
     },
     {
       kind: "link",
