@@ -205,6 +205,17 @@ export function plate(k, opts = {}) {
 
 /** How far along the fold the fill's crease closes, from the notch. */
 export const CREASE_REACH = 0.5;
+/**
+ * Half the crease's width at its mouth.
+ *
+ * The fold's own 1 is where this started, and it is the principled number: the
+ * crease is the fold, so it is what the stroke paints. It is 1.5 because at
+ * 24px the fold's width leaves a hairline that reads as a rendering artefact
+ * rather than a crease, and at 16px it does not read at all. 2 is a unit more
+ * again and is the point the tail stops being a tail: the two arms separate and
+ * the plane comes apart at the back.
+ */
+export const CREASE_HALF = 1.5;
 
 /**
  * The crease, cut out of the fill: a wedge that opens at the tail and closes to
@@ -224,8 +235,8 @@ export const CREASE_REACH = 0.5;
  * and the crease are one piece of white. Which puts the whole weight of the
  * drawing on one number: where the plate's dent edge crosses the fold's ink.
  *
- *   mouth   uN - (1 + sin t) / cos t
- *   dent    uN - 1 / cos t, where the dent's two offsets cross on the axis
+ *   mouth   uN - (1 + h sin t) / cos t, at h across
+ *   dent    uN - 1 / cos t, the same edge at h = 0, where the two cross
  *   radius  the notch's fillet less the plate's unit, 2 rounded and 0 sharp,
  *           which is the arc the plate already draws there
  *
@@ -235,6 +246,12 @@ export const CREASE_REACH = 0.5;
  * crescent tapering to a needle: the broken angle Zafar drew an arrow at. Both
  * offsets of one line differ by 2 sin t here and nothing else in the drawing
  * uses the other one, so there was no second reading to catch it.
+ *
+ * It was then written `(h + sin t) / cos t`, which is the same expression with
+ * the width in the wrong term. That is right at h = 1 and nowhere else, so it
+ * survived every check until the crease was widened, which is the shape of the
+ * next fault as much as the last one: a formula fitted to one value of a
+ * parameter that had not varied yet.
  *
  * The cut ends on a true point in both treatments. It was filleted at 0.5 for
  * one build, on the argument that a rounded drawing turns its corners, and it
@@ -253,11 +270,12 @@ export function spine(k, { sharp = false } = {}) {
   const at = (along, across) => add(C0, add(mul(u, along), mul(nrm, across)));
   const st = Math.sin(THETA), ct = Math.cos(THETA);
   const uN = -b + d;
-  const mouth = uN - (1 + st) / ct;
+  const h = CREASE_HALF;
+  const mouth = uN - (1 + h * st) / ct;
   const dent = uN - 1 / ct;
   const apex = uN + CREASE_REACH * (a - uN);
   return polyContour(
-    [at(apex, 0), at(mouth, -1), at(dent, 0), at(mouth, 1)],
+    [at(apex, 0), at(mouth, -h), at(dent, 0), at(mouth, h)],
     [0, 0, sharp ? 0 : R_NOTCH - 1, 0],
   ).toString();
 }
