@@ -207,8 +207,8 @@ export function plate(k, opts = {}) {
 export const CREASE_REACH = 0.5;
 
 /**
- * The crease, knocked out of the fill: a wedge that starts at the notch's ink
- * and closes to a point half way along the fold.
+ * The crease, cut out of the fill: a wedge that opens at the tail and closes to
+ * a point half way along the fold.
  *
  * This is the drawing's one deliberate exception, and it is Zafar's call from a
  * reference rather than anything the guide would produce. `map`'s rule — a
@@ -220,22 +220,31 @@ export const CREASE_REACH = 0.5;
  * what says that is a wedge: widest where the sheet is doubled over at the
  * tail, closing as the two halves come back together toward the nose.
  *
- * What the exception does NOT get to do is spend the notch's ink. The wedge was
- * built once with its mouth on the plate's own dent, so the white ran straight
- * out of the tail — and where its side crossed the dent's edge it pinched the
- * near wing to a needle, which is the fault Zafar drew an arrow at. So the
- * wedge is an island: its back is the notch's INNER ink edge, the notch keeps
- * its two units all the way round, and every edge here is ink the stroke draws.
+ * It is a full cut, out through the tail rather than an island, so the notch
+ * and the crease are one piece of white. Which puts the whole weight of the
+ * drawing on one number: where the plate's dent edge crosses the fold's ink.
  *
- *   the sides    from the notch's ink at the fold's own width, closing on a
- *                point at CREASE_REACH along the fold
- *   the back     where the notch's two inner offsets cross, on the axis
- *                1 / cos t forward of it, cut by the notch's own arc
- *   the radius   the notch's fillet plus the unit the stroke paints on the tip
- *                side of it: 4 rounded, and 1 sharp, where there is no fillet
- *                and the round JOIN is the whole of the ink on that side
+ *   mouth   uN - (1 + sin t) / cos t
+ *   dent    uN - 1 / cos t, where the dent's two offsets cross on the axis
+ *   radius  the notch's fillet less the plate's unit, 2 rounded and 0 sharp,
+ *           which is the arc the plate already draws there
  *
- * Wound against the plate, so nonzero knocks it out.
+ * That mouth was written `1 - sin t` first, a sign, and it put the wedge's base
+ * 0.38 short of the plate. The cut then stopped inside the ink instead of
+ * going through it, and what was left at the bottom of the notch was a black
+ * crescent tapering to a needle: the broken angle Zafar drew an arrow at. Both
+ * offsets of one line differ by 2 sin t here and nothing else in the drawing
+ * uses the other one, so there was no second reading to catch it.
+ *
+ * The cut ends on a true point in both treatments. It was filleted at 0.5 for
+ * one build, on the argument that a rounded drawing turns its corners, and it
+ * is not that kind of corner: the tip is 12 degrees, so even the ladder's
+ * smallest radius takes 4.8 units of tangent, which is half the wedge, and what
+ * comes back is a leaf rather than a crease.
+ *
+ * Wound against the plate, so nonzero knocks it out. The polygon's base lies ON
+ * the dent's two edges, which is what keeps it inside: a knockout that reaches
+ * past the plate does not stop existing there, nonzero counts it and paints it.
  */
 export function spine(k, { sharp = false } = {}) {
   const { u } = AXIS[k];
@@ -244,11 +253,11 @@ export function spine(k, { sharp = false } = {}) {
   const at = (along, across) => add(C0, add(mul(u, along), mul(nrm, across)));
   const st = Math.sin(THETA), ct = Math.cos(THETA);
   const uN = -b + d;
-  const shoulder = uN + (1 - st) / ct;
-  const back = uN + 1 / ct;
+  const mouth = uN - (1 + st) / ct;
+  const dent = uN - 1 / ct;
   const apex = uN + CREASE_REACH * (a - uN);
   return polyContour(
-    [at(apex, 0), at(shoulder, -1), at(back, 0), at(shoulder, 1)],
-    [0, 0, (sharp ? 0 : R_NOTCH) + 1, 0],
+    [at(apex, 0), at(mouth, -1), at(dent, 0), at(mouth, 1)],
+    [0, 0, sharp ? 0 : R_NOTCH - 1, 0],
   ).toString();
 }
