@@ -227,7 +227,7 @@ const SETS = {
     const out = {};
     for (const corners of ['regular', 'sharp']) {
       const sharp = corners === 'sharp';
-      const drawing = String(SEND.body(name, { sharp })) + SEND.fold(name);
+      const drawing = String(SEND.body(name, { sharp })) + SEND.fold(name, { sharp });
       const solid = SEND.plate(name, { sharp }) + SEND.panel(name, { sharp });
       out[`stroke.${corners}`] = [S(drawing)];
       out[`duotone.${corners}`] = [P(solid), S(drawing)];

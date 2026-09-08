@@ -4120,7 +4120,7 @@ export function Search(props: IconProps) {
 export function SendHorizontal(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M2 4L22 12L2 20L5.7764 12.4472C5.9172 12.1657 5.9172 11.8343 5.7764 11.5528L2 4ZM6 12L22 12" fill="none" />
+      <path d="M3.4714 2.12L22 12L3.4714 21.88C2.7309 22.2749 1.8627 21.637 2.0182 20.8123L3.575 12.5559C3.6443 12.1885 3.6443 11.8115 3.575 11.4441L2.0182 3.1877C1.8627 2.363 2.7309 1.7251 3.4714 2.12ZM3.6799 12L22 12" fill="none" />
     </Icon>
   )
 }
@@ -4128,7 +4128,7 @@ export function SendHorizontal(props: IconProps) {
 export function Send(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M2 10.6863L22 2L13.3137 22L10.6434 13.9891C10.5439 13.6905 10.3095 13.4561 10.0109 13.3566L2 10.6863ZM10.4853 13.5147L22 2" fill="none" />
+      <path d="M2.7164 7.7054L22 2L16.2946 21.2836C16.0554 22.0918 14.985 22.2598 14.5098 21.5637L9.9303 14.8559C9.7195 14.5471 9.4529 14.2805 9.1441 14.0697L2.4363 9.4902C1.7402 9.015 1.9082 7.9446 2.7164 7.7054ZM9.6113 14.3887L22 2" fill="none" />
     </Icon>
   )
 }

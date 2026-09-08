@@ -494,7 +494,7 @@ export const BLOG_SOCIAL_CARD_ICONS = 6
  * the wrong drawing, and a feed card shows the first six: `link`, `link-2` and
  * `unlink` say chain at a glance, and `bell-ring` and `sparkles` say the rest
  * of it is drawings rather than housekeeping. The formatting marks follow,
- * because fourteen of the thirty-three are one shelf.
+ * because fourteen of the thirty-five are one shelf.
  */
 export const BLOG_V050_THUMBNAIL_ICON_NAMES = [
   "link",
@@ -524,6 +524,8 @@ export const BLOG_V050_THUMBNAIL_ICON_NAMES = [
   "phone",
   "phone-off",
   "message-lines",
+  "send",
+  "send-horizontal",
   "share-2",
   "sparkle",
   "sun-dim",
@@ -571,6 +573,8 @@ export const BLOG_V050_SINGLES_ICON_NAMES = [
   "phone",
   "phone-off",
   "message-lines",
+  "send",
+  "send-horizontal",
   "layers",
   "list",
   "list-ordered",
@@ -1008,9 +1012,9 @@ const BATCH_0_5_0: BlogPost = {
   /* Named for the story, never for a version: a batch is usually untagged when
      the post goes up, and a URL announcing a number is a URL that has to be
      corrected. */
-  slug: "33-new-icons-and-two-names-the-wrong-way-round",
+  slug: "35-new-icons-and-two-names-the-wrong-way-round",
   version: "0.5.0",
-  title: "33 new icons, and two names that were the wrong way round",
+  title: "35 new icons, and two names that were the wrong way round",
   description:
     "Inside Keyline Icons v0.5.0: a Text shelf for the formatting marks, the " +
     "day link and link-2 turned out to be on each other's drawings, and four " +
@@ -1036,15 +1040,15 @@ const BATCH_0_5_0: BlogPost = {
     {
       kind: "p",
       text:
-        "Thirty-three new drawings and seven redrawn, which takes the set to " +
-        "661 names.",
+        "Thirty-five new drawings and seven redrawn, which takes the set to " +
+        "663 names.",
     },
     {
       kind: "p",
       text:
         "Most of a batch this size is four or five decisions applied " +
         "consistently rather than forty separate ones, and this one is no " +
-        "exception. Fourteen of the thirty-three are formatting marks that " +
+        "exception. Fourteen of the thirty-five are formatting marks that " +
         "arrived with a shelf of their own. Two of the seven redraws are a " +
         "pair of names that had been on each other's drawings since the " +
         "beginning. And four of the new icons were painting outside their own " +
@@ -1184,7 +1188,9 @@ const BATCH_0_5_0: BlogPost = {
           "concentric with its own dome, which is what makes the clearance " +
           "one number instead of a curve-to-curve solve: the dome paints out " +
           "to 6, so a wave whose centre line sits at 9 paints in to 8, and " +
-          "the gap is exactly the two units the guide asks for.",
+          "the gap is exactly the two units the guide asks for. The two " +
+          "planes are one construction with two sets of numbers, so the flat " +
+          "one cannot drift away from the diagonal.",
       },
     },
 
@@ -1328,7 +1334,7 @@ const BATCH_0_5_0: BlogPost = {
       kind: "link",
       href: "/icons",
       label: "Browse the set",
-      text: "All 661 drawings, in three styles and two corner treatments.",
+      text: "All 663 drawings, in three styles and two corner treatments.",
     },
     {
       kind: "link",

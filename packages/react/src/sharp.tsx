@@ -4123,7 +4123,7 @@ export function Search(props: IconProps) {
 export function SendHorizontal(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M2 4L22 12L2 20L6 12L2 4ZM6 12L22 12" fill="none" />
+      <path d="M2 2L22 12L2 22L3.8856 12L2 2ZM3.8856 12L22 12" fill="none" />
     </Icon>
   )
 }
@@ -4131,7 +4131,7 @@ export function SendHorizontal(props: IconProps) {
 export function Send(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M2 10.6863L22 2L13.3137 22L10.4853 13.5147L2 10.6863ZM10.4853 13.5147L22 2" fill="none" />
+      <path d="M2 7.9174L22 2L16.0826 22L10.369 13.631L2 7.9174ZM10.369 13.631L22 2" fill="none" />
     </Icon>
   )
 }
