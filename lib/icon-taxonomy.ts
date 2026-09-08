@@ -36,22 +36,14 @@ const FIGMA_KEYWORDS = (keywords as { keywords: Record<string, string[]> })
  * families of exactly one.
  */
 export const CATEGORIES = [
-  // The review shelf, and the only row here that is not about what a drawing
-  // is. It sits first so it beats each icon's real shelf, and every name in it
-  // is also listed in its real category below, so deleting this one row files
-  // the whole batch at once, with no second edit to forget. That deletion is
-  // what "reviewed" means. It is recreated whenever a batch starts and removed
-  // once the batch graduates, so an empty repo state is the resting state
-  // rather than a loose end.
+  // The review shelf goes here when a batch is open: one row, matching the
+  // names drawn that round, sitting first so it beats each icon's real shelf.
+  // Every name in it is also listed in its real category below, so deleting the
+  // row files the whole batch at once with no second edit to forget, and that
+  // deletion is what "reviewed" means. An empty repo state is the resting one.
   //
-  // Recreated 8 Sep 2026, empty of the batch that just graduated and holding
-  // the two drawn after it. Both are also matched by Mail below, so deleting
-  // this row is still the whole of what filing them means.
-  {
-    label: "New",
-    match: /^(send|send-horizontal)$/,
-    blurb: "Drawn or redrawn this round, and waiting to be looked at.",
-  },
+  // Empty since 8 Sep 2026: the two planes were the last of the v0.5.0 batch
+  // and Zafar passed them, so they answer to Mail like the rest of the family.
   // `refresh` and `rotate` are here because they are arrow glyphs, whatever they
   // are used for. The anchor is what keeps `git-refresh` in Git below.
   {

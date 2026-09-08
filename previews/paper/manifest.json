@@ -529,7 +529,7 @@
       "parts": 4,
       "into": "artboard",
       "width": 742,
-      "icons": 29,
+      "icons": 31,
       "variants": 38,
       "bytes": 37526
     },
@@ -566,8 +566,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 22,
-      "bytes": 19109
+      "variants": 34,
+      "bytes": 28880
     },
     {
       "file": "maps-1.html",
@@ -688,18 +688,6 @@
       "icons": 0,
       "variants": 12,
       "bytes": 8553
-    },
-    {
-      "file": "new.html",
-      "artboard": "New",
-      "category": "New",
-      "part": 1,
-      "parts": 1,
-      "into": "artboard",
-      "width": 742,
-      "icons": 2,
-      "variants": 12,
-      "bytes": 11804
     },
     {
       "file": "pointers-1.html",
