@@ -109,3 +109,16 @@ previews/sharp-history/
 # have. That dependency is deliberate and one-way. Nothing here reads anything
 # in `marketing/`, and `pnpm icons:ci` passes with the directory deleted.
 marketing/
+
+# Zafar's handoff drawings, and the scratch half of the v5 generators.
+#
+# `refs/` is where a drawing arrives from Figma before it is fitted: working
+# material with the same status as `marketing/`, and a public repository is a
+# strange place to keep a stack of half-approved SVGs that no longer match what
+# shipped. The fitted result lives in `raw/`, which is the record.
+#
+# `tools/v5/scratch/` is the same argument one directory down: the generators
+# themselves are kept, because they are how a drawing can be re-derived, and
+# the probes written to answer one question on one afternoon are not.
+refs/
+tools/v5/scratch/

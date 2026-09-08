@@ -199,6 +199,13 @@ const SIZE_KNOWN = new Set([
   'bell', 'paperclip', 'wifi', 'wifi-info', 'wifi-exclamation',
   'repeat', 'repeat-1',
   'arrow-down-left', 'arrow-down-right', 'arrow-up-left', 'arrow-up-right',
+  // The slash is what sets an `-off` box, not the drawing: it runs corner to
+  // corner and paints 1..23 whatever it negates. `pen-off` reads as a square
+  // only because the pen went full-bleed on the diagonal on 8 Sep and now puts
+  // ink near all four corners — before that the two spare corners were empty
+  // and it fell through to the band. The base is 22 x 22 and the slash is 22
+  // long; there is no 20 available to either of them.
+  'pen-off',
 ]);
 const MIN_PAD = 1;
 

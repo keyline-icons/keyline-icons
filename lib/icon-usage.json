@@ -303,7 +303,7 @@
     "lightbulb": "A bulb, for ideas, tips and the hint attached to a thing.",
     "lightbulb-on": "A lit bulb throwing rays, for an idea landing or a hint being shown.",
     "link": "Two chain links, for URLs, hyperlinks and connecting one record to another.",
-    "link-off": "A broken chain, for unlinking, detaching and a link that no longer resolves.",
+    "link-2-off": "A broken chain, for unlinking, detaching and a link that no longer resolves.",
     "list-check": "A list with ticks, for checklists, todos and completed items.",
     "list-collapse": "A list folding shut, for hiding items and contracting a tree.",
     "list-collapse-horizontal": "Columns folding shut, for hiding columns and contracting a wide table.",

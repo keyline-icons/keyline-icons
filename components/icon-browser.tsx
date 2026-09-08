@@ -6,6 +6,7 @@ import {
   ArrowRight,
   ArrowUTurnLeft,
   BarChart,
+  Bold,
   Check,
   ChevronDown,
   ChevronLeft,
@@ -141,6 +142,10 @@ const CATEGORY_ICONS: Record<
   // the rail maps before it filters, so a label with a count and no icon renders
   // <undefined /> and takes the whole browser down rather than dropping a row.
   Controls: SlidersHorizontal,
+  // The formatting shelf, added with the batch that created it. Without this row
+  // the rail rendered <undefined /> and /icons answered 500 — which is the
+  // failure the comment above is about, arriving the very next time a label was.
+  Text: Bold,
   Weather: Sun,
   Shapes: Shapes,
   Sport: Trophy,

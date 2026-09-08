@@ -149,8 +149,8 @@ export const CATEGORIES = [
     // `bug` is the software bug, so it sits with `code` rather than in a
     // shelf of creatures the set does not have.
     label: "Devices",
-    match: /^(smartphone|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|app(?=-|$))/,
-    blurb: "Phones, servers, databases, terminals, code, bugs, the app tiles and what plugs into them.",
+    match: /^(smartphone|phone|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|app(?=-|$))/,
+    blurb: "Phones, handsets, servers, databases, terminals, code, bugs, the app tiles and what plugs into them.",
   },
   {
     label: "Pointers",
@@ -158,12 +158,26 @@ export const CATEGORIES = [
     blurb: "Cursors and the states they carry.",
   },
   {
+    // Ahead of Layout, which owns the `align-offset-*` family: those nudge an
+    // object, these set a paragraph. The four alignment names are spelled out
+    // rather than matched on a bare `align`, or the offsets follow them here.
+    // `quote` and its three siblings are here rather than in Mail with the
+    // speech bubbles: a quotation mark is a typographic mark, and the bubble is
+    // the thing it goes inside. `language` is here for the same reason and it is
+    // the one that could have gone to Web — it is an A beside a CJK glyph, so it
+    // is letterforms first and internationalisation second.
+    label: "Text",
+    match:
+      /^(bold|italic|underline|strikethrough|heading|pilcrow|indent|letter-|line-height|text-|type$|quote|language|align-(?:left|center|right|justify)$)/,
+    blurb: "The quotation marks, the formatting marks, the alignment stack and what sets a paragraph.",
+  },
+  {
     label: "Layout",
     // `fullscreen` and `fullscreen-exit` sit here with `maximize` and
     // `minimize` for the reason given under Media: brackets and diagonals
     // framing a viewport read as layout, whatever they are used to resize.
-    match: /^(panel|layout|grid|list|align|menu|maximize|minimize|fullscreen)/,
-    blurb: "Panels, lists, alignment, the menu marks and the fullscreen corners.",
+    match: /^(panel|layout|layers|grid|list|align|menu|maximize|minimize|fullscreen)/,
+    blurb: "Panels, layers, lists, alignment, the menu marks and the fullscreen corners.",
   },
   {
     label: "Users",
@@ -176,8 +190,11 @@ export const CATEGORIES = [
     // `star` and `heart` read as marks you set on a thing rather than as the two
     // outlines they happen to be. `eye` is the show/hide operation, next to lock.
     label: "Actions",
+    // `zap` sits here for the reason `lightbulb` does: it is an energy mark you
+    // set on a thing — instant, fast, powered — not a control you operate, and
+    // not the weather. The storm belongs to a cloud, and this bolt has none.
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|shield|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|ban)/,
+      /^(check|double-check|plus|minus|x|more|lock|unlock|shield|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|sparkle|ban)/,
     blurb: "Checks, crosses, pluses, the everyday verbs and the marks that guard a thing.",
   },
   {
@@ -225,7 +242,7 @@ export const CATEGORIES = [
     // `wifi-x` are. `cloud` and `cloud-rain` stay weather.
     label: "Web",
     match:
-      /^(globe|link|share|navigation|home|search|settings|bookmark|wifi|cloud-(?:check|x|plus|minus|alert|dot|off|arrow|backup|cog))/,
+      /^(globe|link|unlink|share|navigation|home|search|settings|bookmark|wifi|cloud-(?:check|x|plus|minus|alert|dot|off|arrow|backup|cog))/,
     blurb: "Globes, links, connectivity, sync states and web-scoped actions.",
   },
   {
