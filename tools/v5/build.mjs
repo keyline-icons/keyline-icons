@@ -228,10 +228,13 @@ const SETS = {
     for (const corners of ['regular', 'sharp']) {
       const sharp = corners === 'sharp';
       const drawing = String(SEND.body(name, { sharp })) + SEND.fold(name, { sharp });
-      const solid = SEND.plate(name, { sharp }) + SEND.panel(name, { sharp });
+      const plate = SEND.plate(name, { sharp });
+      // the plate stays the full silhouette and only the fill opens the crease,
+      // which is map's split: duotone is a second tone, fill is a solid, and
+      // only one of them has to explain the structure
       out[`stroke.${corners}`] = [S(drawing)];
-      out[`duotone.${corners}`] = [P(solid), S(drawing)];
-      out[`fill.${corners}`] = [F(solid)];
+      out[`duotone.${corners}`] = [P(plate), S(drawing)];
+      out[`fill.${corners}`] = [F(plate + SEND.spine(name, { sharp }))];
     }
     return out;
   }])),

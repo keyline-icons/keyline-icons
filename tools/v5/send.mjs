@@ -203,33 +203,52 @@ export function plate(k, opts = {}) {
   return contourPath(off);
 }
 
+/** How far along the fold the fill's crease closes, from the notch. */
+export const CREASE_REACH = 0.5;
+
 /**
- * The panel the fill opens: everything on one side of the fold, inset a unit.
+ * The crease, knocked out of the fill: a wedge that leaves the tail notch at
+ * the fold's own width and closes to a point half way along it.
  *
- * The house rule is that a fill opens one WHOLE panel and never slots the line
- * that divides it, and that every edge of the panel is ink the stroke already
- * draws. The fold leaves exactly two panels and both satisfy that, so which one
- * opens is a reading rather than a solve: the wing below the spine opens, so the
- * mass sits along the plane's upper edge and it reads as seen from above.
+ * This is the drawing's one deliberate exception, and it is Zafar's call from a
+ * reference rather than anything the guide would produce. `map`'s rule — a
+ * panelled object opens one whole panel and leaves its folds black — was tried
+ * first and is wrong here twice over. Opening the near wing leaves the spine
+ * with ink on one side and white on the other, so what reads is the fold's near
+ * EDGE rather than the fold. Slotting it at a constant two units reads as a
+ * plane sawn in half. A paper plane is one sheet creased down the middle, and
+ * what says that is a wedge: widest where the sheet is doubled over at the
+ * tail, closing as the two halves come back together toward the nose.
  *
- * The panel is wound AGAINST the outline. Both were wound the same way when
- * this first shipped, so nonzero counted 2 through the panel and painted it:
- * the fill was a solid dart with no fold in it at all, and the duotone plate
- * with it. Nothing in the pipeline compares a fill's holes against its stroke,
- * so nothing had an opinion.
+ * So the fill's silhouette is not the stroke's. Its notch runs a third of the
+ * way into the body where the stroke's is two units deep, and the styles are
+ * allowed to diverge here for the same reason `map`'s duotone and fill do: only
+ * one of them has to explain the structure.
+ *
+ * The knockout closes ON the plate rather than past it. A knockout that runs
+ * outside the shape does not stop existing there — nonzero counts it and paints
+ * it — which is a dark stub left floating off the tail. So the wedge's mouth is
+ * the plate's own dent: two sides meeting the dent exactly where it crosses the
+ * fold's ink edge, and a base that is the dent, taken at its own radius.
+ *
+ *   mouth      uN - (1 - sin t) / cos t, on the fold's ink edge and the dent
+ *   dent       uN - 1 / cos t, where the dent's two offsets cross on the axis
+ *   radius     the notch's fillet less the plate's unit, 2 rounded and 0 sharp,
+ *              which is the same arc the plate already draws there
  */
-export function panel(k, { sharp = false } = {}) {
-  const { T, B, N } = parts(k, sharp);
-  const unit = (v) => { const L = Math.hypot(v[0], v[1]); return [v[0] / L, v[1] / L]; };
-  const inner = (P, Q, R) => {
-    // the vertex P pulled a unit inside the corner it makes between Q and R
-    const e1 = unit(sub(Q, P)), e2 = unit(sub(R, P));
-    const bis = unit(add(e1, e2));
-    const half = Math.acos(Math.max(-1, Math.min(1, (e1[0] * bis[0] + e1[1] * bis[1]))));
-    return add(P, mul(bis, 1 / Math.sin(half)));
-  };
-  const t = inner(T, B, N), b = inner(B, N, T), nn = inner(N, T, B);
-  // wound against the outline, so nonzero fill knocks it out rather than
-  // painting it a second time — the same thing `pen` does with its nib
-  return polyContour([b, t, nn], [0, 0, sharp ? 0 : 0.5]).toString();
+export function spine(k, { sharp = false } = {}) {
+  const { u } = AXIS[k];
+  const { a, b, d } = PLANE[sharp ? `${k}|sharp` : k];
+  const nrm = [-u[1], u[0]];
+  const at = (along, across) => add(C0, add(mul(u, along), mul(nrm, across)));
+  const st = Math.sin(THETA), ct = Math.cos(THETA);
+  const uN = -b + d;
+  const mouth = uN - (1 - st) / ct;
+  const dent = uN - 1 / ct;
+  const apex = uN + CREASE_REACH * (a - uN);
+  // wound against the plate, so nonzero knocks it out
+  return polyContour(
+    [at(apex, 0), at(mouth, -1), at(dent, 0), at(mouth, 1)],
+    [0, 0, sharp ? 0 : R_NOTCH - 1, 0],
+  ).toString();
 }
