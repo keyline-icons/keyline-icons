@@ -44,9 +44,9 @@
  * nothing to look at and is still ink outside the padding floor. So each
  * rounded solve is settled afterwards against the drawn path: two or three
  * passes of `strokedBBox`, moving the tail by what the last pass missed by.
- * The flat one is the one that needs it — it is tangent on both axes, so it
- * meets the box where the cubic's error is largest, while the diagonal is
- * tangent on one and lands within a ten-thousandth on its own.
+ * The flat one is the one that needs it: tangent on both axes, so it meets the
+ * box where the cubic's error is largest, while the diagonal is tangent on one
+ * and lands within a ten-thousandth on its own.
  *
  * ## Sharp
  *
@@ -222,8 +222,8 @@ export const CREASE_HALF = 1.5;
  * a point half way along the fold.
  *
  * This is the drawing's one deliberate exception, and it is Zafar's call from a
- * reference rather than anything the guide would produce. `map`'s rule — a
- * panelled object opens one whole panel and leaves its folds black — was tried
+ * reference rather than anything the guide would produce. `map`'s rule, that a
+ * panelled object opens one whole panel and leaves its folds black, was tried
  * first and is wrong here twice over. Opening the near wing leaves the spine
  * with ink on one side and white on the other, so what reads is the fold's near
  * EDGE rather than the fold. Slotting it at a constant two units reads as a
