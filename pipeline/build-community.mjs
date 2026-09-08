@@ -53,7 +53,8 @@ const ATTR = /([\w-]+)="([^"]*)"/g
 /** Dropped so the caller's own size and the inline context take over. */
 const DROP = new Set(["width", "height", "xmlns"])
 /** Each shape with its own attributes, so paint can be matched to how it paints. */
-const SHAPE_TAG = /<(path|circle|rect|line|polyline|polygon|ellipse)\b([^>]*?)(\/?)>/g
+const SHAPE_TAG =
+  /<(path|circle|rect|line|polyline|polygon|ellipse)\b([^>]*?)(\/?)>/g
 
 /** Names a sheet asked for, and the subset icons/ could not supply. */
 const used = new Set()
@@ -66,10 +67,12 @@ const missing = new Set()
  * not hide the other five behind it.
  */
 async function read(style, name, corners = "regular") {
-  const key = corners === "sharp" ? `sharp/${style}/${name}` : `${style}/${name}`
+  const key =
+    corners === "sharp" ? `sharp/${style}/${name}` : `${style}/${name}`
   used.add(key)
   let src
-  const dir = corners === "sharp" ? join(ICONS, "sharp", style) : join(ICONS, style)
+  const dir =
+    corners === "sharp" ? join(ICONS, "sharp", style) : join(ICONS, style)
   try {
     src = await readFile(join(dir, `${name}.svg`), "utf8")
   } catch (e) {
@@ -202,11 +205,31 @@ const STYLES = ["stroke", "duotone", "fill"]
 
 /** Chosen because all twenty-five exist in all three styles, which is the point. */
 const STYLE_ICONS = [
-  "bell", "bookmark", "calendar", "camera", "cloud",
-  "file", "folder", "heart", "lock", "mail",
-  "star", "tag", "user", "shopping-cart", "image",
-  "archive", "bin", "credit-card", "gift", "map-pin",
-  "message", "package", "pen", "play", "sun",
+  "bell",
+  "bookmark",
+  "calendar",
+  "camera",
+  "cloud",
+  "file",
+  "folder",
+  "heart",
+  "lock",
+  "mail",
+  "star",
+  "tag",
+  "user",
+  "shopping-cart",
+  "image",
+  "archive",
+  "bin",
+  "credit-card",
+  "gift",
+  "map-pin",
+  "message",
+  "package",
+  "pen",
+  "play",
+  "sun",
 ]
 
 async function sheetStyles() {
@@ -248,7 +271,15 @@ async function sheetStyles() {
 
 /* ── sheet 2: the container system ─────────────────────────────────────── */
 
-const CONTAINED = ["arrow-down", "check", "play", "plus", "x", "chevron-right", "menu"]
+const CONTAINED = [
+  "arrow-down",
+  "check",
+  "play",
+  "plus",
+  "x",
+  "chevron-right",
+  "menu",
+]
 const COMBOS = [
   ["regular", "stroke", ""],
   ["square", "stroke", "square-"],
@@ -313,16 +344,86 @@ const RANGE_ROWS = 7
  * icon which no longer exists without that being a failure.
  */
 const RANGE_LEAD = [
-  "activity","airplay","alarm-clock","anchor","aperture","award","battery","bluetooth",
-  "book","briefcase","brush","bug","building-columns","cake","calculator","chef-hat",
-  "clapperboard","coffee","compass","cpu","crown","database","dice-5","dna",
-  "droplet","dumbbell","feather","flame","flask","gamepad","gauge","graduation-cap",
-  "guitar","hammer","headphones","joystick","key","lamp","leaf","lightbulb",
-  "magnet","medal","microscope","music","palette","paperclip","parachute","piano",
-  "pill","plane","plug","puzzle","rocket","ruler","scissors","shield",
-  "shirt","snowflake","speaker","sprout","stethoscope","swords","telescope","tent",
-  "thermometer","ticket","trophy","umbrella","utensils","wallet","wand","watch",
-  "waves","webcam","wheat","wind","wine","wrench","zap","anvil",
+  "activity",
+  "airplay",
+  "alarm-clock",
+  "anchor",
+  "aperture",
+  "award",
+  "battery",
+  "bluetooth",
+  "book",
+  "briefcase",
+  "brush",
+  "bug",
+  "building-columns",
+  "cake",
+  "calculator",
+  "chef-hat",
+  "clapperboard",
+  "coffee",
+  "compass",
+  "cpu",
+  "crown",
+  "database",
+  "dice-5",
+  "dna",
+  "droplet",
+  "dumbbell",
+  "feather",
+  "flame",
+  "flask",
+  "gamepad",
+  "gauge",
+  "graduation-cap",
+  "guitar",
+  "hammer",
+  "headphones",
+  "joystick",
+  "key",
+  "lamp",
+  "leaf",
+  "lightbulb",
+  "magnet",
+  "medal",
+  "microscope",
+  "music",
+  "palette",
+  "paperclip",
+  "parachute",
+  "piano",
+  "pill",
+  "plane",
+  "plug",
+  "puzzle",
+  "rocket",
+  "ruler",
+  "scissors",
+  "shield",
+  "shirt",
+  "snowflake",
+  "speaker",
+  "sprout",
+  "stethoscope",
+  "swords",
+  "telescope",
+  "tent",
+  "thermometer",
+  "ticket",
+  "trophy",
+  "umbrella",
+  "utensils",
+  "wallet",
+  "wand",
+  "watch",
+  "waves",
+  "webcam",
+  "wheat",
+  "wind",
+  "wine",
+  "wrench",
+  "zap",
+  "anvil",
 ]
 
 async function sheetRange(total) {
@@ -345,11 +446,16 @@ async function sheetRange(total) {
   const rest = [...available]
     .sort()
     .filter((n) => !picked.includes(n) && !/^(square|circle)-/.test(n))
-  const step = Math.max(1, Math.floor(rest.length / Math.max(1, want - picked.length)))
-  for (let i = 0; picked.length < want && i < rest.length; i += step) picked.push(rest[i])
+  const step = Math.max(
+    1,
+    Math.floor(rest.length / Math.max(1, want - picked.length))
+  )
+  for (let i = 0; picked.length < want && i < rest.length; i += step)
+    picked.push(rest[i])
 
   let cells = ""
-  for (const name of picked) cells += `<div class="c">${await glyph("stroke", name, 60)}</div>`
+  for (const name of picked)
+    cells += `<div class="c">${await glyph("stroke", name, 60)}</div>`
 
   return {
     name: "3-range",
@@ -367,13 +473,34 @@ async function sheetRange(total) {
         svg{display:block}
       </style>
       <div class="head">
-        <h1>${total} icons on one 24 × 24 grid</h1>
+        <h1>One 24 × 24 grid, one keyline</h1>
         <p>Every drawing takes its colour from currentColor, so it inherits whatever is in scope.</p>
       </div>
       <div class="grid">${cells}</div>`
     ),
   }
 }
+
+/*
+  This sheet used to head with the icon count and no longer does, on Zafar's
+  call (8 Sep 2026). A number here is checked by nothing at any stage: these
+  PNGs are gitignored, so they are not in the repository, and `--check` composes
+  the sheets without rasterising and only fails on an icon name that no longer
+  resolves, because Chrome's PNG output is not byte-stable on identical input.
+  Then the image is uploaded to Figma Community by hand. Generated, unverified
+  and hand-published is the worst of the three: it reads as authoritative while
+  nothing can tell you it says 629. A count belongs in the listing's
+  description, which is a text field and gets edited every release anyway.
+
+  The grid of a hundred drawings makes the breadth claim on its own, and the
+  headline it leaves behind is the construction, which never goes stale.
+
+  The FILE COVER keeps its count, and is the one place the argument does not
+  apply: `figma-cover.svg` is tracked and `cover:check` compares the SVG, which
+  IS deterministic, so its number cannot be wrong before it is uploaded. One
+  image, the most-seen thing in the listing, and the number is what sells it.
+  One re-upload a release is a different price from seven.
+*/
 
 /* sheet 4: the corner treatments */
 
@@ -388,9 +515,18 @@ async function sheetRange(total) {
  * than a right angle.
  */
 const SHARP_ICONS = [
-  "panel-left", "layout-dashboard", "grid-2x2", "monitor",
-  "folder", "file-text", "calendar", "camera",
-  "archive", "package", "shield", "triangle-alert",
+  "panel-left",
+  "layout-dashboard",
+  "grid-2x2",
+  "monitor",
+  "folder",
+  "file-text",
+  "calendar",
+  "camera",
+  "archive",
+  "package",
+  "shield",
+  "triangle-alert",
 ]
 
 async function sheetSharp() {
@@ -462,37 +598,85 @@ async function sheetBoard() {
     `<p class="sub">Search, click, recolour.</p></div>` +
     lane(88, 232, "Doing", await g("clock", 30, FJ.blue), FJ.blue) +
     lane(700, 232, "Blocked", await g("triangle-alert", 30, FJ.red), FJ.red) +
-    lane(1312, 232, "Shipped", await g("circle-check", 30, FJ.green), FJ.green) +
-    sticky(88, 330, 300, 232, FJ.sBlue, -1.2,
+    lane(
+      1312,
+      232,
+      "Shipped",
+      await g("circle-check", 30, FJ.green),
+      FJ.green
+    ) +
+    sticky(
+      88,
+      330,
+      300,
+      232,
+      FJ.sBlue,
+      -1.2,
       `<div class="row">${await g("pen", 28, FJ.ink)}<span class="t">Redraw the empty state</span></div>` +
-      `<div class="row" style="margin-top:auto;opacity:.55">${await g("user", 24, FJ.ink)}` +
-      `<span style="font-size:19px">Zafar</span></div>`) +
-    sticky(88, 594, 300, 232, FJ.sPurple, 0.9,
+        `<div class="row" style="margin-top:auto;opacity:.55">${await g("user", 24, FJ.ink)}` +
+        `<span style="font-size:19px">Zafar</span></div>`
+    ) +
+    sticky(
+      88,
+      594,
+      300,
+      232,
+      FJ.sPurple,
+      0.9,
       `<div class="row">${await g("message", 28, FJ.ink)}<span class="t">Write the FAQ answers</span></div>` +
-      `<div class="row" style="margin-top:auto;opacity:.55">${await g("clock", 24, FJ.ink)}` +
-      `<span style="font-size:19px">Thursday</span></div>`) +
+        `<div class="row" style="margin-top:auto;opacity:.55">${await g("clock", 24, FJ.ink)}` +
+        `<span style="font-size:19px">Thursday</span></div>`
+    ) +
     // Both of these said something specific and dated: one was waiting on the
     // plugin's first review, the other on the six drawings the August migration
     // asked for. Both came true, and the sheet went on saying otherwise on a
     // published Community page for as long as nobody looked. What replaces them
     // is ordinary board work that stays true, because a carousel image is
     // reprinted only when the listing is republished and that is rare.
-    sticky(700, 330, 300, 232, FJ.sPink, 1.4,
+    sticky(
+      700,
+      330,
+      300,
+      232,
+      FJ.sPink,
+      1.4,
       `<div class="row">${await g("bell", 28, FJ.red)}<span class="t">Waiting on design review</span></div>` +
-      `<div class="row" style="margin-top:auto;opacity:.55">${await g("question", 24, FJ.ink)}` +
-      `<span style="font-size:19px">Two days?</span></div>`) +
-    sticky(700, 594, 300, 232, FJ.sOrange, -0.8,
+        `<div class="row" style="margin-top:auto;opacity:.55">${await g("question", 24, FJ.ink)}` +
+        `<span style="font-size:19px">Two days?</span></div>`
+    ) +
+    sticky(
+      700,
+      594,
+      300,
+      232,
+      FJ.sOrange,
+      -0.8,
       `<div class="row">${await g("bookmark", 28, FJ.orange)}<span class="t">Icon requests to triage</span></div>` +
-      `<div class="row" style="margin-top:auto;opacity:.55">${await g("pen", 24, FJ.ink)}` +
-      `<span style="font-size:19px">From the issues</span></div>`) +
-    sticky(1312, 330, 300, 232, FJ.sGreen, -1.5,
+        `<div class="row" style="margin-top:auto;opacity:.55">${await g("pen", 24, FJ.ink)}` +
+        `<span style="font-size:19px">From the issues</span></div>`
+    ) +
+    sticky(
+      1312,
+      330,
+      300,
+      232,
+      FJ.sGreen,
+      -1.5,
       `<div class="row">${await gf("circle-check", 28, FJ.green)}<span class="t">Packages on npm</span></div>` +
-      `<div class="row" style="margin-top:auto;opacity:.55">${await g("check", 24, FJ.ink)}` +
-      `<span style="font-size:19px">0.1.0</span></div>`) +
-    sticky(1312, 594, 300, 232, FJ.sYellow, 1.1,
+        `<div class="row" style="margin-top:auto;opacity:.55">${await g("check", 24, FJ.ink)}` +
+        `<span style="font-size:19px">0.1.0</span></div>`
+    ) +
+    sticky(
+      1312,
+      594,
+      300,
+      232,
+      FJ.sYellow,
+      1.1,
       `<div class="row">${await gf("circle-check", 28, FJ.green)}<span class="t">Figma file published</span></div>` +
-      `<div class="row" style="margin-top:auto;opacity:.55">${await g("bookmark", 24, FJ.ink)}` +
-      `<span style="font-size:19px">Community</span></div>`) +
+        `<div class="row" style="margin-top:auto;opacity:.55">${await g("bookmark", 24, FJ.ink)}` +
+        `<span style="font-size:19px">Community</span></div>`
+    ) +
     arrow(404, 415, 280, FJ.blue) +
     arrow(1016, 415, 280, FJ.green) +
     // A loose row of pills along the bottom, the way people label a board.
@@ -510,8 +694,26 @@ async function sheetBoard() {
 
 /* ── sheets 6 and 7: colour, and a colour per path ─────────────────────── */
 
-const SWATCH = [FJ.red, FJ.orange, FJ.yellow, FJ.green, FJ.teal, FJ.blue, FJ.purple, FJ.pink]
-const SWATCH_ICONS = ["bell", "heart", "star", "bookmark", "gift", "cloud", "sun", "package"]
+const SWATCH = [
+  FJ.red,
+  FJ.orange,
+  FJ.yellow,
+  FJ.green,
+  FJ.teal,
+  FJ.blue,
+  FJ.purple,
+  FJ.pink,
+]
+const SWATCH_ICONS = [
+  "bell",
+  "heart",
+  "star",
+  "bookmark",
+  "gift",
+  "cloud",
+  "sun",
+  "package",
+]
 
 /*
   Base plus badge, so the second colour has a real path to land on. A knockout
@@ -590,7 +792,14 @@ const PLACED = [
   { n: "clock-check", c: [FJ.blue, FJ.green], x: 618, y: 342, s: 172, r: -2 },
   { n: "mail-plus", c: [FJ.pink, FJ.yellow], x: 866, y: 262, s: 158, r: 6 },
   { n: "calendar-x", c: [FJ.purple, FJ.red], x: 1096, y: 340, s: 166, r: -5 },
-  { n: "shopping-cart", c: [FJ.green, FJ.orange, FJ.green], x: 1338, y: 268, s: 178, r: 3 },
+  {
+    n: "shopping-cart",
+    c: [FJ.green, FJ.orange, FJ.green],
+    x: 1338,
+    y: 268,
+    s: 178,
+    r: 3,
+  },
   { n: "bell-check", c: [FJ.blue, FJ.green], x: 1596, y: 340, s: 156, r: -3 },
   { n: "calendar-plus", c: [FJ.orange, FJ.teal], x: 176, y: 606, s: 164, r: 4 },
   { n: "folder-x", c: [FJ.teal, FJ.red], x: 424, y: 664, s: 156, r: -6 },
@@ -668,14 +877,18 @@ async function shoot(chrome, name, html) {
   const buf = await readFile(png)
   const [gotW, gotH] = [buf.readUInt32BE(16), buf.readUInt32BE(20)]
   if (gotW !== W || gotH !== H) {
-    throw new Error(`${name}.png: expected ${W}x${H}, Chrome gave ${gotW}x${gotH}`)
+    throw new Error(
+      `${name}.png: expected ${W}x${H}, Chrome gave ${gotW}x${gotH}`
+    )
   }
   console.log(`Wrote previews/community/${name}.png (${W}×${H})`)
 }
 
 /* ── main ──────────────────────────────────────────────────────────────── */
 
-const total = (await readdir(join(ICONS, "stroke"))).filter((f) => f.endsWith(".svg")).length
+const total = (await readdir(join(ICONS, "stroke"))).filter((f) =>
+  f.endsWith(".svg")
+).length
 
 const sheets = [
   await sheetStyles(),
@@ -700,7 +913,10 @@ if (missing.size) {
 
 if (check) {
   console.log(
-    c(32, `previews/community/ composes from icons/ (${sheets.length} sheets, ${used.size} references)`)
+    c(
+      32,
+      `previews/community/ composes from icons/ (${sheets.length} sheets, ${used.size} references)`
+    )
   )
   console.log(`  ${sheets.map((s) => s.name).join(", ")}`)
 } else {
@@ -722,5 +938,7 @@ if (check) {
     await unlink(join(OUT, file))
     console.log(`Removed previews/community/${file} (no longer generated)`)
   }
-  console.log(`${sheets.length} sheets, ${used.size} icon references, ${total} icons in the set`)
+  console.log(
+    `${sheets.length} sheets, ${used.size} icon references, ${total} icons in the set`
+  )
 }
