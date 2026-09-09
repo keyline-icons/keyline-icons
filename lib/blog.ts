@@ -524,6 +524,16 @@ export const BLOG_V060_SINGLES_ICON_NAMES = [
 ] as const
 
 /** The money half of the batch: a wallet, the card's four signs, seven marks. */
+/** The six currency marks that fit inside a ring. Bitcoin does not. */
+export const BLOG_V060_CIRCLED_ICON_NAMES = [
+  "circle-dollar-sign",
+  "circle-euro",
+  "circle-pound-sterling",
+  "circle-japanese-yen",
+  "circle-indian-rupee",
+  "circle-swiss-franc",
+] as const
+
 export const BLOG_V060_MONEY_ICON_NAMES = [
   "wallet",
   "credit-card",
@@ -1384,6 +1394,42 @@ const BATCH_0_5_0: BlogPost = {
 
     {
       kind: "h2",
+      text: "A container is a frame, not a neighbour",
+      id: "the-circled-currencies",
+    },
+    {
+      kind: "p",
+      text:
+        "Six of the seven currency marks carry a circled half. The guide " +
+        "asks two units of daylight between elements, and taking that " +
+        "against the ring is what makes most circled letters look wrong: " +
+        "held off by two, a letterform comes out at about half the well. " +
+        "Two exists so a reader can tell two things apart, and a container " +
+        "is not a second thing. These clear the ring by one.",
+    },
+    {
+      kind: "p",
+      text:
+        "The eighteen circled icons already in the set are not evidence " +
+        "against that, and it is worth saying why: their glyphs are marks. " +
+        "A slash, a chevron, three dots. A mark has no counters to keep " +
+        "open, so it can afford the two and still read. A letter cannot.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V060_CIRCLED_ICON_NAMES,
+        caption:
+          "Six of seven. Bitcoin has no circled half: its four stubs stand " +
+          "outside the letter at both ends, on the part of the ring with no " +
+          "room, and solving that shrinks the B until its bowls carry one " +
+          "unit of white instead of two.",
+      },
+    },
+
+    {
+      kind: "h2",
       text: "Getting it",
       id: "getting-it",
     },
@@ -1443,9 +1489,10 @@ const BATCH_0_6_0: BlogPost = {
     {
       kind: "p",
       text:
-        "Twenty-three new drawings, which takes the set to 686 names. They " +
-        "came in two halves: five objects and a book family, then a wallet, " +
-        "the card's four signs and seven currency marks.",
+        "Twenty-three new drawings and twenty-nine new names, which takes " +
+        "the set to 692. They came in two halves: five objects and a book " +
+        "family, then a wallet, the card's four signs and seven currency " +
+        "marks, six of which carry a circled half as well.",
     },
     {
       kind: "figure",
@@ -1591,7 +1638,7 @@ const BATCH_0_6_0: BlogPost = {
       href: "/icons",
       label: "Browse the set",
       text:
-        "All 686, in three styles and two corner treatments, with copy and " +
+        "All 692, in three styles and two corner treatments, with copy and " +
         "download on every drawing.",
     },
     {
