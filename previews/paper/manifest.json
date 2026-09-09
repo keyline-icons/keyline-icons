@@ -402,6 +402,18 @@
       "bytes": 14779
     },
     {
+      "file": "education.html",
+      "artboard": "Education",
+      "category": "Education",
+      "part": 1,
+      "parts": 1,
+      "into": "artboard",
+      "width": 742,
+      "icons": 1,
+      "variants": 6,
+      "bytes": 7844
+    },
+    {
       "file": "files-1.html",
       "artboard": "Files",
       "category": "Files",
@@ -834,28 +846,16 @@
       "bytes": 3799
     },
     {
-      "file": "sport-1.html",
+      "file": "sport.html",
       "artboard": "Sport",
       "category": "Sport",
       "part": 1,
-      "parts": 2,
+      "parts": 1,
       "into": "artboard",
       "width": 742,
-      "icons": 9,
+      "icons": 8,
       "variants": 48,
-      "bytes": 42167
-    },
-    {
-      "file": "sport-2.html",
-      "artboard": "Sport",
-      "category": "Sport",
-      "part": 2,
-      "parts": 2,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 6,
-      "bytes": 4853
+      "bytes": 41166
     },
     {
       "file": "text-1.html",
