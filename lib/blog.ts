@@ -497,6 +497,61 @@ export const BLOG_SOCIAL_CARD_ICONS = 6
  * because fourteen of the thirty-five are one shelf.
  */
 /**
+ * The v0.7.0 batch, in the order the Figma changelog lists it: the square
+ * bubble first, its eight companions, then the five singles.
+ */
+export const BLOG_V070_THUMBNAIL_ICON_NAMES = [
+  "message-square",
+  "message-square-plus",
+  "message-square-minus",
+  "message-square-check",
+  "message-square-x",
+  "message-square-lines",
+  "message-square-dot",
+  "message-square-off",
+  "messages-square",
+  "qr-code",
+  "scan",
+  "scissors",
+  "hourglass",
+  "rocket",
+] as const
+
+/** The nine that are one family. */
+export const BLOG_V070_BUBBLE_ICON_NAMES = [
+  "message-square",
+  "message-square-plus",
+  "message-square-minus",
+  "message-square-check",
+  "message-square-x",
+  "message-square-lines",
+  "message-square-dot",
+  "message-square-off",
+  "messages-square",
+] as const
+
+/** The same option in the two bodies, round then square, four times over. */
+export const BLOG_V070_PAIR_ICON_NAMES = [
+  "message",
+  "message-square",
+  "message-dot",
+  "message-square-dot",
+  "message-off",
+  "message-square-off",
+  "messages",
+  "messages-square",
+] as const
+
+/** The five that are one object each. */
+export const BLOG_V070_SINGLES_ICON_NAMES = [
+  "qr-code",
+  "scan",
+  "scissors",
+  "hourglass",
+  "rocket",
+] as const
+
+/**
  * The v0.6.0 batch: eleven names, the six of the book family together so the
  * card reads as a family rather than as six separate arrivals.
  */
@@ -1422,6 +1477,252 @@ const BATCH_0_5_0: BlogPost = {
   ],
 }
 
+const BATCH_0_7_0: BlogPost = {
+  slug: "the-message-family-in-a-second-body",
+  version: "0.7.0",
+  title: "14 new icons, and the message family in a second body",
+  description:
+    "Inside Keyline Icons v0.7.0: the message family drawn again on a square " +
+    "body, option for option, and five singles: a QR code, a scan frame, " +
+    "scissors, an hourglass and a rocket.",
+  standfirst:
+    "Everything that landed in v0.7.0, and how the square bubble keeps the " +
+    "round one's vocabulary. Free SVG icons for shadcn/ui, drawn on one " +
+    "24\u00d724 grid.",
+  date: "2026-09-10",
+  updated: "2026-09-10",
+  readingMinutes: 5,
+  thumbnail: BLOG_V070_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "icon set update",
+    "free svg icons",
+    "shadcn/ui icons",
+    "message square icon",
+    "chat icons",
+    "qr code icon",
+    "scissors icon",
+    "hourglass icon",
+    "rocket icon",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "Fourteen new drawings, which takes the set to 706. Nine of them are " +
+        "one thing: the message family drawn again on a square body, with " +
+        "every option the round bubble already has. The other five are " +
+        "objects that had been on the list for a while: a QR code, a scan " +
+        "frame, scissors, an hourglass and a rocket.",
+    },
+    {
+      kind: "p",
+      text:
+        "The square family was the one worth doing carefully, because the " +
+        "point of it is not the square. It is that a reader can swap one " +
+        "family for the other and nothing else in their interface moves.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_THUMBNAIL_ICON_NAMES,
+        caption:
+          "All fourteen. The first nine are the square bubble and its " +
+          "companions; the five singles follow.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "One vocabulary, two bodies",
+      id: "one-vocabulary",
+    },
+    {
+      kind: "p",
+      text:
+        "The round `message` is an oval with a tail pulled out of its lower " +
+        "left. The square one is a rounded box, 18 wide and 14 tall on the " +
+        "path, whose left wall simply keeps going for four units and comes " +
+        "back to the bottom edge at 45 degrees. That is the whole tail. Both " +
+        "paint the same 20 by 20 box, so a row that mixes them does not jump.",
+    },
+    {
+      kind: "p",
+      text:
+        "What makes them one family is that every mark sits where the round " +
+        "bubble already puts it. The check, the plus, the minus, the x and " +
+        "the two lines of text sit inside the body at the full six units, " +
+        "centred on the bubble rather than pushed into a corner. The badge " +
+        "is the same eight-unit ring in the top right, and the body opens " +
+        "for it the same way. The slash is the same slash, corner to " +
+        "corner, cutting the body on one side and standing two units off it " +
+        "on the other.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_PAIR_ICON_NAMES,
+        caption:
+          "Each pair is one option in the two bodies: the plain bubble, the " +
+          "badge, the slash and the conversation. Inside the square the sign " +
+          "sits two units off the walls above and below, which is exactly " +
+          "what the x needs, and it is what set the body's height.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "Where the bubble opens for the badge",
+      id: "the-badge",
+    },
+    {
+      kind: "p",
+      text:
+        "The badge is a ring of radius three in the corner, and the body has " +
+        "to clear it by two on every side. The rounded drawing gets that for " +
+        "nothing. The stroke stops where its centre line is seven from the " +
+        "badge's centre, and a round cap is a disc of radius one, so it is " +
+        "tangent to the six-unit clearance circle by construction. The grey " +
+        "plate underneath is cut on that circle and turns onto it around " +
+        "each cap. Nothing has to be solved.",
+    },
+    {
+      kind: "p",
+      text:
+        "The sharp drawing is different, and it is the kind of difference " +
+        "that only shows when the plate is recoloured and looked at closely. " +
+        "A butt cap is a bar, not a disc, and the corner of the bar nearest " +
+        "the badge is what reaches it. So the sharp cut is where that corner " +
+        "lands on the clearance circle, two thirds of a unit further along " +
+        "the wall than the round one, and the plate runs flush along the " +
+        "face of the bar and follows the circle between the two faces.",
+    },
+    {
+      kind: "note",
+      text:
+        "The round rule applied to a sharp drawing leaves black sticking " +
+        "into the white gap. That is exactly the fault the sharp " +
+        "`message-dot` carried until it was re-solved earlier this month, " +
+        "and the square one was built on the corrected rule from the start.",
+    },
+
+    {
+      kind: "h2",
+      text: "The one behind is cut, the one in front is filled",
+      id: "the-pair",
+    },
+    {
+      kind: "p",
+      text:
+        "`messages-square` is the round `messages` composed again: the " +
+        "larger bubble behind at the top left, the reply in front at the " +
+        "bottom right with its tail turned the other way. The one in front " +
+        "carries the muted plate and the solid. The one behind is a bare " +
+        "line, cut so its ink stays two units clear of the front bubble's, " +
+        "and in the filled style it contributes only its own band. Plating " +
+        "both reads as a filled shape stacked on a filled shape rather than " +
+        "as one thing overlapping another.",
+    },
+
+    {
+      kind: "h2",
+      text: "Five singles",
+      id: "five-singles",
+    },
+    {
+      kind: "p",
+      text:
+        "The QR code is three finder squares and a quadrant of data. The " +
+        "finders are six units on the path at a one-unit corner, which " +
+        "paints eight with a four-unit well inside, and the well is why they " +
+        "carry no centre mark: a two-unit mark in a four-unit well leaves " +
+        "one unit either side, half the gap the set holds everywhere else. " +
+        "The data lives in the free quadrant on a pitch of four, marks of " +
+        "two and bars of two, so every gap in the drawing is exactly two.",
+    },
+    {
+      kind: "p",
+      text:
+        "`scan` is `scan-face` with the face taken out. The four corner " +
+        "brackets were already the frame, and the frame is the drawing.",
+    },
+    {
+      kind: "p",
+      text:
+        "The scissors are two rings of the badge size sitting exactly two " +
+        "apart, and two blades leaving each ring at its inner 45 degrees for " +
+        "the opposite top corner. The blade rising from left to right runs " +
+        "whole, because that is the way a free diagonal runs in this set. " +
+        "The other passes under it and is cut the way the slash cuts a " +
+        "drawing: it ends on the front blade's centre line below the pivot, " +
+        "where its cap is buried, and starts again above it with its ink two " +
+        "clear.",
+    },
+    {
+      kind: "p",
+      text:
+        "The hourglass is two bulbs meeting at a point under a bar top and " +
+        "bottom. Each bulb is closed along its bar, underneath it, which is " +
+        "what gives the drawing a region to fill without adding a line. The " +
+        "grey plate is one outline rather than two, because two bulb plates " +
+        "would overlap at the waist, and an overlap is what the design file " +
+        "turns into a hole. The filled style opens the top bulb and leaves " +
+        "the bottom one solid. The sand has run down.",
+    },
+    {
+      kind: "p",
+      text:
+        "The rocket stands upright. A diagonal one was measured first and " +
+        "does not fit: at 45 degrees a rocket's length and its width both " +
+        "eat into the same canvas, and holding both inside the box leaves no " +
+        "room for a window. Upright there is room for a bead, and the fins " +
+        "are single strokes off the walls rather than closed shapes, because " +
+        "a fin small enough for this canvas has no interior to show.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_SINGLES_ICON_NAMES,
+        caption:
+          "The five singles. The rocket's exhaust is a bar two units under " +
+          "the base, which is what takes it to the full 22 units tall.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "Getting it",
+      id: "getting-it",
+    },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the set",
+      text:
+        "All 706, in three styles and two corner treatments, with copy and " +
+        "download on every drawing.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text:
+        "The shadcn registry, the React package, the CLI, the MCP server and " +
+        "the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Changelog",
+      text:
+        "What moved, generated off git, with every redraw shown before and " +
+        "after.",
+    },
+  ],
+}
+
 const BATCH_0_6_0: BlogPost = {
   /* Named for the story rather than the number, for the reason the type says:
      a batch is untagged while the post is written. */
@@ -1674,6 +1975,7 @@ const BATCH_0_6_0: BlogPost = {
 }
 
 export const BLOG_POSTS: readonly BlogPost[] = [
+  BATCH_0_7_0,
   BATCH_0_6_0,
   BATCH_0_5_0,
   BATCH_0_3_1,
