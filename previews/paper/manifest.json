@@ -13,9 +13,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 565,
-  "names": 674,
-  "variants": 3458,
+  "icons": 577,
+  "names": 686,
+  "variants": 3502,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -39,7 +39,7 @@
       "width": 742,
       "icons": 0,
       "variants": 46,
-      "bytes": 40648
+      "bytes": 40859
     },
     {
       "file": "actions-3.html",
@@ -265,9 +265,9 @@
       "parts": 5,
       "into": "artboard",
       "width": 742,
-      "icons": 27,
-      "variants": 48,
-      "bytes": 41718
+      "icons": 39,
+      "variants": 54,
+      "bytes": 42414
     },
     {
       "file": "commerce-2.html",
@@ -278,8 +278,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 42,
-      "bytes": 38532
+      "variants": 46,
+      "bytes": 40405
     },
     {
       "file": "commerce-3.html",
@@ -290,8 +290,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 38,
-      "bytes": 33687
+      "variants": 44,
+      "bytes": 40327
     },
     {
       "file": "commerce-4.html",
@@ -302,8 +302,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 36,
-      "bytes": 36631
+      "variants": 40,
+      "bytes": 36239
     },
     {
       "file": "commerce-5.html",
@@ -314,8 +314,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 6,
-      "bytes": 5592
+      "variants": 30,
+      "bytes": 28016
     },
     {
       "file": "controls.html",
@@ -351,7 +351,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 36720
+      "bytes": 36931
     },
     {
       "file": "devices-3.html",
@@ -399,7 +399,7 @@
       "width": 742,
       "icons": 40,
       "variants": 54,
-      "bytes": 40661
+      "bytes": 41927
     },
     {
       "file": "files-2.html",
@@ -603,7 +603,7 @@
       "width": 742,
       "icons": 15,
       "variants": 42,
-      "bytes": 38487
+      "bytes": 38698
     },
     {
       "file": "maps-2.html",
@@ -831,7 +831,7 @@
       "width": 742,
       "icons": 9,
       "variants": 48,
-      "bytes": 41956
+      "bytes": 42167
     },
     {
       "file": "sport-2.html",
@@ -1055,7 +1055,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 351971
+      "bytes": 362484
     }
   ]
 }

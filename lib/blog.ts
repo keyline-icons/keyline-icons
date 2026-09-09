@@ -523,6 +523,34 @@ export const BLOG_V060_SINGLES_ICON_NAMES = [
   "graduation-cap",
 ] as const
 
+/** The money half of the batch: a wallet, the card's four signs, seven marks. */
+export const BLOG_V060_MONEY_ICON_NAMES = [
+  "wallet",
+  "credit-card",
+  "credit-card-plus",
+  "credit-card-minus",
+  "credit-card-check",
+  "credit-card-x",
+  "dollar-sign",
+  "euro",
+  "pound-sterling",
+  "japanese-yen",
+  "indian-rupee",
+  "swiss-franc",
+  "bitcoin",
+] as const
+
+/** The seven currency marks on their own, so the shared cap is visible. */
+export const BLOG_V060_CURRENCY_ICON_NAMES = [
+  "dollar-sign",
+  "euro",
+  "pound-sterling",
+  "japanese-yen",
+  "indian-rupee",
+  "swiss-franc",
+  "bitcoin",
+] as const
+
 /** The book family, shown together because that is how it was drawn. */
 export const BLOG_V060_BOOK_ICON_NAMES = [
   "book",
@@ -1297,6 +1325,65 @@ const BATCH_0_5_0: BlogPost = {
 
     {
       kind: "h2",
+      text: "Seven currencies, and what a letterform owes",
+      id: "currencies",
+    },
+    {
+      kind: "p",
+      text:
+        "The second half of the batch is money: a wallet, the four signs on " +
+        "the payment card, and seven currency marks. The marks are the " +
+        "interesting ones, because they are letterforms rather than objects " +
+        "and the set already had three, in `bold`, `italic` and `underline`. " +
+        "Those sit on a cap that paints 20 tall, and so do these: one height " +
+        "for the family, so a price field can put a euro next to a pound and " +
+        "have them agree.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V060_CURRENCY_ICON_NAMES,
+        caption:
+          "One cap for all seven. The dollar and the bitcoin carry it on the " +
+          "BAR and let the letter sit inside, which is what type does and why " +
+          "the dollar's S is shorter than the euro's bowl rather than the two " +
+          "being drawn to one height.",
+      },
+    },
+    {
+      kind: "note",
+      text:
+        "None of the seven ships a filled style, and none is missing one: " +
+        "what closes in a euro or a bitcoin is a counter, and a counter is " +
+        "white by definition.",
+    },
+    {
+      kind: "p",
+      text:
+        "That is a rule this set writes down rather than judges each time. A " +
+        "fill needs a region to fill, so the obligation comes from the " +
+        "geometry: an open glyph with no container owes a stroke and nothing " +
+        "else. Filled, a bitcoin is a blob with two dots in it. The B is " +
+        "drawn as two open runs sharing its stem for exactly that reason, " +
+        "which is also how the set already draws `bold`.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V060_MONEY_ICON_NAMES,
+        caption:
+          "The wallet is the card's own envelope with a pocket cut into its " +
+          "right side, and the pocket is open to the wall rather than a " +
+          "closed rectangle beside it: closed, it leaves a one-unit sliver " +
+          "that shuts at 16 pixels. A clasp bead was drawn and dropped, " +
+          "because the pocket's interior is 5 by 4 and a bead is 3 across.",
+      },
+    },
+
+    {
+      kind: "h2",
       text: "Getting it",
       id: "getting-it",
     },
@@ -1330,17 +1417,17 @@ const BATCH_0_6_0: BlogPost = {
      a batch is untagged while the post is written. */
   slug: "eleven-drawings-and-a-white-band-only-one-file-could-see",
   version: "0.6.0",
-  title: "Eleven drawings, and a white band only one file could see",
+  title: "Twenty-three drawings, and a white band only one file could see",
   description:
-    "Inside Keyline Icons v0.6.0: a shop, a mortarboard, a chip, two kinds " +
-    "of building and a book that needed its spine explaining, plus a fill " +
-    "that was right everywhere except the one place it is authored.",
+    "Inside Keyline Icons v0.6.0: a shop, a mortarboard, a book that needed " +
+    "its spine explaining, a wallet, seven currency marks, and a fill that " +
+    "was right everywhere except the one place it is authored.",
   standfirst:
-    "Eleven new names, and what each of them was actually a problem about. " +
+    "Twenty-three new names, and what each of them was actually about. " +
     "Free SVG icons for shadcn/ui, drawn on one 24\u00d724 grid.",
   date: "2026-09-09",
   updated: "2026-09-09",
-  readingMinutes: 4,
+  readingMinutes: 6,
   thumbnail: BLOG_V060_THUMBNAIL_ICON_NAMES,
   keywords: [
     "icon set update",
@@ -1356,9 +1443,9 @@ const BATCH_0_6_0: BlogPost = {
     {
       kind: "p",
       text:
-        "Eleven new drawings, which takes the set to 674 names. Six of them " +
-        "are one object: a book, opened, and with the four signs the rest of " +
-        "the set already puts on things.",
+        "Twenty-three new drawings, which takes the set to 686 names. They " +
+        "came in two halves: five objects and a book family, then a wallet, " +
+        "the card's four signs and seven currency marks.",
     },
     {
       kind: "figure",
@@ -1366,7 +1453,7 @@ const BATCH_0_6_0: BlogPost = {
         kind: "grid",
         names: BLOG_V060_THUMBNAIL_ICON_NAMES,
         caption:
-          "The batch. Four of the eleven were drawn by hand first and fitted " +
+          "The first half. Four of these were drawn by hand first and fitted " +
           "here, which is the usual way round: the drawing decides what the " +
           "object is, and the fitting decides where its edges land.",
       },
@@ -1503,7 +1590,7 @@ const BATCH_0_6_0: BlogPost = {
       href: "/icons",
       label: "Browse the set",
       text:
-        "All 674, in three styles and two corner treatments, with copy and " +
+        "All 686, in three styles and two corner treatments, with copy and " +
         "download on every drawing.",
     },
     {

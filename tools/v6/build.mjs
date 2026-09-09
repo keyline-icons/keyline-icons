@@ -11,6 +11,7 @@
 import { resolve } from 'node:path';
 import * as I from './icons.mjs';
 import * as F from './refs.mjs';
+import * as W from './money.mjs';
 import { offsetPath, verify as verifyCubic } from './offset-cubic.mjs';
 import { writeSet } from '../v5/raw.mjs';
 import { offsetContour, contourPath, verify, flatten } from '../v5/offset.mjs';
@@ -334,6 +335,52 @@ SETS['book-open'] = () => {
   }
   return out;
 };
+
+/* --------------------------------------- the money batch: wallet, cards, ¤ */
+
+SETS.wallet = () => {
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const d = W.wallet({ sharp });
+    const plate = contourPath(W.walletPlate({ sharp }).segs);
+    out[`stroke.${key}`] = [S(d)];
+    out[`duotone.${key}`] = [P(plate), S(d)];
+    // The pocket's white is a plain rounded rectangle: three of its sides are
+    // the pocket's own inner ink and the fourth is the body's wall.
+    out[`fill.${key}`] = [F_(plate + hole(W.walletPlate({ sharp }).segs, W.walletPocketHole({ sharp }).segs))];
+  }
+  return out;
+};
+
+for (const kind of ['plus', 'minus', 'check', 'x']) {
+  SETS[`credit-card-${kind}`] = () => {
+    const out = {};
+    for (const sharp of [false, true]) {
+      const key = sharp ? 'sharp' : 'regular';
+      const body = W.card({ sharp, cut: true });
+      const mark = W.sign(kind);
+      const pl = W.cardPlate({ sharp, cut: true });
+      const plate = contourPath(pl.segs);
+      out[`stroke.${key}`] = [S(body + mark)];
+      out[`duotone.${key}`] = [P(plate), S(body + mark)];
+      // The sign stays a stroke over the solid card, which is `calendar-plus`'s
+      // pattern: the filled region is the card, and the mark is not part of it.
+      out[`fill.${key}`] = [F_(plate + hole(pl.segs, W.cardStripeHole().segs)), S(mark)];
+    }
+    return out;
+  };
+}
+
+// Stroke only, all seven. They are open glyphs with no container, which is the
+// first row of §"Which styles an icon owes"; what closes in a euro or a
+// bitcoin is a counter, and `at` is the precedent for leaving those white.
+for (const [name, draw] of Object.entries(W.CURRENCIES)) {
+  SETS[name] = () => ({
+    'stroke.regular': [S(draw({ sharp: false }))],
+    'stroke.sharp': [S(draw({ sharp: true }))],
+  });
+}
 
 /* ------------------------------------------------------------------ main */
 

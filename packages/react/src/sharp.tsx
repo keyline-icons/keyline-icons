@@ -597,6 +597,14 @@ export function Bin(props: IconProps) {
   )
 }
 
+export function Bitcoin(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M6 19L6 18L6 6L15 6C16.6569 6 18 7.3431 18 9C18 10.6569 16.6569 12 15 12L6 12L5 12M5 12L6 12L15 12C16.6569 12 18 13.3431 18 15C18 16.6569 16.6569 18 15 18L6 18L5 18M10 2L10 3L10 6L10 7M15 2L15 3L15 6L15 7M10 17L10 18L10 21L10 22M15 17L15 18L15 21L15 22" fill="none" />
+    </Icon>
+  )
+}
+
 export function Bluetooth(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -1940,6 +1948,38 @@ export function CreditCard2(props: IconProps) {
   )
 }
 
+export function CreditCardCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M22 10L22 9L22 4L2 4L2 20L12 20L13 20M1 9L2 9L22 9L23 9M16 17L18 19L22 15" fill="none" />
+    </Icon>
+  )
+}
+
+export function CreditCardMinus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M22 10L22 9L22 4L2 4L2 20L12 20L13 20M1 9L2 9L22 9L23 9M16 17H22" fill="none" />
+    </Icon>
+  )
+}
+
+export function CreditCardPlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M22 10L22 9L22 4L2 4L2 20L12 20L13 20M1 9L2 9L22 9L23 9M19 14V20M16 17H22" fill="none" />
+    </Icon>
+  )
+}
+
+export function CreditCardX(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M22 10L22 9L22 4L2 4L2 20L12 20L13 20M1 9L2 9L22 9L23 9M16 14L22 20M22 14L16 20" fill="none" />
+    </Icon>
+  )
+}
+
 export function CreditCard(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -2091,6 +2131,14 @@ export function Dice6(props: IconProps) {
   )
 }
 
+export function DollarSign(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M12 2L12 3L12 21L12 22M17 5L16 5L9.5 5C7.567 5 6 6.567 6 8.5C6 10.433 7.567 12 9.5 12L14.5 12C16.433 12 18 13.567 18 15.5C18 17.433 16.433 19 14.5 19L8 19L7 19" fill="none" />
+    </Icon>
+  )
+}
+
 export function DoubleCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -2103,6 +2151,14 @@ export function Download(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M12 2L12 14M7.7071 9.7071L12 14L16.2929 9.7071M4 17L4 21L20 21L20 17" />
+    </Icon>
+  )
+}
+
+export function Euro(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M20.3333 18.4101L20 18.7082C18.3499 20.1841 16.2138 21 14 21C9.0294 21 5 16.9706 5 12C5 7.0294 9.0294 3 14 3C16.2138 3 18.3499 3.8159 20 5.2918L20.3333 5.5899M3 10L4 10L16 10L17 10M3 14L4 14L16 14L17 14" fill="none" />
     </Icon>
   )
 }
@@ -3063,6 +3119,14 @@ export function Inbox(props: IconProps) {
   )
 }
 
+export function IndianRupee(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M5 3L6 3L18 3L19 3M5 7.5L6 7.5L18 7.5L19 7.5M15 2L15 3C15 6.5955 12.5078 9.7107 9 10.5L6 10.5L16 21L16.2956 21.3103" fill="none" />
+    </Icon>
+  )
+}
+
 export function Info(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -3077,6 +3141,14 @@ export function Italic(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M9 3L22 3M2 21L15 21M16 3L9 21" fill="none" />
+    </Icon>
+  )
+}
+
+export function JapaneseYen(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M4.7526 2.7172L5 3L12 11L19 3L19.2474 2.7172M12 10L12 11L12 21L12 22M5 15L6 15L18 15L19 15M5 19L6 19L18 19L19 19" fill="none" />
     </Icon>
   )
 }
@@ -3915,6 +3987,14 @@ export function Podium(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M1 17.25L23 17.25M4 17.25L4 13.75L9 13.75L9 10.25L14 10.25L14 6.75L20 6.75L20 17.25L4 17.25Z" strokeLinejoin="miter" />
+    </Icon>
+  )
+}
+
+export function PoundSterling(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M9 22L9 21L9 7C9 4.7909 10.7909 3 13 3C15.2091 3 17 4.7909 17 7C17 7.7021 16.8152 8.3919 16.4641 9L16.1754 9.5M5 15L6 15L15 15L16 15M3 21L4 21L20 21L21 21" fill="none" />
     </Icon>
   )
 }
@@ -5221,6 +5301,14 @@ export function Sunset(props: IconProps) {
   )
 }
 
+export function SwissFranc(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M19 3L18 3L9 3L9 21L9 22M8 11L9 11L16 11L17 11M5 16L6 16L14 16L15 16" fill="none" />
+    </Icon>
+  )
+}
+
 export function TagHorizontalEndPercent(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -5516,6 +5604,14 @@ export function Volume(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M2 9L6 9L11 4L11 20L6 15L2 15L2 9ZM15.0772 6.2227L15.8044 6.9091C17.2058 8.2316 18 10.0732 18 12C18 13.9268 17.2058 15.7684 15.8044 17.0909L15.0772 17.7773M18.2608 3.7273L18.5498 4C20.7519 6.0782 22 8.9721 22 12C22 15.0279 20.7519 17.9218 18.5498 20L18.2608 20.2727" />
+    </Icon>
+  )
+}
+
+export function Wallet(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M2 4L22 4L22 20L2 20L2 4ZM22 8L14 8L14 16L22 16" fill="none" />
     </Icon>
   )
 }

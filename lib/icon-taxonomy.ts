@@ -106,9 +106,14 @@ export const CATEGORIES = [
     // `shopping-bag`, not because business is commerce: Files is documents,
     // and one name does not earn a row.
     label: "Commerce",
+    // The seven currency glyphs are here rather than on a shelf of their own:
+    // a shelf of seven marks reads as a gap next to Media's 63, and what
+    // someone reaching for a euro is doing is commerce. `percent` already sets
+    // the precedent for a bare mark on this shelf.
     match:
-      /^(shopping-|handbag|briefcase|receipt|credit-card|tag|package|truck|gift|coupon|percent|store)/,
-    blurb: "Carts, bags, receipts, cards, shipping, the shopfront and the discount marks.",
+      /^(shopping-|handbag|briefcase|receipt|credit-card|tag|package|truck|gift|coupon|percent|store|wallet|dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin)/,
+    blurb:
+      "Carts, bags, receipts, cards, shipping, the shopfront, the currencies and the discount marks.",
   },
   {
     // `flag` and `traffic-light` are both road furniture: a marker you plant

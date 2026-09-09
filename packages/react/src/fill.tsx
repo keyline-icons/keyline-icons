@@ -1287,6 +1287,42 @@ export function CreditCard2(props: IconProps) {
   )
 }
 
+export function CreditCardCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M5 3L19 3C21.2091 3 23 4.7909 23 7L23 10C23 10.5523 22.5523 11 22 11L16 11C14.3431 11 13 12.3431 13 14L13 20C13 20.5523 12.5523 21 12 21L5 21C2.7909 21 1 19.2091 1 17L1 7C1 4.7909 2.7909 3 5 3ZM3 8L3 10L21 10L21 8L3 8Z" fill="currentColor" stroke="none" />
+      <path d="M16 17L18 19L22 15" fill="none" />
+    </Icon>
+  )
+}
+
+export function CreditCardMinus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M5 3L19 3C21.2091 3 23 4.7909 23 7L23 10C23 10.5523 22.5523 11 22 11L16 11C14.3431 11 13 12.3431 13 14L13 20C13 20.5523 12.5523 21 12 21L5 21C2.7909 21 1 19.2091 1 17L1 7C1 4.7909 2.7909 3 5 3ZM3 8L3 10L21 10L21 8L3 8Z" fill="currentColor" stroke="none" />
+      <path d="M16 17H22" fill="none" />
+    </Icon>
+  )
+}
+
+export function CreditCardPlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M5 3L19 3C21.2091 3 23 4.7909 23 7L23 10C23 10.5523 22.5523 11 22 11L16 11C14.3431 11 13 12.3431 13 14L13 20C13 20.5523 12.5523 21 12 21L5 21C2.7909 21 1 19.2091 1 17L1 7C1 4.7909 2.7909 3 5 3ZM3 8L3 10L21 10L21 8L3 8Z" fill="currentColor" stroke="none" />
+      <path d="M19 14V20M16 17H22" fill="none" />
+    </Icon>
+  )
+}
+
+export function CreditCardX(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M5 3L19 3C21.2091 3 23 4.7909 23 7L23 10C23 10.5523 22.5523 11 22 11L16 11C14.3431 11 13 12.3431 13 14L13 20C13 20.5523 12.5523 21 12 21L5 21C2.7909 21 1 19.2091 1 17L1 7C1 4.7909 2.7909 3 5 3ZM3 8L3 10L21 10L21 8L3 8Z" fill="currentColor" stroke="none" />
+      <path d="M16 14L22 20M22 14L16 20" fill="none" />
+    </Icon>
+  )
+}
+
 export function CreditCard(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
@@ -4288,6 +4324,14 @@ export function Volume(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M1 10C1 8.895431 1.895431 8 3 8L5.477658 8L8.3585 3.861189C9.477163 2.254043 12 3.045621 12 5.003765L12 18.996235C12 20.954379 9.477163 21.745957 8.3585 20.138811L5.477658 16L3 16C1.895431 16 1 15.104569 1 14Z" fill="currentColor" stroke="none" />
       <path d="M15.80444 6.909091C17.205764 8.231561 18 10.073179 18 12C18 13.926821 17.205764 15.768439 15.80444 17.090909M18.549834 4C20.751915 6.078168 22 8.972139 22 12C22 15.027861 20.751915 17.921832 18.549834 20" />
+    </Icon>
+  )
+}
+
+export function Wallet(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M5 3L19 3C21.2091 3 23 4.7909 23 7L23 17C23 19.2091 21.2091 21 19 21L5 21C2.7909 21 1 19.2091 1 17L1 7C1 4.7909 2.7909 3 5 3ZM16 9C15.4477 9 15 9.4477 15 10L15 14C15 14.5523 15.4477 15 16 15L21 15L21 9L16 9Z" fill="currentColor" />
     </Icon>
   )
 }

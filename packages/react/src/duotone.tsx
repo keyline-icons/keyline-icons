@@ -1654,6 +1654,42 @@ export function CreditCard2(props: IconProps) {
   )
 }
 
+export function CreditCardCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M5 3L19 3C21.2091 3 23 4.7909 23 7L23 10C23 10.5523 22.5523 11 22 11L16 11C14.3431 11 13 12.3431 13 14L13 20C13 20.5523 12.5523 21 12 21L5 21C2.7909 21 1 19.2091 1 17L1 7C1 4.7909 2.7909 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M22 9L22 7C22 5.3431 20.6569 4 19 4L5 4C3.3431 4 2 5.3431 2 7L2 17C2 18.6569 3.3431 20 5 20L12 20M2 9L22 9M16 17L18 19L22 15" fill="none" />
+    </Icon>
+  )
+}
+
+export function CreditCardMinus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M5 3L19 3C21.2091 3 23 4.7909 23 7L23 10C23 10.5523 22.5523 11 22 11L16 11C14.3431 11 13 12.3431 13 14L13 20C13 20.5523 12.5523 21 12 21L5 21C2.7909 21 1 19.2091 1 17L1 7C1 4.7909 2.7909 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M22 9L22 7C22 5.3431 20.6569 4 19 4L5 4C3.3431 4 2 5.3431 2 7L2 17C2 18.6569 3.3431 20 5 20L12 20M2 9L22 9M16 17H22" fill="none" />
+    </Icon>
+  )
+}
+
+export function CreditCardPlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M5 3L19 3C21.2091 3 23 4.7909 23 7L23 10C23 10.5523 22.5523 11 22 11L16 11C14.3431 11 13 12.3431 13 14L13 20C13 20.5523 12.5523 21 12 21L5 21C2.7909 21 1 19.2091 1 17L1 7C1 4.7909 2.7909 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M22 9L22 7C22 5.3431 20.6569 4 19 4L5 4C3.3431 4 2 5.3431 2 7L2 17C2 18.6569 3.3431 20 5 20L12 20M2 9L22 9M19 14V20M16 17H22" fill="none" />
+    </Icon>
+  )
+}
+
+export function CreditCardX(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M5 3L19 3C21.2091 3 23 4.7909 23 7L23 10C23 10.5523 22.5523 11 22 11L16 11C14.3431 11 13 12.3431 13 14L13 20C13 20.5523 12.5523 21 12 21L5 21C2.7909 21 1 19.2091 1 17L1 7C1 4.7909 2.7909 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M22 9L22 7C22 5.3431 20.6569 4 19 4L5 4C3.3431 4 2 5.3431 2 7L2 17C2 18.6569 3.3431 20 5 20L12 20M2 9L22 9M16 14L22 20M22 14L16 20" fill="none" />
+    </Icon>
+  )
+}
+
 export function CreditCard(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -4985,6 +5021,15 @@ export function Volume(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M1 10C1 8.895431 1.895431 8 3 8L5.477658 8L8.3585 3.861189C9.477163 2.254043 12 3.045621 12 5.003765L12 18.996235C12 20.954379 9.477163 21.745957 8.3585 20.138811L5.477658 16L3 16C1.895431 16 1 15.104569 1 14Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <path d="M2 10C2 9.447715 2.447715 9 3 9L5.477658 9C5.804909 9 6.111453 8.839879 6.298408 8.571288L9.17925 4.432477C9.738582 3.628903 11 4.024692 11 5.003764L11 18.996236C11 19.975308 9.738582 20.371097 9.17925 19.567523L6.298408 15.428712C6.111453 15.160121 5.804909 15 5.477658 15L3 15C2.447715 15 2 14.552285 2 14ZM15.80444 6.909091C17.205764 8.231561 18 10.073179 18 12C18 13.926821 17.205764 15.768439 15.80444 17.090909M18.549834 4C20.751915 6.078168 22 8.972139 22 12C22 15.027861 20.751915 17.921832 18.549834 20" />
+    </Icon>
+  )
+}
+
+export function Wallet(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M5 3L19 3C21.2091 3 23 4.7909 23 7L23 17C23 19.2091 21.2091 21 19 21L5 21C2.7909 21 1 19.2091 1 17L1 7C1 4.7909 2.7909 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M5 4L19 4C20.6569 4 22 5.3431 22 7L22 17C22 18.6569 20.6569 20 19 20L5 20C3.3431 20 2 18.6569 2 17L2 7C2 5.3431 3.3431 4 5 4ZM22 8L16 8C14.8954 8 14 8.8954 14 10L14 14C14 15.1046 14.8954 16 16 16L22 16" fill="none" />
     </Icon>
   )
 }
