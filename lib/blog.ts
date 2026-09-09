@@ -1394,42 +1394,6 @@ const BATCH_0_5_0: BlogPost = {
 
     {
       kind: "h2",
-      text: "A container is a frame, not a neighbour",
-      id: "the-circled-currencies",
-    },
-    {
-      kind: "p",
-      text:
-        "Six of the seven currency marks carry a circled half. The guide " +
-        "asks two units of daylight between elements, and taking that " +
-        "against the ring is what makes most circled letters look wrong: " +
-        "held off by two, a letterform comes out at about half the well. " +
-        "Two exists so a reader can tell two things apart, and a container " +
-        "is not a second thing. These clear the ring by one.",
-    },
-    {
-      kind: "p",
-      text:
-        "The eighteen circled icons already in the set are not evidence " +
-        "against that, and it is worth saying why: their glyphs are marks. " +
-        "A slash, a chevron, three dots. A mark has no counters to keep " +
-        "open, so it can afford the two and still read. A letter cannot.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V060_CIRCLED_ICON_NAMES,
-        caption:
-          "Six of seven. Bitcoin has no circled half: its four stubs stand " +
-          "outside the letter at both ends, on the part of the ring with no " +
-          "room, and solving that shrinks the B until its bowls carry one " +
-          "unit of white instead of two.",
-      },
-    },
-
-    {
-      kind: "h2",
       text: "Getting it",
       id: "getting-it",
     },
@@ -1461,16 +1425,16 @@ const BATCH_0_5_0: BlogPost = {
 const BATCH_0_6_0: BlogPost = {
   /* Named for the story rather than the number, for the reason the type says:
      a batch is untagged while the post is written. */
-  slug: "eleven-drawings-and-a-white-band-only-one-file-could-see",
+  slug: "twenty-three-drawings-and-the-ones-i-sent-back",
   version: "0.6.0",
-  title: "Twenty-three drawings, and a white band only one file could see",
+  title: "Twenty-three drawings, and the ones I sent back",
   description:
-    "Inside Keyline Icons v0.6.0: a shop, a mortarboard, a book that needed " +
-    "its spine explaining, a wallet, seven currency marks, and a fill that " +
-    "was right everywhere except the one place it is authored.",
+    "Inside Keyline Icons v0.6.0: the shop I rejected twice, the book that " +
+    "needed three corners and a roll, seven currency marks, and the spacing " +
+    "rule I decided not to follow.",
   standfirst:
-    "Twenty-three new names, and what each of them was actually about. " +
-    "Free SVG icons for shadcn/ui, drawn on one 24\u00d724 grid.",
+    "What I drew this round, what I got wrong first, and the one rule I " +
+    "broke on purpose. Free SVG icons for shadcn/ui, on one 24\u00d724 grid.",
   date: "2026-09-09",
   updated: "2026-09-09",
   readingMinutes: 6,
@@ -1481,18 +1445,19 @@ const BATCH_0_6_0: BlogPost = {
     "shadcn/ui icons",
     "book icons",
     "store icon",
+    "currency icons",
     "flame icon",
     "cpu icon",
-    "graduation cap icon",
   ],
   body: [
     {
       kind: "p",
       text:
-        "Twenty-three new drawings and twenty-nine new names, which takes " +
-        "the set to 692. They came in two halves: five objects and a book " +
-        "family, then a wallet, the card's four signs and seven currency " +
-        "marks, six of which carry a circled half as well.",
+        "Twenty-three drawings this round and twenty-nine names, which puts " +
+        "the set at 692. I drew most of them by hand before anything was " +
+        "fitted to the grid, which is how I prefer to work: the drawing " +
+        "decides what the object is, and the fitting decides where its edges " +
+        "land. The interesting ones are the ones I sent back.",
     },
     {
       kind: "figure",
@@ -1500,71 +1465,78 @@ const BATCH_0_6_0: BlogPost = {
         kind: "grid",
         names: BLOG_V060_THUMBNAIL_ICON_NAMES,
         caption:
-          "The first half. Four of these were drawn by hand first and fitted " +
-          "here, which is the usual way round: the drawing decides what the " +
-          "object is, and the fitting decides where its edges land.",
+          "The first half: five objects and the book family. Four of these " +
+          "I redrew after seeing them on the grid, which is normal. Seeing " +
+          "a drawing at 24 pixels is not the same as drawing it.",
       },
     },
 
     {
       kind: "h2",
-      text: "A fill that was right everywhere but one",
-      id: "the-white-band",
+      text: "The shop, three times",
+      id: "the-store",
     },
     {
       kind: "p",
       text:
-        "The shop is an awning over a shopfront, and its filled style has to " +
-        "open the awning: a valance filled solid is a roof, and the scallops " +
-        "are the whole reason the drawing reads as a shop rather than as a " +
-        "house. Three ribs stand on the cusps and panel it, so what opens is " +
-        "four panels rather than one band. So the fill is the awning's plate " +
-        "and the building's plate, and those two overlap, because the " +
-        "valance dips below the point where the walls have to start.",
+        "The awning is the whole icon and I got it wrong twice. A plain " +
+        "fascia reads as a house, so the scallops went back on. Then the " +
+        "wave on its own still read as a lace edge, so I sent it back again " +
+        "with three ribs standing on the cusps. Four panels read as an " +
+        "awning. One wavy band does not.",
     },
     {
       kind: "p",
       text:
-        "Two overlapping shapes wound the same way paint solid under the " +
-        "non-zero fill rule, which is what the SVGs here use and what every " +
-        "browser therefore paints. Under the even-odd rule the overlap " +
-        "cancels. The design file writes its filled variants even-odd, so " +
-        "the band where the two plates met came out white, straight across " +
-        "the valance, in the one place the drawings are authored and nowhere " +
-        "else.",
+        "The third pass was the doorway. It had been cut straight through " +
+        "the floor line, which turns the shop into an arch you can see " +
+        "through. A door stands on a floor. That is one number in the " +
+        "drawing and it is the difference between a shopfront and a gate.",
+    },
+    {
+      kind: "p",
+      text:
+        "In between those, the filled style nearly shipped broken and I only " +
+        "caught it by looking. The fill was the awning's plate and the " +
+        "building's plate, and the two overlap, because the valance dips " +
+        "below where the walls have to start. Two overlapping shapes wound " +
+        "the same way paint solid under the non-zero rule, which is what " +
+        "these SVGs use and what every browser therefore paints. My design " +
+        "file writes its filled variants even-odd, where an overlap cancels. " +
+        "So a white band cut straight across the valance, in the one place " +
+        "the drawings are authored and nowhere else.",
     },
     {
       kind: "note",
       text:
-        "Every check passed. The geometry was identical on both sides; only " +
+        "Every check passed. The geometry was identical on both sides, only " +
         "the rule that paints it was not, and nothing compared that.",
     },
     {
       kind: "p",
       text:
-        "The fix is not a fill rule, it is the shape. The awning's outline " +
-        "is cut where its end scallop crosses the shop wall and the " +
-        "building's three sides are spliced into it, so the silhouette is " +
-        "one closed contour with two holes and there is no overlap left to " +
-        "cancel. It paints the same under either rule now, which is the " +
-        "property worth having: nothing downstream has to agree with us " +
-        "about which rule it uses.",
+        "The fix is the shape, not the fill rule. The awning's outline is " +
+        "cut where its end scallop crosses the shop wall and the building's " +
+        "three sides are spliced into it, so the silhouette is one closed " +
+        "contour and there is no overlap left to cancel. It paints the same " +
+        "under either rule now, which is the property I actually wanted: " +
+        "nothing downstream has to agree with me about which rule it uses.",
     },
 
     {
       kind: "h2",
-      text: "The book needed its spine explaining",
+      text: "The book has three corners and a roll",
       id: "the-book",
     },
     {
       kind: "p",
       text:
-        "The first book here was rejected on sight, and the note was the " +
-        "useful kind: it did not look like a book. What was missing turned " +
-        "out to be one feature. A closed book seen from the front does not " +
-        "have four corners; it has three, and a roll, because the cover " +
-        "wraps round the spine instead of turning. Drawn as a corner it " +
-        "reads as a card with a line on it.",
+        "I rejected the first book on sight and then took a minute to work " +
+        "out why. It did not look like a book. What was missing is one " +
+        "feature: a closed book seen from the front does not have four " +
+        "corners, it has three and a roll, because the cover wraps round " +
+        "the spine instead of turning. Drawn as a corner you get a card " +
+        "with a line on it.",
     },
     {
       kind: "figure",
@@ -1572,22 +1544,22 @@ const BATCH_0_6_0: BlogPost = {
         kind: "grid",
         names: BLOG_V060_BOOK_ICON_NAMES,
         caption:
-          "The roll is a half circle of radius 2 on the spine, and it sets " +
-          "the rest: the page block's depth is the roll's inner edge, and " +
-          "the margin line stands two roll-radii in from the spine. The " +
-          "foot has a notch scooped into the fore-edge, half a unit deep " +
-          "over three, which is the cover's board sitting proud of the " +
-          "pages.",
+          "The roll is a half circle of radius 2 on the spine and it sets " +
+          "everything else: the page block's depth is the roll's inner " +
+          "edge, and the crease stands two roll-radii in. The foot has a " +
+          "notch scooped into the fore-edge, half a unit deep over three, " +
+          "which is the cover's board sitting proud of the pages.",
       },
     },
     {
       kind: "p",
       text:
-        "The open book is the same object from above, and its gutter runs " +
-        "out through the notch between the two page tops rather than " +
-        "stopping inside it. Its foot is a semicircle under the rounded " +
-        "treatment and a square cut under the sharp one, which is the one " +
-        "thing that axis exists to distinguish.",
+        "I shortened the crease afterwards. Run the full height of the " +
+        "cover it reads as a second spine rather than as the fold a " +
+        "hardback has. And on the sharp treatment I squared the foot: a " +
+        "lone three-unit curve at the bottom of a drawing whose every other " +
+        "corner is square reads as something left behind, not as a " +
+        "treatment.",
     },
 
     {
@@ -1599,20 +1571,19 @@ const BATCH_0_6_0: BlogPost = {
       kind: "p",
       text:
         "A flame is a bowl with a tongue curling inside it, and the tongue " +
-        "is the part that goes wrong. Drawn as a point it reads as a comma, " +
-        "and at 16 pixels the bowl closes over it. Drawn as an arch it " +
-        "reads as a flame at every size, and the difference is one arc.",
+        "is the part that goes wrong. I drew it as a point first. At 16 " +
+        "pixels the bowl closes over it and you get a comma. As an arch it " +
+        "reads at every size, and the difference is one arc.",
     },
     {
       kind: "p",
       text:
-        "The outer silhouette has a matching rule. A single sweep from tip " +
-        "to bowl can only make a teardrop; what makes a lick is the tip " +
-        "dropping straight down first and swinging out afterwards, which is " +
-        "two arcs rather than one. Both of them are radius 10, turned " +
-        "through the angle whose sine is three fifths, because that is the " +
-        "pair that carries the flank exactly four units across and twelve " +
-        "down and leaves nothing to round.",
+        "The outer edge has a matching rule. A single sweep from tip to " +
+        "bowl can only make a teardrop. What makes a lick is the tip " +
+        "dropping straight down first and swinging out afterwards, so it is " +
+        "two arcs. Both are radius 10 turned through the angle whose sine " +
+        "is three fifths, because that pair carries the flank exactly four " +
+        "across and twelve down and leaves nothing to round.",
     },
     {
       kind: "figure",
@@ -1620,12 +1591,59 @@ const BATCH_0_6_0: BlogPost = {
         kind: "grid",
         names: BLOG_V060_SINGLES_ICON_NAMES,
         caption:
-          "The five singles. `buildings` is one silhouette rather than two " +
+          "The five singles. The skyline is one silhouette rather than two " +
           "overlapping blocks, so the party wall is a real edge and not a " +
-          "seam. `cpu` puts its pins on the package rather than through it. " +
-          "The mortarboard's bowl is solved onto its ink so the extreme " +
-          "lands on a whole unit instead of near one.",
+          "seam, and its low block comes up high enough to be a building " +
+          "rather than a shed. The processor puts its pins on the package " +
+          "rather than through it.",
       },
+    },
+
+    {
+      kind: "h2",
+      text: "The rule I broke on the currencies",
+      id: "the-circled-currencies",
+    },
+    {
+      kind: "p",
+      text:
+        "I asked for circled versions of the seven currency marks and the " +
+        "first set came back looking broken. They were not wrong, they " +
+        "followed my own rule: two units of daylight between elements. " +
+        "Against a ring that leaves the letter at about half the well, and " +
+        "it reads as a mistake rather than as spacing.",
+    },
+    {
+      kind: "p",
+      text:
+        "So I made an exception and wrote it down. Two exists so a reader " +
+        "can tell two things apart. A container is not a second thing, it " +
+        "is the frame the drawing sits in. These clear the ring by one. The " +
+        "eighteen circled icons already in the set are not an argument " +
+        "against that, and it is worth saying why: their glyphs are marks. " +
+        "A slash, a chevron, three dots. A mark has no counters to hold " +
+        "open and can afford the two. A letter cannot.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V060_CIRCLED_ICON_NAMES,
+        caption:
+          "Six of the seven. I redrew the euro and the yen myself after " +
+          "seeing them in the ring: the euro is centred on its bowl rather " +
+          "than on its box, because the two open ends reach further right " +
+          "than the bowl reaches left and a box counts them at full weight.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "Bitcoin has no circled half and I am not going to force one. Its " +
+        "four stubs stand outside the letter at both ends, on the part of " +
+        "the ring with no room, and every way of solving that shrinks the B " +
+        "until its bowls carry one unit of white instead of two. A blob " +
+        "with a bad B in it is worse than no icon.",
     },
 
     {
