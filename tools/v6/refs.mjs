@@ -117,34 +117,50 @@ export function flame2({ sharp = false } = {}) {
  * repository then disagree for ever over a segment neither of them paints.
  */
 export const B2 = {
-  x0: 2, mid: 10, x1: 22, top: 2, eaves: 12, floor: 22, r: 2,
-  cols: [14, 18], rows: [[6, 8], [12, 14]], lowCol: 6, lowRow: [16, 18],
+  x0: 2, mid: 10, x1: 22, top: 2, eaves: 6, floor: 22, r: 2, rLow: 1.5,
+  cols: [14, 18], rows: [[6, 8], [12, 14]], lowCol: 6, lowRows: [[10, 12], [16, 18]],
   door: [14, 18, 18],
 };
 
-export function buildings2Outline({ sharp = false } = {}) {
+/**
+ * The tower, closed, and the low block as a separate run against its wall.
+ *
+ * His 9 Sep drawing raises the low block's roof from 12 to 6, which is what
+ * turns the pair into a skyline rather than a tower with a shed at its foot,
+ * and it takes a smaller corner with it: 1.5 against the tower's 2, so the
+ * smaller mass reads lighter. Both ends of the low run land on the tower: the
+ * roof on its wall and the floor inside its bottom-left corner arc, whose ink
+ * already covers (10, 22). His own floor carries on to 14.5, which is buried
+ * under the same black but sits half a unit off the door's foot, and that reads
+ * to the linter as two elements touching.
+ */
+export function buildings2Tower({ sharp = false } = {}) {
   const r = sharp ? 0 : B2.r, B = B2;
-  return new Path().M([B.mid, B.eaves])
-    .corner([B.x0, B.eaves], [B.x0, B.floor], r)
-    .corner([B.x0, B.floor], [B.x1, B.floor], r)
-    .corner([B.x1, B.floor], [B.x1, B.top], r)
-    .corner([B.x1, B.top], [B.mid, B.top], r)
-    .corner([B.mid, B.top], [B.mid, B.floor], r)
-    .corner([B.mid, B.floor], [B.mid + 2, B.floor], r)
-    .L([B.mid + 2, B.floor]);
+  return polyContour([[B.mid, B.top], [B.x1, B.top], [B.x1, B.floor], [B.mid, B.floor]], [r, r, r, r]);
 }
+
+export function buildings2Low({ sharp = false } = {}) {
+  const r = sharp ? 0 : B2.rLow, B = B2;
+  return new Path().M([B.mid, B.floor])
+    .corner([B.x0, B.floor], [B.x0, B.eaves], r)
+    .corner([B.x0, B.eaves], [B.mid, B.eaves], r)
+    .L([B.mid, B.eaves]);
+}
+
+export const buildings2Outline = (o = {}) =>
+  String(buildings2Tower(o)) + String(buildings2Low(o));
 
 /** The pair's outer boundary: an L, with the party wall's junction reflex. */
 export function buildings2Silhouette({ sharp = false } = {}) {
-  const r = sharp ? 0 : B2.r, B = B2;
+  const r = sharp ? 0 : B2.r, rl = sharp ? 0 : B2.rLow, B = B2;
   return polyContour(
     [[B.x0, B.eaves], [B.mid, B.eaves], [B.mid, B.top], [B.x1, B.top], [B.x1, B.floor], [B.x0, B.floor]],
-    [r, 0, r, r, r, r],
+    [rl, 0, r, r, r, rl],
   );
 }
 
 const B2_WINDOWS = [...B2.cols.flatMap((x) => B2.rows.map(([a, b]) => [x, a, b])),
-  [B2.lowCol, B2.lowRow[0], B2.lowRow[1]]];
+  ...B2.lowRows.map(([a, b]) => [B2.lowCol, a, b])];
 
 export const buildings2Windows = (sharp = false) => {
   const e = sharp ? 1 : 0;
@@ -284,7 +300,30 @@ export function storeBodyPlate({ sharp = false } = {}) {
 export function storeDoorway2({ sharp = false } = {}) {
   const r = sharp ? 0 : ST.rDoor;
   const [a, b] = ST.doorX;
-  return polyContour([[a, ST.floor + 1], [a, ST.doorTop], [b, ST.doorTop], [b, ST.floor + 1]], [0, r, r, 0]);
+  // The foot is the floor line's INNER ink, not the plate's edge. Cut to the
+  // edge, the opening takes the floor with it and the shop reads as an arch you
+  // can see through; the stroke has a doorway standing ON a floor, and the two
+  // unit band under it is that line.
+  return polyContour([[a, ST.floor - 1], [a, ST.doorTop], [b, ST.doorTop], [b, ST.floor - 1]], [0, r, r, 0]);
+}
+
+/**
+ * The three ribs that panel the awning, from his 9 Sep drawing.
+ *
+ * Each stands on a cusp and stops where the canopy's side fillet leaves the
+ * wall, which is the shoulder read off the drawing rather than a number of its
+ * own: the ribs and the two slanted ends finish on the same line. Sharp takes
+ * that fillet out, so its ribs run to the shoulder vertex itself.
+ *
+ * The foot is the cusp's apex, `F - r`, so the rib lands ON the valance rather
+ * than in the air above it.
+ */
+export function storeRibs({ sharp = false } = {}) {
+  const top = storeCanopy2({ sharp }).segs[0].p1[1];
+  return ST.cusps.map((x) => {
+    const k = cuspAt(x, sharp);
+    return new Path().M([x, k.F[1] - k.r]).L([x, top]).toString();
+  }).join('');
 }
 
 /**
@@ -292,14 +331,25 @@ export function storeDoorway2({ sharp = false } = {}) {
  *
  * A shop's awning is a panel, and §"A panelled object opens a panel" says a
  * panel is opened rather than merged: filled solid the valance disappears and
- * the drawing reads as a house. Inset by a unit the whole construction survives
- * unchanged — the scallops keep their centres and go to 1.5, the cusp fillets
- * keep theirs and go to 2 (still exactly tangent, since 1.5 + 2 is the same 3.5
- * the pair had at 2.5 + 1), and the trapezoid's r=1 corners inset to true
- * corners, which is why this one contour serves both treatments.
+ * the drawing reads as a house. Inset by a unit the construction survives, and
+ * the trapezoid's r=1 corners inset to true corners, which is why one contour
+ * serves both treatments.
+ *
+ * The ribs are cut OUT of this contour rather than added back as islands. An
+ * island's foot has to sit exactly on the hole's own boundary, and two
+ * coincident edges under `evenodd` do not merge, they cancel: the first attempt
+ * left a crescent of white between every rib and the valance it stands on. One
+ * contour weaving up and over each rib has no coincident edge anywhere, and it
+ * is what the drawing means: the awning's white is one band with three columns
+ * rising into it, not four separate panels.
+ *
+ * Every junction lands on a whole unit, which is the check that the pitch is
+ * right. The inset scallop is r 1.5 on centres 5 apart, so consecutive scallops
+ * end on 6 and 8 either side of the cusp at 7, and the rib's ink is exactly
+ * that 2-unit gap, tangent to both neighbours at the wall line.
  */
-export function storeCanopyInner() {
-  const R = ST.R - 1, rC = ST.rCusp + 1, wall = ST.wall;
+export function storeCanopyInner({ sharp = false } = {}) {
+  const wall = ST.wall;
   const A = [ST.topX[0], ST.top], B = [ST.x[0], ST.shoulder];
   const u = unit(sub(B, A));
   const n0 = [-u[1], u[0]];
@@ -307,27 +357,27 @@ export function storeCanopyInner() {
   const P = add(A, inward), top = ST.top + 1;
   const t1 = (top - P[1]) / u[1], t2 = (ST.x[0] + 1 - P[0]) / u[0];
   const atTop = add(P, mul(u, t1)), atWall = add(P, mul(u, t2));
-  const cusp = (x) => {
-    const h = Math.sqrt((R + rC) * (R + rC) - R * R);
-    const F = [x, wall + h];
-    const on = (cx) => add([cx, wall], mul(unit(sub(F, [cx, wall])), R));
-    return { F, left: on(x - ST.R), right: on(x + ST.R) };
-  };
+  // Where a rib's own ink ends: the round cap's disc rounded, the butt cap's
+  // flat top sharp. Read off the drawing rather than restated, as `storeRibs`
+  // reads it.
+  const ribTop = storeCanopy2({ sharp }).segs[0].p1[1];
   const p = new Path().M([ST.x[0] + 1, wall])
     .L(atWall).L(atTop)
     .L([24 - atTop[0], top]).L([24 - atWall[0], atWall[1]])
     .L([ST.x[1] - 1, wall]);
   for (let i = ST.centres.length - 1; i >= 0; i--) {
-    const c = [ST.centres[i], wall];
-    const from = i === ST.centres.length - 1 ? [ST.x[1] - 1, wall] : cusp(ST.cusps[i]).left;
-    const to = i === 0 ? [ST.x[0] + 1, wall] : cusp(ST.cusps[i - 1]).right;
-    p.A(c, ang(c, from), ang(c, to), 1);
-    if (i > 0) { const k = cusp(ST.cusps[i - 1]); p.A(k.F, ang(k.F, k.right), ang(k.F, k.left), -1); }
+    p.A([ST.centres[i], wall], 0, 180, 1);   // the scallop, right end to left end
+    if (i === 0) break;
+    const x = ST.cusps[i - 1];
+    p.L([x + 1, ribTop]);
+    if (sharp) p.L([x - 1, ribTop]);
+    else p.A([x, ribTop], 0, -180, -1);      // over the cap, so white sits above it
+    p.L([x - 1, wall]);
   }
   return p.Z();
 }
 
-export const store2 = (o = {}) => String(storeCanopy2(o)) + storeBody2(o) + storeDoor2(o);
+export const store2 = (o = {}) => String(storeCanopy2(o)) + storeBody2(o) + storeDoor2(o) + storeRibs(o);
 
 /* -------------------------------------------------------- graduation-cap */
 
@@ -464,19 +514,22 @@ function notchDown(p, X, yTop, r1 = NOTCH.r, r2 = NOTCH.floor) {
 export function bookCover2({ sharp = false, cut = null } = {}) {
   const [x0, x1] = BK.x, [y0, y1] = BK.y, r = BK.roll;
   const rh = sharp ? 0 : BK.rHead, rt = sharp ? 0 : BK.rTail, rf = sharp ? 0 : BK.rFoot;
-  // The roll is an ARC, not a fillet, so the sharp treatment keeps it: what
-  // sharp takes out is a corner, and this is the drawing.
-  const roll = (p) => p.A([x0 + r, y1 - r], 90, 270, 1);
+  // The roll is an arc, and the rounded treatment keeps it: a cover wrapping a
+  // spine is the drawing. Sharp squares it, on his word of 9 Sep — the corner
+  // it leaves is the one every other corner of the sharp drawing already is,
+  // and a lone 3-unit curve at the foot read as a leftover rather than as a
+  // treatment.
+  const roll = (p) => (sharp ? p.L([x0, y1]).L([x0, BAND]) : p.A([x0 + r, y1 - r], 90, 270, 1));
   if (!cut) {
     // Down the fore-edge to the band, the notch, then the tail corner it lands
     // on: the notch's run is exactly the 3 units between them, so the corner's
     // tangent point IS where the notch ends and no straight is left over.
-    const p = new Path().M([x0, y1 - r])
+    const p = new Path().M([x0, sharp ? BAND : y1 - r])
       .corner([x0, y0], [x1, y0], rh)
       .corner([x1, y0], [x1, BAND], rt);
     notchDown(p, x1, BAND);
     p.corner([x1, y1], [x0, y1], rf)
-      .L([x0 + r, y1]);
+      .L([sharp ? x0 : x0 + r, y1]);
     roll(p);
     return p.L([x1, BAND]).toString();
   }
@@ -485,19 +538,27 @@ export function bookCover2({ sharp = false, cut = null } = {}) {
   const a = new Path().M([x1, cut.y])
     .L([x1, y0 + rt]).corner([x1, y0], [x0, y0], rt)
     .corner([x0, y0], [x0, y1], rh)
-    .L([x0, y1 - r]);
-  const b = new Path().M([cut.x, y1]).L([x0 + r, y1]);
+    .L([x0, sharp ? y1 : y1 - r]);
+  const b = new Path().M([cut.x, y1]).L([sharp ? x0 : x0 + r, y1]);
   roll(b);
   return a.toString() + b.L([cut.x, BAND]).toString();
 }
 
-export const bookSpine2 = () => `M${MARGIN} ${BK.y[0]}L${MARGIN} ${BAND}`;
+/**
+ * The margin line, which his 9 Sep drawing shortens to a stub.
+ *
+ * It ran the cover's full height, head to band, and that reads as a second
+ * spine rather than as the crease a hardback has. Centred on the cover's own
+ * middle it is 8 long on a 16 cover, the same half the block's white takes.
+ */
+const CREASE = [6, 14];
+export const bookSpine2 = () => `M${MARGIN} ${CREASE[0]}L${MARGIN} ${CREASE[1]}`;
 export const book2 = (o = {}) => bookCover2(o) + bookSpine2();
 
 /** The plate: the cover's outer boundary, the roll's outer half as its foot. */
 export function bookPlate2({ sharp = false, cut = null } = {}) {
   const rh = (sharp ? 0 : BK.rHead) + 1, rt = (sharp ? 0 : BK.rTail) + 1;
-  const rf = (sharp ? 0 : BK.rFoot) + 1, rr = BK.roll + 1;
+  const rf = (sharp ? 0 : BK.rFoot) + 1, rr = (sharp ? 0 : BK.roll) + 1;
   if (!cut) {
     // The notch offset out by 1: r+1 on the fillets and floor-1 on the floor,
     // which is the same sum, so the plate scoops the same 0.5 over the same 3
@@ -524,10 +585,12 @@ export function bookPlate2({ sharp = false, cut = null } = {}) {
  * outer one. The block began at x 8.83 and left a slab of black between the
  * spine and the pages that is exactly what his 9 Sep fill does not have.
  */
-export function bookBlock2({ cut = null } = {}) {
+export function bookBlock2({ cut = null, sharp = false } = {}) {
   const r = BK.roll - 1, c = [BK.x[0] + BK.roll, BK.y[1] - BK.roll];
   const top = BAND + 1, bot = BK.y[1] - 1, right = cut ? 11 : BK.x[1] - 1;
-  const dx = Math.sqrt(r * r - (c[1] - top) * (c[1] - top));
+  // Square at the foot, the block's left end is the spine's own inner ink;
+  // rolled, it is the roll's, which paints as a cap on (5, 20).
+  const dx = sharp ? BK.x[0] + 1 - c[0] : Math.sqrt(r * r - (c[1] - top) * (c[1] - top));
   const p = new Path().M([c[0] + dx, top]);
   if (cut) {
     p.L([right, top]).L([right, bot]);
@@ -541,10 +604,14 @@ export function bookBlock2({ cut = null } = {}) {
     const at = (y) => [fc[0] - Math.sqrt(fr * fr - (y - fc[1]) * (y - fc[1])), y];
     p.L(at(top)).A(fc, ang(fc, at(top)), ang(fc, at(bot)), -1);
   }
-  return p.L([c[0] + dx, bot])
-    .A(c, ang(c, [c[0] + dx, bot]), ang(c, [c[0] + dx, top]), 1).Z();   // over the roll's left, so the cap bulges out
+  p.L([c[0] + dx, bot]);
+  return (sharp ? p : p.A(c, ang(c, [c[0] + dx, bot]), ang(c, [c[0] + dx, top]), 1)).Z();
 }
 
-/** The margin line's slot, stopped on the block's ink rather than in the roll. */
-export const bookSpineSlot2 = () =>
-  polyContour([[MARGIN - 1, 3], [MARGIN + 1, 3], [MARGIN + 1, BAND - 1], [MARGIN - 1, BAND - 1]], [0, 0, 0, 0]);
+/** The margin line's slot, which is now simply the stub's own ink. */
+export const bookSpineSlot2 = ({ sharp = false } = {}) => {
+  const r = sharp ? 0 : 1;
+  return polyContour(
+    [[MARGIN - 1, CREASE[0] - r], [MARGIN + 1, CREASE[0] - r],
+     [MARGIN + 1, CREASE[1] + r], [MARGIN - 1, CREASE[1] + r]], [r, r, r, r]);
+};

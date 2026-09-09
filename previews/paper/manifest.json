@@ -14,8 +14,8 @@
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
   "icons": 577,
-  "names": 686,
-  "variants": 3502,
+  "names": 692,
+  "variants": 3538,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -262,60 +262,72 @@
       "artboard": "Commerce",
       "category": "Commerce",
       "part": 1,
-      "parts": 5,
+      "parts": 6,
       "into": "artboard",
       "width": 742,
-      "icons": 27,
-      "variants": 48,
-      "bytes": 41734
+      "icons": 39,
+      "variants": 52,
+      "bytes": 41982
     },
     {
       "file": "commerce-2.html",
       "artboard": "Commerce",
       "category": "Commerce",
       "part": 2,
-      "parts": 5,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 42,
-      "bytes": 38532
+      "variants": 48,
+      "bytes": 39815
     },
     {
       "file": "commerce-3.html",
       "artboard": "Commerce",
       "category": "Commerce",
       "part": 3,
-      "parts": 5,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 38,
-      "bytes": 33687
+      "variants": 42,
+      "bytes": 39480
     },
     {
       "file": "commerce-4.html",
       "artboard": "Commerce",
       "category": "Commerce",
       "part": 4,
-      "parts": 5,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 36,
-      "bytes": 36842
+      "variants": 46,
+      "bytes": 39916
     },
     {
       "file": "commerce-5.html",
       "artboard": "Commerce",
       "category": "Commerce",
       "part": 5,
-      "parts": 5,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 6,
-      "bytes": 5592
+      "variants": 38,
+      "bytes": 36523
+    },
+    {
+      "file": "commerce-6.html",
+      "artboard": "Commerce",
+      "category": "Commerce",
+      "part": 6,
+      "parts": 6,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 24,
+      "bytes": 22074
     },
     {
       "file": "controls.html",
@@ -399,7 +411,7 @@
       "width": 742,
       "icons": 40,
       "variants": 54,
-      "bytes": 41927
+      "bytes": 41677
     },
     {
       "file": "files-2.html",
@@ -603,7 +615,7 @@
       "width": 742,
       "icons": 15,
       "variants": 42,
-      "bytes": 38698
+      "bytes": 38903
     },
     {
       "file": "maps-2.html",
@@ -724,18 +736,6 @@
       "icons": 0,
       "variants": 12,
       "bytes": 8553
-    },
-    {
-      "file": "new.html",
-      "artboard": "New",
-      "category": "New",
-      "part": 1,
-      "parts": 1,
-      "into": "artboard",
-      "width": 742,
-      "icons": 12,
-      "variants": 44,
-      "bytes": 35731
     },
     {
       "file": "pointers-1.html",
@@ -1067,7 +1067,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 371010
+      "bytes": 376658
     }
   ]
 }

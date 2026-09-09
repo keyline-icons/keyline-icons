@@ -312,6 +312,25 @@ const SKEW_KNOWN = new Set([
  * carries a muted fill under its own stroke.
  */
 const MIN_ELEMENT_GAP = 2;
+
+/**
+ * The circled currencies, whose letter clears the ring by 1 rather than 2.
+ *
+ * Two units is the daylight between two ELEMENTS, so that a reader can tell
+ * them apart. A container is not a neighbour, it is the frame the drawing sits
+ * in, and the two are never in danger of being read as one thing. Held off by
+ * two, a letterform comes out at about half the well and reads as a mistake
+ * rather than as spacing — which is exactly what Zafar called it on 9 Sep, and
+ * this is his exception, taken deliberately and only for these six.
+ *
+ * The eighteen shipped `circle-` icons that stop at 7 of ink are not evidence
+ * against it: their glyphs are marks — a slash, a chevron, three dots — and a
+ * mark has no counters to keep open. A letter does.
+ */
+const RING_CLEARANCE = new Set([
+  'circle-dollar-sign', 'circle-euro', 'circle-pound-sterling',
+  'circle-japanese-yen', 'circle-indian-rupee', 'circle-swiss-franc',
+]);
 const COINCIDENT = 0.1;
 /** Slack for the spacing measurement itself. Distance is taken between chords
  *  standing in for curves, so an exact 2-unit gap measures a shade under it. */
@@ -901,11 +920,12 @@ async function main() {
       };
 
       const overlap = closest(els, (g) => g < -EPS);
-      const gap = closest(parts, (g) => g >= -EPS && g < MIN_ELEMENT_GAP - GAP_TOL);
+      const wantGap = RING_CLEARANCE.has(name) ? 1 : MIN_ELEMENT_GAP;
+      const gap = closest(parts, (g) => g >= -EPS && g < wantGap - GAP_TOL);
       if (overlap !== null)
         add('warn', 'SPACING', id, `elements overlap by ${(-overlap).toFixed(2)} units`);
       else if (gap !== null)
-        add('warn', 'SPACING', id, `${gap.toFixed(2)} units between elements — the guide asks for ${MIN_ELEMENT_GAP}`);
+        add('warn', 'SPACING', id, `${gap.toFixed(2)} units between elements — the guide asks for ${wantGap}`);
 
       const offLadder = new Set();
       for (const m of src.matchAll(/<path d="([^"]+)"/g))
@@ -926,6 +946,12 @@ async function main() {
           // corner and is measured as one. Derived, like the level solids
           // above. (2026-09-06, settings-dot's butt-cap cut.)
           if (style !== 'stroke' && corners === 'sharp' && /-dot$/.test(name) && Math.abs(radius - 6) <= RADIUS_TOL)
+            continue;
+          // `buildings` puts its low block on r=1.5 and the tower on r=2, so
+          // the smaller mass reads lighter. Its plate is that contour offset a
+          // unit, which lands the low corners on 2.5 — the level solids' number
+          // and the level solids' reason. (2026-09-09, his redrawn skyline.)
+          if (style !== 'stroke' && name === 'buildings' && Math.abs(radius - 2.5) <= RADIUS_TOL)
             continue;
           const near = CORNER_RADII.reduce((a, b) => (Math.abs(b - radius) < Math.abs(a - radius) ? b : a));
           if (Math.abs(near - radius) > RADIUS_TOL) offLadder.add(radius.toFixed(2));

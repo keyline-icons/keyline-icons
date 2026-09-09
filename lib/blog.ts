@@ -1470,9 +1470,10 @@ const BATCH_0_6_0: BlogPost = {
         "The shop is an awning over a shopfront, and its filled style has to " +
         "open the awning: a valance filled solid is a roof, and the scallops " +
         "are the whole reason the drawing reads as a shop rather than as a " +
-        "house. So the fill is the awning's plate and the building's plate, " +
-        "and those two overlap, because the valance dips below the point " +
-        "where the walls have to start.",
+        "house. Three ribs stand on the cusps and panel it, so what opens is " +
+        "four panels rather than one band. So the fill is the awning's plate " +
+        "and the building's plate, and those two overlap, because the " +
+        "valance dips below the point where the walls have to start.",
     },
     {
       kind: "p",

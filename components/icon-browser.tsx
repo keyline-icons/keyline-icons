@@ -122,6 +122,10 @@ const CATEGORY_ICONS: Record<
   string,
   React.ComponentType<{ className?: string }>
 > = {
+  // Kept while the shelf is empty. The review row is opened and closed in
+  // `icon-taxonomy.ts` once a batch, and the label comes back with it; dropping
+  // the entry here would make reopening a two-file edit, which is the thing
+  // that row's own comment exists to avoid.
   New: Star,
   Arrows: ArrowRight,
   "Chevrons & Carets": ChevronRight,

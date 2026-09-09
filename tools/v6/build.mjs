@@ -13,8 +13,10 @@ import * as I from './icons.mjs';
 import * as F from './refs.mjs';
 import * as W from './money.mjs';
 import { offsetPath, verify as verifyCubic } from './offset-cubic.mjs';
+import { outlineRun, unionContours } from './outline.mjs';
 import { writeSet } from '../v5/raw.mjs';
 import { offsetContour, contourPath, verify, flatten } from '../v5/offset.mjs';
+import { contains } from '../../pipeline/lib/geom.mjs';
 import { Path, onArc, n, add, sub, mul, len, dot } from '../v5/geom.mjs';
 import { sharpEndIn } from '../v5/icons.mjs';
 import { strokedBBox } from '../../pipeline/lib/geom.mjs';
@@ -120,6 +122,12 @@ const areaOf = (pts) => {
  * solid with no interior at all — which is invisible in the path data, in the
  * box and in the linter.
  */
+/** The mirror of `hole`: wound WITH the plate, so it paints rather than cuts. */
+function sameWinding(plateSegs, segs) {
+  const sgn = (x) => Math.sign(areaOf(flatten(x, 24)));
+  return sgn(plateSegs) === sgn(segs) ? segs : [...segs].reverse().map(reverseSeg);
+}
+
 function hole(plateSegs, holeSegs) {
   const s = (segs) => Math.sign(areaOf(flatten(segs, 24)));
   const h = s(plateSegs) === s(holeSegs) ? [...holeSegs].reverse().map(reverseSeg) : holeSegs;
@@ -226,7 +234,7 @@ SETS.store = () => {
     const door = F.storeDoorway2({ sharp }).segs;
     // The fill OPENS the canopy: a valance filled solid is a roof, and the
     // scallops are the whole reason the drawing reads as a shop.
-    const inner = F.storeCanopyInner().segs;
+    const inner = F.storeCanopyInner({ sharp }).segs;
     out[`stroke.${key}`] = [S(d)];
     out[`duotone.${key}`] = [P(plate), S(d)];
     out[`fill.${key}`] = [F_(plate + hole(silhouette, inner) + hole(silhouette, door))];
@@ -312,7 +320,7 @@ for (const sign of [null, ...Object.keys(SIGNS)]) {
       const pl = F.bookPlate2({ sharp, cut }).segs;
       // `map` opens a panel and `panel-left` slots a rule; the book has one of
       // each, so the page block below the band opens and the spine is slotted.
-      const holes = hole(pl, F.bookBlock2({ cut }).segs) + hole(pl, F.bookSpineSlot2().segs);
+      const holes = hole(pl, F.bookBlock2({ cut, sharp }).segs) + hole(pl, F.bookSpineSlot2({ sharp }).segs);
       out[`stroke.${key}`] = [S(d)];
       out[`duotone.${key}`] = [P(contourPath(pl)), S(d)];
       out[`fill.${key}`] = [F_(contourPath(pl) + holes), ...(sign ? [S(signPath)] : [])];
@@ -343,7 +351,10 @@ SETS.wallet = () => {
   for (const sharp of [false, true]) {
     const key = sharp ? 'sharp' : 'regular';
     const d = W.wallet({ sharp });
-    const pl = W.walletPlate({ sharp }).segs;
+    // The flap's step is a reflex corner, so the plate is offset and checked
+    // rather than restated: a hand-written outer outline has to solve where the
+    // two offsets cross, and `plateOf` already does, sample by sample.
+    const pl = plateOf(W.walletOutline({ sharp }).segs);
     const plate = contourPath(pl);
     out[`stroke.${key}`] = [S(d)];
     out[`duotone.${key}`] = [P(plate), S(d)];
@@ -385,6 +396,60 @@ for (const [name, draw] of Object.entries(W.CURRENCIES)) {
     'stroke.sharp': [S(draw({ sharp: true }))],
   });
 }
+
+/* ------------------------------------------------ the currencies, circled */
+
+/**
+ * The ring, and the disc its plate paints, taken off `percent` so every
+ * container in the set is the same circle. Sharp and rounded share the ring —
+ * a circle has no corner to take out — and differ only in the cubic the plate
+ * happens to be spelled with, which is `percent`'s own difference too.
+ */
+const CIRCLE = {
+  ring: 'M12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2Z',
+  disc: {
+    regular: 'M12 1C18.0753 1 23 5.9247 23 12C23 18.0753 18.0753 23 12 23C5.9247 23 1 18.0753 1 12C1 5.9247 5.9247 1 12 1Z',
+    sharp: 'M12 1C17.9372 1 23 6.0628 23 12C23 17.9372 17.9372 23 12 23C6.0628 23 1 17.9372 1 12C1 6.0628 6.0628 1 12 1Z',
+  },
+  // The disc as segments, so a knockout can be wound against it. Four quarter
+  // arcs of r 11 about the middle: the same circle the strings above paint.
+  discSegs: [0, 90, 180, 270].map((a) => ({ type: 'A', c: [12, 12], r: 11, a0: a, a1: a + 90 })),
+};
+
+for (const name of Object.keys(W.CIRCLED)) {
+  const base = SETS[name];
+  SETS[name] = () => {
+    const out = base();
+    for (const sharp of [false, true]) {
+      const key = sharp ? 'sharp' : 'regular';
+      const runs = W.circled(name, { sharp });
+      const d = runs.map(String).join('');
+      // The filled style knocks the letter out of the disc, so every run
+      // becomes the boundary of its own ink. Wound against the disc, so the
+      // knockout is a hole under the non-zero rule as well as under evenodd.
+      // The runs cross, so their outlines are unioned before the knockout: a
+      // letter knocked out one run at a time chequerboards where two holes
+      // overlap. A loop the union nests inside another is the letter's own
+      // counter, and it is wound WITH the disc so it paints solid again.
+      const loops = unionContours(runs.map((r) => outlineRun(r.segs, 1, sharp ? 'butt' : 'round')), runs.map((r) => r.segs), 1, sharp ? 'butt' : 'round')
+        .filter((l) => Math.abs(areaOf(flatten(l, 32))) > 0.01);
+      const polys = loops.map((l) => flatten(l, 48));
+      const holes = loops
+        .map((l, i) => {
+          const depth = polys.filter((q, j) => j !== i && contains(q, flatten(l, 8)[0])).length;
+          return depth % 2 === 0
+            ? hole(CIRCLE.discSegs, l)
+            : contourPath(sameWinding(CIRCLE.discSegs, l));
+        })
+        .join('');
+      out[`circle.stroke.${key}`] = [S(CIRCLE.ring), S(d)];
+      out[`circle.duotone.${key}`] = [P(CIRCLE.disc[key]), S(d)];
+      out[`circle.fill.${key}`] = [F_(CIRCLE.disc[key] + holes)];
+    }
+    return out;
+  };
+}
+
 
 /* ------------------------------------------------------------------ main */
 

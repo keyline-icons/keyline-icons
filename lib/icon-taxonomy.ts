@@ -36,27 +36,17 @@ const FIGMA_KEYWORDS = (keywords as { keywords: Record<string, string[]> })
  * families of exactly one.
  */
 export const CATEGORIES = [
-  // The review shelf goes here when a batch is open: one row, matching the
-  // names drawn that round, sitting first so it beats each icon's real shelf.
-  // Every name in it is also listed in its real category below, so deleting the
-  // row files the whole batch at once with no second edit to forget, and that
-  // deletion is what "reviewed" means. An empty repo state is the resting one.
+  // The review shelf is empty, which is its resting state. It is opened by
+  // adding a row here that matches the batch by name and sits FIRST, so it
+  // beats each icon's real shelf; every name in it is also listed in its real
+  // category below, so deleting the row files the whole batch at once with no
+  // second edit to forget. That deletion is what "reviewed" means.
   //
-  // Open for the money half of v0.6.0, drawn 9 Sep 2026: a wallet, the card's
-  // four signs and seven currency marks. Every one of them is listed in
-  // Commerce below as well, so deleting this row files the batch and there is
-  // no second edit to forget.
-  //
-  // The eleven before them — flame, store, buildings, cpu, graduation-cap, the
-  // book family — came off this row when Zafar passed them, which is what
-  // "reviewed" means. `refresh` and `rotate` sit in Arrows because they are
-  // arrow glyphs, whatever they are used for. The anchor is what keeps
-  // `git-refresh` in Git.
-  {
-    label: "New",
-    match: /^(wallet|credit-card-(plus|minus|check|x)|dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin)$/,
-    blurb: "Drawn this round and waiting on review.",
-  },
+  // Last closed on 9 Sep 2026, when Zafar passed the twenty-three of v0.6.0:
+  // flame, store, buildings, cpu, graduation-cap, the six books, the wallet,
+  // the card's four signs and the seven currency marks with their circled
+  // halves. `refresh` and `rotate` sit in Arrows because they are arrow glyphs,
+  // whatever they are used for. The anchor is what keeps `git-refresh` in Git.
   {
     label: "Arrows",
     match: /^(arrow|bracket-arrow|expand|refresh|rotate|move$)/,

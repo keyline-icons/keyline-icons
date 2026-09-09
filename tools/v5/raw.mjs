@@ -16,11 +16,17 @@ export const doc = (layers, cap = 'round') =>
     kind === 'stroke' ? STROKE(d, cap) : kind === 'solid' ? SOLID(d) : kind === 'muted' ? MUTED(d, cap) : PLATE(d)),
     '</svg>', ''].join('\n');
 
+/**
+ * `variants` is keyed `<style>.<corners>`, or `<container>.<style>.<corners>`
+ * where the drawing carries a container. The two-part spelling stays the
+ * default because all but a handful of sets are `Container=regular` only.
+ */
 export function writeSet(root, name, variants) {
   const dir = join(root, 'raw', name);
   mkdirSync(dir, { recursive: true });
   for (const [key, layers] of Object.entries(variants)) {
-    const [style, corners] = key.split('.');
-    writeFileSync(join(dir, `Container=regular, Style=${style}, Corners=${corners}.svg`), doc(layers, corners === 'sharp' ? 'butt' : 'round'));
+    const parts = key.split('.');
+    const [container, style, corners] = parts.length === 3 ? parts : ['regular', ...parts];
+    writeFileSync(join(dir, `Container=${container}, Style=${style}, Corners=${corners}.svg`), doc(layers, corners === 'sharp' ? 'butt' : 'round'));
   }
 }
