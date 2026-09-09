@@ -97,6 +97,21 @@ export const CATEGORIES = [
     blurb: "Envelopes, messages, bells, the paper plane and the marks that badge them.",
   },
   {
+    // Money, and what carries it. Split out of Commerce on 9 Sep 2026, when
+    // Zafar asked why a currency mark was filed under shopping. The seven marks
+    // went there on the argument that a shelf of seven reads as a gap beside
+    // Media's 63, and that argument is dead: a drawing sits where it belongs
+    // whatever the count. So the line is what the drawing IS. A euro, a card
+    // and a wallet are money; a cart, a receipt and a parcel are a purchase.
+    //
+    // Evaluated before Commerce, which would otherwise take `credit-card` and
+    // `wallet` on prefixes of its own.
+    label: "Finance",
+    match:
+      /^(dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin|credit-card|wallet)/,
+    blurb: "The currency marks, the payment cards and the wallet.",
+  },
+  {
     // `percent` is here rather than with the marks in Actions: the batch that
     // drew it drew the percent tags with it, and a bare `%` reads as a discount
     // next to `coupon` and `tag`, not as a verb. Its containered forms go to
@@ -106,15 +121,10 @@ export const CATEGORIES = [
     // `shopping-bag`, not because business is commerce: Files is documents,
     // and one name does not earn a row.
     label: "Commerce",
-    // The seven currency glyphs are here rather than on a shelf of their own:
-    // a shelf of seven marks reads as a gap next to Media's 63, and what
-    // someone reaching for a euro is doing is commerce. `percent` already sets
-    // the precedent for a bare mark on this shelf. They answer to the New row
-    // above until the batch is reviewed, which is what that row is for.
     match:
-      /^(shopping-|handbag|briefcase|receipt|credit-card|tag|package|truck|gift|coupon|percent|store|wallet|dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin)/,
+      /^(shopping-|handbag|briefcase|receipt|tag|package|truck|gift|coupon|percent|store)/,
     blurb:
-      "Carts, bags, receipts, cards, shipping, the shopfront, the currencies and the discount marks.",
+      "Carts, bags, receipts, shipping, the shopfront, the tags and the discount marks.",
   },
   {
     // `flag` and `traffic-light` are both road furniture: a marker you plant
@@ -220,14 +230,22 @@ export const CATEGORIES = [
     blurb: "Toggles, sliders and the drag handle.",
   },
   {
+    // A shelf of one, and that is fine: Zafar's rule is that a drawing sits on
+    // the shelf it belongs to whatever the count, so a shelf waits for its
+    // second name rather than the name waiting for a shelf. The mortarboard
+    // spent the v0.6.0 batch in Sport, on the reading that a qualification is
+    // an achievement and belongs beside a trophy; it is a school, and that is
+    // what someone types looking for it.
+    label: "Education",
+    match: /^graduation-cap/,
+    blurb: "The mortarboard.",
+  },
+  {
     // `crown` is what a winner gets, so it sits with the trophy rather than
     // with the marks in Actions.
     label: "Sport",
-    // The mortarboard is here because this is the achievements shelf rather
-    // than a sports one — a qualification reads against a trophy and a medal,
-    // not against a cursor. Worth putting to Zafar when the batch graduates.
-    match: /^(trophy|award|podium|medal|crown|graduation-cap|flag-chequered)/,
-    blurb: "Trophies, awards, crowns, the mortarboard and the places on the podium.",
+    match: /^(trophy|award|podium|medal|crown|flag-chequered)/,
+    blurb: "Trophies, awards, crowns and the places on the podium.",
   },
   {
     // The shelf follows what the thing is, not what the drawing is made of: a

@@ -17,6 +17,7 @@ import {
   File,
   GitBranch,
   Globe,
+  GraduationCap,
   Mail,
   MapPin,
   Menu,
@@ -35,6 +36,7 @@ import {
   Trophy,
   Sun,
   User,
+  Wallet,
   Wrench,
 } from "@/components/icons"
 
@@ -59,6 +61,7 @@ import {
 } from "@/components/ui/drawer"
 import {
   artOf,
+  CONTAINERS,
   CORNERS,
   SHARP_BADGE,
   Glyph,
@@ -134,6 +137,9 @@ const CATEGORY_ICONS: Record<
   Time: Clock,
   Mail: Mail,
   Commerce: ShoppingCart,
+  // Split off Commerce on 9 Sep 2026. The wallet rather than a currency mark:
+  // the rail is read at 16px and a $ there is a letter, not a picture.
+  Finance: Wallet,
   Maps: MapPin,
   Media: Play,
   Charts: BarChart,
@@ -152,6 +158,9 @@ const CATEGORY_ICONS: Record<
   Text: Bold,
   Weather: Sun,
   Shapes: Shapes,
+  // A shelf of one, split off Sport on 9 Sep 2026. Its own drawing on the rail
+  // rather than the trophy: the row is the mortarboard and nothing else.
+  Education: GraduationCap,
   Sport: Trophy,
   Tools: Wrench,
   Web: Globe,
@@ -186,7 +195,21 @@ function pageNumbers(current: number, total: number): (number | "gap")[] {
   return out
 }
 
-const byName = (a: BrowserIcon, b: BrowserIcon) => a.name.localeCompare(b.name)
+/**
+ * Grid order: by base name, then by container.
+ *
+ * Plain `name` order was what this was, and it files a containered name under
+ * its prefix — every `circle-` drawing in the set sat in one block under C,
+ * away from the drawing it is a boxed copy of. The rest of the set does not
+ * read that way: the icon page's container row, the Figma catalogue's cards and
+ * the Paper boards all put `dollar-sign` and `circle-dollar-sign` side by side,
+ * which is also the order someone scanning for a shape wants, since the two are
+ * the same drawing.
+ */
+const byName = (a: BrowserIcon, b: BrowserIcon) =>
+  a.base === b.base
+    ? CONTAINERS.indexOf(a.container) - CONTAINERS.indexOf(b.container)
+    : a.base.localeCompare(b.base)
 
 /**
  * A word reduced to its singular, so a plural finds the family.

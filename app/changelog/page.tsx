@@ -1,6 +1,5 @@
 import {
   loadIcons,
-  NEW_FOR_DAYS,
   SET_RELEASES,
   SET_UNRELEASED,
   toStyleArt,
@@ -395,9 +394,7 @@ export default async function Page() {
         <header className="pt-6 pb-12">
           <h1 className="text-4xl font-semibold tracking-tight">Changelog</h1>
           <p className="mt-3 text-base text-balance text-muted-foreground">
-            Releases, new drawings and announcements, newest first. A drawing
-            carries a <span className="text-foreground">New</span> badge for its
-            first {NEW_FOR_DAYS} days, whatever ships in between.
+            Releases, new drawings and announcements, newest first.
           </p>
         </header>
 

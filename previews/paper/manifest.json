@@ -262,72 +262,48 @@
       "artboard": "Commerce",
       "category": "Commerce",
       "part": 1,
-      "parts": 6,
+      "parts": 4,
       "into": "artboard",
       "width": 742,
-      "icons": 39,
-      "variants": 52,
-      "bytes": 41982
+      "icons": 25,
+      "variants": 42,
+      "bytes": 40240
     },
     {
       "file": "commerce-2.html",
       "artboard": "Commerce",
       "category": "Commerce",
       "part": 2,
-      "parts": 6,
+      "parts": 4,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 39815
+      "variants": 44,
+      "bytes": 40458
     },
     {
       "file": "commerce-3.html",
       "artboard": "Commerce",
       "category": "Commerce",
       "part": 3,
-      "parts": 6,
+      "parts": 4,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 42,
-      "bytes": 39480
+      "bytes": 38588
     },
     {
       "file": "commerce-4.html",
       "artboard": "Commerce",
       "category": "Commerce",
       "part": 4,
-      "parts": 6,
+      "parts": 4,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 46,
-      "bytes": 39916
-    },
-    {
-      "file": "commerce-5.html",
-      "artboard": "Commerce",
-      "category": "Commerce",
-      "part": 5,
-      "parts": 6,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 38,
-      "bytes": 36523
-    },
-    {
-      "file": "commerce-6.html",
-      "artboard": "Commerce",
-      "category": "Commerce",
-      "part": 6,
-      "parts": 6,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 24,
-      "bytes": 22074
+      "variants": 30,
+      "bytes": 29869
     },
     {
       "file": "controls.html",
@@ -472,6 +448,30 @@
       "icons": 0,
       "variants": 18,
       "bytes": 17406
+    },
+    {
+      "file": "finance-1.html",
+      "artboard": "Finance",
+      "category": "Finance",
+      "part": 1,
+      "parts": 2,
+      "into": "artboard",
+      "width": 742,
+      "icons": 14,
+      "variants": 54,
+      "bytes": 42323
+    },
+    {
+      "file": "finance-2.html",
+      "artboard": "Finance",
+      "category": "Finance",
+      "part": 2,
+      "parts": 2,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 38,
+      "bytes": 30341
     },
     {
       "file": "git-1.html",
@@ -1067,7 +1067,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 376563
+      "bytes": 378671
     }
   ]
 }

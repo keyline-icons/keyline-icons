@@ -292,10 +292,19 @@ export const dollarSign = ({ sharp = false } = {}) => {
   return glyph([run([12, CAP.top], [12, CAP.bottom]), s], sharp);
 };
 
+/*
+ * Zafar's 9 Sep drawing, coordinate for coordinate.
+ *
+ * The bowl had been redrawn onto the family's 2..22 cap without being asked,
+ * which moved it and left the bars where they were. His answer keeps the cap
+ * and settles the two against each other instead: the bowl sits on 15 and the
+ * bars run the full 3..17, so the glyph paints 2..22 across and the bars reach
+ * past the bowl's own ink rather than stopping short of it.
+ */
 export const euro = ({ sharp = false } = {}) => {
-  const c = [14, 12], R = 10, th = deg(Math.acos(6 / R));   // the 3-4-5 angle
+  const c = [15, 12], R = 10, th = deg(Math.acos(6 / R));   // the 3-4-5 angle
   const bowl = new Path().M(onArc(c, R, th)).A(c, th, 360 - th, 1);
-  return glyph([bowl, run([4, 10], [16, 10]), run([4, 14], [16, 14])], sharp);
+  return glyph([bowl, run([3, 10], [17, 10]), run([3, 14], [17, 14])], sharp);
 };
 
 export const japaneseYen = ({ sharp = false } = {}) => glyph([

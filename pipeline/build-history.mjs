@@ -424,6 +424,84 @@ const live = new Set(
 )
 
 /**
+ * The list a container prefix does not make a container.
+ *
+ * The same file `containerOf` in `lib/icons.ts` reads, and every pipeline
+ * script that resolves a base reads it too, so all of them count the set the
+ * same way. `square-full` is a filled square, not a boxed `full`.
+ */
+const NOT_CONTAINERS = new Set(
+  JSON.parse(
+    readFileSync(join(ROOT, "lib", "icon-not-containers.json"), "utf8")
+  ).names
+)
+
+/** `regular` first, then the two boxes, which is the order every surface uses. */
+const CONTAINER_ORDER = ["regular", "square", "circle"]
+
+const containerOf = (name) => {
+  if (NOT_CONTAINERS.has(name)) return "regular"
+  const m = /^(square|circle)-(.+)$/.exec(name)
+  return m && live.has(m[2]) ? m[1] : "regular"
+}
+
+/**
+ * The order each release lists its drawings in, where the design file states one.
+ *
+ * The Figma Changelog page is hand-built, and some of its entries are ordered by
+ * family rather than by name: 0.6.0 opens on the singles and then walks the money
+ * through each base and its circled half. Deriving that is not possible, and the
+ * three surfaces disagreeing about the order of one list is exactly the drift the
+ * generated changelog exists to prevent, so the sequence is read off the design
+ * file and pinned in `lib/icon-release-order.json`.
+ *
+ * Nothing is ever dropped by it. A name the list does not mention is appended in
+ * the derived order and reported, so the entry can only ever gain a drawing from
+ * a stale list, never lose one.
+ */
+const ORDER = JSON.parse(
+  readFileSync(join(ROOT, "lib", "icon-release-order.json"), "utf8")
+).releases
+
+const inFigmaOrder = (version, names) => {
+  const want = ORDER[version]
+  if (!want) return names
+  const have = new Set(names)
+  const out = want.filter((n) => have.has(n))
+  const rest = names.filter((n) => !want.includes(n))
+  if (rest.length) {
+    console.log(
+      `  ${c(33, "!")} ${version}: ${rest.join(", ")} not in lib/icon-release-order.json,` +
+        ` appended. Re-read the Figma entry.`
+    )
+  }
+  return [...out, ...rest]
+}
+
+/**
+ * How a release lists its drawings: by base name, then by container.
+ *
+ * Plain alphabetical order was what this used to be, and it files a containered
+ * name under its prefix — `circle-dollar-sign` lands between `buildings` and
+ * `cpu`, six rows from the `dollar-sign` it is a boxed copy of. Every other
+ * surface keeps the two together: the icon page's container row, the Paper
+ * category boards and the Figma catalogue's cards all read
+ * `dollar-sign, circle-dollar-sign`, and Figma's own changelog entry for v0.6.0
+ * lists each circled half directly under its letter. The changelog was the one
+ * place a container stood on its own, and it is the surface where a reader is
+ * being shown what a release added, which is where the pairing says the most.
+ */
+const byFiling = (a, b) => {
+  const ca = containerOf(a)
+  const cb = containerOf(b)
+  const ba = ca === "regular" ? a : a.slice(ca.length + 1)
+  const bb = cb === "regular" ? b : b.slice(cb.length + 1)
+  return ba === bb
+    ? CONTAINER_ORDER.indexOf(ca) - CONTAINER_ORDER.indexOf(cb)
+    : ba.localeCompare(bb)
+}
+
+/**
  * Everyone who has touched a drawing, once each, with the icons pointing at
  * them by index.
  *
@@ -635,9 +713,10 @@ const out =
           /* Named only where the drawing still exists, since the surfaces draw
              it; `count` below is the whole tree, retired drawings included,
              because that is what the release actually shipped. */
-          const names = [...now]
-            .filter((name) => !was.has(name) && live.has(name))
-            .sort((a, b) => a.localeCompare(b))
+          const names = inFigmaOrder(
+            r.version,
+            [...now].filter((name) => !was.has(name) && live.has(name)).sort(byFiling)
+          )
           return {
             version: r.version,
             date: r.date,
@@ -702,7 +781,7 @@ const out =
         )
         const names = Object.keys(icons)
           .filter((name) => !was.has(name))
-          .sort((a, b) => a.localeCompare(b))
+          .sort(byFiling)
         /* A note keeps the section alive on its own. Work that adds an axis
            rather than a drawing leaves both lists empty, and returning null
            there would drop the announcement along with them. */
