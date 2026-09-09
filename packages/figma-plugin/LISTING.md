@@ -114,7 +114,7 @@ github.com/keyline-icons/keyline-icons
 Changelog
 
 0.6.0 — 9 September 2026
-29 new drawings, taking the set to 692 names and 3,538 SVGs, and two new shelves. The seven currency marks arrive, six of them with a circled half, and those clear the ring by 1 unit rather than the 2 the set asks between elements: a container is the frame a drawing sits in, not a neighbour it has to be told apart from, and at 2 a letterform comes out at about half the well.
+23 new drawings, taking the set to 692 names and 3,538 SVGs, and two new shelves. The seven currency marks arrive, six of them with a circled half, and those clear the ring by 1 unit rather than the 2 the set asks between elements: a container is the frame a drawing sits in, not a neighbour it has to be told apart from, and at 2 a letterform comes out at about half the well.
 
 * Money: the dollar, euro, pound, yen, rupee, franc and bitcoin marks, six with a circled half
 * Payment: a wallet, and the card with plus, minus, check and x
@@ -244,7 +244,7 @@ to be **pushed** before any of this is true for anyone but you.
 ### 0.6.0
 
 ```
-29 new drawings, taking the set to 692 names and 3,538 SVGs. The seven currency
+23 new drawings, taking the set to 692 names and 3,538 SVGs. The seven currency
 marks, six of them with a circled half, a wallet and four signs for the payment
 card, six books, and five singles: a flame, a shopfront, a skyline, a processor
 and a mortarboard.
@@ -497,10 +497,7 @@ keylineicons.com
 github.com/keyline-icons/keyline-icons
 
 v0.6.0
-29 new drawings, and two new shelves. The set is 692 names now, 577 component
-sets and 3,538 variants, up from 663 and 3,392. Nothing was renamed and no
-component was replaced, so instances already placed in your files keep their
-link.
+23 new drawings under 29 names, and two new shelves. The set is 692 names now, 577 component sets and 3,538 variants, up from 663 and 3,392. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
 
 * The seven currency marks: dollar, euro, pound, yen, rupee, franc and bitcoin, six of them with a circled half
 * Money: a wallet, and the payment card with plus, minus, check and x
@@ -510,15 +507,17 @@ link.
 * Categories went from 22 to 24: Finance took the currency marks, the payment cards and the wallet off Commerce, and Education took the mortarboard off Sport
 
 v0.5.0
-35 new drawings, and a Text shelf. The set is 663 names now, 554 component sets
-and 3,392 variants, up from 629 and 3,250.
+35 new drawings, and two names put the right way round. The set is 663 names now, 554 component sets and 3,392 variants, up from 629 and 3,250.
 
-* Text: the quotation marks, the formatting marks, the alignment stack and what sets a paragraph
-* Two names changed hands: the diagonal chain is link now and the horizontal one link-2, and link-off became link-2-off with it. That breaks an import of either
-* Categories went from 21 to 22 when the formatting marks took a shelf of their own
+* link and link-2 were on each other's drawings and have swapped: link is the interlocked diagonal chain, link-2 the horizontal one with the bar, which is the naming the rest of the set already follows. link-off drew the horizontal chain, which makes it the negated form of link-2, so it is link-2-off now
+* No component was replaced. Every set kept its id through the swap and the rename, so instances already placed in your files keep their link; the two chains now render each other's drawing, and the renamed set shows its new name
+* Text: a shelf of its own, and the file's 22nd category. bold, italic, underline and strikethrough, the four-way alignment stack, the double and single quotation marks in both hands, text-quote and language
+* Links: link-2, link-2-off and unlink, the diagonal chain come apart
+* Messages: phone and phone-off, message-lines, bell-ring, and send with send-horizontal
+* Brightness: sun-dim and sun-medium
+* Others: layers, list, list-ordered, share-2, sparkle, sparkles, zap, zap-off, fullscreen-2 and fullscreen-exit-2
 
-Also redrawn, in both treatments: 7 drawings. Four sharp drawings that painted
-outside their rounded siblings were re-solved rather than exempted.
+Also redrawn, in both treatments: 7 drawings. The pen family is the same drawing scaled 10/9 with its band moved from the nib to the cap, clock is now exactly clock-3 with both names kept, and the two sliders break their rails at the knob.
 
 v0.4.0
 44 new drawings, and every sharp end squared. The set is 629 names now, 520 component sets and 3,250 variants, up from 585 and 2,994. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
