@@ -496,6 +496,43 @@ export const BLOG_SOCIAL_CARD_ICONS = 6
  * of it is drawings rather than housekeeping. The formatting marks follow,
  * because fourteen of the thirty-five are one shelf.
  */
+/**
+ * The v0.6.0 batch: eleven names, the six of the book family together so the
+ * card reads as a family rather than as six separate arrivals.
+ */
+export const BLOG_V060_THUMBNAIL_ICON_NAMES = [
+  "flame",
+  "store",
+  "buildings",
+  "cpu",
+  "graduation-cap",
+  "book",
+  "book-open",
+  "book-plus",
+  "book-minus",
+  "book-check",
+  "book-x",
+] as const
+
+/** The four that are one object each, as opposed to the book's six. */
+export const BLOG_V060_SINGLES_ICON_NAMES = [
+  "flame",
+  "store",
+  "buildings",
+  "cpu",
+  "graduation-cap",
+] as const
+
+/** The book family, shown together because that is how it was drawn. */
+export const BLOG_V060_BOOK_ICON_NAMES = [
+  "book",
+  "book-open",
+  "book-plus",
+  "book-minus",
+  "book-check",
+  "book-x",
+] as const
+
 export const BLOG_V050_THUMBNAIL_ICON_NAMES = [
   "link",
   "link-2",
@@ -1288,7 +1325,203 @@ const BATCH_0_5_0: BlogPost = {
   ],
 }
 
-export const BLOG_POSTS: readonly BlogPost[] = [BATCH_0_5_0, BATCH_0_3_1]
+const BATCH_0_6_0: BlogPost = {
+  /* Named for the story rather than the number, for the reason the type says:
+     a batch is untagged while the post is written. */
+  slug: "eleven-drawings-and-a-white-band-only-one-file-could-see",
+  version: "0.6.0",
+  title: "Eleven drawings, and a white band only one file could see",
+  description:
+    "Inside Keyline Icons v0.6.0: a shop, a mortarboard, a chip, two kinds " +
+    "of building and a book that needed its spine explaining, plus a fill " +
+    "that was right everywhere except the one place it is authored.",
+  standfirst:
+    "Eleven new names, and what each of them was actually a problem about. " +
+    "Free SVG icons for shadcn/ui, drawn on one 24\u00d724 grid.",
+  date: "2026-09-09",
+  updated: "2026-09-09",
+  readingMinutes: 4,
+  thumbnail: BLOG_V060_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "icon set update",
+    "free svg icons",
+    "shadcn/ui icons",
+    "book icons",
+    "store icon",
+    "flame icon",
+    "cpu icon",
+    "graduation cap icon",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "Eleven new drawings, which takes the set to 674 names. Six of them " +
+        "are one object: a book, opened, and with the four signs the rest of " +
+        "the set already puts on things.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V060_THUMBNAIL_ICON_NAMES,
+        caption:
+          "The batch. Four of the eleven were drawn by hand first and fitted " +
+          "here, which is the usual way round: the drawing decides what the " +
+          "object is, and the fitting decides where its edges land.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "A fill that was right everywhere but one",
+      id: "the-white-band",
+    },
+    {
+      kind: "p",
+      text:
+        "The shop is an awning over a shopfront, and its filled style has to " +
+        "open the awning: a valance filled solid is a roof, and the scallops " +
+        "are the whole reason the drawing reads as a shop rather than as a " +
+        "house. So the fill is the awning's plate and the building's plate, " +
+        "and those two overlap, because the valance dips below the point " +
+        "where the walls have to start.",
+    },
+    {
+      kind: "p",
+      text:
+        "Two overlapping shapes wound the same way paint solid under the " +
+        "non-zero fill rule, which is what the SVGs here use and what every " +
+        "browser therefore paints. Under the even-odd rule the overlap " +
+        "cancels. The design file writes its filled variants even-odd, so " +
+        "the band where the two plates met came out white, straight across " +
+        "the valance, in the one place the drawings are authored and nowhere " +
+        "else.",
+    },
+    {
+      kind: "note",
+      text:
+        "Every check passed. The geometry was identical on both sides; only " +
+        "the rule that paints it was not, and nothing compared that.",
+    },
+    {
+      kind: "p",
+      text:
+        "The fix is not a fill rule, it is the shape. The awning's outline " +
+        "is cut where its end scallop crosses the shop wall and the " +
+        "building's three sides are spliced into it, so the silhouette is " +
+        "one closed contour with two holes and there is no overlap left to " +
+        "cancel. It paints the same under either rule now, which is the " +
+        "property worth having: nothing downstream has to agree with us " +
+        "about which rule it uses.",
+    },
+
+    {
+      kind: "h2",
+      text: "The book needed its spine explaining",
+      id: "the-book",
+    },
+    {
+      kind: "p",
+      text:
+        "The first book here was rejected on sight, and the note was the " +
+        "useful kind: it did not look like a book. What was missing turned " +
+        "out to be one feature. A closed book seen from the front does not " +
+        "have four corners; it has three, and a roll, because the cover " +
+        "wraps round the spine instead of turning. Drawn as a corner it " +
+        "reads as a card with a line on it.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V060_BOOK_ICON_NAMES,
+        caption:
+          "The roll is a half circle of radius 2 on the spine, and it sets " +
+          "the rest: the page block's depth is the roll's inner edge, and " +
+          "the margin line stands two roll-radii in from the spine. The " +
+          "foot has a notch scooped into the fore-edge, half a unit deep " +
+          "over three, which is the cover's board sitting proud of the " +
+          "pages.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The open book is the same object from above, and its gutter runs " +
+        "out through the notch between the two page tops rather than " +
+        "stopping inside it. Its foot is a semicircle under the rounded " +
+        "treatment and a square cut under the sharp one, which is the one " +
+        "thing that axis exists to distinguish.",
+    },
+
+    {
+      kind: "h2",
+      text: "The flame is an arch, not a point",
+      id: "the-flame",
+    },
+    {
+      kind: "p",
+      text:
+        "A flame is a bowl with a tongue curling inside it, and the tongue " +
+        "is the part that goes wrong. Drawn as a point it reads as a comma, " +
+        "and at 16 pixels the bowl closes over it. Drawn as an arch it " +
+        "reads as a flame at every size, and the difference is one arc.",
+    },
+    {
+      kind: "p",
+      text:
+        "The outer silhouette has a matching rule. A single sweep from tip " +
+        "to bowl can only make a teardrop; what makes a lick is the tip " +
+        "dropping straight down first and swinging out afterwards, which is " +
+        "two arcs rather than one. Both of them are radius 10, turned " +
+        "through the angle whose sine is three fifths, because that is the " +
+        "pair that carries the flank exactly four units across and twelve " +
+        "down and leaves nothing to round.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V060_SINGLES_ICON_NAMES,
+        caption:
+          "The five singles. `buildings` is one silhouette rather than two " +
+          "overlapping blocks, so the party wall is a real edge and not a " +
+          "seam. `cpu` puts its pins on the package rather than through it. " +
+          "The mortarboard's bowl is solved onto its ink so the extreme " +
+          "lands on a whole unit instead of near one.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "Getting it",
+      id: "getting-it",
+    },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the set",
+      text:
+        "All 674, in three styles and two corner treatments, with copy and " +
+        "download on every drawing.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Changelog",
+      text:
+        "What moved, generated off git, with every redraw shown before and " +
+        "after.",
+    },
+  ],
+}
+
+export const BLOG_POSTS: readonly BlogPost[] = [
+  BATCH_0_6_0,
+  BATCH_0_5_0,
+  BATCH_0_3_1,
+]
 
 export const findPost = (slug: string) =>
   BLOG_POSTS.find((post) => post.slug === slug)
