@@ -343,12 +343,16 @@ SETS.wallet = () => {
   for (const sharp of [false, true]) {
     const key = sharp ? 'sharp' : 'regular';
     const d = W.wallet({ sharp });
-    const plate = contourPath(W.walletPlate({ sharp }).segs);
+    const pl = W.walletPlate({ sharp }).segs;
+    const plate = contourPath(pl);
     out[`stroke.${key}`] = [S(d)];
     out[`duotone.${key}`] = [P(plate), S(d)];
-    // The pocket's white is a plain rounded rectangle: three of its sides are
-    // the pocket's own inner ink and the fourth is the body's wall.
-    out[`fill.${key}`] = [F_(plate + hole(W.walletPlate({ sharp }).segs, W.walletPocketHole({ sharp }).segs))];
+    // Two knockouts: the band of white the fold encloses, and the pocket's.
+    // Both are bounded on three sides by their own inner ink and on the fourth
+    // by the body's wall, so both are plain rounded rectangles.
+    out[`fill.${key}`] = [F_(plate
+      + hole(pl, W.walletFoldHole({ sharp }).segs)
+      + hole(pl, W.walletPocketHole({ sharp }).segs))];
   }
   return out;
 };

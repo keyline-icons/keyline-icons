@@ -5611,7 +5611,7 @@ export function Volume(props: IconProps) {
 export function Wallet(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M2 4L22 4L22 20L2 20L2 4ZM22 8L14 8L14 16L22 16" fill="none" />
+      <path d="M3 3L21 3L21 21L3 21L3 3ZM3 7L21 7M21 11L13 11L13 17L21 17" fill="none" />
     </Icon>
   )
 }

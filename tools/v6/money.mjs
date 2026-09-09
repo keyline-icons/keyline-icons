@@ -97,27 +97,68 @@ export const cardStripeHole = () =>
 /* ----------------------------------------------------------------- wallet */
 
 /**
- * A wallet is the card's envelope with a card pocket cut into its right side,
- * and the pocket is OPEN to the wall rather than a closed rectangle beside it.
+ * A wallet is a FOLDED thing, and that is the whole drawing.
  *
- * Closed, it leaves a one-unit sliver between the pocket and the wall, which is
- * the crowding band rather than the noise band and closes at 16. Open, the
- * pocket's two ends are T-junctions on the wall the set already handles, and
- * the clearances come out on the house 2 exactly: the body's inner ink is 5 and
- * 19, the pocket's outer ink is 7 and 17.
+ * The first one here was the card's envelope with a pocket cut into it, which
+ * is a card with a slot: it has no fold, so nothing in it says leather rather
+ * than plastic. The feature that carries the object is a strip across the top
+ * whose LEFT end is a semicircle — the cover coming over the spine — with the
+ * body hanging below it. Same class of miss as the book, where the spine's roll
+ * was the difference between a book and a card with a line on it.
  *
- * A clasp bead was drawn and dropped. A bead is 3 across and the pocket's
- * interior ink is 5 by 4, which leaves 1 unit around it; the arithmetic says no
- * before the render does.
+ * The strip runs the full width and both its ends land on the body's right
+ * wall, so they are T-junctions rather than free ends. Stopped short it leaves
+ * a four-unit gap against the wall that reads as an unfinished slot.
+ *
+ * The pocket stays, moved down under the fold, and its clearances are exactly
+ * the house 2 at both ends: the fold's inner ink is 9 and the body's is 19, the
+ * pocket's outer ink 11 and 17.
  */
-export const WALLET = { x: [2, 22], y: [4, 20], r: 3, pocket: { x: 14, y: [8, 16], r: 2 } };
+export const WALLET = {
+  // 20 by 20 of ink, which is the square size, and it is the POCKET that
+  // forces it. On the card's 22 by 18 envelope the body is 10 of interior, a
+  // pocket clearing 2 top and bottom is 4 tall, and 4 tall leaves 2 of white
+  // inside it: in the filled style that paints as a dash rather than a pocket.
+  // At 20 by 20 the pocket is 6 tall with 4 of white, and it reads.
+  x: [3, 21], y: [3, 21], r: 3,
+  fold: { top: 3, h: 4 },
+  pocket: { x: 13, y: [11, 17], r: 3 },
+};
 
-export function walletBody({ sharp = false } = {}) {
+const foldCentre = () => [WALLET.x[0] + WALLET.fold.h / 2, WALLET.fold.top + WALLET.fold.h / 2];
+
+/**
+ * The silhouette, CLOSED, with the fold's semicircle as its top-left corner.
+ *
+ * Drawn as a fold-strip plus a body it was two open runs, and `COVERAGE` was
+ * right to call that a glyph with nothing to fill: the region a reader sees is
+ * enclosed by two paths together and by neither on its own. The object is one
+ * outline, and the fold is a line across it.
+ */
+export function walletOutline({ sharp = false } = {}) {
   const r = sharp ? 0 : WALLET.r;
-  const [x0, x1] = WALLET.x, [y0, y1] = WALLET.y;
-  return polyContour([[x0, y0], [x1, y0], [x1, y1], [x0, y1]], [r, r, r, r]);
+  const [x0, x1] = WALLET.x, y1 = WALLET.y[1], top = WALLET.fold.top;
+  const c = foldCentre(), fr = c[0] - x0;
+  if (sharp) {
+    return polyContour([[x0, top], [x1, top], [x1, y1], [x0, y1]], [0, 0, 0, 0]);
+  }
+  return new Path().M([c[0], top])
+    .corner([x1, top], [x1, y1], r)
+    .corner([x1, y1], [x0, y1], r)
+    .corner([x0, y1], [x0, c[1]], r)
+    .L([x0, c[1]])
+    .A(c, 180, 270, 1)
+    .Z();
 }
 
+/** The fold itself: the semicircle's lower half, then straight across. */
+export function walletFold({ sharp = false } = {}) {
+  const { top, h } = WALLET.fold, c = foldCentre(), [x0, x1] = WALLET.x;
+  if (sharp) return new Path().M([x0, top + h]).L([x1, top + h]);
+  return new Path().M([x0, c[1]]).A(c, 180, 90, -1).L([x1, top + h]);
+}
+
+/** The card pocket, open to the wall so its two ends are T-junctions. */
 export function walletPocket({ sharp = false } = {}) {
   const r = sharp ? 0 : WALLET.pocket.r;
   const { x, y } = WALLET.pocket, wall = WALLET.x[1];
@@ -127,26 +168,35 @@ export function walletPocket({ sharp = false } = {}) {
     .L([wall, y[1]]);
 }
 
-/**
- * The pocket's two ends land ON the body's wall, so they are T-junctions rather
- * than free ends and the sharp treatment leaves them where they are. Passing
- * them through `sharpen` would push them a unit past the wall into white.
- */
 export const wallet = ({ sharp = false } = {}) =>
-  glyph([walletBody({ sharp })], sharp) + String(walletPocket({ sharp }));
+  String(walletOutline({ sharp })) + String(walletFold({ sharp })) + String(walletPocket({ sharp }));
 
-/** The plate: the body grown a unit, corner r + 1. */
+/** The plate: the silhouette grown a unit, so the fold's corner is r + 1 too. */
 export function walletPlate({ sharp = false } = {}) {
   const r = (sharp ? 0 : WALLET.r) + 1;
-  const [x0, x1] = WALLET.x, [y0, y1] = WALLET.y;
-  return polyContour([[x0 - 1, y0 - 1], [x1 + 1, y0 - 1], [x1 + 1, y1 + 1], [x0 - 1, y1 + 1]], [r, r, r, r]);
+  const [x0, x1] = WALLET.x, y1 = WALLET.y[1], top = WALLET.fold.top;
+  const c = foldCentre(), fr = c[0] - x0 + 1;
+  if (sharp) return polyContour([[x0 - 1, top - 1], [x1 + 1, top - 1], [x1 + 1, y1 + 1], [x0 - 1, y1 + 1]], [1, 1, 1, 1]);
+  return new Path().M([c[0], top - 1])
+    .corner([x1 + 1, top - 1], [x1 + 1, y1 + 1], r)
+    .corner([x1 + 1, y1 + 1], [x0 - 1, y1 + 1], r)
+    .corner([x0 - 1, y1 + 1], [x0 - 1, c[1]], r)
+    .L([x0 - 1, c[1]])
+    .A(c, 180, 270, 1)
+    .Z();
 }
 
-/**
- * The pocket's own white: bounded by the pocket's inner ink on three sides and
- * by the body's wall on the fourth, so it is a plain rounded rectangle whose
- * radius is the pocket's less the unit of stroke.
- */
+/** The band of white the fold encloses, from the top edge's inner ink down. */
+export function walletFoldHole({ sharp = false } = {}) {
+  const { top, h } = WALLET.fold, c = foldCentre(), [x0, x1] = WALLET.x;
+  const r = sharp ? 0 : c[0] - x0 - 1;
+  return polyContour(
+    [[x0 + 1, top + 1], [x1 - 1, top + 1], [x1 - 1, top + h - 1], [x0 + 1, top + h - 1]],
+    [r, 0, 0, r],
+  );
+}
+
+/** The pocket's white, bounded by its own inner ink and the body's wall. */
 export function walletPocketHole({ sharp = false } = {}) {
   const r = sharp ? 0 : WALLET.pocket.r - 1;
   const { x, y } = WALLET.pocket, wall = WALLET.x[1];
