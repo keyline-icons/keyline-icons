@@ -206,6 +206,11 @@ const SIZE_KNOWN = new Set([
   // and it fell through to the band. The base is 22 x 22 and the slash is 22
   // long; there is no 20 available to either of them.
   'pen-off',
+  // The square bubble is 20 x 20 and its `-off` form paints 1..23 like every
+  // other slashed drawing; the sharp slash's butt corners put ink in all four
+  // corners, so the sharp half classifies as a square where the rounded half
+  // falls through. Same drawing, same box, same reason as `pen-off`.
+  'message-square-off',
 ]);
 const MIN_PAD = 1;
 

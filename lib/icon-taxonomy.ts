@@ -47,6 +47,14 @@ export const CATEGORIES = [
   // the card's four signs and the seven currency marks with their circled
   // halves. `refresh` and `rotate` sit in Arrows because they are arrow glyphs,
   // whatever they are used for. The anchor is what keeps `git-refresh` in Git.
+  //
+  // Opened 10 Sep 2026 for the fourteen of v0.7.0: the square bubble and its
+  // eight companions, and qr-code, scan, scissors, hourglass and rocket.
+  {
+    label: "New",
+    match: /^(message-square|messages-square|qr-code|scan$|scissors|hourglass|rocket)/,
+    blurb: "Drawn since the last release, waiting on review.",
+  },
   {
     label: "Arrows",
     match: /^(arrow|bracket-arrow|expand|refresh|rotate|move$)/,
@@ -81,8 +89,8 @@ export const CATEGORIES = [
   },
   {
     label: "Time",
-    match: /^(calendar|clock)/,
-    blurb: "Calendars and clocks, with the signs that act on them.",
+    match: /^(calendar|clock|hourglass)/,
+    blurb: "Calendars, clocks and the hourglass, with the signs that act on them.",
   },
   // `at` is anchored inside the group because the bare symbol is the whole
   // name: an unanchored `at` would hand this category every future name that
@@ -172,8 +180,8 @@ export const CATEGORIES = [
     // `bug` is the software bug, so it sits with `code` rather than in a
     // shelf of creatures the set does not have.
     label: "Devices",
-    match: /^(smartphone|phone|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|app(?=-|$))/,
-    blurb: "Phones, handsets, servers, databases, terminals, code, processors, bugs, the app tiles and what plugs into them.",
+    match: /^(smartphone|phone|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|qr-code|scan$|app(?=-|$))/,
+    blurb: "Phones, handsets, servers, databases, terminals, code, processors, bugs, the app tiles, the QR code and its scan frame.",
   },
   {
     label: "Pointers",
@@ -217,7 +225,7 @@ export const CATEGORIES = [
     // set on a thing — instant, fast, powered — not a control you operate, and
     // not the weather. The storm belongs to a cloud, and this bolt has none.
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|shield|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|sparkle|ban)/,
+      /^(check|double-check|plus|minus|x|more|lock|unlock|shield|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|sparkle|ban|rocket)/,
     blurb: "Checks, crosses, pluses, the everyday verbs and the marks that guard a thing.",
   },
   {
@@ -254,7 +262,7 @@ export const CATEGORIES = [
     // Prefixes, so the family this is being drawn towards lands here too: a
     // `screwdriver`, a `wrench-plus`.
     label: "Tools",
-    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler)/,
+    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler|scissors)/,
     blurb: "The toolbox and what comes out of it.",
   },
   {

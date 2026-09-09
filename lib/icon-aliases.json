@@ -2308,8 +2308,18 @@
       "message-circle-more",
       "message-circle-question-mark",
       "message-circle-reply",
-      "message-circle-warning",
-      "message-square",
+      "message-circle-warning"
+    ],
+    "message-check": [
+      "message-circle-check"
+    ],
+    "message-off": [
+      "message-circle-off"
+    ],
+    "message-plus": [
+      "message-circle-plus"
+    ],
+    "message-square": [
       "message-square-code",
       "message-square-dashed",
       "message-square-diff",
@@ -2319,30 +2329,13 @@
       "message-square-quote",
       "message-square-reply",
       "message-square-share",
-      "message-square-text",
       "message-square-warning"
     ],
-    "message-check": [
-      "message-circle-check",
-      "message-square-check"
-    ],
-    "message-dot": [
-      "message-square-dot"
-    ],
-    "message-off": [
-      "message-circle-off",
-      "message-square-off"
-    ],
-    "message-plus": [
-      "message-circle-plus",
-      "message-square-plus"
+    "message-square-lines": [
+      "message-square-text"
     ],
     "message-x": [
-      "message-circle-x",
-      "message-square-x"
-    ],
-    "messages": [
-      "messages-square"
+      "message-circle-x"
     ],
     "monitor": [
       "monitor-check",
