@@ -42,11 +42,21 @@ export const CATEGORIES = [
   // row files the whole batch at once with no second edit to forget, and that
   // deletion is what "reviewed" means. An empty repo state is the resting one.
   //
-  // Empty since 9 Sep 2026: the v0.6.0 batch was the last one open — flame,
-  // store, buildings, cpu, graduation-cap, book with its four signs and
-  // book-open — and Zafar passed all eleven, so they answer to the shelves
-  // below. `refresh` and `rotate` sit in Arrows because they are arrow glyphs,
-  // whatever they are used for. The anchor is what keeps `git-refresh` in Git.
+  // Open for the money half of v0.6.0, drawn 9 Sep 2026: a wallet, the card's
+  // four signs and seven currency marks. Every one of them is listed in
+  // Commerce below as well, so deleting this row files the batch and there is
+  // no second edit to forget.
+  //
+  // The eleven before them — flame, store, buildings, cpu, graduation-cap, the
+  // book family — came off this row when Zafar passed them, which is what
+  // "reviewed" means. `refresh` and `rotate` sit in Arrows because they are
+  // arrow glyphs, whatever they are used for. The anchor is what keeps
+  // `git-refresh` in Git.
+  {
+    label: "New",
+    match: /^(wallet|credit-card-(plus|minus|check|x)|dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin)$/,
+    blurb: "Drawn this round and waiting on review.",
+  },
   {
     label: "Arrows",
     match: /^(arrow|bracket-arrow|expand|refresh|rotate|move$)/,
@@ -109,7 +119,8 @@ export const CATEGORIES = [
     // The seven currency glyphs are here rather than on a shelf of their own:
     // a shelf of seven marks reads as a gap next to Media's 63, and what
     // someone reaching for a euro is doing is commerce. `percent` already sets
-    // the precedent for a bare mark on this shelf.
+    // the precedent for a bare mark on this shelf. They answer to the New row
+    // above until the batch is reviewed, which is what that row is for.
     match:
       /^(shopping-|handbag|briefcase|receipt|credit-card|tag|package|truck|gift|coupon|percent|store|wallet|dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin)/,
     blurb:
