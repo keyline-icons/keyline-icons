@@ -113,6 +113,22 @@ github.com/keyline-icons/keyline-icons
 
 Changelog
 
+0.6.0 — 9 September 2026
+29 new drawings, taking the set to 692 names and 3,538 SVGs, and two new shelves. The seven currency marks arrive, six of them with a circled half, and those clear the ring by 1 unit rather than the 2 the set asks between elements: a container is the frame a drawing sits in, not a neighbour it has to be told apart from, and at 2 a letterform comes out at about half the well.
+
+* Money: the dollar, euro, pound, yen, rupee, franc and bitcoin marks, six with a circled half
+* Payment: a wallet, and the card with plus, minus, check and x
+* Books: book, with open, plus, minus, check and x
+* Others: a flame, a shopfront, a skyline, a processor and a mortarboard
+* Finance and Education opened as shelves of their own, taking categories from 22 to 24
+
+0.5.0 — 8 September 2026
+35 new drawings, taking the set to 663 names and 3,392 SVGs, and 7 redrawn. The formatting marks moved onto a Text shelf of their own. Two names changed hands: the diagonal chain is link now and the horizontal one link-2, and link-off became link-2-off with it, so an import of either wants updating.
+
+* Text: the quotation marks, bold, italic, underline, strikethrough and the alignment stack
+* Messaging: phone, phone-off, send, send-horizontal, message-lines and share-2
+* Others: layers, language, list, list-ordered, fullscreen-2, fullscreen-exit-2, unlink, sparkle, sparkles, zap, zap-off, bell-ring, sun-dim and sun-medium
+
 0.4.0 — 6 September 2026
 44 new drawings, taking the set to 629 names and 3,250 SVGs, and every sharp diagonal end cut back onto its rounded twin's box. A butt cap on a diagonal reaches further than the round cap it replaces, so 329 icons painted up to 0.414 of a unit wide of where the rounded drawing ends; they sit on the same box now, and the rounded drawings are untouched.
 
@@ -224,6 +240,47 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 0.6.0
+
+```
+29 new drawings, taking the set to 692 names and 3,538 SVGs. The seven currency
+marks, six of them with a circled half, a wallet and four signs for the payment
+card, six books, and five singles: a flame, a shopfront, a skyline, a processor
+and a mortarboard.
+
+The circled currencies hold 1 unit of daylight against the ring rather than the
+2 the set asks between elements. A container is the frame a drawing sits in, not
+a neighbour it has to be told apart from, and at 2 a letterform comes out at
+about half the well. Bitcoin has no circled half: its four stubs stand outside
+the letter at both ends, and solving them shrinks the B until its own bowls
+carry 1 unit of white instead of 2.
+
+Two shelves opened with the batch: Finance, for the currency marks, the payment
+cards and the wallet, and Education. Categories went from 22 to 24.
+```
+
+**A republish is required for the listing**, whose counts moved: the tagline,
+the style bullets, the totals and the category count all changed with the set.
+The plugin's own code did not change.
+
+### 0.5.0
+
+```
+35 new drawings, taking the set to 663 names and 3,392 SVGs. The formatting
+marks moved onto a Text shelf of their own, with the quotation marks, the
+alignment stack and what sets a paragraph.
+
+Two names changed hands: the diagonal chain is link now and the horizontal one
+link-2, which is the naming the rest of the set already follows, and link-off
+became link-2-off with it. An import of either wants updating.
+
+7 drawings were redrawn in both treatments. Four sharp drawings that painted
+outside their rounded siblings were re-solved rather than exempted.
+```
+
+**A republish is required for the listing** and not for the drawings, which
+reach every user from jsDelivr on their own.
 
 ### 0.4.0
 
@@ -432,12 +489,36 @@ Which styles an icon has is measured rather than chosen: duotone and fill need a
 
 Every drawing exists in both treatments, so sharp is a switch rather than a second library: 3,538 variants over the same 692 names.
 
-The Catalog page files every icon under one of 21 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
+The Catalog page files every icon under one of 24 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
 
 Also available as React components, a shadcn registry, an MCP server for agents, a CLI, and a Figma plugin that searches the set and drops an icon straight onto the canvas.
 
 keylineicons.com
 github.com/keyline-icons/keyline-icons
+
+v0.6.0
+29 new drawings, and two new shelves. The set is 692 names now, 577 component
+sets and 3,538 variants, up from 663 and 3,392. Nothing was renamed and no
+component was replaced, so instances already placed in your files keep their
+link.
+
+* The seven currency marks: dollar, euro, pound, yen, rupee, franc and bitcoin, six of them with a circled half
+* Money: a wallet, and the payment card with plus, minus, check and x
+* Books: book, with open, plus, minus, check and x
+* Singles: a flame, a shopfront, a skyline, a processor and a mortarboard
+* The circled currencies clear the ring by 1 rather than the 2 the set asks between elements: a container is a frame, not a neighbour, and at 2 a letterform comes out at about half the well
+* Categories went from 22 to 24: Finance took the currency marks, the payment cards and the wallet off Commerce, and Education took the mortarboard off Sport
+
+v0.5.0
+35 new drawings, and a Text shelf. The set is 663 names now, 554 component sets
+and 3,392 variants, up from 629 and 3,250.
+
+* Text: the quotation marks, the formatting marks, the alignment stack and what sets a paragraph
+* Two names changed hands: the diagonal chain is link now and the horizontal one link-2, and link-off became link-2-off with it. That breaks an import of either
+* Categories went from 21 to 22 when the formatting marks took a shelf of their own
+
+Also redrawn, in both treatments: 7 drawings. Four sharp drawings that painted
+outside their rounded siblings were re-solved rather than exempted.
 
 v0.4.0
 44 new drawings, and every sharp end squared. The set is 629 names now, 520 component sets and 3,250 variants, up from 585 and 2,994. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
