@@ -123,11 +123,15 @@ Changelog
 * Finance and Education opened as shelves of their own, taking categories from 22 to 24
 
 0.5.0 — 8 September 2026
-35 new drawings, taking the set to 663 names and 3,392 SVGs, and 7 redrawn. The formatting marks moved onto a Text shelf of their own. Two names changed hands: the diagonal chain is link now and the horizontal one link-2, and link-off became link-2-off with it, so an import of either wants updating.
+35 new drawings, taking the set to 663 names and 3,392 SVGs, and two names put the right way round. link and link-2 had been on each other's drawings since the first release: link is the interlocked diagonal chain now and link-2 the horizontal one with the bar, which is the naming the rest of the set already follows. link-off drew the horizontal chain, which makes it the negated form of link-2, so it is link-2-off — and link-off still finds it in search.
 
-* Text: the quotation marks, bold, italic, underline, strikethrough and the alignment stack
-* Messaging: phone, phone-off, send, send-horizontal, message-lines and share-2
-* Others: layers, language, list, list-ordered, fullscreen-2, fullscreen-exit-2, unlink, sparkle, sparkles, zap, zap-off, bell-ring, sun-dim and sun-medium
+* Text: bold, italic, underline and strikethrough, the four-way alignment stack, the double and single quotation marks in both hands, text-quote and language
+* Links: link-2, link-2-off and unlink, the diagonal chain come apart
+* Messages: phone and phone-off, message-lines, bell-ring, and send with send-horizontal
+* Brightness: sun-dim and sun-medium
+* Others: layers, list, list-ordered, share-2, sparkle, sparkles, zap, zap-off, fullscreen-2 and fullscreen-exit-2
+
+Also redrawn in both treatments: the pen family, the same drawing scaled 10/9 with its band moved from the nib to the cap; clock, now exactly clock-3 with both names kept; and the two sliders, whose rails break at the knob.
 
 0.4.0 — 6 September 2026
 44 new drawings, taking the set to 629 names and 3,250 SVGs, and every sharp diagonal end cut back onto its rounded twin's box. A butt cap on a diagonal reaches further than the round cap it replaces, so 329 icons painted up to 0.414 of a unit wide of where the rounded drawing ends; they sit on the same box now, and the rounded drawings are untouched.
