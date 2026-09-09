@@ -574,7 +574,21 @@ const COUNTER = new Set(['at', 'percent']);
 // is `square`, and a bare `app` would be the first drawing this set ships under
 // two names, and there are none today in either corner style. The form is plainly
 // closed and its fill paints a solid tile, so the measurement is what is wrong.
-const CLOSED_BY_STROKE = new Set(['flag', 'flag-chequered', 'app-check', 'app-minus', 'app-plus', 'app-x']);
+// `buildings` joins them for the same reason `flag` did: its outline is one
+// open stroke that runs the ground line twice, once for the low block and once
+// for the tower's own bottom-left corner, so the pair's region is closed by the
+// drawing without any subpath closing.
+//
+// The `book` family closes the same way and for a nicer reason. A book's spine
+// is drawn as a ROLL — a half turn at the foot of the left edge — and that arc
+// passes exactly through the point the outline starts at, so the cover is shut
+// with nothing drawn twice and no `Z`. Opening the path is what buys the roll;
+// a closed subpath would have to repeat the corner it replaces.
+const CLOSED_BY_STROKE = new Set([
+  'flag', 'flag-chequered', 'buildings',
+  'book', 'book-plus', 'book-minus', 'book-check', 'book-x',
+  'app-check', 'app-minus', 'app-plus', 'app-x',
+]);
 
 /**
  * A compound's fillability comes from its base.

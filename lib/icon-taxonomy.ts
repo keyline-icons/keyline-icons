@@ -42,10 +42,11 @@ export const CATEGORIES = [
   // row files the whole batch at once with no second edit to forget, and that
   // deletion is what "reviewed" means. An empty repo state is the resting one.
   //
-  // Empty since 8 Sep 2026: the two planes were the last of the v0.5.0 batch
-  // and Zafar passed them, so they answer to Mail like the rest of the family.
-  // `refresh` and `rotate` are here because they are arrow glyphs, whatever they
-  // are used for. The anchor is what keeps `git-refresh` in Git below.
+  // Empty since 9 Sep 2026: the v0.6.0 batch was the last one open — flame,
+  // store, buildings, cpu, graduation-cap, book with its four signs and
+  // book-open — and Zafar passed all eleven, so they answer to the shelves
+  // below. `refresh` and `rotate` sit in Arrows because they are arrow glyphs,
+  // whatever they are used for. The anchor is what keeps `git-refresh` in Git.
   {
     label: "Arrows",
     match: /^(arrow|bracket-arrow|expand|refresh|rotate|move$)/,
@@ -73,8 +74,10 @@ export const CATEGORIES = [
     label: "Files",
     // `pen` carries a lookahead so `pencil-*` falls through to Tools below:
     // a pencil-and-ruler is a drawing instrument, not a document.
-    match: /^(file|folder|copy|paperclip|bin|archive|pen(?!cil)|(square|circle)-pen)/,
-    blurb: "Documents, folders, copies, the paperclip and the bin.",
+    // `book` carries a lookahead of its own: `bookmark` is a web-scoped action
+    // and is claimed by Web below, which this category is evaluated before.
+    match: /^(file|folder|copy|paperclip|bin|archive|book(?!mark)|pen(?!cil)|(square|circle)-pen)/,
+    blurb: "Documents, folders, books, copies, the paperclip and the bin.",
   },
   {
     label: "Time",
@@ -104,8 +107,8 @@ export const CATEGORIES = [
     // and one name does not earn a row.
     label: "Commerce",
     match:
-      /^(shopping-|handbag|briefcase|receipt|credit-card|tag|package|truck|gift|coupon|percent)/,
-    blurb: "Carts, bags, receipts, cards, shipping and the discount marks.",
+      /^(shopping-|handbag|briefcase|receipt|credit-card|tag|package|truck|gift|coupon|percent|store)/,
+    blurb: "Carts, bags, receipts, cards, shipping, the shopfront and the discount marks.",
   },
   {
     // `flag` and `traffic-light` are both road furniture: a marker you plant
@@ -153,8 +156,8 @@ export const CATEGORIES = [
     // `bug` is the software bug, so it sits with `code` rather than in a
     // shelf of creatures the set does not have.
     label: "Devices",
-    match: /^(smartphone|phone|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|app(?=-|$))/,
-    blurb: "Phones, handsets, servers, databases, terminals, code, bugs, the app tiles and what plugs into them.",
+    match: /^(smartphone|phone|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|app(?=-|$))/,
+    blurb: "Phones, handsets, servers, databases, terminals, code, processors, bugs, the app tiles and what plugs into them.",
   },
   {
     label: "Pointers",
@@ -198,7 +201,7 @@ export const CATEGORIES = [
     // set on a thing — instant, fast, powered — not a control you operate, and
     // not the weather. The storm belongs to a cloud, and this bolt has none.
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|shield|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|sparkle|ban)/,
+      /^(check|double-check|plus|minus|x|more|lock|unlock|shield|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|sparkle|ban)/,
     blurb: "Checks, crosses, pluses, the everyday verbs and the marks that guard a thing.",
   },
   {
@@ -214,8 +217,11 @@ export const CATEGORIES = [
     // `crown` is what a winner gets, so it sits with the trophy rather than
     // with the marks in Actions.
     label: "Sport",
-    match: /^(trophy|award|podium|medal|crown|flag-chequered)/,
-    blurb: "Trophies, awards, crowns and the places on the podium.",
+    // The mortarboard is here because this is the achievements shelf rather
+    // than a sports one — a qualification reads against a trophy and a medal,
+    // not against a cursor. Worth putting to Zafar when the batch graduates.
+    match: /^(trophy|award|podium|medal|crown|graduation-cap|flag-chequered)/,
+    blurb: "Trophies, awards, crowns, the mortarboard and the places on the podium.",
   },
   {
     // The shelf follows what the thing is, not what the drawing is made of: a
