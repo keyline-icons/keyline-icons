@@ -49,10 +49,10 @@ export const CATEGORIES = [
   // whatever they are used for. The anchor is what keeps `git-refresh` in Git.
   //
   // Opened 10 Sep 2026 for the fourteen of v0.7.0: the square bubble and its
-  // eight companions, and qr-code, scan, scissors, hourglass and rocket.
+  // eight companions, and qr-code, scan, scissors and hourglass.
   {
     label: "New",
-    match: /^(message-square|messages-square|qr-code|scan$|scissors|hourglass|rocket)/,
+    match: /^(message-square|messages-square|qr-code|scan$|scissors|hourglass)/,
     blurb: "Drawn since the last release, waiting on review.",
   },
   {
@@ -225,7 +225,7 @@ export const CATEGORIES = [
     // set on a thing — instant, fast, powered — not a control you operate, and
     // not the weather. The storm belongs to a cloud, and this bolt has none.
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|shield|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|sparkle|ban|rocket)/,
+      /^(check|double-check|plus|minus|x|more|lock|unlock|shield|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|sparkle|ban)/,
     blurb: "Checks, crosses, pluses, the everyday verbs and the marks that guard a thing.",
   },
   {

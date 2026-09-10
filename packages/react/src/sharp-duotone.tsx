@@ -3751,16 +3751,6 @@ export function Rewind(props: IconProps) {
   )
 }
 
-export function Rocket(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M12.3243 1.0541C15.7195 2.2181 18 5.4108 18 9L18 18C18 18.5523 17.5523 19 17 19L7 19C6.4477 19 6 18.5523 6 18L6 9C6 5.4108 8.2805 2.2181 11.6757 1.0541C11.7801 1.0183 11.8896 1 12 1C12.1104 1 12.2199 1.0183 12.3243 1.0541Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M12 2C14.991 3.0255 17 5.8381 17 9L17 18L7 18L7 9C7 5.8381 9.009 3.0255 12 2ZM7 15L3.8 19.2667M17 15L20.2 19.2667M8 22L16 22" fill="none" />
-      <path d="M13.5 10C13.5 10.8284 12.8284 11.5 12 11.5C11.1716 11.5 10.5 10.8284 10.5 10C10.5 9.1716 11.1716 8.5 12 8.5C12.8284 8.5 13.5 9.1716 13.5 10Z" fill="currentColor" stroke="none" />
-    </Icon>
-  )
-}
-
 export function RouteOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>

@@ -514,7 +514,6 @@ export const BLOG_V070_THUMBNAIL_ICON_NAMES = [
   "scan",
   "scissors",
   "hourglass",
-  "rocket",
 ] as const
 
 /** The nine that are one family. */
@@ -542,13 +541,12 @@ export const BLOG_V070_PAIR_ICON_NAMES = [
   "messages-square",
 ] as const
 
-/** The five that are one object each. */
+/** The four that are one object each. */
 export const BLOG_V070_SINGLES_ICON_NAMES = [
   "qr-code",
   "scan",
   "scissors",
   "hourglass",
-  "rocket",
 ] as const
 
 /**
@@ -1480,11 +1478,11 @@ const BATCH_0_5_0: BlogPost = {
 const BATCH_0_7_0: BlogPost = {
   slug: "the-message-family-in-a-second-body",
   version: "0.7.0",
-  title: "14 new icons, and the message family in a second body",
+  title: "13 new icons, and the message family in a second body",
   description:
     "Inside Keyline Icons v0.7.0: the message family drawn again on a square " +
-    "body, option for option, and five singles: a QR code, a scan frame, " +
-    "scissors, an hourglass and a rocket.",
+    "body, option for option, and four singles: a QR code, a scan frame, " +
+    "scissors and an hourglass.",
   standfirst:
     "Everything that landed in v0.7.0, and how the square bubble keeps the " +
     "round one's vocabulary. Free SVG icons for shadcn/ui, drawn on one " +
@@ -1502,17 +1500,16 @@ const BATCH_0_7_0: BlogPost = {
     "qr code icon",
     "scissors icon",
     "hourglass icon",
-    "rocket icon",
   ],
   body: [
     {
       kind: "p",
       text:
-        "Fourteen new drawings, which takes the set to 706. Nine of them are " +
-        "one thing: the message family drawn again on a square body, with " +
-        "every option the round bubble already has. The other five are " +
+        "Thirteen new drawings, which takes the set to 705. Nine of them " +
+        "are one thing: the message family drawn again on a square body, " +
+        "with every option the round bubble already has. The other four are " +
         "objects that had been on the list for a while: a QR code, a scan " +
-        "frame, scissors, an hourglass and a rocket.",
+        "frame, scissors and an hourglass.",
     },
     {
       kind: "p",
@@ -1527,8 +1524,8 @@ const BATCH_0_7_0: BlogPost = {
         kind: "grid",
         names: BLOG_V070_THUMBNAIL_ICON_NAMES,
         caption:
-          "All fourteen. The first nine are the square bubble and its " +
-          "companions; the five singles follow.",
+          "All thirteen. The first nine are the square bubble and its " +
+          "companions; the four singles follow.",
       },
     },
 
@@ -1627,7 +1624,7 @@ const BATCH_0_7_0: BlogPost = {
 
     {
       kind: "h2",
-      text: "Five singles",
+      text: "Four singles",
       id: "five-singles",
     },
     {
@@ -1671,23 +1668,14 @@ const BATCH_0_7_0: BlogPost = {
         "the bottom one solid. The sand has run down.",
     },
     {
-      kind: "p",
-      text:
-        "The rocket stands upright. A diagonal one was measured first and " +
-        "does not fit: at 45 degrees a rocket's length and its width both " +
-        "eat into the same canvas, and holding both inside the box leaves no " +
-        "room for a window. Upright there is room for a bead, and the fins " +
-        "are single strokes off the walls rather than closed shapes, because " +
-        "a fin small enough for this canvas has no interior to show.",
-    },
-    {
       kind: "figure",
       figure: {
         kind: "grid",
         names: BLOG_V070_SINGLES_ICON_NAMES,
         caption:
-          "The five singles. The rocket's exhaust is a bar two units under " +
-          "the base, which is what takes it to the full 22 units tall.",
+          "The four singles. Each is drawn to the size its own shape asks " +
+          "for: the code, the frame and the scissors read as squares at 20, " +
+          "the hourglass as an upright at 18 by 22.",
       },
     },
 
@@ -1701,7 +1689,7 @@ const BATCH_0_7_0: BlogPost = {
       href: "/icons",
       label: "Browse the set",
       text:
-        "All 706, in three styles and two corner treatments, with copy and " +
+        "All 705, in three styles and two corner treatments, with copy and " +
         "download on every drawing.",
     },
     {

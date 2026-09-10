@@ -4284,15 +4284,6 @@ export function Rewind(props: IconProps) {
   )
 }
 
-export function Rocket(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M12 2C14.991 3.0255 17 5.8381 17 9L17 16C17 17.1046 16.1046 18 15 18L9 18C7.8954 18 7 17.1046 7 16L7 9C7 5.8381 9.009 3.0255 12 2ZM7 15L4 19M17 15L20 19M9 22L15 22" fill="none" />
-      <path d="M13.5 10C13.5 10.8284 12.8284 11.5 12 11.5C11.1716 11.5 10.5 10.8284 10.5 10C10.5 9.1716 11.1716 8.5 12 8.5C12.8284 8.5 13.5 9.1716 13.5 10Z" fill="currentColor" stroke="none" />
-    </Icon>
-  )
-}
-
 export function RotateCcw(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
