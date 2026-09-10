@@ -1922,6 +1922,189 @@
         "sun",
         "awning"
       ]
+    },
+    {
+      "match": "^list-check$",
+      "terms": [
+        "survey",
+        "questionnaire",
+        "checklist",
+        "poll"
+      ],
+      "note": "What people type for a form they fill in: 2 empty searches for survey in the first month."
+    },
+    {
+      "match": "^(graduation-cap|book|book-open)$",
+      "terms": [
+        "lesson",
+        "skill",
+        "study",
+        "course",
+        "learn",
+        "training"
+      ],
+      "note": "The words a learner types: lesson, skill and study were empty searches before the shelf existed."
+    },
+    {
+      "match": "^lightbulb$",
+      "terms": [
+        "think",
+        "thought",
+        "brainstorm"
+      ]
+    },
+    {
+      "match": "^(chart-column|chart-bar|chart-line|chart-pie|chart-area|bar-chart)$",
+      "terms": [
+        "analysis",
+        "analytics",
+        "data",
+        "report",
+        "stats"
+      ],
+      "note": "Analysis and analytics are the words for a chart someone has not named yet."
+    },
+    {
+      "match": "^(wallet|dollar-sign|credit-card)$",
+      "terms": [
+        "budget",
+        "asset",
+        "bank",
+        "account",
+        "balance",
+        "funds"
+      ],
+      "note": "Budget, asset, bank and acct all came in empty; money words, not card words."
+    },
+    {
+      "match": "^(database|server)$",
+      "terms": [
+        "drive",
+        "hdd",
+        "disk",
+        "storage",
+        "hard drive"
+      ]
+    },
+    {
+      "match": "^lock$",
+      "terms": [
+        "vault",
+        "safe",
+        "secure storage"
+      ]
+    },
+    {
+      "match": "^(package|archive)$",
+      "terms": [
+        "warehouse",
+        "inventory",
+        "stock",
+        "carton"
+      ]
+    },
+    {
+      "match": "^(headset|headset-2)$",
+      "terms": [
+        "assistance",
+        "service",
+        "service status",
+        "help desk",
+        "customer support"
+      ]
+    },
+    {
+      "match": "^(refresh-cw|refresh-ccw|link)$",
+      "terms": [
+        "reconnect",
+        "retry connection",
+        "re-establish"
+      ]
+    },
+    {
+      "match": "^(coupon|badge-percent|gift|tag-horizontal-start-percent|tag-horizontal-end-percent)$",
+      "terms": [
+        "redeem",
+        "redemption",
+        "reward",
+        "perk",
+        "benefit",
+        "discount coupons",
+        "refer",
+        "earn"
+      ],
+      "note": "Reward and redemption vocabulary: every one of these was an empty search."
+    },
+    {
+      "match": "^(messages|message)$",
+      "terms": [
+        "communication",
+        "records",
+        "correspondence",
+        "transcript"
+      ]
+    },
+    {
+      "match": "^(sparkle|sparkles)$",
+      "terms": [
+        "magic wand",
+        "wand",
+        "llm",
+        "ai assistant",
+        "generate"
+      ]
+    },
+    {
+      "match": "^(file-text|pen-line)$",
+      "terms": [
+        "blog",
+        "article",
+        "post",
+        "essay"
+      ]
+    },
+    {
+      "match": "^(code|code-xml)$",
+      "terms": [
+        "api",
+        "sdk",
+        "endpoint",
+        "script"
+      ]
+    },
+    {
+      "match": "^cpu$",
+      "terms": [
+        "memory",
+        "ram",
+        "processor chip"
+      ]
+    },
+    {
+      "match": "^bell$",
+      "terms": [
+        "subscriptions",
+        "subscribe",
+        "reminder"
+      ]
+    },
+    {
+      "match": "^(qr-code|scan-qr-code)$",
+      "terms": [
+        "qr",
+        "qr code",
+        "pr code",
+        "code scan"
+      ]
+    },
+    {
+      "match": "^(camera|scan|scan-eye)$",
+      "terms": [
+        "ai scan",
+        "capture",
+        "recognise",
+        "recognize"
+      ]
     }
   ],
   "names": {
