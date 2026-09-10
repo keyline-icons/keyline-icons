@@ -213,25 +213,26 @@ SETS['chart-waterfall'] = () => {
 /* ----------------------------------------------- chart-no-axes-combined */
 
 /**
- * `bar-chart`'s composition, three bars on no axis painting the vertical
- * 18 by 22, with a line series over them. The line is `chart-line`'s
- * vocabulary at 45 degrees, up, down and up, turning on r=1, from (4,10) to
- * (20,2) so its ink spans 3..21 like the bars do; the bars stand on 22 at x 7,
- * 12 and 17 on the family's 5 pitch, and each rises to the last whole unit that
- * keeps its cap 2 clear of the run above it: a cap 4 from a 45-degree line on
- * the centre lines is 5.66 in x + y, so the tops are 13, 12 and 11 and every
- * bar sits 2.24 under the line.
+ * ZAFAR'S DRAWING, 10 Sep 2026, fitted. Five bars on the 4 pitch at x 4..20
+ * standing on 21, and a line running THROUGH the field from (22,3) down to a
+ * valley, up over a peak and off to (2,12), turning on r=1 like `chart-line`.
+ * His vertices read back as (13.11,10.35) and (7.56,6.49) with fillets of
+ * 1.01 and 1.00, so they snap to (13,10.5) and (7.5,6.5) on r=1 and nothing
+ * else about the line moved. Two bar tops moved half a unit: his 14.5 and 13
+ * under the runs measured 1.82 and 1.85 to the line, and 15 and 13.5 measure
+ * 2.23. Ink 1..23 by 2..22, the horizontal size.
  */
 SETS['chart-no-axes-combined'] = () => {
   const out = {};
-  const BOX = [3, 1, 21, 23];
+  const BOX = [1, 2, 23, 22];
+  const BARS = [[4, 17], [8, 12], [12, 15], [16, 13.5], [20, 10]];
   for (const sharp of [false, true]) {
     const key = sharp ? 'sharp' : 'regular';
     const r = sharp ? 0 : 1;
-    const A = sharp ? sharpen([[4, 10], [10, 4]], [true, false], BOX)[0] : [4, 10];
-    const B = sharp ? sharpen([[14, 8], [20, 2]], [false, true], BOX)[1] : [20, 2];
-    const line = new Path().M(A).corner([10, 4], [14, 8], r).corner([14, 8], B, r).L(B).toString();
-    const bars = [[[7, 22], [7, 13]], [[12, 22], [12, 12]], [[17, 22], [17, 11]]].map((b) => run(b, sharp, [true, true], BOX)).join('');
+    const A = sharp ? sharpen([[22, 3], [13, 10.5]], [true, false], BOX)[0] : [22, 3];
+    const B = sharp ? sharpen([[7.5, 6.5], [2, 12]], [false, true], BOX)[1] : [2, 12];
+    const line = new Path().M(A).corner([13, 10.5], [7.5, 6.5], r).corner([7.5, 6.5], B, r).L(B).toString();
+    const bars = BARS.map(([x, top]) => run([[x, 21], [x, top]], sharp, [true, true], BOX)).join('');
     out[`stroke.${key}`] = [S(line + bars)];
   }
   return out;
@@ -341,25 +342,33 @@ SETS['chart-bullet'] = () => {
 /* ------------------------------------------------------- chart-line-down */
 
 /**
- * `chart-line`'s vocabulary falling instead of rising, with `trending-down`'s
- * arrowhead on the end: the run turns on r=1 at (11,9) and (14,6), then heads
- * for a corner at (21,13) whose bracket is two arms of 6 meeting on r=0.5,
- * the run stopping 0.6 short of the vertex on both axes so its cap is buried
- * in the corner, exactly as the trending pair do. The bracket's lower arm
- * sits 4.24 off the run, 2.24 of daylight, the same number `trending-up`
- * carries. `chart-line-up` is this drawing's mirror about y=12, next round.
+ * ZAFAR'S DRAWING, 10 Sep 2026, fitted. A line from (7,8) falling, rising and
+ * falling into an arrowhead at (21,15), the head 4.5 on each arm (his 4.2 and
+ * 4.67, read as one symmetric bracket) on r=0.5, and the run stopping one
+ * unit short of the corner along its own direction, which is where his ends.
+ * His vertices read back as (10.89,12.29) and (14.77,9.29) with fillets of
+ * 0.67; they snap to (11,12.5) and (15,9.5), and the fillet goes to r=1, the
+ * radius his `chart-line` turns on, rather than the ladder's nearer 0.5.
+ * The head's arms sit about 1 off the run, the wedge every 4-unit head in the
+ * set has. `chart-line-up` is this drawing mirrored about y=11.5, as his is.
  */
 SETS['chart-line-down'] = () => {
   const out = {};
   const BOX = [2, 2, 22, 22];
+  const M = (p) => p;
+  const V = [[7, 8], [11, 12.5], [15, 9.5]].map(M);
+  const C = M([21, 15]);
+  const dir = unit(sub(C, V[2]));
+  const END = sub(C, dir);                 // one unit short of the corner, his stop
+  const ARM = [M([16.5, 15]), M([21, 10.5])];
   for (const sharp of [false, true]) {
     const key = sharp ? 'sharp' : 'regular';
     const r = sharp ? 0 : 1;
-    const A = sharp ? sharpen([[7, 5], [11, 9]], [true, false], BOX)[0] : [7, 5];
-    const line = new Path().M(A).corner([11, 9], [14, 6], r).corner([14, 6], [20.4, 12.4], r).L([20.4, 12.4]).toString();
-    const arms = sharp ? sharpen([[15, 13], [21, 13]], [true, false], BOX) : [[15, 13], [21, 13]];
-    const tip = sharp ? sharpen([[21, 13], [21, 7]], [false, true], BOX)[1] : [21, 7];
-    const head = new Path().M(arms[0]).corner([21, 13], tip, sharp ? 0 : 0.5).L(tip).toString();
+    const A = sharp ? sharpen([V[0], V[1]], [true, false], BOX)[0] : V[0];
+    const line = new Path().M(A).corner(V[1], V[2], r).corner(V[2], END, r).L(END).toString();
+    const a0 = sharp ? sharpen([ARM[0], C], [true, false], BOX)[0] : ARM[0];
+    const a1 = sharp ? sharpen([C, ARM[1]], [false, true], BOX)[1] : ARM[1];
+    const head = new Path().M(a0).corner(C, a1, sharp ? 0 : 0.5).L(a1).toString();
     out[`stroke.${key}`] = [S(AXIS(sharp) + line + head)];
   }
   return out;
@@ -407,23 +416,24 @@ function sTo(p, target, R) {
 
 /* ---------------------------------------------------------- chart-line-up */
 
-/**
- * `chart-line-down` turned over, and moved up a little: the mirror about
- * y=12 would put the run's start on the foot's ink. Start (7,17) clears the
- * foot by 2; the head's corner is (21,9), arms to (15,9) and (21,15), and the
- * run stops 0.6 short of the corner as before, 4.24 off the bracket's arm.
- */
+/** `chart-line-down` mirrored about y=11.5, which is how he drew the pair. */
 SETS['chart-line-up'] = () => {
   const out = {};
   const BOX = [2, 2, 22, 22];
+  const M = (p) => [p[0], 23 - p[1]];
+  const V = [[7, 8], [11, 12.5], [15, 9.5]].map(M);
+  const C = M([21, 15]);
+  const dir = unit(sub(C, V[2]));
+  const END = sub(C, dir);                 // one unit short of the corner, his stop
+  const ARM = [M([16.5, 15]), M([21, 10.5])];
   for (const sharp of [false, true]) {
     const key = sharp ? 'sharp' : 'regular';
     const r = sharp ? 0 : 1;
-    const A = sharp ? sharpen([[7, 17], [11, 13]], [true, false], BOX)[0] : [7, 17];
-    const line = new Path().M(A).corner([11, 13], [14, 16], r).corner([14, 16], [20.4, 9.6], r).L([20.4, 9.6]).toString();
-    const arms = sharp ? sharpen([[15, 9], [21, 9]], [true, false], BOX) : [[15, 9], [21, 9]];
-    const tip = sharp ? sharpen([[21, 9], [21, 15]], [false, true], BOX)[1] : [21, 15];
-    const head = new Path().M(arms[0]).corner([21, 9], tip, sharp ? 0 : 0.5).L(tip).toString();
+    const A = sharp ? sharpen([V[0], V[1]], [true, false], BOX)[0] : V[0];
+    const line = new Path().M(A).corner(V[1], V[2], r).corner(V[2], END, r).L(END).toString();
+    const a0 = sharp ? sharpen([ARM[0], C], [true, false], BOX)[0] : ARM[0];
+    const a1 = sharp ? sharpen([C, ARM[1]], [false, true], BOX)[1] : ARM[1];
+    const head = new Path().M(a0).corner(C, a1, sharp ? 0 : 0.5).L(a1).toString();
     out[`stroke.${key}`] = [S(AXIS(sharp) + line + head)];
   }
   return out;

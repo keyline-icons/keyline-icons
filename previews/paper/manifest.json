@@ -759,7 +759,7 @@
       "width": 742,
       "icons": 35,
       "variants": 38,
-      "bytes": 39906
+      "bytes": 40000
     },
     {
       "file": "new-2.html",
@@ -1115,7 +1115,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 408509
+      "bytes": 408545
     }
   ]
 }

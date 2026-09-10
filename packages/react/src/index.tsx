@@ -931,7 +931,7 @@ export function ChartDiagram(props: IconProps) {
 export function ChartLineDown(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M3 3L3 19C3 20.1046 3.8954 21 5 21L21 21M7 5L10.2929 8.2929C10.6834 8.6834 11.3166 8.6834 11.7071 8.2929L13.2929 6.7071C13.6834 6.3166 14.3166 6.3166 14.7071 6.7071L20.4 12.4M15 13L20.5 13C20.7761 13 21 12.7761 21 12.5L21 7" fill="none" />
+      <path d="M3 3L3 19C3 20.1046 3.8954 21 5 21L21 21M7 8L10.3887 11.8123C10.7342 12.201 11.32 12.26 11.7361 11.9479L14.3361 9.998C14.721 9.7092 15.2571 9.7356 15.6118 10.0608L20.2628 14.3243M16.5 15L20.5 15C20.7761 15 21 14.7761 21 14.5L21 10.5" fill="none" />
     </Icon>
   )
 }
@@ -939,7 +939,7 @@ export function ChartLineDown(props: IconProps) {
 export function ChartLineUp(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M3 3L3 19C3 20.1046 3.8954 21 5 21L21 21M7 17L10.2929 13.7071C10.6834 13.3166 11.3166 13.3166 11.7071 13.7071L13.2929 15.2929C13.6834 15.6834 14.3166 15.6834 14.7071 15.2929L20.4 9.6M15 9L20.5 9C20.7761 9 21 9.2239 21 9.5L21 15" fill="none" />
+      <path d="M3 3L3 19C3 20.1046 3.8954 21 5 21L21 21M7 15L10.3887 11.1877C10.7342 10.799 11.32 10.74 11.7361 11.0521L14.3361 13.002C14.721 13.2908 15.2571 13.2644 15.6118 12.9392L20.2628 8.6757M16.5 8L20.5 8C20.7761 8 21 8.2239 21 8.5L21 12.5" fill="none" />
     </Icon>
   )
 }
@@ -947,7 +947,7 @@ export function ChartLineUp(props: IconProps) {
 export function ChartNoAxesCombined(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M4 10L9.2929 4.7071C9.6834 4.3166 10.3166 4.3166 10.7071 4.7071L13.2929 7.2929C13.6834 7.6834 14.3166 7.6834 14.7071 7.2929L20 2M7 22L7 13M12 22L12 12M17 22L17 11" fill="none" />
+      <path d="M22 3L13.5984 10.0013C13.2465 10.2945 12.7405 10.3112 12.37 10.0418L8.1911 7.0026C7.7931 6.7132 7.2437 6.7563 6.8958 7.1042L2 12M4 21L4 17M8 21L8 12M12 21L12 15M16 21L16 13.5M20 21L20 10" fill="none" />
     </Icon>
   )
 }

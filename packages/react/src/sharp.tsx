@@ -931,7 +931,7 @@ export function ChartDiagram(props: IconProps) {
 export function ChartLineDown(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3 2L3 21L22 21M6.7071 4.7071L11 9L14 6L20.4 12.4M14 13L21 13L21 6" fill="none" />
+      <path d="M3 2L3 21L22 21M6.7017 7.6644L11 12.5L15 9.5L20.2628 14.3243M15.5 15L21 15L21 9.5" fill="none" />
     </Icon>
   )
 }
@@ -939,7 +939,7 @@ export function ChartLineDown(props: IconProps) {
 export function ChartLineUp(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3 2L3 21L22 21M6.7071 17.2929L11 13L14 16L20.4 9.6M14 9L21 9L21 16" fill="none" />
+      <path d="M3 2L3 21L22 21M6.7017 15.3356L11 10.5L15 13.5L20.2628 8.6757M15.5 8L21 8L21 13.5" fill="none" />
     </Icon>
   )
 }
@@ -947,7 +947,7 @@ export function ChartLineUp(props: IconProps) {
 export function ChartNoAxesCombined(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3.7071 10.2929L10 4L14 8L20.2929 1.7071M7 23L7 12M12 23L12 11M17 23L17 10" fill="none" />
+      <path d="M22.2781 2.7682L13 10.5L7.5 6.5L1.7071 12.2929M4 22L4 16M8 22L8 11M12 22L12 14M16 22L16 12.5M20 22L20 9" fill="none" />
     </Icon>
   )
 }
