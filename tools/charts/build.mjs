@@ -400,6 +400,311 @@ SETS['chart-line-down'] = () => {
   return out;
 };
 
+/* ---------------------------------------------------- round three helpers */
+
+/** `segs` wound WITH `plateSegs`, so it paints beside it. */
+const solidOn = (plateSegs, segs) =>
+  contourPath(windingOf(plateSegs) === windingOf(segs) ? segs : [...segs].reverse().map(reverseSeg));
+
+/** The family's small arrow: a 4-wide head on the stem, arms at 45 degrees, every end buried or free as said. */
+const arrowRuns = (from, tip, dir) => {
+  // dir is [0,1] for down, [0,-1] for up; the head's arms sit 2 back from the tip
+  const back = [tip[0] - 2 * dir[0], tip[1] - 2 * dir[1]];
+  const side = [-dir[1], dir[0]];
+  return [[from, tip], [[back[0] - 2 * side[0], back[1] - 2 * side[1]], tip, [back[0] + 2 * side[0], back[1] + 2 * side[1]]]];
+};
+
+/**
+ * An S between two points with horizontal tangents at both ends, as two
+ * tangent arcs of radius R with straight leads either side, so the plate can
+ * be an exact offset. The rise fixes the turn: 2R(1 - cos t) = rise.
+ */
+function sTo(p, target, R) {
+  const cur = p.cur;
+  const dx = target[0] - cur[0], dy = target[1] - cur[1];
+  const sx = Math.sign(dx), sy = Math.sign(dy);
+  const rise = Math.abs(dy);
+  const t = (Math.acos(1 - rise / (2 * R)) * 180) / Math.PI;
+  const run = 2 * R * Math.sin((t * Math.PI) / 180);
+  const lead = (Math.abs(dx) - run) / 2;
+  if (lead < 0) throw new Error('S has no room');
+  const p1 = [cur[0] + sx * lead, cur[1]];
+  p.L(p1);
+  const C1 = [p1[0], p1[1] + sy * R];
+  const a0 = -sy * 90, dir = sx * sy, a1 = a0 + dir * t;
+  p.A(C1, a0, a1, dir);
+  const M = p.cur;
+  const C2 = [2 * M[0] - C1[0], 2 * M[1] - C1[1]];
+  p.A(C2, a1 + 180, a0 + 180, -dir);
+  p.L(target);
+  return p;
+}
+
+/* ---------------------------------------------------------- chart-line-up */
+
+/**
+ * `chart-line-down` turned over, and moved up a little: the mirror about
+ * y=12 would put the run's start on the foot's ink. Start (7,17) clears the
+ * foot by 2; the head's corner is (21,9), arms to (15,9) and (21,15), and the
+ * run stops 0.6 short of the corner as before, 4.24 off the bracket's arm.
+ */
+SETS['chart-line-up'] = () => {
+  const out = {};
+  const BOX = [2, 2, 22, 22];
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const r = sharp ? 0 : 1;
+    const A = sharp ? sharpen([[7, 17], [11, 13]], [true, false], BOX)[0] : [7, 17];
+    const line = new Path().M(A).corner([11, 13], [14, 16], r).corner([14, 16], [20.4, 9.6], r).L([20.4, 9.6]).toString();
+    const arms = sharp ? sharpen([[15, 9], [21, 9]], [true, false], BOX) : [[15, 9], [21, 9]];
+    const tip = sharp ? sharpen([[21, 9], [21, 15]], [false, true], BOX)[1] : [21, 15];
+    const head = new Path().M(arms[0]).corner([21, 9], tip, sharp ? 0 : 0.5).L(tip).toString();
+    out[`stroke.${key}`] = [S(AXIS(sharp) + line + head)];
+  }
+  return out;
+};
+
+/* ------------------------------------------- diagram-next, diagram-previous */
+
+/**
+ * Two full-width bars and an arrow between them, down for next and up for
+ * previous. The budget between bars of 4 (3..7 and 17..21, the fat chart
+ * pair's height) is 10 of daylight: the arrow's stem leaves the bar's edge
+ * buried, the head's arms end 2 clear of that bar's ink and its tip sits 2
+ * clear of the other, which is a 4-wide head on a 6 stem, `list-sort`'s
+ * proportion. Fill: bars solid, arrow stroked.
+ */
+function barsArrow(down) {
+  const out = {};
+  const bars = [[3, 3, 21, 7], [3, 17, 21, 21]];
+  const runs = down ? arrowRuns([12, 7], [12, 13], [0, 1]) : arrowRuns([12, 17], [12, 11], [0, -1]);
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const bodies = bars.map((b) => box(b, sharp ? 0 : 1));
+    const plates = bodies.map((b) => plateOf(b.segs));
+    // stem: start buried in the bar, tip buried in the arms' join (a butt end
+    // pushed past the apex would poke through the head); arms' outer ends free
+    const arrow = run(runs[0], sharp, [false, false]) + run(runs[1], sharp, [true, true]);
+    const d = bodies.map(String).join('') + arrow;
+    out[`stroke.${key}`] = [S(d)];
+    out[`duotone.${key}`] = [P(plates.map((c) => contourPath(c)).join('')), S(d)];
+    out[`fill.${key}`] = [F_(plates.map((c) => contourPath(c)).join('')), S(arrow)];
+  }
+  return out;
+}
+SETS['diagram-next'] = () => barsArrow(true);
+SETS['diagram-previous'] = () => barsArrow(false);
+
+/* ---------------------------------- diagram-successor, diagram-predecessor */
+
+/**
+ * A half-width box and a full-width bar, with a hooked arrow from the box's
+ * side turning on r=1 and pointing at the bar: the bar is the successor when
+ * it sits below and the arrow comes down onto it, the predecessor when it sits
+ * above and the arrow rises to it. The hook turns at x=18 so the head's near
+ * arm clears the box's ink by 2, and the tip stops 2 clear of the bar.
+ */
+function hookedArrow(successor) {
+  const out = {};
+  const boxes = successor ? [[3, 3, 12, 8], [3, 16, 21, 21]] : [[3, 16, 12, 21], [3, 3, 21, 8]];
+  const y0 = successor ? 5.5 : 18.5, tipY = 12, dirY = successor ? 1 : -1;
+  const head = arrowRuns([18, y0], [18, tipY], [0, dirY])[1];
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const bodies = boxes.map((b) => box(b, sharp ? 0 : 2));
+    const plates = bodies.map((b) => plateOf(b.segs));
+    const wire = new Path().M([12, y0]).corner([18, y0], [18, tipY], sharp ? 0 : 1).L([18, tipY]).toString();
+    const arrow = wire + run(head, sharp, [true, true]);
+    const d = bodies.map(String).join('') + arrow;
+    out[`stroke.${key}`] = [S(d)];
+    out[`duotone.${key}`] = [P(plates.map((c) => contourPath(c)).join('')), S(d)];
+    out[`fill.${key}`] = [F_(plates.map((c) => contourPath(c)).join('')), S(arrow)];
+  }
+  return out;
+}
+SETS['diagram-successor'] = () => hookedArrow(true);
+SETS['diagram-predecessor'] = () => hookedArrow(false);
+
+/* ------------------------------------------------------- diagram-project */
+
+/**
+ * Three nodes: two boxes on the top row 2 apart, one centred below, a wire
+ * between the top pair and an L from the left box down and across into the
+ * bottom one. The L's run at y=12 sits 2 from the top boxes' ink and 2 from
+ * the bottom box's, which is what put the boxes on 3..8 and 16..21.
+ */
+SETS['diagram-project'] = () => {
+  const out = {};
+  const boxes = [[3, 3, 10, 8], [14, 3, 21, 8], [8.5, 16, 15.5, 21]];
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const bodies = boxes.map((b) => box(b, sharp ? 0 : 1));
+    const plates = bodies.map((b) => plateOf(b.segs));
+    const r = sharp ? 0 : 1;
+    const wires = 'M10 5.5L14 5.5' + new Path().M([6.5, 8]).corner([6.5, 12], [12, 12], r).corner([12, 12], [12, 16], r).L([12, 16]).toString();
+    const d = bodies.map(String).join('') + wires;
+    out[`stroke.${key}`] = [S(d)];
+    out[`duotone.${key}`] = [P(plates.map((c) => contourPath(c)).join('')), S(d)];
+    out[`fill.${key}`] = [F_(plates.map((c) => contourPath(c)).join('')), S(wires)];
+  }
+  return out;
+};
+
+/* ------------------------------------------------------- diagram-subtask */
+
+/**
+ * A parent box top-left and its subtask bottom-right, indented, joined by an
+ * L that drops from the parent at x=6 (2 clear of the child's wall at 10) and
+ * enters the child on its own centre line.
+ */
+SETS['diagram-subtask'] = () => {
+  const out = {};
+  const boxes = [[3, 3, 14, 8], [10, 16, 21, 21]];
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const bodies = boxes.map((b) => box(b, sharp ? 0 : 2));
+    const plates = bodies.map((b) => plateOf(b.segs));
+    const wire = new Path().M([6, 8]).corner([6, 18.5], [10, 18.5], sharp ? 0 : 1).L([10, 18.5]).toString();
+    const d = bodies.map(String).join('') + wire;
+    out[`stroke.${key}`] = [S(d)];
+    out[`duotone.${key}`] = [P(plates.map((c) => contourPath(c)).join('')), S(d)];
+    out[`fill.${key}`] = [F_(plates.map((c) => contourPath(c)).join('')), S(wire)];
+  }
+  return out;
+};
+
+/* -------------------------------------------------------- diagram-nested */
+
+/**
+ * A box inside a box: the house body on r=3 and an 8-unit box on r=2 set
+ * toward the bottom-right, 2 clear of the outer walls there. The fill keeps
+ * the outer solid and knocks the inner box's own band out of it, a white ring
+ * with a solid centre, so the nesting survives the solid.
+ */
+SETS['diagram-nested'] = () => {
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const outer = box([3, 3, 21, 21], sharp ? 0 : 3);
+    const inner = box([9, 9, 17, 17], sharp ? 0 : 2);
+    const plate = plateOf(outer.segs);
+    const band = plateOf(inner.segs);
+    const core = box([10, 10, 16, 16], sharp ? 0 : 1).segs;
+    const d = outer.toString() + inner.toString();
+    out[`stroke.${key}`] = [S(d)];
+    out[`duotone.${key}`] = [P(contourPath(plate)), S(d)];
+    out[`fill.${key}`] = [F_(contourPath(plate) + hole(plate, band) + solidOn(plate, core))];
+  }
+  return out;
+};
+
+/* --------------------------------------------------------- diagram-cells */
+
+/**
+ * A table of cells: the house body with a header band across the top at y=9
+ * and three columns under it, rules at x=9 and 15 from the band to the foot.
+ * `grid-3x2` already owns the box whose columns run the full height, so the
+ * header band is what makes this a different drawing. Fill slots every rule.
+ */
+SETS['diagram-cells'] = () => {
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const body = box([3, 3, 21, 21], sharp ? 0 : 3);
+    const plate = plateOf(body.segs);
+    const rules = 'M3 9L21 9M9 9L9 21M15 9L15 21';
+    const slot = ([x0, y0, x1, y1]) => hole(plate, lineSegs([[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]]));
+    const slots = slot([4, 8, 20, 10]) + slot([8, 10, 10, 20]) + slot([14, 10, 16, 20]);
+    out[`stroke.${key}`] = [S(body.toString() + rules)];
+    out[`duotone.${key}`] = [P(contourPath(plate)), S(body.toString() + rules)];
+    out[`fill.${key}`] = [F_(contourPath(plate) + slots)];
+  }
+  return out;
+};
+
+/* -------------------------------------------------------- diagram-sankey */
+
+/**
+ * One flow splitting into two: a band 12 tall at the left edge whose top and
+ * bottom edges swing up and down in S-curves to two bands of 6 at the right,
+ * with a V notch between them reaching back to (13,12). The S is two tangent
+ * arcs of r=6 (rise 3, run 7.94, leads 3 either side), so the plate is an
+ * exact offset; corners are r=2, the notch's mouth r=1 and its apex r=2
+ * (concave, so the plate trims it). Closed at both edges, so it fills.
+ */
+SETS['diagram-sankey'] = () => {
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const r2 = sharp ? 0 : 2, r1 = sharp ? 0 : 1;
+    const p = new Path().M([3, 12]).corner([3, 6], [21, 6], r2);
+    sTo(p, [19, 3], 6);
+    p.corner([21, 3], [21, 9], r2).corner([21, 9], [13, 12], r1).corner([13, 12], [21, 15], r2).corner([21, 15], [21, 21], r1).corner([21, 21], [3, 21], r2);
+    sTo(p, [5, 18], 6);
+    p.corner([3, 18], [3, 6], r2).Z();
+    const plate = plateOf(p.segs);
+    out[`stroke.${key}`] = [S(p.toString())];
+    out[`duotone.${key}`] = [P(contourPath(plate)), S(p.toString())];
+    out[`fill.${key}`] = [F_(contourPath(plate))];
+  }
+  return out;
+};
+
+/* ------------------------------ arrow-up-right-dots, arrow-down-left-dots */
+
+/**
+ * `arrow-up-right`'s form at three quarters, its head on r=0.5 in the top-left
+ * corner of the canvas, over a triangle of six beads packed on the bead pitch
+ * of 5 in the bottom-right, their ink landing on 22. The down-left twin is
+ * the same drawing turned through the centre, which keeps the arrow's head
+ * and the beads' triangle in opposite corners.
+ */
+function arrowDots(turn) {
+  const T = (p) => (turn ? [24 - p[0], 24 - p[1]] : p);
+  const out = {};
+  const BOX = [2, 2, 22, 22];
+  const beads = [[10.5, 20.5], [15.5, 20.5], [20.5, 20.5], [15.5, 15.5], [20.5, 15.5], [20.5, 10.5]].map(T);
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const shaft = run([T([3, 14]), T([13.4, 3.6])], sharp, [true, false], BOX);
+    const arms = sharp ? sharpen([T([8, 3]), T([14, 3])], [true, false], BOX) : [T([8, 3]), T([14, 3])];
+    const tip = sharp ? sharpen([T([14, 3]), T([14, 9])], [false, true], BOX)[1] : T([14, 9]);
+    const head = new Path().M(arms[0]).corner(T([14, 3]), tip, sharp ? 0 : 0.5).L(tip).toString();
+    out[`stroke.${key}`] = [S(shaft + head), F_(beads.map((c) => circlePath(c, 1.5)).join(''))];
+  }
+  return out;
+}
+SETS['arrow-up-right-dots'] = () => arrowDots(false);
+SETS['arrow-down-left-dots'] = () => arrowDots(true);
+
+/* --------------------------------------------------------- bars-progress */
+
+/**
+ * Two bars 6 tall on r=2, each with a rule marking how far it has filled, at
+ * x=15 on the upper and x=10 on the lower. The fill opens the unfilled part
+ * of each bar, from the rule's ink to the wall's inner ink, so the solid reads
+ * as two progress bars rather than two slabs.
+ */
+SETS['bars-progress'] = () => {
+  const out = {};
+  const bars = [[3, 3, 21, 9], [3, 15, 21, 21]];
+  const marks = [15, 10];
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const bodies = bars.map((b) => box(b, sharp ? 0 : 2));
+    const plates = bodies.map((b) => plateOf(b.segs));
+    const rules = bars.map(([, y0, , y1], i) => `M${marks[i]} ${y0}L${marks[i]} ${y1}`).join('');
+    const r = sharp ? 0 : 1;
+    const opens = bars.map(([, y0, , y1], i) =>
+      hole(plates[i], polyContour([[marks[i] + 1, y0 + 1], [20, y0 + 1], [20, y1 - 1], [marks[i] + 1, y1 - 1]], [0, r, r, 0]).segs)).join('');
+    const d = bodies.map(String).join('') + rules;
+    out[`stroke.${key}`] = [S(d)];
+    out[`duotone.${key}`] = [P(plates.map((c) => contourPath(c)).join('')), S(d)];
+    out[`fill.${key}`] = [F_(plates.map((c) => contourPath(c)).join('') + opens)];
+  }
+  return out;
+};
+
 /* ------------------------------------------------------------------ main */
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
