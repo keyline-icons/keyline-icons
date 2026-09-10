@@ -228,6 +228,7 @@
     {
       "match": "^check$",
       "terms": [
+        "checkmark",
         "done",
         "complete",
         "tick",

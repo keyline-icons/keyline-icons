@@ -153,6 +153,16 @@ const CASES = [
   ["Trash2", ["trash"], "same shape as Share2"],
   ["Volume2", ["volume"], "same shape as Share2"],
 
+  // The `Icon` suffix, from a set that puts it on every export. The first has
+  // no case boundary at all and was never an identifier; the rest split into a
+  // word list ending in `icon`, which no drawing carries.
+  ["Globe02Icon", ["globe"], "digits before the suffix, no boundary anywhere"],
+  ["CheckmarkCircle02Icon", ["checkmark", "circle"], "same, with a boundary"],
+  ["FileCodeIcon", ["file", "code"], "no digits, and `icon` must not survive"],
+  ["SparklesIcon", ["sparkles"], "one word under the suffix"],
+  ["Icon", ["icon"], "the bare word is not a suffix"],
+  ["Lexicon", ["lexicon"], "a word that happens to end in icon, lowercase"],
+
   // The guard. These are real names in the set and must keep their digits.
   ["clock-3", ["clock", "3"], "a real name"],
   ["dice-5", ["dice", "5"], "a real name"],
@@ -212,6 +222,9 @@ const FINDS = [
   ["check circle", "circle-check", "same, typed as words"],
   ["down arrow", "arrow-down", "either order asks the same question"],
   ["AlertCircle", "circle-alert", "lucide's old spelling, mark first"],
+  ["Globe02Icon", "globe", "another set's export name, pasted whole"],
+  ["CheckmarkCircle02Icon", "circle-check", "same, and `checkmark` is their word"],
+  ["FileTextIcon", "file-text", "same, no digits"],
 ]
 
 /**

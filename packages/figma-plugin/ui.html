@@ -297,12 +297,17 @@
    *
    * Still guarded, because `clock-3`, `dice-5` and `bar-chart-2` are real names
    * and a lowercase query keeps its digits.
+   *
+   * A trailing `Icon` and the digits before it come off first: `Globe02Icon`
+   * has no case boundary and `FileCodeIcon` splits into a word nothing carries.
    */
   function wordsOf(query) {
     const identifier =
-      /[a-z][A-Z]/.test(query) || /^[A-Z][A-Za-z]*\d+$/.test(query)
+      /[a-z][A-Z]/.test(query) ||
+      /^[A-Z][A-Za-z]*\d+$/.test(query) ||
+      /^[A-Z][A-Za-z]*\d*Icon$/.test(query)
     const split = identifier
-      ? query.replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/([a-zA-Z])(\d)/g, "$1 $2")
+      ? query.replace(/\d*Icon$/, "").replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/([a-zA-Z])(\d)/g, "$1 $2")
       : query
     return split
       .toLowerCase()

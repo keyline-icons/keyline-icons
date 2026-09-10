@@ -281,6 +281,75 @@ const stemmed = (hay: string) => hay.replace(/[a-z0-9]+/g, singular)
 const CONCEPTS = /(^|[ -])(arrows)(?=$|[ -])/g
 
 /**
+ * The names a search for a logo arrives as.
+ *
+ * The set draws no brand marks and never will: a logo is its owner's drawing,
+ * under its owner's rules, and an interface set that carries a few of them
+ * is a set that is out of date the day one of them is redrawn. Fourteen
+ * searches in the first month were for one, `instagram`, `linkedin`, `github`,
+ * `google` and `apple` among them, and every one got the same "try another
+ * word" as a drawing that is merely missing. That is the wrong answer: there
+ * is no other word, and asking for it will not help. The empty state says so
+ * instead, and drops the request button, because the request would be turned
+ * down.
+ *
+ * A list rather than a rule, because nothing about the word says it is a
+ * mark. Kept to names that are only ever a brand; `signal`, `x` and `zoom`
+ * are also words, and stay out.
+ */
+const BRAND_MARKS = new Set([
+  "logo",
+  "logos",
+  "brand",
+  "brands",
+  "github",
+  "gitlab",
+  "google",
+  "gmail",
+  "youtube",
+  "apple",
+  "microsoft",
+  "windows",
+  "android",
+  "linux",
+  "facebook",
+  "instagram",
+  "linkedin",
+  "twitter",
+  "tiktok",
+  "snapchat",
+  "pinterest",
+  "reddit",
+  "mastodon",
+  "bluesky",
+  "threads",
+  "whatsapp",
+  "telegram",
+  "slack",
+  "discord",
+  "twitch",
+  "spotify",
+  "netflix",
+  "amazon",
+  "paypal",
+  "stripe",
+  "shopify",
+  "figma",
+  "notion",
+  "dribbble",
+  "behance",
+  "openai",
+  "chatgpt",
+  "vercel",
+  "react",
+  "docker",
+  "wordpress",
+  "chrome",
+  "firefox",
+  "safari",
+])
+
+/**
  * Whether one icon's haystack answers every word of a query.
  *
  * The raw word first, so nothing that matched before stops matching. The
@@ -319,14 +388,26 @@ const answers = (haystack: string, words: string[]) => {
  * Still guarded, because `clock-3`, `dice-5` and `bar-chart-2` are real names.
  * A lowercase query keeps its digits and can still reach them.
  *
+ * A trailing `Icon` comes off first, with the digits in front of it. A month of
+ * empty searches carried `Globe02Icon`, `CheckmarkCircle02Icon`, `FileCodeIcon`
+ * and `SparklesIcon`: names pasted out of a set that suffixes every export, and
+ * not one of them found the drawing it named. The first shape has no case
+ * boundary at all, `e0` and `2I`, so it was never an identifier here and kept
+ * its digits; the others split into a word list ending in `icon`, which nothing
+ * carries. The suffix is the third identifier shape, and the strip runs before
+ * the split so the digits never become a word to drop.
+ *
  * Same rule as `wordsOf` in the MCP server, the CLI and the Figma plugin. Four
  * surfaces, one behaviour, and this was the last of them to get it.
  */
 const terms = (query: string) => {
   const identifier =
-    /[a-z][A-Z]/.test(query) || /^[A-Z][A-Za-z]*\d+$/.test(query)
+    /[a-z][A-Z]/.test(query) ||
+    /^[A-Z][A-Za-z]*\d+$/.test(query) ||
+    /^[A-Z][A-Za-z]*\d*Icon$/.test(query)
   const split = identifier
     ? query
+        .replace(/\d*Icon$/, "")
         .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
         .replace(/([a-zA-Z])(\d)/g, "$1 $2")
     : query
@@ -727,6 +808,42 @@ export function IconBrowser({
   )
 
   /**
+   * Drawings this search found that the shape or category filter is hiding.
+   *
+   * `matches` runs before the shape filter, so `file` under Circle has eleven
+   * matches and an empty grid, and the empty state said "No icons match file"
+   * over a set that has every one of them. A month of misses put `file`,
+   * `move`, `alert`, `down` and `app` among the most searched words that found
+   * nothing, each a drawing the set has, and `elsewhere` was 0 for all of
+   * them because it only looks at other styles. The category is the same trap
+   * one level up: typing clears it, but a link can arrive carrying both.
+   *
+   * So this is the count with both filters off, in the style on show, and the
+   * empty state offers it as one click. Only when the grid is empty and a
+   * filter is on, so the ordinary case costs nothing.
+   */
+  const hiddenByFilter = React.useMemo(() => {
+    if (shown.length > 0) return 0
+    if (shape === "all" && category === "all") return 0
+    const words = terms(query)
+    if (words.length === 0) return 0
+    return icons.filter((i) => {
+      if (!artOf(i, style, corners)) return false
+      if (iconNamedElsewhere(query) === i.base) return true
+      return answers([i.name, ...aliasesFor(i.base)].join(" "), words)
+    }).length
+  }, [icons, query, style, shape, category, corners, shown.length])
+
+  /**
+   * A search for a logo. The set has none and will not draw one, and the
+   * empty state has to say that rather than suggest another word.
+   */
+  const brandQuery = React.useMemo(
+    () => terms(query).some((w) => BRAND_MARKS.has(w)),
+    [query]
+  )
+
+  /**
    * A search that found nothing, reported once the typing stops.
    *
    * This is the one number on the site that says what to draw next. An empty
@@ -773,6 +890,7 @@ export function IconBrowser({
         shape,
         category,
         elsewhere: matchesElsewhere,
+        hidden: hiddenByFilter,
         suggestion,
       })
     }, SEARCH_SETTLE_MS)
@@ -786,6 +904,7 @@ export function IconBrowser({
     shape,
     category,
     matchesElsewhere,
+    hiddenByFilter,
     suggestion,
   ])
 
@@ -1552,7 +1671,31 @@ export function IconBrowser({
                   a noun and "10 match in another style" as a verb, and both
                   parse, where the conditional it replaced produced "1 matches".
                 */}
-                {matchesElsewhere > 0 ? (
+                {/*
+                  In the order of how sure each one is. A logo is a policy
+                  answer whatever the filters say; a filter hiding the drawing
+                  is a fact about this grid; another style holding it is a fact
+                  about the set; a spelling is a guess.
+                */}
+                {brandQuery ? (
+                  "No brand marks, by design. A logo is its owner's drawing, under its owner's rules, so the set draws interface icons only."
+                ) : hiddenByFilter > 0 ? (
+                  <>
+                    {shape !== "all"
+                      ? `Nothing in ${SHAPES.find((s) => s.value === shape)!.label.toLowerCase()}. ${hiddenByFilter} match in another shape.`
+                      : `Nothing under ${category}. ${hiddenByFilter} match on another shelf.`}{" "}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShape("all")
+                        setCategory("all")
+                      }}
+                      className="rounded-sm font-medium text-foreground underline underline-offset-4 hover:no-underline"
+                    >
+                      Show all {hiddenByFilter}
+                    </button>
+                  </>
+                ) : matchesElsewhere > 0 ? (
                   `Nothing in ${style}. ${matchesElsewhere} match in another style.`
                 ) : suggestion ? (
                   <>
@@ -1582,20 +1725,23 @@ export function IconBrowser({
                   Clear filters
                 </Button>
 
-                <Button
-                  size="lg"
-                  render={
-                    <a
-                      href={SET_REQUEST_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    />
-                  }
-                  nativeButton={false}
-                >
-                  <Plus className="size-4" />
-                  Request an icon
-                </Button>
+                {/* A logo would be turned down, so it is not offered. */}
+                {!brandQuery && (
+                  <Button
+                    size="lg"
+                    render={
+                      <a
+                        href={SET_REQUEST_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      />
+                    }
+                    nativeButton={false}
+                  >
+                    <Plus className="size-4" />
+                    Request an icon
+                  </Button>
+                )}
 
                 <Button
                   size="lg"

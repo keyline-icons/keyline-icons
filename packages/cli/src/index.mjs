@@ -120,9 +120,12 @@ function svgFor(name, style, corners = "regular") {
 /** Kept in step with `@keyline-icons/mcp`, which carries the reasoning. */
 function wordsOf(query) {
   const identifier =
-    /[a-z][A-Z]/.test(query) || /^[A-Z][A-Za-z]*\d+$/.test(query)
+    /[a-z][A-Z]/.test(query) ||
+    /^[A-Z][A-Za-z]*\d+$/.test(query) ||
+    /^[A-Z][A-Za-z]*\d*Icon$/.test(query)
   const split = identifier
     ? query
+        .replace(/\d*Icon$/, "")
         .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
         .replace(/([a-zA-Z])(\d)/g, "$1 $2")
     : query

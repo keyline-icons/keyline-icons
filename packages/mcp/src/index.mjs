@@ -76,12 +76,21 @@ const pascal = (name) =>
  *
  * Only identifiers are treated that way. `clock-3` and `dice-5` are real names
  * in this set, so a lowercase query keeps its digits and can still reach them.
+ *
+ * `Globe02Icon` is the third shape: a set that suffixes every export with
+ * `Icon`, digits before it. It has no case boundary, `e0` then `2I`, so the
+ * two rules above never saw it as an identifier, and `FileCodeIcon`, which
+ * does have one, split into `file code icon` and missed on the last word. The
+ * suffix and its digits come off before the split.
  */
 function wordsOf(query) {
   const identifier =
-    /[a-z][A-Z]/.test(query) || /^[A-Z][A-Za-z]*\d+$/.test(query)
+    /[a-z][A-Z]/.test(query) ||
+    /^[A-Z][A-Za-z]*\d+$/.test(query) ||
+    /^[A-Z][A-Za-z]*\d*Icon$/.test(query)
   const split = identifier
     ? query
+        .replace(/\d*Icon$/, "")
         .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
         .replace(/([a-zA-Z])(\d)/g, "$1 $2")
     : query

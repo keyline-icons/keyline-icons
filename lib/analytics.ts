@@ -66,10 +66,17 @@ export type Events = {
    * A search that matched nothing, once the typing stopped.
    *
    * `elsewhere` is how many icons the same words would have found in another
-   * style, and `suggestion` the spelling correction offered. Both separate the
+   * style, `hidden` how many the shape or category filter kept off the grid,
+   * and `suggestion` the spelling correction offered. All three separate the
    * two ways this event happens: the set has the drawing and the filters hid
    * it, or the set does not have the drawing at all. Only the second is a
    * request for work.
+   *
+   * `hidden` was added after the first month's export: `file`, `move` and
+   * `alert` sat near the top of the misses with `elsewhere` at 0, because
+   * that count only looks across styles and the shape filter was what hid
+   * them. Without it the list of what to draw next is padded with drawings
+   * the set already has.
    */
   search_empty: {
     query: string
@@ -77,6 +84,7 @@ export type Events = {
     shape: string
     category: string
     elsewhere: number
+    hidden: number
     suggestion: string | null
   }
   /**
