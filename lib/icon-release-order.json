@@ -14,7 +14,21 @@
       "qr-code",
       "scan",
       "scissors",
-      "hourglass"
+      "chart-diagram",
+      "chart-pyramid",
+      "chart-waterfall",
+      "chart-no-axes-combined",
+      "chart-scatter-3d",
+      "chart-tree-map",
+      "chart-scatter-bubble",
+      "chart-line-down",
+      "chart-line-up",
+      "hourglass",
+      "diagram-successor",
+      "diagram-predecessor",
+      "diagram-project",
+      "diagram-subtask",
+      "bars-progress"
     ],
     "0.6.0": [
       "flame",

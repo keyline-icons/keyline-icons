@@ -169,9 +169,9 @@
       "parts": 4,
       "into": "artboard",
       "width": 742,
-      "icons": 16,
+      "icons": 26,
       "variants": 58,
-      "bytes": 41563
+      "bytes": 41606
     },
     {
       "file": "charts-2.html",
@@ -194,8 +194,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 54,
-      "bytes": 37366
+      "variants": 44,
+      "bytes": 37794
     },
     {
       "file": "charts-4.html",
@@ -206,8 +206,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 6,
-      "bytes": 4415
+      "variants": 56,
+      "bytes": 39090
     },
     {
       "file": "chevrons-carets-1.html",
@@ -376,6 +376,18 @@
       "icons": 0,
       "variants": 20,
       "bytes": 14779
+    },
+    {
+      "file": "diagrams.html",
+      "artboard": "Diagrams",
+      "category": "Diagrams",
+      "part": 1,
+      "parts": 1,
+      "into": "artboard",
+      "width": 742,
+      "icons": 4,
+      "variants": 24,
+      "bytes": 22856
     },
     {
       "file": "education.html",
@@ -754,36 +766,24 @@
       "artboard": "New",
       "category": "New",
       "part": 1,
-      "parts": 3,
+      "parts": 2,
       "into": "artboard",
       "width": 742,
-      "icons": 27,
-      "variants": 46,
-      "bytes": 42176
+      "icons": 13,
+      "variants": 54,
+      "bytes": 41870
     },
     {
       "file": "new-2.html",
       "artboard": "New",
       "category": "New",
       "part": 2,
-      "parts": 3,
+      "parts": 2,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 38340
-    },
-    {
-      "file": "new-3.html",
-      "artboard": "New",
-      "category": "New",
-      "part": 3,
-      "parts": 3,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 44,
-      "bytes": 37062
+      "variants": 20,
+      "bytes": 19809
     },
     {
       "file": "pointers-1.html",
@@ -1103,7 +1103,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 400623
+      "bytes": 400771
     }
   ]
 }

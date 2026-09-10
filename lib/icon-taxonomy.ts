@@ -50,10 +50,9 @@ export const CATEGORIES = [
   //
   // Opened 10 Sep 2026 for the fourteen of v0.7.0: the square bubble and its
   // eight companions, and qr-code, scan, scissors and hourglass; then the first
-  // twenty-three of the chart and diagram batch on 10 Sep 2026.
   {
     label: "New",
-    match: /^(message-square|messages-square|qr-code|scan$|scissors|hourglass|chart-(diagram|pyramid|waterfall|no-axes-combined|scatter-3d|tree-map|scatter-bubble|line-down|line-up)$|diagram-(successor|predecessor|project|subtask)$|bars-progress$)/,
+    match: /^(message-square|messages-square|qr-code|scan$|scissors|hourglass)/,
     blurb: "Drawn since the last release, waiting on review.",
   },
   {
@@ -166,8 +165,16 @@ export const CATEGORIES = [
   // bar charts and the signal bars, which is where the design file files it too.
   {
     label: "Charts",
-    match: /^(bar-chart|chart-|trending|signal|progress|loader|activity)/,
-    blurb: "Trends, bar charts, signal strength and activity markers.",
+    match: /^(bar-chart|bars-progress|chart-|trending|signal|progress|loader|activity)/,
+    blurb: "Trends, bar and column charts, a pyramid, a treemap, signal strength, progress and activity markers.",
+  },
+  // Boxes on wires. A diagram says how things relate, where a chart says how
+  // much, so the four of them are their own shelf rather than the tail of
+  // Charts; `chart-diagram` stays with the charts because it is named as one.
+  {
+    label: "Diagrams",
+    match: /^diagram-/,
+    blurb: "Boxes on wires: a project, a subtask, and what comes before and after.",
   },
   // `code`, `terminal`, `bug` and the `app-*` tiles are the developer surface
   // of the devices around them, eleven sets today, and they stay here until
