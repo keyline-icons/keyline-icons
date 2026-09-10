@@ -1756,10 +1756,17 @@
         "backup",
         "cloud storage",
         "upload state",
-        "synced",
-        "offline",
+        "synced"
+      ]
+    },
+    {
+      "match": "^cloud-(x|alert)$",
+      "note": "Only the two that say something went wrong carry the failure words; a synced or added cloud is not an error.",
+      "terms": [
         "sync error",
-        "warning"
+        "warning",
+        "failed",
+        "offline"
       ]
     },
     {
