@@ -649,6 +649,24 @@ export function CaretUp(props: IconProps) {
   )
 }
 
+export function ChartDiagram(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M5 2L19 2C20.6569 2 22 3.3431 22 5L22 6C22 7.6569 20.6569 9 19 9L5 9C3.3431 9 2 7.6569 2 6L2 5C2 3.3431 3.3431 2 5 2ZM4 15L9 15C10.1046 15 11 15.8954 11 17L11 20C11 21.1046 10.1046 22 9 22L4 22C2.8954 22 2 21.1046 2 20L2 17C2 15.8954 2.8954 15 4 15ZM15 15L20 15C21.1046 15 22 15.8954 22 17L22 20C22 21.1046 21.1046 22 20 22L15 22C13.8954 22 13 21.1046 13 20L13 17C13 15.8954 13.8954 15 15 15Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M5 3L19 3C20.1046 3 21 3.8954 21 5L21 6C21 7.1046 20.1046 8 19 8L5 8C3.8954 8 3 7.1046 3 6L3 5C3 3.8954 3.8954 3 5 3ZM4 16L9 16C9.5523 16 10 16.4477 10 17L10 20C10 20.5523 9.5523 21 9 21L4 21C3.4477 21 3 20.5523 3 20L3 17C3 16.4477 3.4477 16 4 16ZM15 16L20 16C20.5523 16 21 16.4477 21 17L21 20C21 20.5523 20.5523 21 20 21L15 21C14.4477 21 14 20.5523 14 20L14 17C14 16.4477 14.4477 16 15 16ZM12 8L12 12M6.5 16L6.5 13C6.5 12.4477 6.9477 12 7.5 12L16.5 12C17.0523 12 17.5 12.4477 17.5 13L17.5 16" fill="none" />
+    </Icon>
+  )
+}
+
+export function ChartPyramid(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M9.3951 3.512L1.3976 17.5119C1.1387 17.9651 1.0025 18.4781 1.0025 19C1.0025 20.6569 2.3457 22 4.0025 22L19.9975 22C21.6543 22 22.9975 20.6569 22.9975 19C22.9975 18.4781 22.8613 17.9651 22.6024 17.5119L14.6049 3.512C14.0709 2.577 13.0767 2 12 2C10.9233 2 9.9291 2.577 9.3951 3.512Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M10.2634 4.008L2.2659 18.008C1.5043 19.3413 2.467 21 4.0025 21L19.9975 21C21.533 21 22.4958 19.3413 21.7341 18.008L13.7366 4.008C12.9689 2.6641 11.0311 2.6641 10.2634 4.008ZM7.4117 9L16.5883 9M3.9842 15L20.0158 15" fill="none" />
+    </Icon>
+  )
+}
+
 export function CircleActivity(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>

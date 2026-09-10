@@ -49,10 +49,11 @@ export const CATEGORIES = [
   // whatever they are used for. The anchor is what keeps `git-refresh` in Git.
   //
   // Opened 10 Sep 2026 for the fourteen of v0.7.0: the square bubble and its
-  // eight companions, and qr-code, scan, scissors and hourglass.
+  // eight companions, and qr-code, scan, scissors and hourglass; then the first
+  // five of the chart and diagram batch on 10 Sep 2026.
   {
     label: "New",
-    match: /^(message-square|messages-square|qr-code|scan$|scissors|hourglass)/,
+    match: /^(message-square|messages-square|qr-code|scan$|scissors|hourglass|chart-(diagram|pyramid|waterfall|no-axes-combined|scatter-3d)$)/,
     blurb: "Drawn since the last release, waiting on review.",
   },
   {
@@ -165,7 +166,7 @@ export const CATEGORIES = [
   // bar charts and the signal bars, which is where the design file files it too.
   {
     label: "Charts",
-    match: /^(bar-chart|trending|signal|progress|loader|activity)/,
+    match: /^(bar-chart|chart-|trending|signal|progress|loader|activity)/,
     blurb: "Trends, bar charts, signal strength and activity markers.",
   },
   // `code`, `terminal`, `bug` and the `app-*` tiles are the developer surface

@@ -649,6 +649,24 @@ export function CaretUp(props: IconProps) {
   )
 }
 
+export function ChartDiagram(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M3 2L21 2C21.5523 2 22 2.4477 22 3L22 8C22 8.5523 21.5523 9 21 9L3 9C2.4477 9 2 8.5523 2 8L2 3C2 2.4477 2.4477 2 3 2ZM3 15L10 15C10.5523 15 11 15.4477 11 16L11 21C11 21.5523 10.5523 22 10 22L3 22C2.4477 22 2 21.5523 2 21L2 16C2 15.4477 2.4477 15 3 15ZM14 15L21 15C21.5523 15 22 15.4477 22 16L22 21C22 21.5523 21.5523 22 21 22L14 22C13.4477 22 13 21.5523 13 21L13 16C13 15.4477 13.4477 15 14 15Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M3 3L21 3L21 8L3 8L3 3ZM3 16L10 16L10 21L3 21L3 16ZM14 16L21 16L21 21L14 21L14 16ZM12 8L12 12M6.5 16L6.5 12L17.5 12L17.5 16" fill="none" />
+    </Icon>
+  )
+}
+
+export function ChartPyramid(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M11.1258 2.5144L1.1258 20.5144C1.0433 20.6629 1 20.8301 1 21C1 21.5523 1.4477 22 2 22L22 22C22.5523 22 23 21.5523 23 21C23 20.8301 22.9567 20.6629 22.8742 20.5144L12.8742 2.5144C12.6978 2.1969 12.3632 2 12 2C11.6368 2 11.3022 2.1969 11.1258 2.5144Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M12 3L2 21L22 21L12 3ZM8.6667 9L15.3333 9M5.3333 15L18.6667 15" fill="none" />
+    </Icon>
+  )
+}
+
 export function CircleActivity(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>

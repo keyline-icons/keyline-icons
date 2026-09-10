@@ -590,6 +590,11 @@
     "wrench": "A spanner, for settings, repairs, maintenance and developer tools.",
     "x": "A cross, for close, cancel, dismiss, remove and every no in a confirmation.",
     "zap": "A lightning bolt, for power, speed, an instant action and anything automatic.",
-    "zap-off": "A bolt struck through, for power off, paused automation and a disabled shortcut."
+    "zap-off": "A bolt struck through, for power off, paused automation and a disabled shortcut.",
+    "chart-diagram": "A header over two children on wires, for org charts, hierarchies and reporting lines.",
+    "chart-pyramid": "A triangle cut into three layers, for funnels, tiers and a ranked whole.",
+    "chart-waterfall": "Floating bars stepping to a total on an axis, for bridges, deltas and cash flow.",
+    "chart-no-axes-combined": "Three bars under a line series, no axis, for a mixed chart and a dashboard tile.",
+    "chart-scatter-3d": "Three axes with plotted beads, for spatial data, embeddings and a third variable."
   }
 }

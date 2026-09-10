@@ -459,6 +459,23 @@ export function CaretUp(props: IconProps) {
   )
 }
 
+export function ChartDiagram(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M5 2L19 2C20.6569 2 22 3.3431 22 5L22 6C22 7.6569 20.6569 9 19 9L5 9C3.3431 9 2 7.6569 2 6L2 5C2 3.3431 3.3431 2 5 2ZM4 15L9 15C10.1046 15 11 15.8954 11 17L11 20C11 21.1046 10.1046 22 9 22L4 22C2.8954 22 2 21.1046 2 20L2 17C2 15.8954 2.8954 15 4 15ZM15 15L20 15C21.1046 15 22 15.8954 22 17L22 20C22 21.1046 21.1046 22 20 22L15 22C13.8954 22 13 21.1046 13 20L13 17C13 15.8954 13.8954 15 15 15Z" fill="currentColor" stroke="none" />
+      <path d="M12 8L12 12M6.5 16L6.5 13C6.5 12.4477 6.9477 12 7.5 12L16.5 12C17.0523 12 17.5 12.4477 17.5 13L17.5 16" fill="none" />
+    </Icon>
+  )
+}
+
+export function ChartPyramid(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M9.3951 3.512L1.3976 17.5119C1.1387 17.9651 1.0025 18.4781 1.0025 19C1.0025 20.6569 2.3457 22 4.0025 22L19.9975 22C21.6543 22 22.9975 20.6569 22.9975 19C22.9975 18.4781 22.8613 17.9651 22.6024 17.5119L14.6049 3.512C14.0709 2.577 13.0767 2 12 2C10.9233 2 9.9291 2.577 9.3951 3.512ZM7.9921 10L16.0079 10L18.2929 14L5.7071 14L7.9921 10Z" fill="currentColor" />
+    </Icon>
+  )
+}
+
 export function CircleActivity(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
