@@ -952,9 +952,7 @@ function changelogSheet(icons, release) {
         `<div>` +
           `<h1 style="margin:0;font-size:36px;font-weight:600;letter-spacing:-0.8px;color:${HEAD_INK}">Changelog</h1>` +
           `<p style="margin:10px 0 0;font-size:15px;color:${HEAD_MUTED}">` +
-            `Releases, new drawings and announcements, newest first. A drawing ` +
-            `carries a New badge for its first ${NEW_FOR_DAYS} days, whatever ` +
-            `ships in between.` +
+            `Releases, new drawings and announcements, newest first.` +
           `</p>` +
         `</div>` +
         `<div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0">` +

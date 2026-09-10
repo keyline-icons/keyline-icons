@@ -779,9 +779,15 @@ const out =
           since?.tag,
           null
         )
-        const names = Object.keys(icons)
-          .filter((name) => !was.has(name))
-          .sort(byFiling)
+        /* Pinned to the Figma entry the same way a released one is, keyed by
+           the version this work is heading for: the design file lists a batch
+           by family and the other two surfaces ran alphabetical against it. */
+        const names = inFigmaOrder(
+          current,
+          Object.keys(icons)
+            .filter((name) => !was.has(name))
+            .sort(byFiling)
+        )
         /* A note keeps the section alive on its own. Work that adds an axis
            rather than a drawing leaves both lists empty, and returning null
            there would drop the announcement along with them. */
