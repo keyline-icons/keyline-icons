@@ -1630,7 +1630,7 @@ const BATCH_0_7_0: BlogPost = {
     "24\u00d724 grid.",
   date: "2026-09-10",
   updated: "2026-09-10",
-  readingMinutes: 9,
+  readingMinutes: 4,
   thumbnail: BLOG_V070_THUMBNAIL_ICON_NAMES,
   keywords: [
     "icon set update",
@@ -1651,23 +1651,18 @@ const BATCH_0_7_0: BlogPost = {
     {
       kind: "p",
       text:
-        "Seventy-one new drawings, which takes the set to 765. Nine of them " +
-        "are one thing: the message family drawn again on a square body, " +
-        "with every option the round bubble already has. The scan frame " +
-        "arrives with six things to read inside it, and a slash on its own " +
-        "and through a search. Twenty-six are charts, sixteen of them on " +
-        "one axis, and four are diagrams: boxes on wires that show how " +
-        "things relate. Seven faces and two thumbs open an Emoji shelf, " +
-        "and a badge of eight bumps carries nine signs. The rest are objects " +
-        "that had been on the list for a while: a QR code, scissors in both " +
-        "bodies and an hourglass.",
+        "Seventy-one new drawings, which takes the set to 765 names.",
     },
     {
       kind: "p",
       text:
-        "The square family was the one worth doing carefully, because the " +
-        "point of it is not the square. It is that a reader can swap one " +
-        "family for the other and nothing else in their interface moves.",
+        "Three singles that had been waiting: a QR code, scissors in both " +
+        "bodies and an hourglass. A scan frame with six things to read " +
+        "inside it. Twenty-six charts, four diagrams, seven faces, two " +
+        "thumbs and a badge with nine signs. And the message family drawn " +
+        "again on a square body, which took the most care: the point is " +
+        "that you can swap one bubble for the other and nothing else on the " +
+        "screen moves.",
     },
     {
       kind: "figure",
@@ -1675,9 +1670,210 @@ const BATCH_0_7_0: BlogPost = {
         kind: "grid",
         names: BLOG_V070_THUMBNAIL_ICON_NAMES,
         caption:
-          "All seventy-one, in the order the changelog lists them: the " +
-          "square bubble and its companions, the singles, the scan family, " +
-          "the charts, the diagrams, the faces and the badges.",
+          "All seventy-one, in the order the changelog lists them.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "Four singles",
+      id: "the-singles",
+    },
+    {
+      kind: "p",
+      text:
+        "The QR code is three finder squares and a corner of data, with no " +
+        "centre dots: the wells are too small to hold one and keep two " +
+        "units of air.",
+    },
+    {
+      kind: "p",
+      text:
+        "`scan` is `scan-face` with the face taken out. The corner brackets " +
+        "were already the frame.",
+    },
+    {
+      kind: "p",
+      text:
+        "The scissors are two rings two apart, each sending a blade to the " +
+        "opposite top corner. The rising blade runs unbroken; the other " +
+        "passes underneath and is cut the way a slash cuts a drawing.",
+    },
+    {
+      kind: "p",
+      text:
+        "The hourglass plate is one outline, because two would overlap at " +
+        "the waist and the design file turns an overlap into a hole. The " +
+        "filled style opens the top bulb and leaves the bottom solid. The " +
+        "sand has run down.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_SINGLES_ICON_NAMES,
+        caption:
+          "The four singles. Three sit in a 20 square, the hourglass stands " +
+          "taller at 18 by 22.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "A frame with six things to read",
+      id: "the-scan-family",
+    },
+    {
+      kind: "p",
+      text:
+        "The family is that frame with something inside it: a line, a line " +
+        "of text, a barcode, a QR code, a magnifier and an eye. The first " +
+        "QR code had a bar down its right and one along its bottom, and at " +
+        "16px both read as more frame, so it is squares and dots now.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_SCAN_ICON_NAMES,
+        caption:
+          "The scan frame and what it reads, then the slash on its own and " +
+          "through a search.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "Sixteen charts on one axis",
+      id: "the-axis-charts",
+    },
+    {
+      kind: "p",
+      text:
+        "Fifteen of the sixteen hang off the same axis, one bent line that " +
+        "fixes the plot at sixteen units square. The columns sit on a " +
+        "five-unit pitch, and the same three readings, sorted, are what an " +
+        "increasing and a decreasing chart are.",
+    },
+    {
+      kind: "p",
+      text:
+        "The pie is pulled apart, each slice slid straight out from the " +
+        "centre by an amount worked out from its own angle. That is the " +
+        "only way to get exactly two units of white into every cut; sliding " +
+        "them all by the same amount leaves the wide cuts at nearly three.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_AXIS_CHART_ICON_NAMES,
+        caption:
+          "The sixteen. Every one but the pie shares the elbow and the plot.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "Ten more charts and four diagrams",
+      id: "charts-and-diagrams",
+    },
+    {
+      kind: "p",
+      text:
+        "Nine of these hang off the same axis. The waterfall runs four " +
+        "bars: standing, floating, falling, standing to the total. The " +
+        "scatter with a third axis puts its origin at a true corner, " +
+        "because three lines meeting cannot take the rounded turn.",
+    },
+    {
+      kind: "p",
+      text:
+        "The pyramid is `triangle-alert`'s triangle cut into three layers, " +
+        "and `chart-line-up` and `chart-line-down` are `chart-line` rising " +
+        "and falling into `trending-up`'s bracket.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_CHART_ICON_NAMES,
+        caption:
+          "The ten charts. Every axis chart shares one elbow and one plot.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The four diagrams are boxes on wires, on a shelf of their own, " +
+        "because a diagram says how things relate where a chart says how " +
+        "much.",
+    },
+    {
+      kind: "p",
+      text:
+        "Every box takes the same corner radius, and the first cut did not: " +
+        "a wide box came out rounder than a narrow one, a pill next to a " +
+        "squared neighbour. The standard's table is right about a shape on " +
+        "its own and wrong about a family drawn side by side.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_DIAGRAM_ICON_NAMES,
+        caption:
+          "The four diagrams. One radius on every box.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "Seven faces, two thumbs and a badge",
+      id: "faces-and-badges",
+    },
+    {
+      kind: "p",
+      text:
+        "The faces are `scan-face`'s face, which the set already owned. A " +
+        "frown is the mouth turned over, a neutral mouth is a flat line, " +
+        "flat eyes are dashes, and the angry brows slant in. The first cut " +
+        "had nudged the eyes up a row and landed on another set's " +
+        "coordinates, so the family went back to the face it already had.",
+    },
+    {
+      kind: "p",
+      text:
+        "`face-smile-plus` is stroke only, because the notch for a " +
+        "top-right sign covers the right eye. The thumbs' filled style " +
+        "opens the cuff as a panel.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_EMOJI_ICON_NAMES,
+        caption:
+          "The Emoji shelf. One face, seven expressions, and the two thumbs.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The badge is eight bumps around a ring, and it carries the " +
+        "circle's signs exactly as the circle draws them. The space inside " +
+        "is a hair wider than the circle's, which is why the dollar is the " +
+        "one currency mark that fits. The first ring turned out to be " +
+        "another set's badge to the number, and was drawn again.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_BADGE_ICON_NAMES,
+        caption:
+          "The badge and its nine signs. Seven are the circle's own; the " +
+          "percent and the dollar are the two that fit.",
       },
     },
 
@@ -1690,22 +1886,18 @@ const BATCH_0_7_0: BlogPost = {
       kind: "p",
       text:
         "The round `message` is an oval with a tail pulled out of its lower " +
-        "left. The square one is a rounded box, 18 wide and 14 tall on the " +
-        "path, whose left wall simply keeps going for four units and comes " +
-        "back to the bottom edge at 45 degrees. That is the whole tail. Both " +
-        "paint the same 20 by 20 box, so a row that mixes them does not jump.",
+        "left. The square one is a rounded box whose left side keeps going " +
+        "and comes back to the bottom edge at an angle. That is the whole " +
+        "tail. Both take up the same 20 by 20 space, so a row that mixes " +
+        "them does not jump.",
     },
     {
       kind: "p",
       text:
-        "What makes them one family is that every mark sits where the round " +
-        "bubble already puts it. The check, the plus, the minus, the x and " +
-        "the two lines of text sit inside the body at the full six units, " +
-        "centred on the bubble rather than pushed into a corner. The badge " +
-        "is the same eight-unit ring in the top right, and the body opens " +
-        "for it the same way. The slash is the same slash, corner to " +
-        "corner, cutting the body on one side and standing two units off it " +
-        "on the other.",
+        "Every mark sits where the round bubble already puts it: the signs " +
+        "in the middle of the body at full size, the badge in the same ring " +
+        "at the top right, the slash corner to corner, cutting into the " +
+        "body on one side and standing clear on the other.",
     },
     {
       kind: "figure",
@@ -1713,47 +1905,10 @@ const BATCH_0_7_0: BlogPost = {
         kind: "grid",
         names: BLOG_V070_PAIR_ICON_NAMES,
         caption:
-          "Each pair is one option in the two bodies: the plain bubble, the " +
-          "badge, the slash and the conversation. Inside the square the sign " +
-          "sits two units off the walls above and below, which is exactly " +
-          "what the x needs, and it is what set the body's height.",
+          "Each pair is one option in the two bodies. Inside the square the " +
+          "sign has two units of air above and below, which is what set the " +
+          "body's height.",
       },
-    },
-
-    {
-      kind: "h2",
-      text: "Where the bubble opens for the badge",
-      id: "the-badge",
-    },
-    {
-      kind: "p",
-      text:
-        "The badge is a ring of radius three in the corner, and the body has " +
-        "to clear it by two on every side. The rounded drawing gets that for " +
-        "nothing. The stroke stops where its centre line is seven from the " +
-        "badge's centre, and a round cap is a disc of radius one, so it is " +
-        "tangent to the six-unit clearance circle by construction. The grey " +
-        "plate underneath is cut on that circle and turns onto it around " +
-        "each cap. Nothing has to be solved.",
-    },
-    {
-      kind: "p",
-      text:
-        "The sharp drawing is different, and it is the kind of difference " +
-        "that only shows when the plate is recoloured and looked at closely. " +
-        "A butt cap is a bar, not a disc, and the corner of the bar nearest " +
-        "the badge is what reaches it. So the sharp cut is where that corner " +
-        "lands on the clearance circle, two thirds of a unit further along " +
-        "the wall than the round one, and the plate runs flush along the " +
-        "face of the bar and follows the circle between the two faces.",
-    },
-    {
-      kind: "note",
-      text:
-        "The round rule applied to a sharp drawing leaves black sticking " +
-        "into the white gap. That is exactly the fault the sharp " +
-        "`message-dot` carried until it was re-solved earlier this month, " +
-        "and the square one was built on the corrected rule from the start.",
     },
 
     {
@@ -1764,282 +1919,12 @@ const BATCH_0_7_0: BlogPost = {
     {
       kind: "p",
       text:
-        "`messages-square` is the round `messages` composed again: the " +
-        "larger bubble behind at the top left, the reply in front at the " +
-        "bottom right with its tail turned the other way. The one in front " +
-        "carries the muted plate and the solid. The one behind is a bare " +
-        "line, cut so its ink stays two units clear of the front bubble's, " +
-        "and in the filled style it contributes only its own band. Plating " +
-        "both reads as a filled shape stacked on a filled shape rather than " +
-        "as one thing overlapping another.",
-    },
-
-    {
-      kind: "h2",
-      text: "Four singles",
-      id: "five-singles",
-    },
-    {
-      kind: "p",
-      text:
-        "The QR code is three finder squares and a quadrant of data. The " +
-        "finders are six units on the path at a one-unit corner, which " +
-        "paints eight with a four-unit well inside, and the well is why they " +
-        "carry no centre mark: a two-unit mark in a four-unit well leaves " +
-        "one unit either side, half the gap the set holds everywhere else. " +
-        "The data lives in the free quadrant on a pitch of four, marks of " +
-        "two and bars of two, so every gap in the drawing is exactly two.",
-    },
-    {
-      kind: "p",
-      text:
-        "`scan` is `scan-face` with the face taken out. The four corner " +
-        "brackets were already the frame, and the frame is the drawing.",
-    },
-    {
-      kind: "p",
-      text:
-        "The scissors are two rings of the badge size sitting exactly two " +
-        "apart, and two blades leaving each ring at its inner 45 degrees for " +
-        "the opposite top corner. The blade rising from left to right runs " +
-        "whole, because that is the way a free diagonal runs in this set. " +
-        "The other passes under it and is cut the way the slash cuts a " +
-        "drawing: it ends on the front blade's centre line below the pivot, " +
-        "where its cap is buried, and starts again above it with its ink two " +
-        "clear.",
-    },
-    {
-      kind: "p",
-      text:
-        "The hourglass is two bulbs meeting at a point under a bar top and " +
-        "bottom. Each bulb is closed along its bar, underneath it, which is " +
-        "what gives the drawing a region to fill without adding a line. The " +
-        "grey plate is one outline rather than two, because two bulb plates " +
-        "would overlap at the waist, and an overlap is what the design file " +
-        "turns into a hole. The filled style opens the top bulb and leaves " +
-        "the bottom one solid. The sand has run down.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V070_SINGLES_ICON_NAMES,
-        caption:
-          "The four singles. Each is drawn to the size its own shape asks " +
-          "for: the code, the frame and the scissors read as squares at 20, " +
-          "the hourglass as an upright at 18 by 22.",
-      },
-    },
-
-    {
-      kind: "h2",
-      text: "A frame with six things to read",
-      id: "the-scan-family",
-    },
-    {
-      kind: "p",
-      text:
-        "`scan` is `scan-face`'s four corner brackets and nothing else, and " +
-        "the family is that frame with something inside it: a line, a line " +
-        "of text, a barcode, a QR code, a magnifier and an eye. The " +
-        "brackets paint a stadium two deep reaching nine along each edge, " +
-        "so at the frame's midlines there is no bracket ink at all, and " +
-        "every interior is measured against the arms and their caps rather " +
-        "than the corners. Each one lands on exactly two at its tightest. " +
-        "The first QR code carried a bar down its right and another across " +
-        "its bottom, both the legal two away, and at 16px both read as more " +
-        "frame; squares and dots share no edge with the brackets and cannot " +
-        "be mistaken for them.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V070_SCAN_ICON_NAMES,
-        caption:
-          "The scan frame and what it reads, then the bare slash and the " +
-          "search with a slash through it.",
-      },
-    },
-
-    {
-      kind: "h2",
-      text: "Sixteen charts on one axis",
-      id: "the-axis-charts",
-    },
-    {
-      kind: "p",
-      text:
-        "Fifteen of the sixteen hang off one axis, a single elbow from the " +
-        "top of the scale to the end of the baseline turning on a two-unit " +
-        "corner, which fixes the plot at sixteen units square. The columns " +
-        "run on a five pitch with three units of daylight between them, " +
-        "and the same three readings, sorted, are what an increasing and a " +
-        "decreasing chart are. The wide pairs take the candlestick's bodies " +
-        "of four, and a stacked bar's division is a rule across the body " +
-        "from wall to wall, one element with it.",
-    },
-    {
-      kind: "p",
-      text:
-        "The pie is the one with no axis, and it is exploded: a quarter, a " +
-        "sliver and the remainder, each slid out along its own bisector. " +
-        "Each slice moves by two over the sine of half its own angle and no " +
-        "other number will do, because that is what puts the house two " +
-        "units into every cut at once. A uniform offset set to clear the " +
-        "narrowest pair leaves the others at nearly three, and it was tried " +
-        "first.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V070_AXIS_CHART_ICON_NAMES,
-        caption:
-          "The sixteen. Every one but the pie shares the elbow and the " +
-          "plot, and the pie is wider than it is tall because an exploded " +
-          "pie has no slice reaching the rim in every direction.",
-      },
-    },
-
-    {
-      kind: "h2",
-      text: "Ten more charts and four diagrams",
-      id: "charts-and-diagrams",
-    },
-    {
-      kind: "p",
-      text:
-        "Nine of these hang off the same axis. The waterfall runs four bars " +
-        "on the four-unit pitch: the first standing on the floor, the second " +
-        "floating from where it stopped, the third falling, the last " +
-        "standing to the total. The scatter with a third axis puts its " +
-        "origin at a true corner, because three lines meeting cannot take " +
-        "the family's rounded turn without the third poking out of it. The " +
-        "bubbles are rings of three sizes, and the biggest is as big as it " +
-        "is because a fourth unit of radius leaves no room for the other " +
-        "two.",
-    },
-    {
-      kind: "p",
-      text:
-        "The pyramid is `triangle-alert`'s triangle cut into three layers, " +
-        "its corners solved backwards so the painted arcs land on the grid, " +
-        "and the filled style opens the middle layer the way `map` opens " +
-        "its middle leaf. The treemap is the house body partitioned into " +
-        "one tall cell, one wide and two small; its filled style cuts all " +
-        "three rules out of the solid, so what reads is blocks with white " +
-        "between them rather than an opened panel. `chart-line-up` and " +
-        "`chart-line-down` are `chart-line` rising and falling into " +
-        "`trending-up`'s bracket, and `chart-no-axes-combined` runs its line " +
-        "through five bars rather than over them.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V070_CHART_ICON_NAMES,
-        caption:
-          "The ten charts. Every axis chart shares one elbow and one plot; " +
-          "the combined chart has no axis and paints the horizontal 22 by " +
-          "20, and the progress bars paint the square.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "The four diagrams are boxes on wires. `diagram-project` is two " +
-        "boxes over a third with an L into it. `diagram-subtask` hangs an " +
-        "indented child off its parent. `diagram-successor` and " +
-        "`diagram-predecessor` are a half box hooking an arrow onto a full " +
-        "bar, the arrow pointing at the bar being named: down for what " +
-        "follows, up for what came before. They have a shelf of their own, " +
-        "because a diagram says how things relate where a chart says how " +
-        "much.",
-    },
-    {
-      kind: "p",
-      text:
-        "Every box in the batch takes one corner radius, and that was not " +
-        "true of the first cut. Each box had taken the radius the drawing " +
-        "standard gives a shape of its width, so the 7-wide boxes came out " +
-        "on r=1 and the 9-, 11- and 18-wide ones on r=2, and on a box only " +
-        "5 tall an r=2 corner eats four of the five units: a pill beside a " +
-        "squared neighbour. The table is right about a shape on its own and " +
-        "wrong about a family drawn side by side. Every box is r=1 now, the " +
-        "radius the chart bodies already use.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V070_DIAGRAM_ICON_NAMES,
-        caption:
-          "The four diagrams. One radius on every box, whatever its width.",
-      },
-    },
-
-    {
-      kind: "h2",
-      text: "Seven faces, two thumbs and a badge",
-      id: "faces-and-badges",
-    },
-    {
-      kind: "p",
-      text:
-        "The faces are `scan-face`'s face, which the set already owned: eyes " +
-        "a unit long on 10 and 11, a mouth from 9 to 15 dipping to 16.5. A " +
-        "frown is that mouth turned over, a neutral mouth is its chord, " +
-        "flat eyes are dashes on the ticks' own centre line, and the angry " +
-        "brows slant in. Only the laugh moves its eyes, two rows up, because " +
-        "an open mouth needs a chord on 13 to keep three units inside it. " +
-        "The first cut put the eyes and the neutral bar on coordinates that " +
-        "turned out to be another set's, arrived at by moving `scan-face`'s " +
-        "ticks up a row; the family went back to the face it already had, " +
-        "and every coincidence went with that one move.",
-    },
-    {
-      kind: "p",
-      text:
-        "`face-smile-plus` is stroke only, with both eyes. The house notch " +
-        "for a top-right sign covers the right eye, and no eye row is both " +
-        "two off the sign and two inside the notch, so the two filled styles " +
-        "are what it gives up. The thumbs' tip is a corner rather than a " +
-        "drawing, a tapering bar with a flat top on r=2, and their filled " +
-        "style opens the cuff as a panel.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V070_EMOJI_ICON_NAMES,
-        caption:
-          "The Emoji shelf. One face, seven expressions, and the two thumbs " +
-          "that go with them.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "The badge is eight bumps of r=4.5 on a radius of 5.5, peaks on the " +
-        "four cardinals so the ink lands on 1..23 as drawn. It is a " +
-        "container, so it carries the circle's signs verbatim, read out of " +
-        "each base's circle files for every style and both treatments. Its " +
-        "well is the notch radius, 9.06 against the circle's 9, which is why " +
-        "the dollar is the one currency mark on it. The first ring was eight " +
-        "bumps of r=4 on 6, presented as a derivation; it was another set's " +
-        "badge to the number, and the ring was drawn again.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V070_BADGE_ICON_NAMES,
-        caption:
-          "The badge and its nine signs. The check, x, plus, minus, alert, " +
-          "info and question are the circle's own; the percent and the " +
-          "dollar are the two marks that clear the well.",
-      },
+        "`messages-square` is the round `messages` built the same way: the " +
+        "bigger bubble behind, the reply in front with its tail turned the " +
+        "other way. Only the front one gets the grey plate and the solid. " +
+        "Fill both and you get two shapes stacked. Fill one and you get one " +
+        "thing in front of another, which is what a conversation looks " +
+        "like.",
     },
 
     {
@@ -2060,8 +1945,8 @@ const BATCH_0_7_0: BlogPost = {
       href: "/install",
       label: "Install",
       text:
-        "The shadcn registry, the React package, the CLI, the MCP server and " +
-        "the Figma plugin.",
+        "The shadcn registry, the React package, the CLI, the MCP server " +
+        "and the Figma plugin.",
     },
     {
       kind: "link",
