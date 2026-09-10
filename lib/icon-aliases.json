@@ -742,7 +742,9 @@
         "subtract",
         "less",
         "collapse",
-        "hide"
+        "hide",
+        "minus sign",
+        "sign"
       ]
     },
     {
@@ -859,7 +861,9 @@
         "player",
         "start",
         "resume",
-        "video"
+        "video",
+        "audio play",
+        "audio"
       ]
     },
     {
@@ -925,7 +929,9 @@
         "new",
         "create",
         "increase",
-        "more"
+        "more",
+        "plus sign",
+        "sign"
       ]
     },
     {
@@ -1156,7 +1162,9 @@
         "shell",
         "cli",
         "bash",
-        "code"
+        "code",
+        "computer terminal",
+        "computer"
       ]
     },
     {
@@ -1257,7 +1265,9 @@
         "internet",
         "connection",
         "hotspot",
-        "signal"
+        "signal",
+        "access point",
+        "router"
       ]
     },
     {
@@ -1276,7 +1286,10 @@
         "dismiss",
         "exit",
         "times",
-        "cross"
+        "cross",
+        "multiplication sign",
+        "multiplication",
+        "sign"
       ]
     },
     {
@@ -1372,7 +1385,10 @@
     {
       "match": "^calendar$",
       "terms": [
-        "calendars"
+        "calendars",
+        "calendar days",
+        "days",
+        "date"
       ]
     },
     {
