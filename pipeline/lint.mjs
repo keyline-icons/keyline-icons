@@ -211,12 +211,6 @@ const SIZE_KNOWN = new Set([
   // corners, so the sharp half classifies as a square where the rounded half
   // falls through. Same drawing, same box, same reason as `pen-off`.
   'message-square-off',
-  // A regular hexagon 22 across its vertices is 19.05 across its flats, and
-  // the r=2 fillets' x-extremes add 0.4 to that: 19.86 wide by 22 tall, which
-  // the classifier reads as a circle wanting 22 both ways. A hexagon cannot be
-  // 22 both ways at any rotation, so the radar's web keeps its vertices on
-  // 1..23 and its flats where the geometry puts them.
-  'chart-radar',
 ]);
 const MIN_PAD = 1;
 

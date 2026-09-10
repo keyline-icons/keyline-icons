@@ -960,14 +960,6 @@ export function ChartPyramid(props: IconProps) {
   )
 }
 
-export function ChartRadar(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M12 2L20.6603 7L20.6603 17L12 22L3.3397 17L3.3397 7L12 2ZM12 2L12 22M20.6603 7L3.3397 17M20.6603 17L3.3397 7M12 7L16.3301 9.5L16.3301 14.5L12 17L7.6699 14.5L7.6699 9.5L12 7Z" fill="none" />
-    </Icon>
-  )
-}
-
 export function ChartScatter3d(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>

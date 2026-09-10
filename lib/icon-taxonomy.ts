@@ -53,7 +53,7 @@ export const CATEGORIES = [
   // twenty-three of the chart and diagram batch on 10 Sep 2026.
   {
     label: "New",
-    match: /^(message-square|messages-square|qr-code|scan$|scissors|hourglass|chart-(diagram|pyramid|waterfall|no-axes-combined|scatter-3d|radar|tree-map|scatter-bubble|bullet|line-down|line-up)$|diagram-|arrow-(up-right|down-left)-dots$|bars-progress$)/,
+    match: /^(message-square|messages-square|qr-code|scan$|scissors|hourglass|chart-(diagram|pyramid|waterfall|no-axes-combined|scatter-3d|tree-map|scatter-bubble|bullet|line-down|line-up)$|diagram-|arrow-(up-right|down-left)-dots$|bars-progress$)/,
     blurb: "Drawn since the last release, waiting on review.",
   },
   {

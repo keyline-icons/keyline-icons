@@ -484,15 +484,6 @@ export function ChartPyramid(props: IconProps) {
   )
 }
 
-export function ChartRadar(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M12.5 6.134L16.8301 8.634C17.1395 8.8126 17.3301 9.1427 17.3301 9.5L17.3301 14.5C17.3301 14.8573 17.1395 15.1874 16.8301 15.366L12.5 17.866C12.348 17.9538 12.1755 18 12 18C11.8245 18 11.652 17.9538 11.5 17.866L7.1699 15.366C6.8605 15.1874 6.6699 14.8573 6.6699 14.5L6.6699 9.5C6.6699 9.1427 6.8605 8.8126 7.1699 8.634L11.5 6.134C11.652 6.0462 11.8245 6 12 6C12.1755 6 12.348 6.0462 12.5 6.134Z" fill="currentColor" stroke="none" />
-      <path d="M12 2L20.6603 7L20.6603 17L12 22L3.3397 17L3.3397 7L12 2ZM12 2L12 22M20.6603 7L3.3397 17M20.6603 17L3.3397 7" fill="none" />
-    </Icon>
-  )
-}
-
 export function ChartScatterBubble(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>

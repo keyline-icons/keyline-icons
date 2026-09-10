@@ -265,45 +265,10 @@ SETS['chart-scatter-3d'] = () => {
 /* ----------------------------------------------------------- chart-radar */
 
 /**
- * A spider web: a pointy-top hexagon, three diameters between its opposite
- * vertices, and a data hexagon inside it on the same spokes at half the size.
- * The set has no hexagon, so this one is built to the reference: r=2 fillets
- * on the outer, r=1 on the inner, and each vertex solved so the ARC's extreme
- * sits at the radius asked (10 and 5), which is `v + r(1/sin 60 - 1)` along
- * the bisector; the spokes end on those extremes, so their caps are buried in
- * the outline. Ink 1..23 tall by 2.34..21.66 wide, which is what a hexagon is,
- * and it reads as none of the four sizes.
- *
- * The data hexagon's radius is fixed by two gaps at once: its edge sits
- * `(10 - a) sin 60` from the outer edge and `a sin 60 - 1` from the centre's
- * crossing, and both clear 2 only for a in 4.6..5.4. So it is 5 and regular;
- * an uneven reading was tried on paper and every vertex under 5 runs its edge
- * into the centre. Fill: the data solid (its plate) under the outer hexagon
- * and the spokes, which vanish inside it; duotone mutes the same plate.
+ * `chart-radar` was drawn on 10 Sep 2026 (a pointy-top hexagon with three
+ * diameters and a data hexagon at half size, commit c4c5fdd9) and dropped on
+ * Zafar's word the same day. The drawing is in that commit if it is wanted.
  */
-const hexPts = (R) => [-90, -30, 30, 90, 150, 210].map((a) => [12 + R * Math.cos((a * Math.PI) / 180), 12 + R * Math.sin((a * Math.PI) / 180)]);
-const hexagon = (radius, r) => {
-  const pull = r * (1 / Math.sin(Math.PI / 3) - 1);
-  return polyContour(hexPts(radius + pull), [r, r, r, r, r, r]);
-};
-SETS['chart-radar'] = () => {
-  const out = {};
-  const tips = hexPts(10);
-  const spokes = [0, 1, 2].map((i) => runPath([tips[i], tips[i + 3]])).join('');
-  for (const sharp of [false, true]) {
-    const key = sharp ? 'sharp' : 'regular';
-    const outer = hexagon(10, sharp ? 0 : 2);
-    const inner = hexagon(5, sharp ? 0 : 1);
-    const b = strokedBBox(outer.d, 1, 'round');
-    if (Math.abs(b[1] - 1) > 0.002 || Math.abs(b[3] - 23) > 0.002) throw new Error(`radar box ${b.join(', ')}`);
-    const plate = plateOf(inner.segs);
-    const frame = outer.toString() + spokes;
-    out[`stroke.${key}`] = [S(frame + inner.toString())];
-    out[`duotone.${key}`] = [P(contourPath(plate)), S(frame + inner.toString())];
-    out[`fill.${key}`] = [F_(contourPath(plate)), S(frame)];
-  }
-  return out;
-};
 
 /* -------------------------------------------------------- chart-tree-map */
 
