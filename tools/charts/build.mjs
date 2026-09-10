@@ -106,8 +106,10 @@ const SETS = {};
  * (h1 + 2) + 2 + 2 + 2 + (h2 + 2) for the header, the gap, the rail, the gap
  * and the children, so h1 + h2 = 10 and both take 5 for an interior of 3.
  *
- * Header 3..21 by 3..8 on r=2 (its height of 5 cannot take the body's 3, and 2
- * fills to 3); children 3..10 and 14..21 by 16..21 on r=1, 2 apart. The stem
+ * Header 3..21 by 3..8 and children 3..10 and 14..21 by 16..21, 2 apart, every
+ * box on r=1: ONE radius for every box in the batch. The first cut gave each
+ * box the reference's radius for its width, r=2 at 9 wide and up, and on a
+ * box 5 tall that is a pill beside a squared neighbour; Zafar saw it at once. The stem
  * runs from the header's bottom edge to the rail, the rail from one child's
  * centre line to the other's turning down on r=1, and every end lands ON a
  * centre line, so nothing is free and sharp squares nothing.
@@ -116,7 +118,7 @@ SETS['chart-diagram'] = () => {
   const out = {};
   for (const sharp of [false, true]) {
     const key = sharp ? 'sharp' : 'regular';
-    const header = box([3, 3, 21, 8], sharp ? 0 : 2);
+    const header = box([3, 3, 21, 8], sharp ? 0 : 1);
     const kids = [box([3, 16, 10, 21], sharp ? 0 : 1), box([14, 16, 21, 21], sharp ? 0 : 1)];
     const bodies = [header, ...kids];
     const plates = bodies.map((b) => plateOf(b.segs));
@@ -450,7 +452,7 @@ function hookedArrow(successor) {
   const head = arrowRuns([18, y0], [18, tipY], [0, dirY])[1];
   for (const sharp of [false, true]) {
     const key = sharp ? 'sharp' : 'regular';
-    const bodies = boxes.map((b) => box(b, sharp ? 0 : 2));
+    const bodies = boxes.map((b) => box(b, sharp ? 0 : 1));
     const plates = bodies.map((b) => plateOf(b.segs));
     const wire = new Path().M([12, y0]).corner([18, y0], [18, tipY], sharp ? 0 : 1).L([18, tipY]).toString();
     const arrow = wire + run(head, sharp, [true, true]);
@@ -501,7 +503,7 @@ SETS['diagram-subtask'] = () => {
   const boxes = [[3, 3, 14, 8], [10, 16, 21, 21]];
   for (const sharp of [false, true]) {
     const key = sharp ? 'sharp' : 'regular';
-    const bodies = boxes.map((b) => box(b, sharp ? 0 : 2));
+    const bodies = boxes.map((b) => box(b, sharp ? 0 : 1));
     const plates = bodies.map((b) => plateOf(b.segs));
     const wire = new Path().M([6, 8]).corner([6, 18.5], [10, 18.5], sharp ? 0 : 1).L([10, 18.5]).toString();
     const d = bodies.map(String).join('') + wire;
@@ -553,12 +555,12 @@ SETS['bars-progress'] = () => {
   const marks = [15, 10];
   for (const sharp of [false, true]) {
     const key = sharp ? 'sharp' : 'regular';
-    const bodies = bars.map((b) => box(b, sharp ? 0 : 2));
+    const bodies = bars.map((b) => box(b, sharp ? 0 : 1));
     const plates = bodies.map((b) => plateOf(b.segs));
     const rules = bars.map(([, y0, , y1], i) => `M${marks[i]} ${y0}L${marks[i]} ${y1}`).join('');
-    const r = sharp ? 0 : 1;
+    // the wall's inner ink corner is r - 1 = 0, so the opening's corners are true
     const opens = bars.map(([, y0, , y1], i) =>
-      hole(plates[i], polyContour([[marks[i] + 1, y0 + 1], [20, y0 + 1], [20, y1 - 1], [marks[i] + 1, y1 - 1]], [0, r, r, 0]).segs)).join('');
+      hole(plates[i], polyContour([[marks[i] + 1, y0 + 1], [20, y0 + 1], [20, y1 - 1], [marks[i] + 1, y1 - 1]], [0, 0, 0, 0]).segs)).join('');
     const d = bodies.map(String).join('') + rules;
     out[`stroke.${key}`] = [S(d)];
     out[`duotone.${key}`] = [P(plates.map((c) => contourPath(c)).join('')), S(d)];
