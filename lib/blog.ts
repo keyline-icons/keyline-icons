@@ -514,6 +514,20 @@ export const BLOG_V070_THUMBNAIL_ICON_NAMES = [
   "scan",
   "scissors",
   "hourglass",
+  "chart-diagram",
+  "chart-pyramid",
+  "chart-waterfall",
+  "chart-no-axes-combined",
+  "chart-scatter-3d",
+  "chart-tree-map",
+  "chart-scatter-bubble",
+  "chart-line-down",
+  "chart-line-up",
+  "diagram-successor",
+  "diagram-predecessor",
+  "diagram-project",
+  "diagram-subtask",
+  "bars-progress",
 ] as const
 
 /** The nine that are one family. */
@@ -547,6 +561,28 @@ export const BLOG_V070_SINGLES_ICON_NAMES = [
   "scan",
   "scissors",
   "hourglass",
+] as const
+
+/** The ten charts, in the order the Charts band files them. */
+export const BLOG_V070_CHART_ICON_NAMES = [
+  "chart-diagram",
+  "chart-pyramid",
+  "chart-waterfall",
+  "chart-no-axes-combined",
+  "chart-scatter-3d",
+  "chart-tree-map",
+  "chart-scatter-bubble",
+  "chart-line-down",
+  "chart-line-up",
+  "bars-progress",
+] as const
+
+/** The four diagrams, a shelf of their own. */
+export const BLOG_V070_DIAGRAM_ICON_NAMES = [
+  "diagram-successor",
+  "diagram-predecessor",
+  "diagram-project",
+  "diagram-subtask",
 ] as const
 
 /**
@@ -1478,18 +1514,18 @@ const BATCH_0_5_0: BlogPost = {
 const BATCH_0_7_0: BlogPost = {
   slug: "the-message-family-in-a-second-body",
   version: "0.7.0",
-  title: "13 new icons, and the message family in a second body",
+  title: "27 new icons, and the message family in a second body",
   description:
     "Inside Keyline Icons v0.7.0: the message family drawn again on a square " +
-    "body, option for option, and four singles: a QR code, a scan frame, " +
-    "scissors and an hourglass.",
+    "body, option for option, four singles: a QR code, a scan frame, " +
+    "scissors and an hourglass, and fourteen charts and diagrams.",
   standfirst:
     "Everything that landed in v0.7.0, and how the square bubble keeps the " +
     "round one's vocabulary. Free SVG icons for shadcn/ui, drawn on one " +
     "24\u00d724 grid.",
   date: "2026-09-10",
   updated: "2026-09-10",
-  readingMinutes: 5,
+  readingMinutes: 6,
   thumbnail: BLOG_V070_THUMBNAIL_ICON_NAMES,
   keywords: [
     "icon set update",
@@ -1500,16 +1536,20 @@ const BATCH_0_7_0: BlogPost = {
     "qr code icon",
     "scissors icon",
     "hourglass icon",
+    "chart icons",
+    "diagram icons",
   ],
   body: [
     {
       kind: "p",
       text:
-        "Thirteen new drawings, which takes the set to 705. Nine of them " +
-        "are one thing: the message family drawn again on a square body, " +
-        "with every option the round bubble already has. The other four are " +
+        "Twenty-seven new drawings, which takes the set to 719. Nine of " +
+        "them are one thing: the message family drawn again on a square " +
+        "body, with every option the round bubble already has. Four are " +
         "objects that had been on the list for a while: a QR code, a scan " +
-        "frame, scissors and an hourglass.",
+        "frame, scissors and an hourglass. And fourteen are charts and " +
+        "diagrams: ten more ways of showing how much, and four boxes on " +
+        "wires that show how things relate.",
     },
     {
       kind: "p",
@@ -1524,8 +1564,9 @@ const BATCH_0_7_0: BlogPost = {
         kind: "grid",
         names: BLOG_V070_THUMBNAIL_ICON_NAMES,
         caption:
-          "All thirteen. The first nine are the square bubble and its " +
-          "companions; the four singles follow.",
+          "All twenty-seven. The first nine are the square bubble and its " +
+          "companions, the four singles follow, then the charts and the " +
+          "diagrams.",
       },
     },
 
@@ -1681,6 +1722,86 @@ const BATCH_0_7_0: BlogPost = {
 
     {
       kind: "h2",
+      text: "Ten charts and four diagrams",
+      id: "charts-and-diagrams",
+    },
+    {
+      kind: "p",
+      text:
+        "Nine of the charts hang off the family's one axis, an elbow from " +
+        "the top of the scale to the end of the baseline turning on a " +
+        "two-unit corner, which fixes the plot at sixteen units square and " +
+        "puts every bar two clear of the foot. The waterfall runs four bars " +
+        "on the four-unit pitch: the first standing on the floor, the second " +
+        "floating from where it stopped, the third falling, the last " +
+        "standing to the total. The scatter with a third axis puts its " +
+        "origin at a true corner, because three lines meeting cannot take " +
+        "the family's rounded turn without the third poking out of it. The " +
+        "bubbles are rings of three sizes, and the biggest is as big as it " +
+        "is because a fourth unit of radius leaves no room for the other " +
+        "two.",
+    },
+    {
+      kind: "p",
+      text:
+        "The pyramid is `triangle-alert`'s triangle cut into three layers, " +
+        "its corners solved backwards so the painted arcs land on the grid, " +
+        "and the filled style opens the middle layer the way `map` opens " +
+        "its middle leaf. The treemap is the house body partitioned into " +
+        "one tall cell, one wide and two small; its filled style cuts all " +
+        "three rules out of the solid, so what reads is blocks with white " +
+        "between them rather than an opened panel. `chart-line-up` and " +
+        "`chart-line-down` are `chart-line` rising and falling into " +
+        "`trending-up`'s bracket, and `chart-no-axes-combined` runs its line " +
+        "through five bars rather than over them.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_CHART_ICON_NAMES,
+        caption:
+          "The ten charts. Every axis chart shares one elbow and one plot; " +
+          "the combined chart has no axis and paints the horizontal 22 by " +
+          "20, and the progress bars paint the square.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The four diagrams are boxes on wires. `diagram-project` is two " +
+        "boxes over a third with an L into it. `diagram-subtask` hangs an " +
+        "indented child off its parent. `diagram-successor` and " +
+        "`diagram-predecessor` are a half box hooking an arrow onto a full " +
+        "bar, the arrow pointing at the bar being named: down for what " +
+        "follows, up for what came before. They have a shelf of their own, " +
+        "because a diagram says how things relate where a chart says how " +
+        "much.",
+    },
+    {
+      kind: "p",
+      text:
+        "Every box in the batch takes one corner radius, and that was not " +
+        "true of the first cut. Each box had taken the radius the drawing " +
+        "standard gives a shape of its width, so the 7-wide boxes came out " +
+        "on r=1 and the 9-, 11- and 18-wide ones on r=2, and on a box only " +
+        "5 tall an r=2 corner eats four of the five units: a pill beside a " +
+        "squared neighbour. The table is right about a shape on its own and " +
+        "wrong about a family drawn side by side. Every box is r=1 now, the " +
+        "radius the chart bodies already use.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_DIAGRAM_ICON_NAMES,
+        caption:
+          "The four diagrams. One radius on every box, whatever its width.",
+      },
+    },
+
+    {
+      kind: "h2",
       text: "Getting it",
       id: "getting-it",
     },
@@ -1689,7 +1810,7 @@ const BATCH_0_7_0: BlogPost = {
       href: "/icons",
       label: "Browse the set",
       text:
-        "All 705, in three styles and two corner treatments, with copy and " +
+        "All 719, in three styles and two corner treatments, with copy and " +
         "download on every drawing.",
     },
     {

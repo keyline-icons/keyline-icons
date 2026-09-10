@@ -49,11 +49,10 @@ export const CATEGORIES = [
   // whatever they are used for. The anchor is what keeps `git-refresh` in Git.
   //
   // Opened 10 Sep 2026 for the fourteen of v0.7.0: the square bubble and its
-  // eight companions, qr-code, scan and its family, scissors and its
-  // horizontal twin, hourglass, the slash, search-slash and the chart family.
+  // eight companions, and qr-code, scan, scissors and hourglass; then the first
   {
     label: "New",
-    match: /^(message-square|messages-square|qr-code|scan$|scan-(line|text|barcode|search|eye|qr-code)|scissors|hourglass|slash$|search-slash$|chart-)/,
+    match: /^(message-square|messages-square|qr-code|scan$|scan-(line|text|barcode|search|eye|qr-code)|scissors|hourglass|slash$|search-slash$|chart-(column|bar|gantt|line|spline|line-increasing|line-decreasing|area|scatter|candlestick|pie|column-big|column-stacked|bar-big|bar-stacked|network)$)/,
     blurb: "Drawn since the last release, waiting on review.",
   },
   {
@@ -166,8 +165,16 @@ export const CATEGORIES = [
   // bar charts and the signal bars, which is where the design file files it too.
   {
     label: "Charts",
-    match: /^(bar-chart|chart-|trending|signal|progress|loader|activity)/,
-    blurb: "Trends, bar charts, signal strength and activity markers.",
+    match: /^(bar-chart|bars-progress|chart-|trending|signal|progress|loader|activity)/,
+    blurb: "Trends, bar and column charts, a pyramid, a treemap, signal strength, progress and activity markers.",
+  },
+  // Boxes on wires. A diagram says how things relate, where a chart says how
+  // much, so the four of them are their own shelf rather than the tail of
+  // Charts; `chart-diagram` stays with the charts because it is named as one.
+  {
+    label: "Diagrams",
+    match: /^diagram-/,
+    blurb: "Boxes on wires: a project, a subtask, and what comes before and after.",
   },
   // `code`, `terminal`, `bug` and the `app-*` tiles are the developer surface
   // of the devices around them, eleven sets today, and they stay here until
