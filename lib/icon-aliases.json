@@ -2076,9 +2076,7 @@
       "chart-bar-big",
       "chart-bar-decreasing",
       "chart-bar-increasing",
-      "chart-bar-stacked",
-      "chart-column",
-      "chart-line"
+      "chart-bar-stacked"
     ],
     "battery": [
       "battery-charging",

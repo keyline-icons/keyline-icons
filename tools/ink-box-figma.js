@@ -105,6 +105,9 @@ const ink = (cell) => {
   const o = cell.absoluteBoundingBox;
   let b = null;
   for (const n of cell.findAll((n) => n.type === 'VECTOR' || n.type === 'ELLIPSE' || n.type === 'RECTANGLE')) {
+    // the overlay's own boxes are RECTANGLEs in the cell, so a stale one left
+    // by a dropped socket would be measured as if it were ink
+    if (n.name.indexOf('ink box') === 0) continue;
     const r = n.absoluteRenderBounds;   // painted, so caps and joins are in it
     if (!r) continue;
     const q = [r.x - o.x, r.y - o.y, r.x - o.x + r.width, r.y - o.y + r.height];

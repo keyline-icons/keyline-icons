@@ -49,10 +49,11 @@ export const CATEGORIES = [
   // whatever they are used for. The anchor is what keeps `git-refresh` in Git.
   //
   // Opened 10 Sep 2026 for the fourteen of v0.7.0: the square bubble and its
-  // eight companions, and qr-code, scan, scissors and hourglass.
+  // eight companions, qr-code, scan and its family, scissors and its
+  // horizontal twin, hourglass, the slash, search-slash and the chart family.
   {
     label: "New",
-    match: /^(message-square|messages-square|qr-code|scan$|scissors|hourglass)/,
+    match: /^(message-square|messages-square|qr-code|scan$|scan-(line|text|barcode|search|eye|qr-code)|scissors|hourglass|slash$|search-slash$|chart-)/,
     blurb: "Drawn since the last release, waiting on review.",
   },
   {
@@ -165,7 +166,7 @@ export const CATEGORIES = [
   // bar charts and the signal bars, which is where the design file files it too.
   {
     label: "Charts",
-    match: /^(bar-chart|trending|signal|progress|loader|activity)/,
+    match: /^(bar-chart|chart-|trending|signal|progress|loader|activity)/,
     blurb: "Trends, bar charts, signal strength and activity markers.",
   },
   // `code`, `terminal`, `bug` and the `app-*` tiles are the developer surface
@@ -180,8 +181,8 @@ export const CATEGORIES = [
     // `bug` is the software bug, so it sits with `code` rather than in a
     // shelf of creatures the set does not have.
     label: "Devices",
-    match: /^(smartphone|phone|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|qr-code|scan$|app(?=-|$))/,
-    blurb: "Phones, handsets, servers, databases, terminals, code, processors, bugs, the app tiles, the QR code and its scan frame.",
+    match: /^(smartphone|phone|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|qr-code|scan(?!-face)|app(?=-|$))/,
+    blurb: "Phones, handsets, servers, databases, terminals, code, processors, bugs, the app tiles, the QR code and the scan frame with what it reads.",
   },
   {
     label: "Pointers",
@@ -199,8 +200,8 @@ export const CATEGORIES = [
     // is letterforms first and internationalisation second.
     label: "Text",
     match:
-      /^(bold|italic|underline|strikethrough|heading|pilcrow|indent|letter-|line-height|text-|type$|quote|language|align-(?:left|center|right|justify)$)/,
-    blurb: "The quotation marks, the formatting marks, the alignment stack and what sets a paragraph.",
+      /^(bold|italic|underline|strikethrough|heading|pilcrow|indent|letter-|line-height|text-|type$|quote|language|slash$|align-(?:left|center|right|justify)$)/,
+    blurb: "The quotation marks, the formatting marks, the slash, the alignment stack and what sets a paragraph.",
   },
   {
     label: "Layout",

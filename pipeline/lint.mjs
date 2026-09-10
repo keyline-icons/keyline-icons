@@ -187,6 +187,17 @@ const NARROW = new Set([
  *   whose whole job is to look grippable, and the density is what does that.
  *   Both are listed, because the pair are exact transposes and one of them
  *   passing while the other warns would be the rule disagreeing with itself.
+ *
+ * - **`chart-pie`, whose slices are pulled apart.** An exploded pie has no
+ *   slice reaching the rim in every direction, so its box is not the circle's.
+ *   Its three slices of 90, 60 and 210 degrees each slide out along their own
+ *   bisector by `2 / sin(half their own angle)`, which is the only set of
+ *   offsets that puts the house 2 on all three cuts at once; measured off the
+ *   painted silhouette they come to 2.000, 2.000 and 2.000. That fixes the ink
+ *   at `2r + 7.464` wide by `1.866r + 6` tall, so 22 wide caps the radius at
+ *   7.27 and it ships at r = 7: **21.46 by 19.06, centred on its own box.**
+ *   There is no radius that reaches 22 by 18, and no uniform offset that holds
+ *   2 on every cut. The width is the geometry's answer rather than a miss.
  */
 const SIZE_KNOWN = new Set([
   'caret-down', 'caret-left', 'caret-right', 'caret-up', 'check', 'double-check',
@@ -199,6 +210,7 @@ const SIZE_KNOWN = new Set([
   'bell', 'paperclip', 'wifi', 'wifi-info', 'wifi-exclamation',
   'repeat', 'repeat-1',
   'arrow-down-left', 'arrow-down-right', 'arrow-up-left', 'arrow-up-right',
+  'chart-pie',
   // The slash is what sets an `-off` box, not the drawing: it runs corner to
   // corner and paints 1..23 whatever it negates. `pen-off` reads as a square
   // only because the pen went full-bleed on the diagonal on 8 Sep and now puts
@@ -969,8 +981,18 @@ async function main() {
       // A mark drawn as a short diagonal run measures its own box: squared, the
       // signal family's 2-unit mark spans 2√2. Same allowance, same reason.
       const dotTol = DOT_TOL + (corners === 'sharp' ? 2 * CAP_CORNER : 0);
-      for (const d of dotSizes(src))
+      for (const d of dotSizes(src)) {
+        // A stacked chart's fill voids the SMALLER of the two segments its
+        // rule divides the body's interior into, rather than painting the rule
+        // over a solid where it would be black on black. Those voids come out 2
+        // by 2, 2 by 3 and 3 by 2; only the square one is compact enough to be
+        // read as a dot, and it measures 2√2 across its own box. It is a
+        // segment of a bar, not a dot anybody placed — derived, like the level
+        // solids above. (2026-09-10, his picture of what a stacked fill is.)
+        if (style !== 'stroke' && /^chart-(column|bar)-stacked$/.test(name)
+            && Math.abs(d - 2 * Math.SQRT2) <= dotTol) continue;
         if (!DOT_SIZES.some((s) => Math.abs(s - d) <= dotTol)) offDot.add(d.toFixed(2));
+      }
       if (offDot.size)
         add('warn', 'DOT', id,
           `dot ${[...offDot].sort().join(', ')} units across — the ladder is 2 (mark) or 3 (bead), ` +

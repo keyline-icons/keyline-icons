@@ -13,9 +13,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 590,
-  "names": 705,
-  "variants": 3612,
+  "icons": 615,
+  "names": 732,
+  "variants": 3722,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -327,7 +327,7 @@
       "width": 742,
       "icons": 38,
       "variants": 56,
-      "bytes": 40374
+      "bytes": 40393
     },
     {
       "file": "devices-2.html",
@@ -754,24 +754,48 @@
       "artboard": "New",
       "category": "New",
       "part": 1,
-      "parts": 2,
+      "parts": 4,
       "into": "artboard",
       "width": 742,
-      "icons": 13,
-      "variants": 54,
-      "bytes": 41870
+      "icons": 38,
+      "variants": 48,
+      "bytes": 39382
     },
     {
       "file": "new-2.html",
       "artboard": "New",
       "category": "New",
       "part": 2,
-      "parts": 2,
+      "parts": 4,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 20,
-      "bytes": 19809
+      "variants": 40,
+      "bytes": 36938
+    },
+    {
+      "file": "new-3.html",
+      "artboard": "New",
+      "category": "New",
+      "part": 3,
+      "parts": 4,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 46,
+      "bytes": 36591
+    },
+    {
+      "file": "new-4.html",
+      "artboard": "New",
+      "category": "New",
+      "part": 4,
+      "parts": 4,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 50,
+      "bytes": 39450
     },
     {
       "file": "pointers-1.html",
@@ -891,7 +915,7 @@
       "width": 742,
       "icons": 14,
       "variants": 42,
-      "bytes": 41538
+      "bytes": 41549
     },
     {
       "file": "text-2.html",
@@ -1091,7 +1115,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 388028
+      "bytes": 388093
     }
   ]
 }

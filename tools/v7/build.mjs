@@ -14,8 +14,10 @@ import { writeSet } from '../v5/raw.mjs';
 import { offsetContour, contourPath, verify, clipContour, clipByDistance, flatten } from '../v5/offset.mjs';
 import { Path, polyContour, circlePath, onArc, add, sub, mul, len, unit, dot } from '../v5/geom.mjs';
 import { sharpEndIn } from '../v5/icons.mjs';
+import { arcThrough } from '../v6/icons.mjs';
 import { outlineRun, unionContours } from '../v6/outline.mjs';
-import { strokedBBox } from '../../pipeline/lib/geom.mjs';
+import { offsetPath, verify as verifyCubic } from '../v6/offset-cubic.mjs';
+import { strokedBBox, outlines } from '../../pipeline/lib/geom.mjs';
 
 const ROOT = resolve(import.meta.dirname, '../..');
 const S = (d) => ({ kind: 'stroke', d: String(d) });
@@ -321,28 +323,53 @@ SETS['messages-square'] = () => {
 /* ------------------------------------------------------------- qr-code */
 
 /**
- * Three finder squares, 6 on the path at r=1, painting 8 with a 4-unit well —
- * the interior floor, and the reason they carry no centre: a 2-unit mark in a
- * 4-unit well leaves 1 either side. The data lives in the free quadrant,
- * 12..22 square, on a pitch of 4 — marks of 2 and bars of 2 — so every gap in
- * the drawing is exactly 2.
+ * Zafar's redraw, 10 Sep 2026, fitted rather than re-derived: three finder
+ * squares at the top-left, top-right and bottom-right, two connector elbows
+ * running out of the middle, two bars and three cells. Every gap in it is
+ * exactly 2.00 and the ink is 2..22 in both axes, so the only thing that
+ * needed changing was the corner radius.
+ *
+ * **His finders came in at r = 0.8333 and ship at 1.** Five sixths is not on
+ * the ladder, and the ladder is not a preference here: a filled style adds a
+ * unit to every radius, and only 0.5, 1, 2, 3 and 4 survive that step. At 1
+ * the corner is the same corner the previous finders used and the extents do
+ * not move, since a radius only ever pulls a corner in.
+ *
+ * The rest is his. The elbows turn on r=2 with three units of run either side,
+ * the cells are marks on the dot ladder, and the third finder sits bottom
+ * RIGHT rather than bottom left, which is his call about what the pattern
+ * looks like rather than a scannable code.
  */
-const FINDERS = [[3, 3], [15, 3], [3, 15]];
-const QR_DOTS = [[13, 13], [13, 21], [17, 21]];
-const QR_BARS = [[[17, 13], [21, 13]], [[13, 17], [17, 17]], [[21, 17], [21, 21]]];
+const QR = {
+  finders: [[3, 3], [16, 3], [16, 16]],            // 5 on the path, painting 7
+  elbows: [[[12, 7], [12, 12], [17, 12]], [[12, 21], [12, 16], [7, 16]]],
+  bars: [[[8, 12], [3, 12]], [[3, 16], [3, 21]]],
+  cells: [[21, 12], [7, 21], [12, 3]],
+};
+
+/** A run with one filleted turn, whose two free ends square up in sharp. */
+function qrElbow([a, v, b], sharp) {
+  const out = (p) => (sharp ? add(p, mul(unit(sub(p, v)), sharpEndIn(p, unit(sub(p, v))))) : p);
+  const A = out(a), B = out(b);
+  return new Path().M(A).corner(v, B, sharp ? 0 : 2).L(B).toString();
+}
+
 SETS['qr-code'] = () => {
   const out = {};
   for (const sharp of [false, true]) {
     const key = sharp ? 'sharp' : 'regular';
-    const finders = FINDERS.map(([x, y]) => polyContour([[x, y], [x + 6, y], [x + 6, y + 6], [x, y + 6]], sharp ? [0, 0, 0, 0] : [1, 1, 1, 1]));
+    const finders = QR.finders.map(([x, y]) =>
+      polyContour([[x, y], [x + 5, y], [x + 5, y + 5], [x, y + 5]], sharp ? [0, 0, 0, 0] : [1, 1, 1, 1]));
     const plates = finders.map((f) => plateOf(f.segs));
-    const wells = FINDERS.map(([x, y]) => polyContour([[x + 1, y + 1], [x + 5, y + 1], [x + 5, y + 5], [x + 1, y + 5]], [0, 0, 0, 0]).segs);
-    const bars = QR_BARS.map((b) => (sharp ? sharpen(b) : b)).map(runPath).join('');
-    const dots = QR_DOTS.map((c) => circlePath(c, 1)).join('');
-    const strokes = finders.map(String).join('') + bars;
-    out[`stroke.${key}`] = [S(strokes), F_(dots)];
-    out[`duotone.${key}`] = [P(plates.map(contourPath).join('')), S(strokes), F_(dots)];
-    out[`fill.${key}`] = [F_(plates.map((p, i) => contourPath(p) + hole(p, wells[i])).join('') + dots), S(bars)];
+    const runs = QR.elbows.map((e) => qrElbow(e, sharp)).join('')
+      + QR.bars.map((b) => scanRun(b, sharp)).join('');
+    const cells = QR.cells.map((c) => scanCell(c, sharp)).join('');
+    const strokes = finders.map(String).join('') + runs;
+    out[`stroke.${key}`] = [S(strokes), F_(cells)];
+    out[`duotone.${key}`] = [P(plates.map((c) => contourPath(c)).join('')), S(strokes), F_(cells)];
+    // a finder fills to the solid block: a ring's counter is not interior
+    // detail, and knocking it out leaves the filled style painting the stroke
+    out[`fill.${key}`] = [F_(plates.map((c) => contourPath(c)).join('') + cells), S(runs)];
   }
   return out;
 };
@@ -396,7 +423,7 @@ SETS.scissors = () => {
     const discs = [RA, RB].map((c) => circleSegs(c, 4));
     const holes = [RA, RB].map((c) => circleSegs(c, 2));
     out[`stroke.${key}`] = [S(rings + blades)];
-    out[`duotone.${key}`] = [P(discs.map(contourPath).join('')), S(rings + blades)];
+    out[`duotone.${key}`] = [P(discs.map((c) => contourPath(c)).join('')), S(rings + blades)];
     out[`fill.${key}`] = [F_(discs.map((d, i) => contourPath(d) + hole(d, holes[i])).join('')), S(blades)];
   }
   return out;
@@ -488,6 +515,846 @@ SETS.rocket = () => {
   return out;
 };
 
+
+/* ----------------------------------------------- scissors, horizontal */
+
+/**
+ * The same scissors turned a quarter turn clockwise, rings on the left and
+ * blades opening to the right, which is the direction `bar-chart-horizontal`
+ * and `tag-horizontal-start` already read in.
+ *
+ * The construction is not rotated; its SEED POINTS are, and the drawing is
+ * then built in the rotated frame. Turning the emitted path instead means
+ * turning arcs, whose sweep direction a coordinate swap silently inverts, and
+ * it is the same class of mistake as translating a path with a regex over its
+ * numbers. Rotating the seeds costs one helper and cannot go wrong quietly.
+ *
+ * The clamp box is the icon's own 2..22 square, which is symmetric under the
+ * quarter turn, so a sharp end solved before the rotation is the same end
+ * after it.
+ */
+const rot90 = (p) => [24 - p[1], p[0]];
+
+function scissorsGeom(sharp) {
+  const RA = [6, 18], RB = [18, 18], TA = [17, 3], TB = [7, 3];
+  const A0 = add(RA, mul([1, -1], 3 / SQ2)), B0 = add(RB, mul([-1, -1], 3 / SQ2));
+  const ua = unit(sub(TA, A0)), ub = unit(sub(TB, B0));
+  const PV = add(A0, mul(ua, (12 - A0[0]) / ua[0]));
+  const cross = Math.abs(ua[0] * ub[1] - ua[1] * ub[0]);   // sin of the crossing angle
+  const B2 = add(PV, mul(ub, 4 / cross));                  // 1 + 2 + 1, measured along B
+  const box = [2, 2, 22, 22];
+  return {
+    rings: [RA, RB],
+    // the whole blade is free at the tip; the cut blade's lower end is buried
+    // in the front blade's ink and the front blade's own lower end is its ring
+    runs: [
+      sharp ? sharpen([A0, TA], [false, true], box) : [A0, TA],
+      [B0, PV],
+      sharp ? sharpen([B2, TB], [true, true], box) : [B2, TB],
+    ],
+  };
+}
+
+function scissorsSet(horizontal) {
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const g = scissorsGeom(sharp);
+    const turn = (p) => (horizontal ? rot90(p) : p);
+    const rings = g.rings.map(turn);
+    const blades = g.runs.map((r) => runPath(r.map(turn))).join('');
+    const ringPath = rings.map((c) => circlePath(c, 3)).join('');
+    const discs = rings.map((c) => circleSegs(c, 4));
+    const holes = rings.map((c) => circleSegs(c, 2));
+    out[`stroke.${key}`] = [S(ringPath + blades)];
+    out[`duotone.${key}`] = [P(discs.map((c) => contourPath(c)).join('')), S(ringPath + blades)];
+    out[`fill.${key}`] = [F_(discs.map((d, i) => contourPath(d) + hole(d, holes[i])).join('')), S(blades)];
+  }
+  return out;
+}
+SETS.scissors = () => scissorsSet(false);
+SETS['scissors-horizontal'] = () => scissorsSet(true);
+
+/* ------------------------------------------------------- the scan family */
+
+/**
+ * Everything in the family is the same four corner brackets with something
+ * different inside, so the frame is READ from `scan-face` rather than restated
+ * — one source, and a change to the brackets carries to all of them.
+ *
+ * What the interior may occupy is set by the brackets' arms rather than by the
+ * canvas. An arm paints a stadium 2 units deep reaching 9 units along each
+ * edge, so at the frame's own midlines there is no bracket ink at all, and the
+ * clearance an interior owes is measured against the arms and their end caps.
+ * Every interior below lands on exactly 2.00 at its tightest, which is why the
+ * rules run to 7 and 17 and the barcode's bars stand on 7, 11 and 17.
+ *
+ * Obligation is derived here as everywhere else, so the family is deliberately
+ * mixed: a rule, a line of text and a barcode enclose nothing and ship stroke
+ * only, like `scan` and `scan-face`; an eye, a lens, a heart and a finder
+ * square each close a region and owe all three styles for it.
+ */
+function scanFrame(sharp) {
+  const src = readFileSync(`${ROOT}/raw/scan-face/Container=regular, Style=stroke, Corners=${sharp ? 'sharp' : 'regular'}.svg`, 'utf8');
+  const parts = /d="([^"]*)"/.exec(src)[1].split(/(?=M)/);
+  if (parts.length < 5) throw new Error('scan-face has changed shape');
+  return parts.slice(0, 4).join('');
+}
+
+/** A rule or bar inside the frame: both ends free, so both square up in sharp. */
+const scanRun = (pts, sharp, ends = [true, true]) => runPath(sharp ? sharpen(pts, ends) : pts);
+
+/** A filled cell: a mark on the dot ladder, a disc rounded and a square sharp. */
+const scanCell = ([x, y], sharp) => (sharp
+  ? contourPath(polyContour([[x - 1, y - 1], [x + 1, y - 1], [x + 1, y + 1], [x - 1, y + 1]], [0, 0, 0, 0]).segs)
+  : circlePath([x, y], 1));
+
+/** Stroke-only members: the frame plus open runs. */
+const scanOpen = (runs) => {
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    out[`stroke.${key}`] = [S(scanFrame(sharp) + runs.map((r) => scanRun(r, sharp)).join(''))];
+  }
+  return out;
+};
+
+// A beam across the whole scan area rather than a short mark inside it: the
+// rule's caps land level with the frame's own side arms and clear them by
+// exactly 2, so the icon keeps `scan`'s 20 x 20 ink box.
+SETS['scan-line'] = () => scanOpen([[[3, 12], [21, 12]]]);
+
+// Three rules on the frame's own 4-unit rhythm, left-aligned on 7 where the
+// side arms allow nothing closer, and running 10, 8 and 6 so the block reads
+// as text trailing off rather than as a comb.
+SETS['scan-text'] = () => scanOpen([[[7, 8], [17, 8]], [[7, 12], [15, 12]], [[7, 16], [13, 16]]]);
+
+// Bars at 7, 11 and 17: the arms fix the outer two, and the third stands off
+// centre because evenly spaced bars read as a comb and a barcode is uneven.
+SETS['scan-barcode'] = () => scanOpen([[[7, 7], [7, 17]], [[11, 7], [11, 17]], [[17, 7], [17, 17]]]);
+
+/**
+ * The lens is r=3 about (11,11) and the handle runs to (16,16), which puts the
+ * magnifier's own ink on 7..17 in both axes — centred in the frame, where
+ * hanging the handle off a centred lens would sit the whole mark low and right.
+ * The handle's upper end is buried in the lens, so only its tip squares up.
+ */
+SETS['scan-search'] = () => {
+  const C = [11, 11], R = 3;
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const handle = sharp ? sharpen([[13, 13], [16, 16]], [false, true]) : [[13, 13], [16, 16]];
+    const lens = circlePath(C, R);
+    const disc = circleSegs(C, R + 1);
+    const d = scanFrame(sharp) + lens + runPath(handle);
+    out[`stroke.${key}`] = [S(d)];
+    out[`duotone.${key}`] = [P(contourPath(disc)), S(d)];
+    // the lens fills; the frame and the handle stay strokes over it, which is
+    // `lock`'s pattern — the filled region is one part of the object
+    out[`fill.${key}`] = [F_(contourPath(disc)), S(scanFrame(sharp) + runPath(handle))];
+  }
+  return out;
+};
+
+/**
+ * An almond of half-width 6 and half-height 5 about (12,12), drawn as our own
+ * `eye` is: two circular arcs meeting at true cusps, each through the tips and
+ * the crown. The centre offset falls out of the two, `u = (a² - b²) / 2b`.
+ *
+ * The pupil is a filled bead rather than `eye`'s ring, and that is arithmetic
+ * rather than a liberty. A ring needs its own daylight: the lid's inner ink
+ * sits at `b - 1` from the centre and a ring of path radius p paints to p + 1,
+ * so `b - p >= 4`, and at b = 5 that leaves p = 1, which paints a solid 4
+ * across and is off the dot ladder. A bead of 3 clears the lid by 2.5.
+ */
+SETS['scan-eye'] = () => {
+  const a = 6, b = 5, c = [12, 12];
+  const u = (a * a - b * b) / (2 * b);
+  const ang = (o, p) => deg(o, p);
+  const top = [c[0], c[1] + u], bot = [c[0], c[1] - u];
+  const L = [c[0] - a, c[1]], Rt = [c[0] + a, c[1]];
+  const almond = new Path().M(L)
+    .A(top, ang(top, L), ang(top, Rt), 1)
+    .A(bot, ang(bot, Rt), ang(bot, L), 1)
+    .Z();
+  const plate = plateOf(almond.segs);
+  const pupil = circlePath(c, 1.5);
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    // a cusp is already a point and there is no free end, so the eye itself is
+    // one drawing in both treatments, exactly as `eye` and `heart` are
+    const d = scanFrame(sharp) + almond.toString();
+    out[`stroke.${key}`] = [S(d), F_(pupil)];
+    out[`duotone.${key}`] = [P(contourPath(plate)), S(d), F_(pupil)];
+    out[`fill.${key}`] = [F_(contourPath(plate) + hole(plate, circleSegs(c, 1.5))), S(scanFrame(sharp))];
+  }
+  return out;
+};
+
+/**
+ * HELD, not shipped. The drawing is right and its PLATE is not: it measures
+ * 0.317 from its own stroke where a plate is 1.000, because `offsetPath`
+ * bridges a reflex corner with a straight run between the two untrimmed
+ * offsets instead of trimming both to their crossing, and the heart's top
+ * notch is the deepest reflex corner anything here has asked it for. The
+ * shipped `heart` measures 0.998 and is the control that proves it.
+ *
+ * `verify` did not catch it because it RETURNS a verdict rather than throwing,
+ * and every call site here and in v6 drops the return on the floor. Fixing the
+ * offsetter is the real repair and it moves shipped drawings, so it is not
+ * being done in the middle of a review.
+ *
+ * Our own heart at half size about the centre. A heart is free curves with no
+ * fillet on the ladder and no internal daylight to lose, so unlike a glyph
+ * built on the gap rule it scales honestly; the tips land on 7 and 17 and the
+ * crown and point on half units, which is what a 20 x 18 form does when halved.
+ */
+const HELD_scanHeart = () => {
+  const src = readFileSync(`${ROOT}/icons/stroke/heart.svg`, 'utf8');
+  const d0 = /d="([^"]*)"/.exec(src)[1];
+  const half = d0.replace(/(-?\d*\.?\d+)\s+(-?\d*\.?\d+)/g, (_, x, y) =>
+    `${num(12 + (Number(x) - 12) / 2)} ${num(12 + (Number(y) - 12) / 2)}`);
+  const plate = offsetPath(half, 1);
+  verifyCubic(half, plate, 1);
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const d = scanFrame(sharp) + half;
+    out[`stroke.${key}`] = [S(d)];
+    out[`duotone.${key}`] = [P(plate), S(d)];
+    out[`fill.${key}`] = [F_(plate), S(scanFrame(sharp))];
+  }
+  return out;
+};
+
+/**
+ * Zafar's redraw, 10 Sep 2026, fitted. The interior is his own `qr-code`
+ * reduced rather than a second opinion about what a QR code looks like: both
+ * elbows and the left bar are `QR.elbows` and `QR.bars[0]` unchanged, and the
+ * two cells that survive sit on `QR.cells`' own positions.
+ *
+ * The drawing he handed over put those two cells half a unit inboard, at
+ * 11.5,3 and 20.5,12, which leaves 1.5 of daylight against the bracket and
+ * against the elbow's cap where the house asks 2. Both snap onto the cell his
+ * `qr-code` already uses, and at 12,3 and 21,12 every gap in the drawing
+ * measures exactly 2. Nothing else moved: the third cell and the two short
+ * bars are his, half units and all, and they clear everything by 2.5.
+ *
+ * It is STROKE ONLY, and that is the redraw's own doing. Nothing in it closes
+ * now that the finder square is gone, and an open glyph with no container owes
+ * no duotone and no fill.
+ */
+SETS['scan-qr-code'] = () => {
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const runs = qrElbow(QR.elbows[0], sharp)
+      + qrElbow(QR.elbows[1], sharp)
+      + scanRun(QR.bars[0], sharp)
+      + scanRun([[7.5, 7], [7.5, 8]], sharp)
+      + scanRun([[16.5, 16], [16.5, 17]], sharp);
+    const cells = scanCell([12, 3], sharp) + scanCell([21, 12], sharp) + scanCell([16.5, 7.5], sharp);
+    out[`stroke.${key}`] = [S(scanFrame(sharp) + runs), F_(cells)];
+  }
+  return out;
+};
+
+
+/* ------------------------------------------------------------ the slash */
+
+/**
+ * A bare diagonal, and the same diagonal inside each container.
+ *
+ * The set has no separate `square-slash` or `circle-slash` to draw: a
+ * container is a variant property here, so one drawing with three Container
+ * values is the whole family. The bare one runs corner to corner and paints
+ * 1..23, which is the circle size and what every full-bleed diagonal in the
+ * set already measures; the contained one is `x`'s own falling bar, so the
+ * two icons cannot drift apart.
+ *
+ * **It runs "/" and `ban` runs "\", and that is the rule rather than a
+ * coincidence.** A free diagonal runs bottom-left to top-right, and negation
+ * is the one case that runs the other way. So a slash is a separator, a
+ * divide, an "or"; `ban`'s falling chord is the prohibition sign, and its
+ * chord spans the whole ring where this one is a mark inside it. Nothing else
+ * separates the two at 16px, which is why the direction is not negotiable.
+ *
+ * The container geometry is READ from `raw/x` rather than restated, for the
+ * same reason the scan frame is read from `scan-face`.
+ */
+const xPath = (container, style, corners, index) => {
+  const f = `${ROOT}/raw/x/Container=${container}, Style=${style}, Corners=${corners}.svg`;
+  const subs = [...readFileSync(f, 'utf8').matchAll(/d="([^"]*)"/g)].map((m) => m[1]);
+  return subs[index];
+};
+
+/** Wind `segs` against a plate given only the plate's PATH, by signed area. */
+const holeAgainst = (plateD, segs) => {
+  const area = (pts) => {
+    let a = 0;
+    for (let i = 0; i < pts.length; i++) { const q = pts[i], r = pts[(i + 1) % pts.length]; a += q[0] * r[1] - r[0] * q[1]; }
+    return a;
+  };
+  const plate = outlines(plateD)[0];
+  const wound = Math.sign(area(plate)) === Math.sign(area(flatten(segs, 24)))
+    ? [...segs].reverse().map((g) => (g.type === 'L' ? { type: 'L', p0: g.p1, p1: g.p0 } : { type: 'A', c: g.c, r: g.r, a0: g.a1, a1: g.a0 }))
+    : segs;
+  return contourPath(wound);
+};
+
+SETS.slash = () => {
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const corners = sharp ? 'sharp' : 'regular';
+    const cap = sharp ? 'butt' : 'round';
+    // the bare mark, and the contained one, which is x's falling bar
+    const bare = sharp ? sharpen([[2, 22], [22, 2]]) : [[2, 22], [22, 2]];
+    const mark = sharp ? sharpen([[15, 9], [9, 15]]) : [[15, 9], [9, 15]];
+    // it IS x's bar, or the two icons have quietly drifted
+    const want = xPath('circle', 'stroke', corners, 1).split(/(?=M)/)[1];
+    if (runPath(mark) !== want) throw new Error(`slash is not x's bar: ${runPath(mark)} vs ${want}`);
+
+    out[`regular.stroke.${key}`] = [S(runPath(bare))];
+    for (const container of ['square', 'circle']) {
+      const ring = xPath(container, 'stroke', corners, 0);
+      const plate = xPath(container, 'duotone', corners, 0);
+      const band = outlineRun(lineSegs(mark), 1, cap);
+      out[`${container}.stroke.${key}`] = [S(ring + runPath(mark))];
+      out[`${container}.duotone.${key}`] = [P(plate), S(runPath(mark))];
+      out[`${container}.fill.${key}`] = [F_(plate + holeAgainst(plate, band))];
+    }
+  }
+  return out;
+};
+
+
+/* ------------------------------------------------------- search-slash */
+
+/**
+ * The `/` inside the glass, and it is one bar of `search-x` rather than a new
+ * mark: the lens, the handle and the muted disc are all READ from that icon,
+ * so the family cannot drift and the sign is the same sign at the same size.
+ * `slash` is half of `x` for the same reason one step up.
+ *
+ * The sign's endpoints sit exactly 3 from the lens centre, which is the whole
+ * of what the glass allows — inner ink edge at 6, the house gap takes 2 and
+ * the sign's own ink takes 1 — so a diagonal is the one sign that reaches that
+ * limit rather than stopping short of it, and this is that diagonal.
+ *
+ * It runs bottom-left to top-right, the free diagonal's direction, and that
+ * is what makes it a `/` rather than a negation: a slash cutting the whole
+ * drawing is the `-off` family's mark and means the capability is off, where
+ * this one is a character inside the field the way `/` opens a search.
+ *
+ * `search-2-slash` is NOT drawn. Every other sign in this family has a
+ * `search-2` twin, so the two families are asymmetric until someone says
+ * whether the slash earns one.
+ */
+const searchPart = (style, corners, index) => {
+  const f = `${ROOT}/raw/search-x/Container=regular, Style=${style}, Corners=${corners}.svg`;
+  const paths = [...readFileSync(f, 'utf8').matchAll(/d="([^"]*)"/g)].map((m) => m[1]);
+  return paths[index];
+};
+
+SETS['search-slash'] = () => {
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const corners = sharp ? 'sharp' : 'regular';
+    // search-x's stroke is lens, handle, then its two bars; the "/" is the last
+    const subs = searchPart('stroke', corners, 0).split(/(?=M)/);
+    if (subs.length !== 4) throw new Error(`search-x is not lens+handle+two bars: ${subs.length} subpaths`);
+    const [lens, handle, , bar] = subs;
+    // and it is the bar that RISES, or the sign is a negation rather than a slash
+    const pts = bar.match(/-?\d*\.?\d+/g).map(Number);
+    if (!(pts[0] > pts[2] && pts[1] < pts[3])) throw new Error(`that bar falls, it does not rise: ${bar}`);
+    const disc = searchPart('duotone', corners, 0);
+    const segs = [{ type: 'L', p0: [pts[0], pts[1]], p1: [pts[2], pts[3]] }];
+    const band = outlineRun(segs, 1, sharp ? 'butt' : 'round');
+    const d = lens + handle + bar;
+    out[`stroke.${key}`] = [S(d)];
+    out[`duotone.${key}`] = [P(disc), S(d)];
+    // the lens fills and the handle stays a stroke over it, as search-x does
+    out[`fill.${key}`] = [F_(disc + holeAgainst(disc, band)), S(handle)];
+  }
+  return out;
+};
+
+
+/* ------------------------------------------------------- the chart family */
+
+/**
+ * Seven plots on one axis, and a pie that has none. `chart-spline` was drawn
+ * with them and dropped on his word.
+ *
+ * The axis is the family's frame the way the brackets are the scan family's:
+ * an L from (3,3) down to the corner and out to (21,21), turning on r=2, both
+ * ends free so both square up in sharp. It paints x 2..4 up the left and
+ * y 20..22 along the foot, which is what fixes the plot area — everything
+ * inside clears those by the house 2, so a plot lives in x 6..22 by y 2..18
+ * and every drawing below is composed inside that box.
+ *
+ * **What is NOT here is as deliberate as what is.** Lucide's `chart-no-axes-*`
+ * icons are this set's `bar-chart` family already: their `chart-no-axes-column`
+ * is three bars on no axis, which is `bar-chart-2`, and the increasing and
+ * decreasing pair are `bar-chart` and `bar-chart-down`. Drawing them again
+ * under a second name is the `ticket-slash` mistake — see *Compare a variant
+ * against its own family*. What the axis versions add is the axis, which the
+ * set genuinely did not have, so `chart-column` and `chart-bar` are the same
+ * bars WITH one and are their own drawings rather than duplicates.
+ *
+ * `chart-pie` is the one with no axis, and the collision to check there is not
+ * Lucide's but our own: `circle-quarter` is a ring with a wedge INSET by four
+ * units, a level indicator. A pie's slice reaches the rim, which is a different
+ * drawing and reads as one.
+ *
+ * **These are Zafar's drawings, redrawn 10 Sep 2026**, and they replaced a set
+ * scaled off `bar-chart` that had itself replaced Lucide's coordinates. His
+ * plot runs on a 5 pitch rather than the 7 the scaling gave, which is 3 units
+ * of daylight between bars instead of 5 and holds together at 16. Only the
+ * arithmetic was ours: a collinear cubic written as the line it paints, two
+ * polyline vertices read off their exact y values, and one sharp end clamped to
+ * the box its rounded sibling paints.
+ */
+const AXIS = (sharp) => qrElbow([[3, 3], [3, 21], [21, 21]], sharp);
+const bars = (runs, sharp) => runs.map((r) => scanRun(r, sharp)).join('');
+
+/** Stroke-only members: the axis plus open runs. */
+const chartOpen = (runs) => {
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    out[`stroke.${key}`] = [S(AXIS(sharp) + bars(runs, sharp))];
+  }
+  return out;
+};
+
+/**
+ * ZAFAR'S REDRAW, 10 Sep 2026, fitted. He tightened the plot from a 7 pitch to
+ * a 5, which puts three bars in the same box with 3 units of daylight instead
+ * of 5 and reads better at 16 than the scaled `bar-chart` did.
+ *
+ * The axis is unchanged. It paints x 2..4 up the left and y 20..22 along the
+ * foot, so a plot lives in x 6..22 by y 2..18 and everything below clears the
+ * axis by the house 2 and its neighbours by 3.
+ *
+ * The only thing his files needed was arithmetic. `chart-bar`'s top rule was a
+ * cubic whose control points are collinear, which paints as a straight line and
+ * stores as a curve, so it is written as one; and `chart-line`'s two interior
+ * vertices sat at x 9.154 and 18.577 where his y values were exactly 12 and 11,
+ * so they are read as 9 and 19.
+ */
+SETS['chart-column'] = () => chartOpen([[[8, 17], [8, 8]], [[13, 17], [13, 11]], [[18, 17], [18, 5]]]);
+
+// The same three readings lying down, every bar starting on 7, two clear of
+// the upright.
+SETS['chart-bar'] = () => chartOpen([[[7, 7], [16, 7]], [[7, 12], [13, 12]], [[7, 17], [19, 17]]]);
+
+// A gantt is the one chart whose bars do not share a start: equal runs of 6,
+// each 3 further along than the last, so consecutive rows overlap in x the way
+// scheduled work does.
+SETS['chart-gantt'] = () => chartOpen([[[7, 7], [13, 7]], [[10, 12], [16, 12]], [[13, 17], [19, 17]]]);
+
+/**
+ * The reading as a line: a steep rise, a long plateau and a steep rise, turning
+ * on r=1 at both vertices. A chart's peaks are readings rather than corners, so
+ * this is the one drawing in the family where that is a judgement call, and his
+ * answer is to round them.
+ */
+SETS['chart-line'] = () => {
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const r = sharp ? 0 : 1;
+    // The end at 21,5 climbs at 72 degrees, so its butt cap's far corner runs
+    // ahead of the round cap's disc: the angle rule alone puts it on 22.18
+    // where the rounded drawing stops at 22. Clamping to the drawing's OWN
+    // painted box rather than the canvas costs that end most of its reach,
+    // which is the trade the set already makes on 25 names.
+    const BOX = [2, 2, 22, 22];
+    const A = sharp ? sharpen([[7, 17], [9, 12]], [true, false], BOX)[0] : [7, 17];
+    const B = sharp ? sharpen([[19, 11], [21, 5]], [false, true], BOX)[1] : [21, 5];
+    const d = new Path().M(A).corner([9, 12], [19, 11], r).corner([19, 11], B, r).L(B).toString();
+    out[`stroke.${key}`] = [S(AXIS(sharp) + d)];
+  }
+  return out;
+};
+
+/**
+ * THE REST OF THE FAMILY, on his plot and his ladder.
+ *
+ * His `chart-column` plots painted heights of 11, 8 and 14 on bars at x 8, 13
+ * and 18, and his `chart-bar` plots the same three lengths on rows at y 7, 12
+ * and 17 from x 7. Sorted versions of that ladder were drawn as
+ * `chart-{column,bar}-{increasing,decreasing}` and dropped on his word.
+ *
+ * The fat pairs take his `chart-candlestick` pitch, bodies of 4 on 7..11 and
+ * 15..19, because that is where he already put two wide things in this plot:
+ * they paint 6 each with the house 2 between and 2 to spare at the far end.
+ *
+ * A stacked bar's division is a rule across the body, cap to cap with its two
+ * side walls, so it is one element with the body and owes it no gap. What it
+ * does owe is 2 to the walls it runs parallel to, which is what puts the
+ * divisions where they are rather than at the halfway mark, and it sets a floor
+ * on the body: 2 of wall, 2 of daylight, 2 of rule, 2 of daylight and 2 of wall
+ * is **10 painted before a division fits at all**. That is why the pair carries
+ * the ladder's two tallest readings and not its clearest contrast.
+ */
+const FOOT = 17, START = 7;
+
+/**
+ * A body on r=1, its own plate, and any rules drawn across it.
+ *
+ * **The fill KNOCKS OUT THE SMALLER SEGMENT; it does not draw the rule.** A
+ * stacked body fills solid, so a rule painted over it at full strength is black
+ * on black and the drawing loses its divisions entirely. That is what shipped
+ * first. Knocking out the RULE's own band was the second attempt and is also
+ * wrong: it leaves a slot the width of a stroke floating in the middle of the
+ * bar and says nothing about which side is which.
+ *
+ * His correction, in his words: *"not the line should be whole, but the smaller
+ * part of the square inside it."* So the rule divides the body's INTERIOR in
+ * two and the smaller part is voided whole. What is left is the larger segment
+ * plus the wall all round it, and the boundary between solid and void IS the
+ * rule — drawn by not drawing it.
+ *
+ * The interior is the box inset 1 on the path, since a wall is 2 painted. The
+ * voids come out 2 by 2 and 2 by 3 in the columns, 2 by 2 and 3 by 2 in the
+ * rows: they are as uneven as the readings they stand for, which is the point.
+ */
+function chartBodies(boxes, rules = []) {
+  const out = {};
+  // the smaller of the two parts the rule cuts the body's interior into
+  const slotFor = ([x0, y0, x1, y1], [p, q]) => {
+    const inner = [x0 + 1, y0 + 1, x1 - 1, y1 - 1];
+    const shorter = (a, b, c, d) => (b - a <= d - c ? [a, b] : [c, d]);
+    if (p[1] === q[1]) {                      // a rule across, so it cuts in y
+      const [a, b] = shorter(inner[1], p[1] - 1, p[1] + 1, inner[3]);
+      return [inner[0], a, inner[2], b];
+    }
+    const [a, b] = shorter(inner[0], p[0] - 1, p[0] + 1, inner[2]);
+    return [a, inner[1], b, inner[3]];
+  };
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const r = sharp ? 0 : 1;
+    const bodies = boxes.map(([x0, y0, x1, y1]) =>
+      polyContour([[x0, y0], [x1, y0], [x1, y1], [x0, y1]], [r, r, r, r]));
+    const plates = bodies.map((b) => plateOf(b.segs));
+    // a rule is buried in its body's ink at both ends, so neither end is free
+    const marks = rules.map((m) => scanRun(m, sharp, [false, false])).join('');
+    const d = AXIS(sharp) + bodies.map(String).join('') + marks;
+    const solid = plates.map((c) => contourPath(c)).join('');
+    const slots = rules.map((m, i) => {
+      const [a, b, c2, d2] = slotFor(boxes[i], m);
+      const box = polyContour([[a, b], [c2, b], [c2, d2], [a, d2]], [0, 0, 0, 0]);
+      return hole(plates[i], box.segs);
+    }).join('');
+    out[`stroke.${key}`] = [S(d)];
+    out[`duotone.${key}`] = [P(solid), S(d)];
+    out[`fill.${key}`] = [F_(solid + slots), S(AXIS(sharp))];
+  }
+  return out;
+}
+
+// Two bodies of 4 paint 6 each, so the plot's 16 holds them with the house 2
+// between and 2 to spare. **Spent one unit either side rather than both on the
+// right**, which centres the pair on the plot's own middle at 14. Sitting them
+// where his candlestick sits its bodies, on 7..11 and 15..19, is the other
+// reading of the same rule, and it produced Lucide's drawing coordinate for
+// coordinate: the overlap check came back 100 against 100 and it did not ship.
+const COL_BIG = [[8, 8, 12, FOOT], [16, 5, 20, FOOT]];
+const ROW_BIG = [[START, 5, 16, 9], [START, 13, 19, 17]];
+SETS['chart-column-big'] = () => chartBodies(COL_BIG);
+SETS['chart-bar-big'] = () => chartBodies(ROW_BIG);
+// the top segment is 4 painted in both columns, so the division reads as one
+// reading taken twice rather than two arbitrary marks
+SETS['chart-column-stacked'] = () => chartBodies(COL_BIG, [[[8, 12], [12, 12]], [[16, 10], [20, 10]]]);
+SETS['chart-bar-stacked'] = () => chartBodies(ROW_BIG, [[[12, 5], [12, 9]], [[14, 13], [14, 17]]]);
+
+/**
+ * Three nodes and the two edges between them.
+ *
+ * **An edge ends ON its node's centre line, not short of it**, which is what
+ * `git-graph` and `git-fork` already do: a round cap sitting 2 from an r=2
+ * node's centre paints the band from 1 to 3, exactly the ring's own, so the two
+ * are one piece and owe each other no daylight. Stopping 2 clear instead is
+ * what makes this drawing impossible — the exclusion zones round two nodes 8
+ * apart overlap, and nothing can be drawn between them.
+ *
+ * The angle at the middle node is the constraint that placed all three. Two
+ * edges leaving a node at theta have `2d sin(theta/2) - 2` of daylight at
+ * distance d, and they first appear from under the ring at d = R+1 = 3, so the
+ * house 2 asks `sin(theta/2) >= 2/3`, or **theta >= 83.6 degrees**. A compact
+ * triangle of three nodes cannot hold that at any corner; a path of two edges
+ * only has to hold it at one. B is placed to make the angle exactly 90, which
+ * gives 2.24 of daylight where the edges come out from under the ring.
+ *
+ * **It warns at 0.83 anyway, and the warning is wrong.** SPACING measures
+ * subpath to subpath, so it finds the two edge CAPS, which sit at radius 2 on
+ * either side of B and are 2.83 apart on their centre lines. Both are buried in
+ * the ring's own band, which paints every direction from 1 to 3, so nothing of
+ * that gap is visible. `layered` cannot excuse it either: it asks whether the
+ * covering element is FILLED, and a node is a ring. No layout removes it — the
+ * caps are `2R sin(theta/2)` apart, so 2 painted would need theta = 180 and a
+ * straight line of three nodes is not a network. Accepted, four warnings.
+ */
+// His touch-up, 10 Sep 2026: the whole thing slid down 2, which puts the lowest
+// node's ink exactly 2 above the foot and its highest 2 below the plot's top,
+// where mine sat flush against the top and floated 4 clear of the foot. Every
+// standing element in the family stands on that same 2.
+const NET = { R: 2, A: [9, 7], B: [11, 15], C: [19, 13] };
+SETS['chart-network'] = () => {
+  const { R, A, B, C } = NET;
+  const toward = (p, q) => add(p, mul(unit(sub(q, p)), R));
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const nodes = [A, B, C].map((c) => circlePath(c, R)).join('');
+    const discs = [A, B, C].map((c) => circleSegs(c, R + 1));
+    const holes = [A, B, C].map((c) => circleSegs(c, R - 1));
+    // both ends are buried in a ring, so neither squares up in sharp
+    const edges = [[A, B], [B, C]]
+      .map(([p, q]) => runPath([toward(p, q), toward(q, p)])).join('');
+    const d = AXIS(sharp) + nodes + edges;
+    out[`stroke.${key}`] = [S(d)];
+    out[`duotone.${key}`] = [P(discs.map((c) => contourPath(c)).join('')), S(d)];
+    out[`fill.${key}`] = [F_(discs.map((c, i) => contourPath(c) + hole(c, holes[i])).join('')), S(AXIS(sharp) + edges)];
+  }
+  return out;
+};
+
+/**
+ * HIS TWO, 10 Sep 2026: one reading rising and the same one falling, each a
+ * single cubic rather than the two arcs `chart-spline` is built from. A lone
+ * curve needs no tangent matched to anything, so there is nothing to construct
+ * and the control points are his.
+ *
+ * They sit inside the plot rather than filling it: the ink runs x 6..20 by
+ * y 6..17 against the 6..22 by 4..18 his `chart-line` reaches, so the curve
+ * reads as a trend through the middle of the plot rather than a route between
+ * two corners.
+ */
+const LINE_CURVE = {
+  increasing: 'M19 7C17.9091 9.8125 13.9818 15.55 7 16',
+  decreasing: 'M7 7C8.09091 9.8125 12.0182 15.55 19 16',
+};
+for (const [way, d] of Object.entries(LINE_CURVE)) {
+  SETS[`chart-line-${way}`] = () => {
+    const out = {};
+    // two free ends on a curve, so the treatments carry one curve and differ
+    // only in their caps, as `chart-spline` does
+    for (const sharp of [false, true]) out[`stroke.${sharp ? 'sharp' : 'regular'}`] = [S(AXIS(sharp) + d)];
+    return out;
+  };
+}
+
+/**
+ * The same reading as a curve, and it takes `chart-line`'s own two ends: 7,17
+ * up to 21,5. **It is two arcs, not a fitted curve.** The second is the first
+ * turned through 180 degrees about their meeting point at 14,11, so the
+ * tangents match there by construction rather than by eye, and a smooth join is
+ * the whole of what makes it a spline.
+ *
+ * The first arc is struck through a point 1.5 below the middle of its own
+ * chord. Below 1 the drawing straightens into a diagonal and stops reading as
+ * a curve; above 2 it bulges past the 16 by 14 its ends already fix, which is
+ * the box his line paints.
+ *
+ * Drawn with the batch, dropped on his word, and brought back on his word.
+ */
+SETS['chart-spline'] = () => {
+  const A = [7, 17], B = [21, 5], J = [14, 11], SAG = 1.5;
+  const mid = [(A[0] + J[0]) / 2, (A[1] + J[1]) / 2];
+  const seg = arcThrough(A, [mid[0], mid[1] + SAG], J);
+  const turned = { c: [2 * J[0] - seg.c[0], 2 * J[1] - seg.c[1]], r: seg.r };
+  const ang = (o, p) => (Math.atan2(p[1] - o[1], p[0] - o[0]) * 180) / Math.PI;
+  const d = new Path().M(A)
+    .A(seg.c, ang(seg.c, A), ang(seg.c, J))
+    .A(turned.c, ang(turned.c, J), ang(turned.c, B))
+    .toString();
+  const out = {};
+  // both free ends sit on a curve, so there is no tangent to run a squared cap
+  // out along: the two treatments carry one curve and differ in their caps
+  for (const sharp of [false, true]) out[`stroke.${sharp ? 'sharp' : 'regular'}`] = [S(AXIS(sharp) + d)];
+  return out;
+};
+
+/**
+ * The line chart closed down to a baseline, which is what makes it an area and
+ * what gives it the filled styles the open ones do not owe.
+ *
+ * **It does NOT carry `chart-line`'s polyline, and that is the baseline's
+ * doing rather than an oversight.** His redrawn line arrives at 21,5 climbing
+ * at 72 degrees, and the wall an area has to drop from there is vertical, so
+ * closing his line leaves an 18.43 degree needle at the top right that no
+ * ladder radius can round off. An area wants a shallow final approach; this one
+ * arrives at 45 degrees and its corner takes r=1 like the two feet. The two feet turn
+ * on r=1 so the fill's own corners land on 2; the data points stay true
+ * vertices, because a chart's peaks are readings rather than corners.
+ */
+SETS['chart-area'] = () => {
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const r = sharp ? 0 : 1;
+    const area = polyContour([[7, 15], [13, 9], [16, 12], [21, 7], [21, 17], [7, 17]], [0, 0, 0, 0, r, r]);
+    const plate = plateOf(area.segs);
+    const d = AXIS(sharp) + area.toString();
+    out[`stroke.${key}`] = [S(d)];
+    out[`duotone.${key}`] = [P(contourPath(plate)), S(d)];
+    out[`fill.${key}`] = [F_(contourPath(plate)), S(AXIS(sharp))];
+  }
+  return out;
+};
+
+/**
+ * Five readings as beads on the dot ladder, every pair at least 5 apart so the
+ * house 2 of daylight survives between them. They stay round in sharp, as the
+ * dice pips do: a squared-off point is a cell, and this is a point.
+ */
+const SCATTER = [[8, 16], [13, 12], [11, 7], [18, 13], [19, 7]];
+SETS['chart-scatter'] = () => {
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    out[`stroke.${key}`] = [S(AXIS(sharp)), F_(SCATTER.map((c) => circlePath(c, 1.5)).join(''))];
+  }
+  return out;
+};
+
+/**
+ * Two candles, each a body on r=1 with a wick out of the top and the bottom.
+ * A wick meets its body cap to cap, so the pair is one element and owes no gap
+ * between them; what has to clear is body to body, which is the 2 between 12
+ * and 14.
+ */
+SETS['chart-candlestick'] = () => {
+  // His: bodies of 4 on an 8 pitch from 9, the left one open at the top of the
+  // plot and the right one closed at the bottom, so the pair reads as a rise.
+  const CANDLES = [{ x: 7, y0: 5, y1: 10, hi: 3, lo: 13 }, { x: 15, y0: 9, y1: 15, hi: 6, lo: 17 }];
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const r = sharp ? 0 : 1;
+    const bodies = CANDLES.map((c) =>
+      polyContour([[c.x, c.y0], [c.x + 4, c.y0], [c.x + 4, c.y1], [c.x, c.y1]], [r, r, r, r]));
+    const plates = bodies.map((b) => plateOf(b.segs));
+    // a wick's outer end is free; the end at the body is buried in its ink
+    const wicks = CANDLES.flatMap((c) => [
+      scanRun([[c.x + 2, c.hi], [c.x + 2, c.y0]], sharp, [true, false]),
+      scanRun([[c.x + 2, c.y1], [c.x + 2, c.lo]], sharp, [false, true]),
+    ]).join('');
+    const d = AXIS(sharp) + bodies.map(String).join('') + wicks;
+    out[`stroke.${key}`] = [S(d)];
+    out[`duotone.${key}`] = [P(plates.map((c) => contourPath(c)).join('')), S(d)];
+    out[`fill.${key}`] = [F_(plates.map((c) => contourPath(c)).join('')), S(AXIS(sharp) + wicks)];
+  }
+  return out;
+};
+
+/**
+ * `chart-network` was drawn twice and is NOT shipped, and the reason is a
+ * ceiling rather than a preference.
+ *
+ * Two edges leaving one ringed node of radius r at an angle theta have
+ * `2r sin(theta/2) - 2` units of daylight where they cross the rim, so the
+ * house 2 needs `r sin(theta/2) >= 2`. At the r=2 the plot area allows, that
+ * asks `sin(theta/2) >= 1`, which only a straight line satisfies — even at 150
+ * degrees it is 1.86 — and the ring cannot grow instead: our node is r=3
+ * painting 8, three of those need centres 10 apart, and their ink then crosses
+ * the axis inside a 16 by 16 plot.
+ *
+ * Drawn on BEADS instead the arithmetic is satisfied, because edges meeting at
+ * a centre genuinely meet and the bead covers the junction. Rendered, it is a
+ * triangle with three dots on it and reads as a triangle. That is the floor
+ * doing its job and the drawing still failing, which is the whole of why a
+ * render comes before a decision.
+ */
+
+/**
+ * HIS EXPLODED PIE, 10 Sep 2026, solved. Three slices of 90, 60 and 210
+ * degrees, each slid out along its own bisector, which is the composition he
+ * drew: a quarter, a sliver and the remainder, so the drawing says unequal
+ * data rather than a divided circle.
+ *
+ * **Each slice moves by `2 / sin(half its own angle)` and no other number will
+ * do.** Sliding a slice d along its bisector moves each of its two straight
+ * edges `d·sin(a/2)` sideways, so the cut between two neighbours opens by the
+ * sum of their two contributions. Asking every cut for the house 2 painted, so
+ * 4 on the centre lines, is three equations in three offsets, and they separate:
+ * each slice must contribute exactly 2 on its own, giving 2.828 for the 90, 4
+ * for the 60 and 2.071 for the 210. **A uniform offset cannot do it** — set to
+ * clear the narrowest pair it leaves the others at 2.86, and it was shipped at
+ * d=4 for an hour with cuts of 2.83, 3.86 and 4.69 before he called the spaces
+ * huge. The narrow slice travels furthest because it has the least leverage.
+ *
+ * The radius is then what the box allows. With those offsets the ink comes to
+ * `2r + 7.464` wide by `1.866r + 6` tall, so 22 wide caps r at 7.27 and it
+ * ships at **r=7**: every cut 2.00, ink 21.46 by 19.06.
+ *
+ * **It is wider than it is tall and that is the shape, not a defect** — an
+ * exploded pie has no slice reaching the rim in every direction, so it cannot
+ * be square the way the whole circle it replaced was. `SIZE_KNOWN` carries the
+ * arithmetic for why 22 by 18 is not available.
+ *
+ * The 210 slice is reflex at its apex, which is the corner `offsetContour` is
+ * known to bridge (see the scan-heart note). It does not here, and that was
+ * checked rather than assumed: `verify` passes on all three plates at 1.000.
+ */
+const PIE = { C: [12, 12], R: 7, GAP: 2, ANG: [90, 60, 210], FROM: -90 };
+const rad = (d) => (d * Math.PI) / 180;
+const onCircle = (c, r, a) => [c[0] + r * Math.cos(rad(a)), c[1] + r * Math.sin(rad(a))];
+
+/** Each slice's own displaced centre and the arc it carries. */
+function pieWedges() {
+  const out = [];
+  let a = PIE.FROM;
+  for (const w of PIE.ANG) {
+    const a0 = a, a1 = a + w;
+    // its own edges move GAP sideways, so every cut is 2·GAP on the centre
+    // lines whatever its neighbours are
+    const d = PIE.GAP / Math.sin(rad(w / 2));
+    const c = onCircle(PIE.C, d, (a0 + a1) / 2);
+    out.push({ c, a0, a1, d,
+      segs: [
+        { type: 'L', p0: c, p1: onCircle(c, PIE.R, a0) },
+        { type: 'A', c, r: PIE.R, a0, a1 },
+        { type: 'L', p0: onCircle(c, PIE.R, a1), p1: c },
+      ] });
+    a = a1;
+  }
+  return out;
+}
+
+SETS['chart-pie'] = () => {
+  const wedges = pieWedges();
+  const plates = wedges.map((w) => plateOf(w.segs));
+  // slide the whole thing onto its own painted centre, which no slice does for
+  // it: the three bisectors do not cancel
+  const rough = wedges.map((w) => contourPath(w.segs)).join('');
+  const b = strokedBBox(rough, 1, 'round');
+  const dx = 12 - (b[0] + b[2]) / 2, dy = 12 - (b[1] + b[3]) / 2;
+  const shift = (segs) => segs.map((g) => (g.type === 'L'
+    ? { type: 'L', p0: [g.p0[0] + dx, g.p0[1] + dy], p1: [g.p1[0] + dx, g.p1[1] + dy] }
+    : { type: 'A', c: [g.c[0] + dx, g.c[1] + dy], r: g.r, a0: g.a0, a1: g.a1 }));
+  const strokeD = wedges.map((w) => contourPath(shift(w.segs))).join('');
+  const plateD = plates.map((c) => contourPath(shift(c))).join('');
+  const out = {};
+  // a wedge has no fillet to remove and no free end to square, so the two
+  // corner treatments are one drawing, as `eye` and `heart` are
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    out[`stroke.${key}`] = [S(strokeD)];
+    out[`duotone.${key}`] = [P(plateD), S(strokeD)];
+    out[`fill.${key}`] = [F_(plateD)];
+  }
+  return out;
+};
+
 /* ------------------------------------------------------------------ main */
 
 const args = process.argv.slice(2);
@@ -508,8 +1375,10 @@ for (const name of names) {
     }
     return b;
   };
-  const box = inkOf(variants['stroke.regular'], 'round');
-  const sbox = inkOf(variants['stroke.sharp'], 'butt');
+  // a set that carries containers keys three-part, so ask for the bare one
+  const pick = (corners) => variants[`stroke.${corners}`] ?? variants[`regular.stroke.${corners}`];
+  const box = inkOf(pick('regular'), 'round');
+  const sbox = inkOf(pick('sharp'), 'butt');
   console.log(name.padEnd(22), 'ink', box.map((v) => v.toFixed(2).padStart(6)).join(' '),
     ` ${(box[2] - box[0]).toFixed(1)} x ${(box[3] - box[1]).toFixed(1)}`,
     ' sharp', sbox.map((v) => v.toFixed(2).padStart(6)).join(' '),
