@@ -113,6 +113,18 @@ github.com/keyline-icons/keyline-icons
 
 Changelog
 
+0.7.0 — 10 September 2026
+71 new drawings, taking the set to 765 names and 3,896 SVGs, and two new shelves. The message family drawn again on a square body, with every sign, badge and slash where the round bubble already puts them; a scan frame with six things to read inside it; twenty-six charts and four diagrams of boxes on wires; seven faces, two thumbs and a badge that carries nine signs.
+
+* Mail: message-square and messages-square, with plus, minus, check, x, lines, dot and off
+* Devices: scan, with line, text, barcode, qr-code, search and eye, and qr-code on its own
+* Charts: twenty-six, sixteen of them on one axis, from column and bar to candlestick, pyramid, waterfall and tree map
+* Diagrams: successor, predecessor, project and subtask, and a progress bar
+* Emoji: seven faces and the two thumbs
+* Badge: the eight-bump badge, carrying check, x, plus, minus, alert, info, question, percent and the dollar
+* Singles: scissors in both bodies, an hourglass, a slash in three bodies and search-slash
+* Emoji and Diagrams opened as shelves of their own, taking categories from 24 to 26
+
 0.6.0 — 9 September 2026
 23 new drawings, taking the set to 692 names and 3,538 SVGs, and two new shelves. The seven currency marks arrive, six of them with a circled half, and those clear the ring by 1 unit rather than the 2 the set asks between elements: a container is the frame a drawing sits in, not a neighbour it has to be told apart from, and at 2 a letterform comes out at about half the well.
 
@@ -244,6 +256,29 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 0.7.0
+
+```
+71 new drawings, taking the set to 765 names and 3,896 SVGs. The message family
+drawn again on a square body, with every sign, badge and slash where the round
+bubble already puts them, a scan frame with six things to read inside it,
+twenty-six charts and four diagrams, seven faces, two thumbs and a badge that
+carries nine signs, and a handful of singles: a QR code, scissors in both
+bodies, an hourglass and a slash.
+
+The badge is eight bumps on a radius of 5.5, peaks on the four cardinals, and
+it is a container: it carries the circle's signs verbatim, which is why only
+the dollar of the currency marks clears its well and the others were not
+drawn. Every box in the diagrams takes one corner radius, whatever its width.
+
+Two shelves opened with the batch: Emoji, for the faces and the thumbs, and
+Diagrams. Categories went from 24 to 26.
+```
+
+**A republish is required for the listing**, whose counts moved: the tagline,
+the style bullets, the totals and the category count all changed with the set.
+The plugin's own code did not change.
 
 ### 0.6.0
 
@@ -493,12 +528,24 @@ Which styles an icon has is measured rather than chosen: duotone and fill need a
 
 Every drawing exists in both treatments, so sharp is a switch rather than a second library: 3,896 variants over the same 765 names.
 
-The Catalog page files every icon under one of 24 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
+The Catalog page files every icon under one of 26 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
 
 Also available as React components, a shadcn registry, an MCP server for agents, a CLI, and a Figma plugin that searches the set and drops an icon straight onto the canvas.
 
 keylineicons.com
 github.com/keyline-icons/keyline-icons
+
+v0.7.0
+71 new drawings under 73 names, and two new shelves. The set is 765 names now, 648 component sets and 3,896 variants, up from 692 and 3,538. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
+
+* Mail: the message family on a square body, message-square and messages-square with plus, minus, check, x, lines, dot and off
+* Devices: scan with line, text, barcode, qr-code, search and eye, and a QR code on its own
+* Charts: twenty-six, sixteen of them on one axis, from column and bar to candlestick, pyramid, waterfall and tree map
+* Diagrams: successor, predecessor, project and subtask, and a progress bar
+* Emoji: seven faces and the two thumbs
+* The badge: eight bumps on a radius of 5.5, a container that carries the circle's signs verbatim, check, x, plus, minus, alert, info, question, percent and the dollar
+* Singles: scissors in both bodies, an hourglass, a slash in three bodies and search-slash
+* Categories went from 24 to 26: Emoji took the faces and the thumbs, Diagrams took the boxes on wires off Charts
 
 v0.6.0
 23 new drawings under 29 names, and two new shelves. The set is 692 names now, 577 component sets and 3,538 variants, up from 663 and 3,392. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
