@@ -120,10 +120,26 @@ async function call(name, args) {
   return body
 }
 
-/** Every tool here answers JSON as text, except when it answers prose. */
+/**
+ * Every tool here answers JSON as text, except when it answers prose.
+ *
+ * And sometimes both. A file at Paper's size ceiling prefixes every answer,
+ * reads included, with "Warning: Your file is too large. Further changes will
+ * result in data loss. Please start a new file." and then the JSON it would
+ * have sent anyway. On 10 Sep 2026 that line stopped the whole import at
+ * `open_file`, before a single board was tried. The JSON is read from its
+ * first brace, and the warning is printed once so it is not mistaken for a
+ * clean file.
+ */
+let warned = false
 const json = (body) => {
+  const start = body.search(/[{[]/)
+  if (start > 0 && !warned) {
+    warned = true
+    console.error(`  ${body.slice(0, start).trim()}`)
+  }
   try {
-    return JSON.parse(body)
+    return JSON.parse(start >= 0 ? body.slice(start) : body)
   } catch {
     throw new Error(`expected JSON, got: ${body.slice(0, 200)}`)
   }

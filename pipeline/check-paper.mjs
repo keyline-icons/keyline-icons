@@ -162,7 +162,7 @@ function read(summary) {
  * and geometry, no text.
  */
 async function walkDrawings(nodeId, id, into = []) {
-  const kids = JSON.parse(await call("get_children", { nodeId, fileId: id })).children ?? []
+  const kids = parsed(await call("get_children", { nodeId, fileId: id })).children ?? []
   for (const kid of kids) {
     /* Stop at the drawing, as the summary does: descending collects its own
        paths, which come back as SVGVisualElement. */
@@ -201,6 +201,13 @@ for (const sheet of manifest.sheets) {
   boards.get(sheet.artboard).push(sheet.file)
 }
 
+/* A file at Paper's size ceiling prefixes every answer with a warning line and
+   then the JSON; see the same helper in import-paper.mjs. */
+const parsed = (body) => {
+  const start = body.search(/[{[]/)
+  return JSON.parse(start >= 0 ? body.slice(start) : body)
+}
+
 const id = await fileId()
 await rpc("initialize", {
   protocolVersion: "2025-06-18",
@@ -210,12 +217,12 @@ await rpc("initialize", {
 
 /* Every page, because the file puts the changelog on its own and an artboard
    looked for on the wrong page reads as missing. */
-const opened = JSON.parse(await call("open_file", { fileId: id }))
-const pages = JSON.parse(await call("get_basic_info", { fileId: id })).pages ?? []
+const opened = parsed(await call("open_file", { fileId: id }))
+const pages = parsed(await call("get_basic_info", { fileId: id })).pages ?? []
 const found = new Map()
 for (const page of pages) {
   await call("open_file", { fileId: id, pageId: page.id })
-  const info = JSON.parse(await call("get_basic_info", { fileId: id }))
+  const info = parsed(await call("get_basic_info", { fileId: id }))
   for (const board of info.artboards) found.set(board.name, { ...board, page: page.name })
 }
 
@@ -228,7 +235,7 @@ for (const [name, files] of boards) {
   }
 
   const want = await expected(files)
-  const summary = JSON.parse(
+  const summary = parsed(
     await call("get_tree_summary", { nodeId: board.id, depth: 8, fileId: id })
   ).summary
   const got = read(summary)

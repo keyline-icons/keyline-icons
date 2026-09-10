@@ -772,6 +772,33 @@ function catalogSheet(icons, totals, release) {
 const esc = (t) =>
   t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
 
+/**
+ * Whether a release entry draws its strips on this board, or only names them.
+ *
+ * Only the newest release does, since 10 Sep 2026. Paper puts a ceiling on a
+ * file, and the day v0.7.0 was cut the file answered every call, reads
+ * included, with "Your file is too large. Further changes will result in data
+ * loss. Please start a new file." The changelog sheet had grown to 445KB with
+ * the 73 drawings of that release on top of every earlier one, and the file
+ * was carrying 3.7MB of boards. Zafar's call, against starting a new file:
+ * *"we can drop the icons from other releases except for the last one"*.
+ *
+ * So an older entry keeps its heading, its date, its note and its counts, and
+ * its sentence ends in a full stop instead of leading into a strip. Nothing is
+ * deleted from the record: `/changelog` and the Figma page go on showing every
+ * drawing of every release, and this board says where. The cut moves forward
+ * on its own, because `current` is whichever entry is newest when the sheet is
+ * built.
+ */
+const drawn = (entry) => entry.current
+
+/** The counts sentence, ended as a lead-in where strips follow and closed where they do not. */
+const strip = (entry, sentence) =>
+  drawn(entry) || entry.initial
+    ? sentence
+    : sentence.replace(/:$/, ".") +
+      ` Every drawing of this release is on ${SITE_LABEL}/changelog.`
+
 function changelogSheet(icons, release) {
   /* "1 drawing", not "1 drawings". The board said the second for years, and a
      release that adds one icon is the common case rather than an edge. */
@@ -1015,10 +1042,12 @@ function changelogSheet(icons, release) {
             : "") +
           /* Pinned to the release that introduced the treatment rather than to
              whatever carries a note, and it stays there: a changelog only
-             grows, so that entry goes on showing what it announced. */
-          (entry.version === SHARP_RELEASE ? sharpPreview() : "") +
+             grows, so that entry goes on showing what it announced. On this
+             board it is subject to the same cut as every other strip below:
+             see `drawn`. */
+          (entry.version === SHARP_RELEASE && entry.current ? sharpPreview() : "") +
           `<p style="margin:16px 0 0;font-size:14px;line-height:1.7;color:${MUTED}">` +
-            (entry.initial
+            strip(entry, entry.initial
               ? `The first cut of the set: ${entry.count} drawings on one 24 × 24 grid, ` +
                 `at a 2px keyline, built for shadcn/ui and free under the MIT licence, ` +
                 `shipping as SVGs, JSX snippets and React components.`
@@ -1053,8 +1082,8 @@ function changelogSheet(icons, release) {
                   `${entry.previous}, bringing the set to ${entry.count}, and ` +
                   `${entry.updatedNames.length} redrawn:`) +
           `</p>` +
-          (entry.initial || !entry.names.length ? "" : tiles(entry.names)) +
-          (entry.initial || !redrawnIn(entry).length
+          (entry.initial || !entry.names.length || !drawn(entry) ? "" : tiles(entry.names)) +
+          (entry.initial || !redrawnIn(entry).length || !drawn(entry)
             ? ""
             : redraws(redrawnIn(entry)))
         ))
