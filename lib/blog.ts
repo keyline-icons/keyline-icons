@@ -514,6 +514,31 @@ export const BLOG_V070_THUMBNAIL_ICON_NAMES = [
   "scan",
   "scissors",
   "hourglass",
+  "scan-line",
+  "scan-text",
+  "scan-barcode",
+  "scan-qr-code",
+  "scan-search",
+  "scan-eye",
+  "search-slash",
+  "slash",
+  "scissors-horizontal",
+  "chart-column",
+  "chart-bar",
+  "chart-gantt",
+  "chart-line",
+  "chart-spline",
+  "chart-line-increasing",
+  "chart-line-decreasing",
+  "chart-area",
+  "chart-scatter",
+  "chart-candlestick",
+  "chart-pie",
+  "chart-column-big",
+  "chart-column-stacked",
+  "chart-bar-big",
+  "chart-bar-stacked",
+  "chart-network",
   "chart-diagram",
   "chart-pyramid",
   "chart-waterfall",
@@ -561,6 +586,39 @@ export const BLOG_V070_SINGLES_ICON_NAMES = [
   "scan",
   "scissors",
   "hourglass",
+] as const
+
+/** The scan frame's family, and the slash pair. */
+export const BLOG_V070_SCAN_ICON_NAMES = [
+  "scan",
+  "scan-line",
+  "scan-text",
+  "scan-barcode",
+  "scan-qr-code",
+  "scan-search",
+  "scan-eye",
+  "slash",
+  "search-slash",
+] as const
+
+/** The sixteen charts on one axis, in the Changelog's order. */
+export const BLOG_V070_AXIS_CHART_ICON_NAMES = [
+  "chart-column",
+  "chart-bar",
+  "chart-gantt",
+  "chart-line",
+  "chart-spline",
+  "chart-line-increasing",
+  "chart-line-decreasing",
+  "chart-area",
+  "chart-scatter",
+  "chart-candlestick",
+  "chart-pie",
+  "chart-column-big",
+  "chart-column-stacked",
+  "chart-bar-big",
+  "chart-bar-stacked",
+  "chart-network",
 ] as const
 
 /** The ten charts, in the order the Charts band files them. */
@@ -1514,18 +1572,18 @@ const BATCH_0_5_0: BlogPost = {
 const BATCH_0_7_0: BlogPost = {
   slug: "the-message-family-in-a-second-body",
   version: "0.7.0",
-  title: "27 new icons, and the message family in a second body",
+  title: "52 new icons, and the message family in a second body",
   description:
     "Inside Keyline Icons v0.7.0: the message family drawn again on a square " +
-    "body, option for option, four singles: a QR code, a scan frame, " +
-    "scissors and an hourglass, and fourteen charts and diagrams.",
+    "body, option for option, a scan frame with six things to read, " +
+    "twenty-six charts, four diagrams, scissors and an hourglass.",
   standfirst:
-    "Everything that landed in v0.7.0, and how the square bubble keeps the " +
-    "round one's vocabulary. Free SVG icons for shadcn/ui, drawn on one " +
+    "Everything that landed in v0.7.0: the square bubble, the scan family, " +
+    "twenty-six charts and four diagrams. Free SVG icons for shadcn/ui, drawn on one " +
     "24\u00d724 grid.",
   date: "2026-09-10",
   updated: "2026-09-10",
-  readingMinutes: 6,
+  readingMinutes: 8,
   thumbnail: BLOG_V070_THUMBNAIL_ICON_NAMES,
   keywords: [
     "icon set update",
@@ -1538,18 +1596,20 @@ const BATCH_0_7_0: BlogPost = {
     "hourglass icon",
     "chart icons",
     "diagram icons",
+    "scan icons",
   ],
   body: [
     {
       kind: "p",
       text:
-        "Twenty-seven new drawings, which takes the set to 719. Nine of " +
-        "them are one thing: the message family drawn again on a square " +
-        "body, with every option the round bubble already has. Four are " +
-        "objects that had been on the list for a while: a QR code, a scan " +
-        "frame, scissors and an hourglass. And fourteen are charts and " +
-        "diagrams: ten more ways of showing how much, and four boxes on " +
-        "wires that show how things relate.",
+        "Fifty-two new drawings, which takes the set to 746. Nine of them " +
+        "are one thing: the message family drawn again on a square body, " +
+        "with every option the round bubble already has. The scan frame " +
+        "arrives with six things to read inside it, and a slash on its own " +
+        "and through a search. Twenty-six are charts, sixteen of them on " +
+        "one axis, and four are diagrams: boxes on wires that show how " +
+        "things relate. The rest are objects that had been on the list for " +
+        "a while: a QR code, scissors in both bodies and an hourglass.",
     },
     {
       kind: "p",
@@ -1564,9 +1624,9 @@ const BATCH_0_7_0: BlogPost = {
         kind: "grid",
         names: BLOG_V070_THUMBNAIL_ICON_NAMES,
         caption:
-          "All twenty-seven. The first nine are the square bubble and its " +
-          "companions, the four singles follow, then the charts and the " +
-          "diagrams.",
+          "All fifty-two, in the order the changelog lists them: the square " +
+          "bubble and its companions, the singles, the scan family, the " +
+          "charts and the diagrams.",
       },
     },
 
@@ -1722,16 +1782,84 @@ const BATCH_0_7_0: BlogPost = {
 
     {
       kind: "h2",
-      text: "Ten charts and four diagrams",
+      text: "A frame with six things to read",
+      id: "the-scan-family",
+    },
+    {
+      kind: "p",
+      text:
+        "`scan` is `scan-face`'s four corner brackets and nothing else, and " +
+        "the family is that frame with something inside it: a line, a line " +
+        "of text, a barcode, a QR code, a magnifier and an eye. The " +
+        "brackets paint a stadium two deep reaching nine along each edge, " +
+        "so at the frame's midlines there is no bracket ink at all, and " +
+        "every interior is measured against the arms and their caps rather " +
+        "than the corners. Each one lands on exactly two at its tightest. " +
+        "The first QR code carried a bar down its right and another across " +
+        "its bottom, both the legal two away, and at 16px both read as more " +
+        "frame; squares and dots share no edge with the brackets and cannot " +
+        "be mistaken for them.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_SCAN_ICON_NAMES,
+        caption:
+          "The scan frame and what it reads, then the bare slash and the " +
+          "search with a slash through it.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "Sixteen charts on one axis",
+      id: "the-axis-charts",
+    },
+    {
+      kind: "p",
+      text:
+        "Fifteen of the sixteen hang off one axis, a single elbow from the " +
+        "top of the scale to the end of the baseline turning on a two-unit " +
+        "corner, which fixes the plot at sixteen units square. The columns " +
+        "run on a five pitch with three units of daylight between them, " +
+        "and the same three readings, sorted, are what an increasing and a " +
+        "decreasing chart are. The wide pairs take the candlestick's bodies " +
+        "of four, and a stacked bar's division is a rule across the body " +
+        "from wall to wall, one element with it.",
+    },
+    {
+      kind: "p",
+      text:
+        "The pie is the one with no axis, and it is exploded: a quarter, a " +
+        "sliver and the remainder, each slid out along its own bisector. " +
+        "Each slice moves by two over the sine of half its own angle and no " +
+        "other number will do, because that is what puts the house two " +
+        "units into every cut at once. A uniform offset set to clear the " +
+        "narrowest pair leaves the others at nearly three, and it was tried " +
+        "first.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_AXIS_CHART_ICON_NAMES,
+        caption:
+          "The sixteen. Every one but the pie shares the elbow and the " +
+          "plot, and the pie is wider than it is tall because an exploded " +
+          "pie has no slice reaching the rim in every direction.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "Ten more charts and four diagrams",
       id: "charts-and-diagrams",
     },
     {
       kind: "p",
       text:
-        "Nine of the charts hang off the family's one axis, an elbow from " +
-        "the top of the scale to the end of the baseline turning on a " +
-        "two-unit corner, which fixes the plot at sixteen units square and " +
-        "puts every bar two clear of the foot. The waterfall runs four bars " +
+        "Nine of these hang off the same axis. The waterfall runs four bars " +
         "on the four-unit pitch: the first standing on the floor, the second " +
         "floating from where it stopped, the third falling, the last " +
         "standing to the total. The scatter with a third axis puts its " +
@@ -1810,7 +1938,7 @@ const BATCH_0_7_0: BlogPost = {
       href: "/icons",
       label: "Browse the set",
       text:
-        "All 719, in three styles and two corner treatments, with copy and " +
+        "All 746, in three styles and two corner treatments, with copy and " +
         "download on every drawing.",
     },
     {
