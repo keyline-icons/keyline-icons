@@ -743,11 +743,12 @@ export function IconBrowser({
    *
    * `matches` runs before the shape filter, so `file` under Circle has eleven
    * matches and an empty grid, and the empty state said "No icons match file"
-   * over a set that has every one of them. A month of misses put `file`,
-   * `move`, `alert`, `down` and `app` among the most searched words that found
-   * nothing, each a drawing the set has, and `elsewhere` was 0 for all of
-   * them because it only looks at other styles. The category is the same trap
-   * one level up: typing clears it, but a link can arrive carrying both.
+   * over a set that has every one of them, with `elsewhere` at 0 because that
+   * count only looks at other styles. The category is the same trap one level
+   * up: typing clears it, but a link can arrive carrying both. (The first
+   * write-up of this cited `file` and `move` as the month's most searched
+   * misses; those rows were the `suggestion` export, not typed queries. The
+   * case stands on the code, not on that evidence.)
    *
    * So this is the count with both filters off, in the style on show, and the
    * empty state offers it as one click. Only when the grid is empty and a

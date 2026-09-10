@@ -72,11 +72,10 @@ export type Events = {
    * it, or the set does not have the drawing at all. Only the second is a
    * request for work.
    *
-   * `hidden` was added after the first month's export: `file`, `move` and
-   * `alert` sat near the top of the misses with `elsewhere` at 0, because
-   * that count only looks across styles and the shape filter was what hid
-   * them. Without it the list of what to draw next is padded with drawings
-   * the set already has.
+   * `hidden` was added after the first month's export, when a search under
+   * a shape filter was found to report `elsewhere: 0` over drawings the set
+   * has, because that count only looks across styles. Without it the list of
+   * what to draw next is padded with drawings the set already has.
    */
   search_empty: {
     query: string

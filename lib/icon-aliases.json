@@ -234,7 +234,9 @@
         "tick",
         "confirm",
         "success",
-        "approve"
+        "approve",
+        "correct",
+        "right answer"
       ]
     },
     {
@@ -705,7 +707,9 @@
         "shout",
         "loudspeaker",
         "promote",
-        "marketing"
+        "marketing",
+        "advertisement",
+        "advertising"
       ]
     },
     {
@@ -1024,7 +1028,13 @@
         "cog",
         "preferences",
         "config",
-        "options"
+        "options",
+        "manage",
+        "management",
+        "system",
+        "role",
+        "roles",
+        "admin"
       ]
     },
     {
@@ -1198,7 +1208,10 @@
         "cup",
         "first place",
         "achievement",
-        "victory"
+        "victory",
+        "contest",
+        "challenge",
+        "competition"
       ]
     },
     {
