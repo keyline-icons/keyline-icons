@@ -347,6 +347,11 @@ const MIN_ELEMENT_GAP = 2;
 const RING_CLEARANCE = new Set([
   'circle-dollar-sign', 'circle-euro', 'circle-pound-sterling',
   'circle-japanese-yen', 'circle-indian-rupee', 'circle-swiss-franc',
+  // The badge is a frame too, and its well is 8.06 at the notches against the
+  // circle's 9: the dollar is the one circled mark that clears it by the
+  // letterform's 1 (1.51); the euro (0.79), pound, yen, rupee and franc fall
+  // short and are not drawn. 10 Sep 2026.
+  'badge-dollar-sign',
 ]);
 const COINCIDENT = 0.1;
 /** Slack for the spacing measurement itself. Distance is taken between chords

@@ -1697,6 +1697,63 @@ export function Eye(props: IconProps) {
   )
 }
 
+export function FaceAngry(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12ZM8.4142 7L7 8.4142L9.5858 11L11 9.5858L8.4142 7ZM17 8.4142L15.5858 7L13 9.5858L14.4142 11L17 8.4142ZM7.2 15.4L8.5 17L8.8 16.6C9.5554 15.5928 10.741 15 12 15C13.259 15 14.4446 15.5928 15.2 16.6L15.5 17L17.1 15.8L16.8 15.4C15.6669 13.8892 13.8885 13 12 13C10.1115 13 8.3331 13.8892 7.2 15.4Z" fill="currentColor" />
+    </Icon>
+  )
+}
+
+export function FaceExpressionless(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12ZM7 9L7 11L11 11L11 9L7 9ZM13 9L13 11L17 11L17 9L13 9ZM7 15L7 17L17 17L17 15L7 15Z" fill="currentColor" />
+    </Icon>
+  )
+}
+
+export function FaceFrown(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12ZM10 8L8 8L8 11L10 11L10 8ZM16 8L14 8L14 11L16 11L16 8ZM7.2 15.4L8.5 17L8.8 16.6C9.5554 15.5928 10.741 15 12 15C13.259 15 14.4446 15.5928 15.2 16.6L15.5 17L17.1 15.8L16.8 15.4C15.6669 13.8892 13.8885 13 12 13C10.1115 13 8.3331 13.8892 7.2 15.4Z" fill="currentColor" />
+    </Icon>
+  )
+}
+
+export function FaceLaugh(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12ZM10 7L8 7L8 10L10 10L10 7ZM16 7L14 7L14 10L16 10L16 7ZM7 12C6.4477 12 6 12.4477 6 13C6 16.3137 8.6863 19 12 19C15.3137 19 18 16.3137 18 13C18 12.4477 17.5523 12 17 12L7 12Z" fill="currentColor" />
+    </Icon>
+  )
+}
+
+export function FaceNeutral(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12ZM10 8L8 8L8 11L10 11L10 8ZM16 8L14 8L14 11L16 11L16 8ZM7 15L7 17L17 17L17 15L7 15Z" fill="currentColor" />
+    </Icon>
+  )
+}
+
+export function FaceSmilePlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M22 11L13 11L13 2C13 1.4477 12.5523 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23C18.0751 23 23 18.0751 23 12C23 11.4477 22.5523 11 22 11ZM10 8L10 11L8 11L8 8L10 8ZM16 8L16 11L14 11L14 8L16 8ZM8.5 14L8.8 14.4C9.5554 15.4072 10.741 16 12 16C13.259 16 14.4446 15.4072 15.2 14.4L15.5 14L17.1 15.2L16.8 15.6C15.6669 17.1108 13.8885 18 12 18C10.1115 18 8.3331 17.1108 7.2 15.6L6.9 15.2L8.5 14Z" fill="currentColor" stroke="none" />
+      <path d="M19 1L19 9M15 5L23 5" fill="none" />
+    </Icon>
+  )
+}
+
+export function FaceSmile(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12ZM10 8L8 8L8 11L10 11L10 8ZM16 8L14 8L14 11L16 11L16 8ZM8.5 14L6.9 15.2L7.2 15.6C8.3331 17.1108 10.1115 18 12 18C13.8885 18 15.6669 17.1108 16.8 15.6L17.1 15.2L15.5 14L15.2 14.4C14.4446 15.4072 13.259 16 12 16C10.741 16 9.5554 15.4072 8.8 14.4L8.5 14Z" fill="currentColor" />
+    </Icon>
+  )
+}
+
 export function FastForward(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
@@ -4481,6 +4538,22 @@ export function TerminalCursor(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M11.5789 14.9797L14.7027 5.3519C14.8263 4.9622 14.4555 4.5969 14.0677 4.7264L4.3411 7.7852C3.9028 7.9316 3.8807 8.5435 4.3074 8.7211L8.353 10.4361C8.468 10.484 8.561 10.5731 8.6138 10.6859L10.6494 15.0402C10.8422 15.4527 11.4412 15.4137 11.5789 14.9797Z" fill="currentColor" stroke="none" />
       <path d="M21 18.9999L12 18.9999M15 4.6997L11.1917 16.2002L8.5317 10.5103L3.9995 8.208L15 4.6997Z" />
+    </Icon>
+  )
+}
+
+export function ThumbsDown(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M22 15L16.7016 15L14.7612 20.3612C14.1881 21.945 12.6843 23 11 23C8.7909 23 7 21.2091 7 19L7 15L2 15C1.4477 15 1 14.5523 1 14C1 13.8801 1.0216 13.7612 1.0637 13.6489L5.5637 1.6489C5.71 1.2586 6.0832 1 6.5 1L22 1C22.5523 1 23 1.4477 23 2L23 14C23 14.5523 22.5523 15 22 15ZM17 13L17 3L15 3L15 13L17 13Z" fill="currentColor" />
+    </Icon>
+  )
+}
+
+export function ThumbsUp(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M2 9L7.2984 9L9.2388 3.6388C9.8119 2.055 11.3157 1 13 1C15.2091 1 17 2.7909 17 5L17 9L22 9C22.5523 9 23 9.4477 23 10C23 10.1199 22.9784 10.2388 22.9363 10.3511L18.4363 22.3511C18.29 22.7414 17.9168 23 17.5 23L2 23C1.4477 23 1 22.5523 1 22L1 10C1 9.4477 1.4477 9 2 9ZM7 11L7 21L9 21L9 11L7 11Z" fill="currentColor" />
     </Icon>
   )
 }

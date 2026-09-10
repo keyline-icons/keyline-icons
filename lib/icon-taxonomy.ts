@@ -21,39 +21,12 @@ import keywords from "@/lib/icon-keywords.json"
 const FIGMA_KEYWORDS = (keywords as { keywords: Record<string, string[]> })
   .keywords
 
-/**
- * Categories, matched against the container-stripped base name in order — the
- * first pattern to match wins, so the specific ones lead.
- *
- * Each carries a `blurb`, one sentence naming what is on the shelf. It exists
- * because the Figma catalogue's cards print one under every heading and the
- * Paper cards are built to match them, so the sentence has to live somewhere
- * both can read. Written in the Figma file's own voice: a list of what is
- * there, not a pitch for it.
- *
- * These are curated rather than derived. The name families the set actually has
- * are far too lopsided to be a menu: 26 arrows and 25 git glyphs against thirty
- * families of exactly one.
- */
-export const CATEGORIES = [
-  // The review shelf is empty, which is its resting state. It is opened by
-  // adding a row here that matches the batch by name and sits FIRST, so it
-  // beats each icon's real shelf; every name in it is also listed in its real
-  // category below, so deleting the row files the whole batch at once with no
-  // second edit to forget. That deletion is what "reviewed" means.
-  //
-  // Last closed on 9 Sep 2026, when Zafar passed the twenty-three of v0.6.0:
-  // flame, store, buildings, cpu, graduation-cap, the six books, the wallet,
-  // the card's four signs and the seven currency marks with their circled
-  // halves. `refresh` and `rotate` sit in Arrows because they are arrow glyphs,
-  // whatever they are used for. The anchor is what keeps `git-refresh` in Git.
-  //
-  // Opened 10 Sep 2026 for the fourteen of v0.7.0: the square bubble and its
-  // eight companions, and qr-code, scan, scissors and hourglass; then the first
+  // The faces and the two thumbs. Ahead of Actions so the thumbs are reactions
+  // rather than verbs; a face is not a person and a thumb is not a verb.
   {
-    label: "New",
-    match: /^(message-square|messages-square|qr-code|scan$|scan-(line|text|barcode|search|eye|qr-code)|scissors|hourglass|slash$|search-slash$|chart-(column|bar|gantt|line|spline|line-increasing|line-decreasing|area|scatter|candlestick|pie|column-big|column-stacked|bar-big|bar-stacked|network)$)/,
-    blurb: "Drawn since the last release, waiting on review.",
+    label: "Emoji",
+    match: /^(face-|thumbs-)/,
+    blurb: "Faces and the reactions that go with them.",
   },
   {
     label: "Arrows",
@@ -101,7 +74,7 @@ export const CATEGORIES = [
     // `send` is here with `forward` and `reply` rather than in Actions: a
     // paper plane is the verb a message takes, and the family it reads against
     // is the one it is sent from.
-    match: /^(mail|message|bell|inbox|reply|forward|send|at$)/,
+    match: /^(message-square|messages-square|mail|message|bell|inbox|reply|forward|send|at$)/,
     blurb: "Envelopes, messages, bells, the paper plane and the marks that badge them.",
   },
   {
@@ -116,7 +89,7 @@ export const CATEGORIES = [
     // `wallet` on prefixes of its own.
     label: "Finance",
     match:
-      /^(dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin|credit-card|wallet)/,
+      /^(badge-)?(dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin|credit-card|wallet)/,
     blurb: "The currency marks, the payment cards and the wallet.",
   },
   {
@@ -130,7 +103,7 @@ export const CATEGORIES = [
     // and one name does not earn a row.
     label: "Commerce",
     match:
-      /^(shopping-|handbag|briefcase|receipt|tag|package|truck|gift|coupon|percent|store)/,
+      /^(shopping-|handbag|briefcase|receipt|tag|package|truck|gift|coupon|(badge-)?percent|store)/,
     blurb:
       "Carts, bags, receipts, shipping, the shopfront, the tags and the discount marks.",
   },
@@ -233,7 +206,7 @@ export const CATEGORIES = [
     // set on a thing — instant, fast, powered — not a control you operate, and
     // not the weather. The storm belongs to a cloud, and this bolt has none.
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|shield|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|sparkle|ban)/,
+      /^(check|double-check|plus|minus|x|more|lock|unlock|shield|badge|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|sparkle|ban)/,
     blurb: "Checks, crosses, pluses, the everyday verbs and the marks that guard a thing.",
   },
   {
