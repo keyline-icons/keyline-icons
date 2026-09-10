@@ -262,6 +262,144 @@ SETS['chart-scatter-3d'] = () => {
   return out;
 };
 
+/* ----------------------------------------------------------- chart-radar */
+
+/**
+ * A spider web: a pointy-top hexagon, three diameters between its opposite
+ * vertices, and a data hexagon inside it on the same spokes at half the size.
+ * The set has no hexagon, so this one is built to the reference: r=2 fillets
+ * on the outer, r=1 on the inner, and each vertex solved so the ARC's extreme
+ * sits at the radius asked (10 and 5), which is `v + r(1/sin 60 - 1)` along
+ * the bisector; the spokes end on those extremes, so their caps are buried in
+ * the outline. Ink 1..23 tall by 2.34..21.66 wide, which is what a hexagon is,
+ * and it reads as none of the four sizes.
+ *
+ * The data hexagon's radius is fixed by two gaps at once: its edge sits
+ * `(10 - a) sin 60` from the outer edge and `a sin 60 - 1` from the centre's
+ * crossing, and both clear 2 only for a in 4.6..5.4. So it is 5 and regular;
+ * an uneven reading was tried on paper and every vertex under 5 runs its edge
+ * into the centre. Fill: the data solid (its plate) under the outer hexagon
+ * and the spokes, which vanish inside it; duotone mutes the same plate.
+ */
+const hexPts = (R) => [-90, -30, 30, 90, 150, 210].map((a) => [12 + R * Math.cos((a * Math.PI) / 180), 12 + R * Math.sin((a * Math.PI) / 180)]);
+const hexagon = (radius, r) => {
+  const pull = r * (1 / Math.sin(Math.PI / 3) - 1);
+  return polyContour(hexPts(radius + pull), [r, r, r, r, r, r]);
+};
+SETS['chart-radar'] = () => {
+  const out = {};
+  const tips = hexPts(10);
+  const spokes = [0, 1, 2].map((i) => runPath([tips[i], tips[i + 3]])).join('');
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const outer = hexagon(10, sharp ? 0 : 2);
+    const inner = hexagon(5, sharp ? 0 : 1);
+    const b = strokedBBox(outer.d, 1, 'round');
+    if (Math.abs(b[1] - 1) > 0.002 || Math.abs(b[3] - 23) > 0.002) throw new Error(`radar box ${b.join(', ')}`);
+    const plate = plateOf(inner.segs);
+    const frame = outer.toString() + spokes;
+    out[`stroke.${key}`] = [S(frame + inner.toString())];
+    out[`duotone.${key}`] = [P(contourPath(plate)), S(frame + inner.toString())];
+    out[`fill.${key}`] = [F_(contourPath(plate)), S(frame)];
+  }
+  return out;
+};
+
+/* -------------------------------------------------------- chart-tree-map */
+
+/**
+ * The house body, 3..21 on r=3, partitioned: a rule down x=11, a rule across
+ * the right half at y=11 and one down x=16 below it, so the cells are one
+ * tall, one wide and two small, every rule ending on another's centre line.
+ * The fill slots all three rules out of the solid, each cut at the last's
+ * ink edge so no two holes overlap: the blocks separated by white are what
+ * says treemap where an opened panel says `panel-left`.
+ */
+SETS['chart-tree-map'] = () => {
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const body = box([3, 3, 21, 21], sharp ? 0 : 3);
+    const plate = plateOf(body.segs);
+    const rules = 'M11 3L11 21M11 11L21 11M16 11L16 21';
+    const slot = ([x0, y0, x1, y1]) => hole(plate, lineSegs([[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]]));
+    const slots = slot([10, 4, 12, 20]) + slot([12, 10, 20, 12]) + slot([15, 12, 17, 20]);
+    out[`stroke.${key}`] = [S(body.toString() + rules)];
+    out[`duotone.${key}`] = [P(contourPath(plate)), S(body.toString() + rules)];
+    out[`fill.${key}`] = [F_(contourPath(plate) + slots)];
+  }
+  return out;
+};
+
+/* --------------------------------------------------- chart-scatter-bubble */
+
+/**
+ * `chart-scatter`'s plot with three readings of three sizes: rings of r=3,
+ * 2 and 1.5 at (17,6), (9,14) and (18,15). Each clears the axis by at least
+ * 2 (the small one 2.5 above the foot) and its neighbours by 2.56 or more,
+ * which is what fixed the big one's size: a fourth unit of radius leaves no
+ * placement for the other two. Rings paint 8, 6 and 5 and close, so the fill
+ * is three discs on the axis.
+ */
+SETS['chart-scatter-bubble'] = () => {
+  const BUBBLES = [[[17, 6], 3], [[9, 14], 2], [[18, 15], 1.5]];
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const rings = BUBBLES.map(([c, r]) => circlePath(c, r)).join('');
+    const discs = BUBBLES.map(([c, r]) => circlePath(c, r + 1)).join('');
+    out[`stroke.${key}`] = [S(AXIS(sharp) + rings)];
+    out[`duotone.${key}`] = [P(discs), S(AXIS(sharp) + rings)];
+    out[`fill.${key}`] = [F_(discs), S(AXIS(sharp))];
+  }
+  return out;
+};
+
+/* ---------------------------------------------------------- chart-bullet */
+
+/**
+ * A bullet graph: two measure bars from x=7 on y 6 and 14, each with its
+ * target tick 2 clear of its end, 4 long so it paints three times the bar's
+ * height. Rows on an 8 pitch put their ink on 3..17, centred on the plot; the
+ * lower tick is ±2 about its row because ±2.5 leaves 1.5 to the foot.
+ */
+SETS['chart-bullet'] = () => {
+  const RUNS = [[[7, 6], [13, 6]], [[17, 4], [17, 8]], [[7, 14], [16, 14]], [[20, 12], [20, 16]]];
+  const out = {};
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    out[`stroke.${key}`] = [S(AXIS(sharp) + RUNS.map((r) => run(r, sharp)).join(''))];
+  }
+  return out;
+};
+
+/* ------------------------------------------------------- chart-line-down */
+
+/**
+ * `chart-line`'s vocabulary falling instead of rising, with `trending-down`'s
+ * arrowhead on the end: the run turns on r=1 at (11,9) and (14,6), then heads
+ * for a corner at (21,13) whose bracket is two arms of 6 meeting on r=0.5,
+ * the run stopping 0.6 short of the vertex on both axes so its cap is buried
+ * in the corner, exactly as the trending pair do. The bracket's lower arm
+ * sits 4.24 off the run, 2.24 of daylight, the same number `trending-up`
+ * carries. `chart-line-up` is this drawing's mirror about y=12, next round.
+ */
+SETS['chart-line-down'] = () => {
+  const out = {};
+  const BOX = [2, 2, 22, 22];
+  for (const sharp of [false, true]) {
+    const key = sharp ? 'sharp' : 'regular';
+    const r = sharp ? 0 : 1;
+    const A = sharp ? sharpen([[7, 5], [11, 9]], [true, false], BOX)[0] : [7, 5];
+    const line = new Path().M(A).corner([11, 9], [14, 6], r).corner([14, 6], [20.4, 12.4], r).L([20.4, 12.4]).toString();
+    const arms = sharp ? sharpen([[15, 13], [21, 13]], [true, false], BOX) : [[15, 13], [21, 13]];
+    const tip = sharp ? sharpen([[21, 13], [21, 7]], [false, true], BOX)[1] : [21, 7];
+    const head = new Path().M(arms[0]).corner([21, 13], tip, sharp ? 0 : 0.5).L(tip).toString();
+    out[`stroke.${key}`] = [S(AXIS(sharp) + line + head)];
+  }
+  return out;
+};
+
 /* ------------------------------------------------------------------ main */
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {

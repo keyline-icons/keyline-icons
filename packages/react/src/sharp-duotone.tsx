@@ -667,6 +667,33 @@ export function ChartPyramid(props: IconProps) {
   )
 }
 
+export function ChartRadar(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M12.5 6.134L16.8301 8.634C17.1395 8.8126 17.3301 9.1427 17.3301 9.5L17.3301 14.5C17.3301 14.8573 17.1395 15.1874 16.8301 15.366L12.5 17.866C12.348 17.9538 12.1755 18 12 18C11.8245 18 11.652 17.9538 11.5 17.866L7.1699 15.366C6.8605 15.1874 6.6699 14.8573 6.6699 14.5L6.6699 9.5C6.6699 9.1427 6.8605 8.8126 7.1699 8.634L11.5 6.134C11.652 6.0462 11.8245 6 12 6C12.1755 6 12.348 6.0462 12.5 6.134Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M12 2L20.6603 7L20.6603 17L12 22L3.3397 17L3.3397 7L12 2ZM12 2L12 22M20.6603 7L3.3397 17M20.6603 17L3.3397 7M12 7L16.3301 9.5L16.3301 14.5L12 17L7.6699 14.5L7.6699 9.5L12 7Z" fill="none" />
+    </Icon>
+  )
+}
+
+export function ChartScatterBubble(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M21 6C21 8.2091 19.2091 10 17 10C14.7909 10 13 8.2091 13 6C13 3.7909 14.7909 2 17 2C19.2091 2 21 3.7909 21 6ZM12 14C12 15.6569 10.6569 17 9 17C7.3431 17 6 15.6569 6 14C6 12.3431 7.3431 11 9 11C10.6569 11 12 12.3431 12 14ZM20.5 15C20.5 16.3807 19.3807 17.5 18 17.5C16.6193 17.5 15.5 16.3807 15.5 15C15.5 13.6193 16.6193 12.5 18 12.5C19.3807 12.5 20.5 13.6193 20.5 15Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M3 2L3 21L22 21M20 6C20 7.6569 18.6569 9 17 9C15.3431 9 14 7.6569 14 6C14 4.3431 15.3431 3 17 3C18.6569 3 20 4.3431 20 6ZM11 14C11 15.1046 10.1046 16 9 16C7.8954 16 7 15.1046 7 14C7 12.8954 7.8954 12 9 12C10.1046 12 11 12.8954 11 14ZM19.5 15C19.5 15.8284 18.8284 16.5 18 16.5C17.1716 16.5 16.5 15.8284 16.5 15C16.5 14.1716 17.1716 13.5 18 13.5C18.8284 13.5 19.5 14.1716 19.5 15Z" fill="none" />
+    </Icon>
+  )
+}
+
+export function ChartTreeMap(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M3 2L21 2C21.5523 2 22 2.4477 22 3L22 21C22 21.5523 21.5523 22 21 22L3 22C2.4477 22 2 21.5523 2 21L2 3C2 2.4477 2.4477 2 3 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M3 3L21 3L21 21L3 21L3 3ZM11 3L11 21M11 11L21 11M16 11L16 21" fill="none" />
+    </Icon>
+  )
+}
+
 export function CircleActivity(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>

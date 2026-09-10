@@ -595,6 +595,11 @@
     "chart-pyramid": "A triangle cut into three layers, for funnels, tiers and a ranked whole.",
     "chart-waterfall": "Floating bars stepping to a total on an axis, for bridges, deltas and cash flow.",
     "chart-no-axes-combined": "Three bars under a line series, no axis, for a mixed chart and a dashboard tile.",
-    "chart-scatter-3d": "Three axes with plotted beads, for spatial data, embeddings and a third variable."
+    "chart-scatter-3d": "Three axes with plotted beads, for spatial data, embeddings and a third variable.",
+    "chart-radar": "A hexagonal web with a data hexagon inside, for profiles, skill maps and comparing traits.",
+    "chart-tree-map": "A square partitioned into nested cells, for proportions, disk usage and hierarchies of size.",
+    "chart-scatter-bubble": "Circles of three sizes on an axis, for a third variable, weighted points and clusters.",
+    "chart-bullet": "Measure bars with target ticks on an axis, for KPIs, goals and progress against a target.",
+    "chart-line-down": "A falling line ending in an arrowhead on an axis, for decline, losses and a downward trend."
   }
 }

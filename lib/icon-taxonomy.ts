@@ -50,10 +50,10 @@ export const CATEGORIES = [
   //
   // Opened 10 Sep 2026 for the fourteen of v0.7.0: the square bubble and its
   // eight companions, and qr-code, scan, scissors and hourglass; then the first
-  // five of the chart and diagram batch on 10 Sep 2026.
+  // ten of the chart and diagram batch on 10 Sep 2026.
   {
     label: "New",
-    match: /^(message-square|messages-square|qr-code|scan$|scissors|hourglass|chart-(diagram|pyramid|waterfall|no-axes-combined|scatter-3d)$)/,
+    match: /^(message-square|messages-square|qr-code|scan$|scissors|hourglass|chart-(diagram|pyramid|waterfall|no-axes-combined|scatter-3d|radar|tree-map|scatter-bubble|bullet|line-down)$)/,
     blurb: "Drawn since the last release, waiting on review.",
   },
   {

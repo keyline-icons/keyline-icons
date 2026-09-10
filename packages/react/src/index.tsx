@@ -886,10 +886,26 @@ export function Cast(props: IconProps) {
   )
 }
 
+export function ChartBullet(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M3 3L3 19C3 20.1046 3.8954 21 5 21L21 21M7 6L13 6M17 4L17 8M7 14L16 14M20 12L20 16" fill="none" />
+    </Icon>
+  )
+}
+
 export function ChartDiagram(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M5 3L19 3C20.1046 3 21 3.8954 21 5L21 6C21 7.1046 20.1046 8 19 8L5 8C3.8954 8 3 7.1046 3 6L3 5C3 3.8954 3.8954 3 5 3ZM4 16L9 16C9.5523 16 10 16.4477 10 17L10 20C10 20.5523 9.5523 21 9 21L4 21C3.4477 21 3 20.5523 3 20L3 17C3 16.4477 3.4477 16 4 16ZM15 16L20 16C20.5523 16 21 16.4477 21 17L21 20C21 20.5523 20.5523 21 20 21L15 21C14.4477 21 14 20.5523 14 20L14 17C14 16.4477 14.4477 16 15 16ZM12 8L12 12M6.5 16L6.5 13C6.5 12.4477 6.9477 12 7.5 12L16.5 12C17.0523 12 17.5 12.4477 17.5 13L17.5 16" fill="none" />
+    </Icon>
+  )
+}
+
+export function ChartLineDown(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M3 3L3 19C3 20.1046 3.8954 21 5 21L21 21M7 5L10.2929 8.2929C10.6834 8.6834 11.3166 8.6834 11.7071 8.2929L13.2929 6.7071C13.6834 6.3166 14.3166 6.3166 14.7071 6.7071L20.4 12.4M15 13L20.5 13C20.7761 13 21 12.7761 21 12.5L21 7" fill="none" />
     </Icon>
   )
 }
@@ -910,11 +926,35 @@ export function ChartPyramid(props: IconProps) {
   )
 }
 
+export function ChartRadar(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M13 2.2679L19.9282 6.2679C20.547 6.6252 20.9282 7.2855 20.9282 8L20.9282 16C20.9282 16.7145 20.547 17.3748 19.9282 17.7321L13 21.7321C12.3812 22.0893 11.6188 22.0893 11 21.7321L4.0718 17.7321C3.453 17.3748 3.0718 16.7145 3.0718 16L3.0718 8C3.0718 7.2855 3.453 6.6252 4.0718 6.2679L11 2.2679C11.6188 1.9107 12.3812 1.9107 13 2.2679ZM12 2L12 22M20.6603 7L3.3397 17M20.6603 17L3.3397 7M12.5 7.134L15.9641 9.134C16.2735 9.3126 16.4641 9.6427 16.4641 10L16.4641 14C16.4641 14.3573 16.2735 14.6874 15.9641 14.866L12.5 16.866C12.1906 17.0447 11.8094 17.0447 11.5 16.866L8.0359 14.866C7.7265 14.6874 7.5359 14.3573 7.5359 14L7.5359 10C7.5359 9.6427 7.7265 9.3126 8.0359 9.134L11.5 7.134C11.8094 6.9553 12.1906 6.9553 12.5 7.134Z" fill="none" />
+    </Icon>
+  )
+}
+
 export function ChartScatter3d(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M8 3L8 16L21 16M8 16L3 21" fill="none" />
       <path d="M14.5 5C14.5 5.8284 13.8284 6.5 13 6.5C12.1716 6.5 11.5 5.8284 11.5 5C11.5 4.1716 12.1716 3.5 13 3.5C13.8284 3.5 14.5 4.1716 14.5 5ZM20.5 8C20.5 8.8284 19.8284 9.5 19 9.5C18.1716 9.5 17.5 8.8284 17.5 8C17.5 7.1716 18.1716 6.5 19 6.5C19.8284 6.5 20.5 7.1716 20.5 8ZM15.5 11C15.5 11.8284 14.8284 12.5 14 12.5C13.1716 12.5 12.5 11.8284 12.5 11C12.5 10.1716 13.1716 9.5 14 9.5C14.8284 9.5 15.5 10.1716 15.5 11Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function ChartScatterBubble(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M3 3L3 19C3 20.1046 3.8954 21 5 21L21 21M20 6C20 7.6569 18.6569 9 17 9C15.3431 9 14 7.6569 14 6C14 4.3431 15.3431 3 17 3C18.6569 3 20 4.3431 20 6ZM11 14C11 15.1046 10.1046 16 9 16C7.8954 16 7 15.1046 7 14C7 12.8954 7.8954 12 9 12C10.1046 12 11 12.8954 11 14ZM19.5 15C19.5 15.8284 18.8284 16.5 18 16.5C17.1716 16.5 16.5 15.8284 16.5 15C16.5 14.1716 17.1716 13.5 18 13.5C18.8284 13.5 19.5 14.1716 19.5 15Z" fill="none" />
+    </Icon>
+  )
+}
+
+export function ChartTreeMap(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M6 3L18 3C19.6569 3 21 4.3431 21 6L21 18C21 19.6569 19.6569 21 18 21L6 21C4.3431 21 3 19.6569 3 18L3 6C3 4.3431 4.3431 3 6 3ZM11 3L11 21M11 11L21 11M16 11L16 21" fill="none" />
     </Icon>
   )
 }

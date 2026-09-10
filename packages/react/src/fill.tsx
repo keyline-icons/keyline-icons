@@ -476,6 +476,32 @@ export function ChartPyramid(props: IconProps) {
   )
 }
 
+export function ChartRadar(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M13 6.2679L16.4641 8.2679C17.0829 8.6252 17.4641 9.2855 17.4641 10L17.4641 14C17.4641 14.7145 17.0829 15.3748 16.4641 15.7321L13 17.7321C12.696 17.9076 12.3511 18 12 18C11.6489 18 11.304 17.9076 11 17.7321L7.5359 15.7321C6.9171 15.3748 6.5359 14.7145 6.5359 14L6.5359 10C6.5359 9.2855 6.9171 8.6252 7.5359 8.2679L11 6.2679C11.304 6.0924 11.6489 6 12 6C12.3511 6 12.696 6.0924 13 6.2679Z" fill="currentColor" stroke="none" />
+      <path d="M13 2.2679L19.9282 6.2679C20.547 6.6252 20.9282 7.2855 20.9282 8L20.9282 16C20.9282 16.7145 20.547 17.3748 19.9282 17.7321L13 21.7321C12.3812 22.0893 11.6188 22.0893 11 21.7321L4.0718 17.7321C3.453 17.3748 3.0718 16.7145 3.0718 16L3.0718 8C3.0718 7.2855 3.453 6.6252 4.0718 6.2679L11 2.2679C11.6188 1.9107 12.3812 1.9107 13 2.2679ZM12 2L12 22M20.6603 7L3.3397 17M20.6603 17L3.3397 7" fill="none" />
+    </Icon>
+  )
+}
+
+export function ChartScatterBubble(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M21 6C21 8.2091 19.2091 10 17 10C14.7909 10 13 8.2091 13 6C13 3.7909 14.7909 2 17 2C19.2091 2 21 3.7909 21 6ZM12 14C12 15.6569 10.6569 17 9 17C7.3431 17 6 15.6569 6 14C6 12.3431 7.3431 11 9 11C10.6569 11 12 12.3431 12 14ZM20.5 15C20.5 16.3807 19.3807 17.5 18 17.5C16.6193 17.5 15.5 16.3807 15.5 15C15.5 13.6193 16.6193 12.5 18 12.5C19.3807 12.5 20.5 13.6193 20.5 15Z" fill="currentColor" stroke="none" />
+      <path d="M3 3L3 19C3 20.1046 3.8954 21 5 21L21 21" fill="none" />
+    </Icon>
+  )
+}
+
+export function ChartTreeMap(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M6 2L18 2C20.2091 2 22 3.7909 22 6L22 18C22 20.2091 20.2091 22 18 22L6 22C3.7909 22 2 20.2091 2 18L2 6C2 3.7909 3.7909 2 6 2ZM10 4L10 20L12 20L12 4L10 4ZM12 10L12 12L20 12L20 10L12 10ZM15 12L15 20L17 20L17 12L15 12Z" fill="currentColor" />
+    </Icon>
+  )
+}
+
 export function CircleActivity(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
