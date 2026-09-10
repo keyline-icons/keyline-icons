@@ -21,13 +21,35 @@ import keywords from "@/lib/icon-keywords.json"
 const FIGMA_KEYWORDS = (keywords as { keywords: Record<string, string[]> })
   .keywords
 
-  // The faces and the two thumbs. Ahead of Actions so the thumbs are reactions
-  // rather than verbs; a face is not a person and a thumb is not a verb.
-  {
-    label: "Emoji",
-    match: /^(face-|thumbs-)/,
-    blurb: "Faces and the reactions that go with them.",
-  },
+/**
+ * Categories, matched against the container-stripped base name in order — the
+ * first pattern to match wins, so the specific ones lead.
+ *
+ * Each carries a `blurb`, one sentence naming what is on the shelf. It exists
+ * because the Figma catalogue's cards print one under every heading and the
+ * Paper cards are built to match them, so the sentence has to live somewhere
+ * both can read. Written in the Figma file's own voice: a list of what is
+ * there, not a pitch for it.
+ *
+ * These are curated rather than derived. The name families the set actually has
+ * are far too lopsided to be a menu: 26 arrows and 25 git glyphs against thirty
+ * families of exactly one.
+ */
+export const CATEGORIES = [
+  // The review shelf is empty, which is its resting state. It is opened by
+  // adding a row here that matches the batch by name and sits FIRST, so it
+  // beats each icon's real shelf; every name in it is also listed in its real
+  // category below, so deleting the row files the whole batch at once with no
+  // second edit to forget. That deletion is what "reviewed" means.
+  //
+  // Last closed on 9 Sep 2026, when Zafar passed the twenty-three of v0.6.0:
+  // flame, store, buildings, cpu, graduation-cap, the six books, the wallet,
+  // the card's four signs and the seven currency marks with their circled
+  // halves. `refresh` and `rotate` sit in Arrows because they are arrow glyphs,
+  // whatever they are used for. The anchor is what keeps `git-refresh` in Git.
+  //
+  // Opened 10 Sep 2026 for the fourteen of v0.7.0: the square bubble and its
+  // eight companions, and qr-code, scan, scissors and hourglass; then the first
   {
     label: "Arrows",
     match: /^(arrow|bracket-arrow|expand|refresh|rotate|move$)/,
@@ -195,6 +217,13 @@ const FIGMA_KEYWORDS = (keywords as { keywords: Record<string, string[]> })
     label: "Users",
     match: /^(user|scan-face)/,
     blurb: "People, accounts and the signs that badge them.",
+  },
+  // The faces and the two thumbs. Ahead of Actions so the thumbs are reactions
+  // rather than verbs; a face is not a person and a thumb is not a verb.
+  {
+    label: "Emoji",
+    match: /^(face-|thumbs-)/,
+    blurb: "Faces and the reactions that go with them.",
   },
   {
     // Ahead of Shapes so `triangle-alert`, `octagon-alert` and `info` read as
