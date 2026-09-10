@@ -2026,10 +2026,9 @@ const BATCH_0_7_0: BlogPost = {
         "container, so it carries the circle's signs verbatim, read out of " +
         "each base's circle files for every style and both treatments. Its " +
         "well is the notch radius, 9.06 against the circle's 9, which is why " +
-        "only the dollar of the currency marks clears it and the others were " +
-        "not drawn. The first ring was eight bumps of r=4 on 6, presented as " +
-        "a derivation; it was another set's badge to the number, and the " +
-        "ring was drawn again.",
+        "the dollar is the one currency mark on it. The first ring was eight " +
+        "bumps of r=4 on 6, presented as a derivation; it was another set's " +
+        "badge to the number, and the ring was drawn again.",
     },
     {
       kind: "figure",
