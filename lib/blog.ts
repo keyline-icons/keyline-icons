@@ -553,6 +553,52 @@ export const BLOG_V070_THUMBNAIL_ICON_NAMES = [
   "diagram-project",
   "diagram-subtask",
   "bars-progress",
+  "face-smile",
+  "face-smile-plus",
+  "face-frown",
+  "face-neutral",
+  "face-expressionless",
+  "face-laugh",
+  "face-angry",
+  "thumbs-up",
+  "thumbs-down",
+  "badge",
+  "badge-check",
+  "badge-x",
+  "badge-plus",
+  "badge-minus",
+  "badge-alert",
+  "badge-info",
+  "badge-question",
+  "badge-percent",
+  "badge-dollar-sign",
+] as const
+
+/** The faces and the two thumbs, on the Emoji shelf. */
+export const BLOG_V070_EMOJI_ICON_NAMES = [
+  "face-smile",
+  "face-smile-plus",
+  "face-frown",
+  "face-neutral",
+  "face-expressionless",
+  "face-laugh",
+  "face-angry",
+  "thumbs-up",
+  "thumbs-down",
+] as const
+
+/** The badge and its nine signs. */
+export const BLOG_V070_BADGE_ICON_NAMES = [
+  "badge",
+  "badge-check",
+  "badge-x",
+  "badge-plus",
+  "badge-minus",
+  "badge-alert",
+  "badge-info",
+  "badge-question",
+  "badge-percent",
+  "badge-dollar-sign",
 ] as const
 
 /** The nine that are one family. */
@@ -1572,18 +1618,19 @@ const BATCH_0_5_0: BlogPost = {
 const BATCH_0_7_0: BlogPost = {
   slug: "the-message-family-in-a-second-body",
   version: "0.7.0",
-  title: "52 new icons, and the message family in a second body",
+  title: "71 new icons, and the message family in a second body",
   description:
     "Inside Keyline Icons v0.7.0: the message family drawn again on a square " +
     "body, option for option, a scan frame with six things to read, " +
-    "twenty-six charts, four diagrams, scissors and an hourglass.",
+    "twenty-six charts, four diagrams, seven faces and a badge with nine " +
+    "signs.",
   standfirst:
     "Everything that landed in v0.7.0: the square bubble, the scan family, " +
-    "twenty-six charts and four diagrams. Free SVG icons for shadcn/ui, drawn on one " +
+    "twenty-six charts, four diagrams, the faces and the badges. Free SVG icons for shadcn/ui, drawn on one " +
     "24\u00d724 grid.",
   date: "2026-09-10",
   updated: "2026-09-10",
-  readingMinutes: 8,
+  readingMinutes: 9,
   thumbnail: BLOG_V070_THUMBNAIL_ICON_NAMES,
   keywords: [
     "icon set update",
@@ -1597,19 +1644,23 @@ const BATCH_0_7_0: BlogPost = {
     "chart icons",
     "diagram icons",
     "scan icons",
+    "emoji icons",
+    "badge icons",
   ],
   body: [
     {
       kind: "p",
       text:
-        "Fifty-two new drawings, which takes the set to 746. Nine of them " +
+        "Seventy-one new drawings, which takes the set to 765. Nine of them " +
         "are one thing: the message family drawn again on a square body, " +
         "with every option the round bubble already has. The scan frame " +
         "arrives with six things to read inside it, and a slash on its own " +
         "and through a search. Twenty-six are charts, sixteen of them on " +
         "one axis, and four are diagrams: boxes on wires that show how " +
-        "things relate. The rest are objects that had been on the list for " +
-        "a while: a QR code, scissors in both bodies and an hourglass.",
+        "things relate. Seven faces and two thumbs open an Emoji shelf, " +
+        "and a badge of eight bumps carries nine signs. The rest are objects " +
+        "that had been on the list for a while: a QR code, scissors in both " +
+        "bodies and an hourglass.",
     },
     {
       kind: "p",
@@ -1624,9 +1675,9 @@ const BATCH_0_7_0: BlogPost = {
         kind: "grid",
         names: BLOG_V070_THUMBNAIL_ICON_NAMES,
         caption:
-          "All fifty-two, in the order the changelog lists them: the square " +
-          "bubble and its companions, the singles, the scan family, the " +
-          "charts and the diagrams.",
+          "All seventy-one, in the order the changelog lists them: the " +
+          "square bubble and its companions, the singles, the scan family, " +
+          "the charts, the diagrams, the faces and the badges.",
       },
     },
 
@@ -1930,6 +1981,70 @@ const BATCH_0_7_0: BlogPost = {
 
     {
       kind: "h2",
+      text: "Seven faces, two thumbs and a badge",
+      id: "faces-and-badges",
+    },
+    {
+      kind: "p",
+      text:
+        "The faces are `scan-face`'s face, which the set already owned: eyes " +
+        "a unit long on 10 and 11, a mouth from 9 to 15 dipping to 16.5. A " +
+        "frown is that mouth turned over, a neutral mouth is its chord, " +
+        "flat eyes are dashes on the ticks' own centre line, and the angry " +
+        "brows slant in. Only the laugh moves its eyes, two rows up, because " +
+        "an open mouth needs a chord on 13 to keep three units inside it. " +
+        "The first cut put the eyes and the neutral bar on coordinates that " +
+        "turned out to be another set's, arrived at by moving `scan-face`'s " +
+        "ticks up a row; the family went back to the face it already had, " +
+        "and every coincidence went with that one move.",
+    },
+    {
+      kind: "p",
+      text:
+        "`face-smile-plus` is stroke only, with both eyes. The house notch " +
+        "for a top-right sign covers the right eye, and no eye row is both " +
+        "two off the sign and two inside the notch, so the two filled styles " +
+        "are what it gives up. The thumbs' tip is a corner rather than a " +
+        "drawing, a tapering bar with a flat top on r=2, and their filled " +
+        "style opens the cuff as a panel.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_EMOJI_ICON_NAMES,
+        caption:
+          "The Emoji shelf. One face, seven expressions, and the two thumbs " +
+          "that go with them.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The badge is eight bumps of r=4.5 on a radius of 5.5, peaks on the " +
+        "four cardinals so the ink lands on 1..23 as drawn. It is a " +
+        "container, so it carries the circle's signs verbatim, read out of " +
+        "each base's circle files for every style and both treatments. Its " +
+        "well is the notch radius, 9.06 against the circle's 9, which is why " +
+        "only the dollar of the currency marks clears it and the others were " +
+        "not drawn. The first ring was eight bumps of r=4 on 6, presented as " +
+        "a derivation; it was another set's badge to the number, and the " +
+        "ring was drawn again.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V070_BADGE_ICON_NAMES,
+        caption:
+          "The badge and its nine signs. The check, x, plus, minus, alert, " +
+          "info and question are the circle's own; the percent and the " +
+          "dollar are the two marks that clear the well.",
+      },
+    },
+
+    {
+      kind: "h2",
       text: "Getting it",
       id: "getting-it",
     },
@@ -1938,7 +2053,7 @@ const BATCH_0_7_0: BlogPost = {
       href: "/icons",
       label: "Browse the set",
       text:
-        "All 746, in three styles and two corner treatments, with copy and " +
+        "All 765, in three styles and two corner treatments, with copy and " +
         "download on every drawing.",
     },
     {
