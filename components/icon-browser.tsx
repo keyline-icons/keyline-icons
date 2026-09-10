@@ -14,6 +14,7 @@ import {
   Circle,
   Clock,
   Cursor,
+  FaceSmile,
   File,
   GitBranch,
   Globe,
@@ -161,6 +162,7 @@ const CATEGORY_ICONS: Record<
   // A shelf of one, split off Sport on 9 Sep 2026. Its own drawing on the rail
   // rather than the trophy: the row is the mortarboard and nothing else.
   Education: GraduationCap,
+  Emoji: FaceSmile,
   Sport: Trophy,
   Tools: Wrench,
   Web: Globe,

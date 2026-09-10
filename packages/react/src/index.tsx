@@ -2297,6 +2297,62 @@ export function Eye(props: IconProps) {
   )
 }
 
+export function FaceAngry(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM8 8L10 10M16 8L14 10M8 16C8.9443 14.741 10.4262 14 12 14C13.5738 14 15.0557 14.741 16 16" fill="none" />
+    </Icon>
+  )
+}
+
+export function FaceExpressionless(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM8 10L10 10M14 10L16 10M8 16L16 16" fill="none" />
+    </Icon>
+  )
+}
+
+export function FaceFrown(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM9 9L9 10M15 9L15 10M8 16C8.9443 14.741 10.4262 14 12 14C13.5738 14 15.0557 14.741 16 16" fill="none" />
+    </Icon>
+  )
+}
+
+export function FaceLaugh(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM9 8L9 9M15 8L15 9M8.127 13L15.873 13C16.4253 13 16.873 13.4477 16.873 14C16.873 14.0843 16.8623 14.1683 16.8412 14.25C16.2712 16.4576 14.28 18 12 18C9.72 18 7.7288 16.4576 7.1588 14.25C7.1377 14.1683 7.127 14.0843 7.127 14C7.127 13.4477 7.5747 13 8.127 13Z" fill="none" />
+    </Icon>
+  )
+}
+
+export function FaceNeutral(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM9 9L9 10M15 9L15 10M8 16L16 16" fill="none" />
+    </Icon>
+  )
+}
+
+export function FaceSmilePlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2M9 9L9 10M15 9L15 10M8 15C8.9443 16.259 10.4262 17 12 17C13.5738 17 15.0557 16.259 16 15M19 2L19 8M16 5L22 5" fill="none" />
+    </Icon>
+  )
+}
+
+export function FaceSmile(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM9 9L9 10M15 9L15 10M8 15C8.9443 16.259 10.4262 17 12 17C13.5738 17 15.0557 16.259 16 15" fill="none" />
+    </Icon>
+  )
+}
+
 export function FastForward(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -5538,6 +5594,22 @@ export function TextQuote(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M3 5H16M3 12V19M7 12H21M7 19H21" fill="none" />
+    </Icon>
+  )
+}
+
+export function ThumbsDown(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M20 14L16 14L13.8209 20.0209C13.3911 21.2087 12.2632 22 11 22C9.3431 22 8 20.6569 8 19L8 14L4 14C2.8954 14 2 13.1046 2 12C2 11.7602 2.0431 11.5223 2.1273 11.2978L5.1273 3.2978C5.4201 2.5171 6.1663 2 7 2L20 2C21.1046 2 22 2.8954 22 4L22 12C22 13.1046 21.1046 14 20 14ZM16 14L16 2" fill="none" />
+    </Icon>
+  )
+}
+
+export function ThumbsUp(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M4 10L8 10L10.1791 3.9791C10.6089 2.7913 11.7368 2 13 2C14.6569 2 16 3.3431 16 5L16 10L20 10C21.1046 10 22 10.8954 22 12C22 12.2398 21.9569 12.4777 21.8727 12.7022L18.8727 20.7022C18.5799 21.4829 17.8337 22 17 22L4 22C2.8954 22 2 21.1046 2 20L2 12C2 10.8954 2.8954 10 4 10ZM8 10L8 22" fill="none" />
     </Icon>
   )
 }

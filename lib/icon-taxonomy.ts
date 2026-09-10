@@ -52,7 +52,7 @@ export const CATEGORIES = [
   // eight companions, and qr-code, scan, scissors and hourglass.
   {
     label: "New",
-    match: /^(message-square|messages-square|qr-code|scan$|scissors|hourglass)/,
+    match: /^(message-square|messages-square|qr-code|scan$|scissors|hourglass|face-|thumbs-|badge)/,
     blurb: "Drawn since the last release, waiting on review.",
   },
   {
@@ -116,7 +116,7 @@ export const CATEGORIES = [
     // `wallet` on prefixes of its own.
     label: "Finance",
     match:
-      /^(dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin|credit-card|wallet)/,
+      /^(badge-)?(dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin|credit-card|wallet)/,
     blurb: "The currency marks, the payment cards and the wallet.",
   },
   {
@@ -130,7 +130,7 @@ export const CATEGORIES = [
     // and one name does not earn a row.
     label: "Commerce",
     match:
-      /^(shopping-|handbag|briefcase|receipt|tag|package|truck|gift|coupon|percent|store)/,
+      /^(shopping-|handbag|briefcase|receipt|tag|package|truck|gift|coupon|(badge-)?percent|store)/,
     blurb:
       "Carts, bags, receipts, shipping, the shopfront, the tags and the discount marks.",
   },
@@ -211,6 +211,13 @@ export const CATEGORIES = [
     blurb: "Panels, layers, lists, alignment, the menu marks and the fullscreen corners.",
   },
   {
+    // The faces and the two thumbs. Beside Users, and ahead of Actions so the thumbs
+    // are reactions rather than verbs; a face is not a person and a thumb is not a verb.
+    label: "Emoji",
+    match: /^(face-|thumbs-)/,
+    blurb: "Faces and the reactions that go with them.",
+  },
+  {
     label: "Users",
     match: /^(user|scan-face)/,
     blurb: "People, accounts and the signs that badge them.",
@@ -225,7 +232,7 @@ export const CATEGORIES = [
     // set on a thing — instant, fast, powered — not a control you operate, and
     // not the weather. The storm belongs to a cloud, and this bolt has none.
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|shield|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|sparkle|ban)/,
+      /^(check|double-check|plus|minus|x|more|lock|unlock|shield|badge|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|sparkle|ban)/,
     blurb: "Checks, crosses, pluses, the everyday verbs and the marks that guard a thing.",
   },
   {

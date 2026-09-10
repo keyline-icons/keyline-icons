@@ -2297,6 +2297,62 @@ export function Eye(props: IconProps) {
   )
 }
 
+export function FaceAngry(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM7.7071 7.7071L10.2929 10.2929M16.2929 7.7071L13.7071 10.2929M7.7 16.4L8 16C8.9443 14.741 10.4262 14 12 14C13.5738 14 15.0557 14.741 16 16L16.3 16.4" fill="none" />
+    </Icon>
+  )
+}
+
+export function FaceExpressionless(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM7 10L11 10M13 10L17 10M7 16L17 16" fill="none" />
+    </Icon>
+  )
+}
+
+export function FaceFrown(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM9 8L9 11M15 8L15 11M7.7 16.4L8 16C8.9443 14.741 10.4262 14 12 14C13.5738 14 15.0557 14.741 16 16L16.3 16.4" fill="none" />
+    </Icon>
+  )
+}
+
+export function FaceLaugh(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM9 7L9 10M15 7L15 10M7 13L17 13C17 15.7614 14.7614 18 12 18C9.2386 18 7 15.7614 7 13Z" fill="none" />
+    </Icon>
+  )
+}
+
+export function FaceNeutral(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM9 8L9 11M15 8L15 11M7 16L17 16" fill="none" />
+    </Icon>
+  )
+}
+
+export function FaceSmilePlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M22 11L22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2L13 2M9 8L9 11M15 8L15 11M7.7 14.6L8 15C8.9443 16.259 10.4262 17 12 17C13.5738 17 15.0557 16.259 16 15L16.3 14.6M19 1L19 9M15 5L23 5" fill="none" />
+    </Icon>
+  )
+}
+
+export function FaceSmile(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM9 8L9 11M15 8L15 11M7.7 14.6L8 15C8.9443 16.259 10.4262 17 12 17C13.5738 17 15.0557 16.259 16 15L16.3 14.6" fill="none" />
+    </Icon>
+  )
+}
+
 export function FastForward(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -5541,6 +5597,22 @@ export function TextQuote(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M2 5L17 5M3 11L3 20M6 12L22 12M6 19L22 19" fill="none" />
+    </Icon>
+  )
+}
+
+export function ThumbsDown(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M22 14L16 14L13.8209 20.0209C13.3911 21.2087 12.2632 22 11 22C9.3431 22 8 20.6569 8 19L8 14L2 14L6.5 2L22 2ZM16 14L16 2" fill="none" />
+    </Icon>
+  )
+}
+
+export function ThumbsUp(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M2 10L8 10L10.1791 3.9791C10.6089 2.7913 11.7368 2 13 2C14.6569 2 16 3.3431 16 5L16 10L22 10L17.5 22L2 22ZM8 10L8 22" fill="none" />
     </Icon>
   )
 }
