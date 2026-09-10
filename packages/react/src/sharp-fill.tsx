@@ -1509,31 +1509,6 @@ export function Database(props: IconProps) {
   )
 }
 
-export function DiagramCells(props: IconProps) {
-  return (
-    <Icon fill="none" {...props}>
-      <path d="M3 2L21 2C21.5523 2 22 2.4477 22 3L22 21C22 21.5523 21.5523 22 21 22L3 22C2.4477 22 2 21.5523 2 21L2 3C2 2.4477 2.4477 2 3 2ZM4 8L4 10L20 10L20 8L4 8ZM8 10L8 20L10 20L10 10L8 10ZM14 10L14 20L16 20L16 10L14 10Z" fill="currentColor" />
-    </Icon>
-  )
-}
-
-export function DiagramNested(props: IconProps) {
-  return (
-    <Icon fill="none" {...props}>
-      <path d="M3 2L21 2C21.5523 2 22 2.4477 22 3L22 21C22 21.5523 21.5523 22 21 22L3 22C2.4477 22 2 21.5523 2 21L2 3C2 2.4477 2.4477 2 3 2ZM9 8C8.4477 8 8 8.4477 8 9L8 17C8 17.5523 8.4477 18 9 18L17 18C17.5523 18 18 17.5523 18 17L18 9C18 8.4477 17.5523 8 17 8L9 8ZM10 10L16 10L16 16L10 16L10 10Z" fill="currentColor" />
-    </Icon>
-  )
-}
-
-export function DiagramNext(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3 2L21 2C21.5523 2 22 2.4477 22 3L22 7C22 7.5523 21.5523 8 21 8L3 8C2.4477 8 2 7.5523 2 7L2 3C2 2.4477 2.4477 2 3 2ZM3 16L21 16C21.5523 16 22 16.4477 22 17L22 21C22 21.5523 21.5523 22 21 22L3 22C2.4477 22 2 21.5523 2 21L2 17C2 16.4477 2.4477 16 3 16Z" fill="currentColor" stroke="none" />
-      <path d="M12 7L12 13M14.2929 10.7071L12 13L9.7071 10.7071" fill="none" />
-    </Icon>
-  )
-}
-
 export function DiagramPredecessor(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -1543,28 +1518,11 @@ export function DiagramPredecessor(props: IconProps) {
   )
 }
 
-export function DiagramPrevious(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3 2L21 2C21.5523 2 22 2.4477 22 3L22 7C22 7.5523 21.5523 8 21 8L3 8C2.4477 8 2 7.5523 2 7L2 3C2 2.4477 2.4477 2 3 2ZM3 16L21 16C21.5523 16 22 16.4477 22 17L22 21C22 21.5523 21.5523 22 21 22L3 22C2.4477 22 2 21.5523 2 21L2 17C2 16.4477 2.4477 16 3 16Z" fill="currentColor" stroke="none" />
-      <path d="M12 17L12 11M9.7071 13.2929L12 11L14.2929 13.2929" fill="none" />
-    </Icon>
-  )
-}
-
 export function DiagramProject(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M3 2L10 2C10.5523 2 11 2.4477 11 3L11 8C11 8.5523 10.5523 9 10 9L3 9C2.4477 9 2 8.5523 2 8L2 3C2 2.4477 2.4477 2 3 2ZM14 2L21 2C21.5523 2 22 2.4477 22 3L22 8C22 8.5523 21.5523 9 21 9L14 9C13.4477 9 13 8.5523 13 8L13 3C13 2.4477 13.4477 2 14 2ZM8.5 15L15.5 15C16.0523 15 16.5 15.4477 16.5 16L16.5 21C16.5 21.5523 16.0523 22 15.5 22L8.5 22C7.9477 22 7.5 21.5523 7.5 21L7.5 16C7.5 15.4477 7.9477 15 8.5 15Z" fill="currentColor" stroke="none" />
       <path d="M10 5.5L14 5.5M6.5 8L6.5 12L12 12L12 16" fill="none" />
-    </Icon>
-  )
-}
-
-export function DiagramSankey(props: IconProps) {
-  return (
-    <Icon fill="none" {...props}>
-      <path d="M2 12L2 6C2 5.4477 2.4477 5 3 5L7.0314 5C8.2492 5 9.4252 4.5555 10.3386 3.75C11.6173 2.6223 13.2637 2 14.9686 2L19 2L21 2C21.5523 2 22 2.4477 22 3L22 9C22 9.4168 21.7414 9.79 21.3511 9.9363L15.848 12L21.3511 14.0637C21.7414 14.21 22 14.5832 22 15L22 21C22 21.5523 21.5523 22 21 22L16.9686 22C15.2637 22 13.6173 21.3777 12.3386 20.25C11.4252 19.4445 10.2492 19 9.0314 19L5 19L3 19C2.4477 19 2 18.5523 2 18L2 12Z" fill="currentColor" />
     </Icon>
   )
 }

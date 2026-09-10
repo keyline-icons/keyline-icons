@@ -324,20 +324,8 @@ SETS['chart-scatter-bubble'] = () => {
 /* ---------------------------------------------------------- chart-bullet */
 
 /**
- * A bullet graph: two measure bars from x=7 on y 6 and 14, each with its
- * target tick 2 clear of its end, 4 long so it paints three times the bar's
- * height. Rows on an 8 pitch put their ink on 3..17, centred on the plot; the
- * lower tick is ±2 about its row because ±2.5 leaves 1.5 to the foot.
+ * `chart-bullet` was drawn on 10 Sep 2026 (c4c5fdd9) and dropped on Zafar's word.
  */
-SETS['chart-bullet'] = () => {
-  const RUNS = [[[7, 6], [13, 6]], [[17, 4], [17, 8]], [[7, 14], [16, 14]], [[20, 12], [20, 16]]];
-  const out = {};
-  for (const sharp of [false, true]) {
-    const key = sharp ? 'sharp' : 'regular';
-    out[`stroke.${key}`] = [S(AXIS(sharp) + RUNS.map((r) => run(r, sharp)).join(''))];
-  }
-  return out;
-};
 
 /* ------------------------------------------------------- chart-line-down */
 
@@ -442,33 +430,9 @@ SETS['chart-line-up'] = () => {
 /* ------------------------------------------- diagram-next, diagram-previous */
 
 /**
- * Two full-width bars and an arrow between them, down for next and up for
- * previous. The budget between bars of 4 (3..7 and 17..21, the fat chart
- * pair's height) is 10 of daylight: the arrow's stem leaves the bar's edge
- * buried, the head's arms end 2 clear of that bar's ink and its tip sits 2
- * clear of the other, which is a 4-wide head on a 6 stem, `list-sort`'s
- * proportion. Fill: bars solid, arrow stroked.
+ * `diagram-next` and `diagram-previous` were drawn on 10 Sep 2026 (14a3a69c) and
+ * dropped on Zafar's word; the bars-and-arrow construction is in that commit.
  */
-function barsArrow(down) {
-  const out = {};
-  const bars = [[3, 3, 21, 7], [3, 17, 21, 21]];
-  const runs = down ? arrowRuns([12, 7], [12, 13], [0, 1]) : arrowRuns([12, 17], [12, 11], [0, -1]);
-  for (const sharp of [false, true]) {
-    const key = sharp ? 'sharp' : 'regular';
-    const bodies = bars.map((b) => box(b, sharp ? 0 : 1));
-    const plates = bodies.map((b) => plateOf(b.segs));
-    // stem: start buried in the bar, tip buried in the arms' join (a butt end
-    // pushed past the apex would poke through the head); arms' outer ends free
-    const arrow = run(runs[0], sharp, [false, false]) + run(runs[1], sharp, [true, true]);
-    const d = bodies.map(String).join('') + arrow;
-    out[`stroke.${key}`] = [S(d)];
-    out[`duotone.${key}`] = [P(plates.map((c) => contourPath(c)).join('')), S(d)];
-    out[`fill.${key}`] = [F_(plates.map((c) => contourPath(c)).join('')), S(arrow)];
-  }
-  return out;
-}
-SETS['diagram-next'] = () => barsArrow(true);
-SETS['diagram-previous'] = () => barsArrow(false);
 
 /* ---------------------------------- diagram-successor, diagram-predecessor */
 
@@ -551,106 +515,29 @@ SETS['diagram-subtask'] = () => {
 /* -------------------------------------------------------- diagram-nested */
 
 /**
- * A box inside a box: the house body on r=3 and an 8-unit box on r=2 set
- * toward the bottom-right, 2 clear of the outer walls there. The fill keeps
- * the outer solid and knocks the inner box's own band out of it, a white ring
- * with a solid centre, so the nesting survives the solid.
+ * `diagram-nested` (a box in a box) was drawn on 10 Sep 2026 (14a3a69c) and dropped.
  */
-SETS['diagram-nested'] = () => {
-  const out = {};
-  for (const sharp of [false, true]) {
-    const key = sharp ? 'sharp' : 'regular';
-    const outer = box([3, 3, 21, 21], sharp ? 0 : 3);
-    const inner = box([9, 9, 17, 17], sharp ? 0 : 2);
-    const plate = plateOf(outer.segs);
-    const band = plateOf(inner.segs);
-    const core = box([10, 10, 16, 16], sharp ? 0 : 1).segs;
-    const d = outer.toString() + inner.toString();
-    out[`stroke.${key}`] = [S(d)];
-    out[`duotone.${key}`] = [P(contourPath(plate)), S(d)];
-    out[`fill.${key}`] = [F_(contourPath(plate) + hole(plate, band) + solidOn(plate, core))];
-  }
-  return out;
-};
 
 /* --------------------------------------------------------- diagram-cells */
 
 /**
- * A table of cells: the house body with a header band across the top at y=9
- * and three columns under it, rules at x=9 and 15 from the band to the foot.
- * `grid-3x2` already owns the box whose columns run the full height, so the
- * header band is what makes this a different drawing. Fill slots every rule.
+ * `diagram-cells` (a header band over three columns) was drawn on 10 Sep 2026
+ * (14a3a69c) and dropped.
  */
-SETS['diagram-cells'] = () => {
-  const out = {};
-  for (const sharp of [false, true]) {
-    const key = sharp ? 'sharp' : 'regular';
-    const body = box([3, 3, 21, 21], sharp ? 0 : 3);
-    const plate = plateOf(body.segs);
-    const rules = 'M3 9L21 9M9 9L9 21M15 9L15 21';
-    const slot = ([x0, y0, x1, y1]) => hole(plate, lineSegs([[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]]));
-    const slots = slot([4, 8, 20, 10]) + slot([8, 10, 10, 20]) + slot([14, 10, 16, 20]);
-    out[`stroke.${key}`] = [S(body.toString() + rules)];
-    out[`duotone.${key}`] = [P(contourPath(plate)), S(body.toString() + rules)];
-    out[`fill.${key}`] = [F_(contourPath(plate) + slots)];
-  }
-  return out;
-};
 
 /* -------------------------------------------------------- diagram-sankey */
 
 /**
- * One flow splitting into two: a band 12 tall at the left edge whose top and
- * bottom edges swing up and down in S-curves to two bands of 6 at the right,
- * with a V notch between them reaching back to (13,12). The S is two tangent
- * arcs of r=6 (rise 3, run 7.94, leads 3 either side), so the plate is an
- * exact offset; corners are r=2, the notch's mouth r=1 and its apex r=2
- * (concave, so the plate trims it). Closed at both edges, so it fills.
+ * `diagram-sankey` (one flow splitting into two, `sTo` above is its S) was drawn
+ * on 10 Sep 2026 (14a3a69c) and dropped.
  */
-SETS['diagram-sankey'] = () => {
-  const out = {};
-  for (const sharp of [false, true]) {
-    const key = sharp ? 'sharp' : 'regular';
-    const r2 = sharp ? 0 : 2, r1 = sharp ? 0 : 1;
-    const p = new Path().M([3, 12]).corner([3, 6], [21, 6], r2);
-    sTo(p, [19, 3], 6);
-    p.corner([21, 3], [21, 9], r2).corner([21, 9], [13, 12], r1).corner([13, 12], [21, 15], r2).corner([21, 15], [21, 21], r1).corner([21, 21], [3, 21], r2);
-    sTo(p, [5, 18], 6);
-    p.corner([3, 18], [3, 6], r2).Z();
-    const plate = plateOf(p.segs);
-    out[`stroke.${key}`] = [S(p.toString())];
-    out[`duotone.${key}`] = [P(contourPath(plate)), S(p.toString())];
-    out[`fill.${key}`] = [F_(contourPath(plate))];
-  }
-  return out;
-};
 
 /* ------------------------------ arrow-up-right-dots, arrow-down-left-dots */
 
 /**
- * `arrow-up-right`'s form at three quarters, its head on r=0.5 in the top-left
- * corner of the canvas, over a triangle of six beads packed on the bead pitch
- * of 5 in the bottom-right, their ink landing on 22. The down-left twin is
- * the same drawing turned through the centre, which keeps the arrow's head
- * and the beads' triangle in opposite corners.
+ * `arrow-up-right-dots` and its down-left twin were drawn on 10 Sep 2026
+ * (14a3a69c) and dropped.
  */
-function arrowDots(turn) {
-  const T = (p) => (turn ? [24 - p[0], 24 - p[1]] : p);
-  const out = {};
-  const BOX = [2, 2, 22, 22];
-  const beads = [[10.5, 20.5], [15.5, 20.5], [20.5, 20.5], [15.5, 15.5], [20.5, 15.5], [20.5, 10.5]].map(T);
-  for (const sharp of [false, true]) {
-    const key = sharp ? 'sharp' : 'regular';
-    const shaft = run([T([3, 14]), T([13.4, 3.6])], sharp, [true, false], BOX);
-    const arms = sharp ? sharpen([T([8, 3]), T([14, 3])], [true, false], BOX) : [T([8, 3]), T([14, 3])];
-    const tip = sharp ? sharpen([T([14, 3]), T([14, 9])], [false, true], BOX)[1] : T([14, 9]);
-    const head = new Path().M(arms[0]).corner(T([14, 3]), tip, sharp ? 0 : 0.5).L(tip).toString();
-    out[`stroke.${key}`] = [S(shaft + head), F_(beads.map((c) => circlePath(c, 1.5)).join(''))];
-  }
-  return out;
-}
-SETS['arrow-up-right-dots'] = () => arrowDots(false);
-SETS['arrow-down-left-dots'] = () => arrowDots(true);
 
 /* --------------------------------------------------------- bars-progress */
 

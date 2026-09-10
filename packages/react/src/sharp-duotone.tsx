@@ -1888,33 +1888,6 @@ export function Database(props: IconProps) {
   )
 }
 
-export function DiagramCells(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3 2L21 2C21.5523 2 22 2.4477 22 3L22 21C22 21.5523 21.5523 22 21 22L3 22C2.4477 22 2 21.5523 2 21L2 3C2 2.4477 2.4477 2 3 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M3 3L21 3L21 21L3 21L3 3ZM3 9L21 9M9 9L9 21M15 9L15 21" fill="none" />
-    </Icon>
-  )
-}
-
-export function DiagramNested(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3 2L21 2C21.5523 2 22 2.4477 22 3L22 21C22 21.5523 21.5523 22 21 22L3 22C2.4477 22 2 21.5523 2 21L2 3C2 2.4477 2.4477 2 3 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M3 3L21 3L21 21L3 21L3 3ZM9 9L17 9L17 17L9 17L9 9Z" fill="none" />
-    </Icon>
-  )
-}
-
-export function DiagramNext(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3 2L21 2C21.5523 2 22 2.4477 22 3L22 7C22 7.5523 21.5523 8 21 8L3 8C2.4477 8 2 7.5523 2 7L2 3C2 2.4477 2.4477 2 3 2ZM3 16L21 16C21.5523 16 22 16.4477 22 17L22 21C22 21.5523 21.5523 22 21 22L3 22C2.4477 22 2 21.5523 2 21L2 17C2 16.4477 2.4477 16 3 16Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M3 3L21 3L21 7L3 7L3 3ZM3 17L21 17L21 21L3 21L3 17ZM12 7L12 13M14.2929 10.7071L12 13L9.7071 10.7071" fill="none" />
-    </Icon>
-  )
-}
-
 export function DiagramPredecessor(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -1924,29 +1897,11 @@ export function DiagramPredecessor(props: IconProps) {
   )
 }
 
-export function DiagramPrevious(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3 2L21 2C21.5523 2 22 2.4477 22 3L22 7C22 7.5523 21.5523 8 21 8L3 8C2.4477 8 2 7.5523 2 7L2 3C2 2.4477 2.4477 2 3 2ZM3 16L21 16C21.5523 16 22 16.4477 22 17L22 21C22 21.5523 21.5523 22 21 22L3 22C2.4477 22 2 21.5523 2 21L2 17C2 16.4477 2.4477 16 3 16Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M3 3L21 3L21 7L3 7L3 3ZM3 17L21 17L21 21L3 21L3 17ZM12 17L12 11M9.7071 13.2929L12 11L14.2929 13.2929" fill="none" />
-    </Icon>
-  )
-}
-
 export function DiagramProject(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M3 2L10 2C10.5523 2 11 2.4477 11 3L11 8C11 8.5523 10.5523 9 10 9L3 9C2.4477 9 2 8.5523 2 8L2 3C2 2.4477 2.4477 2 3 2ZM14 2L21 2C21.5523 2 22 2.4477 22 3L22 8C22 8.5523 21.5523 9 21 9L14 9C13.4477 9 13 8.5523 13 8L13 3C13 2.4477 13.4477 2 14 2ZM8.5 15L15.5 15C16.0523 15 16.5 15.4477 16.5 16L16.5 21C16.5 21.5523 16.0523 22 15.5 22L8.5 22C7.9477 22 7.5 21.5523 7.5 21L7.5 16C7.5 15.4477 7.9477 15 8.5 15Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <path d="M3 3L10 3L10 8L3 8L3 3ZM14 3L21 3L21 8L14 8L14 3ZM8.5 16L15.5 16L15.5 21L8.5 21L8.5 16ZM10 5.5L14 5.5M6.5 8L6.5 12L12 12L12 16" fill="none" />
-    </Icon>
-  )
-}
-
-export function DiagramSankey(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M2 12L2 6C2 5.4477 2.4477 5 3 5L7.0314 5C8.2492 5 9.4252 4.5555 10.3386 3.75C11.6173 2.6223 13.2637 2 14.9686 2L19 2L21 2C21.5523 2 22 2.4477 22 3L22 9C22 9.4168 21.7414 9.79 21.3511 9.9363L15.848 12L21.3511 14.0637C21.7414 14.21 22 14.5832 22 15L22 21C22 21.5523 21.5523 22 21 22L16.9686 22C15.2637 22 13.6173 21.3777 12.3386 20.25C11.4252 19.4445 10.2492 19 9.0314 19L5 19L3 19C2.4477 19 2 18.5523 2 18L2 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M3 12L3 6L7.0314 6C8.4928 6 9.9039 5.4666 11 4.5C12.0961 3.5334 13.5072 3 14.9686 3L19 3L21 3L21 9L13 12L21 15L21 21L16.9686 21C15.5072 21 14.0961 20.4666 13 19.5C11.9039 18.5334 10.4928 18 9.0314 18L5 18L3 18Z" fill="none" />
     </Icon>
   )
 }

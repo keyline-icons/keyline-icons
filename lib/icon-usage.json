@@ -598,20 +598,12 @@
     "chart-scatter-3d": "Three axes with plotted beads, for spatial data, embeddings and a third variable.",
     "chart-tree-map": "A square partitioned into nested cells, for proportions, disk usage and hierarchies of size.",
     "chart-scatter-bubble": "Circles of three sizes on an axis, for a third variable, weighted points and clusters.",
-    "chart-bullet": "Measure bars with target ticks on an axis, for KPIs, goals and progress against a target.",
     "chart-line-down": "A falling line ending in an arrowhead on an axis, for decline, losses and a downward trend.",
     "chart-line-up": "A rising line ending in an arrowhead on an axis, for growth, gains and an upward trend.",
-    "diagram-next": "Two bars with an arrow down between them, for the next step, stage or page in a flow.",
-    "diagram-previous": "Two bars with an arrow up between them, for the previous step, stage or page in a flow.",
     "diagram-successor": "A box hooking an arrow down onto a bar, for what follows a task, a dependency's downstream.",
     "diagram-predecessor": "A box hooking an arrow up to a bar, for what precedes a task, a dependency's upstream.",
     "diagram-project": "Three boxes wired top to bottom, for project structure, work breakdown and plans.",
     "diagram-subtask": "A parent box with an indented child on a wire, for subtasks, children and nesting a task.",
-    "diagram-nested": "A box inside a box, for nesting, containment, scopes and a group within a group.",
-    "diagram-cells": "A table with a header band over three columns, for cells, sheets and tabular data.",
-    "diagram-sankey": "One flow splitting into two, for sankey diagrams, distributions and where a quantity goes.",
-    "arrow-up-right-dots": "An arrow up-right over a triangle of dots, for growth from data, traction and scaling up.",
-    "arrow-down-left-dots": "An arrow down-left under a triangle of dots, for decline in data, churn and scaling down.",
     "bars-progress": "Two bars each part filled, for progress, completion, quotas and how far a task has got."
   }
 }
