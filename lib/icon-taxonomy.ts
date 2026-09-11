@@ -136,6 +136,15 @@ export const CATEGORIES = [
     match: /^(map|compass|building|route|flag$|traffic-light)/,
     blurb: "Pins, maps, compasses, routes, flags and the lights at the junction.",
   },
+  // Opened 11 Sep 2026 with the seven of batch C, the first time the set has
+  // drawn the inside of a building rather than its outline. The `home` icon
+  // stays in Web: that drawing is a navigation glyph, the roof that means "take
+  // me back", where this shelf is the furniture and the fabric.
+  {
+    label: "Home",
+    match: /^(bed|sofa|door|brick-wall)/,
+    blurb: "Beds, seating, doors and the wall behind them.",
+  },
   {
     // Ahead of Layout, whose `list` prefix would otherwise claim `list-music`.
     //
@@ -217,6 +226,14 @@ export const CATEGORIES = [
     label: "Users",
     match: /^(user|scan-face)/,
     blurb: "People, accounts and the signs that badge them.",
+  },
+  // Two marks, opened 11 Sep 2026. NOT Users: a Mars glyph is not a person, it
+  // is the sign for one, and a shelf holds what the drawing is. Anchored on
+  // purpose, so it takes a third gender mark and nothing else.
+  {
+    label: "Gender",
+    match: /^(mars|venus)$/,
+    blurb: "The Mars and Venus marks.",
   },
   // The faces and the two thumbs. Ahead of Actions so the thumbs are reactions
   // rather than verbs; a face is not a person and a thumb is not a verb.

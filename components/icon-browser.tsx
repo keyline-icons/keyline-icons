@@ -6,6 +6,7 @@ import {
   ArrowRight,
   ArrowUTurnLeft,
   BarChart,
+  Bed,
   Bold,
   Check,
   ChevronDown,
@@ -38,6 +39,7 @@ import {
   Sun,
   Trophy,
   User,
+  Venus,
   Wallet,
   Wrench,
 } from "@/components/icons"
@@ -143,6 +145,9 @@ const CATEGORY_ICONS: Record<
   // the rail is read at 16px and a $ there is a letter, not a picture.
   Finance: Wallet,
   Maps: MapPin,
+  // Its own bed rather than a house: the rail is read at 16px, and the roof
+  // glyph already stands for Web.
+  Home: Bed,
   Media: Play,
   Charts: BarChart,
   Diagrams: DiagramProject,
@@ -151,6 +156,7 @@ const CATEGORY_ICONS: Record<
   Pointers: Cursor,
   Layout: PanelLeft,
   Users: User,
+  Gender: Venus,
   Actions: Check,
   // Every label in CATEGORIES needs a row here, including the ones added since:
   // the rail maps before it filters, so a label with a count and no icon renders
