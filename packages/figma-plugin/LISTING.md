@@ -113,6 +113,18 @@ github.com/keyline-icons/keyline-icons
 
 Changelog
 
+0.8.0 — 11 September 2026
+33 new drawings, taking the set to 798 names and 4,094 SVGs, and five new shelves. Every one of them came off a month of empty searches on the site: the words people typed and got nothing back for.
+
+* Desk: a printer, a keyboard, a calculator, a USB connector and a drive
+* Files: file-code, file-zip and folder-search
+* Home: three beds, a sofa, both doors and a brick wall
+* Table: coffee, cake, soup and a bottle
+* Art: a brush, a roller, a palette and an easel
+* Others: the Mars and Venus marks, three keys, a stack of coins, a strip of film, an eraser, a roll of tape and a broom
+* Home, Gender, Food & Drink, Art and Stationery opened as shelves of their own, taking categories from 26 to 31
+* The calendar and the phone were redrawn, and the phone's negation slash moved to the other diagonal with it
+
 0.7.0 — 10 September 2026
 71 new drawings, taking the set to 765 names and 3,896 SVGs, and two new shelves. The message family drawn again on a square body, with every sign, badge and slash where the round bubble already puts them; a scan frame with six things to read inside it; twenty-six charts and four diagrams of boxes on wires; seven faces, two thumbs and a badge that carries nine signs.
 
@@ -256,6 +268,28 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 0.8.0
+
+```
+33 new drawings, taking the set to 798 names and 4,094 SVGs. Every one came off
+a month of empty searches on the site, which is the list of what people typed
+and did not find: a printer, a keyboard and a calculator at the top of it, then
+file types, furniture, food, art tools and keys.
+
+Five shelves opened with them, taking categories from 26 to 31: Home, Gender,
+Food & Drink, Art and Stationery.
+
+The calendar and the phone were redrawn. The calendar's body is a unit taller,
+so its two posts cross the top edge symmetrically rather than standing three
+above it and one inside. The phone is turned over to read earpiece first at the
+top left, and its negation slash turns to the other diagonal with it, because
+the handset now lies along the one that slash used to take.
+```
+
+**A republish is required for the listing**, whose counts moved: the tagline,
+the style bullets, the totals and the category count all changed with the set.
+The plugin's own code did not change.
 
 ### 0.7.0
 
@@ -528,12 +562,25 @@ Which styles an icon has is measured rather than chosen: duotone and fill need a
 
 Every drawing exists in both treatments, so sharp is a switch rather than a second library: 4,094 variants over the same 798 names.
 
-The Catalog page files every icon under one of 26 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
+The Catalog page files every icon under one of 31 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
 
 Also available as React components, a shadcn registry, an MCP server for agents, a CLI, and a Figma plugin that searches the set and drops an icon straight onto the canvas.
 
 keylineicons.com
 github.com/keyline-icons/keyline-icons
+
+v0.8.0
+33 new drawings, and five new shelves. The set is 798 names now, 681 component sets and 4,094 variants, up from 765 and 3,896. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
+
+* Desk: a printer, a keyboard, a calculator, a USB connector and a drive
+* Files: file-code, file-zip and folder-search
+* Home: three beds, a sofa, both doors and a brick wall
+* Table: coffee, cake, soup and a bottle
+* Art: a brush, a roller, a palette and an easel
+* Singles: the Mars and Venus marks, three keys, a stack of coins, a strip of film, an eraser, a roll of tape and a broom
+* Categories went from 26 to 31: Home, Gender, Food & Drink, Art and Stationery took the new drawings that had nowhere honest to sit
+
+Also redrawn: the calendar with its nine compounds, and phone and phone-off. The phone is mirrored so the earpiece reads first at the top left, and its negation slash moved to the other diagonal, because the handset now lies along the one it used to take.
 
 v0.7.0
 71 new drawings under 73 names, and two new shelves. The set is 765 names now, 648 component sets and 3,896 variants, up from 692 and 3,538. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
