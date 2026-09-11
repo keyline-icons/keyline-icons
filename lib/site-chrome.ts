@@ -290,20 +290,53 @@ export const SET_FIGMA_PLUGIN_URL =
 export const SET_FIGMA_PROFILE_URL = "https://www.figma.com/@keylineicons"
 
 /**
- * The set's paper.design file, which the landing page's Paper tab opens.
+ * The set's paper.design files, in the order a reader should meet them.
  *
- * Unlike `SET_FIGMA_URL` this is the file itself rather than a profile standing
- * in for one, because the file exists: 32 artboards built from
- * `previews/paper/` by the import in `pipeline/build-paper.mjs`'s manifest. It
- * is only a working link while the file stays shared, and nothing here can tell
- * whether it is — Paper's sharing is not visible to the repository, so this is
- * the one link on the site whose target has to be re-tested by opening it.
+ * **Two files, because one cannot hold the set.** Paper has a ceiling on a
+ * whole file, not on a page: on 10 Sep 2026 the Changelog page alone crossed it
+ * and every call against the *other* page came back prefixed with "Your file is
+ * too large. Further changes will result in data loss. Please start a new
+ * file.", reads included, and a full re-import cost the Actions board half its
+ * drawings. Adding a page buys nothing; a second file is the only answer Paper
+ * itself offers. The first file keeps the Catalog surface and the Changelog, so
+ * it stays the one the legal pages and the footer mean by "the Paper file".
  *
- * One link, not one per icon, for the same reason the Figma constant gives: a
- * deep link needs a node id, and nothing records them.
+ * **`from` is the first category shelf the file holds**, alphabetically, and a
+ * board belongs to the last file whose `from` it sorts at or after. A rule
+ * rather than a list of boards, so a category added later files itself instead
+ * of falling through every file and landing nowhere. The cut is at Layout
+ * because that is where the sheets' bytes halve, 1,648KB against 1,508KB, not
+ * because the two halves hold the same number of shelves.
+ *
+ * Only working links while the files stay shared, and nothing here can tell
+ * whether they are — Paper's sharing is not visible to the repository, so these
+ * are the links on the site whose targets have to be re-tested by opening them.
+ *
+ * One link per file, not one per icon, for the same reason the Figma constant
+ * gives: a deep link needs a node id, and nothing records them. The icon page
+ * does resolve which of the two to open, from the drawing's own category —
+ * see `lib/paper-files.ts`.
  */
-export const SET_PAPER_URL =
-  "https://app.paper.design/file/01M0C1A8JM2Q96K8FTA6RS7WCX"
+export const SET_PAPER_FILES = [
+  {
+    url: "https://app.paper.design/file/01M0C1A8JM2Q96K8FTA6RS7WCX",
+    from: "Actions",
+  },
+  {
+    url: "https://app.paper.design/file/01M25VJFJPJVBVV1AEK9B9KNHP",
+    from: "Layout",
+  },
+] as const
+
+/**
+ * The file meant by "the paper.design file" where only one can be named: the
+ * legal pages, the footer, and anything else that links to the set as a whole.
+ *
+ * It is the first file rather than an arbitrary one because that is the file
+ * holding the Catalog surface and the Changelog, which is what someone
+ * following a bare link is looking for.
+ */
+export const SET_PAPER_URL = SET_PAPER_FILES[0].url
 
 /**
  * Where the bar's primary button goes.

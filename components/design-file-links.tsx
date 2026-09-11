@@ -7,7 +7,8 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { SET_FIGMA_URL, SET_PAPER_URL } from "@/lib/site-chrome"
+import { paperFileForCategory } from "@/lib/paper-files"
+import { SET_FIGMA_URL } from "@/lib/site-chrome"
 
 /**
  * The two ways out of the site to the drawing itself: the Figma Community file
@@ -27,21 +28,39 @@ import { SET_FIGMA_URL, SET_PAPER_URL } from "@/lib/site-chrome"
  * Both links are gated on their constant being non-empty, for the reason
  * `SET_FIGMA_URL` gives: a dead link out is worse than a missing one. Neither
  * goes to a per-icon node, so both open the whole set — see the constants.
+ *
+ * **Paper's mark is still one link, but not always the same one.** The set
+ * outgrew a single Paper file and now sits in two, split by shelf, so the file
+ * to open depends on which shelf the drawing is on. That is knowable here
+ * without a node id, which is what keeps this a mark rather than a menu: the
+ * reader clicks Paper and lands in the file their icon is in.
  */
-const FILES = [
-  { id: "figma", label: "Figma", Logo: FigmaLogo, url: SET_FIGMA_URL },
-  { id: "paper", label: "Paper", Logo: PaperLogo, url: SET_PAPER_URL },
-] as const
-
 export function DesignFileLinks({
   /** `icon` in the dock, matching the download button beside it; `icon-lg` on
       a page, matching the row of `lg` controls it sits with. */
   size = "icon",
+  /**
+   * The drawing's shelf, which picks the Paper file. Omitted where the pair
+   * stands for the set rather than for one icon, and the first file answers
+   * for it then — the one holding the Catalog surface and the Changelog.
+   */
+  category,
   className,
 }: {
   size?: "icon" | "icon-lg"
+  category?: string
   className?: string
 }) {
+  const FILES = [
+    { id: "figma", label: "Figma", Logo: FigmaLogo, url: SET_FIGMA_URL },
+    {
+      id: "paper",
+      label: "Paper",
+      Logo: PaperLogo,
+      url: paperFileForCategory(category ?? "").url,
+    },
+  ] as const
+
   const files = FILES.filter((file) => file.url)
   if (files.length === 0) return null
 

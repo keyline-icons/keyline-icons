@@ -2,12 +2,16 @@
 
 import * as React from "react"
 
+import { FigmaLogo, FigmaPluginLogo, PaperLogo } from "@/components/brand-logos"
+import { ArrowUpRight, ChevronDown } from "@/components/icons"
 import {
-  FigmaLogo,
-  FigmaPluginLogo,
-  PaperLogo,
-} from "@/components/brand-logos"
-import { ArrowUpRight } from "@/components/icons"
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { Segmented, SegmentedItem } from "@/components/segmented"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -98,13 +102,24 @@ const TOOLS = [
 
 export type DesignTool = (typeof TOOLS)[number]["id"]
 
+/**
+ * One destination, or several.
+ *
+ * Paper is the tool with several: the set outgrew a single Paper file, so what
+ * used to be one link is now a short menu of files named by the shelves they
+ * hold. Written as a union rather than as an array everywhere because the other
+ * two tools have exactly one file each and a one-item menu is a button wearing
+ * a chevron it cannot justify.
+ */
+export type DesignTarget = string | { url: string; label: string }[]
+
 export function DesignFileTabs({
   urls,
   panels,
   caveats,
 }: {
-  /** Where each tool's button goes. */
-  urls: Record<DesignTool, string>
+  /** Where each tool's button goes, or the files it can open. */
+  urls: Record<DesignTool, DesignTarget>
   /** Each tool's panel, rendered on the server and handed over as-is. */
   panels: Record<DesignTool, React.ReactNode>
   /**
@@ -145,6 +160,70 @@ export function DesignFileTabs({
   }
 
   const active = TOOLS.find((t) => t.id === tool) ?? TOOLS[0]
+
+  /*
+    One file or several. Several is Paper, which the set outgrew: the button
+    becomes the trigger of a short menu and its trailing glyph becomes a chevron,
+    because an arrow out of the site on a control that opens a popup describes
+    the wrong click.
+  */
+  const target = urls[tool]
+  const files = Array.isArray(target) ? target : null
+
+  const face = (
+    <>
+      {/*
+        Both marks keep their brand colours, which hold against the flat
+        `--primary` fill in either theme: near-black in light, near-white in
+        dark, and neither Figma's five nor Paper's blue disappears into
+        either. See `components/brand-logos.tsx`.
+      */}
+      {/*
+        Two things ride on this `style`, and both have to be inline.
+
+        **The mark inverts.** The button is a flat `--primary` fill and the
+        set's own mark is a `--primary` tile, so on the plugin tab it
+        painted black on black and only the pennant showed. Swapping the
+        pair gives a white tile with a black pennant in light and the
+        reverse in dark, since the two tokens trade places there.
+        `FigmaLogo` and `PaperLogo` do not read these and are unaffected.
+
+        **The size is written here, not in a class.** `button.tsx`'s base
+        carries `[&_svg:not([class*='size-'])]:size-4`, which is a
+        descendant selector and therefore beats a plain `w-*` utility on the
+        same element. `logoClass` has no `size-` in it, so that rule caught
+        the lockup and squared it: 75.67 x 40 letterboxed into 16 x 16 comes
+        out 16 wide and 8.5 tall, which is why it read as shrunken here and
+        correct on the chip, where no such rule exists. An inline
+        declaration beats every class rule and needs no escape hatch.
+
+        20 tall rather than 16 because this is the one place the mark is the
+        button's subject rather than an affordance beside a label. The width
+        follows the lockup's own ratio, 20 x 75.67 / 40.
+      */}
+      <active.Logo
+        data-icon="inline-start"
+        className="shrink-0"
+        style={
+          {
+            "--brand-mark-tile": "var(--primary-foreground)",
+            "--brand-mark-glyph": "var(--primary)",
+            height: "1.25rem",
+            width: active.id === "plugin" ? "2.365rem" : "1.25rem",
+          } as React.CSSProperties
+        }
+      />
+      {active.action}
+      {files ? (
+        <ChevronDown data-icon="inline-end" />
+      ) : (
+        <>
+          <ArrowUpRight data-icon="inline-end" />
+          <span className="sr-only">{" (opens in a new tab)"}</span>
+        </>
+      )}
+    </>
+  )
 
   return (
     <>
@@ -225,66 +304,72 @@ export function DesignFileTabs({
           selection. It also follows the tool it opens, so the button changes
           when the tab does.
         */}
-        <Button
-          /*
-            `default` rather than `lg`: 32 tall against `lg`'s 36. With a 20px
-            mark in it the taller box left the pair floating in vertical space,
-            and the picker's own chips are 32. Note this breaks the rule in the
-            `site-ui` skill that a button beside a 36px `Segmented` track should
-            be `lg` — the row now runs a 36px track against a 32px button, which
-            is deliberate and worth re-reading if either side is retuned.
-          */
-          size="default"
-          render={
-            <a href={urls[tool]} target="_blank" rel="noopener noreferrer" />
-          }
-          nativeButton={false}
-        >
-          {/*
-            Both marks keep their brand colours, which hold against the flat
-            `--primary` fill in either theme: near-black in light, near-white in
-            dark, and neither Figma's five nor Paper's blue disappears into
-            either. See `components/brand-logos.tsx`.
-          */}
-          {/*
-            Two things ride on this `style`, and both have to be inline.
-
-            **The mark inverts.** The button is a flat `--primary` fill and the
-            set's own mark is a `--primary` tile, so on the plugin tab it
-            painted black on black and only the pennant showed. Swapping the
-            pair gives a white tile with a black pennant in light and the
-            reverse in dark, since the two tokens trade places there.
-            `FigmaLogo` and `PaperLogo` do not read these and are unaffected.
-
-            **The size is written here, not in a class.** `button.tsx`'s base
-            carries `[&_svg:not([class*='size-'])]:size-4`, which is a
-            descendant selector and therefore beats a plain `w-*` utility on the
-            same element. `logoClass` has no `size-` in it, so that rule caught
-            the lockup and squared it: 75.67 x 40 letterboxed into 16 x 16 comes
-            out 16 wide and 8.5 tall, which is why it read as shrunken here and
-            correct on the chip, where no such rule exists. An inline
-            declaration beats every class rule and needs no escape hatch.
-
-            20 tall rather than 16 because this is the one place the mark is the
-            button's subject rather than an affordance beside a label. The width
-            follows the lockup's own ratio, 20 x 75.67 / 40.
-          */}
-          <active.Logo
-            data-icon="inline-start"
-            className="shrink-0"
-            style={
-              {
-                "--brand-mark-tile": "var(--primary-foreground)",
-                "--brand-mark-glyph": "var(--primary)",
-                height: "1.25rem",
-                width: active.id === "plugin" ? "2.365rem" : "1.25rem",
-              } as React.CSSProperties
+        {/*
+          `default` rather than `lg`: 32 tall against `lg`'s 36. With a 20px
+          mark in it the taller box left the pair floating in vertical space,
+          and the picker's own chips are 32. Note this breaks the rule in the
+          `site-ui` skill that a button beside a 36px `Segmented` track should
+          be `lg` — the row now runs a 36px track against a 32px button, which
+          is deliberate and worth re-reading if either side is retuned.
+        */}
+        {files ? (
+          <DropdownMenu>
+            <DropdownMenuTrigger
+              render={<Button size="default" />}
+              /* The trigger is a real button here, unlike the link version
+                 below, so `nativeButton` is left alone. */
+              aria-label={`${active.action}: choose a file`}
+            >
+              {face}
+            </DropdownMenuTrigger>
+            {/*
+              `align="end"` so the popup's right edge follows the button's,
+              which sits at the row's right edge. The width is written because
+              `DropdownMenuContent` defaults to the anchor's width, and the
+              anchor is a short button — see the same note in `site-nav-bar`.
+            */}
+            <DropdownMenuContent align="end" className="w-68">
+              {/* Base UI reads the label off its group rather than off the
+                  popup, and throws `MenuGroupContext is missing` outside one,
+                  which takes the whole island down with it. */}
+              <DropdownMenuGroup>
+                <DropdownMenuLabel>
+                  {`The set spans ${files.length} files`}
+                </DropdownMenuLabel>
+                {files.map((file) => (
+                  <DropdownMenuItem
+                    key={file.url}
+                    render={
+                      <a
+                        href={file.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      />
+                    }
+                  >
+                    {file.label}
+                    <ArrowUpRight className="ml-auto size-3.5 shrink-0 text-muted-foreground" />
+                    <span className="sr-only">{" (opens in a new tab)"}</span>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        ) : (
+          <Button
+            size="default"
+            render={
+              <a
+                href={typeof target === "string" ? target : "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+              />
             }
-          />
-          {active.action}
-          <ArrowUpRight data-icon="inline-end" />
-          <span className="sr-only">{" (opens in a new tab)"}</span>
-        </Button>
+            nativeButton={false}
+          >
+            {face}
+          </Button>
+        )}
       </div>
 
       {/*

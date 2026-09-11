@@ -989,7 +989,10 @@ export function IconPreview({
                 and pushing the pair to the far edge of a wrapped row leaves it
                 stranded opposite whatever chip ended the line above it.
               */}
-              <DesignFileLinks className="flex items-center gap-2 sm:ml-auto" />
+              <DesignFileLinks
+                category={category}
+                className="flex items-center gap-2 sm:ml-auto"
+              />
             </div>
 
             {/*

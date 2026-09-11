@@ -760,15 +760,22 @@ pnpm paper:verify --json
 Not in `icons:ci`, for the reason `icons:figma` and `brand:check` are not: it
 needs an application CI does not have. Unlike `icons:figma` it is one step
 rather than two, because Paper's MCP server is local HTTP with no auth, so the
-script talks to it directly instead of emitting a snippet to paste. The file it
-checks is the one `SET_PAPER_URL` points at, read out of `lib/site-chrome.ts`;
-`--file <id>` overrides it and `PAPER_MCP` overrides the endpoint.
+script talks to it directly instead of emitting a snippet to paste.
 
-Six findings, and the distinction between them is the useful part:
+**It checks every file the set is in, which is two.** `SET_PAPER_FILES` in
+`lib/site-chrome.ts` names them and says where each one starts; the set outgrew
+one Paper file, whose ceiling is on the file rather than on a page.
+`pipeline/lib/paper-files.mjs` turns that into a board-to-file answer, and every
+board is looked for in both files and then judged on whether it turned up in
+the right one. `--file <id>` narrows the run to one file and `PAPER_MCP`
+overrides the endpoint.
+
+Seven findings, and the distinction between them is the useful part:
 
 | | |
 | --- | --- |
-| `MISSING` | a sheet's artboard is not in the file |
+| `MISSING` | a sheet's artboard is in neither file |
+| `STRAY` | the board is in the other file, or in both |
 | `ORPHAN` | an artboard no sheet builds |
 | `STALE` | the board holds a different number of drawings than its sheet |
 | `DRIFT` | same count, different icons, reported with the first disagreement |
@@ -786,7 +793,15 @@ compares geometry, this compares inventory.
 Categories come from `lib/icon-taxonomy.ts`, parsed rather than copied, and the
 parse asserts it read a pattern for every label. Without that check a regex
 written across two lines hands its whole category to `Other`, which looks like a
-grouping decision rather than a broken read.
+grouping decision rather than a broken read. `paper-files.mjs` reads
+`lib/site-chrome.ts` the same way and asserts the same kind of thing, with one
+extra trap: a comment stripper that treats every `//` as a comment takes each
+URL in that array down to `https:`.
+
+**A `STRAY` is two steps and only the first is an import.** Write the board into
+the file it belongs in with `--create`, then delete the copy it left behind by
+hand. Neither script deletes a board on a name match, for the same reason
+neither touches an `ORPHAN`: a name is not evidence about what is in a board.
 
 ## What `import-paper` writes
 

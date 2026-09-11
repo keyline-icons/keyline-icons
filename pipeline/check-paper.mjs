@@ -1,4 +1,9 @@
-// Check the paper.design file against previews/paper/.
+// Check the paper.design files against previews/paper/.
+//
+// Files, plural, since 11 Sep 2026: Paper's ceiling is on a whole file, so the
+// set is split across two of them by `SET_PAPER_FILES` in lib/site-chrome.ts.
+// Every board is looked for in both and then judged on whether it turned up in
+// the one it belongs in, which is the STRAY finding.
 //
 //   node pipeline/check-paper.mjs [--file <id>] [--json]
 //
@@ -32,6 +37,8 @@ import { existsSync } from "node:fs"
 import { join } from "node:path"
 import { fileURLToPath } from "node:url"
 
+import { boardFiles, paperFiles } from "./lib/paper-files.mjs"
+
 const ROOT = fileURLToPath(new URL("..", import.meta.url))
 const SHEETS = join(ROOT, "previews", "paper")
 const ENDPOINT = process.env.PAPER_MCP ?? "http://127.0.0.1:29979/mcp"
@@ -40,26 +47,24 @@ const json = process.argv.includes("--json")
 const c = (n, s) => `\x1b[${n}m${s}\x1b[0m`
 
 /**
- * The file to check, taken from the constant the site already links to.
+ * The files to check, taken from the constants the site already links to.
  *
- * `SET_PAPER_URL` in `lib/site-chrome.ts` is the file the landing page's Paper
- * tab opens, so it is by definition the file that has to match the repository.
- * Reading it from there rather than keeping a second copy is the same call
- * `build-paper.mjs` makes about the category table.
+ * `SET_PAPER_FILES` in `lib/site-chrome.ts` is what the site's Paper menu
+ * opens, so those are by definition the files that have to match the
+ * repository. Reading them from there rather than keeping a second copy is the
+ * same call `build-paper.mjs` makes about the category table.
+ *
+ * `--file` narrows the run to one of them, which is the only way to check a
+ * file the site does not link to yet.
  */
-async function fileId() {
+async function filesToCheck() {
+  const all = await paperFiles(ROOT)
   const flag = process.argv.indexOf("--file")
-  if (flag > -1 && process.argv[flag + 1]) return process.argv[flag + 1]
-
-  const src = await readFile(join(ROOT, "lib", "site-chrome.ts"), "utf8")
-  const url = /SET_PAPER_URL\s*=\s*\n?\s*"([^"]+)"/.exec(src)?.[1]
-  const id = url && /\/file\/([^/?#]+)/.exec(url)?.[1]
-  if (!id) {
-    throw new Error(
-      "no Paper file id: SET_PAPER_URL in lib/site-chrome.ts did not parse. Pass --file <id>."
-    )
+  if (flag > -1 && process.argv[flag + 1]) {
+    const only = process.argv[flag + 1]
+    return [all.find((f) => f.id === only) ?? { id: only, url: only, from: "" }]
   }
-  return id
+  return all
 }
 
 /* One MCP session for the run. The transport answers as SSE, one `data:` line
@@ -208,33 +213,77 @@ const parsed = (body) => {
   return JSON.parse(start >= 0 ? body.slice(start) : body)
 }
 
-const id = await fileId()
+const files = await filesToCheck()
+
+/** Where each board is supposed to be, by the same rule the site's links use. */
+const where = boardFiles(files, manifest)
+
 await rpc("initialize", {
   protocolVersion: "2025-06-18",
   capabilities: {},
   clientInfo: CLIENT,
 })
 
-/* Every page, because the file puts the changelog on its own and an artboard
-   looked for on the wrong page reads as missing. */
-const opened = parsed(await call("open_file", { fileId: id }))
-const pages = parsed(await call("get_basic_info", { fileId: id })).pages ?? []
+/* Every page of every file. Pages, because a file puts the changelog on its own
+   and an artboard looked for on the wrong page reads as missing. Files, because
+   the set outgrew one of them: a board is looked for everywhere and then judged
+   on whether it turned up where it belongs, so a board left behind in the file
+   it was moved out of is a finding rather than a silent duplicate. */
+const names = new Map()
 const found = new Map()
-for (const page of pages) {
-  await call("open_file", { fileId: id, pageId: page.id })
-  const info = parsed(await call("get_basic_info", { fileId: id }))
-  for (const board of info.artboards) found.set(board.name, { ...board, page: page.name })
+for (const file of files) {
+  const opened = parsed(await call("open_file", { fileId: file.id }))
+  names.set(file.id, opened.fileName ?? file.id)
+  const pages = parsed(await call("get_basic_info", { fileId: file.id })).pages ?? []
+  for (const page of pages) {
+    await call("open_file", { fileId: file.id, pageId: page.id })
+    const info = parsed(await call("get_basic_info", { fileId: file.id }))
+    for (const board of info.artboards) {
+      const at = { ...board, page: page.name, file }
+      /* Keyed by board *and* file: the same name in two files is the case this
+         is here to catch, and a plain name key would hide one behind the
+         other. */
+      found.set(`${file.id}/${board.name}`, at)
+    }
+  }
 }
 
+/** Every place a board of this name turned up, in file order. */
+const placesOf = (name) =>
+  files.map((f) => found.get(`${f.id}/${name}`)).filter(Boolean)
+
 const findings = []
-for (const [name, files] of boards) {
-  const board = found.get(name)
+for (const [name, sheets] of boards) {
+  const belongs = where.get(name)
+  const places = placesOf(name)
+  const board = found.get(`${belongs.id}/${name}`) ?? places[0]
+
   if (!board) {
-    findings.push({ board: name, kind: "MISSING", detail: "not in the file" })
+    findings.push({ board: name, kind: "MISSING", detail: "in neither file" })
     continue
   }
 
-  const want = await expected(files)
+  /* Somewhere, but not where the sheets say. Read as STRAY rather than as
+     MISSING because the drawings are not gone: the board has to be written into
+     the file it belongs in and then deleted from the one it is in, and only the
+     first half of that is an import. A board in both files reports here too,
+     since the copy left behind is the same problem. */
+  const stray = places.filter((at) => at.file.id !== belongs.id)
+  if (stray.length) {
+    findings.push({
+      board: name,
+      kind: "STRAY",
+      detail:
+        `also in ${names.get(stray[0].file.id)}` +
+        (found.has(`${belongs.id}/${name}`)
+          ? `, delete it there`
+          : ` rather than ${names.get(belongs.id)}`),
+    })
+    if (!found.has(`${belongs.id}/${name}`)) continue
+  }
+
+  const id = board.file.id
+  const want = await expected(sheets)
   const summary = parsed(
     await call("get_tree_summary", { nodeId: board.id, depth: 8, fileId: id })
   ).summary
@@ -279,16 +328,41 @@ for (const [name, files] of boards) {
   }
 }
 
-for (const [name, board] of found) {
-  if (boards.has(name)) continue
-  findings.push({ board: name, kind: "ORPHAN", detail: `on ${board.page}, no sheet builds it` })
+for (const board of found.values()) {
+  /* A board that belongs in another file has already reported as STRAY there;
+     saying it again from this end would name the same board twice with two
+     different fixes. */
+  if (boards.has(board.name)) continue
+  findings.push({
+    board: board.name,
+    kind: "ORPHAN",
+    detail: `on ${board.page} in ${names.get(board.file.id)}, no sheet builds it`,
+  })
 }
 
 if (json) {
-  console.log(JSON.stringify({ file: id, boards: boards.size, findings }, null, 2))
+  console.log(
+    JSON.stringify(
+      {
+        files: files.map((f) => ({ id: f.id, name: names.get(f.id) ?? f.id })),
+        boards: boards.size,
+        findings,
+      },
+      null,
+      2
+    )
+  )
 } else {
   const total = [...boards.values()].reduce((n, f) => n + f.length, 0)
-  console.log(`${opened.fileName ?? id}: ${boards.size} artboards from ${total} sheets`)
+  const held = (file) =>
+    [...where].filter(([, f]) => f.id === file.id).length
+  console.log(
+    `${boards.size} artboards from ${total} sheets, across ${files.length} file` +
+      `${files.length === 1 ? "" : "s"}:`
+  )
+  for (const file of files) {
+    console.log(`  ${(names.get(file.id) ?? file.id).padEnd(24)} ${held(file)} boards`)
+  }
   for (const f of findings) {
     console.log(`  ${c(33, f.kind.padEnd(10))} ${f.board.padEnd(16)} ${f.detail}`)
   }

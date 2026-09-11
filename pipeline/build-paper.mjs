@@ -1304,6 +1304,7 @@ files.set(
          it: one artboard per sheet, in this order, `write_html` with the file's
          contents. Paper's MCP server is local and needs the desktop app open. */
       how: [
+        "The set is split across two Paper files, because Paper's size ceiling is on a whole file and not on a page. SET_PAPER_FILES in lib/site-chrome.ts names them and says which shelves each holds; pipeline/lib/paper-files.mjs turns that into a board-to-file answer. Write a board only into the file it belongs in.",
         "Open the target file in Paper Desktop so its MCP server is listening.",
         "First import: for each sheet in order, create_artboard named `artboard`, then write_html with the file's contents.",
         "Re-import of a board that already exists: do NOT delete it. get_children on the artboard, then write_html with mode: 'replace' targeting its single child. The artboard keeps its id, its name and its canvas position; delete + create_artboard loses the position, and nothing records it.",

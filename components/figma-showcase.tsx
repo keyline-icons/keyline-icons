@@ -12,11 +12,8 @@ import {
   PAPER_NOTE_ICON_NAMES,
   PLUGIN_NOTE_ICON_NAMES,
 } from "@/lib/home"
-import {
-  SET_FIGMA_PLUGIN_URL,
-  SET_FIGMA_URL,
-  SET_PAPER_URL,
-} from "@/lib/site-chrome"
+import { PAPER_FILES } from "@/lib/paper-files"
+import { SET_FIGMA_PLUGIN_URL, SET_FIGMA_URL } from "@/lib/site-chrome"
 
 /**
  * Where the set comes from, which is now two design files rather than one.
@@ -41,7 +38,13 @@ import {
  * line came out early, on the basis that the file was coming, leaving the claim
  * with the two FAQ answers that owned it. The file is published, so those
  * answers and this note moved together, which is what the arrangement was for.
- * `SET_PAPER_URL` is the same kind of link and opens the Paper file.
+ * **What the Paper button opens.** Not one file: `PAPER_FILES` is the two the
+ * set is split across, so the button is a menu of them named by the shelves
+ * each holds. The split is Paper's ceiling rather than a decision — a single
+ * file at this size answers every call, reads included, with a warning that
+ * further changes will lose data — and the copy says so in one clause rather
+ * than explaining it, because a reader of this section wants the drawings and
+ * not the storage.
  *
  * **The plugin has a panel of its own now, and this note used to argue against
  * it.** It read: one sentence under the Figma notes rather than a panel,
@@ -314,7 +317,12 @@ export function FigmaShowcase({ icons }: { icons: Icon[] }) {
       <DesignFileTabs
         urls={{
           figma: SET_FIGMA_URL,
-          paper: SET_PAPER_URL,
+          /* Two entries, so the button becomes a menu: the set outgrew one
+             Paper file and each is named by the shelves it holds. */
+          paper: PAPER_FILES.map((file) => ({
+            url: file.url,
+            label: file.label,
+          })),
           plugin: SET_FIGMA_PLUGIN_URL,
         }}
         /*
@@ -373,7 +381,8 @@ export function FigmaShowcase({ icons }: { icons: Icon[] }) {
                 <Note icon={boardGlyph} title="One artboard per category">
                   The canvas is the catalogue: a board per section, split across
                   a few when a section carries more drawings than one board
-                  should.
+                  should, and across two files because one file is more than
+                  Paper will hold.
                 </Note>
 
                 <Note icon={layerGlyph} title="Layers carry the icon's name">

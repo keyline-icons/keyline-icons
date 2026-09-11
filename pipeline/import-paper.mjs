@@ -1,4 +1,11 @@
-// Write previews/paper/ into the paper.design file.
+// Write previews/paper/ into the paper.design files.
+//
+// Files, plural, since 11 Sep 2026: the set outgrew one of them, and Paper's
+// ceiling is on the whole file rather than on a page, so the shelves are split
+// across two by `SET_PAPER_FILES` in lib/site-chrome.ts. Every board is written
+// into the file that rule puts it in and nowhere else. A copy sitting in the
+// other file is `paper:verify`'s STRAY, and deleting it is not this script's
+// call — the same call it makes about an ORPHAN.
 //
 //   node pipeline/import-paper.mjs [--file <id>] [--board <name>]... [--changed <rev>]
 //                                  [--all] [--create] [--dry-run]
@@ -35,6 +42,8 @@ import { readFile } from "node:fs/promises"
 import { execFileSync } from "node:child_process"
 import { join } from "node:path"
 import { fileURLToPath } from "node:url"
+
+import { boardFiles, paperFiles } from "./lib/paper-files.mjs"
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url))
 const SHEETS = join(ROOT, "previews", "paper")
@@ -148,23 +157,19 @@ const json = (body) => {
 /* ------------------------------------------------------------ the inputs */
 
 /**
- * The file to write into, taken from the constant the site already links to.
- * Same call `check-paper.mjs` makes: `SET_PAPER_URL` is the file the landing
- * page's Paper tab opens, so it is by definition the file that has to match.
+ * The files to write into, taken from the constants the site already links to.
+ * Same call `check-paper.mjs` makes: `SET_PAPER_FILES` is what the site's Paper
+ * menu opens, so those are by definition the files that have to match.
+ *
+ * `--file` narrows the run to one of them. It does not move any board: which
+ * file a board belongs in is `boardFiles`' answer either way, so narrowing to
+ * one file imports the boards that live there and leaves the rest alone.
  */
-async function fileId() {
+async function filesToWrite() {
+  const all = await paperFiles(ROOT)
   const [explicit] = values("--file")
-  if (explicit) return explicit
-
-  const src = await readFile(join(ROOT, "lib", "site-chrome.ts"), "utf8")
-  const url = /SET_PAPER_URL\s*=\s*\n?\s*"([^"]+)"/.exec(src)?.[1]
-  const id = url && /\/file\/([^/?#]+)/.exec(url)?.[1]
-  if (!id) {
-    throw new Error(
-      "no Paper file id: SET_PAPER_URL in lib/site-chrome.ts did not parse. Pass --file <id>."
-    )
-  }
-  return id
+  if (!explicit) return all
+  return [all.find((f) => f.id === explicit) ?? { id: explicit, url: explicit, from: "" }]
 }
 
 const manifest = JSON.parse(await readFile(join(SHEETS, "manifest.json"), "utf8"))
@@ -271,7 +276,10 @@ async function selection() {
 
 /* ------------------------------------------------------------- the write */
 
-const id = await fileId()
+const files = await filesToWrite()
+
+/** Where each board is supposed to be, by the same rule the site's links use. */
+const where = boardFiles(files, manifest)
 
 /* Probe before the first write. Paper being closed is not a failure, it is a
    step waiting on someone to open an app, and the two want different words from
@@ -293,44 +301,54 @@ await rpc("initialize", {
   clientInfo: CLIENT,
 })
 
-const opened = json(await call("open_file", { fileId: id }))
-
-/* Every page, because the file keeps the Changelog on its own and a board
-   looked for on the wrong page reads as missing. */
-const pages = json(await call("get_basic_info", { fileId: id })).pages ?? []
+/* Every page of every file. Pages, because a file keeps the Changelog on its
+   own and a board looked for on the wrong page reads as missing. Files, because
+   the set outgrew one of them, and a board is only ever written into the file
+   `where` puts it in — a copy sitting in the other file is not this script's to
+   delete, the same call it makes about an ORPHAN. */
+const names = new Map()
+const pagesOf = new Map()
 const found = new Map()
-for (const page of pages) {
-  await call("open_file", { fileId: id, pageId: page.id })
-  const info = json(await call("get_basic_info", { fileId: id }))
-  for (const board of info.artboards) found.set(board.name, { ...board, page })
+for (const file of files) {
+  const opened = json(await call("open_file", { fileId: file.id }))
+  names.set(file.id, opened.fileName ?? file.id)
+  const pages = json(await call("get_basic_info", { fileId: file.id })).pages ?? []
+  pagesOf.set(file.id, pages)
+  for (const page of pages) {
+    await call("open_file", { fileId: file.id, pageId: page.id })
+    const info = json(await call("get_basic_info", { fileId: file.id }))
+    for (const board of info.artboards) {
+      found.set(`${file.id}/${board.name}`, { ...board, page, file })
+    }
+  }
 }
 
 const wanted = await selection()
 console.log(
-  `${opened.fileName ?? id}: ${wanted.size} board${wanted.size === 1 ? "" : "s"} to import` +
-    ` of ${boards.size}`
+  `${files.map((f) => names.get(f.id)).join(" + ")}: ` +
+    `${wanted.size} board${wanted.size === 1 ? "" : "s"} to import of ${boards.size}`
 )
 
 if (!wanted.size) {
-  ok("the file already matches previews/paper/")
+  ok("the files already match previews/paper/")
   process.exit(0)
 }
 
-const children = async (nodeId) =>
+const children = async (nodeId, id) =>
   json(await call("get_children", { nodeId, fileId: id })).children ?? []
 
 /** Rename this write's drawings from the sheet, in document order. */
-async function renameDrawings(created, names, board) {
+async function renameDrawings(created, layers, board, id) {
   const drawings = created.filter((n) => n.component === "SVG")
-  if (drawings.length !== names.length) {
+  if (drawings.length !== layers.length) {
     throw new Error(
-      `${board}: Paper made ${drawings.length} drawings where the sheet has ${names.length}`
+      `${board}: Paper made ${drawings.length} drawings where the sheet has ${layers.length}`
     )
   }
   if (!drawings.length) return 0
   await call("rename_nodes", {
     fileId: id,
-    updates: drawings.map((n, i) => ({ nodeId: n.id, name: names[i] })),
+    updates: drawings.map((n, i) => ({ nodeId: n.id, name: layers[i] })),
   })
   return drawings.length
 }
@@ -350,20 +368,32 @@ for (const boardName of wanted) {
     continue
   }
 
-  let board = found.get(boardName)
+  const file = where.get(boardName)
+  const id = file.id
+  const pages = pagesOf.get(id)
+  let board = found.get(`${id}/${boardName}`)
+
   if (!board && !create) {
     /* Nothing in the repo records where a board sits on the canvas, so one
        created here lands at the origin on whatever page is active and someone
-       has to place it. That is a decision, not a step, so it is opt-in. */
+       has to place it. That is a decision, not a step, so it is opt-in.
+
+       A board that is in the *other* file rather than nowhere reads the same
+       here on purpose: writing it into the file it belongs in is an import,
+       deleting the copy it left behind is not, and conflating the two would
+       have this script delete a board on a name match. */
     warn(
-      `${boardName}: not in the file. Re-run with --create to make it, then place it by hand.`
+      `${boardName}: not in ${names.get(id)}. Re-run with --create to make it, then place it by hand.`
     )
     failed.push(boardName)
     continue
   }
 
   if (dry) {
-    console.log(`  would import ${boardName} from ${parts.map((p) => p.file).join(", ")}`)
+    console.log(
+      `  would import ${boardName} into ${names.get(id)}` +
+        ` from ${parts.map((p) => p.file).join(", ")}`
+    )
     continue
   }
 
@@ -389,7 +419,15 @@ for (const boardName of wanted) {
         fileId: id,
         updates: [{ nodeIds: [board.id], styles: { backgroundColor: "transparent" } }],
       })
-      warn(`${boardName}: created on ${pages[0].name} at the origin; place it by hand`)
+      /* The grid both files use, read off the first one: columns 822 apart,
+         ten to a row, a row's pitch the tallest board in it plus 80, and the
+         first row at 476 under the Catalog surface or at 0 in a file with no
+         cover. Set with `update_styles` and `left`/`top` — `move_nodes` is
+         reparenting and does not move anything on the canvas. */
+      warn(
+        `${boardName}: created in ${names.get(id)} on ${pages[0].name} at the origin;` +
+          ` place it by hand, 822 across and ten to a row`
+      )
     }
 
     await call("open_file", { fileId: id, pageId: board.page.id })
@@ -403,7 +441,7 @@ for (const boardName of wanted) {
     let mode = "insert-children"
 
     if (!fresh) {
-      const kids = await children(board.id)
+      const kids = await children(board.id, id)
       if (kids.length !== 1) {
         throw new Error(
           `expected one child on the artboard, found ${kids.length}. Look at it before re-running.`
@@ -418,13 +456,13 @@ for (const boardName of wanted) {
     const made = madeBy(
       await call("write_html", { fileId: id, html: first, targetNodeId: target, mode })
     )
-    drawn += await renameDrawings(made, await drawingNames(parts[0].file), boardName)
+    drawn += await renameDrawings(made, await drawingNames(parts[0].file), boardName, id)
 
     if (parts.length > 1) {
       /* The write minted a new card, so any id read before it is gone. Rows go
          into the card's last child. */
-      const [card] = await children(board.id)
-      const inner = await children(card.id)
+      const [card] = await children(board.id, id)
+      const inner = await children(card.id, id)
       const rows = inner[inner.length - 1]
       if (!rows) throw new Error("the card has no rows container to append to")
 
@@ -438,7 +476,7 @@ for (const boardName of wanted) {
             mode: "insert-children",
           })
         )
-        drawn += await renameDrawings(rest, await drawingNames(part.file), boardName)
+        drawn += await renameDrawings(rest, await drawingNames(part.file), boardName, id)
       }
     }
 

@@ -351,6 +351,9 @@ export default async function Page({
             */}
             <DesignFileLinks
               size="icon-lg"
+              /* Which of the two Paper files the mark opens follows the shelf,
+                 the same table the browser's rail is built from. */
+              category={category}
               className="flex items-center gap-2"
             />
 
