@@ -111,7 +111,7 @@ export const CATEGORIES = [
     // `wallet` on prefixes of its own.
     label: "Finance",
     match:
-      /^(badge-)?(dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin|credit-card|wallet)/,
+      /^(badge-)?(dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin|credit-card|wallet|coins)/,
     blurb: "The currency marks, the payment cards and the wallet.",
   },
   {
@@ -161,7 +161,7 @@ export const CATEGORIES = [
     // wherever the two disagree — the same call the taxonomy makes for `wifi`.
     label: "Media",
     match:
-      /^(play|pause|stop|record|skip-|fast-forward|rewind|repeat|replay|volume|audio-lines|mic|megaphone|headphones|headset|shuffle|music-note|list-music|list-video|camera|image|cast|subtitles|captions|picture-in-picture|gallery-|podcast|queue)/,
+      /^(play|pause|stop|record|skip-|fast-forward|rewind|repeat|replay|volume|audio-lines|mic|megaphone|headphones|headset|shuffle|music-note|list-music|list-video|camera|image|cast|subtitles|captions|picture-in-picture|gallery-|podcast|queue|film)/,
     blurb:
       "Playback, volume, capture, casting and the sound and image marks.",
   },
@@ -258,7 +258,7 @@ export const CATEGORIES = [
     // set on a thing — instant, fast, powered — not a control you operate, and
     // not the weather. The storm belongs to a cloud, and this bolt has none.
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|shield|badge|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|sparkle|ban)/,
+      /^(check|double-check|plus|minus|x|more|lock|unlock|key(?:-round|-square)?$|shield|badge|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|sparkle|ban)/,
     blurb: "Checks, crosses, pluses, the everyday verbs and the marks that guard a thing.",
   },
   {
@@ -289,14 +289,31 @@ export const CATEGORIES = [
     blurb: "Trophies, awards, crowns and the places on the podium.",
   },
   {
+    // The four of them are the objects, not the act of eating: a mug, a cake, a
+    // bowl and a bottle. `coffee` is filed here rather than beside `store` for
+    // the reason `graduation-cap` left Sport — the line is what the drawing IS.
+    label: "Food & Drink",
+    match: /^(coffee|cake|soup|bottle)/,
+    blurb: "The mug, the cake, the bowl and the bottle.",
+  },
+  {
+    // Ahead of Tools, which would otherwise be the shelf a brush and a roller
+    // fall towards: these make a picture, where a hammer makes a repair. The
+    // roller comes with them rather than with the tools for the same reason a
+    // gallery comes with the images — the thing, not the drawing.
+    label: "Art",
+    match: /^(paint|palette|easel)/,
+    blurb: "The brush, the roller, the palette and the easel.",
+  },
+  {
     // The shelf follows what the thing is, not what the drawing is made of: a
     // toolbox is drawn from the same rounded box as `archive` and belongs here
     // rather than in Files, the same call `gallery-*` gets against Layout.
     // Prefixes, so the family this is being drawn towards lands here too: a
     // `screwdriver`, a `wrench-plus`.
     label: "Tools",
-    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler|scissors)/,
-    blurb: "The toolbox and what comes out of it.",
+    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler|scissors|broom)/,
+    blurb: "The toolbox, the broom and what comes out of them.",
   },
   {
     // Opened 11 Sep 2026 for the two of batch A that no shelf could take. Tools

@@ -14,6 +14,7 @@ import {
   ChevronRight,
   Circle,
   Clock,
+  Coffee,
   Cursor,
   DiagramProject,
   Eraser,
@@ -26,6 +27,7 @@ import {
   MapPin,
   Menu,
   Minus,
+  Palette,
   PanelLeft,
   PanelTopCloseDashed,
   Play,
@@ -173,6 +175,11 @@ const CATEGORY_ICONS: Record<
   // rather than the trophy: the row is the mortarboard and nothing else.
   Education: GraduationCap,
   Sport: Trophy,
+  // The two shelves the food and art batch opened. The mug and the palette are
+  // the drawings that read at 16px; a cake is candles at that size and a brush
+  // is a stick.
+  "Food & Drink": Coffee,
+  Art: Palette,
   Tools: Wrench,
   // Opened 11 Sep 2026 beside Tools. Its own drawing on the rail rather than a
   // borrowed pencil, the same call `Education` made with the mortarboard.
