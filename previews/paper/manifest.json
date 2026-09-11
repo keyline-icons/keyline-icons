@@ -13,9 +13,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 648,
-  "names": 765,
-  "variants": 3896,
+  "icons": 658,
+  "names": 775,
+  "variants": 3956,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -370,60 +370,72 @@
       "artboard": "Devices",
       "category": "Devices",
       "part": 1,
-      "parts": 5,
+      "parts": 6,
       "into": "artboard",
       "width": 742,
-      "icons": 46,
+      "icons": 51,
       "variants": 56,
-      "bytes": 40393
+      "bytes": 40414
     },
     {
       "file": "devices-2.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 2,
-      "parts": 5,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 36931
+      "variants": 34,
+      "bytes": 40930
     },
     {
       "file": "devices-3.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 3,
-      "parts": 5,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 37623
+      "variants": 46,
+      "bytes": 38327
     },
     {
       "file": "devices-4.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 4,
-      "parts": 5,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 54,
-      "bytes": 40563
+      "variants": 48,
+      "bytes": 40425
     },
     {
       "file": "devices-5.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 5,
-      "parts": 5,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 58,
-      "bytes": 40532
+      "variants": 54,
+      "bytes": 37339
+    },
+    {
+      "file": "devices-6.html",
+      "artboard": "Devices",
+      "category": "Devices",
+      "part": 6,
+      "parts": 6,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 40,
+      "bytes": 32155
     },
     {
       "file": "diagrams.html",
@@ -469,7 +481,7 @@
       "parts": 5,
       "into": "artboard",
       "width": 742,
-      "icons": 40,
+      "icons": 43,
       "variants": 54,
       "bytes": 41677
     },
@@ -483,7 +495,7 @@
       "width": 742,
       "icons": 0,
       "variants": 54,
-      "bytes": 38352
+      "bytes": 38231
     },
     {
       "file": "files-3.html",
@@ -495,7 +507,7 @@
       "width": 742,
       "icons": 0,
       "variants": 54,
-      "bytes": 37667
+      "bytes": 38870
     },
     {
       "file": "files-4.html",
@@ -506,8 +518,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 52,
-      "bytes": 40136
+      "variants": 50,
+      "bytes": 38026
     },
     {
       "file": "files-5.html",
@@ -518,8 +530,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 18,
-      "bytes": 17406
+      "variants": 38,
+      "bytes": 33904
     },
     {
       "file": "finance-1.html",
@@ -942,6 +954,18 @@
       "bytes": 41166
     },
     {
+      "file": "stationery.html",
+      "artboard": "Stationery",
+      "category": "Stationery",
+      "part": 1,
+      "parts": 1,
+      "into": "artboard",
+      "width": 742,
+      "icons": 2,
+      "variants": 12,
+      "bytes": 13215
+    },
+    {
       "file": "text-1.html",
       "artboard": "Text",
       "category": "Text",
@@ -1163,7 +1187,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 76796
+      "bytes": 88125
     }
   ]
 }

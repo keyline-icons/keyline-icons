@@ -182,9 +182,15 @@ export const CATEGORIES = [
   {
     // `bug` is the software bug, so it sits with `code` rather than in a
     // shelf of creatures the set does not have.
+    // The peripherals joined on 11 Sep 2026 with batch A: a printer, a keyboard,
+    // the USB trident and the drive it plugs in are the same kind of thing as
+    // `plug` and `battery`, which were already here. `calculator` is here for
+    // the same reason and not in Finance: the shelf files by what the drawing
+    // IS, and it is a desk device, not money. `usb` is a prefix, so `usb-drive`
+    // and anything else on that port lands beside it.
     label: "Devices",
-    match: /^(smartphone|phone|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|qr-code|scan(?!-face)|app(?=-|$))/,
-    blurb: "Phones, handsets, servers, databases, terminals, code, processors, bugs, the app tiles, the QR code and the scan frame with what it reads.",
+    match: /^(smartphone|phone|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face)|app(?=-|$))/,
+    blurb: "Phones, handsets, printers, keyboards, servers, databases, terminals, code, processors, bugs, the app tiles, the QR code and the scan frame with what it reads.",
   },
   {
     label: "Pointers",
@@ -274,6 +280,18 @@ export const CATEGORIES = [
     label: "Tools",
     match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler|scissors)/,
     blurb: "The toolbox and what comes out of it.",
+  },
+  {
+    // Opened 11 Sep 2026 for the two of batch A that no shelf could take. Tools
+    // is "the toolbox and what comes out of it" and neither of these comes out
+    // of one: an eraser and a roll of sticky tape are the desk drawer, which is
+    // where a stapler, a pin, a notebook and a pencil would join them. A shelf
+    // of two is a shelf. `scissors` and `pencil-ruler` are stationery as much
+    // as they are tools and are candidates to move here, which is Zafar's call
+    // rather than one this row makes on its way in.
+    label: "Stationery",
+    match: /^(eraser|tape|stapler|notebook|sticky-note)/,
+    blurb: "The desk drawer: the eraser and the roll of tape.",
   },
   {
     label: "Shapes",
