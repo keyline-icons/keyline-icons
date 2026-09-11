@@ -13,6 +13,7 @@ import {
   ChevronRight,
   Circle,
   Clock,
+  Coffee,
   Cursor,
   DiagramProject,
   FaceSmile,
@@ -24,6 +25,7 @@ import {
   MapPin,
   Menu,
   Minus,
+  Palette,
   PanelLeft,
   PanelTopCloseDashed,
   Play,
@@ -166,6 +168,11 @@ const CATEGORY_ICONS: Record<
   // rather than the trophy: the row is the mortarboard and nothing else.
   Education: GraduationCap,
   Sport: Trophy,
+  // The two shelves the food and art batch opened. The mug and the palette are
+  // the drawings that read at 16px; a cake is candles at that size and a brush
+  // is a stick.
+  "Food & Drink": Coffee,
+  Art: Palette,
   Tools: Wrench,
   Web: Globe,
   [OTHER_CATEGORY]: Circle,

@@ -648,6 +648,20 @@
     "diagram-predecessor": "A box hooking an arrow up to a bar, for what precedes a task, a dependency's upstream.",
     "diagram-project": "Three boxes wired top to bottom, for project structure, work breakdown and plans.",
     "diagram-subtask": "A parent box with an indented child on a wire, for subtasks, children and nesting a task.",
-    "bars-progress": "Two bars each part filled, for progress, completion, quotas and how far a task has got."
+    "bars-progress": "Two bars each part filled, for progress, completion, quotas and how far a task has got.",
+    "coffee": "A steaming mug, for breaks, cafe listings, buy-me-a-coffee links and the morning routine.",
+    "cake": "A cake with dripping icing and two lit candles, for birthdays, parties and anniversaries.",
+    "soup": "A steaming bowl, for food, recipes, restaurant menus, meal plans and anything served warm.",
+    "bottle": "A capped bottle half full, for drinks, hydration, packaging and anything sold by the bottle.",
+    "key": "A flat key with two teeth, for access, passwords, API keys, licences and unlocking a feature.",
+    "coins": "Two stacks of coins seen from the side, for cash, change, credits, balances and payouts.",
+    "film": "A strip of film with perforations, for movies, cinema listings, video libraries and reels.",
+    "paintbrush": "A brush on its handle, bristles up, for painting, drawing tools, styling and themes.",
+    "paint-roller": "A paint roller with its grip, for decorating, wall colour, themes and bulk restyling.",
+    "palette": "A painter's palette with five blobs of paint, for colour pickers, themes and art supplies.",
+    "easel": "A canvas on a tripod, for galleries, artwork, workshops and anything painted or presented.",
+    "broom": "A broom on the diagonal, for cleanup, clearing caches, sweeping away data and housekeeping.",
+    "key-square": "A diagonal key with a square bow and a cut bit, for tokens, licences and permissions.",
+    "key-round": "A diagonal key with a round bow and a cut bit, for sign-in, secrets and granted access."
   }
 }
