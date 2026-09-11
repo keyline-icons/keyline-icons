@@ -496,6 +496,46 @@ export const BLOG_SOCIAL_CARD_ICONS = 6
  * of it is drawings rather than housekeeping. The formatting marks follow,
  * because fourteen of the thirty-five are one shelf.
  */
+/** All thirty-three of v0.8.0, most recognisable first, then release order. */
+export const BLOG_V080_THUMBNAIL_ICON_NAMES = [
+  "printer", "coffee", "bed", "key", "palette", "film",
+  "keyboard", "calculator", "usb", "usb-drive", "file-code", "file-zip",
+  "folder-search", "eraser", "tape", "bed-single", "bed-double", "sofa",
+  "door", "door-open", "brick-wall", "mars", "venus", "cake", "soup",
+  "bottle", "paintbrush", "paint-roller", "easel", "key-round",
+  "key-square", "coins", "broom",
+] as const
+
+/** The ten that sit on a desk, and the shelves they landed on. */
+export const BLOG_V080_DESK_ICON_NAMES = [
+  "printer", "keyboard", "calculator", "usb", "usb-drive",
+  "file-code", "file-zip", "folder-search", "eraser", "tape",
+] as const
+
+/** The Home shelf. */
+export const BLOG_V080_HOME_ICON_NAMES = [
+  "bed", "bed-single", "bed-double", "sofa", "door", "door-open", "brick-wall",
+] as const
+
+/** Food & Drink. */
+export const BLOG_V080_TABLE_ICON_NAMES = ["coffee", "cake", "soup", "bottle"] as const
+
+/** Art, and the three keys that are three different keys. */
+export const BLOG_V080_ART_ICON_NAMES = [
+  "paintbrush", "paint-roller", "palette", "easel",
+] as const
+export const BLOG_V080_KEY_ICON_NAMES = ["key", "key-round", "key-square"] as const
+
+/** The two doors, which share a frame and not a leaf. */
+export const BLOG_V080_DOOR_ICON_NAMES = ["door", "door-open"] as const
+
+/** The twelve redrawn, shown before against after. */
+export const BLOG_V080_REDRAWN_ICON_NAMES = [
+  "calendar", "calendar-off", "calendar-plus", "calendar-minus",
+  "calendar-check", "calendar-x", "calendar-arrow-down", "calendar-arrow-up",
+  "calendar-arrow-left", "calendar-arrow-right", "phone", "phone-off",
+] as const
+
 /**
  * The v0.7.0 batch, in the order the Figma changelog lists it: the square
  * bubble first, its eight companions, then the five singles.
@@ -2210,7 +2250,282 @@ const BATCH_0_6_0: BlogPost = {
   ],
 }
 
+const BATCH_0_8_0: BlogPost = {
+  /* Named for the story, as every slug here is. The story is that nobody chose
+     this batch: the search box did. */
+  slug: "the-search-box-chose-this-one",
+  version: "0.8.0",
+  title: "33 new icons, chosen by the search box",
+  description:
+    "Inside Keyline Icons v0.8.0: thirty-three drawings taken off a month of " +
+    "empty searches, five new shelves, a door drawn in perspective, and a " +
+    "phone whose negation slash had to change diagonal.",
+  standfirst:
+    "Everything that landed in v0.8.0: a printer, a keyboard, furniture, " +
+    "food, art tools and three keys, every one of them a word somebody typed " +
+    "and got nothing back for. Free SVG icons for shadcn/ui, drawn on one " +
+    "24\u00d724 grid.",
+  date: "2026-09-11",
+  updated: "2026-09-11",
+  readingMinutes: 5,
+  thumbnail: BLOG_V080_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "icon set update",
+    "free svg icons",
+    "shadcn/ui icons",
+    "printer icon",
+    "keyboard icon",
+    "calculator icon",
+    "furniture icons",
+    "door icon",
+    "food icons",
+    "key icon",
+    "palette icon",
+  ],
+  body: [
+    {
+      kind: "p",
+      text: "Thirty-three new drawings, which takes the set to 798 names.",
+    },
+    {
+      kind: "p",
+      text:
+        "None of them were chosen. The site records every search that comes " +
+        "back empty, along with the word that was typed, and a month of that " +
+        "is a list of what people wanted and could not find. This release is " +
+        "the top of that list, drawn.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V080_THUMBNAIL_ICON_NAMES,
+        caption: "All thirty-three, in the order the changelog lists them.",
+      },
+    },
+
+    { kind: "h2", text: "The list was already written", id: "the-list" },
+    {
+      kind: "p",
+      text:
+        "A month of empty searches came to 744 of them over 451 different " +
+        "words. Six in ten were for drawings the set already had under a name " +
+        "nobody guesses: money for the wallet, reload for refresh, school for " +
+        "the mortarboard. Those are not missing drawings, they are missing " +
+        "words, and they were fixed as words.",
+    },
+    {
+      kind: "note",
+      text: "Nothing in this release was drawn because it rounded out a shelf.",
+    },
+
+    { kind: "h2", text: "Ten for the desk", id: "desk" },
+    {
+      kind: "p",
+      text:
+        "The printer, the keyboard and the calculator were the three most " +
+        "asked-for objects the set did not have, and all three are the same " +
+        "problem: a panel with rows of small detail inside it. Keys, buttons " +
+        "and a paper tray all turn into texture at 16px, so each is drawn " +
+        "with as few marks as the object survives being reduced to.",
+    },
+    {
+      kind: "p",
+      text:
+        "`file-code` and `file-zip` join the file family and `folder-search` " +
+        "the folders, all three built from the body those families already " +
+        "use rather than drawn again. The eraser and the roll of tape open a " +
+        "Stationery shelf with two names on it. A shelf of two is fine; a " +
+        "drawing sits where it belongs whatever the count.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V080_DESK_ICON_NAMES,
+        caption:
+          "Five for Devices, three for Files, and two that opened Stationery.",
+      },
+    },
+
+    { kind: "h2", text: "Five shelves opened", id: "shelves" },
+    {
+      kind: "p",
+      text:
+        "The set went from 26 categories to 31. Home took the beds, the sofa, " +
+        "both doors and the wall. Gender took the Mars and Venus marks. Food " +
+        "& Drink took the coffee, the cake, the soup and the bottle. Art took " +
+        "the brush, the roller, the palette and the easel. Stationery took " +
+        "the eraser and the tape.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V080_HOME_ICON_NAMES,
+        caption: "Home: three beds, a sofa, both doors and a wall.",
+      },
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V080_TABLE_ICON_NAMES,
+        caption: "Food & Drink, which people searched for eight times in a month.",
+      },
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V080_ART_ICON_NAMES,
+        caption: "Art. The palette answers colour and theme as well as paint.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The three keys are three different keys rather than one key in three " +
+        "containers, which is why they are `key`, `key-round` and " +
+        "`key-square` and not `square-key`. A container wraps a drawing; " +
+        "these have different bows.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V080_KEY_ICON_NAMES,
+        caption: "Three bows, one shaft.",
+      },
+    },
+
+    { kind: "h2", text: "A door that opens toward you", id: "doors" },
+    {
+      kind: "p",
+      text:
+        "`door-open` keeps `door`'s frame exactly: the same jamb at 18, the " +
+        "same head, the same threshold at 21, with the threshold cut where " +
+        "the swung leaf crosses it. What it does not keep is the leaf.",
+    },
+    {
+      kind: "p",
+      text:
+        "The leaf is not the closed one rotated, it is drawn in perspective. " +
+        "Its near edge stands 19 units tall and its far edge, the one on the " +
+        "hinge, only 16, and the handle travels with it. Drawn flat the two " +
+        "icons read as one picture with a line moved. Drawn this way the " +
+        "second one reads as open at 16px, which is the size that decides it.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V080_DOOR_ICON_NAMES,
+        caption: "One frame, two leaves. Only the leaf and the handle move.",
+      },
+    },
+
+    { kind: "h2", text: "The phone turns over, and the slash goes with it", id: "phone" },
+    {
+      kind: "p",
+      text:
+        "The phone had its earpiece at the bottom left, and a receiver reads " +
+        "earpiece first at the top left everywhere else. Turning it over is a " +
+        "mirror about the centre line, so nothing about the handset changes. " +
+        "It is the same drawing lying the other way, coordinate for " +
+        "coordinate.",
+    },
+    {
+      kind: "p",
+      text:
+        "What that breaks is `phone-off`. A negation slash in this set always " +
+        "runs from the top left corner to the bottom right, because a slash " +
+        "should cut against the thing it cancels rather than lie along it. " +
+        "The turned handset lies along exactly that line.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "diagnostic",
+        panels: [
+          {
+            title: "The phone as it shipped, laid over the phone as it ships now",
+            a: { name: "phone", take: "before" },
+            b: { name: "phone", take: "after" },
+            verdict: { text: "The same drawing, lying the other way", tone: "good" },
+          },
+        ],
+        caption:
+          "A mirror has no shared ink except where the two cross, which is " +
+          "what makes this an X rather than a sliver. Nothing was nudged to " +
+          "line up.",
+        legend: {
+          a: "only the old phone",
+          b: "only the new one",
+          both: "both, where they cross",
+        },
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "So the slash turns instead, and that is the whole exception. It " +
+        "costs nothing, because a mirror keeps every distance: the cuts, the " +
+        "standoffs and the muted plate all land where they already were, " +
+        "handed over. `bluetooth` is the drawing that has no way out of this, " +
+        "and the difference is that both of its diagonals are taken.",
+    },
+
+    { kind: "h2", text: "And the calendar is a unit taller", id: "calendar" },
+    {
+      kind: "p",
+      text:
+        "The calendar's body grew by one unit at the top. Its two posts used " +
+        "to stand three units above the edge and one inside it; they cross it " +
+        "symmetrically now, two and two. The header rule did not move, the " +
+        "posts did not move, and the ink box is the same 20 by 20, because " +
+        "the posts already set it. Ten compounds follow the base.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "pairs",
+        names: BLOG_V080_REDRAWN_ICON_NAMES,
+        caption:
+          "All twelve redrawn, before against after. At this size the " +
+          "calendar's unit is a hairline and the phone's is the whole " +
+          "drawing, which is the honest difference between the two changes.",
+      },
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the set",
+      text: "All 798 drawings, in three styles and two corner treatments.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text:
+        "The React package, the CLI, the shadcn registry, the MCP server and " +
+        "the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Changelog",
+      text:
+        "What moved, generated off git, with every redraw shown before and " +
+        "after.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
+  BATCH_0_8_0,
   BATCH_0_7_0,
   BATCH_0_6_0,
   BATCH_0_5_0,
