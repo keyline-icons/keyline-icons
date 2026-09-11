@@ -15,6 +15,7 @@ import {
   Clock,
   Cursor,
   DiagramProject,
+  Eraser,
   FaceSmile,
   File,
   GitBranch,
@@ -167,6 +168,9 @@ const CATEGORY_ICONS: Record<
   Education: GraduationCap,
   Sport: Trophy,
   Tools: Wrench,
+  // Opened 11 Sep 2026 beside Tools. Its own drawing on the rail rather than a
+  // borrowed pencil, the same call `Education` made with the mortarboard.
+  Stationery: Eraser,
   Web: Globe,
   [OTHER_CATEGORY]: Circle,
 }

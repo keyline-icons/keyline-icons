@@ -648,6 +648,16 @@
     "diagram-predecessor": "A box hooking an arrow up to a bar, for what precedes a task, a dependency's upstream.",
     "diagram-project": "Three boxes wired top to bottom, for project structure, work breakdown and plans.",
     "diagram-subtask": "A parent box with an indented child on a wire, for subtasks, children and nesting a task.",
-    "bars-progress": "Two bars each part filled, for progress, completion, quotas and how far a task has got."
+    "bars-progress": "Two bars each part filled, for progress, completion, quotas and how far a task has got.",
+    "calculator": "A display band over a keypad of keys and an equals key, for totals, budgets and estimates.",
+    "eraser": "A tilted eraser wiping a line away, for clearing a canvas, removing marks and resetting input.",
+    "file-code": "A file with angle brackets inside, for source files, scripts and code attachments.",
+    "file-zip": "A file with a zip down its side, for compressed archives, downloads and bundled attachments.",
+    "folder-search": "A folder with a magnifier in its corner, for searching a directory or finding a file in it.",
+    "keyboard": "A keyboard with two rows of keys and a space bar, for shortcuts, typing and input settings.",
+    "printer": "A printer with a sheet going in and a page coming out, for print actions and print settings.",
+    "tape": "A roll of tape with its torn end down the front, for sticking, fixing, packing and sealing.",
+    "usb": "The USB trident, a shaft forking to a ring and a square, for ports, devices and connections.",
+    "usb-drive": "A flash drive with its plug on the right, for removable storage, USB sticks and file transfer."
   }
 }
