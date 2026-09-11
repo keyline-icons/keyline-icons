@@ -152,7 +152,7 @@ export default async function Page() {
           <LegalLink href={SET_REPO_URL}>repository</LegalLink>, the npm
           packages, the{" "}
           <LegalLink href={SET_FIGMA_URL}>Figma Community file</LegalLink> and
-          the <LegalLink href={SET_PAPER_URL}>paper.design file</LegalLink> all
+          the <LegalLink href={SET_PAPER_URL}>paper.design files</LegalLink> all
           carry the same set on the same terms. Each of those platforms has its
           own terms of use for the platform itself, which are theirs and not
           ours.
