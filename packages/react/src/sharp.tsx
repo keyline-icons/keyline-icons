@@ -845,7 +845,7 @@ export function Buildings(props: IconProps) {
 export function CalendarArrowDown(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M12 21L3 21L3 6L21 6L21 12M6 11L18 11M8 2L8 8M16 2L16 8M18 14L18 21M14.7071 17.7071L18 21L21.2929 17.7071" />
+      <path d="M12 21L3 21L3 5L21 5L21 12M6 11L18 11M8 2L8 8M16 2L16 8M18 14L18 21M14.7071 17.7071L18 21L21.2929 17.7071" />
     </Icon>
   )
 }
@@ -853,7 +853,7 @@ export function CalendarArrowDown(props: IconProps) {
 export function CalendarArrowLeft(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M12 21L3 21L3 6L21 6L21 12M6 11L18 11M8 2L8 8M16 2L16 8M22 18L15 18M18.2929 14.7071L15 18L18.2929 21.2929" />
+      <path d="M12 21L3 21L3 5L21 5L21 12M6 11L18 11M8 2L8 8M16 2L16 8M22 18L15 18M18.2929 14.7071L15 18L18.2929 21.2929" />
     </Icon>
   )
 }
@@ -861,7 +861,7 @@ export function CalendarArrowLeft(props: IconProps) {
 export function CalendarArrowRight(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M12 21L3 21L3 6L21 6L21 12M6 11L18 11M8 2L8 8M16 2L16 8M14 18L21 18M17.7071 14.7071L21 18L17.7071 21.2929" />
+      <path d="M12 21L3 21L3 5L21 5L21 12M6 11L18 11M8 2L8 8M16 2L16 8M14 18L21 18M17.7071 14.7071L21 18L17.7071 21.2929" />
     </Icon>
   )
 }
@@ -869,7 +869,7 @@ export function CalendarArrowRight(props: IconProps) {
 export function CalendarArrowUp(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M12 21L3 21L3 6L21 6L21 12M6 11L18 11M8 2L8 8M16 2L16 8M18 22L18 15M14.7071 18.2929L18 15L21.2929 18.2929" />
+      <path d="M12 21L3 21L3 5L21 5L21 12M6 11L18 11M8 2L8 8M16 2L16 8M18 22L18 15M14.7071 18.2929L18 15L21.2929 18.2929" />
     </Icon>
   )
 }
@@ -877,7 +877,7 @@ export function CalendarArrowUp(props: IconProps) {
 export function CalendarCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M12 21L3 21L3 6L21 6L21 12M6 11L18 11M8 2L8 8M16 2L16 8M14.7071 17.7071L17 20L21.2929 15.7071" />
+      <path d="M12 21L3 21L3 5L21 5L21 12M6 11L18 11M8 2L8 8M16 2L16 8M14.7071 17.7071L17 20L21.2929 15.7071" />
     </Icon>
   )
 }
@@ -885,7 +885,7 @@ export function CalendarCheck(props: IconProps) {
 export function CalendarMinus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M12 21L3 21L3 6L21 6L21 12M6 11L18 11M8 2L8 8M16 2L16 8M14 18L22 18" />
+      <path d="M12 21L3 21L3 5L21 5L21 12M6 11L18 11M8 2L8 8M16 2L16 8M14 18L22 18" />
     </Icon>
   )
 }
@@ -893,7 +893,7 @@ export function CalendarMinus(props: IconProps) {
 export function CalendarOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M10.6569 6L21 6L21 16.3431M21 21L3 21L3 6L6 6M6 11L11 11M16 2L16 8M1.7071 1.7071L22.2929 22.2929" />
+      <path d="M9.6569 5L21 5L21 16.3431M21 21L3 21L3 5L5 5M6 11L11 11M16 2L16 8M1.7071 1.7071L22.2929 22.2929" />
     </Icon>
   )
 }
@@ -901,7 +901,7 @@ export function CalendarOff(props: IconProps) {
 export function CalendarPlus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M12 21L3 21L3 6L21 6L21 12M6 11L18 11M8 2L8 8M16 2L16 8M18 14L18 22M14 18L22 18" />
+      <path d="M12 21L3 21L3 5L21 5L21 12M6 11L18 11M8 2L8 8M16 2L16 8M18 14L18 22M14 18L22 18" />
     </Icon>
   )
 }
@@ -909,7 +909,7 @@ export function CalendarPlus(props: IconProps) {
 export function CalendarX(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M12 21L3 21L3 6L21 6L21 12M6 11L18 11M8 2L8 8M16 2L16 8M14.7071 14.7071L21.2929 21.2929M21.2929 14.7071L14.7071 21.2929" />
+      <path d="M12 21L3 21L3 5L21 5L21 12M6 11L18 11M8 2L8 8M16 2L16 8M14.7071 14.7071L21.2929 21.2929M21.2929 14.7071L14.7071 21.2929" />
     </Icon>
   )
 }
@@ -917,7 +917,7 @@ export function CalendarX(props: IconProps) {
 export function Calendar(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3 6L21 6L21 21L3 21L3 6ZM6 11L18 11M8 2L8 8M16 2L16 8" />
+      <path d="M3 5L21 5L21 21L3 21L3 5ZM6 11L18 11M8 2L8 8M16 2L16 8" />
     </Icon>
   )
 }
@@ -4435,7 +4435,7 @@ export function Percent(props: IconProps) {
 export function PhoneOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M18.6712 14.4286C20.8366 11.3823 22 7.7375 22 4L22 2L15 2L15 8L16.9047 9.4285C16.5946 10.1656 16.222 10.8748 15.7909 11.5482M13.8995 13.8995C12.6178 15.1812 11.0993 16.2018 9.4285 16.9047L8 15L2 15L2 22L4 22C8.7739 22 13.3523 20.1036 16.7279 16.7279M1.7071 1.7071L22.2929 22.2929" fill="none" />
+      <path d="M5.3288 14.4286C3.1634 11.3823 2 7.7375 2 4L2 2L9 2L9 8L7.0953 9.4285C7.4054 10.1656 7.778 10.8748 8.2091 11.5482M10.1005 13.8995C11.3822 15.1812 12.9007 16.2018 14.5715 16.9047L16 15L22 15L22 22L20 22C15.2261 22 10.6477 20.1036 7.2721 16.7279M22.2929 1.7071L1.7071 22.2929" fill="none" />
     </Icon>
   )
 }
@@ -4443,7 +4443,7 @@ export function PhoneOff(props: IconProps) {
 export function Phone(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M22 4L22 2L15 2L15 8L16.9047 9.4285C15.4856 12.802 12.802 15.4856 9.4285 16.9047L8 15L2 15L2 22L4 22C13.9411 22 22 13.9411 22 4Z" fill="none" />
+      <path d="M2 4L2 2L9 2L9 8L7.0953 9.4285C8.5144 12.802 11.198 15.4856 14.5715 16.9047L16 15L22 15L22 22L20 22C10.0589 22 2 13.9411 2 4Z" fill="none" />
     </Icon>
   )
 }
