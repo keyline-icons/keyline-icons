@@ -63,7 +63,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 39456
+      "bytes": 40089
     },
     {
       "file": "actions-5.html",
@@ -195,7 +195,7 @@
       "width": 742,
       "icons": 4,
       "variants": 24,
-      "bytes": 28599
+      "bytes": 29443
     },
     {
       "file": "charts-1.html",
@@ -554,8 +554,8 @@
       "into": "artboard",
       "width": 742,
       "icons": 16,
-      "variants": 50,
-      "bytes": 42818
+      "variants": 44,
+      "bytes": 38844
     },
     {
       "file": "finance-2.html",
@@ -567,7 +567,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 40529
+      "bytes": 40421
     },
     {
       "file": "finance-3.html",
@@ -578,8 +578,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 6,
-      "bytes": 4231
+      "variants": 12,
+      "bytes": 8524
     },
     {
       "file": "food-drink.html",
@@ -591,7 +591,7 @@
       "width": 742,
       "icons": 4,
       "variants": 24,
-      "bytes": 29603
+      "bytes": 30447
     },
     {
       "file": "git-1.html",
@@ -795,7 +795,7 @@
       "width": 742,
       "icons": 56,
       "variants": 46,
-      "bytes": 39917
+      "bytes": 40128
     },
     {
       "file": "media-2.html",
@@ -1071,7 +1071,7 @@
       "width": 742,
       "icons": 7,
       "variants": 36,
-      "bytes": 42140
+      "bytes": 42351
     },
     {
       "file": "tools-2.html",
@@ -1211,7 +1211,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 76796
+      "bytes": 92532
     }
   ]
 }
