@@ -110,9 +110,13 @@ export const CATEGORIES = [
     // Evaluated before Commerce, which would otherwise take `credit-card` and
     // `wallet` on prefixes of its own.
     label: "Finance",
+    // `piggy-bank` is here rather than with the animals: the drawing is a pig,
+    // the thing is a money box, and the shelf follows what the thing is. It also
+    // has to beat Animals' `pig` below, which it does by sitting earlier.
     match:
-      /^(badge-)?(dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin|credit-card|wallet)/,
-    blurb: "The currency marks, the payment cards and the wallet.",
+      /^(badge-)?(dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin|credit-card|wallet|piggy-bank)/,
+    blurb:
+      "The currency marks, the payment cards, the wallet and the money box.",
   },
   {
     // `percent` is here rather than with the marks in Actions: the batch that
@@ -303,6 +307,31 @@ export const CATEGORIES = [
     label: "Weather",
     match: /^(sun|moon|cloud|umbrella|parasol)/,
     blurb: "Sun, moon, cloud and the states between them.",
+  },
+  // Three shelves opened 12 Sep 2026 with the fifteen of batch D, all of which
+  // had been filing under Other. Nothing existing took them: Maps is the pin
+  // and the route rather than the vehicle, and Weather is the sky.
+  {
+    // The vehicles themselves. `plane` carries its two states with it, which is
+    // why the anchor is a prefix rather than the three names.
+    label: "Transport",
+    match: /^(plane|ship|train|bike)(-|$)/,
+    blurb: "The vehicles: plane and its two states, ship, train and bike.",
+  },
+  {
+    // The living and falling half of the outdoors, and `wind-turbine` with it:
+    // it is the mark an eco set is read by, and it sits with leaf and droplet
+    // rather than alone on a shelf of one.
+    label: "Nature",
+    match: /^(tree|leaf|droplet|wind-turbine)(-|s$|$)/,
+    blurb: "Trees, leaves, water and the turbine, with the off and plural forms.",
+  },
+  {
+    // `pig` is anchored so it cannot reach `piggy-bank`, which is Finance's and
+    // sits earlier in any case.
+    label: "Animals",
+    match: /^(bird|pig)(-|$)/,
+    blurb: "The animals.",
   },
 ] as const
 

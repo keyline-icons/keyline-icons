@@ -625,8 +625,18 @@ const COUNTER = new Set(['at', 'percent']);
 // passes exactly through the point the outline starts at, so the cover is shut
 // with nothing drawn twice and no `Z`. Opening the path is what buys the roll;
 // a closed subpath would have to repeat the corner it replaces.
+//
+// `plane` and `ship` joined on 12 Sep 2026, both from Zafar's own drawings, and
+// both close the way `podium` does: along a line another stroke already covers.
+// The plane is four open runs meeting at two hubs on the fuselage, so its
+// silhouette is shut by the fuselage itself and no subpath closes; the ship's
+// hull is a deck and two sides whose ends die ON the waterline, which is the
+// stroke that closes it. Both fills paint a region of well over a hundred
+// square units, so the measurement is what is wrong rather than the drawing.
+// `plane-takeoff` and `plane-landing` carry the same plane and join with it.
 const CLOSED_BY_STROKE = new Set([
-  'flag', 'flag-chequered', 'buildings',
+  'flag', 'flag-chequered', 'buildings', 'plane', 'ship',
+  'plane-takeoff', 'plane-landing',
   'book', 'book-plus', 'book-minus', 'book-check', 'book-x',
   'app-check', 'app-minus', 'app-plus', 'app-x',
 ]);

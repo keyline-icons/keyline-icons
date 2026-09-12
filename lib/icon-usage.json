@@ -648,6 +648,21 @@
     "diagram-predecessor": "A box hooking an arrow up to a bar, for what precedes a task, a dependency's upstream.",
     "diagram-project": "Three boxes wired top to bottom, for project structure, work breakdown and plans.",
     "diagram-subtask": "A parent box with an indented child on a wire, for subtasks, children and nesting a task.",
-    "bars-progress": "Two bars each part filled, for progress, completion, quotas and how far a task has got."
+    "bars-progress": "Two bars each part filled, for progress, completion, quotas and how far a task has got.",
+    "plane": "A plane seen from above, nose to the top right, for flights, airlines and travel bookings.",
+    "ship": "A hull with a cabin and mast, for boats, ferries, ports and anything that ships by sea.",
+    "train": "A train seen head-on with its lamps lit, for rail travel, stations and timetables.",
+    "bike": "A bicycle in profile with its frame and saddle, for cycling, bike hire and lanes.",
+    "tree-palm": "A palm with five fronds on a leaning trunk, for islands, beaches and holidays.",
+    "leaf": "A leaf on its stalk, for nature, eco settings and anything green or organic.",
+    "wind-turbine": "A three-blade turbine on its tower, for wind power, clean energy and sustainability.",
+    "droplet": "A drop of water with a highlight, for hydration, humidity, liquids and rainfall.",
+    "pig": "A pig in profile with a curly tail, for farming, livestock, pork and the animal itself.",
+    "piggy-bank": "A pig with its back open and a coin above it, for savings, budgets and deposits.",
+    "bird": "A small bird with a swept tail facing right, for wildlife, birdwatching and spring.",
+    "plane-takeoff": "A plane climbing away from the ground, for departures, outbound flights and check-in.",
+    "plane-landing": "A plane descending to the ground, for arrivals, inbound flights and baggage reclaim.",
+    "droplet-off": "A drop struck through, for water off, humidity disabled and no-liquid warnings.",
+    "droplets": "Two drops together, for rainfall, humidity levels and anything measured in water."
   }
 }

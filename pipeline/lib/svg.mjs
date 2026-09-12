@@ -298,7 +298,8 @@ export function inspect(source, label = 'icon') {
     // than assume: a butt end stops on its own endpoint. `strokedBBox` answers
     // the same as `bb ± half` for a round cap, so nothing rounded moves.
     const cap = s.attrs['stroke-linecap'] ?? root['stroke-linecap'] ?? 'butt';
-    const ink = half ? strokedBBox(d, half, cap) ?? bb : bb;
+    const join = s.attrs['stroke-linejoin'] ?? root['stroke-linejoin'] ?? 'miter';
+    const ink = half ? strokedBBox(d, half, cap, 48, join) ?? bb : bb;
 
     x0 = Math.min(x0, ink[0]); y0 = Math.min(y0, ink[1]);
     x1 = Math.max(x1, ink[2]); y1 = Math.max(y1, ink[3]);

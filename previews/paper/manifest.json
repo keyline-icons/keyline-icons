@@ -13,9 +13,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 648,
-  "names": 765,
-  "variants": 3896,
+  "icons": 663,
+  "names": 780,
+  "variants": 3982,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -112,6 +112,18 @@
       "icons": 0,
       "variants": 40,
       "bytes": 32899
+    },
+    {
+      "file": "animals.html",
+      "artboard": "Animals",
+      "category": "Animals",
+      "part": 1,
+      "parts": 1,
+      "into": "artboard",
+      "width": 742,
+      "icons": 2,
+      "variants": 12,
+      "bytes": 29364
     },
     {
       "file": "arrows-1.html",
@@ -526,24 +538,36 @@
       "artboard": "Finance",
       "category": "Finance",
       "part": 1,
-      "parts": 2,
+      "parts": 3,
       "into": "artboard",
       "width": 742,
-      "icons": 15,
+      "icons": 16,
       "variants": 52,
-      "bytes": 42941
+      "bytes": 42956
     },
     {
       "file": "finance-2.html",
       "artboard": "Finance",
       "category": "Finance",
       "part": 2,
-      "parts": 2,
+      "parts": 3,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 46,
-      "bytes": 37814
+      "variants": 32,
+      "bytes": 39045
+    },
+    {
+      "file": "finance-3.html",
+      "artboard": "Finance",
+      "category": "Finance",
+      "part": 3,
+      "parts": 3,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 20,
+      "bytes": 15225
     },
     {
       "file": "git-1.html",
@@ -834,6 +858,18 @@
       "bytes": 8553
     },
     {
+      "file": "nature.html",
+      "artboard": "Nature",
+      "category": "Nature",
+      "part": 1,
+      "parts": 1,
+      "into": "artboard",
+      "width": 742,
+      "icons": 6,
+      "variants": 32,
+      "bytes": 33595
+    },
+    {
       "file": "pointers-1.html",
       "artboard": "Pointers",
       "category": "Pointers",
@@ -1036,6 +1072,30 @@
       "icons": 0,
       "variants": 6,
       "bytes": 8718
+    },
+    {
+      "file": "transport-1.html",
+      "artboard": "Transport",
+      "category": "Transport",
+      "part": 1,
+      "parts": 2,
+      "into": "artboard",
+      "width": 742,
+      "icons": 6,
+      "variants": 30,
+      "bytes": 42486
+    },
+    {
+      "file": "transport-2.html",
+      "artboard": "Transport",
+      "category": "Transport",
+      "part": 2,
+      "parts": 2,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 6,
+      "bytes": 5515
     },
     {
       "file": "users.html",

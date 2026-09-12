@@ -6,6 +6,7 @@ import {
   ArrowRight,
   ArrowUTurnLeft,
   BarChart,
+  Bird,
   Bold,
   Check,
   ChevronDown,
@@ -20,12 +21,14 @@ import {
   GitBranch,
   Globe,
   GraduationCap,
+  Leaf,
   Mail,
   MapPin,
   Menu,
   Minus,
   PanelLeft,
   PanelTopCloseDashed,
+  Plane,
   Play,
   Plus,
   Settings,
@@ -168,6 +171,10 @@ const CATEGORY_ICONS: Record<
   Sport: Trophy,
   Tools: Wrench,
   Web: Globe,
+  // The three shelves batch D opened, 12 Sep 2026.
+  Transport: Plane,
+  Nature: Leaf,
+  Animals: Bird,
   [OTHER_CATEGORY]: Circle,
 }
 

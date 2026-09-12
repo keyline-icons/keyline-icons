@@ -340,7 +340,7 @@ export function trimFreeEnds(subs, by) {
  * endpoints offset by the half-width along one axis at most, so its box always
  * sits inside the boxes of the two vertices it joins.
  */
-export function strokedBBox(d, half, cap = 'butt', steps = 48) {
+export function strokedBBox(d, half, cap = 'butt', steps = 48, join = 'round') {
   const { subs } = subpaths(d, steps);
   let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
   const note = (px, py) => {
@@ -376,6 +376,43 @@ export function strokedBBox(d, half, cap = 'butt', steps = 48) {
       note(px - nx, py - ny);
     }
   });
+
+  // A MITRE PAINTS PAST THE PATH, and a round join does not, so it has to be
+  // asked for by name. `droplet` sharp is the case: its apex is a corner of the
+  // path, the spike is half a unit of ink above it, and measured as a round
+  // join the stroke came out half a unit shorter than its own fill.
+  //
+  // A corner is a jump in the tangent: a flattened curve turns under 2 degrees
+  // a step at 48, so 20 tells the two apart with room to spare. The spike is
+  // `half / sin(theta / 2)` along the bisector, and SVG's default miterlimit of
+  // 4 bevels anything sharper, which paints nothing past the ordinary disc.
+  if (join === 'miter') {
+    for (const sub of subs) {
+      const pts = sub.pts;
+      const n = sub.closed ? pts.length - 1 : pts.length;      // the wrap point repeats
+      if (n < 3) continue;
+      for (let i = 0; i < n; i += 1) {
+        if (!sub.closed && (i === 0 || i === n - 1)) continue;  // an end takes a cap
+        const a = pts[(i - 1 + n) % n], b = pts[i], c = pts[(i + 1) % n];
+        const u = [b[0] - a[0], b[1] - a[1]], v = [c[0] - b[0], c[1] - b[1]];
+        const lu = Math.hypot(u[0], u[1]), lv = Math.hypot(v[0], v[1]);
+        if (!lu || !lv) continue;
+        const ux = u[0] / lu, uy = u[1] / lu, vx = v[0] / lv, vy = v[1] / lv;
+        const cosT = Math.max(-1, Math.min(1, ux * vx + uy * vy));
+        const turn = Math.acos(cosT);
+        if (turn < (20 * Math.PI) / 180) continue;
+        const theta = Math.PI - turn;                           // the interior angle
+        const ratio = 1 / Math.sin(theta / 2);
+        if (ratio > 4) continue;                                // miterlimit: bevelled
+        let bx = ux - vx, by = uy - vy;                         // outward bisector
+        const lb = Math.hypot(bx, by);
+        if (!lb) continue;
+        bx /= lb; by /= lb;
+        note(b[0] + bx * half * ratio, b[1] + by * half * ratio);
+      }
+    }
+  }
+
   return Number.isFinite(x0) ? [x0, y0, x1, y1] : null;
 }
 
