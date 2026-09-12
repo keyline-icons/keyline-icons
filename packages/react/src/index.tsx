@@ -3540,6 +3540,14 @@ export function Hammer(props: IconProps) {
   )
 }
 
+export function HandHeart(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M8.9168 13.0295C6.7265 11.1171 5 9.12 5 6.6C5 4.0594 7.149 2 9.8 2C11 2 12.0741 2.4367 13 3.2C13.9259 2.4367 15 2 16.2 2C18.851 2 21 4.0594 21 6.6C21 8.94 19.5113 10.8292 17.5449 12.6183M3 14V22M11 14.5C11 13.67157 10.32843 13 9.5 13H7C6.5 13 6.1 13.2 5.8 13.5L3 16.3M3 21L4.41421 19.58579C4.78921 19.21079 5.29847 19 5.82843 19H10.5C11.5 19 12.4 18.6 13 18L17 14C17.78105 13.21895 17.78105 11.95105 17 11.17C16.21895 10.38895 14.95105 10.38895 14.17 11.17L11.17 14.17" />
+    </Icon>
+  )
+}
+
 export function Handbag(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -3584,14 +3592,6 @@ export function Headset(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M4 10C4 8.895431 4.895431 8 6 8L6 8C7.104569 8 8 8.895431 8 10L8 16C8 17.104569 7.104569 18 6 18L6 18C4.895431 18 4 17.104569 4 16ZM16 10C16 8.895431 16.895431 8 18 8L18 8C19.104569 8 20 8.895431 20 10L20 16C20 17.104569 19.104569 18 18 18L18 18C16.895431 18 16 17.104569 16 16ZM4 10C4 5.581722 7.581722 2 12 2C16.418278 2 20 5.581722 20 10M18 18C18 20.209139 16.209139 22 14 22H12" />
-    </Icon>
-  )
-}
-
-export function HeartHand(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M8.9168 13.0295C6.7265 11.1171 5 9.12 5 6.6C5 4.0594 7.149 2 9.8 2C11 2 12.0741 2.4367 13 3.2C13.9259 2.4367 15 2 16.2 2C18.851 2 21 4.0594 21 6.6C21 8.94 19.5113 10.8292 17.5449 12.6183M3 14V22M11 14.5C11 13.67157 10.32843 13 9.5 13H7C6.5 13 6.1 13.2 5.8 13.5L3 16.3M3 21L4.41421 19.58579C4.78921 19.21079 5.29847 19 5.82843 19H10.5C11.5 19 12.4 18.6 13 18L17 14C17.78105 13.21895 17.78105 11.95105 17 11.17C16.21895 10.38895 14.95105 10.38895 14.17 11.17L11.17 14.17" />
     </Icon>
   )
 }

@@ -558,9 +558,10 @@
       ]
     },
     {
-      "match": "^heart-hand$",
+      "match": "^hand-heart$",
       "terms": [
-        "hand heart",
+        "heart-hand",
+        "heart hand",
         "love",
         "send love",
         "donate",
@@ -573,7 +574,7 @@
         "kindness",
         "gratitude"
       ],
-      "note": "Base-first like every compound here, and `heart` is the base that actually exists. `hand heart` is the word order people arrive with."
+      "note": "Renamed from `heart-hand` in 0.9.0: the hand holds the heart, so the hand is the base and base-first is the rule. The old name is a term here, so anything typed or pasted as `heart-hand` still lands on it."
     },
     {
       "match": "^home$",

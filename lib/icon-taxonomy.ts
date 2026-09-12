@@ -257,8 +257,12 @@ export const CATEGORIES = [
     // `zap` sits here for the reason `lightbulb` does: it is an energy mark you
     // set on a thing — instant, fast, powered — not a control you operate, and
     // not the weather. The storm belongs to a cloud, and this bolt has none.
+    // `hand-heart` is named for the hand, so it no longer arrives through the
+    // `heart` alternative it used to sit under as `heart-hand`, and needs its
+    // own. It stays here rather than moving: it is still the mark you set on a
+    // thing, and there is no hand shelf for it to join.
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|key(?:-round|-square)?$|shield|badge|download|upload|filter|eye|star|heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|sparkle|ban)/,
+      /^(check|double-check|plus|minus|x|more|lock|unlock|key(?:-round|-square)?$|shield|badge|download|upload|filter|eye|star|heart|hand-heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|sparkle|ban)/,
     blurb: "Checks, crosses, pluses, the everyday verbs and the marks that guard a thing.",
   },
   {

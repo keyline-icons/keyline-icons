@@ -2674,6 +2674,15 @@ export function Hammer(props: IconProps) {
   )
 }
 
+export function HandHeart(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M3 16.3L6.0071 13.2929C6.1946 13.1054 6.449 13 6.7142 13L9.5 13C10.3284 13 11 13.6716 11 14.5L11.17 14.17L14.17 11.17C14.9511 10.3889 16.2189 10.3889 17 11.17C17.7811 11.9511 17.7811 13.2189 17 14L12.2929 18.7071C12.1054 18.8946 11.851 19 11.5858 19L5 19L3 21L3 16.3Z" fill="currentColor" stroke="none" />
+      <path d="M8.9168 13.0295C6.7265 11.1171 5 9.12 5 6.6C5 4.0594 7.149 2 9.8 2C11 2 12.0741 2.4367 13 3.2C13.9259 2.4367 15 2 16.2 2C18.851 2 21 4.0594 21 6.6C21 8.94 19.5113 10.8292 17.5449 12.6183M3 13L3 23M11 15.5L11 13L6.3 13L3 16.3M3 21L5 19L12 19L17 14C17.7811 13.2189 17.7811 11.9511 17 11.17C16.2189 10.3889 14.9511 10.3889 14.17 11.17L11.0498 14.2902" />
+    </Icon>
+  )
+}
+
 export function Handbag(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
@@ -2723,15 +2732,6 @@ export function Headset(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M3 10C3 8.4812 4.4812 7 6 7L8 7C8.5523 7 9 7.4477 9 8L9 18C9 18.5523 8.5523 19 8 19L6 19C4.4812 19 3 17.5188 3 16L3 10ZM21 10C21 8.4812 19.5188 7 18 7L16 7C15.4477 7 15 7.4477 15 8L15 18C15 18.5523 15.4477 19 16 19L18 19C19.5188 19 21 17.5188 21 16L21 10Z" fill="currentColor" stroke="none" />
       <path d="M4 11L4 10C4 5.5817 7.5817 2 12 2C16.4183 2 20 5.5817 20 10L20 11M18 17L18 22L11 22" />
-    </Icon>
-  )
-}
-
-export function HeartHand(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M3 16.3L6.0071 13.2929C6.1946 13.1054 6.449 13 6.7142 13L9.5 13C10.3284 13 11 13.6716 11 14.5L11.17 14.17L14.17 11.17C14.9511 10.3889 16.2189 10.3889 17 11.17C17.7811 11.9511 17.7811 13.2189 17 14L12.2929 18.7071C12.1054 18.8946 11.851 19 11.5858 19L5 19L3 21L3 16.3Z" fill="currentColor" stroke="none" />
-      <path d="M8.9168 13.0295C6.7265 11.1171 5 9.12 5 6.6C5 4.0594 7.149 2 9.8 2C11 2 12.0741 2.4367 13 3.2C13.9259 2.4367 15 2 16.2 2C18.851 2 21 4.0594 21 6.6C21 8.94 19.5113 10.8292 17.5449 12.6183M3 13L3 23M11 15.5L11 13L6.3 13L3 16.3M3 21L5 19L12 19L17 14C17.7811 13.2189 17.7811 11.9511 17 11.17C16.2189 10.3889 14.9511 10.3889 14.17 11.17L11.0498 14.2902" />
     </Icon>
   )
 }
