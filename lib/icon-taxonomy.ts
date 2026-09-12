@@ -50,16 +50,6 @@ export const CATEGORIES = [
   //
   // Opened 10 Sep 2026 for the fourteen of v0.7.0: the square bubble and its
   // eight companions, and qr-code, scan, scissors and hourglass; then the first
-  // Opened again 11 Sep 2026 for the nine truck compounds, whose modifier sits
-  // in the TOP-LEFT corner rather than on the right: the cab fills the truck's
-  // top right and the rear wheel its bottom right, so the cargo box is the only
-  // corner that can open. Commerce claims them on `truck` already, so deleting
-  // this row files the whole batch there.
-  {
-    label: "New",
-    match: /^truck-(check|x|plus|minus|arrow-(down|up|left|right)|electric)$/,
-    blurb: "Drawn and waiting on review.",
-  },
   {
     label: "Arrows",
     match: /^(arrow|bracket-arrow|expand|refresh|rotate|move$)/,
