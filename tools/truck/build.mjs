@@ -55,6 +55,15 @@ const cut = (d, from, to) => {
 }
 
 /* ---------------------------------------------------------------- the base */
+/* The base does NOT move. The first cut of this batch brought the cargo box's
+   two top corners in from r=3 to r=2, which is what put the house 6-unit sign
+   flush in the corner with a straight cut. Overlaid on the shipped drawing the
+   smaller radius reads as a defect — Zafar found it at the box's top right on
+   12 Sep 2026 — so the corners stay at r=3 and the cut runs INTO the fillet
+   instead, two thirds of the way round at (12, 4.1707), the way `globe-check`
+   cuts its ring mid-arc. It costs the two signs that do not themselves reach
+   y=3, `truck-minus` and `truck-check`, 0.17 of the icon's top padding.
+*/
 const SHIPPED = {
   stroke: raw('truck', 'stroke', 'regular'),
   plate: raw('truck', 'duotone', 'regular').split('M14 18V7')[0],
@@ -64,19 +73,14 @@ const SHIPPED = {
    wheels; `rest` is everything but the box. */
 const REST = SHIPPED.stroke.slice(SHIPPED.stroke.indexOf('M10 18'))
 
-const BOX = 'M14 18V6C14 4.89543 13.1046 4 12 4H4C2.89543 4 2 4.89543 2 6V17C2 17.5523 2.44772 18 3 18H4'
-const STROKE = BOX + REST
-const PLATE = cut(raw('truck', 'duotone', 'regular').split('"')[0],
-  'M1 7C1 4.790861 2.790861 3 5 3L11 3C13.209139 3 15 4.790861 15 7L15 7',
-  'M1 6C1 4.34315 2.34315 3 4 3L12 3C13.6569 3 15 4.34315 15 6L15 7')
-const SOLID = cut(SHIPPED.solid,
-  'V7C2 5.34315 3.34315 4 5 4H11C12.6569 4 14 5.34315 14 7V18',
-  'V6C2 4.89543 2.89543 4 4 4H12C13.1046 4 14 4.89543 14 6V18')
+const STROKE = SHIPPED.stroke
+const PLATE = raw('truck', 'duotone', 'regular').split('"')[0]
+const SOLID = SHIPPED.solid
 
 /* ----------------------------------------------------------- the compounds */
 /* the box, opened: two pieces, the top run ending on the fillet's own tangent */
 const OPEN = {
-  regular: ['M14 18V6C14 4.89543 13.1046 4 12 4', 'M2 14V17C2 17.5523 2.44772 18 3 18H4'],
+  regular: ['M14 18V7C14 5.6938 13.1652 4.5825 12 4.1707', 'M2 14V17C2 17.5523 2.44772 18 3 18H4'],
   sharp: ['M14 18L14 4L11 4', 'M2 13L2 18L5 18'],
 }
 const SHARPSTROKE = raw('truck', 'stroke', 'sharp')
@@ -84,15 +88,20 @@ const RESTSHARP = SHARPSTROKE.slice(SHARPSTROKE.indexOf('M9 18L14 18'))
 
 /* the plate, notched.  rounded: the r=3 box corner runs straight into the r=1
    turn on the top cap, both tangent at (12,3). */
-const PLATE_OPEN = 'M11 4C11 3.44772 11.44772 3 12 3' +
-  PLATE.replace('M1 6C1 4.34315 2.34315 3 4 3L12 3', '').replace(/Z$/, '') +
-  'L1 14C1 13.44772 1.44772 13 2 13L9 13C10.10457 13 11 12.10457 11 11L11 4Z'
+/* The plate leaves the silhouette on the cap's own circle: from the notch line
+   at the cap's leftmost point, over the top of the cap, to where the r=4 arc
+   passes 1 unit out from the stroke's cut. Every sample of that turn is exactly
+   1.0000 from the cut, so it is flush by construction — `folder`'s recipe. */
+const PLATE_OPEN = 'M11 4.1707C11 3.8461 11.1576 3.5417 11.4226 3.3542' +
+  'C11.6877 3.1668 12.0272 3.1197 12.3333 3.2276C13.8869 3.7767 15 5.2584 15 7' +
+  PLATE.replace(/^M1 7C1 4\.790861 2\.790861 3 5 3L11 3C13\.209139 3 15 4\.790861 15 7/, '').replace(/Z$/, '') +
+  'L1 14C1 13.44772 1.44772 13 2 13L9 13C10.10457 13 11 12.10457 11 11L11 4.1707Z'
 const PLATE_OPEN_SHARP = cut(raw('truck', 'duotone', 'sharp').split('"')[0], 'M2 3L11 3', 'M11 3')
   .replace('L1 4C1 3.4477 1.4477 3 2 3Z', 'L1 13L11 13L11 3Z')
 
 /* the fill region, notched on the same lines */
-const SOLID_OPEN = cut(SOLID, 'V6C2 4.89543 2.89543 4 4 4H12C13.1046 4 14 4.89543 14 6V18',
-  'V13H9C10.1046 13 11 12.1046 11 11V4H12C13.1046 4 14 4.89543 14 6V18')
+const SOLID_OPEN = cut(SOLID, 'V7C2 5.34315 3.34315 4 5 4H11C12.6569 4 14 5.34315 14 7V18',
+  'V13H9C10.1046 13 11 12.1046 11 11V4.1707H12C13.1652 4.5825 14 5.6938 14 7V18')
 const SOLID_SHARP = /^([^"]*?Z)/.exec(raw('truck', 'fill', 'sharp'))[1]
 const SOLID_OPEN_SHARP = cut(SOLID_SHARP, 'L2 5C2 4.4477 2.4477 4 3 4L13 4', 'L2 13L11 13L11 4L13 4')
 
@@ -116,11 +125,7 @@ const SIGNS = {
   electric: ['M6 4L3 7H7L4 10', 'M6.2929 3.7071L3 7L7 7L3.7071 10.2929'],
 }
 
-const sets = { truck: {
-  'stroke.regular': [{ kind: 'stroke', d: STROKE }],
-  'duotone.regular': [{ kind: 'plate', d: PLATE }, { kind: 'stroke', d: STROKE }],
-  'fill.regular': [{ kind: 'solid', d: SOLID }, { kind: 'stroke', d: STROKE }],
-} }
+const sets = {}
 for (const [sign, [round, sharp]] of Object.entries(SIGNS)) {
   const S = OPEN.regular.join('') + REST + round
   const H = OPEN.sharp.join('') + RESTSHARP + sharp

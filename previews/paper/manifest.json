@@ -376,7 +376,7 @@
       "width": 742,
       "icons": 0,
       "variants": 6,
-      "bytes": 5604
+      "bytes": 5573
     },
     {
       "file": "controls.html",
@@ -928,7 +928,7 @@
       "width": 742,
       "icons": 9,
       "variants": 36,
-      "bytes": 39111
+      "bytes": 39759
     },
     {
       "file": "new-2.html",
@@ -940,7 +940,7 @@
       "width": 742,
       "icons": 0,
       "variants": 18,
-      "bytes": 18177
+      "bytes": 18501
     },
     {
       "file": "pointers-1.html",
@@ -1284,7 +1284,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 0,
-      "bytes": 75039
+      "bytes": 72824
     }
   ]
 }
