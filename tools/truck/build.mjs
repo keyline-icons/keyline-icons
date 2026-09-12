@@ -55,14 +55,27 @@ const cut = (d, from, to) => {
 }
 
 /* ---------------------------------------------------------------- the base */
-/* The base does NOT move. The first cut of this batch brought the cargo box's
-   two top corners in from r=3 to r=2, which is what put the house 6-unit sign
-   flush in the corner with a straight cut. Overlaid on the shipped drawing the
-   smaller radius reads as a defect — Zafar found it at the box's top right on
-   12 Sep 2026 — so the corners stay at r=3 and the cut runs INTO the fillet
-   instead, two thirds of the way round at (12, 4.1707), the way `globe-check`
-   cuts its ring mid-arc. It costs the two signs that do not themselves reach
-   y=3, `truck-minus` and `truck-check`, 0.17 of the icon's top padding.
+/* The base does NOT move, and the sign is FIVE units rather than the house six.
+   Two cuts were tried first and both were wrong, each in a way only a render
+   showed:
+
+   - Bringing the cargo box's two top corners in from r=3 to r=2 buys the house
+     6 a straight cut. Overlaid on the shipped drawing the smaller radius reads
+     as a defect rather than a decision, and Zafar found it at the box's top
+     right on 12 Sep 2026.
+   - Keeping r=3 and cutting INTO the fillet, two thirds round at (12, 4.1707),
+     keeps the corner arc exactly and buys the 6 as well. But a cut arc's cap
+     puts the ROUNDED body's ink top at 3.17 where the sharp body's stays at 3,
+     so for the two signs that do not themselves reach y=3 — a minus is 2 units
+     of ink and a check 4 — the sharp drawing paints outside its own rounded
+     sibling. The ink-box highlighter turned those six cells red, which is what
+     red is for.
+
+   So the outline stops on the fillet's own tangent at (11, 4), which is the
+   only cut that leaves both treatments' ink at 3, and the sign comes down to 5
+   to clear that cap's disc by 2.00. The set has no other 5-unit modifier box;
+   `list-*`'s is 4 and every corner family's is 6. It is the ceiling this body
+   has, and the arithmetic is in the commit.
 */
 const SHIPPED = {
   stroke: raw('truck', 'stroke', 'regular'),
@@ -80,49 +93,49 @@ const SOLID = SHIPPED.solid
 /* ----------------------------------------------------------- the compounds */
 /* the box, opened: two pieces, the top run ending on the fillet's own tangent */
 const OPEN = {
-  regular: ['M14 18V7C14 5.6938 13.1652 4.5825 12 4.1707', 'M2 14V17C2 17.5523 2.44772 18 3 18H4'],
-  sharp: ['M14 18L14 4L11 4', 'M2 13L2 18L5 18'],
+  regular: ['M14 18V7C14 5.34315 12.6569 4 11 4', 'M2 13V17C2 17.5523 2.44772 18 3 18H4'],
+  sharp: ['M14 18L14 4L10 4', 'M2 12L2 18L5 18'],
 }
 const SHARPSTROKE = raw('truck', 'stroke', 'sharp')
 const RESTSHARP = SHARPSTROKE.slice(SHARPSTROKE.indexOf('M9 18L14 18'))
 
 /* the plate, notched.  rounded: the r=3 box corner runs straight into the r=1
    turn on the top cap, both tangent at (12,3). */
-/* The plate leaves the silhouette on the cap's own circle: from the notch line
-   at the cap's leftmost point, over the top of the cap, to where the r=4 arc
-   passes 1 unit out from the stroke's cut. Every sample of that turn is exactly
-   1.0000 from the cut, so it is flush by construction — `folder`'s recipe. */
-const PLATE_OPEN = 'M11 4.1707C11 3.8461 11.1576 3.5417 11.4226 3.3542' +
-  'C11.6877 3.1668 12.0272 3.1197 12.3333 3.2276C13.8869 3.7767 15 5.2584 15 7' +
-  PLATE.replace(/^M1 7C1 4\.790861 2\.790861 3 5 3L11 3C13\.209139 3 15 4\.790861 15 7/, '').replace(/Z$/, '') +
-  'L1 14C1 13.44772 1.44772 13 2 13L9 13C10.10457 13 11 12.10457 11 11L11 4.1707Z'
-const PLATE_OPEN_SHARP = cut(raw('truck', 'duotone', 'sharp').split('"')[0], 'M2 3L11 3', 'M11 3')
-  .replace('L1 4C1 3.4477 1.4477 3 2 3Z', 'L1 13L11 13L11 3Z')
+/* The plate's two cut ends trace their caps: an r=1 turn centred on each, so
+   the grey stops exactly where the black does — `folder`'s recipe. The notch's
+   own corner is r=2, whose centre lands ON the sign's ink corner (8, 10), so
+   every point of that arc is exactly 2.00 from the sign. */
+const PLATE_OPEN = 'M10 4C10 3.44772 10.44772 3 11 3' +
+  PLATE.replace(/^M1 7C1 4\.790861 2\.790861 3 5 3L11 3/, '').replace(/Z$/, '') +
+  'L1 13C1 12.44772 1.44772 12 2 12L8 12C9.10457 12 10 11.10457 10 10L10 4Z'
+const PLATE_OPEN_SHARP = cut(raw('truck', 'duotone', 'sharp').split('"')[0], 'M2 3L11 3', 'M10 3L11 3')
+  .replace('L1 4C1 3.4477 1.4477 3 2 3Z', 'L1 12L10 12L10 3Z')
 
 /* the fill region, notched on the same lines */
 const SOLID_OPEN = cut(SOLID, 'V7C2 5.34315 3.34315 4 5 4H11C12.6569 4 14 5.34315 14 7V18',
-  'V13H9C10.1046 13 11 12.1046 11 11V4.1707H12C13.1652 4.5825 14 5.6938 14 7V18')
+  'V12H8C9.10457 12 10 11.10457 10 10V4H11C12.6569 4 14 5.34315 14 7V18')
 const SOLID_SHARP = /^([^"]*?Z)/.exec(raw('truck', 'fill', 'sharp'))[1]
-const SOLID_OPEN_SHARP = cut(SOLID_SHARP, 'L2 5C2 4.4477 2.4477 4 3 4L13 4', 'L2 13L11 13L11 4L13 4')
+const SOLID_OPEN_SHARP = cut(SOLID_SHARP, 'L2 5C2 4.4477 2.4477 4 3 4L13 4', 'L2 12L10 12L10 4L13 4')
 
 /* the signs, lifted out of the `file-*` family (box 14..20 by 16..22) and
    translated by (-12, -12) into ours.  Straight-line paths only, so a pair-wise
    translate is safe; H and V are expanded in the source strings above it. */
 const SIGNS = {
-  plus: ['M5 4V10M2 7H8', 'M5 3L5 11M1 7L9 7'],
-  minus: ['M2 7H8', 'M1 7L9 7'],
-  check: ['M2 7L4 9L8 5', 'M1.7071 6.7071L4 9L8.2929 4.7071'],
-  x: ['M2 4L8 10M8 4L2 10', 'M1.7071 3.7071L8.2929 10.2929M8.2929 3.7071L1.7071 10.2929'],
-  'arrow-down': ['M5 4V10M2 7L5 10L8 7', 'M5 3L5 10M1.7071 6.7071L5 10L8.2929 6.7071'],
-  'arrow-up': ['M5 10V4M2 7L5 4L8 7', 'M5 11L5 4M1.7071 7.2929L5 4L8.2929 7.2929'],
-  'arrow-left': ['M8 7H2M5 4L2 7L5 10', 'M9 7L2 7M5.2929 3.7071L2 7L5.2929 10.2929'],
-  'arrow-right': ['M2 7H8M5 4L8 7L5 10', 'M1 7L8 7M4.7071 3.7071L8 7L4.7071 10.2929'],
+  plus: ['M4.5 4V9M2 6.5H7', 'M4.5 3L4.5 10M1 6.5L8 6.5'],
+  minus: ['M2 6.5H7', 'M1 6.5L8 6.5'],
+  check: ['M2 6.5L3.6667 8.1667L7 4.8333', 'M1.7071 6.2071L3.6667 8.1667L7.2929 4.5404'],
+  x: ['M2 4L7 9M7 4L2 9', 'M1.7071 3.7071L7.2929 9.2929M7.2929 3.7071L1.7071 9.2929'],
+  'arrow-down': ['M4.5 4V9M2 6.5L4.5 9L7 6.5', 'M4.5 3L4.5 9M1.7071 6.2071L4.5 9L7.2929 6.2071'],
+  'arrow-up': ['M4.5 9V4M2 6.5L4.5 4L7 6.5', 'M4.5 10L4.5 4M1.7071 6.7929L4.5 4L7.2929 6.7929'],
+  'arrow-left': ['M7 6.5H2M4.5 4L2 6.5L4.5 9', 'M8 6.5L2 6.5M4.7929 3.7071L2 6.5L4.7929 9.2929'],
+  'arrow-right': ['M2 6.5H7M4.5 4L7 6.5L4.5 9', 'M1 6.5L7 6.5M4.2071 3.7071L7 6.5L4.2071 9.2929'],
   /* the bolt is an object rather than a sign, so it is drawn at size rather
-     than scaled off `zap`, whose r=1 corners would come out at 0.33.  Two 45°
-     runs and a level bar, the round join doing every corner — `activity`'s
-     vocabulary.  It paints 2..8 by 3..11, narrower than its box, which is the
-     `wifi-info` case: a narrow sign sits on its box's centre line. */
-  electric: ['M6 4L3 7H7L4 10', 'M6.2929 3.7071L3 7L7 7L3.7071 10.2929'],
+     than scaled off `zap`, whose r=1 corners would come out at a third of a
+     unit.  Two 45-degree runs and a level bar, the round join doing every
+     corner — `activity`'s vocabulary.  It paints 1.83..7.17 across, narrower
+     than its box, which is the `wifi-info` case: a narrow sign sits on its
+     box's centre line and its ink stops short of the body's. */
+  electric: ['M5.3333 4L2.8333 6.5H6.1667L3.6667 9', 'M5.6262 3.7071L2.8333 6.5L6.1667 6.5L3.3738 9.2929'],
 }
 
 const sets = {}

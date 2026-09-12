@@ -309,18 +309,6 @@ const MAX_SKEW = 1;
  * a six-unit sign clearing the seam by 2 cannot start before 15 and cannot end
  * before 23. One unit outside the body, and no arrangement inside it.
  *
- * `truck-minus` and `truck-check` join on 12 Sep 2026, and the 0.17 they carry
- * is the cap of a cut arc rather than a placement. The truck's cargo box opens
- * at the top left for its modifier, and the house 6-unit sign needs the outline
- * to stop at x=12 — a unit past the box's r=3 fillet's own tangent at 11 — so
- * the cut lands two thirds of the way round that fillet, at (12, 4.1707), and
- * the round cap there puts the body's ink top at 3.17 rather than 3. Seven of
- * the nine signs reach y=3 themselves and centre exactly; these two do not, a
- * minus being 2 units of ink and a check 4, and both sit on their box's centre
- * line, which is the `wifi-info` rule. Moving either mark outward to reach the
- * top is the fix that rule exists to forbid. Cutting at the tangent instead
- * costs a 5-unit sign, which the set has nowhere else.
- *
  * `bin` used to be listed here at 18 x 21 with 2/1 padding. It was adjudicated
  * on 16 Aug 2026 and is now 18 x 22 with 3/3/1/1 — the vertical size, centred
  * exactly — so it is neither in this set nor a finding. Do not re-raise it.
@@ -331,7 +319,6 @@ const SKEW_KNOWN = new Set([
   'package-arrow-down', 'package-arrow-left', 'package-arrow-right', 'package-arrow-up',
   'package-check', 'package-minus', 'package-plus', 'package-x',
   'signal-high', 'signal-low', 'signal-medium', 'terminal-cursor',
-  'truck-check', 'truck-minus',
   'user', 'user-check', 'user-minus', 'user-plus', 'user-x', 'users',
 ]);
 
