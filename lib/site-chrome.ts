@@ -157,7 +157,7 @@ export const SET_REQUEST_URL = `${SET_ISSUES_URL}/new`
  * whoever draws it is harder to trust than one that names a person. If the
  * project ever gets its own account, this is the only line that moves.
  */
-export const SET_X_HANDLE = "iszafar92"
+export const SET_X_HANDLE = "zafarlab"
 
 export const SET_X_URL = `https://x.com/${SET_X_HANDLE}`
 
