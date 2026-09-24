@@ -91,6 +91,11 @@ function Code({ children }: { children: string }) {
  * The mark sits in a box one line tall and the row aligns to the top, so a
  * title that wraps on a phone keeps its mark beside the first line rather than
  * centred between two.
+ *
+ * Each title is a link to itself, the way the changelog's release and section
+ * titles are, so a reader can click one and share the address. `inline-flex`
+ * rather than `flex` keeps the target to the words and the mark: a full-width
+ * link turns the empty line beside a short title into something that jumps.
  */
 function Section({
   id,
@@ -105,11 +110,18 @@ function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-24 border-t pt-10">
-      <h2 className="flex items-start gap-2.5 text-xl font-semibold tracking-tight">
-        <span className="flex h-7 shrink-0 items-center gap-1.5 [&_svg]:size-5">
-          {mark}
-        </span>
-        {title}
+      <h2 className="text-xl font-semibold tracking-tight">
+        <a
+          href={`#${id}`}
+          className="group inline-flex items-start gap-2.5 text-foreground"
+        >
+          <span className="flex h-7 shrink-0 items-center gap-1.5 [&_svg]:size-5">
+            {mark}
+          </span>
+          <span className="underline-offset-4 group-hover:underline">
+            {title}
+          </span>
+        </a>
       </h2>
       <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
         {children}
