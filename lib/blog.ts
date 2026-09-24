@@ -3993,7 +3993,401 @@ const RELEASE_1_0_0: BlogPost = {
   ],
 }
 
+export const BLOG_V120_THUMBNAIL_ICON_NAMES = [
+  "table-rows-add-below",
+  "database-plus",
+  "bell-zap",
+  "table-cells-merge",
+  "hourglass-half",
+  "cloud-terminal",
+  "table-columns-add-after",
+  "server-zap",
+  "circle-progress-pause",
+  "table-rows-merge-next",
+  "database-arrow-down",
+  "mail-zap",
+  "gauge-high",
+  "table-pivot",
+  "heart-plus",
+  "calendar-zap",
+  "table-columns-remove-before",
+  "database-check",
+  "shopping-cart-plus",
+  "table-tree",
+  "folder-zap",
+  "hourglass-start",
+  "table-cells-split",
+  "server-plus",
+  "link-plus",
+  "table-rows-remove-above",
+  "user-zap",
+  "gauge-low",
+  "table-columns-merge-previous",
+  "database-x",
+  "grid-2x2-plus",
+  "package-zap",
+  "table-off",
+  "circle-progress-stop",
+  "wifi-plus",
+  "clock-zap",
+  "table-cells-rows",
+  "terminal-plus",
+  "smartphone-zap",
+  "loader-circle",
+] as const
+
+export const BLOG_V120_HERO_ICON_NAMES = [
+  "table-rows-add-below",
+  "table-cells-merge",
+  "database-plus",
+  "server-zap",
+  "bell-zap",
+  "hourglass-half",
+  "gauge-high",
+  "cloud-terminal",
+] as const
+
+export const BLOG_V120_TABLE_ICON_NAMES = [
+  "table-rows-add-above",
+  "table-rows-add-below",
+  "table-rows-remove-above",
+  "table-rows-remove-below",
+  "table-rows-merge-previous",
+  "table-rows-merge-next",
+  "table-columns-add-before",
+  "table-columns-add-after",
+  "table-columns-remove-before",
+  "table-columns-remove-after",
+  "table-columns-merge-previous",
+  "table-columns-merge-next",
+  "table-cells-merge",
+  "table-cells-split",
+  "table-rows",
+  "table-cells-rows",
+  "table-tree",
+  "table-pivot",
+  "table-off",
+] as const
+
+export const BLOG_V120_BOLT_ICON_NAMES = [
+  "bell-zap",
+  "calendar-zap",
+  "clock-zap",
+  "file-zap",
+  "folder-zap",
+  "home-zap",
+  "mail-zap",
+  "package-zap",
+  "smartphone-zap",
+  "tablet-zap",
+  "user-zap",
+  "server-zap",
+  "database-zap",
+] as const
+
+export const BLOG_V120_DATA_ICON_NAMES = [
+  "database-plus",
+  "database-minus",
+  "database-check",
+  "database-x",
+  "database-arrow-up",
+  "database-arrow-down",
+  "database-arrow-left",
+  "database-arrow-right",
+  "database-sparkles",
+  "server-plus",
+  "server-minus",
+] as const
+
+export const BLOG_V120_PLUS_ICON_NAMES = [
+  "heart-plus",
+  "bookmark-plus",
+  "shopping-cart-plus",
+  "shopping-basket-plus",
+  "home-plus",
+  "grid-2x2-plus",
+  "grid-squares-plus",
+  "grid-circles-plus",
+  "circle-dashed-plus",
+  "terminal-plus",
+  "link-plus",
+  "wifi-plus",
+] as const
+
+export const BLOG_V120_PROGRESS_ICON_NAMES = [
+  "circle-progress-pause",
+  "circle-progress-stop",
+  "loader-circle",
+  "hourglass-start",
+  "hourglass-half",
+  "hourglass-end",
+  "gauge-low",
+  "gauge-high",
+  "cloud-terminal",
+] as const
+
+export const BLOG_V120_REDRAWN_ICON_NAMES = [
+  "table",
+  "panel-left",
+  "panel-top-open",
+  "panels-top-left",
+  "panel-right-dashed",
+  "panel-bottom-close-dashed",
+] as const
+
+const RELEASE_1_2_0: BlogPost = {
+  /* Count, "free", "shadcn/ui" and the three families a search would type; the
+     one-frame story is an h2 inside. The slug names the drawings, not the
+     version, so it survives a renumbering. */
+  slug: "table-database-and-quick-action-icons",
+  version: "1.2.0",
+  title: "64 free shadcn/ui icons for tables, databases and quick actions",
+  description:
+    "1,178 free, MIT-licensed SVG icons for React and shadcn/ui. 64 new: " +
+    "table edits, database and server signs, a lightning bolt family and " +
+    "more progress states.",
+  standfirst:
+    "A row added, two columns merged, a cache that answers at once: now " +
+    "each has its own drawing.",
+  date: "2026-09-24",
+  updated: "2026-09-24",
+  readingMinutes: 4,
+  thumbnail: BLOG_V120_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "table icons",
+    "spreadsheet icons",
+    "database icons",
+    "server icons",
+    "lightning bolt icons",
+    "progress icons",
+    "hourglass icon",
+    "panel icons",
+    "free svg icons",
+    "shadcn/ui icons",
+    "react icons",
+    "vue icons",
+    "svelte icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "The set is 1,178 drawings. Each one comes in stroke, two-tone, " +
+        "duotone and fill, rounded or sharp: 9,424 SVGs.",
+    },
+    {
+      kind: "p",
+      text:
+        "Sixty-four of them are new. Nineteen are tables, one for each thing " +
+        "a spreadsheet toolbar does to rows, columns and cells. Thirteen " +
+        "carry a lightning bolt. The database and the server get the signs " +
+        "a data app asks for, and waiting can now be paused, half done or " +
+        "over. The table and all twenty-seven panels were also redrawn, in " +
+        "their filled styles only.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V120_HERO_ICON_NAMES,
+        caption: "Eight of the new drawings, one style to a row.",
+      },
+    },
+
+    { kind: "h2", text: "Nineteen tables, one frame", id: "tables" },
+    {
+      kind: "p",
+      text:
+        "Adding a row, deleting a column, merging two rows into one: a " +
+        "toolbar needs a picture for each, and until now the set had only " +
+        "the table itself.",
+    },
+    {
+      kind: "p",
+      text:
+        "The first round let the table grow or shrink to make room for a " +
+        "plus sign, so a toolbar of them looked like four different tables " +
+        "side by side. Now every one is drawn on the `table` the set already " +
+        "had, at its size, and moves one pixel at most, only to centre a " +
+        "sign that hangs over an edge.",
+    },
+    {
+      kind: "note",
+      text:
+        "A row of these reads as one table being edited, because it is one " +
+        "table in every icon.",
+    },
+    {
+      kind: "p",
+      text:
+        "The plus or the cross sits on the edge it acts on: along the top " +
+        "for a row added above, down the left side for a column added " +
+        "before. A merge is an arrow crossing the line it takes away. Cells " +
+        "merge and split across the middle row of a grid. After those come " +
+        "a table with a header column, a tree table, a pivot, and a table " +
+        "that's switched off.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V120_TABLE_ICON_NAMES,
+        caption: "Rows first, then columns, then cells, then the new kinds of table.",
+      },
+    },
+
+    { kind: "h2", text: "A bolt for anything instant", id: "bolt" },
+    {
+      kind: "p",
+      text:
+        "The bolt goes on thirteen drawings: the bell, calendar, " +
+        "clock, file, folder, house, envelope, parcel, phone, tablet, " +
+        "person, server and database. It marks whatever happens straight " +
+        "away: an automation, a trigger, express delivery, a fast cache.",
+    },
+    {
+      kind: "p",
+      text:
+        "Each bolt takes the spot the plus sign already had on that " +
+        "drawing, so the plus, minus and bolt versions line up in a list. " +
+        "It sits in the middle of that spot. Pushed to its right edge, it " +
+        "looked like it was sliding off, on every one of them.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V120_BOLT_ICON_NAMES,
+        caption: "All thirteen, from the bell to the database.",
+      },
+    },
+
+    { kind: "h2", text: "Signs for data, and more plus signs", id: "signs" },
+    {
+      kind: "p",
+      text:
+        "The database now has the full run of signs a data app reaches for: " +
+        "plus, minus, check, cross, four arrows for import and export, and " +
+        "the sparkle pair. The server gets a plus and a minus.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V120_DATA_ICON_NAMES,
+        caption: "The database's nine, then the server's two.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "A plus also lands on the heart, the bookmark, the cart, the " +
+        "basket, the house, three grids, the dashed circle, the terminal, " +
+        "the link and wifi.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V120_PLUS_ICON_NAMES,
+        caption: "Twelve more places to add something.",
+      },
+    },
+
+    { kind: "h2", text: "Waiting, in more ways", id: "progress" },
+    {
+      kind: "p",
+      text:
+        "Progress rings now pause and stop, beside the play, check and " +
+        "cross they already had. The hourglass comes full, half run and " +
+        "emptied. The gauge reads low and high. There's a plain open ring " +
+        "for a spinner, and a cloud with a terminal prompt in it, for a " +
+        "shell that runs somewhere else.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V120_PROGRESS_ICON_NAMES,
+        caption: "Rings, hourglasses and gauges, then the cloud shell.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "Tables and panels you can tell apart when filled",
+      id: "redrawn",
+    },
+    {
+      kind: "p",
+      text:
+        "The outlines of `table` and the twenty-seven panels didn't change. " +
+        "Their filled versions did. Before, the fill of `panel-left` was a " +
+        "black square with one white line down it, and `panel-right` was " +
+        "the same square with the line moved over. At 16 pixels you had to " +
+        "look twice.",
+    },
+    {
+      kind: "p",
+      text:
+        "Now the fill keeps the outline and fills only the part that " +
+        "matters: the header row of a table, the docked side of a panel. " +
+        "Duotone does the same in black over grey. Two-tone greys the rest " +
+        "and leaves the header or the docked side light.",
+    },
+    {
+      kind: "note",
+      text:
+        "The docked side is the solid side, so a left panel and a right " +
+        "panel can't be mistaken for each other.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V120_REDRAWN_ICON_NAMES,
+        caption:
+          "Six of the twenty-eight as they are now, in every style. The " +
+          "stroke row is exactly as it was.",
+      },
+    },
+
+    { kind: "h2", text: "Vue, Svelte and Solid", id: "vue-svelte-solid" },
+    {
+      kind: "p",
+      text:
+        "The install page now covers Vue, Svelte and Solid through " +
+        "unplugin-icons. It turns each icon you import into a component for " +
+        "your framework when the app builds, so only the icons you use end " +
+        "up in your bundle and nothing is fetched while it runs.",
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text:
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui " +
+        "registry, the CLI, the MCP server, and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
+  RELEASE_1_2_0,
   RELEASE_1_1_0,
   RELEASE_1_0_0,
   BATCH_0_9_0,
