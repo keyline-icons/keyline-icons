@@ -1257,6 +1257,7 @@
         "avatar",
         "member",
         "human",
+        "people",
         "guest"
       ]
     },
@@ -2149,9 +2150,10 @@
     },
     {
       "match": "^(boy|girl|accessibility)$",
-      "note": "The other drawings of a whole person. human came in empty 5 times by 23 Sep while the user family answered person, profile and member, and nothing in the set answered the word itself.",
+      "note": "The other drawings of a whole person. human came in empty 5 times by 23 Sep while the user family answered person, profile and member, and nothing in the set answered the word itself. people asks the same question and answers the same drawings: it reached only users and contacts until 24 Sep.",
       "terms": [
-        "human"
+        "human",
+        "people"
       ]
     },
     {
