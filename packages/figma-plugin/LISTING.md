@@ -122,6 +122,17 @@ github.com/keyline-icons/keyline-icons
 
 Changelog
 
+1.2.0
+64 new drawings, taking the set to 1,178 names and 9,424 SVGs.
+
+* Layout: every edit a table takes, rows and columns added, removed and merged either way, cells merged and split, then a table with a header column, a tree table, a pivot and a table switched off; a plus on three grids
+* Devices: the database with plus, minus, check, x, four arrows and a bolt; the server with plus, minus and a bolt; a bolt on the phone and the tablet; a terminal with a plus
+* A bolt for anything instant on the bell, envelope, calendar, clock, file, folder, house, parcel and person too
+* Time and Charts: the hourglass full, half run and emptied; a gauge reading low and one reading high; an open loading ring
+* And more: a plus on the heart, bookmark, cart, basket, house, dashed circle, link and wifi; progress rings paused and stopped; a database with sparkles; a cloud with a terminal prompt
+
+Also redrawn: the table and all twenty-seven panels, in their filled styles. The header row or the docked side is now the solid part, so a left panel and a right panel read apart.
+
 1.1.1
 The panel, redrawn: browse by shelf, recent icons at the top, drag onto the canvas, insert at 16, 20, 24 or 32, and your style, corners and size remembered between runs.
 
@@ -241,6 +252,18 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 1.2.0
+
+```
+64 new drawings, taking the set to 1,178 names and 9,424 SVGs: every edit a table takes, from adding a row to merging cells; the database with plus, minus, check, x, four arrows and a bolt, and the server with plus, minus and a bolt; a bolt on eleven more drawings, for anything instant; the hourglass full, half run and emptied, a gauge low and high, and progress rings paused and stopped; a plus on twelve more; a cloud with a terminal prompt.
+
+Redrawn: the table and all twenty-seven panels, whose filled styles now make the header row or the docked side the solid part.
+```
+
+**A republish is required for the listing**, whose counts moved: the tagline,
+the style bullets, the totals and the curated-word count all changed with the
+set. The plugin's own code did not change, and the category count stayed at 40.
 
 ### 1.1.1
 
@@ -625,6 +648,17 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+v1.2.0
+64 new drawings. The set is 1,178 names now, 1,053 component sets and 9,424 variants, up from 1,114 and 8,912. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
+
+* Layout: every edit a table takes, rows and columns added, removed and merged either way, cells merged and split, then a table with a header column, a tree table, a pivot and a table switched off; a plus on three grids
+* Devices: the database with plus, minus, check, x, four arrows and a bolt; the server with plus, minus and a bolt; a bolt on the phone and the tablet; a terminal with a plus
+* A bolt for anything instant on the bell, envelope, calendar, clock, file, folder, house, parcel and person too
+* Time and Charts: the hourglass full, half run and emptied; a gauge reading low and one reading high; an open loading ring
+* And more: a plus on the heart, bookmark, cart, basket, house, dashed circle, link and wifi; progress rings paused and stopped; a database with sparkles; a cloud with a terminal prompt
+
+Also redrawn: the table and all twenty-seven panels, in two-tone, duotone and fill: the header row or the docked side is now the solid part. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
+
 v1.1.1
 One drawing redrawn, and nothing else in the file moved. The set is still 1,114 names, 989 component sets and 8,912 variants. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
 
@@ -677,31 +711,6 @@ v0.9.0
 
 Also redrawn: the sharp duotone truck, whose grey plate no longer shows past its rear wheel.
 
-v0.8.0
-33 new drawings, and five new shelves. The set is 798 names now, 681 component sets and 4,094 variants, up from 765 and 3,896. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
-
-* Desk: a printer, a keyboard, a calculator, a USB connector and a drive
-* Files: file-code, file-zip and folder-search
-* Home: three beds, a sofa, both doors and a brick wall
-* Table: coffee, cake, soup and a bottle
-* Art: a brush, a roller, a palette and an easel
-* Singles: the Mars and Venus marks, three keys, a stack of coins, a strip of film, an eraser, a roll of tape and a broom
-* Categories went from 26 to 31: Home, Gender, Food & Drink, Art and Stationery took the new drawings that had nowhere honest to sit
-
-Also redrawn: the calendar with its nine compounds, and phone and phone-off. The phone is mirrored so the earpiece reads first at the top left, and its negation slash moved to the other diagonal, because the handset now lies along the one it used to take.
-
-v0.7.0
-71 new drawings under 73 names, and two new shelves. The set is 765 names now, 648 component sets and 3,896 variants, up from 692 and 3,538. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
-
-* Mail: the message family on a square body, message-square and messages-square with plus, minus, check, x, lines, dot and off
-* Devices: scan with line, text, barcode, qr-code, search and eye, and a QR code on its own
-* Charts: twenty-six, sixteen of them on one axis, from column and bar to candlestick, pyramid, waterfall and tree map
-* Diagrams: successor, predecessor, project and subtask, and a progress bar
-* Emoji: seven faces and the two thumbs
-* The badge: eight bumps on a radius of 5.5, a container that carries the circle's signs verbatim, check, x, plus, minus, alert, info, question, percent and the dollar
-* Singles: scissors in both bodies, an hourglass, a slash in three bodies and search-slash
-* Categories went from 24 to 26: Emoji took the faces and the thumbs, Diagrams took the boxes on wires off Charts
-
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
 
@@ -720,7 +729,8 @@ v0.5.0 from the file's and 0.3.0 and 0.4.0 from the plugin's on 17 Sep 2026
 (10,363 in the plugin's once the singles batch reached 147 drawings),
 0.5.0 from the plugin's and v0.6.0 from the file's on 23 Sep 2026 (10,056 and
 9,521 with the 1.1.0 entries), 0.7.0 and 0.6.0 from the plugin's later that
-day with the 1.1.1 panel entry, and a last line
+day with the 1.1.1 panel entry, v0.8.0 and v0.7.0 from the file's on
+24 Sep 2026 with the 1.2.0 entry (10,377 before, the cap is 10,000), and a last line
 points at `keylineicons.com/changelog`, which keeps every release.
 
 **Figma counts higher than `wc -m`.** The 1.1.1 plugin description was refused
@@ -748,6 +758,13 @@ It is a different image from the plugin's `plugin-cover.png` and the two are
 regenerated together; re-upload whichever modal you are in.
 
 ### What changed, for the final details page
+
+```
+64 new icons, and the table and all twenty-seven panels redrawn in their filled styles. Every edit a table takes, the database and the server with their signs, a lightning bolt on thirteen drawings, more progress states and a plus on twelve more. The file went from 989 component sets to 1,053 and from 8,912 variants to 9,424. Nothing that shipped was renamed or removed, and the redraws were swapped inside their existing sets, so instances already placed in your files keep their link.
+```
+
+The 1.1.1 entry this replaced, kept because a listing's history is worth
+reading back:
 
 ```
 One icon redrawn. Option's two bars now land on whole pixels at 12px, the size shortcut hints use, and it takes the same 20 by 20 box as command. It was swapped inside the existing component, so every instance already placed picks it up. Nothing else changed: 989 component sets, 8,912 variants, 1,114 names.
