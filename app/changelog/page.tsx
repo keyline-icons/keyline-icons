@@ -19,7 +19,12 @@ import {
 import { iconHref } from "@/lib/icon-pages"
 import { categoryOf } from "@/lib/icon-taxonomy"
 import { pageMetadata } from "@/lib/seo"
-import { SET_TITLE } from "@/lib/site-chrome"
+import {
+  RAIL_ASIDE,
+  RAIL_COLUMN,
+  RAIL_PAGE,
+  SET_TITLE,
+} from "@/lib/site-chrome"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
 import { artOf, Glyph, STYLES } from "@/components/glyph"
@@ -27,6 +32,7 @@ import { ReactLogo } from "@/components/brand-logos"
 import { prose } from "@/components/prose"
 import { ReleaseFold } from "@/components/release-fold"
 import { ArrowRight } from "@/components/icons"
+import { ContentsLabel } from "@/components/page-contents"
 import { ReleaseTicks, type ReleaseTick } from "@/components/release-ticks"
 import Link from "next/link"
 
@@ -1009,8 +1015,8 @@ export default async function Page() {
         was tried first, and the grids filled it at nine a row with the
         sentences stranded at the left of a very wide page.
       */}
-      <main className="mx-auto w-full max-w-3xl px-6 pb-16 lg:px-8">
-        <header className="pt-6 pb-16 sm:pb-24">
+      <main className={RAIL_PAGE}>
+        <header className={`${RAIL_COLUMN} pt-6 pb-16 sm:pb-24`}>
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
             Changelog
           </h1>
@@ -1019,33 +1025,40 @@ export default async function Page() {
           </p>
         </header>
 
-        <div className="relative">
-          {/*
-            The ticks hang in the left margin, outside the column, so the column
-            stays centred where the blog's is and the right margin stays empty.
-            The aside is absolute and as tall as the releases, which is what
-            gives the sticky list inside it a whole page to stick for; its
-            right edge is the column's left edge, and its padding is the gap
-            between the labels and the text.
+        {/*
+          The ticks hang in the left margin, outside the column, so the column
+          stays centred where the blog's is and the right margin stays empty.
+          The margin is the left track of `RAIL_PAGE`, which runs from the site
+          container's edge to the column, so the ticks line up with the logo in
+          the bar; the reasoning is on the constant. Its padding is the gap
+          between the labels and the text.
 
-            It starts at the first release rather than at the top of the page,
-            so the first tick stands level with the first entry it marks (a
-            line drawn under the header: "alignment issue"). `top-24` is the
-            entries' own `scroll-mt-24`, and the 5px is half a tick row against
-            half the version badge's 20px: a tick clicked lands its entry's
-            badge on the same line the tick stands on.
+          It starts at the first release rather than at the top of the page,
+          so the first tick stands level with the first entry it marks (a
+          line drawn under the header: "alignment issue"). `top-24` is the
+          entries' own `scroll-mt-24`, and the 5px is half a tick row against
+          half the version badge's 20px: a tick clicked lands its entry's
+          badge on the same line the tick stands on.
 
-            From `xl`: the margin beside a 768px column is 256px of room only
-            from 1280 up, and a tick column without room for its labels is a
-            control nobody can read. Every entry names its own version above
-            its title either way.
-          */}
-          <aside className="absolute inset-y-0 end-full hidden w-64 pe-6 xl:block">
-            <div className="sticky top-24 pt-[5px]">
-              <ReleaseTicks releases={ticks} />
-            </div>
-          </aside>
+          From `xl`: the margin beside a 768px column is 256px of room only
+          from 1280 up, and a tick column without room for its labels is a
+          control nobody can read. Every entry names its own version above
+          its title either way.
 
+          "On this page" is the label the install page's and the blog's rails
+          wear (Zafar, 24 Sep 2026). It hangs above the ticks, out of the flow,
+          so the first tick still stands level with the first entry and a
+          clicked tick still lands its badge on its own line; in the flow it
+          would have pushed the column down a label's height and broken both.
+        */}
+        <aside className={RAIL_ASIDE}>
+          <div className="sticky top-24 pt-[5px]">
+            <ContentsLabel className="absolute bottom-full pb-2" />
+            <ReleaseTicks releases={ticks} />
+          </div>
+        </aside>
+
+        <div className={RAIL_COLUMN}>
           {/*
           Work since the newest tag leads the page because it is what a
           returning reader is looking for, and it is badged "Unreleased" rather

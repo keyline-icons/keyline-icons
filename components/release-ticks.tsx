@@ -2,6 +2,8 @@
 
 import * as React from "react"
 
+import { useSectionInView } from "@/hooks/use-section-in-view"
+import { useSectionJump } from "@/hooks/use-section-jump"
 import { cn } from "@/lib/utils"
 
 export type ReleaseTick = {
@@ -26,47 +28,6 @@ export type ReleaseTick = {
  */
 const WIDTHS = [26, 20, 14, 10]
 const REST = 6
-
-/**
- * The line a section has to cross to become the current one, as a share of the
- * window's height.
- *
- * A third of the way down rather than at the top edge, because a release title
- * sits under the fixed bar and a reader who has just scrolled one into view is
- * reading it well before it reaches the top.
- */
-const READING_LINE = 0.35
-
-const subscribe = (onChange: () => void) => {
-  window.addEventListener("scroll", onChange, { passive: true })
-  window.addEventListener("resize", onChange)
-  return () => {
-    window.removeEventListener("scroll", onChange)
-    window.removeEventListener("resize", onChange)
-  }
-}
-
-/**
- * Which release the reader is in: the last one whose top has crossed the
- * reading line.
- *
- * The bottom of the page is its own case. The oldest entries are short, so
- * the last of them can never reach the line however far the page scrolls, and
- * without this the tick for v0.1.0 could not be lit by scrolling at all.
- */
-function currentIndex(ids: readonly string[]): number {
-  const doc = document.documentElement
-  if (window.innerHeight + window.scrollY >= doc.scrollHeight - 2) {
-    return ids.length - 1
-  }
-  const line = window.innerHeight * READING_LINE
-  let current = 0
-  for (let i = 0; i < ids.length; i++) {
-    const section = document.getElementById(ids[i])
-    if (section && section.getBoundingClientRect().top <= line) current = i
-  }
-  return current
-}
 
 /**
  * Every release as a tick in the margin, the one in view drawn long and black.
@@ -95,88 +56,26 @@ function currentIndex(ids: readonly string[]): number {
  * that left a column of unlabelled dashes that said where the reader was only
  * to someone who already knew (Zafar, 17 Sep 2026: "make title visible").
  *
- * The current release is read through `useSyncExternalStore`, which is the
- * site's rule for anything that can only be known in the browser: the server
- * commits to the first release and the client corrects it on hydration without
- * a mismatch. The hover is plain state set from pointer events, not a ref: a
- * pointer guard held in a ref latched once on this site and silently disabled
- * the feature that read it.
+ * The current release comes from `useSectionInView` and the jump from
+ * `useSectionJump`, both shared with the install page's contents. The hover is
+ * plain state set from pointer events, not a ref: a pointer guard held in a ref
+ * latched once on this site and silently disabled the feature that read it.
  */
 /** A tick's row, `h-2.5`, which the label's glide is measured in. */
 const ROW = 10
 
-/**
- * How long a jump may take before the lens lets go of its destination anyway.
- *
- * `scrollend` is what normally releases it, and a browser without the event,
- * or a click on the release already in view, which scrolls nowhere and so
- * never ends a scroll, would otherwise leave the black on the tick clicked
- * for as long as the page stayed open.
- */
-const JUMP_TIMEOUT = 3000
-
 export function ReleaseTicks({ releases }: { releases: ReleaseTick[] }) {
-  const key = releases.map((release) => release.id).join("\n")
-  const getSnapshot = React.useCallback(
-    () => currentIndex(key.split("\n")),
-    [key]
-  )
-  const active = React.useSyncExternalStore(subscribe, getSnapshot, () => 0)
+  const ids = releases.map((release) => release.id)
+  const active = useSectionInView(ids)
   const [hovered, setHovered] = React.useState<number | null>(null)
   /*
-    The release a click is travelling to, while the page is still on its way.
-    Without it the black and the label ran down every release the scroll
-    passed through, a flicker of thirteen titles for one click.
+    The release a click is travelling to, while the page is still on its way,
+    and the smooth scroll that takes it there. Shared with the install page's
+    contents; the reasoning is on the hook.
   */
-  const [target, setTarget] = React.useState<number | null>(null)
-  const jump = React.useRef<AbortController | null>(null)
+  const { target, go } = useSectionJump(ids)
   const lit = target ?? active
   const centre = hovered ?? lit
-
-  /**
-   * A smooth scroll to the release, in place of the anchor's jump.
-   *
-   * The section's own `scroll-mt-24` is what keeps it clear of the bar:
-   * `scrollIntoView` honours scroll margin, so the landing spot is the same
-   * one the plain link reaches. The hash still moves, with `pushState`, so
-   * the address stays a link to the release and Back returns from it. A click
-   * with a modifier is left to the browser, which opens a tab rather than
-   * scrolling, and a reader who asks for reduced motion gets the jump.
-   */
-  const go = (event: React.MouseEvent<HTMLAnchorElement>, i: number) => {
-    if (
-      event.button !== 0 ||
-      event.metaKey ||
-      event.ctrlKey ||
-      event.shiftKey ||
-      event.altKey
-    )
-      return
-    const section = document.getElementById(releases[i].id)
-    if (!section) return
-    event.preventDefault()
-
-    jump.current?.abort()
-    const controller = new AbortController()
-    jump.current = controller
-    const release = () => {
-      controller.abort()
-      setTarget(null)
-    }
-    window.addEventListener("scrollend", release, { signal: controller.signal })
-    const timer = window.setTimeout(release, JUMP_TIMEOUT)
-    controller.signal.addEventListener("abort", () =>
-      window.clearTimeout(timer)
-    )
-
-    setTarget(i)
-    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    section.scrollIntoView({
-      behavior: still ? "auto" : "smooth",
-      block: "start",
-    })
-    window.history.pushState(null, "", `#${releases[i].id}`)
-  }
 
   const labelled = releases[centre]
 

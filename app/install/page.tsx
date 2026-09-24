@@ -5,8 +5,25 @@ import { ICONIFY_PREFIX, ICONIFY_URL, importPath } from "@/lib/icon-code"
 import { artOf, CORNERS } from "@/components/glyph"
 import { loadIcons, STYLES } from "@/lib/icons"
 import { faqJsonLd, pageMetadata } from "@/lib/seo"
-import { SET_REPO_URL } from "@/lib/site-chrome"
+import {
+  RAIL_ASIDE,
+  RAIL_COLUMN,
+  RAIL_PAGE,
+  SET_REPO_URL,
+} from "@/lib/site-chrome"
+import {
+  OtherSetLogo,
+  ReactLogo,
+  ShadcnLogo,
+  ViteLogo,
+  VueSvelteLogo,
+} from "@/components/brand-logos"
 import { Faq } from "@/components/faq"
+import {
+  type ContentsEntry,
+  PageContents,
+  PageContentsChips,
+} from "@/components/page-contents"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
 import { Button } from "@/components/ui/button"
@@ -15,9 +32,13 @@ import {
   Bell,
   Check,
   ChevronDown,
+  CircleQuestion,
+  Copy,
   Download,
+  PenLine,
   Plus,
   Settings,
+  Shapes,
   Bin,
   User,
 } from "@/components/icons"
@@ -69,22 +90,116 @@ function Code({ children }: { children: string }) {
   )
 }
 
+/**
+ * Every section's title and mark, once, in the order the page runs.
+ *
+ * Three things print them: each section's own title, the contents in the
+ * margin, and the chips under the header on narrower screens. Typed into each
+ * `<Section>` they were one place, and a list beside them would have been a
+ * second that a renamed title silently disagrees with. The key is the
+ * section's id and the address a title links to, so `<Section id>` is checked
+ * against this list by the compiler.
+ *
+ * **Order is the page's.** The contents read this top to bottom, so a section
+ * moved in the page moves here too, or the list skips around.
+ *
+ * **The mark is a component, not an element**, and each place that prints it
+ * makes its own. One element reused three times is serialised once and
+ * rendered once, so `VueSvelteLogo`'s `useId` handed all three copies the same
+ * mask id, and two of the copies are `display: none` at any width.
+ */
+const SECTIONS = {
+  copy: { title: "Copy a single icon", Mark: Copy },
+  install: { title: "Install the React package", Mark: ReactLogo },
+  registry: { title: "Install in shadcn/ui", Mark: ShadcnLogo },
+  "react-native": { title: "Install in React Native", Mark: ReactLogo },
+  frameworks: { title: "Vue, Svelte and everything else", Mark: VueSvelteLogo },
+  "unplugin-icons": { title: "Bundle them at build time", Mark: ViteLogo },
+  lucide: { title: "Coming from lucide", Mark: OtherSetLogo },
+  weight: { title: "Stroke width at small sizes", Mark: PenLine },
+  styles: { title: "Four styles, one name", Mark: Shapes },
+  faq: { title: "FAQ", Mark: CircleQuestion },
+} satisfies Record<string, { title: string; Mark: React.ComponentType }>
+
+type SectionId = keyof typeof SECTIONS
+
+/** The sections in page order, each with a mark of its own to print. */
+const contents = (): ContentsEntry[] =>
+  Object.entries(SECTIONS).map(([id, { title, Mark }]) => ({
+    id,
+    title,
+    mark: <Mark />,
+  }))
+
+/**
+ * Every title leads with a mark, because the page is eleven sections of grey
+ * prose and snippets and a reader scrolling for their framework had nothing to
+ * catch on. A section about a product carries that product's logo, and the
+ * rest carry a glyph from the set, so the titles still line up and the page's
+ * own chrome stays drawn in its own icons.
+ *
+ * The mark sits in a box one line tall and the row aligns to the top, so a
+ * title that wraps on a phone keeps its mark beside the first line rather than
+ * centred between two.
+ *
+ * Each title is a link to itself, the way the changelog's release and section
+ * titles are, so a reader can click one and share the address. `inline-flex`
+ * rather than `flex` keeps the target to the words and the mark: a full-width
+ * link turns the empty line beside a short title into something that jumps.
+ */
 function Section({
   id,
-  title,
   children,
 }: {
-  id: string
-  title: string
+  id: SectionId
   children: React.ReactNode
 }) {
+  const { title, Mark } = SECTIONS[id]
   return (
     <section id={id} className="scroll-mt-24 border-t pt-10">
-      <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
+      <h2 className="text-xl font-semibold tracking-tight">
+        <a
+          href={`#${id}`}
+          className="group inline-flex items-start gap-2.5 text-foreground"
+        >
+          <span className="flex h-7 shrink-0 items-center [&>svg]:size-5">
+            <Mark />
+          </span>
+          <span className="underline-offset-4 group-hover:underline">
+            {title}
+          </span>
+        </a>
+      </h2>
       <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
         {children}
       </div>
     </section>
+  )
+}
+
+/**
+ * A second heading inside a section, linked to itself like the section's own.
+ *
+ * Zafar, 24 Sep 2026: "merge two shadcn sections". Installing through the CLI
+ * and sizing inside shadcn's primitives were two titles in the contents for
+ * one subject, and the sizing half is now this heading inside the install
+ * section. It keeps the `sizing` id it had as a section, so an address shared
+ * before the merge still lands on it, and it is not a row in the contents:
+ * the section is.
+ */
+function Subheading({ id, children }: { id: string; children: string }) {
+  return (
+    <h3
+      id={id}
+      className="mt-4 scroll-mt-24 text-base font-semibold tracking-tight"
+    >
+      <a
+        href={`#${id}`}
+        className="text-foreground underline-offset-4 hover:underline"
+      >
+        {children}
+      </a>
+    </h3>
   )
 }
 
@@ -150,8 +265,8 @@ export default async function Page() {
         of a wide screen; prose past about 75 characters stops being readable,
         and this page is mostly prose and snippets.
       */}
-      <main className="mx-auto w-full max-w-3xl px-6 pb-16 lg:px-8">
-        <header className="pt-6 pb-12">
+      <main className={RAIL_PAGE}>
+        <header className={`${RAIL_COLUMN} pt-6 pb-12`}>
           {/* Word for word the `<title>`. Google rewrites a title that does
               not match what the page visibly leads with, and the rewrite is
               usually worse than the one you wrote. */}
@@ -163,10 +278,27 @@ export default async function Page() {
             shadcn/ui&apos;s defaults assume, so it drops in without any
             adjustment to your components.
           </p>
+          {/* The contents below `xl`; the rail takes over from there. */}
+          <PageContentsChips entries={contents()} className="mt-8 xl:hidden" />
         </header>
 
-        <div className="flex flex-col gap-10">
-          <Section id="copy" title="Copy a single icon">
+        {/*
+          The contents from `xl`, in the left margin, where the changelog hangs
+          its release ticks: the left track of `RAIL_PAGE`, from the site
+          container's edge to the column, so the list lines up with the logo in
+          the bar. `top-24` is the sections' own `scroll-mt-24`, and the `pt-10`
+          is their top padding, so the list's first row stands level with the
+          first title and a row clicked lands its title on the same line the
+          contents begin.
+        */}
+        <aside className={RAIL_ASIDE}>
+          <div className="sticky top-24 pt-10">
+            <PageContents entries={contents()} />
+          </div>
+        </aside>
+
+        <div className={`${RAIL_COLUMN} flex flex-col gap-10`}>
+          <Section id="copy">
             <p>
               The fastest path, and it needs no install. Click any icon on the{" "}
               {/*
@@ -190,7 +322,7 @@ export default async function Page() {
             </p>
           </Section>
 
-          <Section id="install" title="Install the React package">
+          <Section id="install">
             <p>
               Every icon is also a React component, generated from the same
               SVGs, so the two can never disagree.
@@ -212,7 +344,7 @@ export default async function Page() {
             rather than later, because a caveat that outlives its reason sends
             people to copy files they could have installed.
           */}
-          <Section id="registry" title="Install with the shadcn CLI">
+          <Section id="registry">
             {/*
               This named `package.json` first until someone ran it. shadcn's
               CLI reads registries from `components.json` only: through 4.13.0
@@ -263,6 +395,63 @@ npx shadcn search @keyline                # browse the whole set`}</Code>
               if you want a handful of icons and would rather own the files than
               track someone else&apos;s releases.
             </p>
+
+            <Subheading id="sizing">Sizing inside shadcn components</Subheading>
+            <p>
+              {/*
+                Spaces around `<code>` are written as expressions, not typed. A
+                text node that wraps to the next line loses the whitespace it
+                starts with, which rendered as "size-4in their variants" here.
+                `site-footer.tsx` documents the same trap.
+              */}
+              shadcn/ui&apos;s primitives size their own icons, and Button does
+              it conditionally. Its base class is{" "}
+              <code>{`[&_svg:not([class*='size-'])]:size-4`}</code>, which
+              reads: make any nested SVG 16px, unless it already carries a{" "}
+              <code>size-*</code> class of its own.
+            </p>
+            <p>
+              So there are two answers, and which you get depends on how you
+              ask:
+            </p>
+            <Code>{`<Button>
+  <Plus />                     {/* 16px. The variant sized it. */}
+  <Plus size={32} />           {/* still 16px: the prop sets a width
+                                  attribute, and the class beats it. */}
+  <Plus className="size-6" />  {/* 24px. The :not() stands down. */}
+</Button>`}</Code>
+            <p>
+              The size variants disagree on the number, which is worth checking
+              against your own buttons rather than assuming: <code>xs</code> is
+              12px, <code>sm</code> is 14px, and the default is 16px. The
+              buttons below are <code>sm</code>, so their icons are 14.
+            </p>
+            <p>
+              The primitives do not all agree, which is worth knowing before you
+              debug one. DropdownMenu carries the same <code>:not()</code>{" "}
+              clause Button does, so your own <code>size-*</code> wins there
+              too. Sidebar does not: it uses <code>{`[&>svg]:size-4`}</code>,
+              with no exception and on a direct child rather than any
+              descendant, so a class of your own is ignored there.
+            </p>
+            <div className="flex flex-wrap items-center gap-3 rounded-lg border p-4 text-foreground">
+              <Button size="sm">
+                <Plus />
+                New
+              </Button>
+              <Button variant="outline" size="sm">
+                <Download />
+                Export
+              </Button>
+              <Button variant="ghost" size="sm">
+                <Settings />
+                Settings
+              </Button>
+              <Button variant="destructive" size="sm">
+                <Bin />
+                Delete
+              </Button>
+            </div>
           </Section>
 
           {/*
@@ -272,7 +461,7 @@ npx shadcn search @keyline                # browse the whole set`}</Code>
             snippet above leans on `className`, and a native reader copying one
             gets an icon that ignores their theme.
           */}
-          <Section id="react-native" title="Install in React Native">
+          <Section id="react-native">
             <p>
               The same components, drawn through{" "}
               <code>react-native-svg</code>, with the same entry points and
@@ -295,8 +484,9 @@ import { Folder } from "@keyline-icons/react-native/duotone"
             The section that stops this page reading as React-only.
  
             It sits after both install paths and before everything below, which
-            is React-specific from here down: sizing inside Button, stroke
-            weight, the lucide swap. A reader who is not on React should meet
+            is React-specific from here down: the lucide swap and stroke
+            weight, after the shadcn section above has already covered sizing
+            inside Button. A reader who is not on React should meet
             their answer before the page stops being about them, rather than
             after five sections that assume a `className`.
  
@@ -306,7 +496,7 @@ import { Folder } from "@keyline-icons/react-native/duotone"
             that showed a Vue install without naming whose package it was would
             send the next reader hunting for the matching scope.
           */}
-          <Section id="frameworks" title="Vue, Svelte and everything else">
+          <Section id="frameworks">
             <p>
               The whole set is published on{" "}
               <a
@@ -374,87 +564,67 @@ npm i -D @iconify/tailwind4
             </p>
           </Section>
 
-          <Section id="sizing" title="Sizing inside shadcn components">
+          {/*
+            The other side of that trade, and the reason there is still no
+            `@keyline-icons/vue`. unplugin-icons reads the same Iconify copy
+            from `@iconify-json/keyline-icons` at build time and compiles each
+            import into a component for whichever framework it is told, so a
+            Vue, Svelte or Solid app gets per-icon imports, bundled and typed,
+            with no package of ours to publish every release. A native Vue and
+            Svelte package was offered in keyline-icons#4 and declined for
+            exactly that reason.
+
+            The compiler names and the default export on `~icons/*` were read
+            off unplugin-icons 24.0.0's README and its `types/` declarations
+            rather than remembered. `types/svelte` is Svelte 5; 4 and 3 have
+            entries of their own.
+          */}
+          <Section id="unplugin-icons">
             <p>
-              {/*
-                Spaces around `<code>` are written as expressions, not typed. A
-                text node that wraps to the next line loses the whitespace it
-                starts with, which rendered as "size-4in their variants" here.
-                `site-footer.tsx` documents the same trap.
-              */}
-              shadcn/ui&apos;s primitives size their own icons, and Button does
-              it conditionally. Its base class is{" "}
-              <code>{`[&_svg:not([class*='size-'])]:size-4`}</code>, which
-              reads: make any nested SVG 16px, unless it already carries a{" "}
-              <code>size-*</code> class of its own.
+              To ship the drawings inside your bundle instead,{" "}
+              <a
+                href="https://github.com/unplugin/unplugin-icons"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-0.5 underline underline-offset-2 hover:text-foreground"
+              >
+                unplugin-icons
+                <ArrowUpRight className="size-3" />
+                <span className="sr-only">{" (opens in a new tab)"}</span>
+              </a>{" "}
+              reads the same Iconify copy at build time and compiles each icon
+              you import into a component for your framework. Only what you
+              import is bundled, and nothing is fetched at runtime.
+            </p>
+            <Code>{`npm i -D unplugin-icons @iconify-json/${ICONIFY_PREFIX}`}</Code>
+            <Code>{`// vite.config.ts
+import Icons from "unplugin-icons/vite"
+
+plugins: [
+  Icons({ compiler: "vue3" }),   // or "svelte", "solid"
+]`}</Code>
+            <Code>{`import IconBell from "~icons/${ICONIFY_PREFIX}/bell"
+import IconBellSharpFill from "~icons/${ICONIFY_PREFIX}/bell-sharp-fill"
+
+<IconBell class="size-4" />
+<IconBellSharpFill />`}</Code>
+            <p>
+              Names take the same suffixes as above. Webpack, Rollup, esbuild
+              and Nuxt have entry points of their own beside <code>/vite</code>.
+              In TypeScript, add <code>unplugin-icons/types/vue</code> or{" "}
+              <code>unplugin-icons/types/svelte</code> to{" "}
+              <code>compilerOptions.types</code> so the <code>~icons/</code>{" "}
+              imports resolve.
             </p>
             <p>
-              So there are two answers, and which you get depends on how you
-              ask:
+              An icon with no size of its own renders at 1.2em, the
+              plugin&apos;s default, so it follows the text around it rather
+              than the 24px the React package draws at. Pass{" "}
+              <code>scale: 1</code> to make that 1em.
             </p>
-            <Code>{`<Button>
-  <Plus />                     {/* 16px. The variant sized it. */}
-  <Plus size={32} />           {/* still 16px: the prop sets a width
-                                  attribute, and the class beats it. */}
-  <Plus className="size-6" />  {/* 24px. The :not() stands down. */}
-</Button>`}</Code>
-            <p>
-              The size variants disagree on the number, which is worth checking
-              against your own buttons rather than assuming: <code>xs</code> is
-              12px, <code>sm</code> is 14px, and the default is 16px. The
-              buttons below are <code>sm</code>, so their icons are 14.
-            </p>
-            <p>
-              The primitives do not all agree, which is worth knowing before you
-              debug one. DropdownMenu carries the same <code>:not()</code>{" "}
-              clause Button does, so your own <code>size-*</code> wins there
-              too. Sidebar does not: it uses <code>{`[&>svg]:size-4`}</code>,
-              with no exception and on a direct child rather than any
-              descendant, so a class of your own is ignored there.
-            </p>
-            <div className="flex flex-wrap items-center gap-3 rounded-lg border p-4 text-foreground">
-              <Button size="sm">
-                <Plus />
-                New
-              </Button>
-              <Button variant="outline" size="sm">
-                <Download />
-                Export
-              </Button>
-              <Button variant="ghost" size="sm">
-                <Settings />
-                Settings
-              </Button>
-              <Button variant="destructive" size="sm">
-                <Bin />
-                Delete
-              </Button>
-            </div>
           </Section>
 
-          <Section id="weight" title="Stroke width at small sizes">
-            <p>
-              The set is drawn at 2 units on a 24 grid, which is where it is
-              tested and where it should stay. At 16px that is the weight the
-              drawings were checked at, including the ones that had to be opened
-              up to survive it.
-            </p>
-            <p>
-              Lighter weights work for large, decorative use. Below 16px they
-              start to break the drawings up rather than refine them, because
-              the gaps between elements were measured against a 2-unit keyline.
-            </p>
-            <div className="flex flex-wrap items-end gap-6 rounded-lg border p-4 text-foreground">
-              {[1, 1.5, 2, 2.5].map((w) => (
-                <div key={w} className="flex flex-col items-center gap-2">
-                  <Bell size={32} strokeWidth={w} />
-                  <span className="text-[11px] text-muted-foreground">{w}</span>
-                </div>
-              ))}
-            </div>
-          </Section>
-
-          <Section id="lucide" title="Coming from lucide">
+          <Section id="lucide">
             <p>
               shadcn/ui ships with lucide, and both sets are 24×24 with a 2px
               keyline and a <code>currentColor</code> stroke, so the swap is an
@@ -479,7 +649,29 @@ npm i -D @iconify/tailwind4
             </p>
           </Section>
 
-          <Section id="styles" title="Four styles, one name">
+          <Section id="weight">
+            <p>
+              The set is drawn at 2 units on a 24 grid, which is where it is
+              tested and where it should stay. At 16px that is the weight the
+              drawings were checked at, including the ones that had to be opened
+              up to survive it.
+            </p>
+            <p>
+              Lighter weights work for large, decorative use. Below 16px they
+              start to break the drawings up rather than refine them, because
+              the gaps between elements were measured against a 2-unit keyline.
+            </p>
+            <div className="flex flex-wrap items-end gap-6 rounded-lg border p-4 text-foreground">
+              {[1, 1.5, 2, 2.5].map((w) => (
+                <div key={w} className="flex flex-col items-center gap-2">
+                  <Bell size={32} strokeWidth={w} />
+                  <span className="text-[11px] text-muted-foreground">{w}</span>
+                </div>
+              ))}
+            </div>
+          </Section>
+
+          <Section id="styles">
             <p>
               Every icon comes in all four styles. Stroke is the drawing.
               Two-tone keeps that outline over a 40% plate, which is what
@@ -527,7 +719,7 @@ npm i -D @iconify/tailwind4
             </p>
           </Section>
 
-          <Section id="faq" title="FAQ">
+          <Section id="faq">
             <p>
               The short answers, for scanning. Each one is a section above in
               longer form.

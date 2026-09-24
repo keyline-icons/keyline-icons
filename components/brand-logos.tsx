@@ -1,4 +1,4 @@
-import type { SVGProps } from "react"
+import { useId, type SVGProps } from "react"
 
 import { BrandMark } from "@/components/brand-mark"
 
@@ -304,6 +304,175 @@ export function SvelteLogo(props: LogoProps) {
       {...props}
     >
       <path d="M10.354 21.125a4.44 4.44 0 0 1-4.765-1.767 4.109 4.109 0 0 1-.703-3.107 3.898 3.898 0 0 1 .134-.522l.105-.321.287.21a7.21 7.21 0 0 0 2.186 1.092l.208.063-.02.208a1.253 1.253 0 0 0 .226.83 1.337 1.337 0 0 0 1.435.533 1.231 1.231 0 0 0 .343-.15l5.59-3.562a1.164 1.164 0 0 0 .524-.778 1.242 1.242 0 0 0-.211-.937 1.338 1.338 0 0 0-1.435-.533 1.23 1.23 0 0 0-.343.15l-2.133 1.36a4.078 4.078 0 0 1-1.135.499 4.44 4.44 0 0 1-4.765-1.766 4.108 4.108 0 0 1-.702-3.108 3.855 3.855 0 0 1 1.742-2.582l5.589-3.563a4.072 4.072 0 0 1 1.135-.499 4.44 4.44 0 0 1 4.765 1.767 4.109 4.109 0 0 1 .703 3.107 3.943 3.943 0 0 1-.134.522l-.105.321-.286-.21a7.204 7.204 0 0 0-2.187-1.093l-.208-.063.02-.207a1.255 1.255 0 0 0-.226-.831 1.337 1.337 0 0 0-1.435-.532 1.231 1.231 0 0 0-.343.15L8.62 9.368a1.162 1.162 0 0 0-.524.778 1.24 1.24 0 0 0 .211.937 1.338 1.338 0 0 0 1.435.533 1.235 1.235 0 0 0 .344-.151l2.132-1.36a4.067 4.067 0 0 1 1.135-.498 4.44 4.44 0 0 1 4.765 1.766 4.108 4.108 0 0 1 .702 3.108 3.857 3.857 0 0 1-1.742 2.583l-5.589 3.562a4.072 4.072 0 0 1-1.135.499m10.358-17.95C18.484-.015 14.082-.96 10.9 1.068L5.31 4.63a6.412 6.412 0 0 0-2.896 4.295 6.753 6.753 0 0 0 .666 4.336 6.43 6.43 0 0 0-.96 2.396 6.833 6.833 0 0 0 1.168 5.167c2.229 3.19 6.63 4.135 9.812 2.108l5.59-3.562a6.41 6.41 0 0 0 2.896-4.295 6.756 6.756 0 0 0-.665-4.336 6.429 6.429 0 0 0 .958-2.396 6.831 6.831 0 0 0-1.167-5.168Z" />
+    </svg>
+  )
+}
+
+/**
+ * Vue's and Svelte's marks overlapped into one, for the one section on
+ * `/install` that is about both.
+ *
+ * Zafar sent the reference, 24 Sep 2026: HTML5's shield with Vite's mark laid
+ * over its lower right corner. Side by side, the pair was twice as wide as
+ * every other mark it stood in a column with, so its title started a mark's
+ * width further in than the ten around it. Overlapped, it takes one mark's box
+ * and the titles line up again.
+ *
+ * Nested `<svg>`s, the way `FigmaPluginLogo` builds its lockup, so neither
+ * mark's path is copied or re-solved: each is the published one at 18 of this
+ * box's 24 units, Vue top left and Svelte bottom right and in front, about the
+ * share each takes in the reference.
+ *
+ * **Vue is cut away around Svelte**, so where Svelte crosses Vue's point the
+ * two read as two shapes rather than one tangle. The reference needs no gap
+ * because Vite's mark is a solid wedge; Svelte's is a ribbon with holes, and
+ * Vue showed through them. It is a mask, not Svelte drawn fat in the page's
+ * white behind itself, which was the first attempt: that filled Svelte's holes
+ * and printed a white blob wherever the mark sat on grey, which is the
+ * contents rail's current row. A mask cuts to transparent on any ground.
+ *
+ * The mask's id comes from `useId`, because this mark is on the page three
+ * times (the title, the rail, the chips) and two of those are `display: none`
+ * at any width. A shared id resolves to the first element carrying it, and a
+ * mask inside a hidden subtree does not render, so a fixed id would leave the
+ * copy that is showing pointing at a mask that is not.
+ */
+export function VueSvelteLogo(props: LogoProps) {
+  const cut = useId()
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <defs>
+        <mask
+          id={cut}
+          maskUnits="userSpaceOnUse"
+          x={0}
+          y={0}
+          width={24}
+          height={24}
+        >
+          <rect width={24} height={24} fill="white" />
+          <SvelteLogo
+            x={6}
+            y={6}
+            width={18}
+            height={18}
+            fill="black"
+            stroke="black"
+            strokeWidth={3}
+            strokeLinejoin="round"
+          />
+        </mask>
+      </defs>
+      <g mask={`url(#${cut})`}>
+        <VueLogo x={0} y={0} width={18} height={18} />
+      </g>
+      <SvelteLogo x={6} y={6} width={18} height={18} />
+    </svg>
+  )
+}
+
+/**
+ * shadcn/ui's and Vite's marks, for the section titles on `/install`.
+ *
+ * **shadcn/ui's is its app mark, the two slashes knocked out of a rounded
+ * tile.** It was simple-icons' bare slashes at first, which is the wordmark's
+ * glyph and not what a reader recognises at 16px (Zafar, 24 Sep 2026: "your
+ * shadcn logo is wrong", with the tile beside it). shadcn publishes no SVG of
+ * the tile, only its app icons as PNGs, so it is assembled from what is
+ * published rather than traced: the slashes are the `logo` in shadcn-ui/ui's
+ * `apps/v4/components/icons.tsx`, verbatim in their own 256 box, nested at
+ * the size and place `apple-touch-icon.png` puts them. That icon's slashes
+ * span 96 of its 180px, cap to cap, where the logo's span 200 of 256 units, so
+ * the logo box is 68% of the tile and centred: 16.4 of 24, from 3.8. The PNG
+ * is square because the platform rounds it; the 5-unit corner is the rounding
+ * the reference shows.
+ *
+ * In the page's ink rather than fixed black, tile in `--foreground` and slashes
+ * in `--background`, so it inverts on the dark theme instead of vanishing into
+ * it. shadcn's own site draws its mark in the ink too, and the tile keeps its
+ * ink in the contents rail, where a glyph beside it is muted, because it is a
+ * logo and not one of the set's glyphs.
+ *
+ * Vite's is simple-icons 16.32.0, dropped in unchanged, the current bracketless
+ * mark in its recorded `#9135FF`, fixed in both themes like the other framework
+ * marks. It stands for the build-time section because that section's config is
+ * Vite's; unplugin has no mark in simple-icons, and one drawn from its site by
+ * eye is the thing this file stopped doing.
+ */
+export function ShadcnLogo(props: LogoProps) {
+  const slash = {
+    fill: "none",
+    strokeLinecap: "round",
+    strokeWidth: 32,
+    style: { stroke: "var(--background)" },
+  } as const
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <rect
+        width={24}
+        height={24}
+        rx={5}
+        style={{ fill: "var(--foreground)" }}
+      />
+      <svg x={3.8} y={3.8} width={16.4} height={16.4} viewBox="0 0 256 256">
+        <line x1={208} y1={128} x2={128} y2={208} {...slash} />
+        <line x1={192} y1={40} x2={40} y2={192} {...slash} />
+      </svg>
+    </svg>
+  )
+}
+
+export function ViteLogo(props: LogoProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="#9135FF"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M13.056 23.238a.57.57 0 0 1-1.02-.355v-5.202c0-.63-.512-1.143-1.144-1.143H5.148a.57.57 0 0 1-.464-.903l3.777-5.29c.54-.753 0-1.804-.93-1.804H.57a.574.574 0 0 1-.543-.746.6.6 0 0 1 .08-.157L5.008.78a.57.57 0 0 1 .467-.24h14.589a.57.57 0 0 1 .466.903l-3.778 5.29c-.54.755 0 1.806.93 1.806h5.745c.238 0 .424.138.513.322a.56.56 0 0 1-.063.603z" />
+    </svg>
+  )
+}
+
+/**
+ * The other set's mark, for the section on `/install` about moving off it.
+ *
+ * Zafar asked for it there by name, 24 Sep 2026: the section is the one place
+ * the site names that set, in its title, and a reader arriving from it scans
+ * for its logo the way a Vue reader scans for Vue's. The name stays out of
+ * this file and the export for the same reason it stays out of everything
+ * else: this component is not the place that decision gets made.
+ *
+ * simple-icons 16.32.0, dropped in unchanged at its own 24-unit box, in its
+ * recorded `#F56565` and fixed in both themes like the framework marks.
+ */
+export function OtherSetLogo(props: LogoProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="#F56565"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M18.483 1.123a1.09 1.09 0 0 0-.752.362 1.09 1.09 0 0 0 .088 1.54 11.956 11.956 0 0 1 4 8.946 7.62 7.62 0 0 1-7.637 7.636 7.62 7.62 0 0 1-7.637-7.636 3.255 3.255 0 0 1 3.273-3.273c1.82 0 3.273 1.45 3.273 3.273a1.09 1.09 0 0 0 1.09 1.09 1.09 1.09 0 0 0 1.092-1.09c0-3-2.455-5.455-5.455-5.455s-5.454 2.455-5.454 5.455c0 5.408 4.408 9.818 9.818 9.818 5.41 0 9.818-4.41 9.818-9.818A14.16 14.16 0 0 0 19.272 1.4a1.09 1.09 0 0 0-.789-.277ZM9.818 2.15C4.408 2.151 0 6.561 0 11.97a14.16 14.16 0 0 0 4.8 10.637 1.09 1.09 0 0 0 1.54-.096 1.09 1.09 0 0 0-.095-1.54 11.957 11.957 0 0 1-4.063-9 7.62 7.62 0 0 1 7.636-7.637 7.62 7.62 0 0 1 7.637 7.636 3.256 3.256 0 0 1-3.273 3.273 3.256 3.256 0 0 1-3.273-3.273 1.09 1.09 0 0 0-1.09-1.09 1.09 1.09 0 0 0-1.092 1.09c0 3 2.455 5.455 5.455 5.455s5.454-2.455 5.454-5.455c0-5.408-4.408-9.818-9.818-9.818z" />
     </svg>
   )
 }
