@@ -1,6 +1,194 @@
 {
  "$comment": "SOURCE, NOT GENERATED. How a release reads on the changelog, shaped after Preline's (Zafar, 17 Sep 2026, pointing at preline.co/docs/changelog.html): a title, then chips (an icon and a label, like Preline's \"New Components & Improvements\" and \"Fixes and Improvements\"), each followed by its items with a bold lead (\"People:\", \"Layout:\") and the drawings the item is about. His asks on the way: \"topic > icons, topic > icons. not all topics first and then all icons after that\", \"categorize them, not just text > icons. titles, etc.\", \"redrawns deserve to be a separate topic, not within a topic and each subtitle must carry shareable link like the main titles\". So redraws are always their own chip. Per version: `title` (the release's headline, which every version has, released ones included, because the page heads each entry by it) and optionally `sections`: chips with `title`, `icon` (a drawing from this set, by name) or `logo` (a platform's own mark, for a chip about that platform, where a drawing of ours would stand in for someone else's trademark: `react`, drawn from components/brand-logos.tsx), `text`, and items in `sections` with `title`, `text`, `names` (added) or `redraws`. A version with no `sections` is drawn with default chips, New drawings and Redrawn, straight off git. pipeline/build-history.mjs gives every chip and item an `anchor` (v<version>-<chip>, v<version>-<chip>-<item>) that the site links, keeps only the drawings the entry carries, and appends anything no item claims in a last untitled group, reported, so a stale list never drops a drawing. Keyed by the version the work ships as, so nothing is re-keyed at the tag. Numbers go in as {names} and {files}. Anything in backticks is set as code, on the page and the Paper board both, the way a post sets an icon name. Where a version has sections they replace the note.",
  "releases": {
+  "1.2.0": {
+   "title": "Table edits, database signs and 64 new drawings",
+   "sections": [
+    {
+     "title": "New drawings",
+     "icon": "sparkles",
+     "sections": [
+      {
+       "title": "Layout",
+       "text": "Every edit a table takes: rows added or removed above and below, columns before and after, rows and columns merged either way, and cells merged and split. A table with row headers, a tree table, a pivot and a struck-through table join them, and three grids gain a plus.",
+       "names": [
+        "grid-2x2-plus",
+        "grid-circles-plus",
+        "grid-squares-plus",
+        "table-cells-merge",
+        "table-cells-rows",
+        "table-cells-split",
+        "table-columns-add-after",
+        "table-columns-add-before",
+        "table-columns-merge-next",
+        "table-columns-merge-previous",
+        "table-columns-remove-after",
+        "table-columns-remove-before",
+        "table-off",
+        "table-pivot",
+        "table-rows",
+        "table-rows-add-above",
+        "table-rows-add-below",
+        "table-rows-merge-next",
+        "table-rows-merge-previous",
+        "table-rows-remove-above",
+        "table-rows-remove-below",
+        "table-tree"
+       ]
+      },
+      {
+       "title": "Devices",
+       "text": "The database gets a plus, a minus, a check, a cross, four arrows and a bolt. The server gets a plus, a minus and a bolt, the phone and the tablet a bolt, and the terminal a plus.",
+       "names": [
+        "database-arrow-down",
+        "database-arrow-left",
+        "database-arrow-right",
+        "database-arrow-up",
+        "database-check",
+        "database-minus",
+        "database-plus",
+        "database-x",
+        "database-zap",
+        "server-minus",
+        "server-plus",
+        "server-zap",
+        "smartphone-zap",
+        "tablet-zap",
+        "terminal-plus"
+       ]
+      },
+      {
+       "title": "Web",
+       "text": "A bookmark, a link, wifi and the house with a plus, the house with a bolt, and a cloud with a terminal prompt.",
+       "names": [
+        "bookmark-plus",
+        "cloud-terminal",
+        "home-plus",
+        "home-zap",
+        "link-plus",
+        "wifi-plus"
+       ]
+      },
+      {
+       "title": "Time",
+       "text": "The hourglass at the start, halfway and at the end, and a calendar and a clock with a bolt.",
+       "names": [
+        "calendar-zap",
+        "clock-zap",
+        "hourglass-end",
+        "hourglass-half",
+        "hourglass-start"
+       ]
+      },
+      {
+       "title": "Charts",
+       "text": "A gauge reading low, a gauge reading high, and a plain loading ring.",
+       "names": [
+        "gauge-high",
+        "gauge-low",
+        "loader-circle"
+       ]
+      },
+      {
+       "title": "Commerce",
+       "text": "The cart and the basket with a plus, and a parcel with a bolt for express delivery.",
+       "names": [
+        "package-zap",
+        "shopping-basket-plus",
+        "shopping-cart-plus"
+       ]
+      },
+      {
+       "title": "Shapes",
+       "text": "A dashed circle with a plus, and progress rings paused and stopped.",
+       "names": [
+        "circle-dashed-plus",
+        "circle-progress-pause",
+        "circle-progress-stop"
+       ]
+      },
+      {
+       "title": "Mail",
+       "text": "A bell and an envelope with a bolt.",
+       "names": [
+        "bell-zap",
+        "mail-zap"
+       ]
+      },
+      {
+       "title": "Files",
+       "text": "A file and a folder with a bolt.",
+       "names": [
+        "file-zap",
+        "folder-zap"
+       ]
+      },
+      {
+       "title": "AI",
+       "text": "A database with the sparkle pair.",
+       "names": [
+        "database-sparkles"
+       ]
+      },
+      {
+       "title": "Actions",
+       "text": "A heart with a plus.",
+       "names": [
+        "heart-plus"
+       ]
+      },
+      {
+       "title": "Users",
+       "text": "A person with a bolt.",
+       "names": [
+        "user-zap"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Redrawn",
+     "icon": "pen",
+     "text": "Twenty-eight drawings that already shipped were drawn again. Before and after below.",
+     "sections": [
+      {
+       "title": "Layout",
+       "text": "The table and all twenty-seven panels keep their outlines. Their filled styles changed: the header row or the docked strip is now the solid part, so a fill reads as a layout rather than a block, and every wall keeps the 2px line.",
+       "redraws": [
+        "panel-bottom",
+        "panel-bottom-close",
+        "panel-bottom-close-dashed",
+        "panel-bottom-dashed",
+        "panel-bottom-open",
+        "panel-bottom-open-dashed",
+        "panel-left",
+        "panel-left-close",
+        "panel-left-close-dashed",
+        "panel-left-dashed",
+        "panel-left-open",
+        "panel-left-open-dashed",
+        "panel-right",
+        "panel-right-close",
+        "panel-right-close-dashed",
+        "panel-right-dashed",
+        "panel-right-open",
+        "panel-right-open-dashed",
+        "panel-top",
+        "panel-top-close",
+        "panel-top-close-dashed",
+        "panel-top-dashed",
+        "panel-top-open",
+        "panel-top-open-dashed",
+        "panels-left-bottom",
+        "panels-right-bottom",
+        "panels-top-left",
+        "table"
+       ]
+      }
+     ]
+    }
+   ]
+  },
   "1.1.1": {
    "title": "Option, sharp at small sizes",
    "sections": [

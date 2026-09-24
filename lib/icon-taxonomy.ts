@@ -199,8 +199,8 @@ export const CATEGORIES = [
   // bar charts and the signal bars, which is where the design file files it too.
   {
     label: "Charts",
-    match: /^(bar-chart|bars-progress|chart-|trending|signal|progress|loader|activity|gauge$)/,
-    blurb: "Trends, bar and column charts, a pyramid, a treemap, signal strength, progress and activity markers and a gauge.",
+    match: /^(bar-chart|bars-progress|chart-|trending|signal|progress|loader|activity|gauge(-|$))/,
+    blurb: "Trends, bar and column charts, a pyramid, a treemap, signal strength, progress and activity markers and the gauges.",
   },
   // Boxes on wires. A diagram says how things relate, where a chart says how
   // much, so the four of them are their own shelf rather than the tail of
@@ -258,10 +258,11 @@ export const CATEGORIES = [
     // `fullscreen` and `fullscreen-exit` sit here with `maximize` and
     // `minimize` for the reason given under Media: brackets and diagonals
     // framing a viewport read as layout, whatever they are used to resize.
-    // `table$` is anchored so it can never take `tablet-*`, which Devices claims
-    // first today but would not if the rows were ever reordered.
-    match: /^(panel|layout|layers|grid|table$|list|align|menu|maximize|minimize|fullscreen)/,
-    blurb: "Panels, layers, grids, the table, lists, alignment, the menu marks and the fullscreen corners.",
+    // `table(-|$)` is anchored so it can never take `tablet-*`, which Devices
+    // claims first today but would not if the rows were ever reordered. The
+    // hyphen lets the table's own edits in (1.2.0: rows, columns, cells, pivot).
+    match: /^(panel|layout|layers|grid|table(-|$)|list|align|menu|maximize|minimize|fullscreen)/,
+    blurb: "Panels, layers, grids, tables and their row, column and cell edits, lists, alignment, the menu marks and the fullscreen corners.",
   },
   {
     label: "Users",
@@ -429,10 +430,11 @@ export const CATEGORIES = [
     // The badged clouds and `cloud-off` are here rather than in Weather, which
     // follows: the sign is inside the cloud, so they read as the state of a
     // sync, and the person looking for one is looking where `globe-check` and
-    // `wifi-x` are. `cloud` and `cloud-rain` stay weather.
+    // `wifi-x` are. `cloud` and `cloud-rain` stay weather. `cloud-terminal` is a
+    // shell run in the cloud, not a sky, so it joins its badged siblings.
     label: "Web",
     match:
-      /^(globe|link|unlink|share|navigation|home|search|settings|bookmark|wifi|cloud-(?:check|x|plus|minus|alert|dot|off|arrow|backup|cog)|earth$)/,
+      /^(globe|link|unlink|share|navigation|home|search|settings|bookmark|wifi|cloud-(?:check|x|plus|minus|alert|dot|off|arrow|backup|cog|terminal)|earth$)/,
     blurb: "Globes and the earth, links, connectivity, sync states and web-scoped actions.",
   },
   {

@@ -227,6 +227,8 @@ const SIZE_KNOWN = new Set([
   'message-square-off',
   // cctv is 20 x 20; its -off paints the slash's 1..23 like the two above
   'cctv-off',
+  // table is 20 x 20; its -off paints the slash's 1..23 like cctv-off's
+  'table-off',
   // The alarm clock's face is r=8, the largest that keeps its bells the house
   // 2 off it, and its bells end one unit outside the face as he approved them,
   // so it paints 20 x 22 and reads as a circle. Reaching 22 wide means bells of
@@ -245,6 +247,14 @@ const SIZE_KNOWN = new Set([
   // asterisk or a divide sign at full size outweighs every sign beside it.
   'asterisk', 'divide', 'equal', 'equal-approximately', 'equal-approximately-not',
   'equal-not', 'x-line-top',
+  // The table's own 20 x 20 frame with the sign on one edge, overhanging it by
+  // 2, so they paint 20 by 22. Every table op keeps the table's frame at its
+  // size (Zafar, 24 Sep 2026: "your tables are changing their size"); run to 20
+  // on the long axis, the frame shrinks to 16 and stops being the table. The
+  // sharp half's square corners classify it as a square; the rounded half,
+  // opened on the edge, falls through, which is why only sharp reports.
+  'table-rows-add-above', 'table-rows-add-below', 'table-rows-remove-above', 'table-rows-remove-below',
+  'table-columns-add-before', 'table-columns-add-after', 'table-columns-remove-before', 'table-columns-remove-after',
 ]);
 /**
  * Drawings of a real product, which keep the product's proportions and radii
@@ -355,14 +365,16 @@ const MAX_SKEW = 1;
  */
 const SKEW_KNOWN = new Set([
   'banknote-2-minus', 'banknote-minus',
-  'bell-check', 'bell-dot', 'bell-minus', 'bell-plus', 'bell-x',
+  // bell-zap (1.2.0) is bell-plus with the sign swapped for the centred bolt: even across, bell-plus's vertical
+  'bell-check', 'bell-dot', 'bell-minus', 'bell-plus', 'bell-x', 'bell-zap',
   'git-graph', 'git-pull-request-arrow',
   // his heading numerals of 17 Sep 2026, one unit short on the right; see SIZE_KNOWN
   'heading-3', 'heading-5', 'heading-6',
   'package-arrow-down', 'package-arrow-left', 'package-arrow-right', 'package-arrow-up',
   'package-check', 'package-minus', 'package-plus', 'package-x',
   'signal-high', 'signal-low', 'signal-medium', 'terminal-cursor',
-  'user', 'user-check', 'user-minus', 'user-plus', 'user-x', 'users',
+  // user-zap (1.2.0) keeps user-plus's vertical 3 and 2; its bolt, centred, is even across
+  'user', 'user-check', 'user-minus', 'user-plus', 'user-x', 'user-zap', 'users',
 ]);
 
 /**

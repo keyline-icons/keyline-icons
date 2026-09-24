@@ -2185,7 +2185,6 @@
       "bookmark-check",
       "bookmark-minus",
       "bookmark-off",
-      "bookmark-plus",
       "bookmark-x"
     ],
     "bluetooth": [
@@ -2215,7 +2214,6 @@
     ],
     "loader": [
       "loader-2",
-      "loader-circle",
       "loader-pinwheel"
     ],
     "maximize": [
@@ -2389,15 +2387,8 @@
       "cloud-sun-rain"
     ],
     "database": [
-      "database-arrow-down",
-      "database-arrow-up",
       "database-backup",
-      "database-check",
-      "database-minus",
-      "database-plus",
-      "database-search",
-      "database-x",
-      "database-zap"
+      "database-search"
     ],
     "eye": [
       "eye-closed",
@@ -2487,7 +2478,6 @@
     ],
     "grid-2x2": [
       "grid-2x2-check",
-      "grid-2x2-plus",
       "grid-2x2-x"
     ],
     "headphones-off": [
@@ -2497,7 +2487,6 @@
       "heart-crack",
       "heart-handshake",
       "heart-minus",
-      "heart-plus",
       "heart-x"
     ],
     "image": [
@@ -2624,8 +2613,7 @@
     "server": [
       "server-cog",
       "server-crash",
-      "server-off",
-      "server-plus"
+      "server-off"
     ],
     "signal": [
       "signal-zero"
@@ -2749,6 +2737,16 @@
     ],
     "forward": [
       "corner-up-right"
+    ],
+    "table-off": [
+      "table-slash"
+    ],
+    "panels-top-left": [
+      "table-layout"
+    ],
+    "cloud-terminal": [
+      "cloud-code",
+      "cloud-shell"
     ]
   },
   "$names": "Names other sets use for a drawing here, keyed by the drawing. Matched against the whole query, never split into words: these are names, not keywords, and folding `message-square` into a keyword list makes a search for `square` return every message icon."
