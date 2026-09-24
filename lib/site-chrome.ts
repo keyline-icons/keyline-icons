@@ -23,6 +23,36 @@ export const NAV_HEIGHT = 68
 export const NAV_HEIGHT_NARROW = 52
 
 /**
+ * A reading column with a rail in its left margin: the changelog's release
+ * ticks and the install page's contents.
+ *
+ * Below `xl` it is the plain column, `max-w-3xl`, and the rail is not drawn.
+ * From `xl` the `main` takes the site container's own box, `max-w-360` and
+ * `px-8`, the one the bar and the footer are laid in, and splits it into three
+ * tracks. The middle one is 44rem, the column's 768 less its 64 of padding, so
+ * the text stands exactly where it stood; the left one runs from the
+ * container's edge to the column, and the rail fills it.
+ *
+ * The rail used to be absolute, `w-64`, hung off the column's left edge. That
+ * met the container's edge at exactly 1280 and drifted inward from there, so
+ * on a wide screen it floated in the margin under nothing (Zafar, 24 Sep
+ * 2026: "align with the container size here and changelog"). A grid track
+ * lines it up with the logo in the bar at every width without measuring the
+ * window, which `100vw` would, scrollbar and all.
+ *
+ * The header and the body take the middle track; the rail takes the left one
+ * in the body's row, so it starts at the first entry rather than beside the
+ * page's heading, and as a grid item it stretches to the body's height, which
+ * is what gives the sticky list inside it the whole page to stick for.
+ */
+export const RAIL_PAGE =
+  "mx-auto w-full max-w-3xl px-6 pb-16 lg:px-8 xl:grid xl:max-w-360 xl:grid-cols-[minmax(0,1fr)_44rem_minmax(0,1fr)]"
+/** The header and the body of a `RAIL_PAGE`. */
+export const RAIL_COLUMN = "min-w-0 xl:col-start-2"
+/** The rail of a `RAIL_PAGE`, beside the body. `pe-6` is its gap to the text. */
+export const RAIL_ASIDE = "hidden pe-6 xl:col-start-1 xl:row-start-2 xl:block"
+
+/**
  * What the set is called.
  *
  * One constant because the name is rendered in five places — the nav's brand,
@@ -47,7 +77,6 @@ export const SET_TITLE = `${SET_NAME} Icons`
 
 /** What the set is for, stated so it claims compatibility and nothing more. */
 export const SET_TAGLINE = "Built for shadcn/ui"
-
 
 /**
  * The licence, named in one place because three of them have to agree.

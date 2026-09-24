@@ -10,7 +10,9 @@ import {
   postVersionLabel,
 } from "@/lib/blog"
 import { blogPostJsonLd, pageMetadata } from "@/lib/seo"
+import { RAIL_ASIDE, RAIL_COLUMN, RAIL_PAGE } from "@/lib/site-chrome"
 import { BlogBody } from "@/components/blog-body"
+import { PageContents } from "@/components/page-contents"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
 import {
@@ -88,6 +90,15 @@ export default async function Page({
   if (!post) notFound()
 
   const version = postVersionLabel(post)
+  /*
+    The post's headings, for the rail. Read off the body the headings render
+    from, so a heading added, renamed or given a new id moves the rail with
+    it; there is no second list to keep in step. A post with fewer than two
+    has nothing to navigate between and draws no rail.
+  */
+  const headings = post.body.flatMap((block) =>
+    block.kind === "h2" ? [{ id: block.id, title: block.text }] : []
+  )
 
   return (
     <>
@@ -96,9 +107,11 @@ export default async function Page({
       {/*
         The prose measure. This is the one page on the site that is genuinely
         prose end to end, and prose past about 75 characters a line stops being
-        readable however much width the window offers.
+        readable however much width the window offers. `RAIL_PAGE` keeps that
+        measure and adds the margin rail the changelog and the install page
+        have, from `xl`; the reasoning is on the constant.
       */}
-      <main className="mx-auto w-full max-w-3xl px-6 pb-16 lg:px-8">
+      <main className={RAIL_PAGE}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -121,53 +134,72 @@ export default async function Page({
           is the violation, and it is what happens the moment the two are
           written separately.
         */}
-        <Breadcrumb className="pt-6">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink render={<Link href="/blog" />}>
-                Blog
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage className="line-clamp-1">
-                {postHeadline(post)}
-              </BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+        <div className={RAIL_COLUMN}>
+          <Breadcrumb className="pt-6">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink render={<Link href="/blog" />}>
+                  Blog
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="line-clamp-1">
+                  {postHeadline(post)}
+                </BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
 
-        <header className="flex flex-col gap-4 pt-5 pb-8">
-          <h1 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-            {postHeadline(post)}
-          </h1>
-          <p className="text-lg leading-relaxed text-balance text-muted-foreground">
-            {post.standfirst}
-          </p>
-          <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
-            {/*
+          <header className="flex flex-col gap-4 pt-5 pb-8">
+            <h1 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+              {postHeadline(post)}
+            </h1>
+            <p className="text-lg leading-relaxed text-balance text-muted-foreground">
+              {post.standfirst}
+            </p>
+            <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+              {/*
               The version badge the index entry carries, repeated here so a
               reader arriving from a search rather than from the index gets the
               same fact in the same shape. "Unreleased" while no tag covers it.
             */}
-            {version && (
-              <span className="rounded-md bg-muted px-2 py-0.5 font-mono text-[11px] tracking-tight text-foreground">
-                {version}
-              </span>
-            )}
-            {/*
+              {version && (
+                <span className="rounded-md bg-muted px-2 py-0.5 font-mono text-[11px] tracking-tight text-foreground">
+                  {version}
+                </span>
+              )}
+              {/*
               No byline. There was one, carrying Zafar's name and linking his
               handle, and it claimed something untrue: he did the work these
               posts are about, and did not write them. The set is the author,
               which is what the structured data now says too.
             */}
-            <time dateTime={post.date}>{postDateLabel(post.date)}</time>
-            <span aria-hidden="true"> · </span>
-            {post.readingMinutes} min read
-          </p>
-        </header>
+              <time dateTime={post.date}>{postDateLabel(post.date)}</time>
+              <span aria-hidden="true"> · </span>
+              {post.readingMinutes} min read
+            </p>
+          </header>
+        </div>
 
-        <article>
+        {/*
+          The post's headings in the left margin, the same rail as the install
+          page's contents (Zafar, 24 Sep 2026: "the blog should also get one").
+          It starts level with the article rather than the heading, like the
+          changelog's ticks start at the first release, and there is no chip
+          version below `xl`: a post is read top to bottom, and a row of
+          headings over its first paragraph would be a contents page in front
+          of an essay.
+        */}
+        {headings.length > 1 && (
+          <aside className={RAIL_ASIDE}>
+            <div className="sticky top-24">
+              <PageContents entries={headings} />
+            </div>
+          </aside>
+        )}
+
+        <article className={RAIL_COLUMN}>
           <BlogBody post={post} />
         </article>
       </main>
