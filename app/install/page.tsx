@@ -374,6 +374,66 @@ npm i -D @iconify/tailwind4
             </p>
           </Section>
 
+          {/*
+            The other side of that trade, and the reason there is still no
+            `@keyline-icons/vue`. unplugin-icons reads the same Iconify copy
+            from `@iconify-json/keyline-icons` at build time and compiles each
+            import into a component for whichever framework it is told, so a
+            Vue, Svelte or Solid app gets per-icon imports, bundled and typed,
+            with no package of ours to publish every release. A native Vue and
+            Svelte package was offered in keyline-icons#4 and declined for
+            exactly that reason.
+
+            The compiler names and the default export on `~icons/*` were read
+            off unplugin-icons 24.0.0's README and its `types/` declarations
+            rather than remembered. `types/svelte` is Svelte 5; 4 and 3 have
+            entries of their own.
+          */}
+          <Section id="unplugin-icons" title="Bundle them at build time">
+            <p>
+              To ship the drawings inside your bundle instead,{" "}
+              <a
+                href="https://github.com/unplugin/unplugin-icons"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-0.5 underline underline-offset-2 hover:text-foreground"
+              >
+                unplugin-icons
+                <ArrowUpRight className="size-3" />
+                <span className="sr-only">{" (opens in a new tab)"}</span>
+              </a>{" "}
+              reads the same Iconify copy at build time and compiles each icon
+              you import into a component for your framework. Only what you
+              import is bundled, and nothing is fetched at runtime.
+            </p>
+            <Code>{`npm i -D unplugin-icons @iconify-json/${ICONIFY_PREFIX}`}</Code>
+            <Code>{`// vite.config.ts
+import Icons from "unplugin-icons/vite"
+
+plugins: [
+  Icons({ compiler: "vue3" }),   // or "svelte", "solid"
+]`}</Code>
+            <Code>{`import IconBell from "~icons/${ICONIFY_PREFIX}/bell"
+import IconBellSharpFill from "~icons/${ICONIFY_PREFIX}/bell-sharp-fill"
+
+<IconBell class="size-4" />
+<IconBellSharpFill />`}</Code>
+            <p>
+              Names take the same suffixes as above. Webpack, Rollup, esbuild
+              and Nuxt have entry points of their own beside <code>/vite</code>.
+              In TypeScript, add <code>unplugin-icons/types/vue</code> or{" "}
+              <code>unplugin-icons/types/svelte</code> to{" "}
+              <code>compilerOptions.types</code> so the <code>~icons/</code>{" "}
+              imports resolve.
+            </p>
+            <p>
+              An icon with no size of its own renders at 1.2em, the
+              plugin&apos;s default, so it follows the text around it rather
+              than the 24px the React package draws at. Pass{" "}
+              <code>scale: 1</code> to make that 1em.
+            </p>
+          </Section>
+
           <Section id="sizing" title="Sizing inside shadcn components">
             <p>
               {/*
