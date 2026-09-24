@@ -74,6 +74,8 @@ pipeline/
   build.mjs                 raw/ -> icons/
   lint.mjs                  geometry + coverage rules
   build-react.mjs           icons/stroke/ -> components/icons/index.tsx
+  build-vue.mjs             icons/ -> packages/vue/src/
+  build-svelte.mjs          icons/ -> packages/svelte/src/
   build-brand.mjs           public/logo/logo.svg -> app/ icons
   build-paper.mjs           icons/ -> previews/paper/ HTML sheets
   check-paper.mjs           check the Paper file against previews/paper/
@@ -1098,6 +1100,7 @@ each directory:
 ```bash
 cd packages/react && npm publish && cd ../..
 cd packages/react-native && npm install && npm publish && cd ../..
+cd packages/vue && npm install && npm publish && cd ../..
 cd packages/cli && npm publish && cd ../..
 cd packages/mcp && npm publish && cd ../..
 ```

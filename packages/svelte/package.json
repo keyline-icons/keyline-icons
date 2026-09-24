@@ -1,0 +1,83 @@
+{
+  "name": "@keyline-icons/svelte",
+  "version": "0.0.1",
+  "description": "Icons on one 24×24 grid, as Svelte components in four styles: stroke, two-tone, duotone and fill, each in rounded or sharp corners.",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Keyline Icons (https://keylineicons.com)",
+  "homepage": "https://keylineicons.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keyline-icons/keyline-icons.git",
+    "directory": "packages/svelte"
+  },
+  "bugs": "https://github.com/keyline-icons/keyline-icons/issues",
+  "keywords": [
+    "icons",
+    "svelte",
+    "svelte5",
+    "svg",
+    "icon-set",
+    "tailwind"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./two-tone": {
+      "types": "./dist/two-tone.d.ts",
+      "default": "./dist/two-tone.js"
+    },
+    "./duotone": {
+      "types": "./dist/duotone.d.ts",
+      "default": "./dist/duotone.js"
+    },
+    "./fill": {
+      "types": "./dist/fill.d.ts",
+      "default": "./dist/fill.js"
+    },
+    "./sharp": {
+      "types": "./dist/sharp.d.ts",
+      "default": "./dist/sharp.js"
+    },
+    "./sharp/two-tone": {
+      "types": "./dist/sharp-two-tone.d.ts",
+      "default": "./dist/sharp-two-tone.js"
+    },
+    "./sharp/duotone": {
+      "types": "./dist/sharp-duotone.d.ts",
+      "default": "./dist/sharp-duotone.js"
+    },
+    "./sharp/fill": {
+      "types": "./dist/sharp-fill.d.ts",
+      "default": "./dist/sharp-fill.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "peerDependencies": {
+    "svelte": ">=4.0.0"
+  },
+  "devDependencies": {
+    "@sveltejs/package": "^2.3.10",
+    "svelte": "^5.0.0",
+    "typescript": "^5"
+  },
+  "scripts": {
+    "build": "svelte-package",
+    "prepublishOnly": "svelte-package"
+  }
+}

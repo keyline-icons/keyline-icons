@@ -291,22 +291,42 @@ import { Folder } from "@keyline-icons/react-native/duotone"
             </p>
           </Section>
 
+          <Section id="vue" title="Install the Vue package">
+            <p>
+              Every icon is also a Vue 3 component, generated from the same
+              SVGs with full tree-shaking support and the same subpath exports.
+            </p>
+            <Code>{`npm i @keyline-icons/vue`}</Code>
+            <Code>{`<script setup>
+import { Check, Plus, Settings } from "@keyline-icons/vue"
+</script>
+
+<template>
+  <Check class="size-4" />
+  <Plus :size="16" />
+  <Settings :stroke-width="1.5" />
+</template>`}</Code>
+          </Section>
+
+          <Section id="svelte" title="Install the Svelte package">
+            <p>
+              Every icon is also a Svelte component, generated from the same
+              SVGs with full tree-shaking support and the same subpath exports.
+            </p>
+            <Code>{`npm i @keyline-icons/svelte`}</Code>
+            <Code>{`<script>
+import { Check, Plus, Settings } from "@keyline-icons/svelte"
+</script>
+
+<Check class="size-4" />
+<Plus size={16} />
+<Settings stroke-width={1.5} />`}</Code>
+          </Section>
+
           {/*
-            The section that stops this page reading as React-only.
- 
-            It sits after both install paths and before everything below, which
-            is React-specific from here down: sizing inside Button, stroke
-            weight, the lucide swap. A reader who is not on React should meet
-            their answer before the page stops being about them, rather than
-            after five sections that assume a `className`.
- 
-            **None of these packages are ours, and the section says so.** They
-            are Iconify's, reading the set from its published copy, which is
-            also why there is no `@keyline-icons/vue` to look for on npm. A page
-            that showed a Vue install without naming whose package it was would
-            send the next reader hunting for the matching scope.
+            The section that covers other framework ecosystems.
           */}
-          <Section id="frameworks" title="Vue, Svelte and everything else">
+          <Section id="frameworks" title="Everything else (Iconify & Web Components)">
             <p>
               The whole set is published on{" "}
               <a
@@ -320,25 +340,12 @@ import { Folder } from "@keyline-icons/react-native/duotone"
                 <span className="sr-only">{" (opens in a new tab)"}</span>
               </a>{" "}
               as <code>{ICONIFY_PREFIX}</code>, all {published.toLocaleString()}{" "}
-              drawings, which is how every framework without a package here gets
-              it. Iconify re-imports from the repository, so it carries whatever
-              the last release drew.
+              drawings, which is how Solid, Angular and plain HTML get it.
             </p>
-            <Code>{`npm i @iconify/vue      # Vue 3
-npm i @iconify/svelte   # Svelte 5`}</Code>
-            {/*
-              The two imports differ and the comment is the point: Vue exports
-              `Icon` by name and Svelte exports it as its default, which was
-              read off each package's own type definitions rather than
-              remembered. Getting it backwards puts a line on this page that
-              does not compile.
-            */}
-            <Code>{`import { Icon } from "@iconify/vue"   // named
-import Icon from "@iconify/svelte"    // default
-
-<Icon icon="${ICONIFY_PREFIX}:bell" />
-<Icon icon="${ICONIFY_PREFIX}:bell-fill" width="16" />
-<Icon icon="${ICONIFY_PREFIX}:bell-sharp-two-tone" />`}</Code>
+            <Code>{`npm i iconify-icon`}</Code>
+            <Code>{`<iconify-icon icon="${ICONIFY_PREFIX}:bell"></iconify-icon>
+<iconify-icon icon="${ICONIFY_PREFIX}:bell-fill" width="16"></iconify-icon>
+<iconify-icon icon="${ICONIFY_PREFIX}:bell-sharp-two-tone"></iconify-icon>`}</Code>
             <p>
               Names carry the style rather than the path doing it, which is
               Iconify&apos;s convention for a set with weights and not a choice

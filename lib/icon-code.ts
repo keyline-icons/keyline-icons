@@ -12,6 +12,8 @@ export const FORMATS = [
   { value: "svg", label: "SVG", lang: "html" },
   { value: "jsx", label: "JSX", lang: "tsx" },
   { value: "react", label: "React", lang: "tsx" },
+  { value: "vue", label: "Vue", lang: "vue" },
+  { value: "svelte", label: "Svelte", lang: "svelte" },
   { value: "cli", label: "CLI", lang: "bash" },
 ] as const
 
@@ -20,29 +22,18 @@ export type Format = (typeof FORMATS)[number]["value"]
 /** The published packages, named once. */
 export const REACT_PACKAGE = "@keyline-icons/react"
 export const REACT_NATIVE_PACKAGE = "@keyline-icons/react-native"
+export const VUE_PACKAGE = "@keyline-icons/vue"
+export const SVELTE_PACKAGE = "@keyline-icons/svelte"
 export const CLI_PACKAGE = "@keyline-icons/cli"
 export const MCP_PACKAGE = "@keyline-icons/mcp"
 
 /**
- * The set on Iconify, and the two entry points that read it.
+ * The set on Iconify, and the entry point that reads it.
  *
- * Vue and Svelte have no package of this project's own and are not getting one.
- * The set is published at <https://icon-sets.iconify.design/keyline-icons/>,
- * all 2994 drawings, re-imported from `main` several times a week, and
- * Iconify's own components render it in React, Vue, Svelte, Solid and plain web
- * components. A `@keyline-icons/vue` would be one more tarball to build,
- * version, publish and keep in step, for reach that already exists.
- *
- * **The prefix is the whole name on that side.** `keyline-icons:bell` is
- * stroke, and every other treatment is a suffix on it: `-two-tone`, `-duotone`,
- * `-fill`, `-sharp`, `-sharp-two-tone`, `-sharp-duotone`, `-sharp-fill`. That is Iconify's convention for a
- * set with weights rather than a decision made here, which is why it does not
- * go through `importPath` and must not be made to.
+ * The set is published at <https://icon-sets.iconify.design/keyline-icons/>.
  */
 export const ICONIFY_PREFIX = "keyline-icons"
 export const ICONIFY_URL = "https://icon-sets.iconify.design/keyline-icons/"
-export const VUE_PACKAGE = "@iconify/vue"
-export const SVELTE_PACKAGE = "@iconify/svelte"
 
 /**
  * The four ways to say "install this" and "run this once".
@@ -69,8 +60,8 @@ const manager = (pm: PackageManager) =>
  * The whole set as a dependency.
  *
  * The package is a parameter because it is not always this project's: React
- * installs `@keyline-icons/react`, Vue and Svelte install Iconify's component
- * for their framework. It defaults to the React package, so `reactSnippet`
+ * installs `@keyline-icons/react`, Vue installs `@keyline-icons/vue`, Svelte
+ * installs `@keyline-icons/svelte`. It defaults to the React package, so `reactSnippet`
  * below and every existing caller keep the line they already had.
  */
 export const installSet = (pm: PackageManager, pkg: string = REACT_PACKAGE) =>
@@ -184,6 +175,16 @@ function jsxSnippet(art: StyleArt, { size, stroke }: Options) {
  * written: `size={24}` and `strokeWidth={2}` are what the component already
  * does, and spelling them out teaches the reader they are required.
  */
+export const vueImportPath = (style: Style, corners: Corners = "regular") => {
+  const base = corners === "sharp" ? `${VUE_PACKAGE}/sharp` : VUE_PACKAGE
+  return style === "stroke" ? base : `${base}/${style}`
+}
+
+export const svelteImportPath = (style: Style, corners: Corners = "regular") => {
+  const base = corners === "sharp" ? `${SVELTE_PACKAGE}/sharp` : SVELTE_PACKAGE
+  return style === "stroke" ? base : `${base}/${style}`
+}
+
 function reactSnippet(
   name: string,
   style: Style,
@@ -198,8 +199,52 @@ function reactSnippet(
   ].join("")
 
   return (
-    `${installSet(pm)}\n\n` +
+    `${installSet(pm, REACT_PACKAGE)}\n\n` +
     `import { ${component} } from "${importPath(style, corners)}"\n\n` +
+    `<${component}${props} />`
+  )
+}
+
+function vueSnippet(
+  name: string,
+  style: Style,
+  art: StyleArt,
+  { size, stroke, pm, corners }: Options
+) {
+  const component = componentName(name)
+  const props = [
+    size === 24 ? "" : ` :size="${size}"`,
+    art.root["stroke-width"] && stroke !== 2 ? ` :stroke-width="${stroke}"` : "",
+  ].join("")
+
+  return (
+    `${installSet(pm, VUE_PACKAGE)}\n\n` +
+    `<script setup>\n` +
+    `import { ${component} } from "${vueImportPath(style, corners)}"\n` +
+    `</script>\n\n` +
+    `<template>\n` +
+    `  <${component}${props} />\n` +
+    `</template>`
+  )
+}
+
+function svelteSnippet(
+  name: string,
+  style: Style,
+  art: StyleArt,
+  { size, stroke, pm, corners }: Options
+) {
+  const component = componentName(name)
+  const props = [
+    size === 24 ? "" : ` size={${size}}`,
+    art.root["stroke-width"] && stroke !== 2 ? ` stroke-width={${stroke}}` : "",
+  ].join("")
+
+  return (
+    `${installSet(pm, SVELTE_PACKAGE)}\n\n` +
+    `<script>\n` +
+    `  import { ${component} } from "${svelteImportPath(style, corners)}"\n` +
+    `</script>\n\n` +
     `<${component}${props} />`
   )
 }
@@ -218,6 +263,10 @@ export function snippet(
       return jsxSnippet(art, options)
     case "react":
       return reactSnippet(name, style, art, options)
+    case "vue":
+      return vueSnippet(name, style, art, options)
+    case "svelte":
+      return svelteSnippet(name, style, art, options)
     case "cli":
       return installIcon(options.pm, name, style, options.corners)
   }

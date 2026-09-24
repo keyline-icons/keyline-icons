@@ -153,6 +153,16 @@ const CLAIMS = [
   ['packages/react-native/README.md', /\/\/ two-tone, ([\d,]+) icons/, 'two-tone'],
   ['packages/react-native/README.md', /\/\/ duotone, ([\d,]+) icons/, 'duotone'],
   ['packages/react-native/README.md', /\/\/ fill, +([\d,]+) icons/, 'fill'],
+  ['packages/vue/README.md', /^([\d,]+) icons on one/m, 'icons'],
+  ['packages/vue/README.md', /\/\/ stroke, +([\d,]+) icons/, 'stroke'],
+  ['packages/vue/README.md', /\/\/ two-tone, ([\d,]+) icons/, 'two-tone'],
+  ['packages/vue/README.md', /\/\/ duotone, ([\d,]+) icons/, 'duotone'],
+  ['packages/vue/README.md', /\/\/ fill, +([\d,]+) icons/, 'fill'],
+  ['packages/svelte/README.md', /^([\d,]+) icons on one/m, 'icons'],
+  ['packages/svelte/README.md', /\/\/ stroke, +([\d,]+) icons/, 'stroke'],
+  ['packages/svelte/README.md', /\/\/ two-tone, ([\d,]+) icons/, 'two-tone'],
+  ['packages/svelte/README.md', /\/\/ duotone, ([\d,]+) icons/, 'duotone'],
+  ['packages/svelte/README.md', /\/\/ fill, +([\d,]+) icons/, 'fill'],
   /* This one was not here, and it went stale exactly as predicted: the plugin
      README said 484 names against an actual 503, and nothing caught it because
      nothing was looking. Every README that states a count belongs in this list,

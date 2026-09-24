@@ -76,6 +76,8 @@ const OWNED = [
   "components/icons",
   "packages/react/src",
   "packages/react-native/src",
+  "packages/vue/src",
+  "packages/svelte/src",
   "packages/mcp/icons.json",
   "packages/cli/icons.json",
   "packages/figma-plugin/icons.json",
@@ -84,6 +86,8 @@ const OWNED = [
   "README.md",
   "packages/react/README.md",
   "packages/react-native/README.md",
+  "packages/vue/README.md",
+  "packages/svelte/README.md",
   /* The other two files `check-readmes --fix` rewrites. It is run above, by
      `ship` itself, so leaving these out does not merely fail to stage work
      someone else did: it edits them and then walks past them, and the counts
@@ -107,6 +111,8 @@ step("Regenerate")
 for (const [script, label] of [
   ["build.mjs", "icons/"],
   ["build-react.mjs", "React modules"],
+  ["build-vue.mjs", "Vue modules"],
+  ["build-svelte.mjs", "Svelte modules"],
   ["build-data.mjs", "data bundles"],
 ]) {
   if (node(script).code !== 0) die(`${label} failed to build`)

@@ -47,23 +47,13 @@ import { cn } from "@/lib/utils"
  * What the set can be installed into, what installing it costs, and what you
  * type afterwards. Four entries, and the last column is the point: the chips
  * do not select a label, they select a command and the snippet under it.
- *
- * **Only React and React Native install something of ours.** Vue and Svelte
- * install Iconify's component for their framework, which reads the set from
- * `ICONIFY_PREFIX` over Iconify's API. That is why `pkg` is here rather than
- * derived: two of these four are somebody else's package, and a table that
- * assumed the scope would quietly emit `@keyline-icons/vue`, which does not
- * exist and is not planned. See the note on `ICONIFY_PREFIX` in
- * `lib/icon-code.ts` for why it is not going to.
+ * **React, React Native, Vue, and Svelte all install native packages of ours.**
+ * They export components directly generated from the SVGs under `icons/`.
  *
  * `ready` stays, and all four are true today. It is a fact about what a reader
  * can run rather than a plan: a name here with `ready: true` is a command on the
  * landing page that has to work, so anything added before its install resolves
  * goes in as `false` and arrives disabled.
- *
- * The Vue and Svelte imports differ on purpose and are not a typo to tidy:
- * `@iconify/vue` exports `Icon` as a named export and `@iconify/svelte` exports
- * it as its default. Both were read off the packages' own type definitions.
  */
 const FRAMEWORKS = [
   {
@@ -112,15 +102,19 @@ const FRAMEWORKS = [
     logo: VueLogo,
     ready: true,
     pkg: VUE_PACKAGE,
-    mark: "triangle-alert",
-    markClass: "text-orange-400 dark:text-orange-600",
-    hint: "Served by Iconify, not a package of ours",
-    note: "Every icon, through Iconify's Vue component",
-    usage: `import { Icon } from "${VUE_PACKAGE}"
+    mark: "circle-check",
+    markClass: "text-green-400 dark:text-green-600",
+    hint: "This project's own package",
+    note: "Every icon, as Vue 3 components",
+    usage: `<script setup>
+import { Bell, Check, Search } from "${VUE_PACKAGE}"
+</script>
 
-<Icon icon="${ICONIFY_PREFIX}:bell" class="size-4" />
-<Icon icon="${ICONIFY_PREFIX}:check" width="16" />
-<Icon icon="${ICONIFY_PREFIX}:search-duotone" />`,
+<template>
+  <Bell class="size-4" />
+  <Check :size="16" />
+  <Search :stroke-width="1.5" />
+</template>`,
   },
   {
     value: "svelte",
@@ -128,15 +122,17 @@ const FRAMEWORKS = [
     logo: SvelteLogo,
     ready: true,
     pkg: SVELTE_PACKAGE,
-    mark: "triangle-alert",
-    markClass: "text-orange-400 dark:text-orange-600",
-    hint: "Served by Iconify, not a package of ours",
-    note: "Every icon, through Iconify's Svelte component",
-    usage: `import Icon from "${SVELTE_PACKAGE}"
+    mark: "circle-check",
+    markClass: "text-green-400 dark:text-green-600",
+    hint: "This project's own package",
+    note: "Every icon, as Svelte components",
+    usage: `<script>
+import { Bell, Check, Search } from "${SVELTE_PACKAGE}"
+</script>
 
-<Icon icon="${ICONIFY_PREFIX}:bell" class="size-4" />
-<Icon icon="${ICONIFY_PREFIX}:check" width="16" />
-<Icon icon="${ICONIFY_PREFIX}:search-duotone" />`,
+<Bell class="size-4" />
+<Check size={16} />
+<Search stroke-width={1.5} />`,
   },
 ] as const
 

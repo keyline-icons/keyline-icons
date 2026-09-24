@@ -241,11 +241,9 @@ export function installFaq(): FaqEntry[] {
     {
       question: `Can I use the set without React?`,
       answer:
-        `Yes, two ways. The set is on Iconify as ${ICONIFY_PREFIX}, so ${VUE_PACKAGE}, ${SVELTE_PACKAGE} ` +
-        `and the iconify-icon web component cover Vue, Svelte, Angular, Solid and plain HTML between them, ` +
-        `none of them a package of ours. Or take the files: icons/<style>/<name>.svg in the repository are ` +
-        `plain normalised SVGs with no wrapper, no ids and no classes to strip out. Treat those as build ` +
-        `output: to change a drawing, change it in raw/ and rebuild.`,
+        `Yes. For Vue 3, install ${VUE_PACKAGE}, our native Vue component package. For Svelte, install ${SVELTE_PACKAGE}, ` +
+        `our native Svelte component package. For Angular, Solid and plain HTML, the set is on Iconify as ${ICONIFY_PREFIX} ` +
+        `and iconify-icon. Or take the files: icons/<style>/<name>.svg in the repository are plain normalised SVGs with no wrapper.`,
     },
     {
       question: `Is the set free for commercial use?`,

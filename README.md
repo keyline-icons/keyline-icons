@@ -106,6 +106,40 @@ import { Folder } from "@keyline-icons/react-native/duotone"
 A native view has no CSS to inherit from, so colour is a `color` prop rather
 than `currentColor`.
 
+**Import them in Vue.** `@keyline-icons/vue` exports one Vue 3 component per
+icon, with the same entry points and export names:
+
+```bash
+npm i @keyline-icons/vue
+```
+
+```vue
+<script setup>
+import { ArrowUpRight, Check, Menu } from "@keyline-icons/vue"
+</script>
+
+<template>
+  <Check class="size-4" />
+  <ArrowUpRight :size="16" />
+</template>
+```
+
+**Import them in Svelte.** `@keyline-icons/svelte` exports one Svelte component per
+icon, with the same entry points and export names:
+
+```bash
+npm i @keyline-icons/svelte
+```
+
+```svelte
+<script>
+import { ArrowUpRight, Check, Menu } from "@keyline-icons/svelte"
+</script>
+
+<Check class="size-4" />
+<ArrowUpRight size={16} />
+```
+
 **Own the source with the shadcn CLI.** The registry is served by the site, so
 adding the set to a project is one entry in `components.json`:
 
@@ -146,9 +180,9 @@ claude mcp add keyline-icons -- npx -y @keyline-icons/mcp
 Anything else that speaks MCP over stdio runs the same command; the package's
 own README has the JSON.
 
-**Use them outside React.** The whole set is on
+**Use them outside React, Vue, and Svelte.** The whole set is on
 [Iconify](https://icon-sets.iconify.design/keyline-icons/) as `keyline-icons`,
-which covers Vue, Svelte, Solid, web components and the Tailwind plugin. Stroke
+which covers Solid, Angular, web components and the Tailwind plugin. Stroke
 is the bare name and everything else is a suffix on it:
 
 ```

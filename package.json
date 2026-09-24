@@ -21,6 +21,10 @@
     "keywords:check": "node pipeline/build-keywords.mjs --check",
     "icons:react": "node pipeline/build-react.mjs",
     "icons:react:check": "node pipeline/build-react.mjs --check",
+    "icons:vue": "node pipeline/build-vue.mjs",
+    "icons:vue:check": "node pipeline/build-vue.mjs --check",
+    "icons:svelte": "node pipeline/build-svelte.mjs",
+    "icons:svelte:check": "node pipeline/build-svelte.mjs --check",
     "brand:build": "node pipeline/build-brand.mjs",
     "brand:check": "node pipeline/build-brand.mjs --check",
     "cover:build": "node pipeline/build-cover.mjs",
@@ -41,7 +45,7 @@
     "readmes:check": "node pipeline/check-readmes.mjs",
     "readmes:fix": "node pipeline/check-readmes.mjs --fix",
     "icons:figma": "node pipeline/check-figma.mjs",
-    "icons:ci": "next typegen && node pipeline/build.mjs --check && node pipeline/build-react.mjs --check && node pipeline/build-cover.mjs --check && node pipeline/build-community.mjs --check && node pipeline/build-paper.mjs --check && node pipeline/build-data.mjs --check && node pipeline/lint.mjs && node pipeline/check-demos.mjs && node pipeline/check-featured.mjs && node pipeline/check-search.mjs && node pipeline/check-versions.mjs && node pipeline/check-categories.mjs && node pipeline/check-usage.mjs && node pipeline/check-readmes.mjs && tsc --noEmit",
+    "icons:ci": "next typegen && node pipeline/build.mjs --check && node pipeline/build-react.mjs --check && node pipeline/build-vue.mjs --check && node pipeline/build-svelte.mjs --check && node pipeline/build-cover.mjs --check && node pipeline/build-community.mjs --check && node pipeline/build-paper.mjs --check && node pipeline/build-data.mjs --check && node pipeline/lint.mjs && node pipeline/check-demos.mjs && node pipeline/check-featured.mjs && node pipeline/check-search.mjs && node pipeline/check-versions.mjs && node pipeline/check-categories.mjs && node pipeline/check-usage.mjs && node pipeline/check-readmes.mjs && tsc --noEmit",
     "ship": "node pipeline/ship.mjs",
     "data:build": "node pipeline/build-data.mjs",
     "data:check": "node pipeline/build-data.mjs --check"
@@ -78,6 +82,8 @@
     "prettier": "^3.8.3",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vue": "^3.5.0",
+    "svelte": "^5.57.1"
   }
 }

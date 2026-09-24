@@ -31,5 +31,5 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "packages/react-native"]
+  "exclude": ["node_modules", "packages/react-native", "packages/vue", "packages/svelte"]
 }

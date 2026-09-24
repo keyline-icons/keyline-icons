@@ -13,6 +13,8 @@ them.** The source of truth is `raw/`, and everything else is built from it:
 raw/<name>/*.svg   ->  icons/<style>/<name>.svg   ->  components/icons/index.tsx
                                                   ->  packages/react/src/index.tsx
                                                   ->  packages/react-native/src/index.tsx
+                                                  ->  packages/vue/src/index.ts
+                                                  ->  packages/svelte/src/index.ts
 ```
 
 A hand-edit to a generated file passes review, gets committed, and is silently
