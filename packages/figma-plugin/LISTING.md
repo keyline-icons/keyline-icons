@@ -107,7 +107,7 @@ Two corner treatments, and every drawing has both. Rounded is the keyline the se
 
 60 icons also come in a square- form and 65 in a circle- form, so a container is a search away rather than a second drawing.
 
-Search knows more than the file names. 1,017 icons carry curated words, so "south" finds arrow-down, "hamburger" finds menu and "trash" finds bin. Paste a component name straight out of your code and it resolves: CheckCircle2 finds circle-check.
+Search knows more than the file names. 1,053 icons carry curated words, so "south" finds arrow-down, "hamburger" finds menu and "trash" finds bin. Paste a component name straight out of your code and it resolves: CheckCircle2 finds circle-check.
 
 Browse the set the way the site files it, shelf by shelf, with every shelf a click away from wherever you are. The icons you used last wait at the top, and the panel opens next time on the style, corners and size you left it on.
 
