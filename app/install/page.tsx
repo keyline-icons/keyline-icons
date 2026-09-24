@@ -6,18 +6,30 @@ import { artOf, CORNERS } from "@/components/glyph"
 import { loadIcons, STYLES } from "@/lib/icons"
 import { faqJsonLd, pageMetadata } from "@/lib/seo"
 import { SET_REPO_URL } from "@/lib/site-chrome"
+import {
+  ReactLogo,
+  ShadcnLogo,
+  SvelteLogo,
+  ViteLogo,
+  VueLogo,
+} from "@/components/brand-logos"
 import { Faq } from "@/components/faq"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
 import { Button } from "@/components/ui/button"
 import {
+  ArrowInRightDashedPanel,
   ArrowUpRight,
   Bell,
   Check,
   ChevronDown,
+  CircleQuestion,
+  Copy,
   Download,
+  PenLine,
   Plus,
   Settings,
+  Shapes,
   Bin,
   User,
 } from "@/components/icons"
@@ -69,18 +81,36 @@ function Code({ children }: { children: string }) {
   )
 }
 
+/**
+ * Every title leads with a mark, because the page is eleven sections of grey
+ * prose and snippets and a reader scrolling for their framework had nothing to
+ * catch on. A section about a product carries that product's logo, and the
+ * rest carry a glyph from the set, so the titles still line up and the page's
+ * own chrome stays drawn in its own icons.
+ *
+ * The mark sits in a box one line tall and the row aligns to the top, so a
+ * title that wraps on a phone keeps its mark beside the first line rather than
+ * centred between two.
+ */
 function Section({
   id,
   title,
+  mark,
   children,
 }: {
   id: string
   title: string
+  mark: React.ReactNode
   children: React.ReactNode
 }) {
   return (
     <section id={id} className="scroll-mt-24 border-t pt-10">
-      <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
+      <h2 className="flex items-start gap-2.5 text-xl font-semibold tracking-tight">
+        <span className="flex h-7 shrink-0 items-center gap-1.5 [&_svg]:size-5">
+          {mark}
+        </span>
+        {title}
+      </h2>
       <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
         {children}
       </div>
@@ -166,7 +196,7 @@ export default async function Page() {
         </header>
 
         <div className="flex flex-col gap-10">
-          <Section id="copy" title="Copy a single icon">
+          <Section id="copy" title="Copy a single icon" mark={<Copy />}>
             <p>
               The fastest path, and it needs no install. Click any icon on the{" "}
               {/*
@@ -190,7 +220,11 @@ export default async function Page() {
             </p>
           </Section>
 
-          <Section id="install" title="Install the React package">
+          <Section
+            id="install"
+            title="Install the React package"
+            mark={<ReactLogo />}
+          >
             <p>
               Every icon is also a React component, generated from the same
               SVGs, so the two can never disagree.
@@ -212,7 +246,11 @@ export default async function Page() {
             rather than later, because a caveat that outlives its reason sends
             people to copy files they could have installed.
           */}
-          <Section id="registry" title="Install with the shadcn CLI">
+          <Section
+            id="registry"
+            title="Install with the shadcn CLI"
+            mark={<ShadcnLogo />}
+          >
             {/*
               This named `package.json` first until someone ran it. shadcn's
               CLI reads registries from `components.json` only: through 4.13.0
@@ -272,7 +310,11 @@ npx shadcn search @keyline                # browse the whole set`}</Code>
             snippet above leans on `className`, and a native reader copying one
             gets an icon that ignores their theme.
           */}
-          <Section id="react-native" title="Install in React Native">
+          <Section
+            id="react-native"
+            title="Install in React Native"
+            mark={<ReactLogo />}
+          >
             <p>
               The same components, drawn through{" "}
               <code>react-native-svg</code>, with the same entry points and
@@ -306,7 +348,16 @@ import { Folder } from "@keyline-icons/react-native/duotone"
             that showed a Vue install without naming whose package it was would
             send the next reader hunting for the matching scope.
           */}
-          <Section id="frameworks" title="Vue, Svelte and everything else">
+          <Section
+            id="frameworks"
+            title="Vue, Svelte and everything else"
+            mark={
+              <>
+                <VueLogo />
+                <SvelteLogo />
+              </>
+            }
+          >
             <p>
               The whole set is published on{" "}
               <a
@@ -389,7 +440,11 @@ npm i -D @iconify/tailwind4
             rather than remembered. `types/svelte` is Svelte 5; 4 and 3 have
             entries of their own.
           */}
-          <Section id="unplugin-icons" title="Bundle them at build time">
+          <Section
+            id="unplugin-icons"
+            title="Bundle them at build time"
+            mark={<ViteLogo />}
+          >
             <p>
               To ship the drawings inside your bundle instead,{" "}
               <a
@@ -434,7 +489,11 @@ import IconBellSharpFill from "~icons/${ICONIFY_PREFIX}/bell-sharp-fill"
             </p>
           </Section>
 
-          <Section id="sizing" title="Sizing inside shadcn components">
+          <Section
+            id="sizing"
+            title="Sizing inside shadcn components"
+            mark={<ShadcnLogo />}
+          >
             <p>
               {/*
                 Spaces around `<code>` are written as expressions, not typed. A
@@ -492,7 +551,11 @@ import IconBellSharpFill from "~icons/${ICONIFY_PREFIX}/bell-sharp-fill"
             </div>
           </Section>
 
-          <Section id="weight" title="Stroke width at small sizes">
+          <Section
+            id="weight"
+            title="Stroke width at small sizes"
+            mark={<PenLine />}
+          >
             <p>
               The set is drawn at 2 units on a 24 grid, which is where it is
               tested and where it should stay. At 16px that is the weight the
@@ -514,7 +577,11 @@ import IconBellSharpFill from "~icons/${ICONIFY_PREFIX}/bell-sharp-fill"
             </div>
           </Section>
 
-          <Section id="lucide" title="Coming from lucide">
+          <Section
+            id="lucide"
+            title="Coming from lucide"
+            mark={<ArrowInRightDashedPanel />}
+          >
             <p>
               shadcn/ui ships with lucide, and both sets are 24×24 with a 2px
               keyline and a <code>currentColor</code> stroke, so the swap is an
@@ -539,7 +606,7 @@ import IconBellSharpFill from "~icons/${ICONIFY_PREFIX}/bell-sharp-fill"
             </p>
           </Section>
 
-          <Section id="styles" title="Four styles, one name">
+          <Section id="styles" title="Four styles, one name" mark={<Shapes />}>
             <p>
               Every icon comes in all four styles. Stroke is the drawing.
               Two-tone keeps that outline over a 40% plate, which is what
@@ -587,7 +654,7 @@ import IconBellSharpFill from "~icons/${ICONIFY_PREFIX}/bell-sharp-fill"
             </p>
           </Section>
 
-          <Section id="faq" title="FAQ">
+          <Section id="faq" title="FAQ" mark={<CircleQuestion />}>
             <p>
               The short answers, for scanning. Each one is a section above in
               longer form.

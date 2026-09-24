@@ -309,6 +309,54 @@ export function SvelteLogo(props: LogoProps) {
 }
 
 /**
+ * shadcn/ui's and Vite's marks, for the section titles on `/install`.
+ *
+ * Same provenance as Vue's and Svelte's above: simple-icons 16.32.0, each
+ * dropped in unchanged at its own 24-unit box.
+ *
+ * **shadcn/ui's is the one framework mark here in `currentColor`.** It has no
+ * brand colour to fix: simple-icons records it as black, and shadcn's own site
+ * draws it in the page's ink, black on light and white on dark. Fixed black it
+ * would vanish on the dark theme, which is the opposite of what the Figma note
+ * guards against, so it follows the text the way GitHub's and X's do.
+ *
+ * Vite's is the current bracketless mark in its recorded `#9135FF`, fixed in
+ * both themes like the other framework marks. It stands for the build-time
+ * section because that section's config is Vite's; unplugin has no mark in
+ * simple-icons, and one drawn from its site by eye is the thing this file
+ * stopped doing.
+ */
+export function ShadcnLogo(props: LogoProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M22.219 11.784 11.784 22.219c-.407.407-.407 1.068 0 1.476.407.407 1.068.407 1.476 0L23.695 13.26c.407-.408.407-1.069 0-1.476-.408-.407-1.069-.407-1.476 0ZM20.132.305.305 20.132c-.407.407-.407 1.068 0 1.476.408.407 1.069.407 1.476 0L21.608 1.781c.407-.407.407-1.068 0-1.476-.408-.407-1.069-.407-1.476 0Z" />
+    </svg>
+  )
+}
+
+export function ViteLogo(props: LogoProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="#9135FF"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M13.056 23.238a.57.57 0 0 1-1.02-.355v-5.202c0-.63-.512-1.143-1.144-1.143H5.148a.57.57 0 0 1-.464-.903l3.777-5.29c.54-.753 0-1.804-.93-1.804H.57a.574.574 0 0 1-.543-.746.6.6 0 0 1 .08-.157L5.008.78a.57.57 0 0 1 .467-.24h14.589a.57.57 0 0 1 .466.903l-3.778 5.29c-.54.755 0 1.806.93 1.806h5.745c.238 0 .424.138.513.322a.56.56 0 0 1-.063.603z" />
+    </svg>
+  )
+}
+
+/**
  * The four networks the share menu can hand a link to, beyond X.
  *
  * Same rule as every mark above, and it is the rule that matters most here:
