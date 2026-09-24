@@ -233,6 +233,8 @@ const FINDS = [
   // already had under words the searcher did not use.
   ["human", "user", "5 empty searches while `person` sat on the same drawing"],
   ["human", "boy", "and the whole figures, which carried no person word at all"],
+  ["people", "user", "the plural of the same question, which reached only `users`"],
+  ["people", "girl", "and the whole figures, same"],
   ["guest", "user", "the signed-out person, same drawing"],
   ["wrong", "circle-x", "the mark for an answer marked wrong"],
   ["thunder", "zap", "`lightning` found it, the other half of the storm did not"],
