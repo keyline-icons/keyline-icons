@@ -988,7 +988,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 37468
+      "bytes": 38683
     },
     {
       "file": "commerce-3.html",
@@ -1000,7 +1000,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 36023
+      "bytes": 37363
     },
     {
       "file": "commerce-4.html",
@@ -1012,7 +1012,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 40510
+      "bytes": 40778
     },
     {
       "file": "commerce-5.html",
@@ -2868,7 +2868,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 119842
+      "bytes": 35435
     },
     {
       "file": "changelog-earlier.html",
@@ -2879,7 +2879,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 13694
+      "bytes": 14206
     }
   ]
 }

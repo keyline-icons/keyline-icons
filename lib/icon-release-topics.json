@@ -1,6 +1,35 @@
 {
  "$comment": "SOURCE, NOT GENERATED. How a release reads on the changelog, shaped after Preline's (Zafar, 17 Sep 2026, pointing at preline.co/docs/changelog.html): a title, then chips (an icon and a label, like Preline's \"New Components & Improvements\" and \"Fixes and Improvements\"), each followed by its items with a bold lead (\"People:\", \"Layout:\") and the drawings the item is about. His asks on the way: \"topic > icons, topic > icons. not all topics first and then all icons after that\", \"categorize them, not just text > icons. titles, etc.\", \"redrawns deserve to be a separate topic, not within a topic and each subtitle must carry shareable link like the main titles\". So redraws are always their own chip. Per version: `title` (the release's headline, which every version has, released ones included, because the page heads each entry by it) and optionally `sections`: chips with `title`, `icon` (a drawing from this set, by name) or `logo` (a platform's own mark, for a chip about that platform, where a drawing of ours would stand in for someone else's trademark: `react`, drawn from components/brand-logos.tsx), `text`, and items in `sections` with `title`, `text`, `names` (added) or `redraws`. A version with no `sections` is drawn with default chips, New drawings and Redrawn, straight off git. pipeline/build-history.mjs gives every chip and item an `anchor` (v<version>-<chip>, v<version>-<chip>-<item>) that the site links, keeps only the drawings the entry carries, and appends anything no item claims in a last untitled group, reported, so a stale list never drops a drawing. Keyed by the version the work ships as, so nothing is re-keyed at the tag. Numbers go in as {names} and {files}. Anything in backticks is set as code, on the page and the Paper board both, the way a post sets an icon name. Where a version has sections they replace the note.",
  "releases": {
+  "1.2.1": {
+   "title": "Parcels, a dark lid in duotone",
+   "sections": [
+    {
+     "title": "Redrawn",
+     "icon": "pen",
+     "text": "Eleven drawings that already shipped were drawn again. Before and after below.",
+     "sections": [
+      {
+       "title": "Commerce",
+       "text": "The parcel and its ten signs change in duotone only. The lid is now the dark part with the tape crossing it in grey, and the lines that stopped short of the edge are gone.",
+       "redraws": [
+        "package",
+        "package-alert",
+        "package-arrow-down",
+        "package-arrow-left",
+        "package-arrow-right",
+        "package-arrow-up",
+        "package-check",
+        "package-minus",
+        "package-plus",
+        "package-x",
+        "package-zap"
+       ]
+      }
+     ]
+    }
+   ]
+  },
   "1.2.0": {
    "title": "Table edits, database signs and 64 new drawings",
    "sections": [
