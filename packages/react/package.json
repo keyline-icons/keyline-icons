@@ -1,6 +1,6 @@
 {
   "name": "@keyline-icons/react",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Icons on one 24×24 grid, as React components in four styles: stroke, two-tone, duotone and fill, each in rounded or sharp corners. Built for shadcn/ui.",
   "license": "MIT",
   "publishConfig": {

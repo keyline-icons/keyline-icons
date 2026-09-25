@@ -1,6 +1,6 @@
 {
   "name": "@keyline-icons/react-native",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Icons on one 24×24 grid, as React Native components in four styles: stroke, two-tone, duotone and fill, each in rounded or sharp corners. Drawn through react-native-svg, works in Expo.",
   "license": "MIT",
   "publishConfig": {
