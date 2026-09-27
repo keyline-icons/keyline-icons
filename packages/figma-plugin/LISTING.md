@@ -122,6 +122,11 @@ github.com/keyline-icons/keyline-icons
 
 Changelog
 
+1.3.0
+Five new drawings, taking the set to 1,183 names and 9,464 SVGs: a shooting star, a truck, a paper plane, a bike and a stopwatch, each with speed lines behind it.
+
+Also redrawn: the parcel and its ten signs, in duotone. The lid is now the dark part, with the tape crossing it in grey.
+
 1.2.0
 64 new drawings, taking the set to 1,178 names and 9,424 SVGs.
 
@@ -182,18 +187,6 @@ Also redrawn: the pointing hand in four directions, the paperclip longer, the di
 * Transport, Nature, Animals, AI, Science and Health opened as shelves of their own, taking categories from 31 to 37
 * heart-hand is hand-heart now, and the old name still finds it
 
-0.8.0 — 11 September 2026
-33 new drawings, taking the set to 798 names and 4,094 SVGs, and five new shelves. Every one of them came off a month of empty searches on the site: the words people typed and got nothing back for.
-
-* Desk: a printer, a keyboard, a calculator, a USB connector and a drive
-* Files: file-code, file-zip and folder-search
-* Home: three beds, a sofa, both doors and a brick wall
-* Table: coffee, cake, soup and a bottle
-* Art: a brush, a roller, a palette and an easel
-* Others: the Mars and Venus marks, three keys, a stack of coins, a strip of film, an eraser, a roll of tape and a broom
-* Home, Gender, Food & Drink, Art and Stationery opened as shelves of their own, taking categories from 26 to 31
-* The calendar and the phone were redrawn, and the phone's negation slash moved to the other diagonal with it
-
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
 
@@ -252,6 +245,18 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 1.3.0
+
+```
+Five new drawings, taking the set to 1,183 names and 9,464 SVGs: a shooting star, a truck, a paper plane, a bike and a stopwatch, each with speed lines behind it.
+
+Redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone.
+```
+
+**A republish is required for the listing**, whose counts moved: the tagline,
+the style bullets, the totals and the curated-word count all changed with the
+set. The plugin's own code did not change, and the category count stayed at 40.
 
 ### 1.2.0
 
@@ -648,6 +653,11 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+v1.3.0
+Five new drawings, each with speed lines behind it: a shooting star, a truck, a paper plane, a bike and a stopwatch. The set is 1,183 names now, 1,058 component sets and 9,464 variants, up from 1,178 and 9,424. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
+
+Also redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
+
 v1.2.0
 64 new drawings. The set is 1,178 names now, 1,053 component sets and 9,424 variants, up from 1,114 and 8,912. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
 
@@ -697,20 +707,6 @@ Four styles, and a new shelf. Every set now carries stroke, two-tone, duotone an
 
 Also redrawn: the pointing hand in four directions, the paperclip longer, the dice pips larger, the three dots larger, the sparkle out to the 2-unit margin, play smaller, the gallery frames on a tighter radius, the grid and file fills clear of their edges, the chart axes grey in two-tone, the four dashed close panels, and the coins on rounder faces.
 
-v0.9.0
-53 new drawings, and six new shelves. The set is 851 names now, 734 component sets and 4,394 variants, up from 798 and 4,094. One set was renamed, heart-hand to hand-heart, in place, so instances already placed in your files keep their link.
-
-* Transport: a plane taking off and landing, a ship, a train and a bike
-* Nature: a palm, a leaf, a wind turbine and a droplet with its off and plural forms
-* Animals: a bird and a pig, with the piggy bank beside the wallet in Finance
-* AI and Science: a bot, a brain wired to a circuit, flasks and test tubes
-* Health: a brain, lungs, three ears and a clinical thermometer
-* Singles: five temperature levels, two weather thermometers, earbuds and their case open and shut, a radar, and a pointing hand in four directions
-* Nine truck modifiers: plus, minus, check, x, four arrows and electric
-* Categories went from 31 to 37: Transport, Nature, Animals, AI, Science and Health took the new drawings that had nowhere honest to sit
-
-Also redrawn: the sharp duotone truck, whose grey plate no longer shows past its rear wheel.
-
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
 
@@ -730,8 +726,10 @@ v0.5.0 from the file's and 0.3.0 and 0.4.0 from the plugin's on 17 Sep 2026
 0.5.0 from the plugin's and v0.6.0 from the file's on 23 Sep 2026 (10,056 and
 9,521 with the 1.1.0 entries), 0.7.0 and 0.6.0 from the plugin's later that
 day with the 1.1.1 panel entry, v0.8.0 and v0.7.0 from the file's on
-24 Sep 2026 with the 1.2.0 entry (10,377 before, the cap is 10,000), and a last line
-points at `keylineicons.com/changelog`, which keeps every release.
+24 Sep 2026 with the 1.2.0 entry (10,377 before, the cap is 10,000), 0.8.0 from the
+plugin's and v0.9.0 from the file's on 27 Sep 2026 with the 1.3.0 entries (8,842 and
+8,878 by `wc -m`, past the 8,800 the next note asks for), and a last line points at
+`keylineicons.com/changelog`, which keeps every release.
 
 **Figma counts higher than `wc -m`.** The 1.1.1 plugin description was refused
 at 9,362 by `wc -m`, under the cap by that count, while the 8,876 before it had
@@ -758,6 +756,13 @@ It is a different image from the plugin's `plugin-cover.png` and the two are
 regenerated together; re-upload whichever modal you are in.
 
 ### What changed, for the final details page
+
+```
+Five new icons, each with speed lines behind it: a shooting star, a truck, a paper plane, a bike and a stopwatch. The parcel and its ten signs were redrawn in duotone, with the lid now the dark part. The file went from 1,053 component sets to 1,058 and from 9,424 variants to 9,464. Nothing that shipped was renamed or removed, and the redraws were swapped inside their existing sets, so instances already placed in your files keep their link.
+```
+
+The 1.2.0 entry this replaced, kept because a listing's history is worth
+reading back:
 
 ```
 64 new icons, and the table and all twenty-seven panels redrawn in their filled styles. Every edit a table takes, the database and the server with their signs, a lightning bolt on thirteen drawings, more progress states and a plus on twelve more. The file went from 989 component sets to 1,053 and from 8,912 variants to 9,424. Nothing that shipped was renamed or removed, and the redraws were swapped inside their existing sets, so instances already placed in your files keep their link.
