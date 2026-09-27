@@ -14,9 +14,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 1058,
-  "names": 1183,
-  "variants": 9464,
+  "icons": 1065,
+  "names": 1192,
+  "variants": 9536,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -638,7 +638,7 @@
       "parts": 11,
       "into": "artboard",
       "width": 742,
-      "icons": 64,
+      "icons": 68,
       "variants": 48,
       "bytes": 41471
     },
@@ -759,8 +759,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 21615
+      "variants": 64,
+      "bytes": 39987
     },
     {
       "file": "art-1.html",
@@ -2003,10 +2003,10 @@
       "artboard": "Media",
       "category": "Media",
       "part": 1,
-      "parts": 12,
+      "parts": 13,
       "into": "artboard",
       "width": 742,
-      "icons": 65,
+      "icons": 68,
       "variants": 48,
       "bytes": 40600
     },
@@ -2015,127 +2015,139 @@
       "artboard": "Media",
       "category": "Media",
       "part": 2,
-      "parts": 12,
+      "parts": 13,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 40083
+      "variants": 40,
+      "bytes": 34651
     },
     {
       "file": "media-3.html",
       "artboard": "Media",
       "category": "Media",
       "part": 3,
-      "parts": 12,
+      "parts": 13,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 40857
+      "variants": 56,
+      "bytes": 39242
     },
     {
       "file": "media-4.html",
       "artboard": "Media",
       "category": "Media",
       "part": 4,
-      "parts": 12,
+      "parts": 13,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 37991
+      "variants": 48,
+      "bytes": 35956
     },
     {
       "file": "media-5.html",
       "artboard": "Media",
       "category": "Media",
       "part": 5,
-      "parts": 12,
+      "parts": 13,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 36472
+      "bytes": 37978
     },
     {
       "file": "media-6.html",
       "artboard": "Media",
       "category": "Media",
       "part": 6,
-      "parts": 12,
+      "parts": 13,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 40645
+      "variants": 40,
+      "bytes": 36743
     },
     {
       "file": "media-7.html",
       "artboard": "Media",
       "category": "Media",
       "part": 7,
-      "parts": 12,
+      "parts": 13,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 33833
+      "variants": 48,
+      "bytes": 40528
     },
     {
       "file": "media-8.html",
       "artboard": "Media",
       "category": "Media",
       "part": 8,
-      "parts": 12,
+      "parts": 13,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 38318
+      "bytes": 40027
     },
     {
       "file": "media-9.html",
       "artboard": "Media",
       "category": "Media",
       "part": 9,
-      "parts": 12,
+      "parts": 13,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 39042
+      "variants": 48,
+      "bytes": 36895
     },
     {
       "file": "media-10.html",
       "artboard": "Media",
       "category": "Media",
       "part": 10,
-      "parts": 12,
+      "parts": 13,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 39442
+      "variants": 56,
+      "bytes": 37336
     },
     {
       "file": "media-11.html",
       "artboard": "Media",
       "category": "Media",
       "part": 11,
-      "parts": 12,
+      "parts": 13,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 36396
+      "variants": 64,
+      "bytes": 40659
     },
     {
       "file": "media-12.html",
       "artboard": "Media",
       "category": "Media",
       "part": 12,
-      "parts": 12,
+      "parts": 13,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 48,
+      "bytes": 37419
+    },
+    {
+      "file": "media-13.html",
+      "artboard": "Media",
+      "category": "Media",
+      "part": 13,
+      "parts": 13,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -2868,7 +2880,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 46673
+      "bytes": 66650
     },
     {
       "file": "changelog-earlier.html",

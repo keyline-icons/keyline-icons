@@ -72,7 +72,10 @@ export const CATEGORIES = [
     // `corner-` joined on 22 Sep 2026: an arrow that turns is an arrow, whatever
     // key it stands for. `reply` and `forward` are two of the eight turns and
     // stay in Mail by name; `corner-up-left` and `corner-up-right` are aliases.
-    match: /^(arrow|bracket-arrow|expand|refresh|rotate|corner-|move$)/,
+    // `square-arrow-in-` joined on 27 Sep 2026: an arrow entering a square
+    // through its corner, filed beside the dashed-panel arrows rather than under
+    // Shapes, where its first word would otherwise send it.
+    match: /^(arrow|bracket-arrow|expand|refresh|rotate|corner-|move$|square-arrow-in-)/,
     blurb:
       "Direction, movement and resizing, with the brackets, u-turns, corner turns and dashed panels.",
   },

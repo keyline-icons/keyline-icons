@@ -2,7 +2,7 @@
 
 # @keyline-icons/react-native
 
-1,183 icons on one 24×24 grid, as React Native components. Works in Expo,
+1,192 icons on one 24×24 grid, as React Native components. Works in Expo,
 free under MIT.
 
 [keylineicons.com](https://keylineicons.com) to browse the full set.
@@ -51,10 +51,10 @@ pass `aria-hidden={false}` and an `aria-label`.
 **Four styles, two corner treatments, eight entry points.**
 
 ```tsx
-import { Bell } from "@keyline-icons/react-native"          // stroke,  1,183 icons
-import { Bell } from "@keyline-icons/react-native/two-tone" // two-tone, 1,183 icons
-import { Bell } from "@keyline-icons/react-native/duotone"  // duotone, 1,183 icons
-import { Bell } from "@keyline-icons/react-native/fill"     // fill,    1,183 icons
+import { Bell } from "@keyline-icons/react-native"          // stroke,  1,192 icons
+import { Bell } from "@keyline-icons/react-native/two-tone" // two-tone, 1,192 icons
+import { Bell } from "@keyline-icons/react-native/duotone"  // duotone, 1,192 icons
+import { Bell } from "@keyline-icons/react-native/fill"     // fill,    1,192 icons
 
 import { Bell } from "@keyline-icons/react-native/sharp"           // the same four,
 import { Bell } from "@keyline-icons/react-native/sharp/two-tone"  // cut sharp,

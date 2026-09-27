@@ -1588,6 +1588,15 @@ export function Camera(props: IconProps) {
   )
 }
 
+export function CaptionsOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M21 21L2 21C1.4477 21 1 20.5523 1 20L1 4C1 3.4477 1.4477 3 2 3L3 3L8.5 8.5C6.567 8.5 5 10.067 5 12C5 13.933 6.567 15.5 8.5 15.5C9.2573 15.5 9.9942 15.2544 10.6 14.8L11.4 14.2L10.2 12.6L9.4 13.2C9.1404 13.3947 8.8246 13.5 8.5 13.5C7.6716 13.5 7 12.8284 7 12C7 11.1716 7.6716 10.5 8.5 10.5C8.8246 10.5 9.1404 10.6053 9.4 10.8L10 10ZM6.6569 3L22 3C22.5523 3 23 3.4477 23 4L23 19.3431Z" fill="currentColor" stroke="none" />
+      <Path d="M1.7071 1.7071L22.2929 22.2929" />
+    </Icon>
+  )
+}
+
 export function CaptionsSparkles(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -2594,6 +2603,15 @@ export function CirclePercent(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
       <Path d="M12 1C17.9372 1 23 6.0628 23 12C23 17.9372 17.9372 23 12 23C6.0628 23 1 17.9372 1 12C1 6.0628 6.0628 1 12 1ZM8.5 7C9.3285 7 10 7.6716 10 8.5C10 9.3285 9.3285 10 8.5 10C7.6716 10 7 9.3285 7 8.5C7 7.6716 7.6716 7 8.5 7ZM15.5 14C16.3285 14 17 14.6716 17 15.5C17 16.3285 16.3285 17 15.5 17C14.6716 17 14 16.3285 14 15.5C14 14.6716 14.6716 14 15.5 14ZM9.1213 16.2929L16.2929 9.1213L14.8787 7.7071L7.7071 14.8787L9.1213 16.2929Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+    </Icon>
+  )
+}
+
+export function CirclePlayOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M19.7782 19.7782C17.7153 21.8411 14.9174 23 12 23C5.9249 23 1 18.0751 1 12C1 9.0826 2.1589 6.2847 4.2218 4.2218L7.9627 7.9627L7.9627 16.6987C7.9627 17.251 8.4104 17.6987 8.9627 17.6987C9.1501 17.6987 9.3338 17.646 9.4927 17.5467L14.449 14.449ZM6.3532 2.558C8.0038 1.5687 9.9355 1 12 1C18.0753 1 23 5.9247 23 12C23 14.0645 22.4313 15.9962 21.442 17.6468Z" fill="currentColor" stroke="none" />
+      <Path d="M1.7071 1.7071L22.2929 22.2929" />
     </Icon>
   )
 }
@@ -6956,6 +6974,15 @@ export function Plane(props: IconProps) {
   )
 }
 
+export function PlayOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M15.1211 15.1211L6.5547 20.8321C6.3904 20.9416 6.1974 21 6 21C5.4477 21 5 20.5523 5 20L5 5ZM7.365 3.7082L18.5547 11.1679C18.8329 11.3534 19 11.6656 19 12C19 12.3344 18.8329 12.6466 18.5547 12.8321L17.3152 13.6584Z" fill="currentColor" stroke="none" />
+      <Path d="M1.7071 1.7071L22.2929 22.2929" />
+    </Icon>
+  )
+}
+
 export function Play(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
@@ -8240,6 +8267,38 @@ export function SquareArrowDown(props: IconProps) {
   )
 }
 
+export function SquareArrowInDownLeft(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M10 7L3 7L3 21L17 21L17 14M21.2929 2.7071L13.1464 10.8536M22 11L13 11L13 2" />
+    </Icon>
+  )
+}
+
+export function SquareArrowInDownRight(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M14 7L21 7L21 21L7 21L7 14M2.7071 2.7071L10.8536 10.8536M2 11L11 11L11 2" />
+    </Icon>
+  )
+}
+
+export function SquareArrowInUpLeft(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M10 17L3 17L3 3L17 3L17 10M21.2929 21.2929L13.1464 13.1464M22 13L13 13L13 22" />
+    </Icon>
+  )
+}
+
+export function SquareArrowInUpRight(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M14 17L21 17L21 3L7 3L7 10M2.7071 21.2929L10.8536 13.1464M2 13L11 13L11 22" />
+    </Icon>
+  )
+}
+
 export function SquareArrowLeft(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
@@ -8627,6 +8686,15 @@ export function SquarePercent(props: IconProps) {
   )
 }
 
+export function SquarePlayOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M21.7071 21.7071C21.5196 21.8946 21.2652 22 21 22L3 22C2.4477 22 2 21.5523 2 21L2 3C2 2.7348 2.1054 2.4804 2.2929 2.2929L7.9627 7.9627L7.9627 16.6987C7.9627 17.251 8.4104 17.6987 8.9627 17.6987C9.1501 17.6987 9.3338 17.646 9.4927 17.5467L14.449 14.449ZM5.6569 2L21 2C21.5523 2 22 2.4477 22 3L22 18.3431Z" fill="currentColor" stroke="none" />
+      <Path d="M1.7071 1.7071L22.2929 22.2929" />
+    </Icon>
+  )
+}
+
 export function SquarePlay(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
@@ -8856,6 +8924,15 @@ export function Strikethrough(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <Path d="M8 9L8 8C8 5.7909 9.7909 4 12 4C13.1093 4 14.1689 4.4607 14.9254 5.272L15.222 5.59M12 12C14.2091 12 16 13.7909 16 16C16 18.2091 14.2091 20 12 20C10.3184 20 8.8164 18.9483 8.2412 17.3681L8.0017 16.7101M2 12L22 12" fill="none" />
+    </Icon>
+  )
+}
+
+export function SubtitlesOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M21 21L2 21C1.4477 21 1 20.5523 1 20L1 4C1 3.4477 1.4477 3 2 3L3 3L9 9L5 9L5 11L10 11L10 10L13 13L5 13L5 15L14 15L14 14ZM6.6569 3L22 3C22.5523 3 23 3.4477 23 4L23 19.3431Z" fill="currentColor" stroke="none" />
+      <Path d="M1.7071 1.7071L22.2929 22.2929" />
     </Icon>
   )
 }
