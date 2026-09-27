@@ -69,7 +69,7 @@
     {
      "title": "Redrawn",
      "icon": "pen",
-     "text": "Eleven drawings that already shipped were drawn again. Before and after below.",
+     "text": "Thirteen drawings that already shipped were drawn again. Before and after below.",
      "sections": [
       {
        "title": "Commerce",
@@ -86,6 +86,20 @@
         "package-plus",
         "package-x",
         "package-zap"
+       ]
+      },
+      {
+       "title": "Controls",
+       "text": "power-off opens its ring as wide as power does. It had kept the narrower opening power was drawn with before its redraw, so the ring ran on past where power's stops.",
+       "redraws": [
+        "power-off"
+       ]
+      },
+      {
+       "title": "Media",
+       "text": "In sharp corners volume-off now switches off sharp volume's own speaker. It had the rounded speaker with its corners squared off, which stood 2 units taller.",
+       "redraws": [
+        "volume-off"
        ]
       }
      ]

@@ -1084,7 +1084,7 @@
       "width": 742,
       "icons": 11,
       "variants": 48,
-      "bytes": 41696
+      "bytes": 41720
     },
     {
       "file": "controls-2.html",
@@ -2880,7 +2880,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 66650
+      "bytes": 71760
     },
     {
       "file": "changelog-earlier.html",

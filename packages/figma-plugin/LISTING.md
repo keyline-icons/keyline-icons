@@ -130,7 +130,7 @@ Fourteen new drawings, taking the set to 1,192 names and 9,536 SVGs.
 * Arrows: an arrow entering a square, from each of its four corners
 * rocket-2 is rocket-fast now, for the speed lines it shares with them, and the old name still finds it
 
-Also redrawn: the parcel and its ten signs, in duotone. The lid is now the dark part, with the tape crossing it in grey.
+Also redrawn: the parcel and its ten signs, in duotone. The lid is now the dark part, with the tape crossing it in grey. Power off opens as wide as power, and volume off in sharp corners takes the sharp speaker.
 
 1.2.0
 64 new drawings, taking the set to 1,178 names and 9,424 SVGs.
@@ -256,7 +256,7 @@ to be **pushed** before any of this is true for anyone but you.
 ```
 Fourteen new drawings, taking the set to 1,192 names and 9,536 SVGs: a shooting star, a truck, a paper plane, a bike and a stopwatch with speed lines behind them; captions, subtitles and play switched off, play in its square and circle too; and an arrow entering a square from each corner. rocket-2 is rocket-fast now, for the speed lines it shares with them, and the old name still finds it.
 
-Redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone.
+Redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. Power off opens as wide as power, and volume off in sharp corners takes the sharp speaker, so each is its original at the same size.
 ```
 
 **A republish is required for the listing**, whose counts moved: the tagline,
@@ -665,7 +665,7 @@ Fourteen new drawings. The set is 1,192 names now, 1,065 component sets and 9,53
 * Switched off: captions, subtitles and play, and play in its square and circle too, each at its original size
 * Arrows: an arrow entering a square, from each of its four corners
 
-Also redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
+Also redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. Power off opens as wide as power, and volume off in sharp corners takes the sharp speaker, so each is its original at the same size. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
 
 v1.2.0
 64 new drawings. The set is 1,178 names now, 1,053 component sets and 9,424 variants, up from 1,114 and 8,912. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
