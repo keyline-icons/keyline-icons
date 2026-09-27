@@ -14,9 +14,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 1053,
-  "names": 1178,
-  "variants": 9424,
+  "icons": 1058,
+  "names": 1183,
+  "variants": 9464,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -26,7 +26,7 @@
       "parts": 13,
       "into": "artboard",
       "width": 742,
-      "icons": 50,
+      "icons": 51,
       "variants": 40,
       "bytes": 39354
     },
@@ -159,8 +159,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 37667
+      "variants": 48,
+      "bytes": 37733
     },
     {
       "file": "actions-13.html",
@@ -171,8 +171,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 8,
-      "bytes": 8003
+      "variants": 24,
+      "bytes": 20489
     },
     {
       "file": "ai-1.html",
@@ -974,7 +974,7 @@
       "parts": 9,
       "into": "artboard",
       "width": 742,
-      "icons": 41,
+      "icons": 42,
       "variants": 40,
       "bytes": 41515
     },
@@ -1060,7 +1060,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 40375
+      "bytes": 40461
     },
     {
       "file": "commerce-9.html",
@@ -1071,8 +1071,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 15899
+      "variants": 24,
+      "bytes": 23740
     },
     {
       "file": "controls-1.html",
@@ -1838,7 +1838,7 @@
       "parts": 7,
       "into": "artboard",
       "width": 742,
-      "icons": 43,
+      "icons": 44,
       "variants": 40,
       "bytes": 37019
     },
@@ -1911,8 +1911,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 31873
+      "variants": 56,
+      "bytes": 39658
     },
     {
       "file": "maps-1.html",
@@ -2486,7 +2486,7 @@
       "parts": 7,
       "into": "artboard",
       "width": 742,
-      "icons": 43,
+      "icons": 44,
       "variants": 48,
       "bytes": 39221
     },
@@ -2559,8 +2559,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 8,
-      "bytes": 5807
+      "variants": 16,
+      "bytes": 12204
     },
     {
       "file": "tools-1.html",
@@ -2594,9 +2594,9 @@
       "parts": 3,
       "into": "artboard",
       "width": 742,
-      "icons": 10,
+      "icons": 11,
       "variants": 32,
-      "bytes": 39428
+      "bytes": 37740
     },
     {
       "file": "transport-2.html",
@@ -2608,7 +2608,7 @@
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 33381
+      "bytes": 33410
     },
     {
       "file": "transport-3.html",
@@ -2619,8 +2619,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 28755
+      "variants": 32,
+      "bytes": 39058
     },
     {
       "file": "users-1.html",
@@ -2868,7 +2868,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 35435
+      "bytes": 46562
     },
     {
       "file": "changelog-earlier.html",
