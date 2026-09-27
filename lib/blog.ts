@@ -3024,7 +3024,7 @@ export const BLOG_V100_FAMILY_ICON_NAMES = [
   "alarm-clock-plus",
   "timer",
   "rocket",
-  "rocket-2",
+  "rocket-fast",
   "rocket-vertical",
   "car",
   "arrow-big-up",
@@ -3085,7 +3085,7 @@ export const BLOG_V100_THUMBNAIL_ICON_NAMES = [
   "wallet-cards",
   "timer",
   "car",
-  "rocket-2",
+  "rocket-fast",
   "hand-closed",
   "hand-open",
   "toggles",
@@ -4386,7 +4386,543 @@ const RELEASE_1_2_0: BlogPost = {
   ],
 }
 
+export const BLOG_V130_THUMBNAIL_ICON_NAMES = [
+  "soccer-ball",
+  "star-shooting",
+  "chart-stock-up",
+  "anchor",
+  "gamepad",
+  "lifebuoy",
+  "basketball",
+  "tennis-ball",
+  "baseball",
+  "american-football",
+  "cricket-bat",
+  "hockey-sticks",
+  "golf-hole",
+  "chart-stock-down",
+  "atom",
+  "alien",
+  "paw-print",
+  "hearts",
+  "tree-deciduous",
+  "anchor-2",
+  "pin",
+  "pin-off",
+  "bin-2",
+  "shield-terminal",
+  "file-terminal",
+  "app-window-terminal",
+  "truck-fast",
+  "send-fast",
+  "bike-fast",
+  "timer-fast",
+  "rocket-fast",
+  "captions-off",
+  "subtitles-off",
+  "play-off",
+  "square-play-off",
+  "circle-play-off",
+  "square-arrow-in-down-left",
+  "square-arrow-in-down-right",
+  "square-arrow-in-up-left",
+  "square-arrow-in-up-right",
+] as const
+
+export const BLOG_V130_HERO_ICON_NAMES = [
+  "soccer-ball",
+  "chart-stock-up",
+  "gamepad",
+  "anchor",
+  "lifebuoy",
+  "pin",
+  "star-shooting",
+  "truck-fast",
+] as const
+
+export const BLOG_V130_SPORT_ICON_NAMES = [
+  "soccer-ball",
+  "basketball",
+  "baseball",
+  "tennis-ball",
+  "american-football",
+  "cricket-bat",
+  "hockey-sticks",
+  "golf-hole",
+] as const
+
+export const BLOG_V130_SINGLES_ICON_NAMES = [
+  "chart-stock-up",
+  "chart-stock-down",
+  "gamepad",
+  "atom",
+  "paw-print",
+  "hearts",
+  "alien",
+  "tree-deciduous",
+] as const
+
+export const BLOG_V130_ANCHOR_ICON_NAMES = [
+  "anchor",
+  "anchor-2",
+  "lifebuoy",
+  "pin",
+  "pin-off",
+  "bin-2",
+  "shield-terminal",
+  "file-terminal",
+  "app-window-terminal",
+] as const
+
+export const BLOG_V130_DIAGONAL_ICON_NAMES = [
+  "star-shooting",
+  "send-fast",
+  "rocket-fast",
+] as const
+
+export const BLOG_V130_ROAD_ICON_NAMES = [
+  "truck",
+  "truck-fast",
+  "bike",
+  "bike-fast",
+  "timer",
+  "timer-fast",
+] as const
+
+export const BLOG_V130_OFF_ICON_NAMES = [
+  "captions",
+  "captions-off",
+  "subtitles",
+  "subtitles-off",
+  "play",
+  "play-off",
+  "square-play-off",
+  "circle-play-off",
+] as const
+
+export const BLOG_V130_ARROW_IN_ICON_NAMES = [
+  "square-arrow-in-down-left",
+  "square-arrow-in-down-right",
+  "square-arrow-in-up-left",
+  "square-arrow-in-up-right",
+] as const
+
+export const BLOG_V130_PARCEL_ICON_NAMES = [
+  "package",
+  "package-check",
+  "package-zap",
+  "package-arrow-up",
+] as const
+
+const RELEASE_1_3_0: BlogPost = {
+  /* What a search types for: the count, "free", "shadcn/ui" and the largest
+     groups; the story of the turned star is an h2 inside. The slug names the
+     drawings, not the version, so it survives a renumbering. */
+  slug: "sport-stock-chart-and-speed-icons",
+  version: "1.3.0",
+  title: "39 free shadcn/ui icons for sport, stock charts and speed",
+  description:
+    "1,217 free, MIT-licensed SVG icons for React and shadcn/ui. New: five " +
+    "balls, stock charts, a gamepad, two anchors, a lifebuoy, push pins and " +
+    "a shooting star.",
+  standfirst: "Three short lines behind a star, and it's a shooting star.",
+  date: "2026-09-28",
+  updated: "2026-09-28",
+  readingMinutes: 6,
+  thumbnail: BLOG_V130_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "sport icons",
+    "soccer ball icon",
+    "basketball icon",
+    "tennis ball icon",
+    "stock chart icon",
+    "gamepad icon",
+    "anchor icon",
+    "lifebuoy icon",
+    "support icon",
+    "push pin icon",
+    "terminal icon",
+    "shooting star icon",
+    "fast delivery icon",
+    "express delivery icon",
+    "speed icon",
+    "paper plane icon",
+    "stopwatch icon",
+    "bike icon",
+    "parcel icons",
+    "captions off icon",
+    "play off icon",
+    "import icon",
+    "free svg icons",
+    "shadcn/ui icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "The set is 1,217 drawings. Each one comes in stroke, two-tone, " +
+        "duotone and fill, rounded or sharp: 9,736 SVGs.",
+    },
+    {
+      kind: "p",
+      text:
+        "Thirty-nine of them are new. Eight are for sport: five balls, a " +
+        "cricket bat, hockey sticks and a golf hole. Two are stock charts, " +
+        "one rising and one falling, and six stand on their own: a gamepad, " +
+        "an alien, an atom, a paw print, two hearts and a tree. Nine were " +
+        "missing from the set until now: two anchors, a lifebuoy for " +
+        "support, a push pin with and without its slash, a second bin, and " +
+        "a terminal prompt in a shield, a file and an app window. Five are " +
+        "in a hurry: a shooting star, a truck, a paper plane, a bike and a " +
+        "stopwatch, each with speed lines behind it. The rest switch " +
+        "something off or bring something in: captions, subtitles and play " +
+        "with a slash across them, and an arrow entering a square from each " +
+        "corner.",
+    },
+    {
+      kind: "p",
+      text:
+        "Seventeen older drawings were redrawn as well: the parcel and its " +
+        "ten signs in duotone, three sparkle drawings with sharp corners, " +
+        "two switched-off drawings that now match what they switch off, and " +
+        "a window whose cursor grew.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V130_HERO_ICON_NAMES,
+        caption: "Eight of the thirty-nine, one style to a row.",
+      },
+    },
+
+    { kind: "h2", text: "Five balls, one ring", id: "balls" },
+    {
+      kind: "p",
+      text:
+        "Four of the balls are one circle, as wide as the icon allows: " +
+        "`soccer-ball`, `basketball`, `baseball` and `tennis-ball`. " +
+        "What tells them apart is inside it: the soccer ball's pentagon and " +
+        "its five seams, the basketball's cross and two side curves, the " +
+        "baseball's stitching and the tennis ball's two sweeping curves. " +
+        "`american-football` is the fifth, an oval with its laces across " +
+        "the middle.",
+    },
+    {
+      kind: "p",
+      text:
+        "In duotone, each of the four keeps its ring black and everything " +
+        "inside it grey, so the round outline carries the ball and the " +
+        "seams read as detail. The soccer ball keeps its pentagon's outline " +
+        "black as well.",
+    },
+    {
+      kind: "p",
+      text:
+        "The other three for sport are `cricket-bat`, with the ball beside " +
+        "the blade, `hockey-sticks`, two sticks crossed, and `golf-hole`, " +
+        "a flag standing in the hole.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V130_SPORT_ICON_NAMES,
+        caption:
+          "All eight for sport, one style to a row. In duotone the round " +
+          "balls keep their rings black.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "Stock charts, a gamepad and an atom",
+      id: "singles",
+    },
+    {
+      kind: "p",
+      text:
+        "`chart-stock-up` and `chart-stock-down` are a line zigzagging up " +
+        "or down inside a frame, for a market that is rising or falling.",
+    },
+    {
+      kind: "p",
+      text:
+        "`gamepad` is a controller as wide as the icon allows, with a cross " +
+        "on the left and two buttons on the right. The `atom` is two orbits " +
+        "around a dot, and each breaks where it passes behind the other, so " +
+        "they take turns in front. `paw-print` is four toes over a pad, " +
+        "`hearts` is one heart in front of another, `alien` is a head with " +
+        "two eyes, and `tree-deciduous` is a round, leafy crown on a forked " +
+        "trunk.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V130_SINGLES_ICON_NAMES,
+        caption: "The two stock charts and six drawings of their own.",
+      },
+    },
+
+    { kind: "h2", text: "Anchors, a lifebuoy and a pin", id: "anchors" },
+    {
+      kind: "p",
+      text:
+        "There are two anchors. `anchor` has a round crown with its ends " +
+        "turned in, and `anchor-2` hangs two barbed hooks from its shank.",
+    },
+    {
+      kind: "p",
+      text:
+        "`lifebuoy` is a ring with four bands across the diagonals. The set " +
+        "had no drawing for support until now, so search finds the " +
+        "lifebuoy for support, help and life ring too.",
+    },
+    {
+      kind: "p",
+      text:
+        "`pin` is a push pin leaning on the diagonal, and the lean is what " +
+        "lets `pin-off` work: the slash crosses the pin square to its " +
+        "length and parts it cleanly in two. Standing upright, the same cut " +
+        "left small pieces of the pin's head behind.",
+    },
+    {
+      kind: "p",
+      text:
+        "`bin-2` is a bin with two lines down its front. And the prompt " +
+        "from `cloud-terminal` now sits in three more drawings, " +
+        "`shield-terminal`, `file-terminal` and `app-window-terminal`, " +
+        "each as large as its shape holds with the set's usual space around " +
+        "it.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V130_ANCHOR_ICON_NAMES,
+        caption:
+          "Two anchors, the lifebuoy, the pin with its slash and without, " +
+          "the bin, and three drawings with a prompt.",
+      },
+    },
+
+    { kind: "h2", text: "A star that leaves a trail", id: "star" },
+    {
+      kind: "p",
+      text:
+        "`star-shooting` is the set's `star`, as large as the corner above " +
+        "its trail allows, with three lines streaming behind it along the " +
+        "diagonal. The middle line is the longest and " +
+        "runs straight back from the star. The two beside it are shorter " +
+        "and start further forward, so the three read as one trail rather " +
+        "than a stack of dashes.",
+    },
+    {
+      kind: "p",
+      text:
+        "The star is turned a little, so that one of its points faces " +
+        "straight back down that middle line. Upright, the points and the " +
+        "lines pull different ways and the star looks pushed. Turned, the " +
+        "trail comes out of it.",
+    },
+    {
+      kind: "note",
+      text:
+        "The longest line points at the star's back, so the trail looks " +
+        "like something the star left behind.",
+    },
+    {
+      kind: "p",
+      text:
+        "The paper plane takes the same three lines in the same places. " +
+        "The rocket had flown this way on its own until now, as `rocket-2`. " +
+        "A number said nothing about what set it apart from `rocket`, and " +
+        "now there is a word for it, so it is `rocket-fast`. The old name " +
+        "still finds it in search, and `Rocket2` still imports in React.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V130_DIAGONAL_ICON_NAMES,
+        caption: "The shooting star and the paper plane, beside the rocket.",
+      },
+    },
+
+    { kind: "h2", text: "A truck that keeps its size", id: "truck" },
+    {
+      kind: "p",
+      text:
+        "A truck is as wide as the icon it sits in. Putting lines behind it " +
+        "would mean shrinking it until the wheels were dots. So " +
+        "`truck-fast` keeps the whole truck and gives up its back wall " +
+        "instead: the roof runs on past where the wall was and becomes the " +
+        "top line, and two shorter lines step in below it.",
+    },
+    {
+      kind: "p",
+      text:
+        "The bike and the stopwatch follow the same idea. The bike already " +
+        "had empty space behind the rider, so the truck's two lines go " +
+        "there at the same lengths. The stopwatch opens the left side of " +
+        "its ring, and the lines come in through the gap.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V130_ROAD_ICON_NAMES,
+        caption: "Each new drawing beside the one it grew from.",
+      },
+    },
+
+    { kind: "h2", text: "In fill, the lines are cut out", id: "fill" },
+    {
+      kind: "p",
+      text:
+        "In duotone the lines are black against the grey body. Fill has no " +
+        "grey to set them against, so there they are cut out of the solid " +
+        "shape instead. The truck and the stopwatch get white slots " +
+        "through their backs, the same way the paper plane's fold has " +
+        "always been cut out of its filled shape.",
+    },
+
+    { kind: "h2", text: "Switched off, at the same size", id: "off" },
+    {
+      kind: "p",
+      text:
+        "`captions-off`, `subtitles-off` and `play-off` are the drawings " +
+        "they switch off, with the slash across them. Nothing is shrunk to " +
+        "make room: the slash clears a gap through whatever it crosses, and " +
+        "every other line stays exactly where it was. Play is slashed in its " +
+        "square and its circle too, as `square-play-off` and " +
+        "`circle-play-off`.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V130_OFF_ICON_NAMES,
+        caption: "Each one beside the drawing it switches off.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "Held to the same rule, two of the older ones did not pass. " +
+        "`power-off` still had the narrower opening the power button was " +
+        "drawn with before it was redrawn, so its ring ran on past where " +
+        "the button's stops. And with sharp corners, `volume-off` had a " +
+        "speaker squared off from the rounded one, taller than the sharp " +
+        "speaker it switches off. Both are now their originals with the " +
+        "slash across.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "diagnostic",
+        panels: [
+          {
+            title: "power-off as it shipped, under power-off now",
+            a: { name: "power-off", take: "before" },
+            b: { name: "power-off", take: "after" },
+            verdict: { text: "The ring ran on", tone: "bad" },
+          },
+          {
+            title: "volume-off with sharp corners, the same way",
+            a: { name: "volume-off", take: "before" },
+            b: { name: "volume-off", take: "after" },
+            verdict: { text: "The speaker stood taller", tone: "bad" },
+          },
+        ],
+        caption:
+          "Each panel is the drawing as it shipped with the drawing as it " +
+          "ships now painted on top, so only the difference keeps a colour. " +
+          "The power button's ring gives back the stretch it had run into " +
+          "the opening, and nothing new appears in its place. The speaker " +
+          "loses its lower corner, which sat 2 pixels too low at 24px, its " +
+          "sides settle onto the sharp speaker's own, and the inner wave " +
+          "gets back about half a pixel its top end had lost.",
+        legend: {
+          a: "as it shipped only",
+          b: "as it ships now only",
+          both: "ink the two share",
+        },
+      },
+    },
+
+    { kind: "h2", text: "An arrow into a square", id: "arrow-in" },
+    {
+      kind: "p",
+      text:
+        "`square-arrow-in-down-right` is an arrow coming into a square " +
+        "through the corner the square leaves open, for importing, docking " +
+        "or pulling something into a window. It turns to come in from each " +
+        "of the four corners.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V130_ARROW_IN_ICON_NAMES,
+        caption: "The arrow into a square, from each corner.",
+      },
+    },
+
+    { kind: "h2", text: "Also redrawn", id: "redrawn" },
+    {
+      kind: "p",
+      text:
+        "The parcel and its ten signs changed in duotone only. The lid is " +
+        "now the dark part, with the tape crossing it in grey, and the " +
+        "lines that used to stop short of the edge are gone.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V130_PARCEL_ICON_NAMES,
+        caption: "Four of the eleven in every style. Only the duotone row changed.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "With sharp corners, `cpu-sparkles` and `film-sparkles` now turn " +
+        "the corner where they open for their stars, like every other corner " +
+        "of their frames, and `brain-sparkles` closes its two lobes on one " +
+        "level end instead of two crossed ones. And the cursor in " +
+        "`app-window-cursor` is a third bigger.",
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text:
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui " +
+        "registry, the CLI, the MCP server, and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
+  RELEASE_1_3_0,
   RELEASE_1_2_0,
   RELEASE_1_1_0,
   RELEASE_1_0_0,
