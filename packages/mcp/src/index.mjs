@@ -25,6 +25,16 @@ const data = JSON.parse(
 const { icons, styles, corners = ["regular"], keywords = {} } = data
 const NAMES = Object.keys(icons)
 
+/**
+ * A renamed icon's old name, followed to the drawing it names now.
+ *
+ * Renames from 1.0.0 on, as `lib/icon-renames.json` explains: an agent reading
+ * code that still imports `Rocket2` gets the drawing it expects, and the usage
+ * it is handed spells the new name, since that is what new code should import.
+ */
+const renames = data.renames ?? {}
+const current = (name) => (!icons[name] && renames[name]) || name
+
 const VERSION = "1.3.0"
 /** Fallback only. The client's requested version is echoed when it sends one. */
 const PROTOCOL = "2024-11-05"
@@ -508,8 +518,9 @@ function callTool(name, args) {
     }
 
     case "get_icon": {
-      const { name: icon, style = "stroke", corners: k = "regular" } = args
-      if (typeof icon !== "string") return fail("`name` is required.")
+      const { name: asked, style = "stroke", corners: k = "regular" } = args
+      if (typeof asked !== "string") return fail("`name` is required.")
+      const icon = current(asked)
       if (!styles.includes(style))
         return fail(`Unknown style \`${style}\`. One of: ${styles.join(", ")}.`)
       if (!corners.includes(k))
@@ -529,8 +540,9 @@ function callTool(name, args) {
     }
 
     case "get_react_usage": {
-      const { name: icon, style = "stroke", corners: k = "regular" } = args
-      if (typeof icon !== "string") return fail("`name` is required.")
+      const { name: asked, style = "stroke", corners: k = "regular" } = args
+      if (typeof asked !== "string") return fail("`name` is required.")
+      const icon = current(asked)
       if (!styles.includes(style))
         return fail(`Unknown style \`${style}\`. One of: ${styles.join(", ")}.`)
       if (!corners.includes(k))
@@ -549,8 +561,14 @@ function callTool(name, args) {
         k === "sharp" ? "@keyline-icons/react/sharp" : "@keyline-icons/react"
       const entry = style === "stroke" ? base : `${base}/${style}`
       const C = pascal(icon)
+      const moved =
+        icon === asked
+          ? ""
+          : `\`${asked}\` is \`${icon}\` now. ${pascal(asked)} still imports until ` +
+            `the next major, but new code should use ${C}.\n\n`
       return text(
-        `import { ${C} } from "${entry}"\n\n<${C} className="size-4" />\n\n` +
+        moved +
+          `import { ${C} } from "${entry}"\n\n<${C} className="size-4" />\n\n` +
           `Inside a shadcn/ui Button or Sidebar, drop the className: those primitives ` +
           `size nested SVGs themselves.`
       )

@@ -318,9 +318,21 @@ if (unglyphed.length) {
   process.exit(1)
 }
 
+/**
+ * Old names that still resolve: the renames from 1.0.0 on in
+ * `lib/icon-renames.json`, for the reason given there. The CLI's `add` and the
+ * MCP server's lookups follow one of these before giving up, so `add rocket-2`
+ * installs the drawing it always did and says what it is called now.
+ */
+const renamed = Object.fromEntries(
+  JSON.parse(await readFile(join(ROOT, "lib", "icon-renames.json"), "utf8"))
+    .renames.filter(({ version, to }) => Number(version.split(".")[0]) >= 1 && sorted[to])
+    .map(({ from, to }) => [from, to])
+)
+
 const CONTENT =
   JSON.stringify(
-    { ...base, keywords, names: foreignNames, categories: shelves },
+    { ...base, keywords, names: foreignNames, renames: renamed, categories: shelves },
     null,
     0
   ) + "\n"

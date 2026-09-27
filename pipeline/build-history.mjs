@@ -44,6 +44,32 @@ const NOTES = JSON.parse(
 )
 
 /**
+ * The name a drawing goes by now, for a drawing renamed from 1.0.0 on.
+ *
+ * Every date and every release here is read off git by path, and a rename is a
+ * new path: `rocket-fast` would have been announced as a drawing new in 1.3.0,
+ * badged New for a month, and filed as shipping in a release it had already
+ * shipped in five releases earlier as `rocket-2`. So an old name is read as the
+ * new one wherever a name is collected: the log, the tags' trees, the prior
+ * file, and the hand-written order and topic lists, which keep the names they
+ * were written with. A redraw is still judged path by path against the tag, so
+ * a rename alone is never a redraw.
+ *
+ * Renames from 0.x are left alone. Their releases were published counting the
+ * new name as new, and reading them this way now would change those counts.
+ */
+const RENAMED = new Map(
+  JSON.parse(readFileSync(join(ROOT, "lib", "icon-renames.json"), "utf8"))
+    .renames.filter(({ version }) => Number(version.split(".")[0]) >= 1)
+    .map(({ from, to }) => [from, to])
+)
+const canon = (name) => {
+  let now = name
+  while (RENAMED.has(now)) now = RENAMED.get(now)
+  return now
+}
+
+/**
  * The counts a note is allowed to quote, filled in here rather than typed.
  *
  * A number in a sentence is a claim with an expiry date, and this repository
@@ -383,6 +409,11 @@ const releases = git(
 /** Every tag's inventory, oldest first, resolved once. */
 const inventory = new Map(releases.map((r) => [r.version, held(r.tag)]))
 
+/** The same trees in current names, for every question about membership. See `canon`. */
+const known = new Map(
+  [...inventory].map(([v, names]) => [v, new Set([...names].map(canon))])
+)
+
 /**
  * One pass over the log, newest commit first.
  *
@@ -413,8 +444,9 @@ for (const line of log.split("\n")) {
     continue
   }
 
-  const name = /^icons\/(?:stroke|two-tone|duotone|fill)\/(.+)\.svg$/.exec(line)?.[1]
-  if (!name || !at) continue
+  const path = /^icons\/(?:stroke|two-tone|duotone|fill)\/(.+)\.svg$/.exec(line)?.[1]
+  if (!path || !at) continue
+  const name = canon(path)
 
   const entry = dates.get(name)
   if (!entry) dates.set(name, { added: at, updated: at, by: new Set([who]) })
@@ -440,7 +472,7 @@ for (const line of log.split("\n")) {
  * which is the same untruth one drawing further along.
  */
 const releaseFor = (name) =>
-  releases.find((r) => inventory.get(r.version).has(name))?.version ?? null
+  releases.find((r) => known.get(r.version).has(name))?.version ?? null
 
 /**
  * Formatted here rather than in the browser.
@@ -564,7 +596,7 @@ const topicsFor = (version, names, updatedNames) => {
   const redrawn = new Set(updatedNames)
   const claimed = new Set()
   const own = (list, pool) =>
-    (list ?? []).filter((n) => pool.has(n) && !claimed.has(n) && claimed.add(n))
+    (list ?? []).map(canon).filter((n) => pool.has(n) && !claimed.has(n) && claimed.add(n))
   /* One level of nesting is all a release needs: the `Redrawn` section holds
      its shelves. Written recursively anyway, so a second level costs nothing. */
   const section = (topic, parent) => {
@@ -605,7 +637,7 @@ const topicsFor = (version, names, updatedNames) => {
 }
 
 const inFigmaOrder = (version, names) => {
-  const want = ORDER[version]
+  const want = ORDER[version]?.map(canon)
   if (!want) return names
   const have = new Set(names)
   const out = want.filter((n) => have.has(n))
@@ -701,8 +733,8 @@ const priorPeople = prior.people ?? []
 /** The commit the public history opens with. Everything predates it. */
 const rootDate = git("log", "--reverse", "--format=%cI").split("\n")[0].trim()
 
-for (const [name, was] of Object.entries(prior.icons ?? {})) {
-  const now = dates.get(name)
+for (const [old, was] of Object.entries(prior.icons ?? {})) {
+  const now = dates.get(canon(old))
   if (!now) continue
 
   if (was.added && was.added < now.added) now.added = was.added
@@ -856,7 +888,9 @@ const out =
              because that is what the release actually shipped. */
           const names = inFigmaOrder(
             r.version,
-            [...now].filter((name) => !was.has(name) && live.has(name)).sort(byFiling)
+            [...known.get(r.version)]
+              .filter((name) => !(before ? known.get(before.version) : new Set()).has(name) && live.has(name))
+              .sort(byFiling)
           )
           return {
             version: r.version,
@@ -930,7 +964,7 @@ const out =
         const names = inFigmaOrder(
           current,
           Object.keys(icons)
-            .filter((name) => !was.has(name))
+            .filter((name) => !(since ? known.get(since.version) : new Set()).has(name))
             .sort(byFiling)
         )
         /* A note keeps the section alive on its own. Work that adds an axis

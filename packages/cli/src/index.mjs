@@ -224,6 +224,22 @@ const stemmed = (hay) => hay.replace(/[a-z0-9]+/g, singular)
 const foreign = data.names ?? {}
 
 /**
+ * A renamed icon's old name, followed to the drawing it names now.
+ *
+ * Only renames from 1.0.0 on are listed, and only until the next major, for
+ * the reason `lib/icon-renames.json` gives: a script that ran `add rocket-2`
+ * before 1.3.0 should still run after it. It gets the same drawing under the
+ * file name it asked for, and a note saying what the drawing is called now.
+ */
+const renames = data.renames ?? {}
+function current(name) {
+  const now = renames[name]
+  if (!now || icons[name]) return name
+  note(dim(`\`${name}\` is \`${now}\` now. The old name works until the next major.`))
+  return now
+}
+
+/**
  * Whether `hay` carries `needle` as a whole word, hyphen or space delimited.
  *
  * The rule here used to be a plain substring, and a substring lands inside
@@ -425,7 +441,7 @@ const commands = {
   show({ flags, positional }) {
     const [name] = positional
     if (!name) die("show needs an icon name. Try: keyline-icons show check")
-    process.stdout.write(resolveOrDie(name, styleOf(flags), cornersOf(flags)))
+    process.stdout.write(resolveOrDie(current(name), styleOf(flags), cornersOf(flags)))
   },
 
   async add({ flags, positional }) {
@@ -444,7 +460,7 @@ const commands = {
     // third of five does not leave two files on disk and an error.
     const files = positional.map((name) => [
       `${name}${suffix}`,
-      resolveOrDie(name, style, treatment),
+      resolveOrDie(current(name), style, treatment),
     ])
 
     await mkdir(dir, { recursive: true })

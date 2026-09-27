@@ -162,6 +162,22 @@ const pascal = (name) =>
     .map((part) => part[0].toUpperCase() + part.slice(1))
     .join("")
 
+/**
+ * Renames since 1.0.0, each kept as a deprecated alias of what it became.
+ *
+ * A 1.x export is a promise to everyone who imported it, and until `rocket-2`
+ * became `rocket-fast` in 1.3.0 a rename here simply deleted the old name: the
+ * next install broke the build of anyone using it, and nothing in this
+ * pipeline reported it. The alias is the same component under the old name,
+ * and the JSDoc tag is what makes an editor strike it through, so the import
+ * keeps working and says what to change it to. They go at the next major.
+ * Renames from 0.x are left out: they were breaking by the rules of 0.x, and
+ * bringing their names back now would make them look current.
+ */
+const ALIASES = JSON.parse(
+  await readFile(join(ROOT, "lib", "icon-renames.json"), "utf8")
+).renames.filter(({ version }) => Number(version.split(".")[0]) >= 1)
+
 /** Numeric-looking attribute values become JSX expressions: `strokeWidth={2}`, not `"2"`. */
 function jsxValue(value) {
   return /^-?\d+(\.\d+)?$/.test(value) ? `{${value}}` : `"${value}"`
@@ -296,11 +312,25 @@ async function build(style, corners, target = "web") {
     )
   }
 
+  // Counted before the aliases, which are names rather than drawings.
+  const count = components.length
+  const names = new Set(files.map((f) => f.slice(0, -4)))
+  for (const { from, to, version } of ALIASES) {
+    if (!names.has(to)) continue
+    components.push(
+      `/**\n` +
+        ` * @deprecated \`${from}\` was renamed \`${to}\` in ${version}. Import\n` +
+        ` * ${pascal(to)}: this name keeps working until the next major.\n` +
+        ` */\n` +
+        `export const ${pascal(from)} = ${pascal(to)}`
+    )
+  }
+
   return {
     text: `${
       target === "native" ? nativeHeader(rel, [...used].sort()) : header(rel)
     }\n${components.join("\n\n")}\n`,
-    count: components.length,
+    count,
     rel,
   }
 }

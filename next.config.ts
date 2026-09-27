@@ -1,6 +1,7 @@
 import { dirname } from "node:path"
 import { fileURLToPath } from "node:url"
 import type { NextConfig } from "next"
+import { renames } from "./lib/icon-renames.json"
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1"],
@@ -50,21 +51,28 @@ const nextConfig: NextConfig = {
     Renamed icons, for the same reason as `/shadcn`. An icon page is an
     address Google has already crawled, so a rename without an entry here is a
     404 in Search Console: two of these three were listed there on 14 Sep 2026.
-    A rename adds its old name here; a drawing that was removed outright does
-    not, since a 404 is the true answer for it.
+    A rename adds its old name to `lib/icon-renames.json`; a drawing that was
+    removed outright does not, since a 404 is the true answer for it.
+
+    A rename from 1.0.0 on forwards its registry items too, in every style and
+    corner (`/r/sharp/fill/rocket-2.json` included). The shadcn CLI follows a
+    redirect, so `@keyline/rocket-2` keeps installing until the next major.
   */
   async redirects() {
     return [
       { source: "/shadcn", destination: "/install", permanent: true },
-      ...[
-        ["heart-hand", "hand-heart"],
-        ["link-off", "link-2-off"],
-        ["tag-horizontal", "tag-horizontal-start"],
-      ].map(([from, to]) => ({
+      ...renames.map(({ from, to }) => ({
         source: `/icons/${from}`,
         destination: `/icons/${to}`,
         permanent: true,
       })),
+      ...renames
+        .filter(({ version }) => Number(version.split(".")[0]) >= 1)
+        .map(({ from, to }) => ({
+          source: `/r/:path*/${from}.json`,
+          destination: `/r/:path*/${to}.json`,
+          permanent: true,
+        })),
     ]
   },
 }

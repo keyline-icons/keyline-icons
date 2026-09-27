@@ -7251,7 +7251,7 @@ export function Rewind(props: IconProps) {
   )
 }
 
-export function Rocket2(props: IconProps) {
+export function RocketFast(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M6.8103 13.5269L10.4731 17.1897L16.7303 12.7638C19.9046 10.5186 21.8524 6.9232 21.9992 3.0378C21.9997 3.0252 21.9999 3.0126 21.9999 3.0001C21.9999 2.4478 21.5522 2.0001 20.9999 2.0001C20.9874 2.0001 20.9748 2.0003 20.9622 2.0008C17.0768 2.1476 13.4814 4.0954 11.2362 7.2697L6.8103 13.5269Z" fill="currentColor" stroke="none" />
@@ -10114,3 +10114,9 @@ export function Zap(props: IconProps) {
     </Icon>
   )
 }
+
+/**
+ * @deprecated `rocket-2` was renamed `rocket-fast` in 1.3.0. Import
+ * RocketFast: this name keeps working until the next major.
+ */
+export const Rocket2 = RocketFast
