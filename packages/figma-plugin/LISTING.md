@@ -125,7 +125,7 @@ Changelog
 1.3.0
 Five new drawings, taking the set to 1,183 names and 9,464 SVGs: a shooting star, a truck, a paper plane, a bike and a stopwatch, each with speed lines behind it. rocket-2 is rocket-fast now, for the speed lines it shares with them, and the old name still finds it.
 
-Also redrawn: the parcel and its ten signs, in duotone. The lid is now the dark part, with the tape crossing it in grey.
+Also redrawn: the parcel and its ten signs, in duotone. The lid is now the dark part, with the tape crossing it in grey. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones.
 
 1.2.0
 64 new drawings, taking the set to 1,178 names and 9,424 SVGs.
@@ -251,7 +251,7 @@ to be **pushed** before any of this is true for anyone but you.
 ```
 Five new drawings, taking the set to 1,183 names and 9,464 SVGs: a shooting star, a truck, a paper plane, a bike and a stopwatch, each with speed lines behind it. rocket-2 is rocket-fast now, for the speed lines it shares with them, and the old name still finds it.
 
-Redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone.
+Redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones.
 ```
 
 **A republish is required for the listing**, whose counts moved: the tagline,
@@ -656,7 +656,7 @@ github.com/keyline-icons/keyline-icons
 v1.3.0
 Five new drawings, each with speed lines behind it: a shooting star, a truck, a paper plane, a bike and a stopwatch. The set is 1,183 names now, 1,058 component sets and 9,464 variants, up from 1,178 and 9,424. One set was renamed, rocket-2 to rocket-fast, in place, and no component was replaced, so instances already placed in your files keep their link.
 
-Also redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
+Also redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
 
 v1.2.0
 64 new drawings. The set is 1,178 names now, 1,053 component sets and 9,424 variants, up from 1,114 and 8,912. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
@@ -758,7 +758,7 @@ regenerated together; re-upload whichever modal you are in.
 ### What changed, for the final details page
 
 ```
-Five new icons, each with speed lines behind it: a shooting star, a truck, a paper plane, a bike and a stopwatch. The parcel and its ten signs were redrawn in duotone, with the lid now the dark part. The file went from 1,053 component sets to 1,058 and from 9,424 variants to 9,464. rocket-2 was renamed rocket-fast in place and nothing was removed, and the redraws were swapped inside their existing sets, so instances already placed in your files keep their link.
+Five new icons, each with speed lines behind it: a shooting star, a truck, a paper plane, a bike and a stopwatch. The parcel and its ten signs were redrawn in duotone, with the lid now the dark part, and cpu-sparkles, film-sparkles and brain-sparkles in sharp, where they open for their stars. The file went from 1,053 component sets to 1,058 and from 9,424 variants to 9,464. rocket-2 was renamed rocket-fast in place and nothing was removed, and the redraws were swapped inside their existing sets, so instances already placed in your files keep their link.
 ```
 
 The 1.2.0 entry this replaced, kept because a listing's history is worth

@@ -232,7 +232,7 @@
       "width": 742,
       "icons": 0,
       "variants": 16,
-      "bytes": 37251
+      "bytes": 37067
     },
     {
       "file": "ai-6.html",
@@ -316,7 +316,7 @@
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 39539
+      "bytes": 39499
     },
     {
       "file": "ai-13.html",
@@ -352,7 +352,7 @@
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 40608
+      "bytes": 40584
     },
     {
       "file": "ai-16.html",
@@ -2868,7 +2868,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 46673
+      "bytes": 60079
     },
     {
       "file": "changelog-earlier.html",
