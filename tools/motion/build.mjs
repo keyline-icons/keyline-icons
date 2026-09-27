@@ -30,7 +30,7 @@
 //   node tools/motion/build.mjs [--out=<dir>]     writes raw/<name>/ for all five (default: this checkout)
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { Path, polyPath, fillet, add, sub, mul, len, unit, dot, pt, n, R2, rad, deg, ink, gap, bisect, seg, fmt } from './lib.mjs';
+import { Path, fillet, add, sub, mul, len, unit, dot, R2, rad, deg, ink, gap, bisect, seg, fmt } from './lib.mjs';
 
 const OUT = process.argv.find((a) => a.startsWith('--out='))?.slice(6) ?? join(import.meta.dirname, '..', '..');
 const { writeSet } = await import('../v5/raw.mjs');
@@ -284,7 +284,6 @@ function outerOffset(pts, radii) {
   }
   return { d: p.Z().toString(), V, E };
 }
-const windingOf = (pts) => Math.sign(signedArea(pts));
 
 /* ================================================================ send-fast */
 
