@@ -77,7 +77,7 @@
     {
      "title": "Redrawn",
      "icon": "pen",
-     "text": "Eleven drawings that already shipped were drawn again. Before and after below.",
+     "text": "Fourteen drawings that already shipped were drawn again. Before and after below.",
      "sections": [
       {
        "title": "Commerce",
@@ -94,6 +94,15 @@
         "package-plus",
         "package-x",
         "package-zap"
+       ]
+      },
+      {
+       "title": "AI",
+       "text": "Sharp corners only, where each drawing opens for its stars. The chip now turns into its two corner pins and the film strip into its rail on the same rounded corner as the rest of the frame, where both came to a point, and the brain closes its two lobes on one level end instead of two crossed ones.",
+       "redraws": [
+        "brain-sparkles",
+        "cpu-sparkles",
+        "film-sparkles"
        ]
       }
      ]
