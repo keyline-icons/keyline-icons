@@ -336,9 +336,9 @@ export const SET_UNRELEASED: Unreleased | null = HISTORY.unreleased ?? null
  * timestamp. No build step writes either value.
  */
 /** Exported so the copy that explains the badge cannot drift from the rule. */
-export const NEW_FOR_DAYS: number = badges.newForDays ?? 30
+export const NEW_FOR_DAYS: number = badges.newForDays ?? 14
 const BADGES_CLEARED_BEFORE: string = badges.clearedBefore ?? ""
-/** Drawings the floor skips; the 30 days still apply. See the file's comment. */
+/** Drawings the floor skips; the window still applies. See the file's comment. */
 const BADGES_CLEARED_EXCEPT = new Set<string>(badges.clearedExcept ?? [])
 
 /**
