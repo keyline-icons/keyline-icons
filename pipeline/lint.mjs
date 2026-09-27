@@ -229,6 +229,10 @@ const SIZE_KNOWN = new Set([
   'cctv-off',
   // table is 20 x 20; its -off paints the slash's 1..23 like cctv-off's
   'table-off',
+  // The same box for the same reason, 27 Sep 2026: captions and subtitles are
+  // 22 wide and their -off forms add the slash's height, and square-play's
+  // square is 20 x 20, so the slash puts ink in all four corners of each.
+  'captions-off', 'subtitles-off', 'square-play-off',
   // The alarm clock's face is r=8, the largest that keeps its bells the house
   // 2 off it, and its bells end one unit outside the face as he approved them,
   // so it paints 20 x 22 and reads as a circle. Reaching 22 wide means bells of

@@ -48,7 +48,7 @@ const NOTES = JSON.parse(
  *
  * Every date and every release here is read off git by path, and a rename is a
  * new path: `rocket-fast` would have been announced as a drawing new in 1.3.0,
- * badged New for a month, and filed as shipping in a release it had already
+ * badged New again, and filed as shipping in a release it had already
  * shipped in five releases earlier as `rocket-2`. So an old name is read as the
  * new one wherever a name is collected: the log, the tags' trees, the prior
  * file, and the hand-written order and topic lists, which keep the names they

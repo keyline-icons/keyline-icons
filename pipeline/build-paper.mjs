@@ -221,9 +221,20 @@ const BADGES = JSON.parse(
 )
 /* The badge is an age, not a release. Same rule and same file as `isNewSince`
    in lib/icons.ts, compared as instants because git's offset dates and a
-   window computed from the clock do not sort against each other as strings. */
-const NEW_FOR_DAYS = BADGES.newForDays ?? 30
-const NEW_WINDOW = Date.now() - NEW_FOR_DAYS * 86_400_000
+   computed window do not sort against each other as strings.
+
+   One difference, on purpose: the window counts back from the newest drawing,
+   not from the clock. The site is rebuilt on every deploy, but these sheets
+   are committed and `--check` recomposes them byte for byte in CI, so a clock
+   window fails CI on the day a drawing ages out with nothing changed, and with
+   drawings landing most days that is most days. The newest drawing is the
+   instant the sheets were last true, and the date "Last updated" prints. */
+const NEW_FOR_DAYS = BADGES.newForDays ?? 14
+const AS_OF = Math.max(
+  0,
+  ...Object.values(HISTORY.icons ?? {}).map((h) => Date.parse(h.updated) || 0)
+)
+const NEW_WINDOW = AS_OF - NEW_FOR_DAYS * 86_400_000
 const NEW_SINCE = Math.max(
   BADGES.clearedBefore ? Date.parse(BADGES.clearedBefore) : 0,
   NEW_WINDOW
@@ -1440,7 +1451,7 @@ const release = {
   previousLabel: HISTORY.previousReleasedLabel ?? HISTORY.releasedLabel ?? "",
   /* What the first release shipped, counted rather than carried forward. Off
      the release windows, not off the badge floor: the badge is an age now, so
-     asking it what a tag held would answer with whatever is 30 days old. */
+     asking it what a tag held would answer with whatever the window holds. */
   initialCount:
     (HISTORY.releases ?? []).find((r) => r.initial)?.count ??
     Object.keys(HISTORY.icons ?? {}).length,

@@ -73,14 +73,14 @@ Keyline Icons
 ## Tagline
 
 ```
-1,183 icons, four styles, rounded or sharp corners. Searchable in Figma and FigJam.
+1,192 icons, four styles, rounded or sharp corners. Searchable in Figma and FigJam.
 ```
 
 Capped at 100 characters. The line above is 81, so there is still room. A
 shorter alternative if it ever needs one:
 
 ```
-1,183 icons in four styles, cut rounded or sharp.
+1,192 icons in four styles, cut rounded or sharp.
 ```
 
 ## Description
@@ -94,20 +94,20 @@ which only ever shows the newest entry. Someone deciding whether to install
 wants to see the set is maintained, and that is what a history says.
 
 ```
-Search 1,183 icons and drop one on the canvas. No library to publish, no file to duplicate, no plan requirement.
+Search 1,192 icons and drop one on the canvas. No library to publish, no file to duplicate, no plan requirement.
 
 Four styles
 
-* Stroke: 1,183 icons, 2px, round caps and joins
-* Two-tone: 1,183 icons, a 40% plate under the line
-* Duotone: 1,183 icons, no outline, a grey body with the detail in black
-* Fill: 1,183 icons, solid where the glyph has a region to fill
+* Stroke: 1,192 icons, 2px, round caps and joins
+* Two-tone: 1,192 icons, a 40% plate under the line
+* Duotone: 1,192 icons, no outline, a grey body with the detail in black
+* Fill: 1,192 icons, solid where the glyph has a region to fill
 
-Two corner treatments, and every drawing has both. Rounded is the keyline the set was drawn on; sharp takes every corner to a true point and ends each stroke square. Coverage is identical, so switching never costs you a drawing. 9,464 SVGs in total.
+Two corner treatments, and every drawing has both. Rounded is the keyline the set was drawn on; sharp takes every corner to a true point and ends each stroke square. Coverage is identical, so switching never costs you a drawing. 9,536 SVGs in total.
 
-60 icons also come in a square- form and 65 in a circle- form, so a container is a search away rather than a second drawing.
+61 icons also come in a square- form and 66 in a circle- form, so a container is a search away rather than a second drawing.
 
-Search knows more than the file names. 1,058 icons carry curated words, so "south" finds arrow-down, "hamburger" finds menu and "trash" finds bin. Paste a component name straight out of your code and it resolves: CheckCircle2 finds circle-check.
+Search knows more than the file names. 1,065 icons carry curated words, so "south" finds arrow-down, "hamburger" finds menu and "trash" finds bin. Paste a component name straight out of your code and it resolves: CheckCircle2 finds circle-check.
 
 Browse the set the way the site files it, shelf by shelf, with every shelf a click away from wherever you are. The icons you used last wait at the top, and the panel opens next time on the style, corners and size you left it on.
 
@@ -123,9 +123,14 @@ github.com/keyline-icons/keyline-icons
 Changelog
 
 1.3.0
-Five new drawings, taking the set to 1,183 names and 9,464 SVGs: a shooting star, a truck, a paper plane, a bike and a stopwatch, each with speed lines behind it. rocket-2 is rocket-fast now, for the speed lines it shares with them, and the old name still finds it.
+Fourteen new drawings, taking the set to 1,192 names and 9,536 SVGs.
 
-Also redrawn: the parcel and its ten signs, in duotone. The lid is now the dark part, with the tape crossing it in grey. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones.
+* Speed lines: a shooting star, a truck, a paper plane, a bike and a stopwatch, each with its trails behind it
+* Switched off: captions, subtitles and play, and play in its square and circle too
+* Arrows: an arrow entering a square, from each of its four corners
+* rocket-2 is rocket-fast now, for the speed lines it shares with them, and the old name still finds it
+
+Also redrawn: the parcel and its ten signs, in duotone. The lid is now the dark part, with the tape crossing it in grey. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones. The ring of power-off now opens as wide as power's, and volume-off in sharp takes the sharp speaker.
 
 1.2.0
 64 new drawings, taking the set to 1,178 names and 9,424 SVGs.
@@ -218,7 +223,7 @@ expectation for an icon set. `free icons` overlaps `open source`, and page four
 marks the plugin Free natively.
 
 That leaves the five that actually distinguish it: FigJam support is rare among
-icon plugins, 1,183 duotone drawings are rare among icon sets, a set that ships
+icon plugins, 1,192 duotone drawings are rare among icon sets, a set that ships
 every drawing rounded *and* sharp is rarer still, and the rest name the audience
 rather than the artefact.
 
@@ -249,9 +254,9 @@ to be **pushed** before any of this is true for anyone but you.
 ### 1.3.0
 
 ```
-Five new drawings, taking the set to 1,183 names and 9,464 SVGs: a shooting star, a truck, a paper plane, a bike and a stopwatch, each with speed lines behind it. rocket-2 is rocket-fast now, for the speed lines it shares with them, and the old name still finds it.
+Fourteen new drawings, taking the set to 1,192 names and 9,536 SVGs: a shooting star, a truck, a paper plane, a bike and a stopwatch with speed lines behind them; captions, subtitles and play switched off, play in its square and circle too; and an arrow entering a square from each corner. rocket-2 is rocket-fast now, for the speed lines it shares with them, and the old name still finds it.
 
-Redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones.
+Redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones. The ring of power-off now opens as wide as power's, and volume-off in sharp takes the sharp speaker, so each is its original at the same size.
 ```
 
 **A republish is required for the listing**, whose counts moved: the tagline,
@@ -638,13 +643,13 @@ Keyline Icons
 ### Description
 
 ```
-1,183 icons on a 24×24 grid, in four styles and two corner treatments: stroke, two-tone, duotone and fill, cut rounded or sharp. MIT licensed, free for commercial work, no attribution required.
+1,192 icons on a 24×24 grid, in four styles and two corner treatments: stroke, two-tone, duotone and fill, cut rounded or sharp. MIT licensed, free for commercial work, no attribution required.
 
-1,058 component sets, each with three variant properties, Container, Style and Corners, so you switch between regular, square and circle, between the four styles, and between rounded and sharp, without swapping components. 60 icons carry a square- form and 65 a circle-.
+1,065 component sets, each with three variant properties, Container, Style and Corners, so you switch between regular, square and circle, between the four styles, and between rounded and sharp, without swapping components. 61 icons carry a square- form and 66 a circle-.
 
-Every name comes in all four styles. Two-tone keeps the outline over a 40% plate, which is what duotone meant until 0.9.0; duotone now drops the outline and puts the part that matters in black. The four counts: stroke 1,183, two-tone 1,183, duotone 1,183, fill 1,183.
+Every name comes in all four styles. Two-tone keeps the outline over a 40% plate, which is what duotone meant until 0.9.0; duotone now drops the outline and puts the part that matters in black. The four counts: stroke 1,192, two-tone 1,192, duotone 1,192, fill 1,192.
 
-Every drawing exists in both treatments, so sharp is a switch rather than a second library: 9,464 variants over the same 1,183 names.
+Every drawing exists in both treatments, so sharp is a switch rather than a second library: 9,536 variants over the same 1,192 names.
 
 The Catalog page files every icon under one of 40 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
 
@@ -654,9 +659,13 @@ keylineicons.com
 github.com/keyline-icons/keyline-icons
 
 v1.3.0
-Five new drawings, each with speed lines behind it: a shooting star, a truck, a paper plane, a bike and a stopwatch. The set is 1,183 names now, 1,058 component sets and 9,464 variants, up from 1,178 and 9,424. One set was renamed, rocket-2 to rocket-fast, in place, and no component was replaced, so instances already placed in your files keep their link.
+Fourteen new drawings. The set is 1,192 names now, 1,065 component sets and 9,536 variants, up from 1,178 and 9,424. One set was renamed, rocket-2 to rocket-fast, in place, and no component was replaced, so instances already placed in your files keep their link.
 
-Also redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
+* Speed lines: a shooting star, a truck, a paper plane, a bike and a stopwatch, each with its trails behind it
+* Switched off: captions, subtitles and play, and play in its square and circle too, each at its original size
+* Arrows: an arrow entering a square, from each of its four corners
+
+Also redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones. The ring of power-off now opens as wide as power's, and volume-off in sharp takes the sharp speaker, so each is its original at the same size. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
 
 v1.2.0
 64 new drawings. The set is 1,178 names now, 1,053 component sets and 9,424 variants, up from 1,114 and 8,912. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
@@ -758,7 +767,7 @@ regenerated together; re-upload whichever modal you are in.
 ### What changed, for the final details page
 
 ```
-Five new icons, each with speed lines behind it: a shooting star, a truck, a paper plane, a bike and a stopwatch. The parcel and its ten signs were redrawn in duotone, with the lid now the dark part, and cpu-sparkles, film-sparkles and brain-sparkles in sharp, where they open for their stars. The file went from 1,053 component sets to 1,058 and from 9,424 variants to 9,464. rocket-2 was renamed rocket-fast in place and nothing was removed, and the redraws were swapped inside their existing sets, so instances already placed in your files keep their link.
+Fourteen new icons: a shooting star and four fast movers with speed lines, captions, subtitles and play switched off with play in its square and circle too, and an arrow entering a square from each corner. The parcel and its ten signs were redrawn in duotone, with the lid now the dark part, cpu-sparkles, film-sparkles and brain-sparkles in sharp, where they open for their stars, and power-off and sharp volume-off back to their originals' size. The file went from 1,053 component sets to 1,065 and from 9,424 variants to 9,536. rocket-2 was renamed rocket-fast in place and nothing was removed, and the redraws were swapped inside their existing sets, so instances already placed in your files keep their link.
 ```
 
 The 1.2.0 entry this replaced, kept because a listing's history is worth
