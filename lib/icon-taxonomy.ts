@@ -203,7 +203,7 @@ export const CATEGORIES = [
   {
     label: "Charts",
     match: /^(bar-chart|bars-progress|chart-|trending|signal|progress|loader|activity|gauge(-|$))/,
-    blurb: "Trends, bar and column charts, a pyramid, a treemap, signal strength, progress and activity markers and the gauges.",
+    blurb: "Trends, bar, column and stock charts, a pyramid, a treemap, signal strength, progress and activity markers and the gauges.",
   },
   // Boxes on wires. A diagram says how things relate, where a chart says how
   // much, so the four of them are their own shelf rather than the tail of
@@ -231,8 +231,8 @@ export const CATEGORIES = [
     // IS, and it is a desk device, not money. `usb` is a prefix, so `usb-drive`
     // and anything else on that port lands beside it.
     label: "Devices",
-    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse$|shredder$)/,
-    blurb: "Phones, tablets, laptops, handsets, printers, keyboards, servers, databases, terminals, code, processors, bugs, the app tiles, the QR code, the scan frame with what it reads, a watch, a hard drive, a cable, a headset visor, the app windows, a CCTV camera, a mouse and a shredder.",
+    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse$|shredder$|gamepad$)/,
+    blurb: "Phones, tablets, laptops, handsets, printers, keyboards, servers, databases, terminals, code, processors, bugs, the app tiles, the QR code, the scan frame with what it reads, a watch, a hard drive, a cable, a headset visor, the app windows, a CCTV camera, a mouse, a shredder and a gamepad.",
   },
   {
     label: "Pointers",
@@ -311,8 +311,8 @@ export const CATEGORIES = [
   // rather than verbs; a face is not a person and a thumb is not a verb.
   {
     label: "Emoji",
-    match: /^(face-|thumbs-)/,
-    blurb: "Faces and the reactions that go with them.",
+    match: /^(face-|thumbs-|alien$)/,
+    blurb: "Faces, an alien's among them, and the reactions that go with them.",
   },
   {
     // Ahead of Shapes so `triangle-alert`, `octagon-alert` and `info` read as
@@ -356,8 +356,8 @@ export const CATEGORIES = [
   // The third, AI, now leads the list (see the top).
   {
     label: "Science",
-    match: /^(flask|test-tube)/,
-    blurb: "Flasks and test tubes, with the off state and the rack.",
+    match: /^(flask|test-tube|atom$)/,
+    blurb: "Flasks and test tubes, with the off state and the rack, and the atom.",
   },
   {
     // The body and what measures it. `ear` is anchored so `earbuds` falls
@@ -371,9 +371,13 @@ export const CATEGORIES = [
   {
     // `crown` is what a winner gets, so it sits with the trophy rather than
     // with the marks in Actions.
+    // The games joined on 28 Sep 2026 with the topic batch: five balls, the
+    // cricket bat, the crossed hockey sticks and the flag in its hole. Each
+    // name leads with its game, so the game is the prefix: a golf ball or a
+    // tennis racket lands here without another edit.
     label: "Sport",
-    match: /^(trophy|award|podium|medal|crown|flag-chequered)/,
-    blurb: "Trophies, awards, crowns and the places on the podium.",
+    match: /^(trophy|award|podium|medal|crown|flag-chequered|american-football|baseball|basketball|cricket|golf|hockey|soccer|tennis)/,
+    blurb: "Trophies, awards, crowns and the places on the podium, the balls of five games, a cricket bat, hockey sticks and a golf hole.",
   },
   {
     // The four of them are the objects, not the act of eating: a mug, a cake, a
@@ -477,8 +481,8 @@ export const CATEGORIES = [
     // `pig` is anchored so it cannot reach `piggy-bank`, which is Finance's and
     // sits earlier in any case.
     label: "Animals",
-    match: /^(bird|pig)(-|$)/,
-    blurb: "The animals.",
+    match: /^(bird|pig|paw)(-|$)/,
+    blurb: "The creatures: a bird and a pig, and a paw print.",
   },
 ] as const
 

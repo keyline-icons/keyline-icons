@@ -259,6 +259,10 @@ const SIZE_KNOWN = new Set([
   // opened on the edge, falls through, which is why only sharp reports.
   'table-rows-add-above', 'table-rows-add-below', 'table-rows-remove-above', 'table-rows-remove-below',
   'table-columns-add-before', 'table-columns-add-after', 'table-columns-remove-before', 'table-columns-remove-after',
+  // His alien of 28 Sep 2026: the head is an egg, taller than it is wide, and he
+  // kept it 20 wide under its 22 over the 22 x 22 dome it was first drawn as, so
+  // it paints 20 x 22 and reads as a circle.
+  'alien',
 ]);
 /**
  * Drawings of a real product, which keep the product's proportions and radii

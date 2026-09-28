@@ -1065,6 +1065,22 @@
     "table-tree": "A table with nested rows under its header, for a tree grid, grouped rows and hierarchies.",
     "table-pivot": "A table with a header row, a first column and a turning arrow, for pivoting data.",
     "table-off": "A table struck through, for a hidden table, disabled data and no records.",
-    "cloud-terminal": "A cloud with a prompt, for cloud shells, remote terminals and commands run in the cloud."
+    "cloud-terminal": "A cloud with a prompt, for cloud shells, remote terminals and commands run in the cloud.",
+    "alien": "An alien head with two slanted eyes, for sci-fi, space themes and an extraterrestrial emoji.",
+    "american-football": "An American football with its stripes and laces, for the sport, game days and fantasy leagues.",
+    "atom": "Two orbits crossing round a nucleus, for science, physics, chemistry and anything atomic.",
+    "baseball": "A baseball with its stitched seams, for the sport, box scores and season schedules.",
+    "basketball": "A basketball with its seams, for the sport, courts, pickup games and team pages.",
+    "chart-stock-down": "A line chart falling in a frame, for stock losses, market dips and a portfolio down.",
+    "chart-stock-up": "A line chart rising in a frame, for stock gains, market growth and a portfolio up.",
+    "cricket-bat": "A cricket bat beside its ball, for the sport, scorecards and batting averages.",
+    "gamepad": "A game controller with a plus pad and two buttons, for gaming, consoles and play modes.",
+    "golf-hole": "A flag in the hole on a green, for golf, tee times, courses and scorecards.",
+    "hearts": "Two hearts, one in front of the other, for love, couples, dating and shared favourites.",
+    "hockey-sticks": "Two hockey sticks crossed, for ice and field hockey, matches and rink bookings.",
+    "paw-print": "A paw print with three toes over a pad, for pets, vets, animal care and pet-friendly places.",
+    "soccer-ball": "A football with its pentagon and seams, for soccer, matches, results and league tables.",
+    "tennis-ball": "A tennis ball with its curved seam, for tennis, padel, court bookings and match scores.",
+    "tree-deciduous": "A leafy tree on a forked trunk, for parks, forests, gardens and nature settings."
   }
 }
