@@ -48,9 +48,10 @@ Anything you have already staged is kept.
 pnpm icons:ci
 ```
 
-That is exactly what CI runs: the sync checks for `icons/`, the React modules and
-the Figma cover, then the geometry linter, the demo reference check and
-`tsc --noEmit`. If it passes locally it passes on GitHub.
+That runs the sync checks for `icons/`, the React modules and the Figma cover,
+then the geometry linter, the demo reference check and `tsc --noEmit` for the
+site and for `packages/react`. CI runs it first, then `pnpm lint` and
+`pnpm build`: run all three and what passes locally passes on GitHub.
 
 Two checks sit outside it deliberately and are worth running by hand if you have
 touched what they cover:

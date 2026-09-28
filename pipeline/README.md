@@ -1119,6 +1119,12 @@ Two things that cost time when they go wrong:
   the same pass as `react`, so the two cannot diverge. What only `npm publish`
   proves is that it compiles, which is why the `npm install` sits in the line
   above.
+- **The root `tsconfig.json` leaves out `packages/react` too**, for time rather
+  than dependencies. Its eight generated modules were about 80% of every root
+  type check, and `next build` repeated that check on each deploy. `icons:ci`
+  compiles the package on its own instead (`tsc -p packages/react`, right after
+  `build-react --check`), so a generator change that breaks the types of one
+  style module still fails CI and not only `npm publish`.
 
 `react` builds its `dist/` from `prepublishOnly`, so the directory is
 gitignored and never commits; a stale local build cannot ship. `npm publish
