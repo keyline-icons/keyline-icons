@@ -122,6 +122,14 @@ github.com/keyline-icons/keyline-icons
 
 Changelog
 
+1.4.0
+16 new drawings, taking the set to 1,233 names and 9,864 SVGs.
+
+* Finance: a money bag, and the bag again with a dollar, a tick, a cross, a plus and a minus in the middle of it; three gold bars stacked
+* A bank's columned front, a rubber stamp over the line it prints, and a newspaper
+* Two arrows passing each other, for transfers and swaps, and an arrow up beside an arrow down, for sorting
+* History as a clock inside an arrow turning back, a calendar marked with its days, a copy with a tick and a globe with a lens
+
 1.3.0
 39 new drawings, taking the set to 1,217 names and 9,736 SVGs.
 
@@ -240,6 +248,16 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 1.4.0
+
+```
+16 new drawings, taking the set to 1,233 names and 9,864 SVGs: a money bag, and the bag again with a dollar, a tick, a cross, a plus and a minus in the middle of it; three gold bars stacked; a bank's columned front, a rubber stamp and a newspaper; two arrows passing each other, for transfers and swaps, and an arrow up beside an arrow down, for sorting; history as a clock inside an arrow turning back; a calendar marked with its days, a copy with a tick and a globe with a lens.
+```
+
+**A republish is required for the listing**, whose counts moved: the tagline,
+the style bullets, the totals and the curated-word count all changed with the
+set. The plugin's own code did not change, and the category count stayed at 40.
 
 ### 1.3.0
 
@@ -648,6 +666,14 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+v1.4.0
+16 new drawings. The set is 1,233 names now, 1,106 component sets and 9,864 variants, up from 1,217 and 9,736. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
+
+* Finance: a money bag, and the bag again with a dollar, a tick, a cross, a plus and a minus in the middle of it; three gold bars stacked
+* Maps, Stationery and Files: a bank's columned front, a rubber stamp over the line it prints, and a newspaper
+* Arrows: two arrows passing each other, for transfers and swaps, and an arrow up beside an arrow down, for sorting
+* Time, Files and Web: history as a clock inside an arrow turning back, a calendar marked with its days, a copy with a tick and a globe with a lens
+
 v1.3.0
 39 new drawings. The set is 1,217 names now, 1,090 component sets and 9,736 variants, up from 1,178 and 9,424. One set was renamed, rocket-2 to rocket-fast, in place, and no component was replaced, so instances already placed in your files keep their link.
 
@@ -688,27 +714,6 @@ v1.1.0
 
 Also redrawn: the pen with sparkles, its plus signs swapped for the pair of stars every other drawing on the AI shelf carries. The vectors were swapped inside the existing set, so its instances keep their link too.
 
-v1.0.0
-Four styles, and a new shelf. Every set now carries stroke, two-tone, duotone and fill in both corners: the outlined style that was called duotone is Style=two-tone, and Style=duotone is a new drawing with no outline, a grey body with the part that matters in black. 149 new drawings. The set is 1,000 names now, 883 component sets and 8,000 variants, up from 851 and 4,394. The rename happened in place, so instances already placed in your files keep their link and their look.
-
-* People: a boy and a girl, a baby with a curl and one with a bow, and both babies again with a pacifier
-* Layout: the panel on every side, open, closed, dashed and open and dashed, and three split layouts
-* Devices: the phone calling, incoming, outgoing, missed and forwarded; the tablet, upright and with eight signs; a laptop, and the laptop beside a phone; a watch, a hard drive, a cable and a headset visor
-* Media and Mail: AirPlay, a phone casting, a film camera, a broadcast mast and a search over sound; a sparkle in both message bubbles, and send on a clock
-* Users and Actions: a voice, contacts, an ID card and the accessibility figure; a shield with a key, a siren and delete
-* Weather and more: humidity and three kinds of cloud, a gauge, two toggles, a map pin with a heart, a shopping basket, a file search and a turn with a plus
-* Devices, Stationery and Text: an app window with a plus, minus, x and cursor beside its ruled form, a CCTV camera with and without a slash, a mouse and a shredder; a sticky note with its signs and slash, and two stacked; the case marks, an outlined T and a whole word
-* And more: a folder tree and a typed file, a radio, a fingerprint, an incognito hat, a shirt, a paper bag, a milestone, a swatch book, the earth, the recycling arrows, a car, a wallet with its cards, a slashed bot, a brain with a cog and a pen with sparkles
-* Finance: two banknotes, each with check, minus, plus and x
-* Transport: a rocket at 45 degrees on its flame, again with speed lines, and standing upright
-* Arrows and Text: the big arrow in four directions, long and short, and the heading with its six levels
-* Time and Weather: a stopwatch and its reset, an alarm clock with check, plus and minus, a snowflake and wind
-* Layout and Files: a table and a zipped folder
-* Pointers: a hand closed and a hand open
-* Categories went from 37 to 38: People took the figures that had nowhere honest to sit
-
-Also redrawn: the pointing hand in four directions, the paperclip longer, the dice pips larger, the three dots larger, the sparkle out to the 2-unit margin, play smaller, the gallery frames on a tighter radius, the grid and file fills clear of their edges, the chart axes grey in two-tone, the four dashed close panels, and the coins on rounder faces.
-
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
 
@@ -733,7 +738,9 @@ plugin's and v0.9.0 from the file's on 27 Sep 2026 with the 1.3.0 entries (8,842
 8,878 by `wc -m`, past the 8,800 the next note asks for), 0.9.0 from the
 plugin's on 28 Sep 2026 once the 1.3.0 entries took in all 39 drawings (9,045
 before, 8,161 after; the file's stayed at 8,842, under the 8,876 Figma has
-accepted), and a last line points at
+accepted), v1.0.0 from the file's on 28 Sep 2026 with the 1.4.0 entry (9,584
+before, 6,818 after; the plugin's reached 8,687 and kept its 1.0.0), and a
+last line points at
 `keylineicons.com/changelog`, which keeps every release.
 
 **Figma counts higher than `wc -m`.** The 1.1.1 plugin description was refused
