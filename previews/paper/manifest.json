@@ -676,7 +676,7 @@
       "width": 742,
       "icons": 68,
       "variants": 48,
-      "bytes": 41471
+      "bytes": 40838
     },
     {
       "file": "arrows-2.html",
@@ -688,7 +688,7 @@
       "width": 742,
       "icons": 0,
       "variants": 64,
-      "bytes": 40798
+      "bytes": 40587
     },
     {
       "file": "arrows-3.html",
@@ -1252,7 +1252,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 39110
+      "bytes": 38688
     },
     {
       "file": "devices-10.html",
@@ -1264,7 +1264,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 39075
+      "bytes": 38231
     },
     {
       "file": "devices-11.html",
@@ -1276,7 +1276,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 38313
+      "bytes": 38102
     },
     {
       "file": "devices-12.html",
@@ -1335,8 +1335,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 34679
+      "variants": 56,
+      "bytes": 40467
     },
     {
       "file": "devices-17.html",
@@ -1348,7 +1348,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 37937
+      "bytes": 36522
     },
     {
       "file": "devices-18.html",
@@ -1360,7 +1360,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 37707
+      "bytes": 35323
     },
     {
       "file": "devices-19.html",
@@ -1371,8 +1371,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 31258
+      "variants": 32,
+      "bytes": 27159
     },
     {
       "file": "diagrams.html",
@@ -1516,7 +1516,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 37405
+      "bytes": 37194
     },
     {
       "file": "files-9.html",
@@ -1540,7 +1540,7 @@
       "width": 742,
       "icons": 28,
       "variants": 40,
-      "bytes": 40728
+      "bytes": 39884
     },
     {
       "file": "finance-2.html",
@@ -1552,7 +1552,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 40155
+      "bytes": 38889
     },
     {
       "file": "finance-3.html",
@@ -1816,7 +1816,7 @@
       "width": 742,
       "icons": 0,
       "variants": 64,
-      "bytes": 40486
+      "bytes": 39642
     },
     {
       "file": "layout-8.html",
@@ -1827,8 +1827,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 36311
+      "variants": 64,
+      "bytes": 40214
     },
     {
       "file": "layout-9.html",
@@ -1840,7 +1840,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 36451
+      "bytes": 36208
     },
     {
       "file": "layout-10.html",
@@ -1851,8 +1851,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 37436
+      "variants": 64,
+      "bytes": 40849
     },
     {
       "file": "layout-11.html",
@@ -1864,7 +1864,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 37187
+      "bytes": 37510
     },
     {
       "file": "layout-12.html",
@@ -1876,7 +1876,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 36739
+      "bytes": 36330
     },
     {
       "file": "layout-13.html",
@@ -1887,8 +1887,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 31687
+      "variants": 32,
+      "bytes": 21324
     },
     {
       "file": "mail-1.html",
@@ -2260,7 +2260,7 @@
       "width": 742,
       "icons": 6,
       "variants": 24,
-      "bytes": 34749
+      "bytes": 34116
     },
     {
       "file": "people-2.html",
@@ -2272,7 +2272,7 @@
       "width": 742,
       "icons": 0,
       "variants": 8,
-      "bytes": 9432
+      "bytes": 9221
     },
     {
       "file": "people-3.html",
@@ -2284,7 +2284,7 @@
       "width": 742,
       "icons": 0,
       "variants": 8,
-      "bytes": 39889
+      "bytes": 39678
     },
     {
       "file": "people-4.html",
@@ -2296,7 +2296,7 @@
       "width": 742,
       "icons": 0,
       "variants": 8,
-      "bytes": 39697
+      "bytes": 39486
     },
     {
       "file": "pointers-1.html",
@@ -2572,7 +2572,7 @@
       "width": 742,
       "icons": 26,
       "variants": 80,
-      "bytes": 40866
+      "bytes": 40233
     },
     {
       "file": "text-2.html",
@@ -2584,7 +2584,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 34777
+      "bytes": 33933
     },
     {
       "file": "text-3.html",
@@ -2620,7 +2620,7 @@
       "width": 742,
       "icons": 44,
       "variants": 48,
-      "bytes": 39221
+      "bytes": 38377
     },
     {
       "file": "time-2.html",
@@ -2680,7 +2680,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 38552
+      "bytes": 38341
     },
     {
       "file": "time-7.html",
@@ -2692,7 +2692,7 @@
       "width": 742,
       "icons": 0,
       "variants": 16,
-      "bytes": 12204
+      "bytes": 11993
     },
     {
       "file": "tools-1.html",
@@ -2752,7 +2752,7 @@
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 38693
+      "bytes": 38271
     },
     {
       "file": "users-1.html",
@@ -2812,7 +2812,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 40459
+      "bytes": 40248
     },
     {
       "file": "weather-3.html",
@@ -2848,7 +2848,7 @@
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 31352
+      "bytes": 31141
     },
     {
       "file": "web-1.html",
