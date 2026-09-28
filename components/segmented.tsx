@@ -29,6 +29,11 @@ export function Segmented({
 }: React.ComponentProps<"div"> & { size?: "default" | "sm" }) {
   return (
     <div
+      /* A group by default, because a plain div drops the `aria-label` every
+         caller passes: a screen reader heard a row of pressed buttons with no
+         name. Before the spread, so `DesignFileTabs` can still make it a
+         `tablist`. */
+      role="group"
       data-size={size}
       className={cn(
         "flex items-center rounded-lg bg-muted p-0.5",

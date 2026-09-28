@@ -35,19 +35,12 @@ import {
   type SortingState,
   type VisibilityState,
 } from "@tanstack/react-table"
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
+import dynamic from "next/dynamic"
 import { toast } from "sonner"
-import { z } from "zod"
 
 import { useIsMobile } from "@/hooks/use-mobile"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-  type ChartConfig,
-} from "@/components/ui/chart"
 import { Checkbox } from "@/components/ui/checkbox"
 import {
   Drawer,
@@ -102,15 +95,32 @@ import {
 } from "@/components/icons"
 import { DemoIcon } from "@/components/demo-icon"
 
-export const schema = z.object({
-  id: z.number(),
-  header: z.string(),
-  type: z.string(),
-  status: z.string(),
-  target: z.string(),
-  limit: z.string(),
-  reviewer: z.string(),
-})
+/*
+  A plain type where the upstream shadcn block has a zod schema. That schema was
+  only ever read by `z.infer`, never run against data, and `app/data.json` is a
+  committed fixture already in this shape. It still shipped the whole of zod to
+  the landing page: 51 KB brotli, measured 28 Sep 2026. A fresh `shadcn add` of
+  the dashboard block would bring the schema back, so keep this instead.
+*/
+type DashboardRow = {
+  id: number
+  header: string
+  type: string
+  status: string
+  target: string
+  limit: string
+  reviewer: string
+}
+
+/*
+  Split out and loaded on demand, because recharts is the largest thing on this
+  page and the chart only draws inside a drawer nobody has opened. The fallback
+  holds the chart's own 16:9 box, so the drawer does not jump when it lands.
+*/
+const DataTableChart = dynamic(
+  () => import("@/components/data-table-chart").then((m) => m.DataTableChart),
+  { ssr: false, loading: () => <div className="aspect-video" /> }
+)
 
 // Create a separate component for the drag handle
 function DragHandle({ id }: { id: number }) {
@@ -134,7 +144,7 @@ function DragHandle({ id }: { id: number }) {
     </Button>
   )
 }
-const columns: ColumnDef<z.infer<typeof schema>>[] = [
+const columns: ColumnDef<DashboardRow>[] = [
   {
     id: "drag",
     header: () => null,
@@ -320,7 +330,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     ),
   },
 ]
-function DraggableRow({ row }: { row: Row<z.infer<typeof schema>> }) {
+function DraggableRow({ row }: { row: Row<DashboardRow> }) {
   const { transform, transition, setNodeRef, isDragging } = useSortable({
     id: row.original.id,
   })
@@ -343,11 +353,7 @@ function DraggableRow({ row }: { row: Row<z.infer<typeof schema>> }) {
     </TableRow>
   )
 }
-export function DataTable({
-  data: initialData,
-}: {
-  data: z.infer<typeof schema>[]
-}) {
+export function DataTable({ data: initialData }: { data: DashboardRow[] }) {
   const [data, setData] = React.useState(() => initialData)
   const [rowSelection, setRowSelection] = React.useState({})
   const [columnVisibility, setColumnVisibility] =
@@ -650,49 +656,7 @@ export function DataTable({
     </Tabs>
   )
 }
-const chartData = [
-  {
-    month: "January",
-    desktop: 186,
-    mobile: 80,
-  },
-  {
-    month: "February",
-    desktop: 305,
-    mobile: 200,
-  },
-  {
-    month: "March",
-    desktop: 237,
-    mobile: 120,
-  },
-  {
-    month: "April",
-    desktop: 73,
-    mobile: 190,
-  },
-  {
-    month: "May",
-    desktop: 209,
-    mobile: 130,
-  },
-  {
-    month: "June",
-    desktop: 214,
-    mobile: 140,
-  },
-]
-const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "var(--primary)",
-  },
-  mobile: {
-    label: "Mobile",
-    color: "var(--primary)",
-  },
-} satisfies ChartConfig
-function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
+function TableCellViewer({ item }: { item: DashboardRow }) {
   const isMobile = useIsMobile()
   return (
     <Drawer swipeDirection={isMobile ? "down" : "right"}>
@@ -716,46 +680,7 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
         <div className="flex flex-col gap-4 overflow-y-auto px-4 text-sm">
           {!isMobile && (
             <>
-              <ChartContainer config={chartConfig}>
-                <AreaChart
-                  accessibilityLayer
-                  data={chartData}
-                  margin={{
-                    left: 0,
-                    right: 10,
-                  }}
-                >
-                  <CartesianGrid vertical={false} />
-                  <XAxis
-                    dataKey="month"
-                    tickLine={false}
-                    axisLine={false}
-                    tickMargin={8}
-                    tickFormatter={(value) => value.slice(0, 3)}
-                    hide
-                  />
-                  <ChartTooltip
-                    cursor={false}
-                    content={<ChartTooltipContent indicator="dot" />}
-                  />
-                  <Area
-                    dataKey="mobile"
-                    type="natural"
-                    fill="var(--color-mobile)"
-                    fillOpacity={0.6}
-                    stroke="var(--color-mobile)"
-                    stackId="a"
-                  />
-                  <Area
-                    dataKey="desktop"
-                    type="natural"
-                    fill="var(--color-desktop)"
-                    fillOpacity={0.4}
-                    stroke="var(--color-desktop)"
-                    stackId="a"
-                  />
-                </AreaChart>
-              </ChartContainer>
+              <DataTableChart />
               <Separator />
               <div className="grid gap-2">
                 <div className="flex gap-2 leading-none font-medium">

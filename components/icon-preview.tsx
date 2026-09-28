@@ -28,6 +28,7 @@ import {
   type Style,
 } from "@/components/glyph"
 import { Segmented, SegmentedItem } from "@/components/segmented"
+import { type Treatments, useTreatmentChoice } from "@/hooks/use-treatments"
 import { Button } from "@/components/ui/button"
 import {
   Tooltip,
@@ -47,6 +48,7 @@ import {
 } from "@/lib/icon-code"
 import { iconHref } from "@/lib/icon-pages"
 import { aliasesFor, categoryOf } from "@/lib/icon-taxonomy"
+import { paperFileForCategory } from "@/lib/paper-files"
 import Image from "next/image"
 
 import {
@@ -215,6 +217,7 @@ export function IconPreview({
   setPicked,
   pickedCorners,
   setPickedCorners,
+  treatments,
   stroke,
   color,
   size,
@@ -248,6 +251,12 @@ export function IconPreview({
   setPicked: (next: Style) => void
   pickedCorners: Corners | null
   setPickedCorners: (next: Corners) => void
+  /**
+   * Which corner treatments are loaded. The panel's pick can be the one the
+   * grid is not showing, and its container family and related icons draw in
+   * it too, so a pick waits for that treatment like the grid's switch does.
+   */
+  treatments: Treatments
   stroke: number
   color: string | null
   /** Only reaches the copied markup; the specimen draws its own ramp. */
@@ -281,6 +290,7 @@ export function IconPreview({
   const [copied, setCopied] = React.useState(false)
 
   const corners = pickedCorners ?? gridCorners
+  const cornersChoice = useTreatmentChoice(treatments, setPickedCorners)
 
   const style: Style = React.useMemo(() => {
     if (!icon) return gridStyle
@@ -886,7 +896,7 @@ export function IconPreview({
                 and says why on hover, because "there is no fill of this" is a
                 fact about the icon and greying it out silently reads as a bug.
               */}
-              <Segmented size="sm">
+              <Segmented size="sm" aria-label="Style">
                 {STYLES.map((s) => {
                   const item = (
                     <SegmentedItem
@@ -925,13 +935,18 @@ export function IconPreview({
                 which is exactly why this sits beside the style chips rather
                 than among them.
               */}
-              <Segmented size="sm" aria-label="Corner treatment">
+              <Segmented
+                size="sm"
+                aria-label="Corner treatment"
+                onPointerEnter={cornersChoice.prefetch}
+                onFocus={cornersChoice.prefetch}
+              >
                 {CORNERS.map((k) => (
                   <SegmentedItem
                     key={k}
                     size="sm"
-                    active={corners === k}
-                    onClick={() => setPickedCorners(k)}
+                    active={(cornersChoice.pending ?? corners) === k}
+                    onClick={() => cornersChoice.choose(k)}
                     badge={k === "sharp" ? SHARP_BADGE : undefined}
                   >
                     {k === "regular" ? "Rounded" : "Sharp"}
@@ -990,7 +1005,7 @@ export function IconPreview({
                 stranded opposite whatever chip ended the line above it.
               */}
               <DesignFileLinks
-                category={category}
+                paperUrl={paperFileForCategory(category).url}
                 className="flex items-center gap-2 sm:ml-auto"
               />
             </div>
@@ -1002,7 +1017,7 @@ export function IconPreview({
               square spanning three rows rather than four.
             */}
             <div className="col-start-2 flex min-w-0 items-center overflow-x-auto sm:row-start-2 sm:justify-self-start sm:overflow-visible">
-              <Segmented size="sm">
+              <Segmented size="sm" aria-label="Format">
                 {FORMATS.map((f) => (
                   <SegmentedItem
                     key={f.value}
@@ -1030,7 +1045,7 @@ export function IconPreview({
                 because the actions hold the row open either way.
               */}
               {(format === "react" || format === "cli") && (
-                <Segmented size="sm">
+                <Segmented size="sm" aria-label="Package manager">
                   {PACKAGE_MANAGERS.map((m) => (
                     <SegmentedItem
                       key={m.value}

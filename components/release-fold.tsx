@@ -17,6 +17,16 @@ const FOLDED: React.CSSProperties = {
   maxHeight: PEEK,
   maskImage: "linear-gradient(to bottom, #000 40%, transparent 100%)",
   WebkitMaskImage: "linear-gradient(to bottom, #000 40%, transparent 100%)",
+  /*
+    Everything under a fold stays in the page for crawlers, which kept all of
+    it in layout too: every drawing in every older release, re-laid out on
+    each resize and theme switch. Containment lets the browser skip a fold
+    that is off screen. It goes here rather than on the release section
+    because this box is already clipped to PEEK, so skipped or rendered it is
+    the same height, and nothing below it moves.
+  */
+  contentVisibility: "auto",
+  containIntrinsicSize: `auto ${PEEK}px`,
 }
 
 const subscribeHash = (onChange: () => void) => {

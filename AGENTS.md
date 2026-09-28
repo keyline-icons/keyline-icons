@@ -33,8 +33,12 @@ A hand-edit to any of those passes review and is destroyed by the next build.
 pnpm icons:ci
 ```
 
-Exactly what CI runs: the five sync checks, the geometry linter, the demo
-reference check and `tsc --noEmit`. Three checks sit outside it on purpose:
+The first of the three things CI runs, then `pnpm lint` and `pnpm build`; a
+change that passes this alone can still fail on either. It holds the sync
+checks, the geometry linter, the demo reference check, and `tsc` twice: once
+for the site and once for `packages/react`, which the site's own
+`tsconfig.json` leaves out so that `next build` does not type-check the
+generated package on every deploy. Three checks sit outside CI on purpose:
 `icons:figma` needs the Figma file, `brand:check` rasterises through headless
 Chrome where two versions disagree by a pixel, and `history:check` reads git.
 

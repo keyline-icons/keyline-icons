@@ -4,9 +4,10 @@ import * as React from "react"
 
 import type { BrowserIcon, Container, Corners, Style } from "@/components/glyph"
 import type { BrowserSettings } from "@/lib/browser-settings"
+import type { searchSuggestions } from "@/lib/search-suggestions"
 import { IconBrowser } from "@/components/icon-browser"
 import { SiteHero } from "@/components/site-hero"
-import { searchSuggestions } from "@/lib/search-suggestions"
+import { useTreatments } from "@/hooks/use-treatments"
 
 /**
  * The hero and the browser, with the search between them.
@@ -16,7 +17,9 @@ import { searchSuggestions } from "@/lib/search-suggestions"
  * browser knows stays inside the browser.
  */
 export function IconLibrary({
-  icons,
+  icons: initialIcons,
+  treatments: pendingTreatments,
+  suggestions,
   initialSettings,
   initialQuery = "",
   initialStyle,
@@ -26,7 +29,16 @@ export function IconLibrary({
   initialIconCorners,
   initialPage,
 }: {
+  /** Every icon, in the corner treatments the page carried. */
   icons: BrowserIcon[]
+  /** Where each treatment the page did not carry can be fetched. */
+  treatments: Partial<Record<Corners, string>>
+  /**
+   * The names the search field offers, with their drawings. Resolved on the
+   * server, which has the whole set: the icons here may be missing the
+   * rounded treatment these are always drawn in.
+   */
+  suggestions: ReturnType<typeof searchSuggestions>
   initialSettings: BrowserSettings
   /** Seeded from `?search=`, so a link can open the grid already narrowed. */
   initialQuery?: string
@@ -65,15 +77,11 @@ export function IconLibrary({
    */
   const [query, setQuery] = React.useState(initialQuery)
 
-  /**
-   * The names the field suggests, matched to the drawings behind them.
-   *
-   * Resolved here because this is where the set already is: the hero would
-   * otherwise have to be handed all 414 icons to find eight. Memoised because
-   * it is eight scans of that array and this component re-renders on every
-   * keystroke.
-   */
-  const suggestions = React.useMemo(() => searchSuggestions(icons), [icons])
+  /*
+    The set, owned here so the grid and the dock read one copy, and a corner
+    treatment fetched by either lands in both.
+  */
+  const { icons, treatments } = useTreatments(initialIcons, pendingTreatments)
 
   return (
     <>
@@ -92,6 +100,7 @@ export function IconLibrary({
       <div id="icons" className="scroll-mt-15 lg:scroll-mt-19">
         <IconBrowser
           icons={icons}
+          treatments={treatments}
           initialSettings={initialSettings}
           initialStyle={initialStyle}
           initialShape={initialShape}

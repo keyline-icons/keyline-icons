@@ -75,6 +75,26 @@ export const SET_NAME = "Keyline"
 /** The full mark: the name plus the noun. */
 export const SET_TITLE = `${SET_NAME} Icons`
 
+/**
+ * The blog's address and its one-sentence description, for the index page and
+ * for the `Blog` node in its structured data.
+ *
+ * Here rather than in `lib/blog.ts`, and the reason is bytes. `lib/seo.ts`
+ * needs both, and `lib/seo.ts` is imported by the share dialog, a client
+ * component in the site bar. While these lived in `lib/blog.ts`, that
+ * two-string import pulled the blog module into every page's client bundle,
+ * and with it `lib/icon-history.json`: 853 KB of generated git history, seven
+ * copies under seven chunk names, measured on 28 Sep 2026. This file imports
+ * nothing, which is what makes it the safe home for anything a client
+ * component can reach. `lib/blog.ts` re-exports both, so its callers did not
+ * move.
+ */
+export const BLOG_SEGMENT = "/blog"
+
+export const BLOG_DESCRIPTION =
+  `How ${SET_TITLE} gets drawn: what shipped in each update, why a drawing ` +
+  `was redrawn, and the faults that only show up at eight times size.`
+
 /** What the set is for, stated so it claims compatibility and nothing more. */
 export const SET_TAGLINE = "Built for shadcn/ui"
 
