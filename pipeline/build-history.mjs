@@ -106,6 +106,16 @@ const git = (...args) =>
     maxBuffer: 64 << 20,
   })
 
+/** A function of a window's two refs, answered once per window. */
+const once = (f) => {
+  const seen = new Map()
+  return (from, to) => {
+    const key = `${from}..${to ?? ""}`
+    if (!seen.has(key)) seen.set(key, f(from, to))
+    return seen.get(key)
+  }
+}
+
 /** The style folders. `two-tone` since 1.0.0, see `continues` below. */
 const STYLES = ["stroke", "two-tone", "duotone", "fill"]
 
@@ -132,20 +142,50 @@ const DRAWINGS = [
 /**
  * One file as a given ref had it, or null where that ref did not carry it.
  *
- * Quiet on purpose: a miss is an ordinary answer here, not a failure. An icon
- * can have gained a style inside the window being measured, and `git show` on a
- * path a tag never held exits non-zero and prints to stderr, which would fill
- * the build's output with lines that mean "no".
+ * A miss is an ordinary answer here, not a failure: an icon can have gained a
+ * style inside the window being measured. Nearly every call is answered from
+ * what `prefetch` below has already read, and a file it did not foresee is
+ * read on its own, so a window it misses costs time rather than an answer.
  */
+const blobs = new Map()
 const fileAt = (ref, path) => {
-  try {
-    return execFileSync("git", ["show", `${ref}:${path}`], {
-      cwd: ROOT,
-      encoding: "utf8",
-      stdio: ["ignore", "pipe", "ignore"],
-    })
-  } catch {
-    return null
+  const key = `${ref}:${path}`
+  if (!blobs.has(key)) readBlobs([key])
+  return blobs.get(key)
+}
+
+/**
+ * Read `ref:path` keys into `blobs` through one `git cat-file --batch`.
+ *
+ * This used to be a `git show` per file: 10,443 subprocesses and two to four
+ * minutes of every `pnpm ship` and `history:check`, nearly all of it spent
+ * starting processes. One batch reads the same files in a second or so.
+ *
+ * The answer is walked as bytes, not as a string. Each file comes back as a
+ * `<sha> blob <size>` line, exactly `size` bytes and a newline, and `size`
+ * counts bytes: slicing decoded text by it drifts at every multi-byte
+ * character and reads the rest of the stream out of step. A key the ref does
+ * not carry answers `<key> missing` with no body, which is null.
+ */
+const readBlobs = (keys) => {
+  if (!keys.length) return
+  const out = execFileSync("git", ["cat-file", "--batch"], {
+    cwd: ROOT,
+    input: keys.join("\n") + "\n",
+    maxBuffer: 64 << 20,
+  })
+  let at = 0
+  for (const key of keys) {
+    const eol = out.indexOf(0x0a, at)
+    const head = /^[0-9a-f]+ (\S+) (\d+)$/.exec(out.toString("utf8", at, eol))
+    at = eol + 1
+    if (!head) {
+      blobs.set(key, null)
+      continue
+    }
+    const size = Number(head[2])
+    blobs.set(key, head[1] === "blob" ? out.toString("utf8", at, at + size) : null)
+    at += size + 1
   }
 }
 
@@ -338,8 +378,10 @@ const redrawn = (name, from, to) => {
  * that let a release confined to `icons/sharp/` announce nothing: an icon's
  * `updated` is read off a log filtered to the three rounded folders, so a
  * sharp-only commit never moved it and never nominated the name.
+ *
+ * Asked twice per window, by `prefetch` and then by the entry, and diffed once.
  */
-const changedBetween = (from, to) =>
+const changedBetween = once((from, to) =>
   new Set(
     git(
       "diff",
@@ -373,6 +415,7 @@ const changedBetween = (from, to) =>
       .map((path) => path.match(/^icons\/.+\/([^/]+)\.svg$/)?.[1])
       .filter(Boolean)
   )
+)
 
 /** The redraws of a window, sorted, with anything the window did not carry dropped. */
 const redraws = (candidates, from, to) =>
@@ -405,6 +448,31 @@ const releases = git(
   })
   .filter((r) => /^\d+\.\d+\.\d+$/.test(r.version))
   .sort((a, b) => a.date.localeCompare(b.date))
+
+/**
+ * Every file the redraw windows can read, fetched before any window is built.
+ *
+ * `redrawn` stops at the first of the eight drawings that differs, so which
+ * files it will read is only known by reading them. All eight are fetched
+ * instead, at both ends of every window, for every name the window nominates:
+ * a few thousand files more than it needs, in one process, where it used to
+ * start one process for each file it did need. The unreleased window's "after"
+ * is the working tree, which is read off disk and has nothing to fetch.
+ */
+const prefetch = () => {
+  const tags = releases.map((r) => r.tag)
+  const windows = [
+    ...tags.slice(1).map((to, i) => [tags[i], to]),
+    ...tags.slice(-1).map((from) => [from, null]),
+  ]
+  const keys = new Set()
+  for (const [from, to] of windows)
+    for (const name of changedBetween(from, to))
+      for (const { dir } of DRAWINGS)
+        for (const ref of to ? [from, to] : [from]) keys.add(`${ref}:${dir}/${name}.svg`)
+  readBlobs([...keys])
+}
+prefetch()
 
 /** Every tag's inventory, oldest first, resolved once. */
 const inventory = new Map(releases.map((r) => [r.version, held(r.tag)]))
@@ -871,8 +939,9 @@ const out =
            *
            * `changedBetween` nominates candidates here: a redraw is a drawing
            * both tags carry whose file differs between them, and `redrawn` is
-           * what settles it. Running `redrawn` over all 629 names would be
-           * 3,800 subprocesses to answer what one `git diff` rules out.
+           * what settles it. Running `redrawn` over every name would read
+           * every drawing at both ends of every window, to answer what one
+           * `git diff` rules out; `prefetch` reads what it nominates.
            */
           const updated = redraws(
             before
