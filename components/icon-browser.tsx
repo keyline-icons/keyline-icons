@@ -106,6 +106,7 @@ import { PhoneToggle } from "@/components/phone-toggle"
 import { TickSlider } from "@/components/tick-slider"
 import { useBrowserSettings } from "@/hooks/use-browser-settings"
 import { useEdgeFade } from "@/hooks/use-edge-fade"
+import { type Treatments, useTreatmentChoice } from "@/hooks/use-treatments"
 import { type BrowserSettings, SETTINGS_DEFAULTS } from "@/lib/browser-settings"
 import { SEARCH_MIN_LENGTH, SEARCH_SETTLE_MS, track } from "@/lib/analytics"
 import { nearestWord } from "@/lib/did-you-mean"
@@ -477,6 +478,7 @@ function PagerStep({
 
 export function IconBrowser({
   icons,
+  treatments,
   initialSettings,
   initialStyle = "stroke",
   initialShape = "all",
@@ -488,6 +490,8 @@ export function IconBrowser({
   onQueryChange,
 }: {
   icons: BrowserIcon[]
+  /** Which corner treatments are loaded, and how to load the other. */
+  treatments: Treatments
   initialSettings: BrowserSettings
   /**
    * Seeded from `?style=`, so a link can arrive at the grid already showing one
@@ -546,6 +550,15 @@ export function IconBrowser({
   */
   const [settings, update] = useBrowserSettings(initialSettings)
   const { size, stroke, color, showNames, columns, corners } = settings
+
+  /*
+    The grid's treatment, switched only once its drawings are here. The page
+    carries one treatment; the other arrives on the first switch, or on hover
+    or focus of the switch before that. See `hooks/use-treatments.ts`.
+  */
+  const cornersChoice = useTreatmentChoice(treatments, (next) =>
+    update({ corners: next })
+  )
 
   const [category, setCategory] = React.useState("all")
   const [style, setStyle] = React.useState<Style>(initialStyle)
@@ -623,7 +636,10 @@ export function IconBrowser({
     setStyle("stroke")
     setShape("all")
     setCategory("all")
-    update(SETTINGS_DEFAULTS)
+    // Everything but the treatment at once; the treatment through the same
+    // door as the switch, because the default may be the one not loaded yet.
+    update({ ...SETTINGS_DEFAULTS, corners })
+    cornersChoice.choose(SETTINGS_DEFAULTS.corners)
   }
   /**
    * The one tooltip shared by every tile: its label and where it sits.
@@ -1386,12 +1402,18 @@ export function IconBrowser({
      * for the same reason. It sits in the settings cookie while style does not.
      */
     const cornersGroup = (
-      <Segmented aria-label="Corner treatment">
+      <Segmented
+        aria-label="Corner treatment"
+        onPointerEnter={cornersChoice.prefetch}
+        onFocus={cornersChoice.prefetch}
+      >
         {CORNERS.map((c) => (
           <SegmentedItem
             key={c}
-            active={corners === c}
-            onClick={() => update({ corners: c })}
+            // The chip moves on the click even while the drawings are on
+            // their way; the grid follows when they land.
+            active={(cornersChoice.pending ?? corners) === c}
+            onClick={() => cornersChoice.choose(c)}
             badge={c === "sharp" ? SHARP_BADGE : undefined}
           >
             {c === "regular" ? "Rounded" : "Sharp"}
@@ -2192,6 +2214,7 @@ export function IconBrowser({
         setPicked={preview.setPicked}
         pickedCorners={preview.pickedCorners}
         setPickedCorners={preview.setPickedCorners}
+        treatments={treatments}
         size={size}
         stroke={stroke}
         color={color}

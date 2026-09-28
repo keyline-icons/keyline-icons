@@ -4,8 +4,10 @@ import { cookies } from "next/headers"
 import { parseSettings, SETTINGS_COOKIE } from "@/lib/browser-settings"
 import { CONTAINERS } from "@/components/glyph"
 import { isNewSince, loadIcons, STYLES } from "@/lib/icons"
-import { CORNERS } from "@/components/glyph"
+import { CORNERS, type Corners } from "@/components/glyph"
 import { gridPageCount } from "@/lib/icon-pages"
+import { treatmentHref } from "@/lib/icon-treatments"
+import { searchSuggestions } from "@/lib/search-suggestions"
 import { pageMetadata } from "@/lib/seo"
 import { IconLibrary } from "@/components/icon-library"
 import { SET_LICENSE, SET_TAGLINE } from "@/lib/site-chrome"
@@ -239,6 +241,36 @@ export default async function Page({
   const seeded = CORNERS.find((known) => known === corners)
   const initialSettings = seeded ? { ...settings, corners: seeded } : settings
 
+  /*
+   * Only the corner treatment the page opens in, and the other one on demand.
+   *
+   * Every icon used to arrive in all four styles in both treatments, so the
+   * rounded and sharp switch was instant and the page was 7.4 MB of HTML, of
+   * which one treatment was ever on screen. It was also never cached, since
+   * the cookie makes the page render per request. Now the grid's treatment
+   * comes with the page, plus the dock's when a link opens it on the other
+   * one, and the rest is a static file the browser fetches the first time
+   * someone switches (`lib/icon-treatments.ts`, `hooks/use-treatments.ts`).
+   * The switch prefetches on hover, so the wait is usually spent before the
+   * click.
+   */
+  const carried = new Set<Corners>([
+    initialSettings.corners,
+    ...(initialIcon && initialIconCorners ? [initialIconCorners] : []),
+  ])
+  const payload = icons.map((icon) => ({
+    ...icon,
+    art: carried.has("regular") ? icon.art : {},
+    sharp: carried.has("sharp") ? icon.sharp : {},
+  }))
+  const treatments: Partial<Record<Corners, string>> = Object.fromEntries(
+    await Promise.all(
+      CORNERS.filter((known) => !carried.has(known)).map(
+        async (known) => [known, await treatmentHref(known)] as const
+      )
+    )
+  )
+
   return (
     <>
       {/*
@@ -258,7 +290,9 @@ export default async function Page({
       <SiteNav />
       <div className="mx-auto w-full max-w-360 px-6 py-10 lg:px-8">
         <IconLibrary
-          icons={icons}
+          icons={payload}
+          treatments={treatments}
+          suggestions={searchSuggestions(icons)}
           initialSettings={initialSettings}
           initialQuery={initialQuery}
           initialStyle={initialStyle}

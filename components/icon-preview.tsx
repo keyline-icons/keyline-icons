@@ -28,6 +28,7 @@ import {
   type Style,
 } from "@/components/glyph"
 import { Segmented, SegmentedItem } from "@/components/segmented"
+import { type Treatments, useTreatmentChoice } from "@/hooks/use-treatments"
 import { Button } from "@/components/ui/button"
 import {
   Tooltip,
@@ -216,6 +217,7 @@ export function IconPreview({
   setPicked,
   pickedCorners,
   setPickedCorners,
+  treatments,
   stroke,
   color,
   size,
@@ -249,6 +251,12 @@ export function IconPreview({
   setPicked: (next: Style) => void
   pickedCorners: Corners | null
   setPickedCorners: (next: Corners) => void
+  /**
+   * Which corner treatments are loaded. The panel's pick can be the one the
+   * grid is not showing, and its container family and related icons draw in
+   * it too, so a pick waits for that treatment like the grid's switch does.
+   */
+  treatments: Treatments
   stroke: number
   color: string | null
   /** Only reaches the copied markup; the specimen draws its own ramp. */
@@ -282,6 +290,7 @@ export function IconPreview({
   const [copied, setCopied] = React.useState(false)
 
   const corners = pickedCorners ?? gridCorners
+  const cornersChoice = useTreatmentChoice(treatments, setPickedCorners)
 
   const style: Style = React.useMemo(() => {
     if (!icon) return gridStyle
@@ -926,13 +935,18 @@ export function IconPreview({
                 which is exactly why this sits beside the style chips rather
                 than among them.
               */}
-              <Segmented size="sm" aria-label="Corner treatment">
+              <Segmented
+                size="sm"
+                aria-label="Corner treatment"
+                onPointerEnter={cornersChoice.prefetch}
+                onFocus={cornersChoice.prefetch}
+              >
                 {CORNERS.map((k) => (
                   <SegmentedItem
                     key={k}
                     size="sm"
-                    active={corners === k}
-                    onClick={() => setPickedCorners(k)}
+                    active={(cornersChoice.pending ?? corners) === k}
+                    onClick={() => cornersChoice.choose(k)}
                     badge={k === "sharp" ? SHARP_BADGE : undefined}
                   >
                     {k === "regular" ? "Rounded" : "Sharp"}
