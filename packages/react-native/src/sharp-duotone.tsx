@@ -10470,8 +10470,7 @@ export function TimerFast(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <Path d="M12 5C16.9706 5 21 9.0294 21 14C21 18.9706 16.9706 23 12 23C7.0294 23 3 18.9706 3 14C3 9.0294 7.0294 5 12 5Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <Path d="M3.5147 11L9 11L9 13L3.0557 13C3.132 12.318 3.286 11.647 3.5147 11ZM3.0557 15L8 15L8 17L3.5147 17C3.286 16.353 3.132 15.682 3.0557 15Z" fill="currentColor" stroke="none" />
-      <Path d="M8 2L16 2M12 2L12 6M12 15L12 9M17.6569 8.3431L19.2929 6.7071" fill="none" />
+      <Path d="M8 2L16 2M12 2L12 6M12 15L12 9M17.6569 8.3431L19.2929 6.7071M3 12L9 12M3 16L8 16" fill="none" />
     </Icon>
   )
 }

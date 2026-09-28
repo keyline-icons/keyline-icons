@@ -26,8 +26,8 @@
 //                  star now shares, in send's 1..23 box; duotone greys the upper wing, fill cuts the crease
 //                  wedge straight into the outline (one contour, no seam)
 //   bike-fast      `bike` untouched plus the truck's pair of trails behind the rider
-//   timer-fast     `timer` with its ring opened on the left for two trails; duotone trails
-//                  cut flush along the disc, fill cuts them as slots
+//   timer-fast     `timer` with its ring opened on the left for two trails; duotone strokes
+//                  them as stroke does, like the other four, fill cuts them as slots
 //
 //   node tools/motion/build.mjs [--out=<dir>]     writes raw/<name>/ for all five (default: this checkout)
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
@@ -405,8 +405,10 @@ for (const c of ['regular', 'sharp']) {
 
 // `timer` with its ring opened on the left for two trails at y 12 and 16, the
 // ring cut 2 clear of them; the trails start on the ring's own left ink (x=3), so
-// the box is the timer's. Plate the timer's disc; duotone trails black, cut flush
-// along the disc; fill cuts them as slots through the disc's edge.
+// the box is the timer's. Plate the timer's disc; duotone strokes the trails as
+// stroke does, ends and all, which is how the other four carry theirs. Cut flush
+// along the disc instead, their corners stood 0.11 to 0.37 past the stroke's
+// round ends (his call, 28 Sep 2026). Fill cuts them as slots through the edge.
 const TC = [12, 14], TR = 8, TPR = 9;
 const yCut = [12 - 4, 16 + 4];
 const aTop = 180 - deg(Math.asin((yCut[0] - TC[1]) / TR));       // 228.59
@@ -430,16 +432,6 @@ const DISC = rawOf('timer', 'two-tone', 'regular', 0);
 assert(DISC === rawOf('timer', 'two-tone', 'sharp', 0), 'timer plates differ by corner');
 const discX = (y) => TC[0] - Math.sqrt(TPR * TPR - (y - TC[1]) ** 2);   // the disc's left edge at y
 const discAng = (y) => { const a = deg(Math.atan2(y - TC[1], discX(y) - TC[0])); return a < 0 ? a + 360 : a; };   // 0..360, so arcs never wrap
-/** a trail as a black shape cut flush along the disc, round (or square) at its inner end */
-function flushTrail([, x1, y], sharp, p = new Path()) {
-  const top = [discX(y - 1), y - 1], bot = [discX(y + 1), y + 1];
-  p.M(top);
-  if (sharp) p.L([x1, y - 1]).L([x1, y + 1]);
-  else { p.L([x1, y - 1]); p.A([x1, y], -90, 90, 1); }
-  p.L(bot);
-  p.A(TC, discAng(y + 1), discAng(y - 1), 1);   // back up the disc edge
-  return p.Z();
-}
 /** the disc with both trails cut as slots through its edge, one contour */
 function slottedDisc(sharp) {
   const [t1, t2] = TIMER_TR[sharp ? 'sharp' : 'regular'];
@@ -467,8 +459,7 @@ for (const c of ['regular', 'sharp']) {
   const stroke = timerRing(s) + TIMER_REST[c] + trails;
   timer[`stroke.${c}`] = [{ kind: 'stroke', d: stroke }];
   timer[`two-tone.${c}`] = [{ kind: 'plate', d: DISC }, { kind: 'stroke', d: stroke }];
-  const flush = TIMER_TR[c].map((t) => flushTrail(t, s).toString()).join('');
-  timer[`duotone.${c}`] = [{ kind: 'plate', d: DISC }, { kind: 'solid', d: flush }, { kind: 'stroke', d: TIMER_REST[c] }];
+  timer[`duotone.${c}`] = [{ kind: 'plate', d: DISC }, { kind: 'stroke', d: TIMER_REST[c] + trails }];
   timer[`fill.${c}`] = [{ kind: 'solid', d: slottedDisc(s) + TIMER_HAND_KO[c], evenodd: true }, { kind: 'stroke', d: TIMER_REST[c].replace(/M12 1[45]L12 (9|10)/, '') }];
 }
 
