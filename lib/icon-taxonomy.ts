@@ -102,14 +102,18 @@ export const CATEGORIES = [
     // a pencil-and-ruler is a drawing instrument, not a document.
     // `book` carries a lookahead of its own: `bookmark` is a web-scoped action
     // and is claimed by Web below, which this category is evaluated before.
-    match: /^(file|folder|copy|paperclip|bin|archive|book(?!mark)|pen(?!cil)|(square|circle)-pen)/,
-    blurb: "Documents, folders, books, copies, the paperclip and the bin.",
+    // `newspaper` joined on 28 Sep 2026: a printed page beside the books, not the
+    // media shelf's playback and capture. Anchored, so it takes its own name only.
+    match: /^(file|folder|copy|paperclip|bin|archive|book(?!mark)|pen(?!cil)|(square|circle)-pen|newspaper$)/,
+    blurb: "Documents, folders, books, a newspaper, copies, the paperclip and the bin.",
   },
   {
     label: "Time",
-    // `alarm-clock` and the two stopwatches joined on 15 Sep 2026.
-    match: /^(calendar|clock|hourglass|alarm-clock|timer)/,
-    blurb: "Calendars, clocks, alarm clocks, stopwatches and the hourglass, with the signs that act on them.",
+    // `alarm-clock` and the two stopwatches joined on 15 Sep 2026. `history`
+    // joined on 28 Sep 2026: a clock face with its hands inside an arrow turning
+    // back, so it is a clock first; the bare arrow, `rotate-ccw`, stays in Arrows.
+    match: /^(calendar|clock|hourglass|alarm-clock|timer|history$)/,
+    blurb: "Calendars, clocks, the clock turning back, alarm clocks, stopwatches and the hourglass, with the signs that act on them.",
   },
   // `at` is anchored inside the group because the bare symbol is the whole
   // name: an unanchored `at` would hand this category every future name that
@@ -138,10 +142,12 @@ export const CATEGORIES = [
     // `piggy-bank` is here rather than with the animals: the drawing is a pig,
     // the thing is a money box, and the shelf follows what the thing is. It also
     // has to beat Animals' `pig` below, which it does by sitting earlier.
+    // The money bag and the gold bars joined on 28 Sep 2026, from a banking
+    // app's menu. `money-bag` is a prefix so its five signs land with it.
     match:
-      /^(badge-)?(dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin|credit-card|wallet|coins|piggy-bank|banknote)/,
+      /^(badge-)?(dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin|credit-card|wallet|coins|piggy-bank|banknote|money-bag|gold-bars)/,
     blurb:
-      "The currency marks, the banknotes, the payment cards, the wallets and the money box.",
+      "The currency marks, the banknotes, the payment cards, the wallets, the money box, the money bag with its signs and the gold bars.",
   },
   {
     // `percent` is here rather than with the marks in Actions: the batch that
@@ -167,8 +173,10 @@ export const CATEGORIES = [
     // `anchor` and `anchor-2` joined on 28 Sep 2026: an anchor marks the harbour
     // on a chart, next to the compass. Transport is the vehicles themselves, and
     // an anchor is not one. A prefix, so the anchor's states land here too.
-    match: /^(map|compass|building|route|radar|flag$|traffic-light|milestone$|anchor(-|$))/,
-    blurb: "Pins, maps, compasses, routes, the radar, flags, a milestone, the lights at the junction and two anchors.",
+    // `landmark` joined on 28 Sep 2026: the columned front a bank or a museum
+    // wears, a building like `building` and `buildings` beside it, not money.
+    match: /^(map|compass|building|landmark$|route|radar|flag$|traffic-light|milestone$|anchor(-|$))/,
+    blurb: "Pins, maps, compasses, routes, the radar, the buildings and a landmark, flags, a milestone, the lights at the junction and two anchors.",
   },
   // Opened 11 Sep 2026 with the seven of batch C, the first time the set has
   // drawn the inside of a building rather than its outline. The `home` icon
@@ -425,8 +433,10 @@ export const CATEGORIES = [
     // The push pin joined on 28 Sep 2026 with its off state. Anchored, so a
     // `pinwheel` would not arrive through it.
     label: "Stationery",
-    match: /^(eraser|tape|stapler|notebook|sticky-note|pin(-|$))/,
-    blurb: "The desk drawer: the eraser, the roll of tape, the sticky notes and the push pin.",
+    // The rubber stamp joined on 28 Sep 2026: an office drawer's tool for marking
+    // a paper approved. Anchored, so a `stamp-*` family is filed on purpose.
+    match: /^(eraser|tape|stapler|notebook|sticky-note|pin(-|$)|stamp$)/,
+    blurb: "The desk drawer: the eraser, the roll of tape, the sticky notes, the push pin and the rubber stamp.",
   },
   {
     label: "Shapes",

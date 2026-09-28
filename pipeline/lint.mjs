@@ -415,6 +415,10 @@ const RING_CLEARANCE = new Set([
   // letterform's 1 (1.51); the euro (0.79), pound, yen, rupee and franc fall
   // short and are not drawn. 10 Sep 2026.
   'badge-dollar-sign',
+  // The money bag is a frame as well: its body holds the badge's dollar at 0.65,
+  // clearing the outline by the letterform's 1; held to 2 it fits at 0.5 and the
+  // S closes. 28 Sep 2026.
+  'money-bag-dollar-sign',
 ]);
 /**
  * The dice, whose pips are 3 across with 1.75 between pips and walls.
