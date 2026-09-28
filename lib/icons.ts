@@ -400,9 +400,9 @@ const containerOf = (name: string, exists: (base: string) => boolean) => {
 /**
  * Held for the life of the process.
  *
- * Reading the settings cookie makes the page render per request, and the icons
- * are ~840 files on disk that never change while the server is up. Without this
- * every request would walk all three style folders again.
+ * Reading the settings cookie makes the icon routes render per request, and
+ * the drawings are 9,736 files in eight folders that never change while the
+ * server is up. Without this every request would read all of them again.
  */
 let loaded: Promise<Icon[]> | null = null
 
@@ -411,24 +411,92 @@ export function loadIcons(): Promise<Icon[]> {
   return loaded
 }
 
+/**
+ * How many drawings are read at once.
+ *
+ * One at a time was 1.6 s of every cold start on the routes that render per
+ * request, measured on 28 Sep 2026; 64 at a time is 180 ms. Not all of them at
+ * once: that holds 9,736 file descriptors open together, which is how a
+ * serverless function runs out of them, and it measured slower than 64 anyway.
+ */
+const READ_CONCURRENCY = 64
+
+/** `fn` over `items` with at most `limit` in flight, results in input order. */
+async function mapLimit<T, R>(
+  items: readonly T[],
+  limit: number,
+  fn: (item: T) => Promise<R>
+): Promise<R[]> {
+  const out = new Array<R>(items.length)
+  let next = 0
+  const worker = async () => {
+    while (next < items.length) {
+      const i = next++
+      out[i] = await fn(items[i])
+    }
+  }
+  await Promise.all(
+    Array.from({ length: Math.min(limit, items.length) }, worker)
+  )
+  return out
+}
+
+/**
+ * Every drawing in one treatment, one folder per style, as
+ * `{ style, name, src }`.
+ *
+ * In `STYLES` order and then directory order, which is the order the
+ * one-at-a-time loop read them in, so the map below fills the same way it did.
+ * `keep` filters by name before anything is read.
+ *
+ * Every path is spelled out from `ICONS_DIR` at the call it is used in, and
+ * that is load-bearing. The bundler traces which files a server function
+ * reads from these expressions; handed a folder through a parameter, it
+ * cannot tell, and ships the whole repository, `raw/` and `previews/`
+ * included, with every route. That happened on the first draft of this.
+ */
+async function readTreatment(
+  sharp: boolean,
+  keep: (name: string) => boolean = () => true
+) {
+  const jobs = (
+    await Promise.all(
+      STYLES.map(async (style) => {
+        const dir = sharp
+          ? join(ICONS_DIR, "sharp", style)
+          : join(ICONS_DIR, style)
+        if (!existsSync(dir)) return []
+        return (await readdir(dir))
+          .filter((file) => file.endsWith(".svg"))
+          .map((file) => ({ style, name: file.slice(0, -4) }))
+          .filter(({ name }) => keep(name))
+      })
+    )
+  ).flat()
+
+  return mapLimit(jobs, READ_CONCURRENCY, async ({ style, name }) => ({
+    style,
+    name,
+    src: await readFile(
+      sharp
+        ? join(ICONS_DIR, "sharp", style, `${name}.svg`)
+        : join(ICONS_DIR, style, `${name}.svg`),
+      "utf8"
+    ),
+  }))
+}
+
 async function readIcons(): Promise<Icon[]> {
   const byName = new Map<string, Icon>()
 
-  for (const style of STYLES) {
-    const dir = join(ICONS_DIR, style)
-    if (!existsSync(dir)) continue
-    for (const file of (await readdir(dir)).filter((f) => f.endsWith(".svg"))) {
-      const name = file.slice(0, -4)
-      const src = await readFile(join(dir, file), "utf8")
-
-      let icon = byName.get(name)
-      if (!icon) {
-        // container and base are settled below, once every name is known.
-        icon = { name, base: name, container: "regular", art: {}, sharp: {} }
-        byName.set(name, icon)
-      }
-      icon.art[style] = toStyleArt(src)
+  for (const { style, name, src } of await readTreatment(false)) {
+    let icon = byName.get(name)
+    if (!icon) {
+      // container and base are settled below, once every name is known.
+      icon = { name, base: name, container: "regular", art: {}, sharp: {} }
+      byName.set(name, icon)
     }
+    icon.art[style] = toStyleArt(src)
   }
 
   /*
@@ -439,13 +507,10 @@ async function readIcons(): Promise<Icon[]> {
    * with the coverage check in `pipeline/lint.mjs` left to report it. Reading
    * both passes into the same map would let one silently create the other.
    */
-  for (const style of STYLES) {
-    const dir = join(ICONS_DIR, "sharp", style)
-    if (!existsSync(dir)) continue
-    for (const file of (await readdir(dir)).filter((f) => f.endsWith(".svg"))) {
-      const icon = byName.get(file.slice(0, -4))
-      if (icon) (icon.sharp ??= {})[style] = toStyleArt(await readFile(join(dir, file), "utf8"))
-    }
+  const sharp = await readTreatment(true, (name) => byName.has(name))
+  for (const { style, name, src } of sharp) {
+    const icon = byName.get(name)
+    if (icon) (icon.sharp ??= {})[style] = toStyleArt(src)
   }
 
   // Second pass: a prefix only counts once the whole name set is in hand.
