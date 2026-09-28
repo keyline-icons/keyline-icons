@@ -42,6 +42,7 @@ import {
 } from "@/lib/icon-pages"
 import { parseSettings, SETTINGS_COOKIE } from "@/lib/browser-settings"
 import { aliasesFor, categoryOf } from "@/lib/icon-taxonomy"
+import { paperFileForCategory } from "@/lib/paper-files"
 import { isNewSince, loadIcons, type Icon } from "@/lib/icons"
 import { iconJsonLd, pageMetadata } from "@/lib/seo"
 import { SET_LICENSE, SET_TITLE } from "@/lib/site-chrome"
@@ -352,8 +353,10 @@ export default async function Page({
             <DesignFileLinks
               size="icon-lg"
               /* Which of the two Paper files the mark opens follows the shelf,
-                 the same table the browser's rail is built from. */
-              category={category}
+                 the same table the browser's rail is built from. Resolved
+                 here, on the server, so the table stays out of the page's
+                 client bundle. */
+              paperUrl={paperFileForCategory(category).url}
               className="flex items-center gap-2"
             />
 

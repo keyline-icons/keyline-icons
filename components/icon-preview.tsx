@@ -47,6 +47,7 @@ import {
 } from "@/lib/icon-code"
 import { iconHref } from "@/lib/icon-pages"
 import { aliasesFor, categoryOf } from "@/lib/icon-taxonomy"
+import { paperFileForCategory } from "@/lib/paper-files"
 import Image from "next/image"
 
 import {
@@ -990,7 +991,7 @@ export function IconPreview({
                 stranded opposite whatever chip ended the line above it.
               */}
               <DesignFileLinks
-                category={category}
+                paperUrl={paperFileForCategory(category).url}
                 className="flex items-center gap-2 sm:ml-auto"
               />
             </div>

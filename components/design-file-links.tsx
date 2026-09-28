@@ -7,8 +7,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { paperFileForCategory } from "@/lib/paper-files"
-import { SET_FIGMA_URL } from "@/lib/site-chrome"
+import { SET_FIGMA_URL, SET_PAPER_FILES } from "@/lib/site-chrome"
 
 /**
  * The two ways out of the site to the drawing itself: the Figma Community file
@@ -40,25 +39,27 @@ export function DesignFileLinks({
       a page, matching the row of `lg` controls it sits with. */
   size = "icon",
   /**
-   * The drawing's shelf, which picks the Paper file. Omitted where the pair
-   * stands for the set rather than for one icon, and the first file answers
-   * for it then — the one holding the Catalog surface and the Changelog.
+   * The Paper file the drawing's shelf is in, from `paperFileForCategory`.
+   * Omitted where the pair stands for the set rather than for one icon, and
+   * the first file answers for it then: the one holding the Catalog surface
+   * and the Changelog.
+   *
+   * A URL and not the shelf's name, so the lookup happens at the call site.
+   * Resolving it here put `lib/paper-files.ts`, and through it the whole
+   * search vocabulary in `lib/icon-taxonomy.ts`, into the client bundle of
+   * every icon page, to turn one label into one link: 28 KB brotli on 1,217
+   * routes, measured on 28 Sep 2026. The icon page resolves it on the server.
    */
-  category,
+  paperUrl = SET_PAPER_FILES[0]?.url ?? "",
   className,
 }: {
   size?: "icon" | "icon-lg"
-  category?: string
+  paperUrl?: string
   className?: string
 }) {
   const FILES = [
     { id: "figma", label: "Figma", Logo: FigmaLogo, url: SET_FIGMA_URL },
-    {
-      id: "paper",
-      label: "Paper",
-      Logo: PaperLogo,
-      url: paperFileForCategory(category ?? "").url,
-    },
+    { id: "paper", label: "Paper", Logo: PaperLogo, url: paperUrl },
   ] as const
 
   const files = FILES.filter((file) => file.url)
