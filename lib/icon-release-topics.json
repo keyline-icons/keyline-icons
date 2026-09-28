@@ -10,10 +10,12 @@
      "sections": [
       {
        "title": "Actions",
-       "text": "A shooting star: the star turned so one leg trails down the diagonal, with three trails streaming behind it. And two hearts, one in front of the other.",
+       "text": "A shooting star: the star turned so one leg trails down the diagonal, with three trails streaming behind it. And two hearts, one in front of the other. A lifebuoy for support, and the shield with a prompt in it for secure shells.",
        "names": [
         "star-shooting",
-        "hearts"
+        "hearts",
+        "lifebuoy",
+        "shield-terminal"
        ]
       },
       {
@@ -50,9 +52,10 @@
       },
       {
        "title": "Devices",
-       "text": "A gamepad with a plus pad and two buttons.",
+       "text": "A gamepad with a plus pad and two buttons, and an app window with a prompt for terminal apps.",
        "names": [
-        "gamepad"
+        "gamepad",
+        "app-window-terminal"
        ]
       },
       {
@@ -63,10 +66,26 @@
        ]
       },
       {
+       "title": "Files",
+       "text": "A bin with lines down its body, and a file with a prompt for shell scripts.",
+       "names": [
+        "bin-2",
+        "file-terminal"
+       ]
+      },
+      {
        "title": "Mail",
        "text": "The paper plane with three trails behind it, for sending fast.",
        "names": [
         "send-fast"
+       ]
+      },
+      {
+       "title": "Maps",
+       "text": "Two anchors: a ship's anchor on a round crown, and one drawn as two barbed hooks.",
+       "names": [
+        "anchor",
+        "anchor-2"
        ]
       },
       {
@@ -106,6 +125,14 @@
         "cricket-bat",
         "hockey-sticks",
         "golf-hole"
+       ]
+      },
+      {
+       "title": "Stationery",
+       "text": "A push pin set at a slant, and the pin struck through for unpinning.",
+       "names": [
+        "pin",
+        "pin-off"
        ]
       },
       {

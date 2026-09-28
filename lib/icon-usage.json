@@ -1081,6 +1081,15 @@
     "paw-print": "A paw print with three toes over a pad, for pets, vets, animal care and pet-friendly places.",
     "soccer-ball": "A football with its pentagon and seams, for soccer, matches, results and league tables.",
     "tennis-ball": "A tennis ball with its curved seam, for tennis, padel, court bookings and match scores.",
-    "tree-deciduous": "A leafy tree on a forked trunk, for parks, forests, gardens and nature settings."
+    "tree-deciduous": "A leafy tree on a forked trunk, for parks, forests, gardens and nature settings.",
+    "anchor": "A ship's anchor, for harbours, marinas, sailing, moorings and anchor links.",
+    "anchor-2": "An anchor drawn as two barbed hooks, for fishing, grappling and nautical themes.",
+    "bin-2": "A bin with lines down its body, for trash, deleted items and clearing things out.",
+    "lifebuoy": "A life ring, for support, help centres, rescue and safety information.",
+    "pin": "A push pin at a slant, for pinned items, keeping a post on top and fixed notes.",
+    "pin-off": "A push pin struck through, for unpinning an item and releasing a fixed post.",
+    "shield-terminal": "A shield with a prompt, for SSH, secure shells and protected command lines.",
+    "file-terminal": "A file with a prompt, for shell scripts, command files and batch jobs.",
+    "app-window-terminal": "A window with a prompt, for terminal apps, console windows and command prompts."
   }
 }

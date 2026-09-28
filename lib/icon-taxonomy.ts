@@ -164,8 +164,11 @@ export const CATEGORIES = [
     label: "Maps",
     // `radar` joined on 13 Sep 2026 with batch B: a sweep over rings is the
     // screen that finds where things are, and it sits beside the compass.
-    match: /^(map|compass|building|route|radar|flag$|traffic-light|milestone$)/,
-    blurb: "Pins, maps, compasses, routes, the radar, flags, a milestone and the lights at the junction.",
+    // `anchor` and `anchor-2` joined on 28 Sep 2026: an anchor marks the harbour
+    // on a chart, next to the compass. Transport is the vehicles themselves, and
+    // an anchor is not one. A prefix, so the anchor's states land here too.
+    match: /^(map|compass|building|route|radar|flag$|traffic-light|milestone$|anchor(-|$))/,
+    blurb: "Pins, maps, compasses, routes, the radar, flags, a milestone, the lights at the junction and two anchors.",
   },
   // Opened 11 Sep 2026 with the seven of batch C, the first time the set has
   // drawn the inside of a building rather than its outline. The `home` icon
@@ -327,9 +330,11 @@ export const CATEGORIES = [
     // `heart` alternative it used to sit under as `heart-hand`, and needs its
     // own. It stays here rather than moving: it is still the mark you set on a
     // thing, and there is no hand shelf for it to join.
+    // `lifebuoy` joined on 28 Sep 2026 beside the siren: the ring you throw to
+    // someone in trouble, and the mark a help or support link wears.
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|key(?:-round|-square)?$|shield|badge|download|upload|filter|eye|star|heart|hand-heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|ban|siren$|delete$)/,
-    blurb: "Checks, crosses, pluses, the everyday verbs, the siren and the marks that guard a thing.",
+      /^(check|double-check|plus|minus|x|more|lock|unlock|key(?:-round|-square)?$|shield|badge|download|upload|filter|eye|star|heart|hand-heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|ban|siren$|delete$|lifebuoy$)/,
+    blurb: "Checks, crosses, pluses, the everyday verbs, the siren, the lifebuoy and the marks that guard a thing.",
   },
   {
     // Next to Actions rather than inside it: those are marks you read, a check
@@ -417,9 +422,11 @@ export const CATEGORIES = [
     // of two is a shelf. `scissors` and `pencil-ruler` are stationery as much
     // as they are tools and are candidates to move here, which is Zafar's call
     // rather than one this row makes on its way in.
+    // The push pin joined on 28 Sep 2026 with its off state. Anchored, so a
+    // `pinwheel` would not arrive through it.
     label: "Stationery",
-    match: /^(eraser|tape|stapler|notebook|sticky-note)/,
-    blurb: "The desk drawer: the eraser, the roll of tape and the sticky notes.",
+    match: /^(eraser|tape|stapler|notebook|sticky-note|pin(-|$))/,
+    blurb: "The desk drawer: the eraser, the roll of tape, the sticky notes and the push pin.",
   },
   {
     label: "Shapes",
