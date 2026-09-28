@@ -1,9 +1,15 @@
-import { componentName, registryComponent } from "@/lib/icon-code"
+import { registryComponent } from "@/lib/icon-code"
 import { artOf, CORNERS, type Corners } from "@/components/glyph"
 import { iconHref } from "@/lib/icon-pages"
 import { loadIcons, STYLES, type Icon, type Style } from "@/lib/icons"
+import {
+  AUTHOR,
+  itemName,
+  json,
+  summary,
+  type RegistryItem,
+} from "@/lib/registry"
 import { absoluteUrl } from "@/lib/seo"
-import { SET_TITLE } from "@/lib/site-chrome"
 
 /**
  * The shadcn registry.
@@ -38,67 +44,11 @@ import { SET_TITLE } from "@/lib/site-chrome"
  * that is what the install line above uses, but shadcn's config also accepts a
  * bare `{name}` template, and a registry that 404s on half of its own
  * documented forms is a support burden for no benefit.
- */
-
-/** Served both as the catalog and as one item, so the shape is named once. */
-type RegistryItem = {
-  $schema?: string
-  name: string
-  type: "registry:component"
-  title: string
-  description: string
-  author?: string
-  docs?: string
-  dependencies?: string[]
-  files?: {
-    path: string
-    content: string
-    type: "registry:component"
-    target: string
-  }[]
-  meta?: Record<string, unknown>
-}
-
-const AUTHOR = `${SET_TITLE} <${absoluteUrl("/")}>`
-
-/**
- * `bell` for stroke, `fill/bell` for a style, `sharp/fill/bell` for a treatment.
  *
- * The install name, the URL and the React entry point all agree, which is the
- * property worth having: someone who has read `@keyline-icons/react/sharp/fill`
- * can guess `@keyline/sharp/fill/bell` and be right.
+ * Only items are answered here. The catalog `search` reads has routes of its
+ * own beside this one, `registry.json` and `registry`, because it is searched
+ * per request and the items are not: see `lib/registry.ts`.
  */
-const itemName = (name: string, style: Style, corners: Corners) =>
-  [corners === "sharp" ? "sharp" : null, style === "stroke" ? null : style, name]
-    .filter(Boolean)
-    .join("/")
-
-function describe(icon: Icon, style: Style, corners: Corners) {
-  const styles = STYLES.filter((s) => artOf(icon, s, corners))
-  return (
-    `${componentName(icon.name)}, the ${style} drawing of ${icon.name} on a ` +
-    `24×24 grid, with ${corners === "sharp" ? "squared" : "rounded"} corners. ` +
-    `Available in ${styles.join(", ")}.`
-  )
-}
-
-/**
- * Metadata only. The catalog is for `search`, so it carries no file bodies.
- *
- * And no `author` or `meta` either, though every item has both. `search` keeps
- * the name, title, type and description of a catalog entry and nothing else,
- * so on 9,736 entries those two fields were 37% of the catalog and reached
- * nobody: 38 KB of every `shadcn search @keyline` under brotli, measured on
- * 28 Sep 2026. They live on the item, where `add` and `view` do read them.
- */
-function summary(icon: Icon, style: Style, corners: Corners): RegistryItem {
-  return {
-    name: itemName(icon.name, style, corners),
-    type: "registry:component",
-    title: componentName(icon.name),
-    description: describe(icon, style, corners),
-  }
-}
 
 function item(icon: Icon, style: Style, corners: Corners): RegistryItem {
   const art = artOf(icon, style, corners)!
@@ -136,17 +86,6 @@ function item(icon: Icon, style: Style, corners: Corners): RegistryItem {
   }
 }
 
-const json = (body: unknown, status = 200) =>
-  Response.json(body, {
-    status,
-    headers: {
-      // Long-lived: an icon's markup never changes under its own name. A
-      // redraw ships as a new build, and `stale-while-revalidate` means a CLI
-      // never waits on that.
-      "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400",
-    },
-  })
-
 export async function GET(
   _request: Request,
   { params }: { params: Promise<{ slug: string[] }> }
@@ -155,20 +94,6 @@ export async function GET(
   const parts = [...slug]
   const last = parts.pop()?.replace(/\.json$/, "") ?? ""
   const icons = await loadIcons()
-
-  if (last === "registry" && parts.length === 0) {
-    const items = icons.flatMap((icon) =>
-      CORNERS.flatMap((k) =>
-        STYLES.filter((s) => artOf(icon, s, k)).map((s) => summary(icon, s, k))
-      )
-    )
-    return json({
-      $schema: "https://ui.shadcn.com/schema/registry.json",
-      name: "keyline",
-      homepage: absoluteUrl("/"),
-      items,
-    })
-  }
 
   // `sharp` leads when it is there, so what remains is the style segment the
   // route has always parsed.
@@ -227,18 +152,15 @@ export async function GET(
  */
 export async function generateStaticParams() {
   const icons = await loadIcons()
-  return [
-    { slug: ["registry.json"] },
-    ...icons.flatMap((icon) =>
-      CORNERS.flatMap((k) =>
-        STYLES.filter((s) => artOf(icon, s, k)).map((s) => ({
-          slug: [
-            ...(k === "sharp" ? ["sharp"] : []),
-            ...(s === "stroke" ? [] : [s]),
-            `${icon.name}.json`,
-          ],
-        }))
-      )
-    ),
-  ]
+  return icons.flatMap((icon) =>
+    CORNERS.flatMap((k) =>
+      STYLES.filter((s) => artOf(icon, s, k)).map((s) => ({
+        slug: [
+          ...(k === "sharp" ? ["sharp"] : []),
+          ...(s === "stroke" ? [] : [s]),
+          `${icon.name}.json`,
+        ],
+      }))
+    )
+  )
 }

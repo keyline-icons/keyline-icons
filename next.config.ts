@@ -96,6 +96,32 @@ const nextConfig: NextConfig = {
         })),
     ]
   },
+  /*
+    The shadcn catalog, split on whether the request asks a question. With no
+    parameters it is the prerendered file, byte for byte what every CLI before
+    4.17.0 downloads and searches itself. With any one of the four that 4.17.0
+    and later send, it is `registry/search`, which answers a page.
+
+    Four rules per address because `has` is AND, and any single parameter is
+    enough to mean a search. The CLI always sends `limit` and `offset`, so
+    `limit` alone would catch it; the rest are for a hand-written `?q=arrow`.
+
+    `beforeFiles`, not the array form. The catalog is a static file, and a plain
+    rewrite is only consulted after files have been checked, so it would never
+    fire. Nothing here costs the bare request anything: the rule is matched at
+    the edge and the file is served as it always was.
+  */
+  async rewrites() {
+    return {
+      beforeFiles: ["/r/registry.json", "/r/registry"].flatMap((source) =>
+        ["q", "type", "limit", "offset"].map((key) => ({
+          source,
+          has: [{ type: "query" as const, key }],
+          destination: "/r/registry/search",
+        }))
+      ),
+    }
+  },
 }
 
 export default nextConfig
