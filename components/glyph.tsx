@@ -46,8 +46,11 @@ export type Corners = (typeof CORNERS)[number]
  * It lives next to `CORNERS` rather than in the switch component because it is
  * a fact about this treatment, not about segmented controls: the style and
  * format groups use the same control and want nothing to do with it.
+ *
+ * Off since 28 Sep 2026. Sharp shipped in v0.3.0 on 31 Aug, and a flag four
+ * weeks old had outlived the drawings' own New badge, which lasts 14 days.
  */
-export const SHARP_BADGE: string | undefined = "New"
+export const SHARP_BADGE: string | undefined = undefined
 
 export type StyleArt = { body: string; root: Record<string, string> }
 
