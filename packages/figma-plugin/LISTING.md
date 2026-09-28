@@ -130,7 +130,7 @@ Fourteen new drawings, taking the set to 1,192 names and 9,536 SVGs.
 * Arrows: an arrow entering a square, from each of its four corners
 * rocket-2 is rocket-fast now, for the speed lines it shares with them, and the old name still finds it
 
-Also redrawn: the parcel and its ten signs, in duotone. The lid is now the dark part, with the tape crossing it in grey. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones. The ring of power-off now opens as wide as power's, and volume-off in sharp takes the sharp speaker.
+Also redrawn: the parcel and its ten signs, in duotone. The lid is now the dark part, with the tape crossing it in grey. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones. The ring of power-off now opens as wide as power's, and volume-off in sharp takes the sharp speaker. app-window-cursor's cursor is a third bigger.
 
 1.2.0
 64 new drawings, taking the set to 1,178 names and 9,424 SVGs.
@@ -256,7 +256,7 @@ to be **pushed** before any of this is true for anyone but you.
 ```
 Fourteen new drawings, taking the set to 1,192 names and 9,536 SVGs: a shooting star, a truck, a paper plane, a bike and a stopwatch with speed lines behind them; captions, subtitles and play switched off, play in its square and circle too; and an arrow entering a square from each corner. rocket-2 is rocket-fast now, for the speed lines it shares with them, and the old name still finds it.
 
-Redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones. The ring of power-off now opens as wide as power's, and volume-off in sharp takes the sharp speaker, so each is its original at the same size.
+Redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones. The ring of power-off now opens as wide as power's, and volume-off in sharp takes the sharp speaker, so each is its original at the same size. app-window-cursor's cursor is a third bigger.
 ```
 
 **A republish is required for the listing**, whose counts moved: the tagline,
@@ -665,7 +665,7 @@ Fourteen new drawings. The set is 1,192 names now, 1,065 component sets and 9,53
 * Switched off: captions, subtitles and play, and play in its square and circle too, each at its original size
 * Arrows: an arrow entering a square, from each of its four corners
 
-Also redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones. The ring of power-off now opens as wide as power's, and volume-off in sharp takes the sharp speaker, so each is its original at the same size. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
+Also redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones. The ring of power-off now opens as wide as power's, and volume-off in sharp takes the sharp speaker, so each is its original at the same size. app-window-cursor's cursor is a third bigger. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
 
 v1.2.0
 64 new drawings. The set is 1,178 names now, 1,053 component sets and 9,424 variants, up from 1,114 and 8,912. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
@@ -767,7 +767,7 @@ regenerated together; re-upload whichever modal you are in.
 ### What changed, for the final details page
 
 ```
-Fourteen new icons: a shooting star and four fast movers with speed lines, captions, subtitles and play switched off with play in its square and circle too, and an arrow entering a square from each corner. The parcel and its ten signs were redrawn in duotone, with the lid now the dark part, cpu-sparkles, film-sparkles and brain-sparkles in sharp, where they open for their stars, and power-off and sharp volume-off back to their originals' size. The file went from 1,053 component sets to 1,065 and from 9,424 variants to 9,536. rocket-2 was renamed rocket-fast in place and nothing was removed, and the redraws were swapped inside their existing sets, so instances already placed in your files keep their link.
+Fourteen new icons: a shooting star and four fast movers with speed lines, captions, subtitles and play switched off with play in its square and circle too, and an arrow entering a square from each corner. The parcel and its ten signs were redrawn in duotone, with the lid now the dark part. Also redrawn: cpu-sparkles, film-sparkles and brain-sparkles in sharp, where they open for their stars; power-off and sharp volume-off, back to their originals' size; and app-window-cursor, with a bigger cursor. The file went from 1,053 component sets to 1,065 and from 9,424 variants to 9,536. rocket-2 was renamed rocket-fast in place and nothing was removed, and the redraws were swapped inside their existing sets, so instances already placed in your files keep their link.
 ```
 
 The 1.2.0 entry this replaced, kept because a listing's history is worth

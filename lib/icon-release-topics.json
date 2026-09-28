@@ -69,7 +69,7 @@
     {
      "title": "Redrawn",
      "icon": "pen",
-     "text": "Sixteen drawings that already shipped were drawn again. Before and after below.",
+     "text": "Seventeen drawings that already shipped were drawn again. Before and after below.",
      "sections": [
       {
        "title": "Commerce",
@@ -102,6 +102,13 @@
        "text": "power-off opens its ring as wide as power does. It had kept the narrower opening power was drawn with before its redraw, so the ring ran on past where power's stops.",
        "redraws": [
         "power-off"
+       ]
+      },
+      {
+       "title": "Devices",
+       "text": "app-window-cursor has a cursor a third bigger, and the window stops 2 short of it where its lines would cross it. Open at that corner, the window is no longer filled in: two-tone greys only the cursor, duotone greys the window and its dots, and fill draws the window as a line round a solid cursor.",
+       "redraws": [
+        "app-window-cursor"
        ]
       },
       {

@@ -4,9 +4,11 @@
 // trails, the truck with two), carried into the other styles the way their
 // bases and rocket-2 already carry them:
 //
-//   star-shooting  the house star (inner 0.45, every corner r=0.5) at tip radius
-//                  7, turned 9 degrees so a leg trails down the diagonal; three
-//                  trails on x+y = 18, 24, 30. Styles follow `star` for the star
+//   star-shooting  the house star (inner 0.45, every corner r=0.5) turned 9
+//                  degrees so a leg trails down the diagonal, send-fast's three
+//                  trails on x+y = 18, 24, 30, and the star as big as the rest of
+//                  the box holds (ink 7..23; his, 28 Sep 2026; it was tip radius 7
+//                  in 2..22 until then). Styles follow `star` for the star
 //                  and `rocket-2` for the trails: two-tone = star plate under the
 //                  whole drawing; duotone = grey star, black trails; fill = solid
 //                  star, trails stroked. Sharp keeps the star's tip fillets (as
@@ -20,8 +22,8 @@
 //                  fill = the cargo box solid with the two trails knocked out as
 //                  slots through the back, the rest stroked as `truck`'s fill.
 //
-//   send-fast      `send` rebuilt about its nose at 0.81 (radii kept), the star's trails moved
-//                  out to send's 1..23 box; duotone greys the upper wing, fill cuts the crease
+//   send-fast      `send` rebuilt about its nose at 0.81 (radii kept), with the trails the
+//                  star now shares, in send's 1..23 box; duotone greys the upper wing, fill cuts the crease
 //                  wedge straight into the outline (one contour, no seam)
 //   bike-fast      `bike` untouched plus the truck's pair of trails behind the rider
 //   timer-fast     `timer` with its ring opened on the left for two trails; duotone trails
@@ -30,7 +32,7 @@
 //   node tools/motion/build.mjs [--out=<dir>]     writes raw/<name>/ for all five (default: this checkout)
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { Path, fillet, add, sub, mul, len, unit, dot, R2, rad, deg, ink, gap, bisect, seg, fmt } from './lib.mjs';
+import { Path, fillet, add, sub, mul, len, unit, dot, R2, rad, deg, ink, gap, gapPoint, bisect, seg, fmt } from './lib.mjs';
 
 const OUT = process.argv.find((a) => a.startsWith('--out='))?.slice(6) ?? join(import.meta.dirname, '..', '..');
 const { writeSet } = await import('../v5/raw.mjs');
@@ -122,23 +124,43 @@ function starPlate(pts, C) {
   return p.Z().toString();
 }
 
-// the star's centre, solved on the diagonal so its ink top (and so its right) lands on 2 and 22
-const RV = 7, ROT = 9;
-const tc = bisect((t) => ink(starStroke(starPoly(X(t, 0), RV, ROT), false))[1] - 2, -5, 10);
-const SC = X(tc, 0);
+// His redraw, 28 Sep 2026: the star "follows send icon fast size + whatever fits
+// to the rest". So the trails are send-fast's own, and the star is as big as the
+// box beside them holds: its centre on the diagonal with the ink top on 1 (and so
+// its right on 23, the star being symmetric about x + y = 24), its tip radius
+// solved so the ink runs 7 to 23, the box of his drawing. Corners stay r=0.5, on
+// the ladder, rather than growing with the star. At tip radius 7 in 2..22 the
+// star had read small beside send-fast's plane.
+const ROT = 9;
+const centreFor = (Rv) => X(bisect((t) => ink(starStroke(starPoly(X(t, 0), Rv, ROT), false))[1] - 1, -5, 10), 0);
+const RV = bisect((Rv) => ink(starStroke(starPoly(centreFor(Rv), Rv, ROT), false))[0] - 7, 7, 10);
+const SC = centreFor(RV);
 const SP = starPoly(SC, RV, ROT);
 
-const TRAILS = [[[3, 21], [7.5, 16.5]], [[3, 15], [6.5, 11.5]], [[9, 21], [12.5, 17.5]]];
+const TRAILS = [[[2, 22], [6.5, 17.5]], [[2, 16], [5.5, 12.5]], [[8, 22], [11.5, 18.5]]];
 const trailsD = (sharp) => TRAILS.map(([a, b]) => {
   if (!sharp) return seg(a, b);
   const u = unit(sub(b, a)), k = R2 - 1; // (1 - sin 45) / cos 45
   return seg(sub(a, mul(u, k)), add(b, mul(u, k)));
 }).join('');
 
+// A sharp trail is butt-capped, so its ink is a rectangle out to the stub's
+// end; `gap` reads every end as a round cap, which puts ink a unit past it.
+const buttGap = (a, b, d) => {
+  const u = unit(sub(b, a)), k = R2 - 1, nn = [-u[1], u[0]];
+  const A = sub(a, mul(u, k)), B = add(b, mul(u, k));
+  const c = [add(A, nn), add(B, nn), sub(B, nn), sub(A, nn)];
+  let best = Infinity;
+  for (let i = 0; i < 4; i++) for (let j = 0; j <= 64; j++) best = Math.min(best, gapPoint(add(c[i], mul(sub(c[(i + 1) % 4], c[i]), j / 64)), d) + 1);
+  return best;
+};
+
 const star = {};
 for (const corners of ['regular', 'sharp']) {
   const sharp = corners === 'sharp';
   const body = starStroke(SP, sharp);
+  const clear = sharp ? Math.min(...TRAILS.map(([a, b]) => buttGap(a, b, body))) : gap(trailsD(false), body);
+  assert(clear >= 2, `star-shooting ${corners}: the star comes ${clear.toFixed(3)} from the trails`);
   const plate = starPlate(SP, SC);
   const trails = trailsD(sharp);
   star[`stroke.${corners}`] = [{ kind: 'stroke', d: body + trails }];
@@ -300,12 +322,8 @@ const SEND = (() => {
 })();
 assert(near(SEND.rW, 1, 2e-3) && near(SEND.rT, 3, 2e-3), `send radii read ${SEND.rW}, ${SEND.rT}`);
 const RW = 1, RT = 3;
-const SEND_TRAILS = [[[2, 22], [6.5, 17.5]], [[2, 16], [5.5, 12.5]], [[8, 22], [11.5, 18.5]]];
-const sendTrails = (sharp) => SEND_TRAILS.map(([a, b]) => {
-  if (!sharp) return seg(a, b);
-  const u = unit(sub(b, a)), k = R2 - 1;
-  return seg(sub(a, mul(u, k)), add(b, mul(u, k)));
-}).join('');
+// the star's trails, which are send's
+const sendTrails = trailsD;
 const scaleAbout = (P, s) => add(SEND.N, mul(sub(P, SEND.N), s));
 const planeRounded = (s) => {
   const pts = [SEND.N, scaleAbout(SEND.W2, s), scaleAbout(SEND.T, s), scaleAbout(SEND.W1, s)];
@@ -479,5 +497,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   writeSet2('timer-fast', timer);
   console.log('wrote raw/{star-shooting,truck-fast,send-fast,bike-fast,timer-fast} into', OUT);
   console.log('send at', S_SEND, ' wing r', SEND.rW.toFixed(4), ' notch r', SEND.rT.toFixed(4));
-  console.log('star centre', SC.map((v) => fmt(v, 4)).join(', '));
+  console.log('star centre', SC.map((v) => fmt(v, 4)).join(', '), ' tip radius', fmt(RV, 4), ' clear', ['regular', 'sharp'].map((c) => fmt(c === 'sharp' ? Math.min(...TRAILS.map(([a, b]) => buttGap(a, b, starStroke(SP, true)))) : gap(trailsD(false), starStroke(SP, false)), 3)).join(' / '));
 }

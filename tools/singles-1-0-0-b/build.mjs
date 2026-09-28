@@ -25,7 +25,7 @@
 import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { Path, polyContour, circlePath, onArc, add, sub, mul, len, unit, dot } from '../v5/geom.mjs';
+import { Path, polyContour, circlePath, onArc, fillet, add, sub, mul, len, unit, dot } from '../v5/geom.mjs';
 import { offsetContour, contourPath, verify, clipContour } from '../v5/offset.mjs';
 const segStart = (s) => (s.type === 'L' ? s.p0 : onArc(s.c, s.r, s.a0));
 const segEnd = (s) => (s.type === 'L' ? s.p1 : onArc(s.c, s.r, s.a1));
@@ -228,26 +228,61 @@ for (const [name, from] of [['app-window-plus', 'app-plus'], ['app-window-minus'
     };
   });
 }
-// the cursor is globe-cursor's modifier moved from its 16..22 box to 15..21,
-// on app-plus's cut and plate
+// The cursor is globe-cursor's modifier moved from its 16..22 box onto the
+// window's corner and drawn at 4/3 about it, so it runs 13..21 rather than the
+// sign box's 15..21 (his, 28 Sep 2026: "I want the app-window-cursor's cursor to
+// be bigger, even against the rules"). Its fillets grow with it, as the modifier's
+// did from `cursor`'s. The window keeps app-plus's cut at 11, which leaves 2.31
+// of daylight to each cut end where the lines would cross the cursor.
+//
+// A cursor this size reaches past app-plus's notched plate, and an outline
+// opened for a glyph takes no plate notched round it (his ruling, 24 Sep 2026),
+// so the styles are cursor-window's open frame: two-tone greys the cursor alone,
+// duotone greys the window and its dots under a black cursor, fill strokes the
+// window round a solid cursor.
+const CURSOR_SCALE = 4 / 3, CURSOR_CORNER = [21, 21];
+/** globe-cursor's modifier as a polygon and its fillet radii, read off its own edges. */
+function cursorOf(sharp) {
+  const globe = houseLayers('globe-cursor', 'stroke', sharp)[0].d;
+  const d = shift(globe.slice(globe.lastIndexOf('M')), -1, -1);
+  const lines = [];
+  let cur = null;
+  for (const [, k, v] of d.matchAll(/([MLCZ])([^MLCZ]*)/g)) {
+    const q = v.trim() ? v.trim().split(/[\s,]+/).map(Number) : [];
+    if (k === 'M') cur = [q[0], q[1]];
+    else if (k === 'L') { lines.push([cur, [q[0], q[1]]]); cur = [q[0], q[1]]; }
+    else if (k === 'C') cur = [q[4], q[5]];
+  }
+  if (lines.length !== 4) throw new Error(`globe-cursor's cursor has ${lines.length} edges`);
+  // sharp is the bare polygon, each edge starting on a vertex; rounded has a
+  // fillet after every edge, its vertex where that edge and the next one meet
+  if (sharp) return { pts: lines.map(([a]) => a), radii: [0, 0, 0, 0] };
+  const meet = ([a, b], [c, e]) => { const r = sub(b, a), s = sub(e, c); return add(a, mul(r, ((c[0] - a[0]) * s[1] - (c[1] - a[1]) * s[0]) / (r[0] * s[1] - r[1] * s[0]))); };
+  const pts = [], radii = [];
+  for (let i = 0; i < 4; i++) {
+    const [A, T] = lines[(i + 3) % 4], [, B] = lines[i], V = meet(lines[(i + 3) % 4], lines[i]);
+    pts.push(V);
+    radii.push(len(sub(T, V)) * Math.tan(Math.acos(dot(unit(sub(A, V)), unit(sub(B, V)))) / 2));
+  }
+  // the reading holds only if every fillet lands back on the edges' own ends
+  for (let i = 0; i < 4; i++) {
+    const f = fillet(pts[(i + 3) % 4], pts[i], pts[(i + 1) % 4], radii[i]);
+    const off = Math.max(len(sub(f.T1, lines[(i + 3) % 4][1])), len(sub(f.T2, lines[i][0])));
+    if (off > 2e-3) throw new Error(`app-window-cursor: corner ${i} of the modifier comes back ${off.toFixed(4)} out`);
+  }
+  return { pts, radii };
+}
 set('app-window-cursor', [2, 2, 22, 22], (sharp) => {
-  const lastSub = (d) => d.slice(d.lastIndexOf('M'));
   const [plusStroke] = houseLayers('app-plus', 'stroke', sharp);
   const body = plusStroke.d.slice(0, plusStroke.d.indexOf('M', 1));
-  const plate = houseLayers('app-plus', 'two-tone', sharp)[0].d;
-  const solid = houseLayers('app-plus', 'fill', sharp).find((l) => l.kind === 'solid').d;
-  const cursor = shift(lastSub(houseLayers('globe-cursor', 'stroke', sharp)[0].d), -1, -1);
-  // globe-cursor's fill is one path; the cursor is the subpath lying wholly in
-  // its 14..23 corner
-  const globeFill = houseLayers('globe-cursor', 'fill', sharp)[0].d;
-  const cursorFill = expandHV(globeFill).split(/(?=M)/).filter((sp) => sp.match(/-?\d*\.?\d+/g).map(Number).every((n) => n > 14));
-  if (cursorFill.length !== 1) throw new Error(`app-window-cursor: ${cursorFill.length} cursor subpaths in the globe fill`);
-  const cursorSolid = shift(cursorFill.join(''), -1, -1);
+  const small = cursorOf(sharp);
+  const cursor = closed(small.pts.map((p) => add(CURSOR_CORNER, mul(sub(p, CURSOR_CORNER), CURSOR_SCALE))), small.radii.map((r) => r * CURSOR_SCALE), sharp);
+  const solid = plate(cursor.segs);
   return {
-    stroke: [S(body + cursor), DOT(WINDOW_DOTS)],
-    'two-tone': [PL(plate), S(body + cursor), DOT(WINDOW_DOTS)],
-    duotone: [PL(plate), S(cursor), DOT(WINDOW_DOTS)],
-    fill: [SO(solid + WINDOW_DOTS + cursorSolid)],
+    stroke: [S(body + cursor.d), DOT(WINDOW_DOTS)],
+    'two-tone': [PL(cursor.d), S(body + cursor.d), DOT(WINDOW_DOTS)],
+    duotone: [M(body), PL(WINDOW_DOTS), SO(solid)],
+    fill: [S(body), SO(solid + WINDOW_DOTS)],
   };
 });
 

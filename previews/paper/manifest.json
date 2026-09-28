@@ -160,7 +160,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 37733
+      "bytes": 37309
     },
     {
       "file": "actions-13.html",
@@ -1120,7 +1120,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 37930
+      "bytes": 38584
     },
     {
       "file": "devices-3.html",
@@ -2880,7 +2880,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 85163
+      "bytes": 88696
     },
     {
       "file": "changelog-earlier.html",
