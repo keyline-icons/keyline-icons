@@ -1,5 +1,6 @@
 import { componentName, registryComponent } from "@/lib/icon-code"
 import { artOf, CORNERS, type Corners } from "@/components/glyph"
+import { iconHref } from "@/lib/icon-pages"
 import { loadIcons, STYLES, type Icon, type Style } from "@/lib/icons"
 import { absoluteUrl } from "@/lib/seo"
 import { SET_TITLE } from "@/lib/site-chrome"
@@ -46,7 +47,8 @@ type RegistryItem = {
   type: "registry:component"
   title: string
   description: string
-  author: string
+  author?: string
+  docs?: string
   dependencies?: string[]
   files?: {
     path: string
@@ -80,15 +82,21 @@ function describe(icon: Icon, style: Style, corners: Corners) {
   )
 }
 
-/** Metadata only. The catalog is for `search`, so it carries no file bodies. */
+/**
+ * Metadata only. The catalog is for `search`, so it carries no file bodies.
+ *
+ * And no `author` or `meta` either, though every item has both. `search` keeps
+ * the name, title, type and description of a catalog entry and nothing else,
+ * so on 9,736 entries those two fields were 37% of the catalog and reached
+ * nobody: 38 KB of every `shadcn search @keyline` under brotli, measured on
+ * 28 Sep 2026. They live on the item, where `add` and `view` do read them.
+ */
 function summary(icon: Icon, style: Style, corners: Corners): RegistryItem {
   return {
     name: itemName(icon.name, style, corners),
     type: "registry:component",
     title: componentName(icon.name),
     description: describe(icon, style, corners),
-    author: AUTHOR,
-    meta: { style, corners, container: icon.container, base: icon.base },
   }
 }
 
@@ -107,6 +115,12 @@ function item(icon: Icon, style: Style, corners: Corners): RegistryItem {
   return {
     $schema: "https://ui.shadcn.com/schema/registry-item.json",
     ...summary(icon, style, corners),
+    author: AUTHOR,
+    meta: { style, corners, container: icon.container, base: icon.base },
+    // The CLI prints this once an `add` finishes. The drawing's page rather
+    // than a page per variant: it shows every style and both corners, which
+    // is the reason to send someone there after they installed one of them.
+    docs: `Every style and both corners of ${icon.name}: ${absoluteUrl(iconHref(icon.name))}`,
     // No npm dependencies on purpose. The emitted file imports a type from
     // react and nothing else, so it compiles in any React project without
     // pulling `@keyline-icons/react` in behind the consumer's back.
@@ -163,25 +177,40 @@ export async function GET(
 
   const style = (parts[0] ?? "stroke") as Style
   if (parts.length > 1 || !STYLES.includes(style)) {
-    return json({ error: `Unknown registry path: ${slug.join("/")}` }, 404)
+    return json(
+      {
+        error: "unknown-path",
+        detail: `Unknown registry path: ${slug.join("/")}`,
+      },
+      404
+    )
   }
 
+  /*
+    Every 404 is a short code in `error` and the sentence in `detail`, because
+    that is the shape the shadcn CLI reads: it prints `detail` (or `message`)
+    and brackets `error` in front of it. A body with only `error` printed the
+    sentence in brackets followed by the word `undefined`, which is how every
+    404 from this registry ended until 28 Sep 2026. Unknown keys such as
+    `available` survive the CLI's parse and stay for anyone reading the route
+    directly.
+  */
   const icon = icons.find((i) => i.name === last)
-  if (!icon) return json({ error: `No icon named "${last}"` }, 404)
+  if (!icon) {
+    return json(
+      { error: "no-such-icon", detail: `No icon named "${last}".` },
+      404
+    )
+  }
   if (!artOf(icon, style, corners)) {
     // The coverage rule, as an answer rather than a 404 with no reason: an open
     // glyph has nothing to fill, and saying so is what stops it reading as a
     // gap in the registry.
-    //
-    // The styles are named inside `error` as well as beside it, because the
-    // shadcn CLI prints that one string and drops every sibling field. It read
-    // `["bar-chart" has no fill style] undefined` at the terminal, so the half
-    // of the answer worth having never reached the person who asked. `available`
-    // stays for anyone reading the route directly.
     const available = STYLES.filter((s) => artOf(icon, s, corners))
     return json(
       {
-        error: `"${last}" has no ${style} style. It has: ${available.join(", ")}.`,
+        error: "no-such-style",
+        detail: `"${last}" has no ${style} style. It has: ${available.join(", ")}.`,
         available,
       },
       404
