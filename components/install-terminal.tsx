@@ -132,7 +132,7 @@ export function InstallTerminal({
           two controls in one header, on two different axes. Left-aligned on a
           phone they read as one stack.
         */}
-        <Segmented className="sm:ml-auto">
+        <Segmented aria-label="Package manager" className="sm:ml-auto">
           {PACKAGE_MANAGERS.map((manager) => (
             <SegmentedItem
               key={manager.value}

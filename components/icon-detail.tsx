@@ -248,7 +248,7 @@ export function IconDetail({
           in the page.
         */}
         <div className="flex flex-wrap items-center gap-2">
-          <Segmented>
+          <Segmented aria-label="Style">
             {STYLES.map((s) => {
               const item = (
                 <SegmentedItem
@@ -386,7 +386,7 @@ export function IconDetail({
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
-          <Segmented>
+          <Segmented aria-label="Format">
             {FORMATS.map((f) => (
               <SegmentedItem
                 key={f.value}
@@ -400,7 +400,7 @@ export function IconDetail({
 
           {/* Only on the two formats whose snippet has a command in it. */}
           {(format === "react" || format === "cli") && (
-            <Segmented>
+            <Segmented aria-label="Package manager">
               {PACKAGE_MANAGERS.map((m) => (
                 <SegmentedItem
                   key={m.value}

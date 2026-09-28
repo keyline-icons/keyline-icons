@@ -887,7 +887,7 @@ export function IconPreview({
                 and says why on hover, because "there is no fill of this" is a
                 fact about the icon and greying it out silently reads as a bug.
               */}
-              <Segmented size="sm">
+              <Segmented size="sm" aria-label="Style">
                 {STYLES.map((s) => {
                   const item = (
                     <SegmentedItem
@@ -1003,7 +1003,7 @@ export function IconPreview({
               square spanning three rows rather than four.
             */}
             <div className="col-start-2 flex min-w-0 items-center overflow-x-auto sm:row-start-2 sm:justify-self-start sm:overflow-visible">
-              <Segmented size="sm">
+              <Segmented size="sm" aria-label="Format">
                 {FORMATS.map((f) => (
                   <SegmentedItem
                     key={f.value}
@@ -1031,7 +1031,7 @@ export function IconPreview({
                 because the actions hold the row open either way.
               */}
               {(format === "react" || format === "cli") && (
-                <Segmented size="sm">
+                <Segmented size="sm" aria-label="Package manager">
                   {PACKAGE_MANAGERS.map((m) => (
                     <SegmentedItem
                       key={m.value}

@@ -1300,6 +1300,9 @@ export function IconBrowser({
         <li key={c.value}>
           <button
             type="button"
+            // The fill and weight below are the only other sign of which row
+            // is chosen, and neither reaches a screen reader.
+            aria-pressed={category === c.value}
             onClick={() => {
               selectCategory(c.value)
               setBrowseOpen(false)
@@ -1359,7 +1362,7 @@ export function IconBrowser({
       "transition-[background-color,box-shadow] aria-expanded:bg-background aria-expanded:shadow-sm"
 
     const styleGroup = (
-      <Segmented>
+      <Segmented aria-label="Style">
         {STYLES.map((s) => (
           <SegmentedItem
             key={s}
@@ -1722,8 +1725,19 @@ export function IconBrowser({
               {filters(false)}
             </div>
 
-            <span className="ml-auto h-9 shrink-0 text-sm leading-9 whitespace-nowrap text-muted-foreground tabular-nums">
-              {shown.length.toLocaleString("en-US")} shown
+            {/*
+              A status region, so a search, a filter or a style change is
+              heard as well as seen: without it the grid changed silently and
+              a screen reader had no way to learn that nothing matched. Always
+              mounted, since a live region added together with its text is not
+              reliably announced. The hidden word makes "34 shown" a sentence.
+            */}
+            <span
+              role="status"
+              className="ml-auto h-9 shrink-0 text-sm leading-9 whitespace-nowrap text-muted-foreground tabular-nums"
+            >
+              {shown.length.toLocaleString("en-US")}{" "}
+              <span className="sr-only">icons </span>shown
             </span>
           </div>
 
