@@ -58,6 +58,27 @@ const nextConfig: NextConfig = {
     corner (`/r/sharp/fill/rocket-2.json` included). The shadcn CLI follows a
     redirect, so `@keyline/rocket-2` keeps installing until the next major.
   */
+  /*
+    The demo wallpapers, which Next serves from `public/` with `max-age=0`, so
+    every page that shows the phone asked for all three again on every visit.
+    A day, not `immutable`: these names are not content-hashed the way
+    `/_next/static` is, so a redrawn wallpaper has to be able to reach a reader
+    who already has the old one. `stale-while-revalidate` is a bonus in the
+    browsers that honour it, not the part this relies on.
+  */
+  async headers() {
+    return [
+      {
+        source: "/wallpapers/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
+    ]
+  },
   async redirects() {
     return [
       { source: "/shadcn", destination: "/install", permanent: true },
