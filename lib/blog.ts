@@ -4921,7 +4921,320 @@ const RELEASE_1_3_0: BlogPost = {
   ],
 }
 
+export const BLOG_V140_THUMBNAIL_ICON_NAMES = [
+  "money-bag-dollar-sign",
+  "landmark",
+  "gold-bars",
+  "arrow-right-left",
+  "stamp",
+  "newspaper",
+  "history",
+  "money-bag",
+  "money-bag-check",
+  "money-bag-x",
+  "money-bag-plus",
+  "money-bag-minus",
+  "arrow-up-down",
+  "calendar-days",
+  "copy-check",
+  "globe-search",
+  "banknote",
+  "coins",
+  "piggy-bank",
+  "wallet",
+  "credit-card",
+  "dollar-sign",
+  "euro",
+  "pound-sterling",
+  "badge-dollar-sign",
+  "banknote-check",
+  "credit-card-plus",
+  "wallet-cards",
+  "building",
+  "buildings",
+  "repeat",
+  "rotate-ccw",
+  "calendar",
+  "copy",
+  "globe",
+  "file-text",
+  "receipt",
+  "chart-line-up",
+  "bitcoin",
+  "japanese-yen",
+] as const
+
+export const BLOG_V140_HERO_ICON_NAMES = [
+  "money-bag-dollar-sign",
+  "landmark",
+  "gold-bars",
+  "stamp",
+  "newspaper",
+  "history",
+  "arrow-right-left",
+  "globe-search",
+] as const
+
+export const BLOG_V140_SIGN_ICON_NAMES = [
+  "credit-card-plus",
+  "calendar-plus",
+  "cloud-plus",
+  "money-bag-plus",
+] as const
+
+export const BLOG_V140_BAG_ICON_NAMES = [
+  "money-bag",
+  "money-bag-dollar-sign",
+  "money-bag-check",
+  "money-bag-x",
+  "money-bag-plus",
+  "money-bag-minus",
+] as const
+
+export const BLOG_V140_OBJECT_ICON_NAMES = [
+  "landmark",
+  "gold-bars",
+  "stamp",
+  "newspaper",
+] as const
+
+export const BLOG_V140_PAIR_ICON_NAMES = [
+  "arrow-right-left",
+  "arrow-up-down",
+  "repeat",
+  "history",
+  "rotate-ccw",
+  "calendar-days",
+  "copy-check",
+  "globe-search",
+] as const
+
+const RELEASE_1_4_0: BlogPost = {
+  /* The count, "free", "shadcn/ui" and what a banking screen searches for;
+     the story of the signs is an h2 inside. The slug names the drawings, not
+     the version, so it survives a renumbering. */
+  slug: "banking-money-and-transfer-icons",
+  version: "1.4.0",
+  title: "16 free shadcn/ui icons for banking, money and transfers",
+  description:
+    "1,233 free, MIT-licensed SVG icons for React and shadcn/ui. New: a " +
+    "money bag with five signs, a bank, gold bars, a stamp, a newspaper and " +
+    "transfer arrows.",
+  standfirst: "A money bag wears its dollar in the middle, not in a corner.",
+  date: "2026-09-28",
+  updated: "2026-09-28",
+  readingMinutes: 4,
+  thumbnail: BLOG_V140_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "banking icons",
+    "bank icon",
+    "money bag icon",
+    "money bag dollar icon",
+    "gold bars icon",
+    "gold bullion icon",
+    "rubber stamp icon",
+    "newspaper icon",
+    "history icon",
+    "transfer icon",
+    "swap icon",
+    "sort icon",
+    "calendar days icon",
+    "copied icon",
+    "web search icon",
+    "free svg icons",
+    "shadcn/ui icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "The set is 1,233 drawings. Each one comes in stroke, two-tone, " +
+        "duotone and fill, rounded or sharp: 9,864 SVGs.",
+    },
+    {
+      kind: "p",
+      text:
+        "Sixteen of them are new, and eleven came off a single screen: the " +
+        "menu of a banking app, which asked for drawings the set did not " +
+        "have. A bank, a money bag, gold bars, a rubber stamp and a " +
+        "newspaper. A clock turning back, for history. Two pairs of arrows, " +
+        "one for transfers and one for sorting. A globe with a lens, a copy " +
+        "with a tick and a calendar marked with its days. The other five are " +
+        "the money bag again, carrying a dollar, a tick, a cross, a plus or " +
+        "a minus.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V140_HERO_ICON_NAMES,
+        caption: "Eight of the sixteen, one style to a row.",
+      },
+    },
+
+    { kind: "h2", text: "Signs inside the bag", id: "bag" },
+    {
+      kind: "p",
+      text:
+        "Most signs in the set sit in the bottom right corner, and the " +
+        "drawing gives that corner up to make room: `credit-card-plus` and " +
+        "`calendar-plus` are the card and the calendar with a piece cut away " +
+        "for the plus. A few shapes carry their signs inside instead, the " +
+        "way `cloud-plus` does, because there is room in the middle and the " +
+        "sign reads as something the shape holds.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V140_SIGN_ICON_NAMES,
+        caption:
+          "A plus cut into a corner, twice, then a plus carried inside the " +
+          "cloud and the bag.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The money bag is one of those. `money-bag-dollar-sign`, " +
+        "`money-bag-check`, `money-bag-x`, `money-bag-plus` and " +
+        "`money-bag-minus` put their signs in the middle of the bag, where a " +
+        "bag of money has always worn its dollar.",
+    },
+    {
+      kind: "p",
+      text:
+        "Each sign grows until the space between it and the bag's outline " +
+        "would get tighter than the space the set keeps between any two " +
+        "lines. The tick, the plus and the minus reach the size they have " +
+        "everywhere else. The cross stops a little smaller, because its arms " +
+        "run out to the corners and meet the curve first, and the dollar is " +
+        "the size it is inside `badge-dollar-sign`.",
+    },
+    {
+      kind: "p",
+      text:
+        "The bag was drawn around them. Its neck is tied higher and its " +
+        "shoulders are fuller than a bag on its own would need, which is " +
+        "what leaves the dollar room to keep its S open. In " +
+        "fill, the bag and its tie are solid with the sign cut out, and the " +
+        "knot above the tie stays an outline with its middle open.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V140_BAG_ICON_NAMES,
+        caption:
+          "The bag and its five signs in every style. In fill the knot stays " +
+          "open.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "A bank, gold bars, a stamp and a newspaper",
+      id: "objects",
+    },
+    {
+      kind: "p",
+      text:
+        "`landmark` is the front a bank, a court or a museum wears: a roof " +
+        "over three columns, standing on a single step. Search finds it for " +
+        "bank and ATM as well.",
+    },
+    {
+      kind: "p",
+      text:
+        "`gold-bars` is three bars stacked two under one, each narrower on " +
+        "top than at its base, the way bullion is cast. `stamp` is a rubber " +
+        "stamp over the line it prints, its pad rounder across the top than " +
+        "along the edge that meets the paper.",
+    },
+    {
+      kind: "p",
+      text:
+        "`newspaper` is a front page with three lines of text and the pages " +
+        "behind it showing down its left side. At the bottom, the front page " +
+        "curls back over them. In duotone those back pages are solid black " +
+        "and run straight to the bottom instead, since the curl, cut into " +
+        "that much black, leaves a step at the foot of the page.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V140_OBJECT_ICON_NAMES,
+        caption:
+          "The bank, the gold bars, the stamp and the newspaper, from stroke " +
+          "down to fill.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "Arrows both ways, and a clock turning back",
+      id: "arrows",
+    },
+    {
+      kind: "p",
+      text:
+        "`arrow-right-left` is two arrows passing in opposite directions, " +
+        "for a transfer or a swap, and `arrow-up-down` stands them side by " +
+        "side, one up and one down, for sorting. They are the arrows of " +
+        "`repeat` with the loop taken out: the same heads, the same spacing, " +
+        "and in two-tone one arrow of each pair goes grey, as one does in " +
+        "`repeat`.",
+    },
+    {
+      kind: "p",
+      text:
+        "`history` is the arrow of `rotate-ccw`, turning back round a " +
+        "clock's two hands. `calendar-days` is the calendar marked with six " +
+        "days in two rows, and it drops the line under the calendar's top: " +
+        "two rows of days need more height than the calendar has below that " +
+        "line, so the line goes and the days take its place. `copy-check` " +
+        "puts a tick on the front sheet of the copy, and `globe-search` sets " +
+        "a lens at the globe's corner, for searching the web.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V140_PAIR_ICON_NAMES,
+        caption:
+          "The two arrow pairs beside `repeat`, `history` beside " +
+          "`rotate-ccw`, then the calendar, the copy and the globe.",
+      },
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text:
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui " +
+        "registry, the CLI, the MCP server, and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
+  RELEASE_1_4_0,
   RELEASE_1_3_0,
   RELEASE_1_2_0,
   RELEASE_1_1_0,
