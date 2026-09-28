@@ -123,8 +123,11 @@ github.com/keyline-icons/keyline-icons
 Changelog
 
 1.3.0
-Fourteen new drawings, taking the set to 1,192 names and 9,536 SVGs.
+39 new drawings, taking the set to 1,217 names and 9,736 SVGs.
 
+* Sport: an American football, a baseball, a basketball, a soccer ball and a tennis ball, a cricket bat, hockey sticks and a golf hole
+* Stock charts rising and falling, a gamepad, an alien, an atom, a paw print, hearts and a tree
+* Two anchors, a lifebuoy that search also finds as support, a push pin and the pin switched off, a bin with lines, and a terminal prompt in a shield, a file and an app window
 * Speed lines: a shooting star, a truck, a paper plane, a bike and a stopwatch, each with its trails behind it
 * Switched off: captions, subtitles and play, and play in its square and circle too
 * Arrows: an arrow entering a square, from each of its four corners
@@ -178,19 +181,6 @@ Four styles, with every name in all of them: two-tone is the outlined style that
 * People opened as a shelf of its own, taking categories from 37 to 38
 
 Also redrawn: the pointing hand in four directions, the paperclip longer, the dice pips larger, the three dots larger, the sparkle out to the 2-unit margin, play smaller, the gallery frames on a tighter radius, the grid and file fills clear of their edges, the chart axes grey in two-tone, the four dashed close panels with their grey under the frame's round corners, and the coins on rounder faces with 2 units between every coin.
-
-0.9.0 — 14 September 2026
-53 new drawings, taking the set to 851 names and 4,394 SVGs, and six new shelves.
-
-* Transport: a plane taking off and landing, a ship, a train and a bike
-* Nature: a palm, a leaf, a wind turbine and a droplet with its off and plural forms
-* Animals: a bird and a pig, with the piggy bank beside the wallet in Finance
-* AI and Science: a bot, a brain wired to a circuit, flasks and test tubes
-* Health: a brain, lungs, three ears and a clinical thermometer
-* Others: five temperature levels, two weather thermometers, earbuds and their case open and shut, a radar, and a pointing hand in four directions
-* Nine truck modifiers: plus, minus, check, x, four arrows and electric
-* Transport, Nature, Animals, AI, Science and Health opened as shelves of their own, taking categories from 31 to 37
-* heart-hand is hand-heart now, and the old name still finds it
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
@@ -254,7 +244,7 @@ to be **pushed** before any of this is true for anyone but you.
 ### 1.3.0
 
 ```
-Fourteen new drawings, taking the set to 1,192 names and 9,536 SVGs: a shooting star, a truck, a paper plane, a bike and a stopwatch with speed lines behind them; captions, subtitles and play switched off, play in its square and circle too; and an arrow entering a square from each corner. rocket-2 is rocket-fast now, for the speed lines it shares with them, and the old name still finds it.
+39 new drawings, taking the set to 1,217 names and 9,736 SVGs: five balls, a cricket bat, hockey sticks and a golf hole for sport; stock charts rising and falling; a gamepad, an alien, an atom, a paw print, hearts and a tree; two anchors, a lifebuoy that search also finds as support, a push pin and the pin switched off, a bin with lines, and a terminal prompt in a shield, a file and an app window; a shooting star, a truck, a paper plane, a bike and a stopwatch with speed lines behind them; captions, subtitles and play switched off, play in its square and circle too; and an arrow entering a square from each corner. rocket-2 is rocket-fast now, for the speed lines it shares with them, and the old name still finds it.
 
 Redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones. The ring of power-off now opens as wide as power's, and volume-off in sharp takes the sharp speaker, so each is its original at the same size. app-window-cursor's cursor is a third bigger.
 ```
@@ -659,8 +649,11 @@ keylineicons.com
 github.com/keyline-icons/keyline-icons
 
 v1.3.0
-Fourteen new drawings. The set is 1,192 names now, 1,065 component sets and 9,536 variants, up from 1,178 and 9,424. One set was renamed, rocket-2 to rocket-fast, in place, and no component was replaced, so instances already placed in your files keep their link.
+39 new drawings. The set is 1,217 names now, 1,090 component sets and 9,736 variants, up from 1,178 and 9,424. One set was renamed, rocket-2 to rocket-fast, in place, and no component was replaced, so instances already placed in your files keep their link.
 
+* Sport: an American football, a baseball, a basketball, a soccer ball and a tennis ball, a cricket bat, hockey sticks and a golf hole
+* Stock charts rising and falling, a gamepad, an alien, an atom, a paw print, hearts and a tree
+* Two anchors, a lifebuoy that search also finds as support, a push pin and the pin switched off, a bin with lines, and a terminal prompt in a shield, a file and an app window
 * Speed lines: a shooting star, a truck, a paper plane, a bike and a stopwatch, each with its trails behind it
 * Switched off: captions, subtitles and play, and play in its square and circle too, each at its original size
 * Arrows: an arrow entering a square, from each of its four corners
@@ -737,7 +730,10 @@ v0.5.0 from the file's and 0.3.0 and 0.4.0 from the plugin's on 17 Sep 2026
 day with the 1.1.1 panel entry, v0.8.0 and v0.7.0 from the file's on
 24 Sep 2026 with the 1.2.0 entry (10,377 before, the cap is 10,000), 0.8.0 from the
 plugin's and v0.9.0 from the file's on 27 Sep 2026 with the 1.3.0 entries (8,842 and
-8,878 by `wc -m`, past the 8,800 the next note asks for), and a last line points at
+8,878 by `wc -m`, past the 8,800 the next note asks for), 0.9.0 from the
+plugin's on 28 Sep 2026 once the 1.3.0 entries took in all 39 drawings (9,045
+before, 8,161 after; the file's stayed at 8,842, under the 8,876 Figma has
+accepted), and a last line points at
 `keylineicons.com/changelog`, which keeps every release.
 
 **Figma counts higher than `wc -m`.** The 1.1.1 plugin description was refused
@@ -767,7 +763,7 @@ regenerated together; re-upload whichever modal you are in.
 ### What changed, for the final details page
 
 ```
-Fourteen new icons: a shooting star and four fast movers with speed lines, captions, subtitles and play switched off with play in its square and circle too, and an arrow entering a square from each corner. The parcel and its ten signs were redrawn in duotone, with the lid now the dark part. Also redrawn: cpu-sparkles, film-sparkles and brain-sparkles in sharp, where they open for their stars; power-off and sharp volume-off, back to their originals' size; and app-window-cursor, with a bigger cursor. The file went from 1,053 component sets to 1,065 and from 9,424 variants to 9,536. rocket-2 was renamed rocket-fast in place and nothing was removed, and the redraws were swapped inside their existing sets, so instances already placed in your files keep their link.
+39 new icons: five balls, a cricket bat, hockey sticks and a golf hole for sport, stock charts rising and falling, a gamepad, an alien, an atom, a paw print, hearts and a tree, two anchors, a lifebuoy, push pins, a bin with lines and three terminal compounds, a shooting star and four fast movers with speed lines, captions, subtitles and play switched off with play in its square and circle too, and an arrow entering a square from each corner. The parcel and its ten signs were redrawn in duotone, with the lid now the dark part. Also redrawn: cpu-sparkles, film-sparkles and brain-sparkles in sharp, where they open for their stars; power-off and sharp volume-off, back to their originals' size; and app-window-cursor, with a bigger cursor. The file went from 1,053 component sets to 1,090 and from 9,424 variants to 9,736. rocket-2 was renamed rocket-fast in place and nothing was removed, and the redraws were swapped inside their existing sets, so instances already placed in your files keep their link.
 ```
 
 The 1.2.0 entry this replaced, kept because a listing's history is worth
