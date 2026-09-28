@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { toast } from "sonner"
 
 import {
   CORNERS,
@@ -111,7 +112,13 @@ export function useTreatmentChoice(
         apply(corners)
       },
       () => {
-        if (latest.current === corners) setPending(null)
+        if (latest.current !== corners) return
+        setPending(null)
+        // The chip went back to where it was, which alone reads as a click
+        // that did nothing. Say so, and say that another click will try again.
+        toast.error("Couldn't switch corners", {
+          description: `The ${corners === "sharp" ? "sharp" : "rounded"} drawings didn't load. Try again in a moment.`,
+        })
       }
     )
   }
