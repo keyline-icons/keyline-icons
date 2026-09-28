@@ -1,5 +1,15 @@
+/*
+  Server-only, enforced. This module imports all of `lib/icon-history.json`,
+  and the one time a client component reached it (through `lib/seo.ts`) every
+  page on the site shipped the whole file. The import turns that into a build
+  error rather than a silent megabyte. Next resolves the package itself.
+*/
+import "server-only"
+
 import history from "@/lib/icon-history.json"
-import { SET_TITLE } from "@/lib/site-chrome"
+import { BLOG_SEGMENT } from "@/lib/site-chrome"
+
+export { BLOG_DESCRIPTION, BLOG_SEGMENT } from "@/lib/site-chrome"
 
 /**
  * The writing about the set: one post per update, newest first.
@@ -215,31 +225,17 @@ export type BlogPost = {
   body: readonly BlogBlock[]
 }
 
-export const BLOG_SEGMENT = "/blog"
 export const postHref = (slug: string) => `${BLOG_SEGMENT}/${slug}`
-
-/**
- * What the blog is, in one sentence, for the index page's description and for
- * the `Blog` node in its structured data.
- *
- * Here rather than in `lib/seo.ts` beside the other descriptions, because that
- * file imports this one for the route: the blog owns its own address and its
- * own sentence, and the SEO helpers read them. The other way round is a cycle.
- */
-export const BLOG_DESCRIPTION =
-  `How ${SET_TITLE} gets drawn: what shipped in each update, why a drawing ` +
-  `was redrawn, and the faults that only show up at eight times size.`
 
 /**
  * Every version that has actually been tagged, straight out of the generated
  * history.
  *
- * **The JSON rather than `SET_RELEASES` from `lib/icons.ts`, and this is a
- * trap worth knowing.** That module reads the icon directories off disk, so it
- * pulls `node:fs` in with it. This file is imported by `lib/seo.ts`, and
- * `lib/seo.ts` is imported by `components/share-dialog.tsx`, which is a client
- * component. Reaching for the tidier import would put `fs` in a browser bundle
- * and break the build somewhere that looks nothing like this line.
+ * **The JSON rather than `SET_RELEASES` from `lib/icons.ts`.** This file used
+ * to be reachable from a client component through `lib/seo.ts`, and that
+ * module reads the icon directories off disk, so the tidier import would have
+ * put `node:fs` in a browser bundle. The edge is cut now and `server-only`
+ * above keeps it cut, but the JSON is still the lighter dependency.
  *
  * The JSON is the same source `SET_RELEASES` is built from, so the two cannot
  * disagree about which versions exist.

@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
 
-import { BLOG_DESCRIPTION, BLOG_SEGMENT } from "@/lib/blog"
 import {
+  BLOG_DESCRIPTION,
+  BLOG_SEGMENT,
   SET_LICENSE,
   SET_LICENSE_URL,
   SET_NAME,
