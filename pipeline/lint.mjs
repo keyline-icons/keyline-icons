@@ -17,7 +17,7 @@ import { readdir, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { inspect } from './lib/svg.mjs';
-import { outlines, minGap, roundedCorners, contains, diameter, subpaths, trimFreeEnds } from './lib/geom.mjs';
+import { outlines, minGap, box, boxFloor, roundedCorners, contains, diameter, subpaths, trimFreeEnds } from './lib/geom.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const ICONS = join(ROOT, 'icons');
@@ -1033,25 +1033,32 @@ async function main() {
       // needs redrawing.
       const els = elements(src);
       const parts = els.flatMap((e) => e.polys.map((p) => ({ ...e, polys: [p] })));
-      const closest = (list, keep) => {
+
+      // The tightest gap in [lo, hi), or null. The ceiling is a bound as well
+      // as a filter: a pair whose boxes already stand clear of it, or of the
+      // tightest pair found so far, cannot be the answer and is not measured.
+      const closest = (list, lo, hi) => {
+        const boxes = list.map((e) => box(e.polys.flat()));
         let best = null;
         for (let i = 0; i < list.length; i++) {
           for (let j = i + 1; j < list.length; j++) {
+            const floor = boxFloor(boxes[i], boxes[j]) - list[i].reach - list[j].reach;
+            if (floor >= (best === null ? hi : Math.min(hi, best))) continue;
             let centre = Infinity;
             for (const a of list[i].polys)
               for (const b of list[j].polys) centre = Math.min(centre, minGap(a, b));
             if (centre <= COINCIDENT) continue; // crossing, or drawn one over the other
             if (layered(list[i], list[j]) || layered(list[j], list[i])) continue;
             const gap = centre - list[i].reach - list[j].reach;
-            if (keep(gap) && (best === null || gap < best)) best = gap;
+            if (gap >= lo && gap < hi && (best === null || gap < best)) best = gap;
           }
         }
         return best;
       };
 
-      const overlap = closest(els, (g) => g < -EPS);
+      const overlap = closest(els, -Infinity, -EPS);
       const wantGap = RING_CLEARANCE.has(name) ? 1 : PIP_GAP.has(name) ? 1.75 : MIN_ELEMENT_GAP;
-      const gap = closest(parts, (g) => g >= -EPS && g < wantGap - GAP_TOL);
+      const gap = closest(parts, -EPS, wantGap - GAP_TOL);
       if (overlap !== null)
         add('warn', 'SPACING', id, `elements overlap by ${(-overlap).toFixed(2)} units`);
       else if (gap !== null)
