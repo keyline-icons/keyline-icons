@@ -256,20 +256,81 @@ function crosses(a, b, c, d) {
  * distance to the far end of a long edge instead of to the edge itself.
  * Returns 0 when the outlines cross, which is how deliberately overlapping
  * shapes (a muted duotone layer under its own stroke) opt out of the check.
+ *
+ * **Pruned by runs of segments, and still exact.** Every curve is flattened to
+ * 48 chords, so two circles are 36,864 segment pairs, and measuring every one
+ * was nearly all the time `icons:ci` took. Each outline is cut into runs of
+ * `RUN` segments with a box apiece, and a pair of runs whose boxes already
+ * stand `best` apart is skipped: no segment inside can come closer. Nor can
+ * one cross, because crossing segments have overlapping boxes, which
+ * `boxFloor` puts below 0 and so below any `best`. The answer is the number
+ * the full scan gave, not an approximation of it.
  */
 export function minGap(a, b) {
+  const ra = runs(a), rb = runs(b);
   let best = Infinity;
-  for (let i = 0; i < a.length - 1; i++) {
-    for (let j = 0; j < b.length - 1; j++) {
-      if (crosses(a[i], a[i + 1], b[j], b[j + 1])) return 0;
-      best = Math.min(
-        best,
-        pointSeg(a[i], b[j], b[j + 1]), pointSeg(a[i + 1], b[j], b[j + 1]),
-        pointSeg(b[j], a[i], a[i + 1]), pointSeg(b[j + 1], a[i], a[i + 1])
-      );
+  for (const p of ra) {
+    for (const q of rb) {
+      if (boxFloor(p, q) >= best) continue;
+      for (let i = p.from; i < p.to; i++) {
+        for (let j = q.from; j < q.to; j++) {
+          if (crosses(a[i], a[i + 1], b[j], b[j + 1])) return 0;
+          best = Math.min(
+            best,
+            pointSeg(a[i], b[j], b[j + 1]), pointSeg(a[i + 1], b[j], b[j + 1]),
+            pointSeg(b[j], a[i], a[i + 1]), pointSeg(b[j + 1], a[i], a[i + 1])
+          );
+        }
+      }
     }
   }
   return best;
+}
+
+/**
+ * Segments per run in `minGap`. Measured over the whole set, not derived: 4
+ * and 8 tie, 16 takes a third longer, and a box per segment more than twice
+ * as long, because the boxes then cost more than the pairs they rule out.
+ */
+const RUN = 8;
+
+/** A polyline as runs of `RUN` segments, each with the box of its points. */
+function runs(pts) {
+  const out = [];
+  for (let from = 0; from < pts.length - 1; from += RUN) {
+    const to = Math.min(from + RUN, pts.length - 1);
+    out.push({ from, to, ...box(pts, from, to + 1) });
+  }
+  return out;
+}
+
+/** The bounding box of `pts[from..to)`, or of all of them. */
+export function box(pts, from = 0, to = pts.length) {
+  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  for (let k = from; k < to; k++) {
+    const [x, y] = pts[k];
+    if (x < x0) x0 = x;
+    if (x > x1) x1 = x;
+    if (y < y0) y0 = y;
+    if (y > y1) y1 = y;
+  }
+  return { x0, y0, x1, y1 };
+}
+
+/**
+ * How close anything in box p can come to anything in box q: the distance
+ * between them, 0 where they overlap, less a millionth for rounding.
+ *
+ * The margin is there because `pointSeg` finds its nearest point as
+ * `a + t(b - a)`, which in floating point can land an ulp outside the box the
+ * segment's own endpoints make. The bare distance could then overstate by that
+ * much and prune a pair the full scan would have counted, and a millionth of a
+ * unit is far beyond that error and far below anything the linter prints.
+ */
+export function boxFloor(p, q) {
+  const dx = Math.max(0, p.x0 - q.x1, q.x0 - p.x1);
+  const dy = Math.max(0, p.y0 - q.y1, q.y0 - p.y1);
+  return Math.hypot(dx, dy) - 1e-6;
 }
 
 /**

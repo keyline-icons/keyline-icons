@@ -107,7 +107,12 @@ import { TickSlider } from "@/components/tick-slider"
 import { useBrowserSettings } from "@/hooks/use-browser-settings"
 import { useEdgeFade } from "@/hooks/use-edge-fade"
 import { type Treatments, useTreatmentChoice } from "@/hooks/use-treatments"
-import { type BrowserSettings, SETTINGS_DEFAULTS } from "@/lib/browser-settings"
+import {
+  type BrowserSettings,
+  RESET_DEFAULTS,
+  SETTINGS_DEFAULTS,
+  atResetDefaults,
+} from "@/lib/browser-settings"
 import { SEARCH_MIN_LENGTH, SEARCH_SETTLE_MS, track } from "@/lib/analytics"
 import { nearestWord } from "@/lib/did-you-mean"
 import {
@@ -277,8 +282,8 @@ const carry = (
 }
 
 /**
- * What the grid is narrowed by, as one string. A page number only means
- * something against the same narrowing, so the page resets when this changes.
+ * One search, as the miss report counts searches: two that differ in any of
+ * these four are two searches.
  */
 const signatureOf = (
   query: string,
@@ -286,6 +291,14 @@ const signatureOf = (
   shape: ShapeFilter,
   category: string
 ) => `${query}|${style}|${shape}|${category}`
+
+/**
+ * What the grid is narrowed by, as one string. A page number only means
+ * something against the same narrowing, so the page resets when this changes.
+ * The style is left out on purpose: see the page reset in `IconBrowser`.
+ */
+const pageSignatureOf = (query: string, shape: ShapeFilter, category: string) =>
+  `${query}|${shape}|${category}`
 
 /**
  * Grid order: by base name, then by container.
@@ -567,8 +580,8 @@ export function IconBrowser({
   const [page, setPage] = React.useState(initialPage)
   // Starts on the seeded narrowing, or the first render would read it as a
   // change and put `?page=` back to 1 before anything had changed.
-  const [lastSignature, setLastSignature] = React.useState(() =>
-    signatureOf(query, initialStyle, initialShape, "all")
+  const [lastPageSignature, setLastPageSignature] = React.useState(() =>
+    pageSignatureOf(query, initialShape, "all")
   )
   const gridRef = React.useRef<HTMLDivElement>(null)
   /** The whole browser: rail, filter row and grid, for the category scroll. */
@@ -622,24 +635,28 @@ export function IconBrowser({
     () => false
   )
 
+  /*
+    Not the names or the columns, which Reset leaves alone (see
+    `RESET_DEFAULTS`): a reader who likes names off would otherwise find Reset
+    lit, and the Browse dot on, over a change it cannot undo.
+  */
   const atDefaults =
     query === "" &&
     style === "stroke" &&
     shape === "all" &&
     category === "all" &&
-    (
-      Object.keys(SETTINGS_DEFAULTS) as (keyof typeof SETTINGS_DEFAULTS)[]
-    ).every((key) => settings[key] === SETTINGS_DEFAULTS[key])
+    atResetDefaults(settings)
 
   const reset = () => {
     onQueryChange("")
     setStyle("stroke")
     setShape("all")
     setCategory("all")
-    // Everything but the treatment at once; the treatment through the same
-    // door as the switch, because the default may be the one not loaded yet.
-    update({ ...SETTINGS_DEFAULTS, corners })
-    cornersChoice.choose(SETTINGS_DEFAULTS.corners)
+    // The drawing settings at once, not the names or the columns; the
+    // treatment through the same door as the switch, because the default may
+    // be the one not loaded yet.
+    update({ ...RESET_DEFAULTS, corners })
+    cornersChoice.choose(RESET_DEFAULTS.corners)
   }
   /**
    * The one tooltip shared by every tile: its label and where it sits.
@@ -943,16 +960,18 @@ export function IconBrowser({
    *   from "you were two keystrokes away", and only the first is work.
    * - **It reports a combination once.** The ref holds the last signature
    *   sent, so backspacing into a query already counted does not count it
-   *   twice. That is the same string the pager resets on, deliberately: what
-   *   makes a result different is exactly what makes it a different search.
+   *   twice.
    */
   /**
-   * What makes this result the result it is.
+   * What makes this result the result it is, to the miss report: two searches
+   * that differ in any of these four are two searches, and a miss in duotone
+   * is not the same miss as the same words in stroke.
    *
-   * One string, read twice: the pager resets on it, because filtering changes
-   * what a page number means, and the miss report keys on it, because two
-   * searches that differ in any of these four are two searches. Kept as one
-   * const so those two can never disagree about what "the same search" means.
+   * The pager reset on this same string once, kept as one const so the two
+   * could not disagree about what "the same search" means. They now disagree
+   * about the style, on purpose: a new style is a new search to the report,
+   * but the same page to a reader. The pager keys on `pageSignature`, which
+   * is this without the style; the page reset below says why.
    */
   const searchSignature = signatureOf(query, style, shape, category)
 
@@ -998,16 +1017,27 @@ export function IconBrowser({
   const pageCount = Math.max(1, Math.ceil(ordered.length / GRID_PAGE_SIZE))
 
   /*
-    Filtering changes what a page number means, so the page resets when the
-    filters do — adjusted during render rather than in an effect, which would
-    paint the wrong page first and correct it after.
+    Narrowing changes what a page number means, so the page resets when the
+    search, the shape or the category does: adjusted during render rather
+    than in an effect, which would paint the wrong page first and correct it
+    after.
+
+    Not when the style changes, any more than the corners. Every name is drawn
+    in all four styles, so page 6 in duotone holds the same 120 drawings as
+    page 6 in stroke, and a reader who switches style there is looking at
+    those drawings another way. With the style in the signature the switch
+    sent them back to page 1. The page number is what stays, rather than a
+    drawing on it, so stroke to duotone and back lands where it started. If a
+    style ever lacks drawings again, a page past its end shows its last page
+    and the number comes back with a style that has it.
   */
-  if (searchSignature !== lastSignature) {
-    setLastSignature(searchSignature)
+  const pageSignature = pageSignatureOf(query, shape, category)
+  if (pageSignature !== lastPageSignature) {
+    setLastPageSignature(pageSignature)
     setPage(1)
   }
   const currentPage = Math.min(
-    searchSignature === lastSignature ? page : 1,
+    pageSignature === lastPageSignature ? page : 1,
     pageCount
   )
 

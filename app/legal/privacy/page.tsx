@@ -1,4 +1,8 @@
-import { SETTINGS_COOKIE, SETTINGS_DEFAULTS } from "@/lib/browser-settings"
+import {
+  RESET_DEFAULTS,
+  SETTINGS_COOKIE,
+  SETTINGS_DEFAULTS,
+} from "@/lib/browser-settings"
 import { loadIcons } from "@/lib/icons"
 import { pageMetadata, SITE_URL } from "@/lib/seo"
 import {
@@ -92,6 +96,21 @@ export default async function Page() {
   const stored = Object.keys(SETTINGS_DEFAULTS)
 
   /*
+    What Reset puts back and what it leaves, read off `RESET_DEFAULTS` for the
+    same reason. This said Reset put the defaults back, which stopped being
+    true when it began leaving the names and the columns alone.
+  */
+  const list = new Intl.ListFormat("en-GB", { type: "conjunction" })
+  const resetKeys = Object.keys(RESET_DEFAULTS)
+  const keptKeys = stored.filter((key) => !resetKeys.includes(key))
+  const resetSentence =
+    `Reset in the icon browser puts ${list.format(resetKeys)} back to their defaults` +
+    (keptKeys.length
+      ? ` and leaves ${list.format(keptKeys)} as you set them`
+      : "") +
+    "; clearing site data in your browser removes the cookie outright."
+
+  /*
     Counted, not typed. The sentence about loading speed named a figure that was
     already 113 drawings out of date, which is what a number written into prose
     does: nothing lints it, and it is wrong from the next release onward. Every
@@ -110,7 +129,7 @@ export default async function Page() {
   const googleAnalytics = Boolean(process.env.NEXT_PUBLIC_GA_ID)
 
   return (
-    <LegalPage path={LEGAL.privacy} title="Privacy" updated="2026-08-23">
+    <LegalPage path={LEGAL.privacy} title="Privacy" updated="2026-09-30">
       <LegalSection id="scope" title="What this covers">
         <p>
           This site, at {host}, and nothing else. The set is also published on
@@ -249,8 +268,7 @@ export default async function Page() {
           {googleAnalytics
             ? "This one is set by an action you take, carries no identifier, and is never sent anywhere but back to this site."
             : "There is no consent banner because there is nothing to consent to: the cookie is set by an action you take, carries no identifier, and is never sent anywhere but back to this site."}{" "}
-          Reset in the icon browser puts the defaults back, and clearing site
-          data in your browser removes it outright.
+          {resetSentence}
         </p>
         <p>
           Your light or dark preference is kept the same way, in your
