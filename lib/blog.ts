@@ -5016,10 +5016,10 @@ const RELEASE_1_4_0: BlogPost = {
     "1,233 free, MIT-licensed SVG icons for React and shadcn/ui. New: a " +
     "money bag with five signs, a bank, gold bars, a stamp, a newspaper and " +
     "transfer arrows.",
-  standfirst: "A money bag wears its dollar in the middle, not in a corner.",
+  standfirst: "It all started with the menu of a banking app.",
   date: "2026-09-28",
   updated: "2026-09-28",
-  readingMinutes: 4,
+  readingMinutes: 3,
   thumbnail: BLOG_V140_THUMBNAIL_ICON_NAMES,
   keywords: [
     "banking icons",
@@ -5045,117 +5045,105 @@ const RELEASE_1_4_0: BlogPost = {
     {
       kind: "p",
       text:
-        "The set is 1,233 drawings. Each one comes in stroke, two-tone, " +
-        "duotone and fill, rounded or sharp: 9,864 SVGs.",
+        "Eleven of the icons on it weren't in the set yet. They are now, and " +
+        "the money bag brought five more along: the same bag with a dollar, " +
+        "a tick, a cross, a plus or a minus.",
     },
     {
       kind: "p",
       text:
-        "Sixteen of them are new, and eleven came off a single screen: the " +
-        "menu of a banking app, which asked for drawings the set did not " +
-        "have. A bank, a money bag, gold bars, a rubber stamp and a " +
-        "newspaper. A clock turning back, for history. Two pairs of arrows, " +
-        "one for transfers and one for sorting. A globe with a lens, a copy " +
-        "with a tick and a calendar marked with its days. The other five are " +
-        "the money bag again, carrying a dollar, a tick, a cross, a plus or " +
-        "a minus.",
+        "So there's a bank, a money bag, gold bars, a rubber stamp and a " +
+        "newspaper. There's a clock that turns back, for history, and arrows " +
+        "for transfers and for sorting. And there's a globe with a magnifying " +
+        "glass, a copy with a tick and a calendar with its days marked.",
+    },
+    {
+      kind: "p",
+      text:
+        "That makes 1,233 icons in the set. Each one comes in stroke, " +
+        "two-tone, duotone and fill, with rounded or sharp corners, so that's " +
+        "9,864 SVGs in all.",
     },
     {
       kind: "figure",
       figure: {
         kind: "styles",
         names: BLOG_V140_HERO_ICON_NAMES,
-        caption: "Eight of the sixteen, one style to a row.",
+        caption: "Eight of the sixteen, in all four styles.",
       },
     },
 
-    { kind: "h2", text: "Signs inside the bag", id: "bag" },
+    { kind: "h2", text: "Why the signs sit in the middle", id: "bag" },
     {
       kind: "p",
       text:
-        "Most signs in the set sit in the bottom right corner, and the " +
-        "drawing gives that corner up to make room: `credit-card-plus` and " +
-        "`calendar-plus` are the card and the calendar with a piece cut away " +
-        "for the plus. A few shapes carry their signs inside instead, the " +
-        "way `cloud-plus` does, because there is room in the middle and the " +
-        "sign reads as something the shape holds.",
+        "When an icon in the set needs a plus or a tick, it usually goes in " +
+        "the bottom right corner. A small piece of the drawing is cut away " +
+        "to make room for it. You can see it in `credit-card-plus` and " +
+        "`calendar-plus`.",
+    },
+    {
+      kind: "p",
+      text:
+        "A money bag is different. A bag of money has always worn its dollar " +
+        "on the front. So here, all five signs go in the middle of the bag, " +
+        "the way `cloud-plus` keeps its plus inside the cloud.",
     },
     {
       kind: "figure",
       figure: {
         kind: "grid",
         names: BLOG_V140_SIGN_ICON_NAMES,
-        caption:
-          "A plus cut into a corner, twice, then a plus carried inside the " +
-          "cloud and the bag.",
+        caption: "Two signs in a corner, two in the middle.",
       },
     },
     {
       kind: "p",
       text:
-        "The money bag is one of those. `money-bag-dollar-sign`, " +
-        "`money-bag-check`, `money-bag-x`, `money-bag-plus` and " +
-        "`money-bag-minus` put their signs in the middle of the bag, where a " +
-        "bag of money has always worn its dollar.",
+        "To fit them, the bag is a little fuller than it would be on its " +
+        "own, and its neck is tied a bit higher. Each sign is as big as it " +
+        "can be while still leaving some breathing room. The tick, the plus " +
+        "and the minus come out at their usual size. The cross and the " +
+        "dollar are a little smaller.",
     },
     {
       kind: "p",
       text:
-        "Each sign grows until the space between it and the bag's outline " +
-        "would get tighter than the space the set keeps between any two " +
-        "lines. The tick, the plus and the minus reach the size they have " +
-        "everywhere else. The cross stops a little smaller, because its arms " +
-        "run out to the corners and meet the curve first, and the dollar is " +
-        "the size it is inside `badge-dollar-sign`.",
-    },
-    {
-      kind: "p",
-      text:
-        "The bag was drawn around them. Its neck is tied higher and its " +
-        "shoulders are fuller than a bag on its own would need, which is " +
-        "what leaves the dollar room to keep its S open. In " +
-        "fill, the bag and its tie are solid with the sign cut out, and the " +
-        "knot above the tie stays an outline with its middle open.",
+        "In fill, the bag is solid with the sign cut out of it, and the knot " +
+        "on top stays an outline.",
     },
     {
       kind: "figure",
       figure: {
         kind: "styles",
         names: BLOG_V140_BAG_ICON_NAMES,
-        caption:
-          "The bag and its five signs in every style. In fill the knot stays " +
-          "open.",
+        caption: "The bag and its five signs, from outline to solid.",
       },
     },
 
+    { kind: "h2", text: "A bank, gold, a stamp and the news", id: "objects" },
     {
-      kind: "h2",
-      text: "A bank, gold bars, a stamp and a newspaper",
-      id: "objects",
+      kind: "p",
+      text:
+        "`landmark` is the classic bank building: a triangle roof over three " +
+        "columns. It works for a courthouse or a museum too, and searching " +
+        "for bank or ATM will find it.",
     },
     {
       kind: "p",
       text:
-        "`landmark` is the front a bank, a court or a museum wears: a roof " +
-        "over three columns, standing on a single step. Search finds it for " +
-        "bank and ATM as well.",
+        "`gold-bars` is a little stack of gold, two bars at the bottom and " +
+        "one on top. `stamp` is a rubber stamp sitting on the line it just " +
+        "printed.",
     },
     {
       kind: "p",
       text:
-        "`gold-bars` is three bars stacked two under one, each narrower on " +
-        "top than at its base, the way bullion is cast. `stamp` is a rubber " +
-        "stamp over the line it prints, its pad rounder across the top than " +
-        "along the edge that meets the paper.",
-    },
-    {
-      kind: "p",
-      text:
-        "`newspaper` is a front page with three lines of text and the pages " +
-        "behind it showing down its left side. At the bottom, the front page " +
-        "curls back over them. In duotone those back pages are solid black " +
-        "and run straight to the bottom instead, since the curl, cut into " +
-        "that much black, leaves a step at the foot of the page.",
+        "`newspaper` is a folded paper with a few lines of text, and the " +
+        "pages behind it peek out on the left. In the rounded styles its " +
+        "bottom corner curls. The one exception is duotone, where the curl " +
+        "left an awkward step in the solid black, so that edge stays " +
+        "straight.",
     },
     {
       kind: "figure",
@@ -5163,36 +5151,32 @@ const RELEASE_1_4_0: BlogPost = {
         kind: "styles",
         names: BLOG_V140_OBJECT_ICON_NAMES,
         caption:
-          "The bank, the gold bars, the stamp and the newspaper, from stroke " +
-          "down to fill.",
+          "The bank, the gold, the stamp and the newspaper, style by style.",
       },
     },
 
+    { kind: "h2", text: "Arrows, history and a few more", id: "arrows" },
     {
-      kind: "h2",
-      text: "Arrows both ways, and a clock turning back",
-      id: "arrows",
+      kind: "p",
+      text:
+        "`arrow-right-left` is two arrows passing each other, the usual sign " +
+        "for a transfer or a swap. `arrow-up-down` is the sorting version, " +
+        "one arrow going up and one going down. Both borrow their arrows " +
+        "from `repeat`, so they look right next to it.",
     },
     {
       kind: "p",
       text:
-        "`arrow-right-left` is two arrows passing in opposite directions, " +
-        "for a transfer or a swap, and `arrow-up-down` stands them side by " +
-        "side, one up and one down, for sorting. They are the arrows of " +
-        "`repeat` with the loop taken out: the same heads, the same spacing, " +
-        "and in two-tone one arrow of each pair goes grey, as one does in " +
-        "`repeat`.",
+        "`history` is a clock inside an arrow that turns back, the same " +
+        "arrow you know from `rotate-ccw`. `calendar-days` is a calendar " +
+        "with six days marked on it, and it drops the line under the top so " +
+        "the days have room.",
     },
     {
       kind: "p",
       text:
-        "`history` is the arrow of `rotate-ccw`, turning back round a " +
-        "clock's two hands. `calendar-days` is the calendar marked with six " +
-        "days in two rows, and it drops the line under the calendar's top: " +
-        "two rows of days need more height than the calendar has below that " +
-        "line, so the line goes and the days take its place. `copy-check` " +
-        "puts a tick on the front sheet of the copy, and `globe-search` sets " +
-        "a lens at the globe's corner, for searching the web.",
+        "The last two are small helpers: `copy-check` for something you've " +
+        "just copied, and `globe-search` for looking something up on the web.",
     },
     {
       kind: "figure",
@@ -5200,8 +5184,8 @@ const RELEASE_1_4_0: BlogPost = {
         kind: "grid",
         names: BLOG_V140_PAIR_ICON_NAMES,
         caption:
-          "The two arrow pairs beside `repeat`, `history` beside " +
-          "`rotate-ccw`, then the calendar, the copy and the globe.",
+          "The new arrows beside `repeat`, `history` beside `rotate-ccw`, " +
+          "and the last three.",
       },
     },
 
