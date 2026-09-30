@@ -178,6 +178,22 @@ const ALIASES = JSON.parse(
   await readFile(join(ROOT, "lib", "icon-renames.json"), "utf8")
 ).renames.filter(({ version }) => Number(version.split(".")[0]) >= 1)
 
+/**
+ * Every drawing again under its name plus `Icon`: `CheckIcon` beside `Check`.
+ *
+ * shadcn/ui's components import that form, `CheckIcon` and `ChevronDownIcon`,
+ * so pointing a shadcn/create project at this package failed in every
+ * component and each import had to be renamed by hand. With the twin, the
+ * switch is a find-and-replace on the module path.
+ *
+ * A re-export rather than a `const`, so the twin is the same binding: it adds
+ * nothing to a bundle, and go-to-definition lands on the drawing. Deprecated
+ * names get no twin, because a name born deprecated only adds to what the next
+ * major removes. The site's stroke module carries the twins as well, being the
+ * same text as the package's, and a bundler drops every one it never imports.
+ */
+const SUFFIX = "Icon"
+
 /** Numeric-looking attribute values become JSX expressions: `strokeWidth={2}`, not `"2"`. */
 function jsxValue(value) {
   return /^-?\d+(\.\d+)?$/.test(value) ? `{${value}}` : `"${value}"`
@@ -325,6 +341,21 @@ async function build(style, corners, target = "web") {
         `export const ${pascal(from)} = ${pascal(to)}`
     )
   }
+
+  // A twin that collides with a drawing or a rename would be a duplicate export,
+  // which `tsc` reports only after the module is written, as a line number deep
+  // in generated code. Named here, it says which icon to look at.
+  const renamed = ALIASES.filter(({ to }) => names.has(to))
+  const taken = new Set(
+    [...names, ...renamed.map(({ from }) => from)].map(pascal)
+  )
+  const twins = [...names].map((name) => [pascal(name), pascal(name) + SUFFIX])
+  for (const [own, twin] of twins) {
+    if (taken.has(twin))
+      throw new Error(`${rel}: ${own}'s twin ${twin} is already exported`)
+  }
+  const list = twins.map(([own, twin]) => `  ${own} as ${twin},`).join("\n")
+  components.push(`export {\n${list}\n}`)
 
   return {
     text: `${

@@ -65,6 +65,18 @@ plate; `/duotone` now has no outline, a grey body with the detail at full
 strength. If you imported `/duotone` before 1.0.0 and want the old look, change
 the path to `/two-tone`.
 
+**Every icon also answers to its name plus `Icon`.** `CheckIcon` is `Check`, the
+same component rather than a copy, in every entry point. It is the form
+shadcn/ui's own components import, so a project from shadcn/create switches
+with one find-and-replace on the import path:
+
+```tsx
+import { CheckIcon, ChevronDownIcon } from "@keyline-icons/react"
+```
+
+The one name those components use that the set spells differently is
+`Loader2Icon`, which is `LoaderCircleIcon` here.
+
 **Each icon carries its own root attributes** rather than inheriting a shared
 preset. Some drawings are solid by definition, `square-half` and the other
 fraction sectors among them, and forcing a stroke onto those paints an outline

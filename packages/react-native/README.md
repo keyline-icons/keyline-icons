@@ -64,7 +64,8 @@ import { Bell } from "@keyline-icons/react-native/sharp/fill"     // square corn
 
 The entry points and export names are the same as `@keyline-icons/react`, so
 code shared between a web app and a native one changes the package name and
-nothing else.
+nothing else. That includes the `Icon`-suffixed twin every icon carries,
+`CheckIcon` for `Check`.
 
 **React Native 0.79 or Expo SDK 53, or newer.** The style entry points are
 package `exports`, which Metro resolves by default from those versions on. On

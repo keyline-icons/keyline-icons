@@ -635,6 +635,15 @@ import IconBellSharpFill from "~icons/${ICONIFY_PREFIX}/bell-sharp-fill"
             <Code>{`- import { Check, Menu } from "lucide-react"
 + import { Check, Menu } from "@keyline-icons/react"`}</Code>
             <p>
+              Every icon also answers to its name plus <code>Icon</code>,{" "}
+              <code>CheckIcon</code> beside <code>Check</code>, because that is
+              the form shadcn/ui&apos;s own components import. A project from
+              shadcn/create switches with one find-and-replace on the import
+              path. The one name those components use that the set spells
+              differently is <code>Loader2Icon</code>, which is{" "}
+              <code>LoaderCircleIcon</code> here.
+            </p>
+            <p>
               Names mostly match, since both follow the same convention. Where
               they differ, the difference is usually a compound reading
               base-first: <code>mail-check</code> rather than{" "}
