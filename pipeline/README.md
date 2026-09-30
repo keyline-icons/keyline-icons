@@ -80,7 +80,7 @@ pipeline/
   import-paper.mjs          write previews/paper/ into the Paper file
   build-community.mjs       icons/ -> previews/community/ carousel sheets
   check-search.mjs          the four searches agree, and are right
-  check-versions.mjs        each package reports the version it ships as
+  check-versions.mjs        each package, and the MCP listing, names the version it ships as
   check-categories.mjs      every category label has an icon to draw it
 ```
 
@@ -1102,11 +1102,21 @@ cd packages/cli && npm publish && cd ../..
 cd packages/mcp && npm publish && cd ../..
 ```
 
+The MCP server is also listed on the official MCP Registry, as
+`com.keylineicons/mcp`, from `packages/mcp/server.json`. Every new MCP version
+is published there too, with `mcp-publisher publish` from `packages/mcp`,
+signed in by DNS for keylineicons.com. It goes **after** npm, never before: the
+registry proves the name by reading `mcpName` out of the published package, so
+a listing sent ahead of its npm version is refused. A version there can never
+be replaced, only followed by a higher one.
+
 Two things that cost time when they go wrong:
 
-- **A version bump is two edits per package.** The manifest is what npm reads;
-  the `VERSION` constant in `src/index.mjs` is what the binaries answer with.
-  0.1.1 shipped with the two disagreeing. `check-versions` exists for that.
+- **A version bump is two edits per package, three for the MCP server.** The
+  manifest is what npm reads; the `VERSION` constant in `src/index.mjs` is what
+  the binaries answer with; `server.json`'s two versions are what the registry
+  installs. 0.1.1 shipped with the first two disagreeing. `check-versions`
+  exists for that, and holds all three together.
 - **npm reports a rejected publish as `E404`, not `401`.** A 404 on a `PUT` to a
   package that plainly exists means the token was refused, not that the package
   is missing. Check with `npm whoami` before believing the error, and re-run
