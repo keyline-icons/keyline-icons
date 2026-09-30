@@ -14,7 +14,11 @@ import {
   type Style,
 } from "@/components/glyph"
 import { useBrowserSettings } from "@/hooks/use-browser-settings"
-import { SETTINGS_DEFAULTS, type BrowserSettings } from "@/lib/browser-settings"
+import {
+  RESET_DEFAULTS,
+  atResetDefaults,
+  type BrowserSettings,
+} from "@/lib/browser-settings"
 import { Segmented, SegmentedItem } from "@/components/segmented"
 import { TickSlider } from "@/components/tick-slider"
 import { Button } from "@/components/ui/button"
@@ -128,13 +132,12 @@ export function IconDetail({
    * it lands on the sample that is already there rather than duplicating it.
    */
   /*
-    Only the three this page can change. `showNames` and `columns` belong to the
+    Only what this page can change. `showNames` and `columns` belong to the
     grid, so a reader who left the grid at 12 columns would otherwise find
-    Reset lit on a page with no columns on it and nothing to undo.
+    Reset lit on a page with no columns on it and nothing to undo, and Reset
+    leaves them where they were (see `RESET_DEFAULTS`).
   */
-  const atDefaults = (["size", "stroke", "color", "corners"] as const).every(
-    (key) => settings[key] === SETTINGS_DEFAULTS[key]
-  )
+  const atDefaults = atResetDefaults(settings)
 
   const ramp = React.useMemo(
     () => [...new Set<number>([...RAMP, size])].sort((a, b) => a - b),
@@ -372,7 +375,7 @@ export function IconDetail({
                 <Button
                   variant="ghost"
                   size="icon-lg"
-                  onClick={() => update(SETTINGS_DEFAULTS)}
+                  onClick={() => update(RESET_DEFAULTS)}
                   disabled={atDefaults}
                   aria-label="Reset size, stroke and colour"
                   className="disabled:pointer-events-none disabled:opacity-40"

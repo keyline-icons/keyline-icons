@@ -107,7 +107,12 @@ import { TickSlider } from "@/components/tick-slider"
 import { useBrowserSettings } from "@/hooks/use-browser-settings"
 import { useEdgeFade } from "@/hooks/use-edge-fade"
 import { type Treatments, useTreatmentChoice } from "@/hooks/use-treatments"
-import { type BrowserSettings, SETTINGS_DEFAULTS } from "@/lib/browser-settings"
+import {
+  type BrowserSettings,
+  RESET_DEFAULTS,
+  SETTINGS_DEFAULTS,
+  atResetDefaults,
+} from "@/lib/browser-settings"
 import { SEARCH_MIN_LENGTH, SEARCH_SETTLE_MS, track } from "@/lib/analytics"
 import { nearestWord } from "@/lib/did-you-mean"
 import {
@@ -630,24 +635,28 @@ export function IconBrowser({
     () => false
   )
 
+  /*
+    Not the names or the columns, which Reset leaves alone (see
+    `RESET_DEFAULTS`): a reader who likes names off would otherwise find Reset
+    lit, and the Browse dot on, over a change it cannot undo.
+  */
   const atDefaults =
     query === "" &&
     style === "stroke" &&
     shape === "all" &&
     category === "all" &&
-    (
-      Object.keys(SETTINGS_DEFAULTS) as (keyof typeof SETTINGS_DEFAULTS)[]
-    ).every((key) => settings[key] === SETTINGS_DEFAULTS[key])
+    atResetDefaults(settings)
 
   const reset = () => {
     onQueryChange("")
     setStyle("stroke")
     setShape("all")
     setCategory("all")
-    // Everything but the treatment at once; the treatment through the same
-    // door as the switch, because the default may be the one not loaded yet.
-    update({ ...SETTINGS_DEFAULTS, corners })
-    cornersChoice.choose(SETTINGS_DEFAULTS.corners)
+    // The drawing settings at once, not the names or the columns; the
+    // treatment through the same door as the switch, because the default may
+    // be the one not loaded yet.
+    update({ ...RESET_DEFAULTS, corners })
+    cornersChoice.choose(RESET_DEFAULTS.corners)
   }
   /**
    * The one tooltip shared by every tile: its label and where it sits.

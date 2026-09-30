@@ -28,7 +28,7 @@ export type BrowserSettings = {
   corners: Corners
 }
 
-/** What a first visit sees, and what Reset puts back. */
+/** What a first visit sees. Reset puts back only part of it: see below. */
 export const SETTINGS_DEFAULTS: BrowserSettings = {
   size: 24,
   stroke: 2,
@@ -37,6 +37,32 @@ export const SETTINGS_DEFAULTS: BrowserSettings = {
   columns: 10,
   corners: "regular",
 }
+
+type Resettable = Pick<BrowserSettings, "size" | "stroke" | "color" | "corners">
+
+/**
+ * What Reset puts back: how the drawings are drawn, and nothing about the grid
+ * they are laid out in.
+ *
+ * `showNames` and `columns` are the reader's view of the grid, set once and
+ * left. Size, stroke, colour and corners are what gets played with, and Reset
+ * is the way back from that. Writing the defaults whole threw the view away
+ * with them: a reader on 12 columns with names off tried a colour, reset it,
+ * and got 10 columns with names back. Both Resets read this, the grid's and
+ * the icon page's, which has no grid on it and was resetting it anyway.
+ */
+export const RESET_DEFAULTS: Resettable = {
+  size: SETTINGS_DEFAULTS.size,
+  stroke: SETTINGS_DEFAULTS.stroke,
+  color: SETTINGS_DEFAULTS.color,
+  corners: SETTINGS_DEFAULTS.corners,
+}
+
+/** Whether Reset has anything to undo, so the button and the dot agree with it. */
+export const atResetDefaults = (settings: BrowserSettings) =>
+  (Object.keys(RESET_DEFAULTS) as (keyof Resettable)[]).every(
+    (key) => settings[key] === RESET_DEFAULTS[key]
+  )
 
 /**
  * A cookie, not `localStorage`, because the server has to be able to read it.
