@@ -2252,8 +2252,7 @@
       "share-2"
     ],
     "archive": [
-      "archive-restore",
-      "archive-x"
+      "archive-restore"
     ],
     "arrow-down": [
       "a-arrow-down",
@@ -2338,7 +2337,6 @@
     "cloud": [
       "cloud-backup",
       "cloud-cog",
-      "cloud-download",
       "cloud-fog",
       "cloud-hail",
       "cloud-lightning",
@@ -2363,8 +2361,6 @@
       "file-box",
       "file-braces",
       "file-braces-corner",
-      "file-chart-column",
-      "file-chart-column-increasing",
       "file-chart-line",
       "file-chart-pie",
       "file-clock",
@@ -2372,7 +2368,6 @@
       "file-cog",
       "file-diff",
       "file-digit",
-      "file-exclamation-point",
       "file-headphone",
       "file-heart",
       "file-input",
@@ -2501,7 +2496,6 @@
       "message-circle-dashed",
       "message-circle-heart",
       "message-circle-more",
-      "message-circle-question-mark",
       "message-circle-reply",
       "message-circle-warning"
     ],
@@ -2595,7 +2589,6 @@
       "star-check",
       "star-half",
       "star-minus",
-      "star-off",
       "star-plus",
       "star-x"
     ],
@@ -2657,20 +2650,16 @@
       "globe-lock"
     ],
     "arrow-up-left": [
-      "circle-arrow-out-up-left",
-      "square-arrow-out-up-left"
+      "circle-arrow-out-up-left"
     ],
     "arrow-down-left": [
-      "circle-arrow-out-down-left",
-      "square-arrow-out-down-left"
+      "circle-arrow-out-down-left"
     ],
     "arrow-down-right": [
-      "circle-arrow-out-down-right",
-      "square-arrow-out-down-right"
+      "circle-arrow-out-down-right"
     ],
     "arrow-up-right": [
-      "circle-arrow-out-up-right",
-      "square-arrow-out-up-right"
+      "circle-arrow-out-up-right"
     ],
     "cast": [
       "screen-share"
@@ -2787,6 +2776,27 @@
     ],
     "easel": [
       "presentation"
+    ],
+    "square-arrow-out-up-right": [
+      "external-link"
+    ],
+    "message-question": [
+      "message-circle-question",
+      "message-circle-question-mark"
+    ],
+    "file-alert": [
+      "file-exclamation-point",
+      "file-warning"
+    ],
+    "cloud-upload": [
+      "upload-cloud"
+    ],
+    "cloud-download": [
+      "download-cloud"
+    ],
+    "file-chart-column": [
+      "file-bar-chart",
+      "file-chart-column-increasing"
     ]
   },
   "$names": "Names other sets use for a drawing here, keyed by the drawing. Matched against the whole query, never split into words: these are names, not keywords, and folding `message-square` into a keyword list makes a search for `square` return every message icon. All four searches rank one second only to the exact name, so it leads wherever the set does not draw that name itself; once the set does, the row is stale, and pipeline/check-search.mjs fails until it is deleted."

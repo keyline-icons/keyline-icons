@@ -309,7 +309,7 @@ const FINDS = [
   ["hamburger", "menu", "what the three lines are called out loud"],
   ["south", "arrow-down", "reached the site alone until the aliases shipped"],
   ["theme", "sun", "the toggle, which neither drawing is named after"],
-  ["paste", "copy", "half of a pair where only one half is drawn"],
+  ["paste", "copy", "the pair's other half; `paste` has had its own drawing since 1.5.0"],
   ["stats", "bar-chart", "`statistics` was there, the short form was not"],
   ["screen", "monitor", "the word for the object, which the drawing is not named after"],
   ["spinner", "loader", "and the word for the state, same"],
@@ -368,11 +368,12 @@ const FINDS = [
  *
  * The rows are the names shadcn/create builds its previews from: the default
  * library's name on every IconPlaceholder, `Icon` stripped, kebab-cased. 182
- * of them at shadcn-ui/ui b0fcb58 (1 Oct 2026). 129 are drawn here under the
+ * of them at shadcn-ui/ui b0fcb58 (1 Oct 2026). 143 are drawn here under the
  * same name and lead on the exact tier, which the first rows stand for. The
- * rest are drawn under this set's own names, matched on a rendered sheet
- * rather than by name, and lead through `names` in lib/icon-aliases.json.
- * The note on each says what led before that row existed.
+ * other 39 are drawn under this set's own names, 34 matched on a rendered
+ * sheet rather than by name and five drawn in 1.5.0 to answer them, and lead
+ * through `names` in lib/icon-aliases.json. The note on each says what else
+ * answers to it, or what led before its row existed.
  */
 const FIRST = [
   // The exact tier. The site's grid was alphabetical under a search too.
@@ -381,6 +382,13 @@ const FIRST = [
   ["file", "file", "the site opened on `archive`"],
   ["check", "check", "the site opened on `alarm-clock-check`"],
   ["settings", "settings", "the site opened on `brain-cog`"],
+  ["save", "save", "`bookmark`, `download` and `heart` answer to the word too"],
+  ["tv", "tv", "`cast` and `monitor` answer to it too"],
+  ["frame", "frame", "every `gallery-*` carries `frames`, and the grid matches inside it"],
+  ["blocks", "blocks", "`ban` carries `block`, which the plural folds onto"],
+  ["star-off", "star-off", "a redirect sent it to `star` until 1.5.0 drew it"],
+  ["archive-x", "archive-x", "a redirect sent it to `archive` until 1.5.0 drew it"],
+  ["file-chart-column", "file-chart-column", "a redirect sent it to a blank `file`"],
 
   // Another set's name, drawn here under this set's.
   ["alert-circle", "circle-alert", "led through its words alone"],
@@ -417,6 +425,13 @@ const FIRST = [
   ["volume-2", "volume", "the site and the plugin led with a slider"],
   ["zoom-in", "search-plus", "led with `fullscreen`, or a bare `search` in the plugin"],
   ["zoom-out", "search-minus", "the site led with `fullscreen-exit`"],
+
+  // Drawn in 1.5.0 for these names, under the set's own spelling.
+  ["external-link", "square-arrow-out-up-right", "the word people type; the name says what it draws"],
+  ["file-bar-chart", "file-chart-column", "an older name for the same drawing"],
+  ["file-warning", "file-alert", "the set calls that mark `alert`"],
+  ["message-circle-question", "message-question", "the round bubble is plain `message` here"],
+  ["upload-cloud", "cloud-upload", "the older order, with the element last"],
 ]
 
 /**
