@@ -122,6 +122,18 @@ github.com/keyline-icons/keyline-icons
 
 Changelog
 
+1.5.0
+53 new drawings, taking the set to 1,286 names and 10,288 SVGs.
+
+* Files: the clipboard, and the clipboard with a tick, a plus, a minus, a cross, an alert, a list, code, a prompt or a T in the middle of the board; copy and paste as an arrow on the board, and paste as a page held in front of a clipboard; the floppy disk for save, with a tick, a plus, a minus or a cross in place of its hub, and struck through; a file with an alert, a file with a column chart, and the archive with a cross
+* AI: the bot's face in six more shapes, a square, a heart, a droplet, a star, a speech bubble and a cloud; bot-2 is bot-circle now, and the old name still finds it
+* Actions: the shield with an alert, a question mark, a padlock, a person and a heart, and switched off; the star struck through
+* Layout and Shapes: four blocks with one lifted out, three stacked into a pyramid, three hexagons, three columns, and a flip across and a flip up and down
+* Arrows and Web: an arrow leaving a square through each of its four corners, for external links, and left over right; a cloud that uploads and one that downloads
+* And more: a frame, a target, a television, a shipping container and a question in a speech bubble
+
+Search puts the drawing a name asks for first, including the names other sets use for it: external-link finds square-arrow-out-up-right and loader-2 finds loader-circle.
+
 1.4.0
 16 new drawings, taking the set to 1,233 names and 9,864 SVGs.
 
@@ -168,27 +180,6 @@ The panel, redrawn: browse by shelf, recent icons at the top, drag onto the canv
 * Math and Keyboard opened as shelves of their own, taking categories from 38 to 40
 
 Also redrawn: the pen with sparkles, its plus signs swapped for the pair of stars.
-
-1.0.0
-Four styles, with every name in all of them: two-tone is the outlined style that was called duotone, and duotone is new, a grey body with the part that matters in black and no outline. 149 new drawings, taking the set to 1,000 names and 8,000 SVGs, and a new shelf.
-
-* People: a boy and a girl, a baby with a curl and one with a bow, and both babies again with a pacifier
-* Layout: the panel on every side, open, closed, dashed and open and dashed, and three split layouts
-* Devices: the phone calling, incoming, outgoing, missed and forwarded; the tablet, upright and with eight signs; a laptop, and the laptop beside a phone; a watch, a hard drive, a cable and a headset visor
-* Media and Mail: AirPlay, a phone casting, a film camera, a broadcast mast and a search over sound; a sparkle in both message bubbles, and send on a clock
-* Users and Actions: a voice, contacts, an ID card and the accessibility figure; a shield with a key, a siren and delete
-* Weather and more: humidity and three kinds of cloud, a gauge, two toggles, a map pin with a heart, a shopping basket, a file search and a turn with a plus
-* Devices, Stationery and Text: an app window with a plus, minus, x and cursor beside its ruled form, a CCTV camera with and without a slash, a mouse and a shredder; a sticky note with its signs and slash, and two stacked; the case marks, an outlined T and a whole word
-* And more: a folder tree and a typed file, a radio, a fingerprint, an incognito hat, a shirt, a paper bag, a milestone, a swatch book, the earth, the recycling arrows, a car, a wallet with its cards, a slashed bot, a brain with a cog and a pen with sparkles
-* Finance: two banknotes, each with check, minus, plus and x
-* Transport: a rocket at 45 degrees on its flame, again with speed lines, and standing upright
-* Arrows and Text: the big arrow in four directions, long and short, and the heading with its six levels
-* Time and Weather: a stopwatch and its reset, an alarm clock with check, plus and minus, a snowflake and wind
-* Layout and Files: a table and a zipped folder
-* Pointers: a hand closed and a hand open
-* People opened as a shelf of its own, taking categories from 37 to 38
-
-Also redrawn: the pointing hand in four directions, the paperclip longer, the dice pips larger, the three dots larger, the sparkle out to the 2-unit margin, play smaller, the gallery frames on a tighter radius, the grid and file fills clear of their edges, the chart axes grey in two-tone, the four dashed close panels with their grey under the frame's round corners, and the coins on rounder faces with 2 units between every coin.
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
@@ -248,6 +239,19 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 1.5.0
+
+```
+53 new drawings, taking the set to 1,286 names and 10,288 SVGs: the clipboard with eleven signs in the middle of the board, and paste as a page held in front of a clipboard; the floppy disk for save, with its signs and struck through; the bot's face in six more shapes, with bot-2 renamed bot-circle; six more shields; blocks, a pyramid, hexagons, three columns and the two flips; an arrow leaving a square through each corner; a cloud that uploads and one that downloads; a frame, a target, a television, a shipping container, a file with an alert and one with a column chart, the archive with a cross, the star struck through, a question in a speech bubble, and left over right. Search now puts the drawing a name asks for first, including the names other sets use for it, so external-link finds square-arrow-out-up-right.
+```
+
+**A republish is required for the plugin's own code this time**, not only the
+listing: search ranks the names other sets use (the `names` map in the bundle)
+right after an exact name, and that ranking lives in `ui.html`, which the
+jsDelivr data cannot change. The listing's counts moved too: the tagline, the
+style bullets, the totals and the curated-word count. The category count stayed
+at 40.
 
 ### 1.4.0
 
@@ -666,6 +670,16 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+v1.5.0
+53 new drawings. The set is 1,286 names now, 1,159 component sets and 10,288 variants, up from 1,233 and 9,864. One set was renamed, bot-2 to bot-circle, in place, and no component was replaced, so instances already placed in your files keep their link.
+
+* Files: the clipboard, and the clipboard with a tick, a plus, a minus, a cross, an alert, a list, code, a prompt or a T in the middle of the board; copy and paste as an arrow on the board, and paste as a page held in front of a clipboard; the floppy disk for save, with a tick, a plus, a minus or a cross in place of its hub, and struck through; a file with an alert, a file with a column chart, and the archive with a cross
+* AI: the bot's face in six more shapes, a square, a heart, a droplet, a star, a speech bubble and a cloud
+* Actions: the shield with an alert, a question mark, a padlock, a person and a heart, and switched off; the star struck through
+* Layout and Shapes: four blocks with one lifted out, three stacked into a pyramid, three hexagons, three columns, and a flip across and a flip up and down
+* Arrows and Web: an arrow leaving a square through each of its four corners, for external links, and left over right; a cloud that uploads and one that downloads
+* And more: a frame, a target, a television, a shipping container and a question in a speech bubble
+
 v1.4.0
 16 new drawings. The set is 1,233 names now, 1,106 component sets and 9,864 variants, up from 1,217 and 9,736. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
 
@@ -739,7 +753,9 @@ plugin's and v0.9.0 from the file's on 27 Sep 2026 with the 1.3.0 entries (8,842
 plugin's on 28 Sep 2026 once the 1.3.0 entries took in all 39 drawings (9,045
 before, 8,161 after; the file's stayed at 8,842, under the 8,876 Figma has
 accepted), v1.0.0 from the file's on 28 Sep 2026 with the 1.4.0 entry (9,584
-before, 6,818 after; the plugin's reached 8,687 and kept its 1.0.0), and a
+before, 6,818 after; the plugin's reached 8,687 and kept its 1.0.0), 1.0.0
+from the plugin's on 1 Oct 2026 with the 1.5.0 entry (10,072 before, 7,457
+after; the file's reached 8,165 and kept its v1.1.0), and a
 last line points at
 `keylineicons.com/changelog`, which keeps every release.
 
