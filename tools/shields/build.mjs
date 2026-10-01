@@ -35,7 +35,7 @@
 //   node tools/shields/build.mjs [--out=<dir>]     writes raw/<name>/ for all six (default: this checkout)
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { parse, emitSegs, at, tan, split, splitU, runsOf, arcSegs, offsetCubic, closest, footprint, translate, f, P, add, sub, mul, len, unit, u, deg, roots } from './geo.mjs';
+import { parse, emitSegs, at, tan, split, splitU, runsOf, arcSegs, offsetCubic, closest, translate, f, P, add, sub, mul, len, unit, u, deg, roots } from './geo.mjs';
 import { outlines, minGap } from '../../pipeline/lib/geom.mjs';
 
 const REPO = join(import.meta.dirname, '..', '..');
@@ -124,7 +124,6 @@ function userSign(corners) {
   // the solid torso: its outer edge (r = 5 about (11,19) and (13,19)) closed along
   // the shield's inner edge, the centre line moved 1 in
   const inner = innerEdge(corners);
-  const arcR = (c, from) => (q) => len(sub(q, c)) - 5;
   const hitR = crossing(inner, [13, 19], 5, 'right'), hitL = crossing(inner, [11, 19], 5, 'left');
   const segs = [
     ...arcSegs([11, 19], 5, 360 + deg(sub(hitL.p, [11, 19])), 270), { k: 'L', a: [11, 14], b: [13, 14] },
@@ -162,7 +161,7 @@ function between(segs, a, b) {
 }
 
 /* ---------------------------------------------------------------- the -off */
-const U4 = 4 * R2, U3 = 3 * R2, US = 4 * R2 - 2;
+const U4 = 4 * R2, US = 4 * R2 - 2;
 const SLASH = { regular: 'M2 2L22 22', sharp: 'M1.7071 1.7071L22.2929 22.2929' };
 function offParts(corners) {
   const sharp = corners === 'sharp';
