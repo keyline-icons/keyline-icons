@@ -316,6 +316,7 @@
 
   let ICONS = {}
   let KEYWORDS = {}
+  let FOREIGN = {}
   let NAMES = []
   let STYLES = ["stroke"]
   let CORNERS = []
@@ -426,6 +427,13 @@
 
       ICONS = data.icons
       KEYWORDS = data.keywords || {}
+      /*
+        Another set's name for a drawing here, keyed by that name: `trash-2`
+        for `bin-2`. The bundle has carried it since the MCP server and the
+        CLI learned it; the panel never read it, so `loader-2` found nothing
+        and `log-out` put `truck-sparkles` under the Enter key.
+      */
+      FOREIGN = data.names || {}
       NAMES = Object.keys(ICONS)
       STYLES = data.styles
       CORNERS = data.corners && data.corners.length > 1 ? data.corners : []
@@ -577,10 +585,10 @@
 
   /**
    * Same tiers as the MCP server and the CLI, with keyword hits last: an exact
-   * name beats a prefix beats a word start beats a substring, then every word
-   * landing somewhere, then a word someone curated in Figma. Ties break on the
-   * shorter name, which is what keeps `arrow-down` above
-   * `arrow-down-narrow-wide`.
+   * name beats another set's name for a drawing, which beats a prefix, a word
+   * start and a substring, then every word landing somewhere, then a word
+   * someone curated in Figma. Ties break on the shorter name, which is what
+   * keeps `arrow-down` above `arrow-down-narrow-wide`.
    *
    * The word tier is why this is not just `indexOf`. Compounds here read
    * base-first, so a designer carrying another set's `CheckCircle2` types
@@ -588,6 +596,10 @@
    * `circle-check` is right there. This plugin shipped with that bug after the
    * MCP server and the CLI were fixed for it, because nothing checks that the
    * four searches agree.
+   *
+   * The second tier arrived the same way, last. Without it `loader-2` found
+   * nothing, `corner-up-left` led with `corner-left-up` and `settings-2` with
+   * `sliders-2-vertical`, and Enter inserts whatever leads.
    */
   function search(q, raw) {
     // Browsing, not searching. The ranked order below breaks ties on length,
@@ -600,13 +612,17 @@
     for (const name of NAMES) {
       if (!artOf(name)) continue
       const i = name.indexOf(q)
-      if (i !== -1) {
+      if (name === q) {
+        hits.push({ name, rank: 0 })
+      } else if (FOREIGN[q] === name) {
+        hits.push({ name, rank: 1 })
+      } else if (i !== -1) {
         const boundary = /(^|-)/.test(name[i - 1] ?? "-")
-        hits.push({ name, rank: name === q ? 0 : i === 0 ? 1 : boundary ? 2 : 3 })
+        hits.push({ name, rank: i === 0 ? 2 : boundary ? 3 : 4 })
       } else if (words.length && answers(name, words)) {
-        hits.push({ name, rank: 4 })
-      } else if (words.length && answers(haystackFor(name), words)) {
         hits.push({ name, rank: 5 })
+      } else if (words.length && answers(haystackFor(name), words)) {
+        hits.push({ name, rank: 6 })
       }
     }
     return hits.sort(
@@ -624,7 +640,8 @@
     return NAMES.filter(
       (n) =>
         !artOf(n) &&
-        (n.includes(q) ||
+        (FOREIGN[q] === n ||
+          n.includes(q) ||
           (words.length &&
             (answers(n, words) || answers(haystackFor(n), words))))
     ).length

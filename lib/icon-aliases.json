@@ -2197,12 +2197,9 @@
       "building-2"
     ],
     "check": [
-      "check-line",
-      "circle-check-big",
-      "square-check-big"
+      "check-line"
     ],
     "copy": [
-      "copy-check",
       "copy-minus",
       "copy-slash",
       "copy-x"
@@ -2210,15 +2207,8 @@
     "flower": [
       "flower-2"
     ],
-    "link": [
-      "link-2"
-    ],
     "loader": [
-      "loader-2",
       "loader-pinwheel"
-    ],
-    "maximize": [
-      "maximize-2"
     ],
     "megaphone": [
       "megaphone-off"
@@ -2237,18 +2227,11 @@
     ],
     "package": [
       "package-2",
-      "package-check",
-      "package-minus",
       "package-open",
-      "package-plus",
-      "package-search",
-      "package-x"
+      "package-search"
     ],
     "picture-in-picture": [
       "picture-in-picture-2"
-    ],
-    "question": [
-      "circle-question-mark"
     ],
     "receipt": [
       "receipt-cent",
@@ -2263,22 +2246,10 @@
     ],
     "search": [
       "search-alert",
-      "search-check",
-      "search-code",
-      "search-slash",
-      "search-x"
-    ],
-    "settings": [
-      "settings-2"
+      "search-code"
     ],
     "share": [
       "share-2"
-    ],
-    "truck": [
-      "truck-electric"
-    ],
-    "x": [
-      "x-line-top"
     ],
     "archive": [
       "archive-restore",
@@ -2303,13 +2274,11 @@
     "arrow-right": [
       "arrow-big-right-dash",
       "arrow-right-from-line",
-      "arrow-right-to-line",
       "square-arrow-right-enter",
       "square-arrow-right-exit"
     ],
     "arrow-up": [
       "a-arrow-up",
-      "arrow-big-up-dash",
       "arrow-up-0-1",
       "arrow-up-1-0",
       "arrow-up-a-z",
@@ -2320,10 +2289,8 @@
       "arrows-up-from-line"
     ],
     "bar-chart": [
-      "chart-bar-big",
       "chart-bar-decreasing",
-      "chart-bar-increasing",
-      "chart-bar-stacked"
+      "chart-bar-increasing"
     ],
     "battery": [
       "battery-charging",
@@ -2337,7 +2304,6 @@
       "calendar-1",
       "calendar-clock",
       "calendar-cog",
-      "calendar-days",
       "calendar-fold",
       "calendar-heart",
       "calendar-range",
@@ -2370,17 +2336,13 @@
       "clock-fading"
     ],
     "cloud": [
-      "cloud-alert",
       "cloud-backup",
-      "cloud-check",
       "cloud-cog",
       "cloud-download",
       "cloud-fog",
       "cloud-hail",
       "cloud-lightning",
-      "cloud-moon",
-      "cloud-snow",
-      "cloud-sun"
+      "cloud-snow"
     ],
     "cloud-rain": [
       "cloud-moon-rain",
@@ -2396,7 +2358,6 @@
       "eye-dashed"
     ],
     "file": [
-      "file-archive",
       "file-axis-3d",
       "file-badge",
       "file-box",
@@ -2407,7 +2368,6 @@
       "file-chart-line",
       "file-chart-pie",
       "file-clock",
-      "file-code",
       "file-code-corner",
       "file-cog",
       "file-diff",
@@ -2425,15 +2385,11 @@
       "file-play",
       "file-question-mark",
       "file-scan",
-      "file-search",
       "file-search-corner",
       "file-signal",
       "file-sliders",
       "file-stack",
       "file-symlink",
-      "file-terminal",
-      "file-type",
-      "file-type-corner",
       "file-user",
       "file-video-camera",
       "file-volume"
@@ -2468,11 +2424,9 @@
       "folder-output",
       "folder-pen",
       "folder-root",
-      "folder-search",
       "folder-search-2",
       "folder-symlink",
-      "folder-sync",
-      "folder-tree"
+      "folder-sync"
     ],
     "folder-open": [
       "folder-open-dot"
@@ -2512,8 +2466,7 @@
       "list-sort-descending"
     ],
     "lock": [
-      "lock-keyhole",
-      "lock-keyhole-open"
+      "lock-keyhole"
     ],
     "mail": [
       "mail-question-mark",
@@ -2593,7 +2546,8 @@
       "panel-top-bottom-dashed"
     ],
     "pen": [
-      "pen-tool"
+      "pen-tool",
+      "pencil"
     ],
     "refresh-ccw": [
       "refresh-ccw-dot"
@@ -2643,8 +2597,6 @@
       "star-x"
     ],
     "sun": [
-      "sun-dim",
-      "sun-medium",
       "sun-moon",
       "sun-snow"
     ],
@@ -2653,10 +2605,10 @@
       "tag-x"
     ],
     "unlock": [
+      "lock-keyhole-open",
       "lock-open"
     ],
     "user": [
-      "circle-user-round",
       "square-user",
       "square-user-round",
       "user-cog",
@@ -2671,8 +2623,7 @@
       "user-round-search",
       "user-search",
       "user-shield",
-      "user-star",
-      "users-round"
+      "user-star"
     ],
     "user-check": [
       "user-round-check"
@@ -2746,6 +2697,7 @@
       "table-slash"
     ],
     "panels-top-left": [
+      "layout",
       "table-layout"
     ],
     "cloud-terminal": [
@@ -2757,7 +2709,82 @@
     ],
     "lifebuoy": [
       "life-buoy"
+    ],
+    "loader-circle": [
+      "loader-2"
+    ],
+    "file-zip": [
+      "file-archive"
+    ],
+    "circle-user": [
+      "circle-user-round"
+    ],
+    "sliders-2-horizontal": [
+      "settings-2"
+    ],
+    "circle-check": [
+      "check-circle-2",
+      "circle-check-big"
+    ],
+    "square-check": [
+      "square-check-big"
+    ],
+    "circle-question": [
+      "circle-help",
+      "circle-question-mark",
+      "help-circle"
+    ],
+    "users": [
+      "users-round"
+    ],
+    "circle-arrow-left": [
+      "arrow-left-circle"
+    ],
+    "bin": [
+      "trash"
+    ],
+    "bracket-arrow-left": [
+      "log-out"
+    ],
+    "chart-pie": [
+      "pie-chart"
+    ],
+    "square-terminal": [
+      "terminal-square"
+    ],
+    "face-smile": [
+      "smile"
+    ],
+    "more-vertical": [
+      "ellipsis-vertical"
+    ],
+    "search-plus": [
+      "zoom-in"
+    ],
+    "search-minus": [
+      "zoom-out"
+    ],
+    "circle-stop": [
+      "stop-circle"
+    ],
+    "circle-plus": [
+      "plus-circle"
+    ],
+    "grid-squares": [
+      "layout-grid"
+    ],
+    "language": [
+      "languages"
+    ],
+    "triangle-alert": [
+      "alert-triangle"
+    ],
+    "circle-alert": [
+      "alert-circle"
+    ],
+    "easel": [
+      "presentation"
     ]
   },
-  "$names": "Names other sets use for a drawing here, keyed by the drawing. Matched against the whole query, never split into words: these are names, not keywords, and folding `message-square` into a keyword list makes a search for `square` return every message icon."
+  "$names": "Names other sets use for a drawing here, keyed by the drawing. Matched against the whole query, never split into words: these are names, not keywords, and folding `message-square` into a keyword list makes a search for `square` return every message icon. All four searches rank one second only to the exact name, so it leads wherever the set does not draw that name itself; once the set does, the row is stale, and pipeline/check-search.mjs fails until it is deleted."
 }

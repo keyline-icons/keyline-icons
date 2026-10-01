@@ -178,6 +178,11 @@ and "descend" because those live on the component set's description in Figma,
 baked out by `pipeline/build-keywords.mjs`. Keywords are keyed by base name, so
 `square-arrow-down` reads `arrow-down`'s words.
 
+**A name from another set leads with its drawing.** `trash-2` puts `bin-2`
+first and `loader-2` puts `loader-circle` first, read from the `names` map the
+bundle carries, so a designer typing the names they already know gets the
+drawing, and Enter inserts it. Only the exact name ranks above it.
+
 **A style with no matches says so.** Duotone and fill need a fillable region and
 some glyphs have none, so an empty grid is usually coverage rather than a failure.
 The count of names matching in another style is shown instead of nothing.

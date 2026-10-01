@@ -317,6 +317,43 @@ const byName = (a: BrowserIcon, b: BrowserIcon) =>
     : a.base.localeCompare(b.base)
 
 /**
+ * Whether the query is another set's name for this drawing.
+ *
+ * Matched on the drawing as well as on its base. The base alone could never
+ * land on a containered drawing, because the base of `circle-check` is `check`:
+ * `check-circle-2`, another set's name for exactly that drawing, found nothing
+ * here while the packages answered it. The base still counts, so a name that
+ * points at `message` brings the boxed copies along as it always did.
+ */
+const namedBy = (icon: BrowserIcon, query: string) => {
+  const named = iconNamedElsewhere(query)
+  return named === icon.name || named === icon.base
+}
+
+/**
+ * How far ahead of grid order a search puts a drawing: the one the query
+ * names, then the one another set's name for it points at, then the rest.
+ *
+ * Grid order alone is right for browsing and was wrong for a name. `x` opened
+ * on `airpods-open`, `user` on `at` and `trash-2` behind every alphabetically
+ * earlier drawing carrying the word, because the grid never ranked a result,
+ * it only filtered one. The MCP server, the CLI and the Figma plugin rank the
+ * same two tiers first, so a name typed into any of the four leads with the
+ * same drawing; pipeline/check-search.mjs runs the names shadcn/create uses
+ * through all four to keep it that way. Only those two tiles move, so the rest
+ * of the grid still reads in name order, and only page 1 changes, which is
+ * the one page `pageSpan` never labels.
+ */
+const leadOf = (icon: BrowserIcon, query: string) => {
+  const q = query.trim().toLowerCase()
+  return icon.name === q ? 0 : icon.name === iconNamedElsewhere(q) ? 1 : 2
+}
+
+/** Grid order under a search: the lead first, then name order. */
+const bySearch = (query: string) => (a: BrowserIcon, b: BrowserIcon) =>
+  leadOf(a, query) - leadOf(b, query) || byName(a, b)
+
+/**
  * A word reduced to its singular, so a plural finds the family.
  *
  * Every name in the set is singular: `arrow-down`, `file`, `bar-chart`. Every
@@ -847,7 +884,7 @@ export function IconBrowser({
         Kept out of the haystack on purpose — see `FOREIGN` in
         lib/icon-taxonomy.ts for what putting it in there did to `square`.
       */
-      if (iconNamedElsewhere(query) === i.base) return true
+      if (namedBy(i, query)) return true
       return answers([i.name, ...aliasesFor(i.base)].join(" "), words)
     })
   }, [icons, query, style, category, corners])
@@ -936,7 +973,7 @@ export function IconBrowser({
     if (words.length === 0) return 0
     return icons.filter((i) => {
       if (!artOf(i, style, corners)) return false
-      if (iconNamedElsewhere(query) === i.base) return true
+      if (namedBy(i, query)) return true
       return answers([i.name, ...aliasesFor(i.base)].join(" "), words)
     }).length
   }, [icons, query, style, shape, category, corners, shown.length])
@@ -1010,9 +1047,13 @@ export function IconBrowser({
 
   /**
    * The page's slice, ordered before it is cut — page 2 has to be sorted
-   * against the whole result, not against whatever landed on it.
+   * against the whole result, not against whatever landed on it. With nothing
+   * typed this is name order; a search lets the drawing it names lead.
    */
-  const ordered = React.useMemo(() => [...shown].sort(byName), [shown])
+  const ordered = React.useMemo(
+    () => [...shown].sort(bySearch(query)),
+    [shown, query]
+  )
 
   const pageCount = Math.max(1, Math.ceil(ordered.length / GRID_PAGE_SIZE))
 

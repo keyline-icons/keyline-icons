@@ -19,7 +19,8 @@
  *
  * WHAT IT CHECKS
  *
- * Four things, and the last is the one that matters:
+ * Six things. The fourth is the one that matters, and the fifth asks it of
+ * each surface's own code:
  *
  *  1. AGREEMENT. The shared expressions are lifted out of all four files and
  *     compared with indentation flattened. They have to be the same code. This
@@ -38,6 +39,15 @@
  *     matched nothing, because the drawing is called `bin` and no alias said
  *     so. Splitting a word right is not the same as finding the icon, and only
  *     this section can tell the difference.
+ *  5. LEADS. A table of names whose drawing has to come back first, run
+ *     through every surface's own ranking: the packages' and the plugin's
+ *     search lifted out of their files and run on their own bundles, the
+ *     site's from the helpers its grid sorts with. Nothing above looks at
+ *     ranking, which is how the plugin went five weeks without reading another
+ *     set's names at all and the site sorted every search alphabetically.
+ *  6. NAMES. The redirect table in lib/icon-aliases.json: every name points at
+ *     a drawing that exists, no name is listed twice, and no name is one the
+ *     set now draws. Thirty rows had gone stale that way before this checked.
  *
  * It reads the source rather than importing it, because none of the four export
  * the function: the site's is a module-private const, the plugin's lives inside
@@ -46,9 +56,10 @@
  * four, and it is honest about what it is checking, which is that the code in
  * these four files is the same code.
  *
- * Adding a case is one row in CASES, or one row in FINDS for an outcome.
- * Adding a fifth surface is one row in SOURCES, provided it spells the shared
- * part the same way.
+ * Adding a case is one row in CASES, one row in FINDS for an outcome, or one
+ * row in FIRST for a name that has to lead. Adding a fifth surface is one row
+ * in SOURCES, provided it spells the shared part the same way, and one in
+ * RANKED with the names its search calls.
  */
 
 import { readFile } from "node:fs/promises"
@@ -131,6 +142,109 @@ const CONCEPT_FILES = [
   ["packages/figma-plugin/ui.html", "plugin"],
 ]
 const CONCEPTS = /const CONCEPTS = (\/[^\n]+\/g)/
+
+/**
+ * Each surface's own search, for LEADS: the file, its bundle, the names the
+ * search calls, and how a caller asks it.
+ *
+ * Lifted and run rather than compared, because ranking is the one part the
+ * four do not share. The packages match whole words and the plugin matches
+ * inside them, so their tiers differ below the second, and what has to agree
+ * is the outcome: the exact name first, then the drawing another set's name
+ * points at. Every name a search calls is listed, so a rename fails here by
+ * name instead of passing on a stale copy.
+ */
+const SHARED_HELPERS = ["wordsOf", "keywordsFor", "haystackFor", "singular", "stemmed"]
+/* What the two packages read off their bundle at the top of the file. */
+const packageScope = (data) => ({
+  icons: data.icons,
+  keywords: data.keywords ?? {},
+  foreign: data.names ?? {},
+  NAMES: Object.keys(data.icons),
+})
+const RANKED = [
+  {
+    file: "packages/mcp/src/index.mjs",
+    label: "mcp",
+    bundle: "packages/mcp/icons.json",
+    lift: [...SHARED_HELPERS, "wholeWord", "answers", "search"],
+    scope: (data) => packageScope(data),
+    ask: (search, query) => search(query, null, 5).map((h) => h.name),
+  },
+  {
+    file: "packages/cli/src/index.mjs",
+    label: "cli",
+    bundle: "packages/cli/icons.json",
+    lift: [...SHARED_HELPERS, "wholeWord", "answers", "search"],
+    scope: (data) => packageScope(data),
+    ask: (search, query) => search(query, undefined, 5),
+  },
+  {
+    file: "packages/figma-plugin/ui.html",
+    label: "plugin",
+    bundle: "packages/figma-plugin/icons.json",
+    lift: [...SHARED_HELPERS, "CONCEPTS", "answers", "artOf", "search"],
+    // What `load()` sets, and the panel's opening style and treatment.
+    scope: (data) => ({
+      ICONS: data.icons,
+      KEYWORDS: data.keywords || {},
+      FOREIGN: data.names || {},
+      NAMES: Object.keys(data.icons),
+      style: "stroke",
+      corners: "regular",
+    }),
+    // The panel lowercases for the substring tiers and keeps the raw form for
+    // `wordsOf`, which needs the case to recognise a pasted identifier.
+    ask: (search, query) =>
+      search(query.trim().toLowerCase(), query.trim()).map((h) => h.name),
+  },
+]
+
+/**
+ * The site's half: the helpers its grid filters and sorts a search with.
+ * `matches` and `ordered` in the component are one call each into these.
+ */
+const SITE_RANK = ["byName", "namedBy", "leadOf", "bySearch"]
+
+/**
+ * One declaration out of a source file, by name: from its first line to the
+ * last line indented under it.
+ *
+ * Indentation is enough because all four files are laid out the same way: a
+ * declaration's body always sits deeper than its first line, and its closing
+ * bracket comes back to that line's level. It is the same bet the rest of this
+ * file makes by reading the four as text.
+ */
+function lift(src, file, name) {
+  const head = new RegExp(
+    `^([ \\t]*)(?:function ${name}\\(|const ${name}\\b[^=\\n]*=)`,
+    "m"
+  ).exec(src)
+  if (!head) {
+    console.error(
+      `  ${c(31, "MISSING")}  ${file}\n` +
+        `    No \`${name}\` to lift. Its search calls it, so either it was renamed\n` +
+        `    and RANKED or SITE_RANK in this file has to follow, or the search no\n` +
+        `    longer calls it and it comes off the list.`
+    )
+    process.exit(1)
+  }
+  const depth = head[1].length
+  const lines = src.slice(head.index).split("\n")
+  let end = 1
+  for (; end < lines.length; end++) {
+    const line = lines[end]
+    const body = line.trimStart()
+    if (!body) continue
+    const indent = line.length - body.length
+    if (indent > depth || (indent === depth && /^[}\])]/.test(body))) continue
+    break
+  }
+  return lines.slice(0, end).join("\n").trimEnd()
+}
+
+/** The site's parameter types, the only TypeScript in what SITE_RANK lifts. */
+const untype = (s) => s.replace(/\b(\w+): (?:BrowserIcon|string)\b/g, "$1")
 
 /* Indentation differs by nesting depth and the plugin folds two `.replace`
    calls onto one line. Neither is a difference in the code, so whitespace is
@@ -244,6 +358,68 @@ const FINDS = [
 ]
 
 /**
+ * Names whose drawing has to come back FIRST, on all four surfaces.
+ *
+ * FINDS asks whether a query reaches a drawing at all, which is the right
+ * question for a word. A name asks for one drawing, and second place is a
+ * miss: the plugin inserts its top hit on Enter, and an agent takes the first
+ * result and moves on. So these run through each surface's own ranking, and
+ * every row here is a FINDS row too.
+ *
+ * The rows are the names shadcn/create builds its previews from: the default
+ * library's name on every IconPlaceholder, `Icon` stripped, kebab-cased. 182
+ * of them at shadcn-ui/ui b0fcb58 (1 Oct 2026). 129 are drawn here under the
+ * same name and lead on the exact tier, which the first rows stand for. The
+ * rest are drawn under this set's own names, matched on a rendered sheet
+ * rather than by name, and lead through `names` in lib/icon-aliases.json.
+ * The note on each says what led before that row existed.
+ */
+const FIRST = [
+  // The exact tier. The site's grid was alphabetical under a search too.
+  ["x", "x", "the site opened on `airpods-open`"],
+  ["user", "user", "the site opened on `at`"],
+  ["file", "file", "the site opened on `archive`"],
+  ["check", "check", "the site opened on `alarm-clock-check`"],
+  ["settings", "settings", "the site opened on `brain-cog`"],
+
+  // Another set's name, drawn here under this set's.
+  ["alert-circle", "circle-alert", "led through its words alone"],
+  ["alert-triangle", "triangle-alert", "led through its words alone"],
+  ["arrow-left-circle", "circle-arrow-left", "the site opened on `circle-arrow-down-left`"],
+  ["building-2", "building", "the plugin found nothing"],
+  ["check-circle-2", "circle-check", "nothing anywhere: the `2` is theirs and the order is ours"],
+  ["circle-help", "circle-question", "led through its words alone"],
+  ["circle-user-round", "circle-user", "led with `user`, out of its circle"],
+  ["corner-up-left", "reply", "the site and the plugin led with `corner-left-up`"],
+  ["corner-up-right", "forward", "the site and the plugin led with `corner-right-up`"],
+  ["ellipsis-vertical", "more-vertical", "led through its words alone"],
+  ["file-archive", "file-zip", "led with a blank `file`, or `archive`"],
+  ["help-circle", "circle-question", "led through its words alone"],
+  ["languages", "language", "the site opened on `globe`"],
+  ["layout", "panels-top-left", "led with `layout-dashboard`, or `grid-2x2` on the site"],
+  ["layout-grid", "grid-squares", "led with `grid-2x2` everywhere"],
+  ["life-buoy", "lifebuoy", "led through its words alone"],
+  ["loader-2", "loader-circle", "led with `loader`, the spokes rather than the ring"],
+  ["lock-keyhole", "lock", "the plugin found nothing"],
+  ["log-out", "bracket-arrow-left", "the plugin's Enter key inserted `truck-sparkles`"],
+  ["message-circle", "message", "the plugin found nothing"],
+  ["pencil", "pen", "the packages and the plugin led with `pencil-ruler`"],
+  ["pie-chart", "chart-pie", "led through its words alone"],
+  ["plus-circle", "circle-plus", "the site opened on `circle-dashed-plus`"],
+  ["presentation", "easel", "led with `monitor` everywhere"],
+  ["settings-2", "sliders-2-horizontal", "the same drawing; three surfaces led with the gear"],
+  ["smile", "face-smile", "led through its words alone"],
+  ["stop-circle", "circle-stop", "the site opened on `circle-progress-stop`"],
+  ["terminal-square", "square-terminal", "led through its words alone"],
+  ["trash", "bin", "led through its words alone"],
+  ["trash-2", "bin-2", "led through its words alone"],
+  ["user-round-x", "user-x", "the plugin found nothing"],
+  ["volume-2", "volume", "the site and the plugin led with a slider"],
+  ["zoom-in", "search-plus", "led with `fullscreen`, or a bare `search` in the plugin"],
+  ["zoom-out", "search-minus", "the site led with `fullscreen-exit`"],
+]
+
+/**
  * Queries that must NOT reach a drawing.
  *
  * The other half of a search: every rule that widens one is one row away from
@@ -260,6 +436,17 @@ const MISSES = [
   ["arrows", "arrow-down", "the plural asks for more than one arrowhead"],
   ["arrows", "file-arrow-up", "same, one arrow on a document"],
 ]
+
+/**
+ * Names in `names` that the set also draws, kept on purpose.
+ *
+ * Another set calls this set's `share` `share-2`, and this set's own `share-2`
+ * is a different drawing. The exact name leads as it must; the row puts the
+ * drawing that set meant second. Every other drawn name in the table is a
+ * redirect a batch forgot to delete, which only ever misfiles the second
+ * result, so nothing noticed thirty of them.
+ */
+const CROSSED = new Set(["share-2"])
 
 const same = (a, b) => a.length === b.length && a.every((x, i) => x === b[i])
 
@@ -491,7 +678,7 @@ async function main() {
   const { keywords: described } = JSON.parse(
     await readFile(join(ROOT, "lib/icon-keywords.json"), "utf8")
   )
-  const { aliases } = JSON.parse(
+  const { aliases, names } = JSON.parse(
     await readFile(join(ROOT, "lib/icon-aliases.json"), "utf8")
   )
   const vocab = vocabularies(bundle, described, aliases)
@@ -510,17 +697,23 @@ async function main() {
 
      Matched with the shared rule rather than with any one surface's copy of it,
      so a row failing here means the words are missing, not that one file drifted
-     — sections 1 and 3 have already ruled that out by this point. */
+     — sections 1 and 3 have already ruled that out by this point. Another set's
+     name for a drawing is part of that rule: all four answer it whole, before
+     any word is read. */
+  const foreign = bundle.names ?? {}
   const found2 = (query) => {
     const words = wordsOf(query)
     const q = query.toLowerCase().trim()
     return Object.keys(bundle.icons).filter(
-      (n) => n.includes(q) || (words.length && answers(vocab.packages[n], words))
+      (n) =>
+        foreign[q] === n ||
+        n.includes(q) ||
+        (words.length && answers(vocab.packages[n], words))
     )
   }
 
   const missed = []
-  for (const [query, want, why] of FINDS) {
+  for (const [query, want, why] of [...FINDS, ...FIRST]) {
     const hits = found2(query)
     if (!hits.includes(want)) missed.push({ query, want, why, hits: hits.slice(0, 5) })
   }
@@ -530,6 +723,90 @@ async function main() {
   const overreach = []
   for (const [query, avoid, why] of MISSES) {
     if (found2(query).includes(avoid)) overreach.push({ query, avoid, why })
+  }
+
+  /* 7. Leads. The first result, asked of each surface's own code.
+
+     The packages and the plugin are plain JavaScript, so their search is
+     lifted out with everything it calls and run on that surface's own bundle.
+     The site's ranking lives in four module-level helpers; its matching is the
+     shared rule sections 1 to 4 have already pinned to the component, run on
+     the site's vocabulary. */
+  const ranked = []
+  for (const r of RANKED) {
+    const src = await readFile(join(ROOT, r.file), "utf8")
+    const data = JSON.parse(await readFile(join(ROOT, r.bundle), "utf8"))
+    const code = r.lift.map((name) => lift(src, r.file, name)).join("\n")
+    const scope = r.scope(data)
+    const search = new Function(...Object.keys(scope), `${code}\nreturn search`)(
+      ...Object.values(scope)
+    )
+    ranked.push({ label: r.label, first: (query) => r.ask(search, query)[0] })
+  }
+
+  const siteFile = "components/icon-browser.tsx"
+  const siteSrc = await readFile(join(ROOT, siteFile), "utf8")
+  const CONTAINERS = JSON.parse(
+    /export const CONTAINERS = (\[[^\]]*\])/.exec(
+      await readFile(join(ROOT, "components/glyph.tsx"), "utf8")
+    )[1]
+  )
+  /* lib/icon-taxonomy.ts's lookup, over the table it reads. */
+  const named = Object.fromEntries(
+    Object.entries(names ?? {}).flatMap(([icon, list]) => list.map((n) => [n, icon]))
+  )
+  const iconNamedElsewhere = (query) => named[query.trim().toLowerCase()]
+  const site = new Function(
+    "CONTAINERS",
+    "iconNamedElsewhere",
+    `${SITE_RANK.map((name) => untype(lift(siteSrc, siteFile, name))).join("\n")}\n` +
+      `return { namedBy, bySearch }`
+  )(CONTAINERS, iconNamedElsewhere)
+  const gridIcons = Object.keys(bundle.icons).map((name) => {
+    const m = NOT_CONTAINERS.has(name) ? null : /^(square|circle)-(.+)$/.exec(name)
+    const boxed = m && bundle.icons[m[2]]
+    return { name, base: boxed ? m[2] : name, container: boxed ? m[1] : "regular" }
+  })
+  ranked.unshift({
+    label: "site",
+    first: (query) => {
+      const words = wordsOf(query)
+      return gridIcons
+        .filter((i) => site.namedBy(i, query) || answers(vocab.site[i.name], words))
+        .sort(site.bySearch(query))[0]?.name
+    },
+  })
+
+  const misled = []
+  for (const [query, want, why] of FIRST) {
+    const wrong = ranked
+      .map((r) => ({ label: r.label, got: r.first(query) }))
+      .filter((r) => r.got !== want)
+    if (wrong.length) misled.push({ query, want, why, wrong })
+  }
+
+  /* 8. The table of other sets' names, which only ever fails quietly: a row
+     pointing at a drawing that is gone answers with nothing, a name listed
+     twice keeps whichever came last, and a name the set now draws leads with
+     its own drawing and drags the old redirect in second. */
+  const rows = []
+  const filed = new Map()
+  for (const [icon, list] of Object.entries(names ?? {})) {
+    if (!bundle.icons[icon])
+      rows.push(
+        `\`${icon}\` is not drawn, so ${list.join(", ")} ` +
+          `${list.length === 1 ? "leads" : "lead"} nowhere`
+      )
+    for (const name of list) {
+      if (filed.has(name))
+        rows.push(
+          `\`${name}\` is under \`${filed.get(name)}\` and \`${icon}\`; ` +
+            `the bundles keep one`
+        )
+      filed.set(name, icon)
+      if (bundle.icons[name] && !CROSSED.has(name))
+        rows.push(`\`${name}\` is drawn now, so its row under \`${icon}\` is stale`)
+    }
   }
 
   if (vocabDrift.length) {
@@ -565,11 +842,29 @@ async function main() {
     )
   }
 
-  if (vocabDrift.length || missed.length || overreach.length) {
+  for (const m of misled) {
+    console.error(
+      `  ${c(31, "BEHIND")}   ${JSON.stringify(m.query)} does not lead with \`${m.want}\`\n` +
+        `           ${m.why}\n` +
+        `           led instead: ${m.wrong.map((w) => `${w.label} ${w.got ?? "nothing"}`).join(", ")}\n` +
+        `           One surface: its ranking lost a tier. All four: list the name under\n` +
+        `           its drawing in \`names\` in lib/icon-aliases.json, then run build-data.mjs.`
+    )
+  }
+
+  for (const r of rows) console.error(`  ${c(31, "NAMES")}    ${r}`)
+  if (rows.length)
+    console.error(
+      `           Fix the row in \`names\` in lib/icon-aliases.json, then run build-data.mjs.`
+    )
+
+  if (vocabDrift.length || missed.length || overreach.length || misled.length || rows.length) {
     console.error(
       `\n${vocabDrift.length ? `${vocabDrift.length} icon(s) with a split vocabulary. ` : ""}` +
         `${missed.length ? `${missed.length} quer${missed.length === 1 ? "y" : "ies"} found nothing. ` : ""}` +
-        `${overreach.length ? `${overreach.length} reached too far. ` : ""}`
+        `${overreach.length ? `${overreach.length} reached too far. ` : ""}` +
+        `${misled.length ? `${misled.length} name(s) led with another drawing. ` : ""}` +
+        `${rows.length ? `${rows.length} row(s) in \`names\` wrong. ` : ""}`
     )
     process.exit(1)
   }
@@ -582,7 +877,13 @@ async function main() {
   console.log(`  one singular rule across ${stems.map((s) => s.label).join(", ")}`)
   console.log(`  one concept rule across ${concepts.map((x) => x.label).join(", ")}`)
   console.log(
-    `  one vocabulary across ${Object.keys(bundle.icons).length} icons, ${FINDS.length} queries reach their drawing, ${MISSES.length} stop short of one`
+    `  one vocabulary across ${Object.keys(bundle.icons).length} icons, ${FINDS.length + FIRST.length} queries reach their drawing, ${MISSES.length} stop short of one`
+  )
+  console.log(
+    `  ${FIRST.length} names lead with their drawing on ${ranked.map((r) => r.label).join(", ")}`
+  )
+  console.log(
+    `  ${filed.size} names from other sets, each on one drawing that is there`
   )
 }
 
