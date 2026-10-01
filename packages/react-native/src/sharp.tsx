@@ -4776,7 +4776,7 @@ export function Forward(props: IconProps) {
 export function Frame(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M1 5L23 5M1 19L23 19M5 1L5 23M19 1L19 23" fill="none" />
+      <Path d="M1 6L23 6M1 18L23 18M6 1L6 23M18 1L18 23" fill="none" />
     </Icon>
   )
 }

@@ -295,13 +295,14 @@ export function blocks(sharp) {
 
 /* ---------------------------------------------------------------------- frame */
 // The design tool's frame mark: two horizontal and two vertical rules crossing, each
-// running 3 past the crossings, so the square they close (14 between centre lines)
-// dominates and the tails read as a frame's, not a hash's. Rules on 5 and 19 from 2 to 22:
-// the corners stand empty, so lint holds it to the round forms' 22. A mark, not an
+// running 4 past the crossings, so the tails read as a frame's, not a hash's, around the
+// square they close (12 between centre lines). Rules on 6 and 18 from 2 to 22: his call
+// on 1 Oct 2026, before the tag, was tails of 4 rather than the 3 that rules on 5 and 19
+// left. The corners stand empty, so lint holds it to the round forms' 22. A mark, not an
 // object (command's ruling): every style is the black stroke.
 export function frame(sharp) {
   const e = sharp ? 1 : 0;
-  const d = `M${2 - e} 5L${22 + e} 5M${2 - e} 19L${22 + e} 19M5 ${2 - e}L5 ${22 + e}M19 ${2 - e}L19 ${22 + e}`;
+  const d = `M${2 - e} 6L${22 + e} 6M${2 - e} 18L${22 + e} 18M6 ${2 - e}L6 ${22 + e}M18 ${2 - e}L18 ${22 + e}`;
   return { stroke: [S(d)], 'two-tone': [S(d)], duotone: [S(d)], fill: [S(d)] };
 }
 
