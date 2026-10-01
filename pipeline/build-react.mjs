@@ -194,6 +194,24 @@ const ALIASES = JSON.parse(
  */
 const SUFFIX = "Icon"
 
+/**
+ * The release the twins first shipped in.
+ *
+ * A name renamed after it already had a twin on npm: 1.4.1 exported `Bot2Icon`
+ * beside `Bot2`, and `bot-2` became `bot-circle` in 1.5.0. Its alias keeps the
+ * twin, deprecated the same way, or the rename breaks the very imports the
+ * alias exists to keep. A name renamed before it never had one (`Rocket2Icon`
+ * was never published) and gets none.
+ */
+const TWINS_SINCE = "1.4.1"
+
+/** Whether dotted version `a` comes after `b`. */
+const isAfter = (a, b) => {
+  const [x, y] = [a, b].map((v) => v.split(".").map(Number))
+  const i = x.findIndex((part, at) => part !== y[at])
+  return i >= 0 && x[i] > y[i]
+}
+
 /** Numeric-looking attribute values become JSX expressions: `strokeWidth={2}`, not `"2"`. */
 function jsxValue(value) {
   return /^-?\d+(\.\d+)?$/.test(value) ? `{${value}}` : `"${value}"`
@@ -331,24 +349,27 @@ async function build(style, corners, target = "web") {
   // Counted before the aliases, which are names rather than drawings.
   const count = components.length
   const names = new Set(files.map((f) => f.slice(0, -4)))
-  for (const { from, to, version } of ALIASES) {
-    if (!names.has(to)) continue
-    components.push(
-      `/**\n` +
-        ` * @deprecated \`${from}\` was renamed \`${to}\` in ${version}. Import\n` +
-        ` * ${pascal(to)}: this name keeps working until the next major.\n` +
-        ` */\n` +
-        `export const ${pascal(from)} = ${pascal(to)}`
-    )
+  const renamed = ALIASES.filter(({ to }) => names.has(to))
+  const oldTwins = renamed.filter(({ version }) => isAfter(version, TWINS_SINCE))
+  for (const { from, to, version } of renamed) {
+    const forms = oldTwins.some((r) => r.from === from) ? ["", SUFFIX] : [""]
+    for (const suffix of forms)
+      components.push(
+        `/**\n` +
+          ` * @deprecated \`${from}\` was renamed \`${to}\` in ${version}. Import\n` +
+          ` * ${pascal(to)}${suffix}: this name keeps working until the next major.\n` +
+          ` */\n` +
+          `export const ${pascal(from)}${suffix} = ${pascal(to)}`
+      )
   }
 
   // A twin that collides with a drawing or a rename would be a duplicate export,
   // which `tsc` reports only after the module is written, as a line number deep
   // in generated code. Named here, it says which icon to look at.
-  const renamed = ALIASES.filter(({ to }) => names.has(to))
-  const taken = new Set(
-    [...names, ...renamed.map(({ from }) => from)].map(pascal)
-  )
+  const taken = new Set([
+    ...[...names, ...renamed.map(({ from }) => from)].map(pascal),
+    ...oldTwins.map(({ from }) => pascal(from) + SUFFIX),
+  ])
   const twins = [...names].map((name) => [pascal(name), pascal(name) + SUFFIX])
   for (const [own, twin] of twins) {
     if (taken.has(twin))

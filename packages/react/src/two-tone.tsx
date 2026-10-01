@@ -11932,6 +11932,12 @@ export const Rocket2 = RocketFast
  */
 export const Bot2 = BotCircle
 
+/**
+ * @deprecated `bot-2` was renamed `bot-circle` in 1.5.0. Import
+ * BotCircleIcon: this name keeps working until the next major.
+ */
+export const Bot2Icon = BotCircle
+
 export {
   Accessibility as AccessibilityIcon,
   ActivitySparkles as ActivitySparklesIcon,
