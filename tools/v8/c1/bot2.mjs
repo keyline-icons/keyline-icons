@@ -65,7 +65,8 @@ for (const corners of ['regular', 'sharp']) {
   out[`Container=regular, Style=duotone, Corners=${corners}.svg`] = HEAD + plate(0.4) + st(eyeD, sharp) + '</svg>\n';
   out[`Container=regular, Style=fill, Corners=${corners}.svg`] = HEAD + `<path fill-rule="evenodd" clip-rule="evenodd" d="${circle(cx, cy, r + 1)}${holes}" fill="black"/>\n` + '</svg>\n';
 }
-const dir = join(OUT, 'raw', 'bot-2');
+// shipped as bot-2, renamed bot-circle in 1.5.0 (lib/icon-renames.json)
+const dir = join(OUT, 'raw', 'bot-circle');
 mkdirSync(dir, { recursive: true });
 for (const [n, s] of Object.entries(out)) writeFileSync(join(dir, n), s);
 console.log(`ring c ${f(cx)},${f(cy)} r ${f(r)}; eyes ${eyes.map(line).join(' ')}; sharp ${eyes.map(sharpen).map(line).join(' ')}`);

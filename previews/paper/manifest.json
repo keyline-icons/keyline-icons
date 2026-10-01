@@ -14,9 +14,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 1106,
-  "names": 1233,
-  "variants": 9864,
+  "icons": 1110,
+  "names": 1237,
+  "variants": 9896,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -191,10 +191,10 @@
       "artboard": "AI",
       "category": "AI",
       "part": 1,
-      "parts": 37,
+      "parts": 38,
       "into": "artboard",
       "width": 742,
-      "icons": 87,
+      "icons": 91,
       "variants": 16,
       "bytes": 30296
     },
@@ -203,7 +203,7 @@
       "artboard": "AI",
       "category": "AI",
       "part": 2,
-      "parts": 37,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -215,19 +215,31 @@
       "artboard": "AI",
       "category": "AI",
       "part": 3,
-      "parts": 37,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 35328
+      "variants": 48,
+      "bytes": 39627
     },
     {
       "file": "ai-4.html",
       "artboard": "AI",
       "category": "AI",
       "part": 4,
-      "parts": 37,
+      "parts": 38,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 16,
+      "bytes": 25639
+    },
+    {
+      "file": "ai-5.html",
+      "artboard": "AI",
+      "category": "AI",
+      "part": 5,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -235,11 +247,11 @@
       "bytes": 20799
     },
     {
-      "file": "ai-5.html",
+      "file": "ai-6.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 5,
-      "parts": 37,
+      "part": 6,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -247,11 +259,11 @@
       "bytes": 37067
     },
     {
-      "file": "ai-6.html",
+      "file": "ai-7.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 6,
-      "parts": 37,
+      "part": 7,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -259,11 +271,11 @@
       "bytes": 27628
     },
     {
-      "file": "ai-7.html",
+      "file": "ai-8.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 7,
-      "parts": 37,
+      "part": 8,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -271,11 +283,11 @@
       "bytes": 40435
     },
     {
-      "file": "ai-8.html",
+      "file": "ai-9.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 8,
-      "parts": 37,
+      "part": 9,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -283,11 +295,11 @@
       "bytes": 39111
     },
     {
-      "file": "ai-9.html",
+      "file": "ai-10.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 9,
-      "parts": 37,
+      "part": 10,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -295,11 +307,11 @@
       "bytes": 40478
     },
     {
-      "file": "ai-10.html",
+      "file": "ai-11.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 10,
-      "parts": 37,
+      "part": 11,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -307,11 +319,11 @@
       "bytes": 28597
     },
     {
-      "file": "ai-11.html",
+      "file": "ai-12.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 11,
-      "parts": 37,
+      "part": 12,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -319,11 +331,11 @@
       "bytes": 40779
     },
     {
-      "file": "ai-12.html",
+      "file": "ai-13.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 12,
-      "parts": 37,
+      "part": 13,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -331,11 +343,11 @@
       "bytes": 39499
     },
     {
-      "file": "ai-13.html",
+      "file": "ai-14.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 13,
-      "parts": 37,
+      "part": 14,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -343,11 +355,11 @@
       "bytes": 27804
     },
     {
-      "file": "ai-14.html",
+      "file": "ai-15.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 14,
-      "parts": 37,
+      "part": 15,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -355,11 +367,11 @@
       "bytes": 27025
     },
     {
-      "file": "ai-15.html",
+      "file": "ai-16.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 15,
-      "parts": 37,
+      "part": 16,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -367,11 +379,11 @@
       "bytes": 40584
     },
     {
-      "file": "ai-16.html",
+      "file": "ai-17.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 16,
-      "parts": 37,
+      "part": 17,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -379,11 +391,11 @@
       "bytes": 28364
     },
     {
-      "file": "ai-17.html",
+      "file": "ai-18.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 17,
-      "parts": 37,
+      "part": 18,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -391,11 +403,11 @@
       "bytes": 30743
     },
     {
-      "file": "ai-18.html",
+      "file": "ai-19.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 18,
-      "parts": 37,
+      "part": 19,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -403,11 +415,11 @@
       "bytes": 28812
     },
     {
-      "file": "ai-19.html",
+      "file": "ai-20.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 19,
-      "parts": 37,
+      "part": 20,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -415,11 +427,11 @@
       "bytes": 28041
     },
     {
-      "file": "ai-20.html",
+      "file": "ai-21.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 20,
-      "parts": 37,
+      "part": 21,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -427,11 +439,11 @@
       "bytes": 27247
     },
     {
-      "file": "ai-21.html",
+      "file": "ai-22.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 21,
-      "parts": 37,
+      "part": 22,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -439,11 +451,11 @@
       "bytes": 40438
     },
     {
-      "file": "ai-22.html",
+      "file": "ai-23.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 22,
-      "parts": 37,
+      "part": 23,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -451,11 +463,11 @@
       "bytes": 30290
     },
     {
-      "file": "ai-23.html",
+      "file": "ai-24.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 23,
-      "parts": 37,
+      "part": 24,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -463,11 +475,11 @@
       "bytes": 39982
     },
     {
-      "file": "ai-24.html",
+      "file": "ai-25.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 24,
-      "parts": 37,
+      "part": 25,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -475,11 +487,11 @@
       "bytes": 34590
     },
     {
-      "file": "ai-25.html",
+      "file": "ai-26.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 25,
-      "parts": 37,
+      "part": 26,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -487,11 +499,11 @@
       "bytes": 28486
     },
     {
-      "file": "ai-26.html",
+      "file": "ai-27.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 26,
-      "parts": 37,
+      "part": 27,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -499,11 +511,11 @@
       "bytes": 31677
     },
     {
-      "file": "ai-27.html",
+      "file": "ai-28.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 27,
-      "parts": 37,
+      "part": 28,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -511,11 +523,11 @@
       "bytes": 40112
     },
     {
-      "file": "ai-28.html",
+      "file": "ai-29.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 28,
-      "parts": 37,
+      "part": 29,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -523,11 +535,11 @@
       "bytes": 27463
     },
     {
-      "file": "ai-29.html",
+      "file": "ai-30.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 29,
-      "parts": 37,
+      "part": 30,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -535,11 +547,11 @@
       "bytes": 30399
     },
     {
-      "file": "ai-30.html",
+      "file": "ai-31.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 30,
-      "parts": 37,
+      "part": 31,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -547,11 +559,11 @@
       "bytes": 28135
     },
     {
-      "file": "ai-31.html",
+      "file": "ai-32.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 31,
-      "parts": 37,
+      "part": 32,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -559,11 +571,11 @@
       "bytes": 33530
     },
     {
-      "file": "ai-32.html",
+      "file": "ai-33.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 32,
-      "parts": 37,
+      "part": 33,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -571,11 +583,11 @@
       "bytes": 39304
     },
     {
-      "file": "ai-33.html",
+      "file": "ai-34.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 33,
-      "parts": 37,
+      "part": 34,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -583,11 +595,11 @@
       "bytes": 29175
     },
     {
-      "file": "ai-34.html",
+      "file": "ai-35.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 34,
-      "parts": 37,
+      "part": 35,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -595,11 +607,11 @@
       "bytes": 28077
     },
     {
-      "file": "ai-35.html",
+      "file": "ai-36.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 35,
-      "parts": 37,
+      "part": 36,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -607,11 +619,11 @@
       "bytes": 28441
     },
     {
-      "file": "ai-36.html",
+      "file": "ai-37.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 36,
-      "parts": 37,
+      "part": 37,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -619,11 +631,11 @@
       "bytes": 27368
     },
     {
-      "file": "ai-37.html",
+      "file": "ai-38.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 37,
-      "parts": 37,
+      "part": 38,
+      "parts": 38,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -2368,7 +2380,7 @@
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 37102
+      "bytes": 36680
     },
     {
       "file": "pointers-4.html",
@@ -3014,7 +3026,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 18,
-      "bytes": 16580
+      "bytes": 16578
     },
     {
       "file": "changelog.html",
@@ -3036,7 +3048,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 1716
+      "bytes": 8673
     },
     {
       "file": "changelog-earlier.html",
@@ -3047,7 +3059,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 15475
+      "bytes": 15968
     }
   ]
 }

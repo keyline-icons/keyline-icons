@@ -1440,12 +1440,32 @@ export function Bookmark(props: IconProps) {
   )
 }
 
-export function Bot2(props: IconProps) {
+export function BotCircle(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M12 1C18.0751 1 23 5.9249 23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2Z" />
       <path d="M12 7.60279L12.4521 10.5685M15.9543 7L16.4064 9.96574" />
+    </Icon>
+  )
+}
+
+export function BotDroplet(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M19.2 8.6C20.3684 10.1579 21 12.0527 21 14C21 18.9706 16.9706 23 12 23C7.0294 23 3 18.9706 3 14C3 12.0527 3.6316 10.1579 4.8 8.6L9.6 2.2C10.1666 1.4446 11.0557 1 12 1C12.9443 1 13.8334 1.4446 14.4 2.2L19.2 8.6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M18.4 9.2C19.4386 10.5848 20 12.269 20 14C20 18.4183 16.4183 22 12 22C7.5817 22 4 18.4183 4 14C4 12.269 4.5614 10.5848 5.6 9.2L10.4 2.8C10.7777 2.2964 11.3705 2 12 2C12.6295 2 13.2223 2.2964 13.6 2.8L18.4 9.2Z" />
+      <path d="M10 11.6028L10.4521 14.5685M13.9543 11L14.4064 13.9657" />
+    </Icon>
+  )
+}
+
+export function BotHeart(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M16 2C19.8256 2 23 4.9823 23 8.75C23 11.6443 21.418 13.9747 19.4219 15.9922C17.4582 17.9769 14.8378 19.8917 12.6494 21.7607C12.4624 21.9204 12.2312 22 12 22C11.9422 22 11.8843 21.9953 11.8271 21.9854C11.6558 21.9554 11.4908 21.8804 11.3506 21.7607C9.1622 19.8917 6.5418 17.9769 4.5781 15.9922C2.582 13.9747 1 11.6443 1 8.75C1 4.9823 4.1744 2 8 2C9.4851 2 10.828 2.4608 12 3.2539C13.172 2.4608 14.5149 2 16 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M12 21C7.4376 17.1033 2 13.75 2 8.75C2 5.5743 4.6862 3 8 3C9.5 3 10.8426 3.5459 12 4.5C13.1574 3.5459 14.5 3 16 3C19.3138 3 22 5.5743 22 8.75C22 13.75 16.5624 17.1033 12 21Z" />
+      <path d="M12 8.6028L12.4521 11.5685M15.9543 8L16.4064 10.9657" />
     </Icon>
   )
 }
@@ -1456,6 +1476,26 @@ export function BotOff(props: IconProps) {
       <path d="M20.2839 20.2839C19.5362 21.359 18.3095 22 17 22L7 22C4.7909 22 3 20.2091 3 18L3 11C3 8.7909 4.7909 7 7 7L20.2839 20.2839ZM12 7L17 7C19.2091 7 21 8.7909 21 11L21 16C21 16.5523 20.5523 17 20 17C19.7348 17 19.4804 16.8946 19.2929 16.7071L11.2929 8.7071C11.1054 8.5196 11 8.2652 11 8C11 7.4477 11.4477 7 12 7ZM11 3.5L13 3.5L13 7L12 7C11.4477 7 11 7.4477 11 8ZM13.5 3.5C13.5 3.9268 13.3182 4.3335 13 4.618L13 3.5L11 3.5L11 4.618C10.6818 4.3335 10.5 3.9268 10.5 3.5C10.5 2.6716 11.1716 2 12 2C12.8284 2 13.5 2.6716 13.5 3.5ZM21 13.5L22 13.5C22.5523 13.5 23 13.9477 23 14.5C23 15.0523 22.5523 15.5 22 15.5L21 15.5L21 13.5Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <path d="M19.5616 19.5616C19.017 20.4549 18.0463 21 17 21L7 21C5.3431 21 4 19.6569 4 18L4 11C4 9.3431 5.3431 8 7 8L8 8M2 14.5L4 14.5M9 17L13 17M2 2L22 22" />
       <path d="M10 13C10 13.5523 9.5523 14 9 14C8.4477 14 8 13.5523 8 13C8 12.4477 8.4477 12 9 12C9.5523 12 10 12.4477 10 13Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function BotSquare(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M2 6C2 3.79086 3.79086 2 6 2H18C20.2091 2 22 3.79086 22 6V18C22 20.2091 20.2091 22 18 22H6C3.79086 22 2 20.2091 2 18V6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M6 3H18C19.6569 3 21 4.34315 21 6V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V6C3 4.34315 4.34315 3 6 3Z" />
+      <path d="M12 7.6028L12.4521 10.5685M15.9543 7L16.4064 9.9657" />
+    </Icon>
+  )
+}
+
+export function BotStar(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M13.2583 1.9378L16.1771 5.0217L20.3877 5.5704C21.882 5.7652 23 7.0383 23 8.5453C23 9.0466 22.8744 9.5399 22.6346 9.9802L20.6035 13.7092L21.3829 17.8832C21.4167 18.0648 21.4338 18.2491 21.4338 18.4338C21.4338 20.0907 20.0907 21.4338 18.4338 21.4338C18.2491 21.4338 18.0648 21.4167 17.8832 21.3829L13.7092 20.6035L9.9802 22.6346C9.5399 22.8744 9.0466 23 8.5453 23C7.0383 23 5.7652 21.882 5.5704 20.3877L5.0217 16.1771L1.9378 13.2583C1.3392 12.6917 1 11.9037 1 11.0794C1 9.9216 1.6663 8.8671 2.712 8.37L6.547 6.547L8.37 2.712C8.8671 1.6663 9.9216 1 11.0794 1C11.9037 1 12.6917 1.3392 13.2583 1.9378Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M12.532 2.6252L15.4508 5.7091C15.6089 5.8762 15.8198 5.9836 16.0479 6.0133L20.2584 6.562C21.2547 6.6919 22 7.5406 22 8.5453C22 8.8795 21.9162 9.2084 21.7564 9.5019L19.7254 13.2308C19.6454 13.3776 19.6035 13.542 19.6035 13.7092C19.6035 13.7707 19.6092 13.8322 19.6205 13.8927L20.3998 18.0667C20.4224 18.1878 20.4338 18.3107 20.4338 18.4338C20.4338 19.5384 19.5384 20.4338 18.4338 20.4338C18.3107 20.4338 18.1878 20.4224 18.0667 20.3998L13.8927 19.6205C13.8322 19.6092 13.7707 19.6035 13.7092 19.6035C13.542 19.6035 13.3776 19.6454 13.2308 19.7254L9.5019 21.7564C9.2084 21.9162 8.8795 22 8.5453 22C7.5406 22 6.6919 21.2547 6.562 20.2584L6.0133 16.0479C5.9836 15.8198 5.8762 15.6089 5.7091 15.4508L2.6252 12.532C2.2261 12.1542 2 11.6289 2 11.0794C2 10.3075 2.4442 9.6045 3.1414 9.2731L6.9763 7.4501C7.184 7.3514 7.3514 7.184 7.4501 6.9763L9.2731 3.1414C9.6045 2.4442 10.3075 2 11.0794 2C11.6289 2 12.1542 2.2261 12.532 2.6252Z" />
+      <path d="M11 10.6028L11.4521 13.5685M14.9543 10L15.4064 12.9657" />
     </Icon>
   )
 }
@@ -11436,6 +11476,12 @@ export function Zap(props: IconProps) {
  */
 export const Rocket2 = RocketFast
 
+/**
+ * @deprecated `bot-2` was renamed `bot-circle` in 1.5.0. Import
+ * BotCircle: this name keeps working until the next major.
+ */
+export const Bot2 = BotCircle
+
 export {
   Accessibility as AccessibilityIcon,
   ActivitySparkles as ActivitySparklesIcon,
@@ -11593,8 +11639,12 @@ export {
   Book as BookIcon,
   BookmarkPlus as BookmarkPlusIcon,
   Bookmark as BookmarkIcon,
-  Bot2 as Bot2Icon,
+  BotCircle as BotCircleIcon,
+  BotDroplet as BotDropletIcon,
+  BotHeart as BotHeartIcon,
   BotOff as BotOffIcon,
+  BotSquare as BotSquareIcon,
+  BotStar as BotStarIcon,
   Bot as BotIcon,
   Bottle as BottleIcon,
   Boy as BoyIcon,
