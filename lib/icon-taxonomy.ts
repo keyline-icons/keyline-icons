@@ -63,7 +63,7 @@ export const CATEGORIES = [
   // which is why this is anchored on the two names rather than on `brain`.
   {
     label: "AI",
-    match: /(^|-)sparkles?$|^(bot(-off|-2)?$|brain-circuit|brain-cog)/,
+    match: /(^|-)sparkles?$|^(bot(-off|-circle|-square|-heart|-droplet|-star|-message|-cloud)?$|brain-circuit|brain-cog)/,
     blurb:
       "The bots, the brain wired to a circuit and turning a cog, the sparkles and everything they mark as AI.",
   },
@@ -74,8 +74,9 @@ export const CATEGORIES = [
     // stay in Mail by name; `corner-up-left` and `corner-up-right` are aliases.
     // `square-arrow-in-` joined on 27 Sep 2026: an arrow entering a square
     // through its corner, filed beside the dashed-panel arrows rather than under
-    // Shapes, where its first word would otherwise send it.
-    match: /^(arrow|bracket-arrow|expand|refresh|rotate|corner-|move$|square-arrow-in-)/,
+    // Shapes, where its first word would otherwise send it. `square-arrow-out-`
+    // joined on 1 Oct 2026 (1.5.0): the same square left by the same arrow.
+    match: /^(arrow|bracket-arrow|expand|refresh|rotate|corner-|move$|square-arrow-in-|square-arrow-out-)/,
     blurb:
       "Direction, movement and resizing, with the brackets, u-turns, corner turns and dashed panels.",
   },
@@ -104,8 +105,12 @@ export const CATEGORIES = [
     // and is claimed by Web below, which this category is evaluated before.
     // `newspaper` joined on 28 Sep 2026: a printed page beside the books, not the
     // media shelf's playback and capture. Anchored, so it takes its own name only.
-    match: /^(file|folder|copy|paperclip|bin|archive|book(?!mark)|pen(?!cil)|(square|circle)-pen|newspaper$)/,
-    blurb: "Documents, folders, books, a newspaper, copies, the paperclip and the bin.",
+    // The clipboards, `paste` and the floppy disk joined on 1 Oct 2026 (1.5.0):
+    // copy, paste and save are what is done to a document, so they sit with
+    // `copy` rather than among the actions. `save` is anchored on a hyphen or
+    // the end so a `savings-*` would not arrive through it.
+    match: /^(file|folder|copy|paperclip|bin|archive|book(?!mark)|pen(?!cil)|(square|circle)-pen|newspaper$|clipboard|paste$|save(-|$))/,
+    blurb: "Documents, folders, books, a newspaper, copies, clipboards, the floppy disk, the paperclip and the bin.",
   },
   {
     label: "Time",
@@ -160,9 +165,9 @@ export const CATEGORIES = [
     // and one name does not earn a row.
     label: "Commerce",
     match:
-      /^(shopping-|handbag|briefcase|receipt|tag|package|truck|gift|coupon|(badge-)?percent|store|shirt$|paper-bag$)/,
+      /^(shopping-|handbag|briefcase|receipt|tag|package|truck|gift|coupon|(badge-)?percent|store|shirt$|paper-bag$|container$)/,
     blurb:
-      "Carts, bags, a paper bag, receipts, shipping, the shopfront, a shirt, the tags and the discount marks.",
+      "Carts, bags, a paper bag, receipts, shipping and its container, the shopfront, a shirt, the tags and the discount marks.",
   },
   {
     // `flag` and `traffic-light` are both road furniture: a marker you plant
@@ -242,8 +247,8 @@ export const CATEGORIES = [
     // IS, and it is a desk device, not money. `usb` is a prefix, so `usb-drive`
     // and anything else on that port lands beside it.
     label: "Devices",
-    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse$|shredder$|gamepad$)/,
-    blurb: "Phones, tablets, laptops, handsets, printers, keyboards, servers, databases, terminals, code, processors, bugs, the app tiles, the QR code, the scan frame with what it reads, a watch, a hard drive, a cable, a headset visor, the app windows, a CCTV camera, a mouse, a shredder and a gamepad.",
+    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse$|shredder$|gamepad$|tv$)/,
+    blurb: "Phones, tablets, laptops, handsets, printers, keyboards, servers, databases, terminals, code, processors, bugs, the app tiles, the QR code, the scan frame with what it reads, a watch, a hard drive, a cable, a headset visor, the app windows, a CCTV camera, a mouse, a shredder, a gamepad and a television.",
   },
   {
     label: "Pointers",
@@ -275,8 +280,11 @@ export const CATEGORIES = [
     // `table(-|$)` is anchored so it can never take `tablet-*`, which Devices
     // claims first today but would not if the rows were ever reordered. The
     // hyphen lets the table's own edits in (1.2.0: rows, columns, cells, pivot).
-    match: /^(panel|layout|layers|grid|table(-|$)|list|align|menu|maximize|minimize|fullscreen)/,
-    blurb: "Panels, layers, grids, tables and their row, column and cell edits, lists, alignment, the menu marks and the fullscreen corners.",
+    // 1.5.0 added the columns, the blocks and the flips: blocks are the page's
+    // own building pieces beside the grids, and a flip mirrors an object the way
+    // `align-*` moves one.
+    match: /^(panel|layout|layers|grid|table(-|$)|list|align|menu|maximize|minimize|fullscreen|columns-|blocks(-|$)|flip-)/,
+    blurb: "Panels, layers, grids, blocks, columns, tables and their row, column and cell edits, lists, alignment, the flips, the menu marks and the fullscreen corners.",
   },
   {
     label: "Users",
@@ -389,8 +397,10 @@ export const CATEGORIES = [
     // name leads with its game, so the game is the prefix: a golf ball or a
     // tennis racket lands here without another edit.
     label: "Sport",
-    match: /^(trophy|award|podium|medal|crown|flag-chequered|american-football|baseball|basketball|cricket|golf|hockey|soccer|tennis)/,
-    blurb: "Trophies, awards, crowns and the places on the podium, the balls of five games, a cricket bat, hockey sticks and a golf hole.",
+    // `target` joined on 1 Oct 2026 (1.5.0): the archer's and the darts player's
+    // board, a goal hit, beside the trophies. Anchored, so it takes its own name.
+    match: /^(trophy|award|podium|medal|crown|flag-chequered|american-football|baseball|basketball|cricket|golf|hockey|soccer|tennis|target$)/,
+    blurb: "Trophies, awards, crowns and the places on the podium, the balls of five games, a cricket bat, hockey sticks, a golf hole and a target.",
   },
   {
     // The four of them are the objects, not the act of eating: a mug, a cake, a
@@ -408,9 +418,11 @@ export const CATEGORIES = [
     // The bare `wand` joined on 22 Sep 2026 (Zafar): it is the design app's
     // magic tool, beside the brush and the palette, not an AI mark. The
     // sparkles are what say AI, so `wand-sparkles` stays on that shelf.
+    // `frame` joined on 1 Oct 2026 (1.5.0): the design app's frame tool, beside
+    // its magic wand. Anchored, so `frame-*` is filed on purpose.
     label: "Art",
-    match: /^(paint|palette|easel|swatch-book$|wand$)/,
-    blurb: "The brush, the roller, the palette, the swatch book, the easel and the magic wand.",
+    match: /^(paint|palette|easel|swatch-book$|wand$|frame$)/,
+    blurb: "The brush, the roller, the palette, the swatch book, the easel, the magic wand and the frame tool.",
   },
   {
     // The shelf follows what the thing is, not what the drawing is made of: a
@@ -441,8 +453,8 @@ export const CATEGORIES = [
   {
     label: "Shapes",
     match:
-      /^(circle|square|triangle|shapes|dashed|dice|flower|full|half|quarter|three-quarter)/,
-    blurb: "Squares, circles, dashes and the progress states drawn from them.",
+      /^(circle|square|triangle|shapes|dashed|dice|flower|full|half|quarter|three-quarter|hexagon)/,
+    blurb: "Squares, circles, hexagons, dashes and the progress states drawn from them.",
   },
   {
     // `wifi` is here rather than in Charts beside `signal`, which is the sibling
@@ -455,10 +467,11 @@ export const CATEGORIES = [
     // follows: the sign is inside the cloud, so they read as the state of a
     // sync, and the person looking for one is looking where `globe-check` and
     // `wifi-x` are. `cloud` and `cloud-rain` stay weather. `cloud-terminal` is a
-    // shell run in the cloud, not a sky, so it joins its badged siblings.
+    // shell run in the cloud, not a sky, so it joins its badged siblings, and the
+    // upload and download (1.5.0) are a sync in either direction.
     label: "Web",
     match:
-      /^(globe|link|unlink|share|navigation|home|search|settings|bookmark|wifi|cloud-(?:check|x|plus|minus|alert|dot|off|arrow|backup|cog|terminal)|earth$)/,
+      /^(globe|link|unlink|share|navigation|home|search|settings|bookmark|wifi|cloud-(?:check|x|plus|minus|alert|dot|off|arrow|backup|cog|terminal|download|upload)|earth$)/,
     blurb: "Globes and the earth, links, connectivity, sync states and web-scoped actions.",
   },
   {

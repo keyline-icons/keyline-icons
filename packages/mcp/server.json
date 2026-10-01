@@ -3,7 +3,7 @@
   "name": "com.keylineicons/mcp",
   "title": "Keyline Icons",
   "description": "Search Keyline Icons by name and get any icon's SVG source or React import. No key, no network.",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "websiteUrl": "https://keylineicons.com",
   "repository": {
     "url": "https://github.com/keyline-icons/keyline-icons",
@@ -27,7 +27,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@keyline-icons/mcp",
-      "version": "1.4.1",
+      "version": "1.5.0",
       "transport": {
         "type": "stdio"
       }
