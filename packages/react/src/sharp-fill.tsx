@@ -1342,6 +1342,14 @@ export function BotCircle(props: IconProps) {
   )
 }
 
+export function BotCloud(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M6 20L18 20C20.6233 20 23 17.6233 23 15C23 12.6937 21.163 10.578 18.9365 10.1004C18.4644 6.7612 15.4245 4 12 4C8.5755 4 5.5356 6.7612 5.0635 10.1004C2.837 10.578 1 12.6937 1 15C1 17.6233 3.3767 20 6 20ZM8.882 10.9042L10.8591 10.6028L11.5701 15.2671L9.593 15.5685L8.882 10.9042ZM12.8363 10.3014L14.8134 10L15.5244 14.6643L13.5473 14.9657L12.8363 10.3014Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+    </Icon>
+  )
+}
+
 export function BotDroplet(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
@@ -1354,6 +1362,14 @@ export function BotHeart(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
       <path d="M11.3505 21.7604C6.8469 17.9139 1 14.3082 1 8.75C1 5.1476 4.2844 2 8 2C9.4261 2 10.8308 2.479 12 3.2568C13.1692 2.479 14.5739 2 16 2C19.7156 2 23 5.1476 23 8.75C23 14.3082 17.1531 17.9139 12.6495 21.7604C12.2754 22.0799 11.7246 22.0799 11.3505 21.7604ZM10.882 7.9042L11.593 12.5685L13.5701 12.2671L12.8591 7.6028ZM14.8363 7.3014L15.5473 11.9657L17.5244 11.6643L16.8134 7Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+    </Icon>
+  )
+}
+
+export function BotMessage(props: IconProps) {
+  return (
+    <Icon fill="none" {...props}>
+      <path d="M9.7234 19.8057L5.4389 21.8985C4.8104 22.2055 4.0689 21.7889 4.0043 21.0924L3.6081 16.825C1.9807 15.2413 1 13.081 1 11C1 6.1011 6.1264 2 12 2C17.8736 2 23 6.1011 23 11C23 15.8989 17.8736 20 12 20C11.2503 20 10.4661 19.9328 9.7234 19.8057ZM9.882 7.9042L10.593 12.5685L12.5701 12.2671L11.8591 7.6028ZM13.8363 7.3014L14.5473 11.9657L16.5244 11.6643L15.8134 7Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
     </Icon>
   )
 }
@@ -10785,8 +10801,10 @@ export {
   BookmarkPlus as BookmarkPlusIcon,
   Bookmark as BookmarkIcon,
   BotCircle as BotCircleIcon,
+  BotCloud as BotCloudIcon,
   BotDroplet as BotDropletIcon,
   BotHeart as BotHeartIcon,
+  BotMessage as BotMessageIcon,
   BotOff as BotOffIcon,
   BotSquare as BotSquareIcon,
   BotStar as BotStarIcon,

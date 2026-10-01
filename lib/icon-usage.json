@@ -925,6 +925,8 @@
     "bot-heart": "A heart-shaped bot face, for friendly assistants, care and wellbeing agents.",
     "bot-droplet": "A droplet-shaped bot face, for utility, cleaning and weather agents.",
     "bot-star": "A star-shaped bot face, for featured agents, favourites and rewards assistants.",
+    "bot-message": "A speech bubble with a bot's face, for chatbots, AI chat and assistant replies.",
+    "bot-cloud": "A cloud with a bot's face, for cloud assistants, hosted agents and sync helpers.",
     "activity-sparkles": "A pulse line with sparkles, for AI health insights, anomaly alerts and smart monitoring.",
     "app-window-sparkles": "An app window with sparkles, for AI apps, generated interfaces and smart workspaces.",
     "audio-lines-sparkles": "Audio bars with sparkles, for AI voice, generated audio and speech synthesis.",

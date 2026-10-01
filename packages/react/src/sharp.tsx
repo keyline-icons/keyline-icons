@@ -1317,6 +1317,15 @@ export function BotCircle(props: IconProps) {
   )
 }
 
+export function BotCloud(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M6 19L18 19C20.2091 19 22 17.2091 22 15C22 12.7909 20.2091 11 18 11C18 7.6863 15.3137 5 12 5C8.6863 5 6 7.6863 6 11C3.7909 11 2 12.7909 2 15C2 17.2091 3.7909 19 6 19Z" />
+      <path d="M9.8705 10.7535L10.5816 15.4178M13.8248 10.1507L14.5359 14.815" />
+    </Icon>
+  )
+}
+
 export function BotDroplet(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -1331,6 +1340,15 @@ export function BotHeart(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M12 21C7.4376 17.1033 2 13.75 2 8.75C2 5.5743 4.6862 3 8 3C9.5 3 10.8426 3.5459 12 4.5C13.1574 3.5459 14.5 3 16 3C19.3138 3 22 5.5743 22 8.75C22 13.75 16.5624 17.1033 12 21Z" />
       <path d="M11.8705 7.7535L12.5816 12.4178M15.8248 7.1507L16.5359 11.815" />
+    </Icon>
+  )
+}
+
+export function BotMessage(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M9.5808 18.7624L5 21L4.5686 16.353C2.915 14.8839 2 12.9769 2 11C2 6.5817 6.4772 3 12 3C17.5228 3 22 6.5817 22 11C22 15.4183 17.5228 19 12 19C11.1845 19 10.3721 18.9202 9.5808 18.7624Z" />
+      <path d="M10.8705 7.7535L11.5816 12.4178M14.8248 7.1507L15.5359 11.815" />
     </Icon>
   )
 }
@@ -10512,8 +10530,10 @@ export {
   BookmarkPlus as BookmarkPlusIcon,
   Bookmark as BookmarkIcon,
   BotCircle as BotCircleIcon,
+  BotCloud as BotCloudIcon,
   BotDroplet as BotDropletIcon,
   BotHeart as BotHeartIcon,
+  BotMessage as BotMessageIcon,
   BotOff as BotOffIcon,
   BotSquare as BotSquareIcon,
   BotStar as BotStarIcon,

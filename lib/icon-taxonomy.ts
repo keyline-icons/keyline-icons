@@ -63,7 +63,7 @@ export const CATEGORIES = [
   // which is why this is anchored on the two names rather than on `brain`.
   {
     label: "AI",
-    match: /(^|-)sparkles?$|^(bot(-off|-circle|-square|-heart|-droplet|-star)?$|brain-circuit|brain-cog)/,
+    match: /(^|-)sparkles?$|^(bot(-off|-circle|-square|-heart|-droplet|-star|-message|-cloud)?$|brain-circuit|brain-cog)/,
     blurb:
       "The bots, the brain wired to a circuit and turning a cog, the sparkles and everything they mark as AI.",
   },

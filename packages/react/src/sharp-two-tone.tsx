@@ -1450,6 +1450,16 @@ export function BotCircle(props: IconProps) {
   )
 }
 
+export function BotCloud(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M6 20L18 20C20.6233 20 23 17.6233 23 15C23 12.6937 21.163 10.578 18.9365 10.1004C18.4644 6.7612 15.4245 4 12 4C8.5755 4 5.5356 6.7612 5.0635 10.1004C2.837 10.578 1 12.6937 1 15C1 17.6233 3.3767 20 6 20Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M6 19L18 19C20.2091 19 22 17.2091 22 15C22 12.7909 20.2091 11 18 11C18 7.6863 15.3137 5 12 5C8.6863 5 6 7.6863 6 11C3.7909 11 2 12.7909 2 15C2 17.2091 3.7909 19 6 19Z" />
+      <path d="M9.8705 10.7535L10.5816 15.4178M13.8248 10.1507L14.5359 14.815" />
+    </Icon>
+  )
+}
+
 export function BotDroplet(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -1466,6 +1476,16 @@ export function BotHeart(props: IconProps) {
       <path d="M11.3505 21.7604C6.8469 17.9139 1 14.3082 1 8.75C1 5.1476 4.2844 2 8 2C9.4261 2 10.8308 2.479 12 3.2568C13.1692 2.479 14.5739 2 16 2C19.7156 2 23 5.1476 23 8.75C23 14.3082 17.1531 17.9139 12.6495 21.7604C12.2754 22.0799 11.7246 22.0799 11.3505 21.7604Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <path d="M12 21C7.4376 17.1033 2 13.75 2 8.75C2 5.5743 4.6862 3 8 3C9.5 3 10.8426 3.5459 12 4.5C13.1574 3.5459 14.5 3 16 3C19.3138 3 22 5.5743 22 8.75C22 13.75 16.5624 17.1033 12 21Z" />
       <path d="M11.8705 7.7535L12.5816 12.4178M15.8248 7.1507L16.5359 11.815" />
+    </Icon>
+  )
+}
+
+export function BotMessage(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M9.7234 19.8057L5.4389 21.8985C4.8104 22.2055 4.0689 21.7889 4.0043 21.0924L3.6081 16.825C1.9807 15.2413 1 13.081 1 11C1 6.1011 6.1264 2 12 2C17.8736 2 23 6.1011 23 11C23 15.8989 17.8736 20 12 20C11.2503 20 10.4661 19.9328 9.7234 19.8057Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M9.5808 18.7624L5 21L4.5686 16.353C2.915 14.8839 2 12.9769 2 11C2 6.5817 6.4772 3 12 3C17.5228 3 22 6.5817 22 11C22 15.4183 17.5228 19 12 19C11.1845 19 10.3721 18.9202 9.5808 18.7624Z" />
+      <path d="M10.8705 7.7535L11.5816 12.4178M14.8248 7.1507L15.5359 11.815" />
     </Icon>
   )
 }
@@ -11696,8 +11716,10 @@ export {
   BookmarkPlus as BookmarkPlusIcon,
   Bookmark as BookmarkIcon,
   BotCircle as BotCircleIcon,
+  BotCloud as BotCloudIcon,
   BotDroplet as BotDropletIcon,
   BotHeart as BotHeartIcon,
+  BotMessage as BotMessageIcon,
   BotOff as BotOffIcon,
   BotSquare as BotSquareIcon,
   BotStar as BotStarIcon,

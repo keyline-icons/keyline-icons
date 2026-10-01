@@ -1,4 +1,4 @@
-// The bot family of 1.5.0: bot-circle's face in four more bodies, all four
+// The bot family of 1.5.0: bot-circle's face in six more bodies, all four
 // styles in both corners, 1 Oct 2026.
 //
 // The face is bot-circle's (his drawing, shipped as bot-2 and renamed with this
@@ -8,6 +8,9 @@
 // 1.62 is his and stays). Sharp gives the eyes butt caps run out by the cap cut,
 // (1 - sin t) / cos t = 0.8591, exactly as bot-circle's sharp half does.
 //
+//   bot-cloud    `cloud` verbatim, the face down in its body (the lobes bind), 2.00
+//   bot-message  `message` verbatim, the round bubble: a chatbot without a word
+//                of explanation. Face one unit down and left, 2.42
 //   bot-square   `square` verbatim, the eyes where bot-circle has them: the top
 //                wall is the tight side, 2.00
 //   bot-heart    `heart` verbatim, the face one unit down (the cleft binds), 2.10
@@ -36,14 +39,16 @@
 // every edge grown by 1 for the two drawn here (a tip's arc keeps its centre,
 // a valley's concave arc closes to its centre).
 //
-// Tried and dropped (his calls, 1 Oct 2026): bot-triangle (`triangle-alert`'s
+// Tried and dropped (his calls, 1 Oct 2026): an octagon (a square with clipped
+// corners at 16px, beside bot-square), a square bubble, a shield (beside
+// shield-user), a badge and a monitor; bot-triangle (`triangle-alert`'s
 // outline read as a warning sign with eyes, and no true-point triangle in the
 // box clears the face by 2: 1.40 at best) and bot-briefcase (luggage with eyes).
 // Brows were tried on all of them: with 2 between brow and eye they fit only the
 // circle and the square, and only by dropping the face to the middle, which
 // loses the glance; at 16px they read as noise.
 //
-//   node tools/bots/build.mjs [--out=<dir>]     writes raw/<name>/ for all four (default: this checkout)
+//   node tools/bots/build.mjs [--out=<dir>]     writes raw/<name>/ for all six (default: this checkout)
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { arcTo, fillet, pt, add, mul } from '../v5/geom.mjs';
@@ -170,9 +175,29 @@ function footprint([a, b], round) {
   return `M${q(a, 1, 0)}L${q(b, 1, 0)}C${q(b, 1, K)} ${q(b, K, 1)} ${q(b, 0, 1)}C${q(b, -K, 1)} ${q(b, -1, K)} ${q(b, -1, 0)}L${q(a, -1, 0)}C${q(a, -1, -K)} ${q(a, -K, -1)} ${q(a, 0, -1)}C${q(a, K, -1)} ${q(a, 1, -K)} ${q(a, 1, 0)}Z`;
 }
 
+// A knockout wound against its plate, so evenodd and nonzero agree: the
+// footprints come out one way round, and `cloud`'s plate runs the same way.
+const signedArea = (d) => { const pts = outlines(d, 32)[0]; return pts.reduce((a, p, i) => { const q = pts[(i + 1) % pts.length]; return a + p[0] * q[1] - q[0] * p[1]; }, 0) / 2; };
+function reverseD(d) {
+  const tok = d.match(/[MLCZ]|-?\d*\.?\d+/g), segs = [];
+  let i = 0, cmd, cur, start;
+  const n = () => +tok[i++];
+  while (i < tok.length) {
+    if (/^[MLCZ]$/.test(tok[i])) cmd = tok[i++];
+    if (cmd === 'M') { cur = [n(), n()]; start = cur; cmd = 'L'; }
+    else if (cmd === 'L') { const p = [n(), n()]; segs.push({ k: 'L', a: cur, b: p }); cur = p; }
+    else if (cmd === 'C') { const c1 = [n(), n()], c2 = [n(), n()], p = [n(), n()]; segs.push({ k: 'C', a: cur, c1, c2, b: p }); cur = p; }
+    else if (cmd === 'Z') { if (Math.hypot(cur[0] - start[0], cur[1] - start[1]) > 1e-9) segs.push({ k: 'L', a: cur, b: start }); cur = start; cmd = null; }
+  }
+  const r = segs.reverse(), q = (p) => `${f(p[0])} ${f(p[1])}`;
+  return `M${q(r[0].b)}` + r.map((g) => (g.k === 'L' ? `L${q(g.a)}` : `C${q(g.c2)} ${q(g.c1)} ${q(g.a)}`)).join('') + 'Z';
+}
+
 /* ---------------------------------------------------------------- members */
 const STAR = star();
 const BODY = {
+  'bot-cloud': { T: [-2, 4], body: (c) => ({ line: outlineOf('cloud', c), plate: plateOf('cloud', c), join: 'round' }) },
+  'bot-message': { T: [-1, 1], body: (c) => ({ line: outlineOf('message', c), plate: plateOf('message', c), join: 'round' }) },
   'bot-square': { T: [0, 0], body: (c) => ({ line: outlineOf('square', c), plate: plateOf('square', c), join: 'round' }) },
   'bot-heart': { T: [0, 1], body: (c) => ({ line: outlineOf('heart', c), plate: plateOf('heart', c), join: 'round' }) },
   'bot-droplet': {
@@ -195,7 +220,7 @@ for (const [name, m] of Object.entries(BODY)) {
     const b = m.body(corners);
     const segs = faceSegs(m.T, sharp);
     const eyes = lineD(segs);
-    const holes = segs.map((s) => footprint(s, !sharp)).join('');
+    const holes = segs.map((s) => { const h = footprint(s, !sharp); return Math.sign(signedArea(h)) === Math.sign(signedArea(b.plate)) ? reverseD(h) : h; }).join('');
     const files = {
       stroke: HEAD + st(b.line, sharp, b.join) + st(eyes, sharp),
       'two-tone': HEAD + `<path d="${b.plate}" fill="black" fill-opacity="0.4"/>\n` + st(b.line, sharp, b.join) + st(eyes, sharp),
