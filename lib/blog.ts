@@ -5213,7 +5213,356 @@ const RELEASE_1_4_0: BlogPost = {
   ],
 }
 
+export const BLOG_V150_THUMBNAIL_ICON_NAMES = [
+  "bot-heart",
+  "clipboard-check",
+  "save",
+  "shield-user",
+  "square-arrow-out-up-right",
+  "bot-star",
+  "blocks",
+  "flip-horizontal",
+  "cloud-upload",
+  "target",
+  "tv",
+  "container",
+  "frame",
+  "hexagons",
+  "columns-3",
+  "paste",
+  "clipboard-code",
+  "clipboard-terminal",
+  "save-plus",
+  "save-off",
+  "shield-lock",
+  "shield-alert",
+  "shield-question",
+  "shield-heart",
+  "bot-square",
+  "bot-droplet",
+  "bot-message",
+  "bot-cloud",
+  "bot-circle",
+  "blocks-2",
+  "flip-vertical",
+  "cloud-download",
+  "star-off",
+  "archive-x",
+  "file-alert",
+  "file-chart-column",
+  "message-question",
+  "arrow-left-right",
+  "clipboard-list",
+  "clipboard-x",
+] as const
+
+export const BLOG_V150_HERO_ICON_NAMES = [
+  "bot-heart",
+  "clipboard-check",
+  "save-plus",
+  "shield-user",
+  "blocks",
+  "flip-horizontal",
+  "cloud-upload",
+  "square-arrow-out-up-right",
+] as const
+
+/** The nineteen shadcn/create names the set had no drawing for, then the six drawn beside them. */
+export const BLOG_V150_CREATE_ICON_NAMES = [
+  "clipboard",
+  "clipboard-paste",
+  "save",
+  "frame",
+  "columns-3",
+  "target",
+  "star-off",
+  "archive-x",
+  "file-alert",
+  "file-chart-column",
+  "message-question",
+  "tv",
+  "container",
+  "blocks",
+  "flip-horizontal",
+  "flip-vertical",
+  "square-arrow-out-up-right",
+  "cloud-upload",
+  "arrow-left-right",
+  "blocks-2",
+  "hexagons",
+  "cloud-download",
+  "square-arrow-out-up-left",
+  "square-arrow-out-down-right",
+  "square-arrow-out-down-left",
+] as const
+
+export const BLOG_V150_SIGN_ICON_NAMES = [
+  "clipboard",
+  "clipboard-check",
+  "clipboard-code",
+  "clipboard-copy",
+  "paste",
+  "save",
+  "save-plus",
+  "save-off",
+] as const
+
+export const BLOG_V150_BOT_ICON_NAMES = [
+  "bot-circle",
+  "bot-square",
+  "bot-heart",
+  "bot-droplet",
+  "bot-star",
+  "bot-message",
+  "bot-cloud",
+] as const
+
+export const BLOG_V150_SHIELD_ICON_NAMES = [
+  "shield-check",
+  "shield-alert",
+  "shield-question",
+  "shield-lock",
+  "shield-user",
+  "shield-heart",
+  "shield-off",
+] as const
+
+const RELEASE_1_5_0: BlogPost = {
+  /* The count, "free", "shadcn/ui" and the four things a search types for;
+     the shadcn/create story is an h2 inside. The slug names the drawings, not
+     the version, so it survives a renumbering. */
+  slug: "bot-clipboard-save-and-shield-icons",
+  version: "1.5.0",
+  title: "53 free shadcn/ui icons for bots, clipboards, save and shields",
+  description:
+    "1,286 free, MIT-licensed SVG icons for React and shadcn/ui. New: bots " +
+    "in six shapes, six shields, and clipboards and floppy disks with their " +
+    "signs.",
+  standfirst: "A list of 182 icons, and nineteen still to draw.",
+  date: "2026-10-01",
+  updated: "2026-10-01",
+  readingMinutes: 4,
+  thumbnail: BLOG_V150_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "bot icon",
+    "chatbot icon",
+    "ai bot icons",
+    "shield icons",
+    "security icons",
+    "clipboard icon",
+    "clipboard check icon",
+    "paste icon",
+    "save icon",
+    "floppy disk icon",
+    "external link icon",
+    "cloud upload icon",
+    "cloud download icon",
+    "flip icon",
+    "blocks icon",
+    "target icon",
+    "tv icon",
+    "shipping container icon",
+    "shadcn/create icons",
+    "free svg icons",
+    "shadcn/ui icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "Fifty-three icons are new. Forty-one of them grew out of one list: the " +
+        "icons shadcn/create uses in its previews. Nineteen of those had no " +
+        "drawing here yet, and most of them brought a family along. The " +
+        "clipboard comes with eleven signs, the floppy disk with five, and the " +
+        "arrow leaving a square points out of all four corners.",
+    },
+    {
+      kind: "p",
+      text:
+        "The other twelve are bots and shields. `bot-2` is `bot-circle` now, " +
+        "the round one of seven bots that share one face. And the shield " +
+        "gains six signs.",
+    },
+    {
+      kind: "p",
+      text:
+        "That makes 1,286 icons. Each one comes in stroke, two-tone, duotone " +
+        "and fill, with rounded or sharp corners: 10,288 SVGs in all.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V150_HERO_ICON_NAMES,
+        caption: "Eight of the fifty-three, one style to a row.",
+      },
+    },
+
+    { kind: "h2", text: "What shadcn/create was missing", id: "create" },
+    {
+      kind: "p",
+      text:
+        "shadcn/create is where a new shadcn/ui project picks its style, its " +
+        "colours and its icon library. The previews it builds use 182 icons, " +
+        "and each one is written down once for every library on offer, under " +
+        "that library's own name.",
+    },
+    {
+      kind: "p",
+      text:
+        "Checked against that list, 163 were already here. Most have the same " +
+        "name, and the rest go by one of their own: the lock with a keyhole " +
+        "is plain `lock`, and the settings sliders are " +
+        "`sliders-2-horizontal`. Nineteen had no drawing at all. Those are " +
+        "the ones drawn now.",
+    },
+    {
+      kind: "p",
+      text:
+        "Some are everyday controls: `save`, `clipboard`, `frame`, " +
+        "`columns-3`, `target` and `star-off`. Some are objects: a " +
+        "television, a shipping container and a set of `blocks`, four squares " +
+        "with one lifted out of its corner. The two flips are a pair of " +
+        "triangles facing each other across a dashed line, side to side and " +
+        "top to bottom. `square-arrow-out-up-right` is the external link, an " +
+        "arrow leaving a square through the corner it opens, and it now " +
+        "leaves through the other three corners too. `cloud-upload` came with " +
+        "`cloud-download`, and the blocks with a pyramid of three and a " +
+        "cluster of `hexagons`.",
+    },
+    {
+      kind: "p",
+      text:
+        "Search had to know the list as well. A name from it now opens on the " +
+        "drawing it means, even where this set spells it differently: " +
+        "`external-link` opens on `square-arrow-out-up-right`, `log-out` on " +
+        "`bracket-arrow-left` and `loader-2` on `loader-circle`. It works the " +
+        "same on the site, in the MCP server, the CLI and the Figma plugin.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V150_CREATE_ICON_NAMES,
+        caption: "The nineteen, then six drawn beside them.",
+      },
+    },
+
+    { kind: "h2", text: "Signs on the board", id: "signs" },
+    {
+      kind: "p",
+      text:
+        "The clipboard takes its signs the way the money bag does, in the " +
+        "middle rather than in a corner cut away for them. It is a board for " +
+        "writing on, so the sign sits where the writing would be.",
+    },
+    {
+      kind: "p",
+      text:
+        "That gives `clipboard-check`, `clipboard-plus`, `clipboard-minus` " +
+        "and `clipboard-x`, then an alert, a list, code, a prompt and a T for " +
+        "text. An arrow on the board is copy or paste. And `paste` on its own " +
+        "is the clipboard with a page held in front of it.",
+    },
+    {
+      kind: "p",
+      text:
+        "The floppy disk is `save`, still the picture almost every app uses " +
+        "for it, long after the disk itself went away. Its tick, plus, minus " +
+        "and cross take the place of the round hub, so the disk keeps its " +
+        "outline. With a slash through it, the shutter along the " +
+        "top is left out, since all it would leave is a stray piece beside " +
+        "the slash.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V150_SIGN_ICON_NAMES,
+        caption:
+          "Four clipboards, `paste`, and the floppy disk plain, with a plus " +
+          "and struck through.",
+      },
+    },
+
+    { kind: "h2", text: "Seven bots and six shields", id: "bots" },
+    {
+      kind: "p",
+      text:
+        "`bot-circle` is the bot that shipped as `bot-2`: a round head and " +
+        "two short eyes, tilted a little so they glance up and to the right. " +
+        "With six more around it, the round one is named for its shape. The " +
+        "old name keeps working, in search and as `Bot2` and `Bot2Icon` in " +
+        "React.",
+    },
+    {
+      kind: "p",
+      text:
+        "The face is the same drawing in every one, only moved: into a " +
+        "square, a heart, a droplet, a star, the round speech bubble of " +
+        "`message` and the body of `cloud`. Turned a little, the way " +
+        "`star-shooting` is, the star comes out exactly as wide as it is " +
+        "tall. `bot-message` is the one " +
+        "for a chatbot: a face in a speech bubble, where people already look " +
+        "for help.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V150_BOT_ICON_NAMES,
+        caption: "All seven bots, from stroke down to fill.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The shield had a tick, a plus, a minus and a cross, and a key, a " +
+        "prompt and sparkles. Six more join them: an alert, a question mark, " +
+        "a padlock, a person, a heart, and a slash for a shield that is " +
+        "switched off. The alert, the question mark, the person and the heart " +
+        "are the ones the set already draws inside a circle or a map pin, so " +
+        "they read the same in a shield. The person's shoulders run down into " +
+        "the bottom of the shield, the way they run into the ring of " +
+        "`circle-user`. The padlock is drawn small enough to leave room " +
+        "around it.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V150_SHIELD_ICON_NAMES,
+        caption: "`shield-check` beside the six new ones.",
+      },
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text:
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui " +
+        "registry, the CLI, the MCP server, and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
+  RELEASE_1_5_0,
   RELEASE_1_4_0,
   RELEASE_1_3_0,
   RELEASE_1_2_0,
