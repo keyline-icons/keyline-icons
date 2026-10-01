@@ -1,6 +1,147 @@
 {
  "$comment": "SOURCE, NOT GENERATED. How a release reads on the changelog, shaped after Preline's (Zafar, 17 Sep 2026, pointing at preline.co/docs/changelog.html): a title, then chips (an icon and a label, like Preline's \"New Components & Improvements\" and \"Fixes and Improvements\"), each followed by its items with a bold lead (\"People:\", \"Layout:\") and the drawings the item is about. His asks on the way: \"topic > icons, topic > icons. not all topics first and then all icons after that\", \"categorize them, not just text > icons. titles, etc.\", \"redrawns deserve to be a separate topic, not within a topic and each subtitle must carry shareable link like the main titles\". So redraws are always their own chip. Per version: `title` (the release's headline, which every version has, released ones included, because the page heads each entry by it) and optionally `sections`: chips with `title`, `icon` (a drawing from this set, by name) or `logo` (a platform's own mark, for a chip about that platform, where a drawing of ours would stand in for someone else's trademark: `react`, drawn from components/brand-logos.tsx), `text`, and items in `sections` with `title`, `text`, `names` (added) or `redraws`. A version with no `sections` is drawn with default chips, New drawings and Redrawn, straight off git. pipeline/build-history.mjs gives every chip and item an `anchor` (v<version>-<chip>, v<version>-<chip>-<item>) that the site links, keeps only the drawings the entry carries, and appends anything no item claims in a last untitled group, reported, so a stale list never drops a drawing. Keyed by the version the work ships as, so nothing is re-keyed at the tag. Numbers go in as {names} and {files}. Anything in backticks is set as code, on the page and the Paper board both, the way a post sets an icon name. Where a version has sections they replace the note.",
  "releases": {
+  "1.5.0": {
+   "title": "A bot family, six shields, and clipboards and floppy disks with their signs",
+   "sections": [
+    {
+     "title": "New drawings",
+     "icon": "sparkles",
+     "sections": [
+      {
+       "title": "Actions",
+       "text": "Six more signs inside the shield: an alert, a question mark, a padlock, a person, a heart, and a slash for a shield that is switched off. And the star struck through, for taking something out of favourites.",
+       "names": [
+        "shield-alert",
+        "shield-question",
+        "shield-lock",
+        "shield-user",
+        "shield-heart",
+        "shield-off",
+        "star-off"
+       ]
+      },
+      {
+       "title": "AI",
+       "text": "`bot-2` is `bot-circle` now, and the old name still works. Its face, two short eyes glancing up and to the right, moves into six more shapes: a square, a heart, a droplet, a star, a speech bubble and a cloud.",
+       "names": [
+        "bot-square",
+        "bot-heart",
+        "bot-droplet",
+        "bot-star",
+        "bot-message",
+        "bot-cloud"
+       ]
+      },
+      {
+       "title": "Arrows",
+       "text": "An arrow leaving a square through the corner it opens, in four directions, for links that open somewhere else. They mirror the arrows that come into a square. And `arrow-right-left` the other way up, with left on top.",
+       "names": [
+        "square-arrow-out-up-right",
+        "square-arrow-out-up-left",
+        "square-arrow-out-down-right",
+        "square-arrow-out-down-left",
+        "arrow-left-right"
+       ]
+      },
+      {
+       "title": "Art",
+       "text": "A frame of four lines that cross at the corners, for frames, artboards and cropping.",
+       "names": [
+        "frame"
+       ]
+      },
+      {
+       "title": "Commerce",
+       "text": "A shipping container, seen from the corner so its ribbed side and one end both show.",
+       "names": [
+        "container"
+       ]
+      },
+      {
+       "title": "Devices",
+       "text": "A television with its antenna.",
+       "names": [
+        "tv"
+       ]
+      },
+      {
+       "title": "Files",
+       "text": "The clipboard, empty and with a sign in the middle of the board: a tick, a plus, a minus, a cross, an alert, a list, code, a prompt and a T for text. Two more carry an arrow, for copy and paste, and `paste` holds a page in front of the clipboard. The floppy disk for save, with the tick, plus, minus and cross in place of its round hub, and struck through. And a file with an alert, a file with a column chart, and the archive box with a cross.",
+       "names": [
+        "clipboard",
+        "clipboard-check",
+        "clipboard-plus",
+        "clipboard-minus",
+        "clipboard-x",
+        "clipboard-alert",
+        "clipboard-list",
+        "clipboard-code",
+        "clipboard-terminal",
+        "clipboard-type",
+        "clipboard-copy",
+        "clipboard-paste",
+        "paste",
+        "save",
+        "save-check",
+        "save-plus",
+        "save-minus",
+        "save-x",
+        "save-off",
+        "file-alert",
+        "file-chart-column",
+        "archive-x"
+       ]
+      },
+      {
+       "title": "Layout",
+       "text": "Blocks: four squares with one lifted out of its corner, and three stacked into a pyramid. Three columns in a frame. And the two flips, a pair of triangles facing each other across a dashed line, side to side and top to bottom.",
+       "names": [
+        "blocks",
+        "blocks-2",
+        "columns-3",
+        "flip-horizontal",
+        "flip-vertical"
+       ]
+      },
+      {
+       "title": "Mail",
+       "text": "The round speech bubble with a question mark, for help and questions.",
+       "names": [
+        "message-question"
+       ]
+      },
+      {
+       "title": "Shapes",
+       "text": "Three hexagons, one on top of two.",
+       "names": [
+        "hexagons"
+       ]
+      },
+      {
+       "title": "Sport",
+       "text": "A target: two rings around a dot.",
+       "names": [
+        "target"
+       ]
+      },
+      {
+       "title": "Web",
+       "text": "A cloud with an arrow up inside it, for upload, and with an arrow down, for download.",
+       "names": [
+        "cloud-upload",
+        "cloud-download"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Search",
+     "icon": "search",
+     "text": "Search opens on the drawing a name asks for, on the site and in the MCP server, the CLI and the Figma plugin. The exact name comes first, then the drawing another set's name stands for: `log-out` opens on `bracket-arrow-left`, `loader-2` on `loader-circle` and `external-link` on `square-arrow-out-up-right`."
+    }
+   ]
+  },
   "1.4.1": {
    "title": "Every icon under the name shadcn/ui imports",
    "sections": [
