@@ -3,9 +3,9 @@
 // corner treatment; g15.mjs maps names onto them.
 import * as A from '../batch-1-4-0/la.mjs';
 import * as B from '../batch-1-4-0/bool.mjs';
-import { P, assert } from './lib15.mjs';
+import { P } from './lib15.mjs';
 
-const { Ls, As, dLA, offsetLA, verifyOffset, polyLA, rrectLA, toGeo, bandAny } = A;
+const { Ls, As, dLA, offsetLA, verifyOffset, polyLA, toGeo, bandAny } = A;
 export const S = (d) => ({ kind: 'stroke', d }), M = (d) => ({ kind: 'muted', d }), F = (d) => ({ kind: 'solid', d }), Pl = (d) => ({ kind: 'plate', d });
 export const geo = (segs) => [toGeo(segs)];
 export const grow = (segs, d = 1) => { const o = offsetLA(segs, d); verifyOffset(segs, o, d); return o; };
@@ -208,7 +208,6 @@ export const TV = { top: 8, bot: 21, ant: [[8, 3], [16, 3]] };
 export function tv(sharp, t = TV) {
   const r = sharp ? 0 : 3;
   const body = polyLA([[2, t.top], [22, t.top], [22, t.bot], [2, t.bot]], [r, r, r, r]);
-  const e = sharp ? 1 : 0;
   const apex = [12, t.top];
   const arm = (q) => { const v = [q[0] - apex[0], q[1] - apex[1]], L = Math.hypot(...v); return [q[0] + (v[0] / L) * extend(v), q[1] + (v[1] / L) * extend(v)]; };
   // sharp: a free end runs on (1 - sin t) / cos t along itself, t off the nearer axis (sharp.md, Free ends)
@@ -228,7 +227,8 @@ export function tv(sharp, t = TV) {
 // radar's centre bead (r 1.5). Fill: the outer ring's counter solid (a ring's counter is
 // not detail), the inner ring and the bead knocked out of it. Duotone: the disc grey, the
 // inner ring and the bead black.
-export function target(sharp) {
+// Rings and a bead have no corners, so both treatments draw the same target.
+export function target() {
   const ring = (r) => L_circle([12, 12], r);
   const bead = L_circle([12, 12], 1.5);
   const outer = A.circleLA([12, 12], 10), inner = A.circleLA([12, 12], 6);

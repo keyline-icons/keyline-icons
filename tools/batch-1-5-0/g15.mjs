@@ -19,15 +19,12 @@ const { rawD, rawLayers, absD, mirrorX, P, u, U3, SLASH, assert } = X;
 const S = (d) => ({ kind: 'stroke', d }), M = (d) => ({ kind: 'muted', d }), F = (d) => ({ kind: 'solid', d }), Pl = (d) => ({ kind: 'plate', d });
 const C = (s) => (s ? 'sharp' : 'regular');
 const dot = (c, r = 1) => L.circle(c, r);
-const runsOf = (d) => B.runFromD(d);
 /** Every listed subpath removed from d; each must be there. */
 function without(d, ...subs) {
   let out = d;
   for (const s of subs) { assert(out.includes(s), `subpath ${s} not in ${d.slice(0, 60)}`); out = out.replace(s, ''); }
   return out;
 }
-/** A closed-or-open run's painted band, as a d string (the fill knockout of a stroke). */
-const bandD = (d, sharp) => B.runFromD(d).map((r) => B.emitRun(B.band(r, sharp ? 'butt' : 'round'))).join('');
 
 /* ----------------------------------------------------------- arrow-left-right */
 // arrow-right-left mirrored across the vertical centre line: the upper arrow points left

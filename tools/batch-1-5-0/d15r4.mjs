@@ -5,11 +5,10 @@
 // octagons for hexagons (they cannot nest, so the top one floats).
 import * as A from '../batch-1-4-0/la.mjs';
 import * as B from '../batch-1-4-0/bool.mjs';
-import * as L from '../batch-1-4-0/lib.mjs';
 import * as X from './lib15.mjs';
 import * as D from './d15.mjs';
 
-const { Ls, As, polyLA, dLA } = A;
+const { Ls, As, polyLA } = A;
 const { S, M, F, Pl, E, geo, grow, open, closed } = D;
 const { assert, P } = X;
 const C = (sharp) => (sharp ? 'sharp' : 'regular');
