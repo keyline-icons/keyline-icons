@@ -5695,15 +5695,17 @@ export const BLOG_V160_REDRAWN_ICON_NAMES = [
 ] as const
 
 const RELEASE_1_6_0: BlogPost = {
-  /* The count, "free", "shadcn/ui" and what a search types for these: house,
-     user and settings icons. The slug names the drawings, not the version. */
+  /* The count, "free", "shadcn/ui", "React" and "Figma" (his ask, 4 Oct 2026),
+     and what a search types for these: house, user and settings icons. The
+     slug names the drawings, not the version. */
   slug: "house-user-and-settings-icons",
   version: "1.6.0",
-  title: "47 free shadcn/ui icons for houses, users, settings and arrows",
+  title:
+    "47 free shadcn/ui, React and Figma icons for houses, users, settings and arrows",
   description:
-    "1,332 free, MIT-licensed SVG icons for React and shadcn/ui. New: a " +
-    "second house with twelve variations, a person with nine symbols, and a " +
-    "cog for files, folders, databases and the globe.",
+    "1,332 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
+    "a second house with twelve variations, a person with nine symbols, and " +
+    "a cog for files, folders, databases and the globe.",
   standfirst: "Home has company.",
   date: "2026-10-04",
   updated: "2026-10-04",
@@ -5729,24 +5731,25 @@ const RELEASE_1_6_0: BlogPost = {
     "cloud icons",
     "free svg icons",
     "shadcn/ui icons",
+    "figma icons",
     "react icons",
   ],
   body: [
     {
       kind: "p",
       text:
-        "Forty-seven icons are new. Eighteen of them are houses: `house`, a " +
-        "second house to stand beside `home`, with twelve variations, and " +
-        "five more for `home` itself. Ten are people, a person with a symbol " +
-        "beside them nine ways over and an ID badge. The rest are cogs, " +
-        "arrows, two pairs of glasses and a handful of everyday objects.",
+        "Forty-seven icons are new. Eighteen are houses: `house`, a second " +
+        "house to sit next to `home`, with twelve variations, plus five " +
+        "more for `home` itself. Ten are people: a person with a symbol " +
+        "beside them, nine ways, and an ID badge. The rest are cogs, " +
+        "arrows, two pairs of glasses, and a few everyday objects.",
     },
     {
       kind: "p",
       text:
-        "Fourteen icons that already shipped were redrawn, most of them " +
-        "clouds. That makes 1,332 icons, each in stroke, two-tone, duotone " +
-        "and fill, with rounded or sharp corners: 10,656 SVGs in all.",
+        "Fourteen icons that already shipped were redrawn, mostly clouds. " +
+        "The set is now 1,332 icons, each in stroke, two-tone, duotone and " +
+        "fill, with rounded or sharp corners. That's 10,656 SVGs.",
     },
     {
       kind: "figure",
@@ -5761,27 +5764,28 @@ const RELEASE_1_6_0: BlogPost = {
     {
       kind: "p",
       text:
-        "`home` has a rounded peak and a square door, and it stays as it is. " +
-        "`house` is the other picture people reach for: a roof that reaches " +
-        "out past its walls, over an arched door.",
+        "`home` keeps its rounded peak and square door. `house` is the " +
+        "other one people usually reach for: a roof that sticks out past " +
+        "the walls, over an arched door.",
     },
     {
       kind: "p",
       text:
-        "It comes with a chimney, plain without a door, and as a pair. A " +
-        "tick, a cross, a plus or a lightning bolt sits at the top right, " +
-        "where the roof stops short to make room. A heart, a cog or a plug " +
-        "takes the place of the door, for favourites, settings and power. " +
-        "`house-wifi` holds a wireless signal, its dot resting in a gap in " +
-        "the floor, and `house-cast` sends one out from its lower corner. " +
-        "Together they cover most of what a smart home app needs to say.",
+        "It comes with a chimney, plain and without a door, and as a pair. " +
+        "A tick, a cross, a plus or a lightning bolt sits at the top " +
+        "right, where the roof stops short to leave room. A heart, a cog " +
+        "or a plug takes the place of the door, for favourites, settings " +
+        "and power. `house-wifi` holds a wireless signal, with the dot " +
+        "sitting in a gap in the floor. `house-cast` sends one out from " +
+        "its lower corner. Together they cover most of what a smart home " +
+        "app needs to say.",
     },
     {
       kind: "p",
       text:
-        "`home` gains a heart, a cross, a tick, a version without a door and " +
-        "a pair of its own, so either house can carry an app from start to " +
-        "finish.",
+        "`home` gets a heart, a cross, a tick, a version without a door, " +
+        "and a pair of its own, so either house can carry an app from " +
+        "start to finish.",
     },
     {
       kind: "figure",
@@ -5796,19 +5800,21 @@ const RELEASE_1_6_0: BlogPost = {
     {
       kind: "p",
       text:
-        "The person already came with a tick, a plus, a minus, a cross and a " +
+        "The person already had a tick, a plus, a minus, a cross and a " +
         "lightning bolt. Nine more symbols join them: a cog for account " +
-        "settings, a heart, a key, a list, a padlock, a speech bubble, a pen " +
-        "for editing, a magnifying glass for finding people, and a shield.",
+        "settings, a heart, a key, a list, a padlock, a speech bubble, a " +
+        "pen for editing, a magnifying glass for finding people, and a " +
+        "shield.",
     },
     {
       kind: "p",
       text:
-        "These are objects rather than marks, so they are drawn larger, low " +
-        "on the right beside the shoulder. The shoulder stops short to give " +
-        "each one room. The person stands where it does in `user-plus`, so " +
-        "switching one symbol for another never moves it. `id-badge` is the " +
-        "tenth: a badge with a photo on it and the slot it hangs from.",
+        "These are objects, not small marks, so they're drawn larger, low " +
+        "on the right beside the shoulder. The shoulder stops short so " +
+        "each one has room. The person stays where it stands in " +
+        "`user-plus`, so swapping one symbol for another never moves it. " +
+        "`id-badge` is the tenth: a badge with a photo on it, and the slot " +
+        "it hangs from.",
     },
     {
       kind: "figure",
@@ -5824,16 +5830,16 @@ const RELEASE_1_6_0: BlogPost = {
       kind: "p",
       text:
         "Settings attach to all sorts of things, so the cog now comes with " +
-        "a file, a folder, a database and the globe, in the corner the plus " +
-        "takes on each of them. It is the same cog each time, and the same " +
-        "one beside the person.",
+        "a file, a folder, a database and the globe, in the corner where " +
+        "the plus sits on each of them. It's the same cog every time, and " +
+        "the same one beside the person.",
     },
     {
       kind: "p",
       text:
-        "`brain-cog` was redrawn to match. Its cog had a wider ring and " +
-        "shorter teeth than any other in the set; now it has the same " +
-        "proportions as the rest.",
+        "`brain-cog` was redrawn to match. Its cog used to have a wider " +
+        "ring and shorter teeth than anything else in the set. It now has " +
+        "the same proportions as the rest.",
     },
     {
       kind: "figure",
@@ -5850,18 +5856,18 @@ const RELEASE_1_6_0: BlogPost = {
       text:
         "`arrow-down-up` is two long arrows side by side, down on the left " +
         "and up on the right, the usual picture for sorting. Four shorter " +
-        "pairs sit one a step past the other, for swapping two things in " +
+        "pairs sit one step past the other, for swapping two things in " +
         "either direction.",
     },
     {
       kind: "p",
       text:
-        "There are glasses with round lenses and sunglasses with dark ones, " +
-        "a heart cracked down the middle, and a puzzle piece. `video-2` is a " +
-        "video camera without its reels, and `bike-2` is the bicycle " +
-        "without its rider. A phone with waves to one side is for tapping " +
-        "to pay; with waves on both sides, it is ringing. And two more " +
-        "clouds: one with a magnifying glass and one on a network.",
+        "There are glasses with round lenses and sunglasses with dark " +
+        "ones, a heart cracked down the middle, and a puzzle piece. " +
+        "`video-2` is a video camera without its reels. `bike-2` is the " +
+        "bicycle without its rider. A phone with waves on one side is for " +
+        "tapping to pay. Waves on both sides means it's ringing. Two more " +
+        "clouds: one with a magnifying glass, and one on a network.",
     },
     {
       kind: "figure",
@@ -5876,21 +5882,22 @@ const RELEASE_1_6_0: BlogPost = {
     {
       kind: "p",
       text:
-        "Each cloud with a check mark, a cross, a plus, an exclamation mark, " +
-        "an arrow or a prompt used to hold it inside, drawn small to fit. Now the cloud opens along its " +
-        "bottom edge and the symbol stands beneath it at full size, the " +
-        "arrows for upload and download included. The rain cloud " +
-        "opens the same way, and the rain falls straight out of it. " +
-        "`cloud-minus` is no longer part of the set.",
+        "Each cloud with a check, a cross, a plus, an exclamation mark, an " +
+        "arrow or a prompt used to hold the mark inside, drawn small so it " +
+        "would fit. The cloud now opens along its bottom edge, and the " +
+        "symbol sits underneath at full size, including the arrows for " +
+        "upload and download. The rain cloud opens the same way, and the " +
+        "rain falls straight out of it. `cloud-minus` is no longer in the " +
+        "set.",
     },
     {
       kind: "p",
       text:
         "Four icons with a lightning bolt moved a step to the left: " +
         "`home-zap`, `database-zap`, `server-zap` and `user-zap`. Each now " +
-        "stands exactly where its plus version stands, so switching one for " +
-        "the other no longer makes the picture jump. `user-voice` moved with " +
-        "them, and its voice grew to fill the same corner.",
+        "sits exactly where its plus version sits, so switching one for " +
+        "the other no longer makes the picture jump. `user-voice` moved " +
+        "with them, and the voice grew to fill the same corner.",
     },
     {
       kind: "figure",
