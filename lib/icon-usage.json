@@ -1208,6 +1208,8 @@
     "smartphone-cog": "A phone with a small gear, for device settings, mobile configuration and app preferences.",
     "clock-cog": "A clock with a small gear, for time settings, schedules and automated jobs.",
     "globe-cog": "A globe with a small gear, for language and region settings and site configuration.",
-    "database-cog": "A database with a small gear, for database settings, migrations and data configuration."
+    "database-cog": "A database with a small gear, for database settings, migrations and data configuration.",
+    "arrow-down-up-2": "Two arrows passing vertically, the falling one on the left, for reverse swaps and moving rows.",
+    "arrow-right-left-2": "Two arrows passing sideways, the top one leading right, for handing over and swapping places."
   }
 }
