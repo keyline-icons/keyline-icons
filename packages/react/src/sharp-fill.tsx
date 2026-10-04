@@ -472,6 +472,14 @@ export function ArrowDownRight(props: IconProps) {
   )
 }
 
+export function ArrowDownUp2(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M7 1L7 2L7 12.2604L7 12.9144M12.2939 7.8062L12 8.1053L7 13.1934L2 8.1053L1.7061 7.8062M17 23L17 22L17 11.7396L17 11.0856M11.7061 16.1938L12 15.8947L17 10.8066L22 15.8947L22.2939 16.1938" />
+    </Icon>
+  )
+}
+
 export function ArrowDownUp(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -596,6 +604,14 @@ export function ArrowRightDashedPanel(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M3 7L3 3L7 3M9.5 3L14.5 3M21 8L21 3.0001L17 3M8 21L3 21L3 17M3 9.5L3 14.5M9 15.5L20.6757 15.5M14.6757 9.7028L21 15.5L14.7132 21.2628" />
+    </Icon>
+  )
+}
+
+export function ArrowRightLeft2(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M23 17L22 17L11.7396 17L11.0856 17M16.1938 11.7061L15.8947 12L10.8066 17L15.8947 22L16.1938 22.2939M1 7L2 7L12.2604 7L12.9144 7M7.8062 12.2939L8.1053 12L13.1934 7L8.1053 2L7.8062 1.7061" />
     </Icon>
   )
 }
@@ -11465,6 +11481,7 @@ export {
   ArrowDownNarrowWide as ArrowDownNarrowWideIcon,
   ArrowDownRightDashedPanel as ArrowDownRightDashedPanelIcon,
   ArrowDownRight as ArrowDownRightIcon,
+  ArrowDownUp2 as ArrowDownUp2Icon,
   ArrowDownUp as ArrowDownUpIcon,
   ArrowDownWideNarrow as ArrowDownWideNarrowIcon,
   ArrowDown as ArrowDownIcon,
@@ -11481,6 +11498,7 @@ export {
   ArrowLeftRight as ArrowLeftRightIcon,
   ArrowLeft as ArrowLeftIcon,
   ArrowRightDashedPanel as ArrowRightDashedPanelIcon,
+  ArrowRightLeft2 as ArrowRightLeft2Icon,
   ArrowRightLeft as ArrowRightLeftIcon,
   ArrowRightToLine as ArrowRightToLineIcon,
   ArrowRight as ArrowRightIcon,
