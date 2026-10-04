@@ -352,7 +352,6 @@ export const BLOG_SEARCH_ICON_NAMES = [
 
 export const BLOG_CLOUD_ICON_NAMES = [
   "cloud-plus",
-  "cloud-minus",
   "cloud-check",
   "cloud-x",
   "cloud-alert",
@@ -463,7 +462,6 @@ export const BLOG_BATCH_THUMBNAIL_ICON_NAMES = [
   "search-2-x",
   "search-2-list",
   "cloud-plus",
-  "cloud-minus",
   "cloud-check",
   "cloud-x",
   "cloud-alert",

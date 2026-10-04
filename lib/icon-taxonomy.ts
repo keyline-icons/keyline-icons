@@ -58,18 +58,11 @@ export const CATEGORIES = [
   // both design files sort shelves by label, so leading changes resolution
   // only.
   //
-  // Opened 4 Oct 2026 for 1.6.0, the refs batch: forty-seven new drawings (user-cog's gear on four bases among them)
-  // and thirteen redraws (the five badged clouds on their opened body, brain-cog's cog, and seven compounds put back
-  // on their -plus rows: four zaps, user-voice, cloud-terminal and cloud-rain), the same sixty sets as the design
-  // file's New band. Every name is
-  // also matched by its real shelf below: `house` files beside `home` in Web as its name-to-name twin, the eyewear in
-  // Commerce beside the shirt (ahead of Weather, whose `sun` would take sunglasses), the jigsaw piece in Shapes
+  // Closed 4 Oct 2026, when Zafar passed 1.6.0's refs batch: the house family and its plurals, the user objects, user-cog's
+  // gear on file, folder, database and globe, the badged and arrow clouds, and nine compounds put back on their -plus
+  // rows; cloud-minus retired the same day. `house` files beside `home` in Web as its name-to-name twin, the eyewear
+  // in Commerce beside the shirt (ahead of Weather, whose `sun` would take sunglasses), the jigsaw piece in Shapes
   // beside the dice.
-  {
-    label: "New",
-    match: /^(arrow-down-up|arrow-up-down-2|arrow-down-up-2|arrow-left-right-2|arrow-right-left-2|home-simple|home-check|home-x|home-heart|homes|house|house-simple|house-plus|house-check|house-x|house-zap|house-heart|house-chimney|house-cast|house-plug|house-cog|house-wifi|houses|user-cog|user-heart|user-key|user-list|user-lock|user-pen|user-search|user-shield|user-message|id-badge|cloud-search|cloud-network|smartphone-ringing|smartphone-nfc|sunglasses|glasses|video-2|bike-2|heart-crack|puzzle|file-cog|folder-cog|globe-cog|database-cog|cloud-plus|cloud-check|cloud-x|cloud-download|cloud-upload|brain-cog|database-zap|server-zap|user-zap|home-zap|user-voice|cloud-terminal|cloud-rain)$/,
-    blurb: "Drawn since the last release, waiting on review.",
-  },
   // The machine that thinks: the bots, the brain wired to a circuit and the
   // brain turning a cog. The bare `brain` is an organ and goes to Health,
   // which is why this is anchored on the two names rather than on `brain`.
@@ -483,7 +476,7 @@ export const CATEGORIES = [
     // upload and download (1.5.0) are a sync in either direction.
     label: "Web",
     match:
-      /^(globe|link|unlink|share|navigation|home|house|search|settings|bookmark|wifi|cloud-(?:check|x|plus|minus|alert|dot|off|arrow|backup|cog|terminal|download|upload|search|network)|earth$)/,
+      /^(globe|link|unlink|share|navigation|home|house|search|settings|bookmark|wifi|cloud-(?:check|x|plus|alert|dot|off|arrow|backup|cog|terminal|download|upload|search|network)|earth$)/,
     blurb: "Globes and the earth, links, connectivity, sync states and web-scoped actions.",
   },
   {

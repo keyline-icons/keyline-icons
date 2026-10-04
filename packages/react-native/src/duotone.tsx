@@ -3718,15 +3718,6 @@ export function CloudDownload(props: IconProps) {
   )
 }
 
-export function CloudMinus(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M6 20L18 20C20.5784 20 22.734 18.0393 22.9776 15.4724C23.2212 12.9055 21.4729 10.5743 18.9405 10.0893C18.4833 6.6052 15.5139 4 12 4C8.4861 4 5.5167 6.6052 5.0595 10.0893C2.5271 10.5743 0.7788 12.9055 1.0224 15.4724C1.266 18.0393 3.4216 20 6 20Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <Path d="M9.75 12.5L14.25 12.5" />
-    </Icon>
-  )
-}
-
 export function CloudMoon(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -12658,7 +12649,6 @@ export {
   CloudAlert as CloudAlertIcon,
   CloudCheck as CloudCheckIcon,
   CloudDownload as CloudDownloadIcon,
-  CloudMinus as CloudMinusIcon,
   CloudMoon as CloudMoonIcon,
   CloudNetwork as CloudNetworkIcon,
   CloudOff as CloudOffIcon,

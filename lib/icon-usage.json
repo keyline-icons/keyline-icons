@@ -304,7 +304,6 @@
     "cloud-alert": "A cloud with an exclamation, for a sync failure and a service in trouble.",
     "cloud-check": "A cloud with a tick inside it, for a completed sync, a saved backup and up-to-date storage.",
     "cloud-download": "A cloud with an arrow pointing down, for downloads, restores and pulling from the cloud.",
-    "cloud-minus": "A cloud with a minus inside it, for removing from storage and freeing cloud space.",
     "cloud-moon": "A moon behind a cloud, for a cloudy night and evening forecasts.",
     "cloud-off": "A cloud struck through, for offline, disconnected and local-only work.",
     "cloud-plus": "A cloud with a plus inside it, for adding to storage, a new backup and uploading.",
