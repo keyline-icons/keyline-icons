@@ -1203,7 +1203,6 @@
     "puzzle": "A jigsaw piece, for plugins, extensions, integrations and solving a problem.",
     "file-cog": "A file with a cog, for file settings, document properties and processing options.",
     "folder-cog": "A folder with a cog, for folder settings, sync rules and managed directories.",
-    "smartphone-cog": "A phone with a cog, for device settings, mobile configuration and app preferences.",
     "globe-cog": "A globe with a cog, for language and region settings and site configuration.",
     "database-cog": "A database with a cog, for database settings, migrations and data configuration.",
     "arrow-down-up-2": "Two arrows passing vertically, the falling one on the left, for reverse swaps and moving rows.",

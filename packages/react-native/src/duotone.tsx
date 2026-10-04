@@ -9734,15 +9734,6 @@ export function SmartphoneCheck(props: IconProps) {
   )
 }
 
-export function SmartphoneCog(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M15 1C17.7614 1 20 3.2386 20 6V10C20 10.5523 19.5523 11 19 11H11C9.3431 11 8 12.3431 8 14V21.4648L7.99512 21.5674C7.94379 22.0714 7.51762 22.4648 7 22.4648C6.81731 22.4648 6.6464 22.4147 6.49902 22.3291C5.0054 21.4643 4 19.85 4 18V6C4 3.2386 6.2386 1 9 1H15Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <Path d="M10.5 6L13.5 6M17.6667 18C17.6667 19.4728 16.4728 20.6667 15 20.6667C13.5272 20.6667 12.3333 19.4728 12.3333 18C12.3333 16.5272 13.5272 15.3333 15 15.3333C16.4728 15.3333 17.6667 16.5272 17.6667 18ZM18.5417 18L19 18M17.5043 20.5043L17.8284 20.8284M15 21.5417L15 22M12.4957 20.5043L12.1716 20.8284M11.4583 18L11 18M12.4957 15.4957L12.1716 15.1716M15 14.4583L15 14M17.5043 15.4957L17.8284 15.1716" />
-    </Icon>
-  )
-}
-
 export function SmartphoneHorizontal(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -13324,7 +13315,6 @@ export {
   SmartphoneArrowUpLeft as SmartphoneArrowUpLeftIcon,
   SmartphoneCast as SmartphoneCastIcon,
   SmartphoneCheck as SmartphoneCheckIcon,
-  SmartphoneCog as SmartphoneCogIcon,
   SmartphoneHorizontal as SmartphoneHorizontalIcon,
   SmartphoneMinus as SmartphoneMinusIcon,
   SmartphoneNfc as SmartphoneNfcIcon,
