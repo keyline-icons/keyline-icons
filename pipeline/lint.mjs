@@ -381,8 +381,13 @@ const SKEW_KNOWN = new Set([
   'package-arrow-down', 'package-arrow-left', 'package-arrow-right', 'package-arrow-up',
   'package-check', 'package-minus', 'package-plus', 'package-x',
   'signal-high', 'signal-low', 'signal-medium', 'terminal-cursor',
-  // user-zap (1.2.0) keeps user-plus's vertical 3 and 2; its bolt, centred, is even across
+  // user-zap keeps user-plus's vertical 3 and 2, and since 4 Oct 2026 runs 1 left across, with the four below
   'user', 'user-check', 'user-minus', 'user-plus', 'user-x', 'user-zap', 'users',
+  // His placement, 4 Oct 2026: a zap's base stands where its -plus stands, and the bolt keeps the place it had
+  // on that base in 1.5.0 (they were even across then, the base 1 right of the -plus). Each is its 1.5.0 drawing
+  // moved 1 left, pixel for pixel, so it runs 1 vs 3 across (database 2 vs 4). Pushing the bolt flush into the
+  // corner to even it out was the version he rejected: "wrongly anchored the zaps to the corner".
+  'database-zap', 'home-zap', 'house-zap', 'server-zap',
   // 1.6.0's object compounds (an 8 box, bottom right, the body opened 2 clear) keep the family's 3 and 2
   'user-cog', 'user-heart', 'user-key', 'user-list', 'user-lock', 'user-message', 'user-pen', 'user-search', 'user-shield',
 ]);

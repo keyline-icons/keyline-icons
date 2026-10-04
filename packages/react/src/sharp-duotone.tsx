@@ -4297,7 +4297,7 @@ export function DatabaseZap(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M20 4L20 13L12 13L12 23L11 23C9.5601 23 8.1227 22.9045 6.8571 22.7218C5.5915 22.5391 4.5074 22.2784 3.6744 21.9177C3.2811 21.7484 2.9009 21.5361 2.6034 21.2628C2.3069 20.9903 2 20.5666 2 20L2 4C2 3.4334 2.3069 3.0097 2.6034 2.7372C2.9009 2.4639 3.2811 2.2516 3.674 2.0819C4.5074 1.7216 5.5915 1.4609 6.8571 1.2782C8.1227 1.0955 9.5601 1 11 1C12.4399 1 13.8773 1.0955 15.1429 1.2782C16.4085 1.4609 17.4926 1.7216 18.3256 2.0823C18.7189 2.2516 19.0991 2.4639 19.3966 2.7372C19.6931 3.0097 20 3.4334 20 4Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <path d="M17.7082 4C17.2131 3.7524 16.2473 3.4715 15.0532 3.287C13.859 3.1025 12.4301 3 11 3C9.5699 3 8.141 3.1025 6.9468 3.287C5.7527 3.4715 4.7869 3.7524 4.2918 4C4.7869 4.2476 5.7527 4.5285 6.9468 4.713C8.141 4.8975 9.5699 5 11 5C12.4301 5 13.859 4.8975 15.0532 4.713C16.2473 4.5285 17.2131 4.2476 17.7082 4ZM4 11.8244L4 14.0485C5.4646 14.596 7.6634 14.9144 10 14.985L10 12.9833C8.7219 12.9407 7.4894 12.8183 6.4729 12.6335C5.8329 12.5171 5.2777 12.3763 4.8497 12.2288C4.4085 12.0773 4.1377 11.9324 4 11.8244Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <path d="M20.2929 15.7071L17 19L21 19L17.7071 22.2929" />
+      <path d="M18.2929 15.7071L15 19L19 19L15.7071 22.2929" />
     </Icon>
   )
 }
@@ -6351,7 +6351,7 @@ export function HomeZap(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M21 11L21 22C21 22.55 20.55 23 20 23L2 23C1.45 23 1 22.55 1 22L1 11C1 10.69 1.14 10.4 1.39 10.21L10.39 3.21C10.75 2.93 11.25 2.93 11.61 3.21L13 4.2856L13 11L21 11Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M8 23L8 15L14 15L14 23M21.2929 1.7071L18 5L22 5L18.7071 8.2929" />
+      <path d="M8 23L8 15L14 15L14 23M19.2929 1.7071L16 5L20 5L16.7071 8.2929" />
     </Icon>
   )
 }
@@ -6507,8 +6507,8 @@ export function HouseX(props: IconProps) {
 export function HouseZap(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M11.3857 3.20703C11.7469 2.92599 12.253 2.92599 12.6142 3.20703L15 5.06348V11H21V22C20.9999 22.5522 20.5522 23 20 23H3.99996C3.44776 23 3.00007 22.5522 2.99996 22V12.2666L2.22848 12.8672L0.999962 11.2891L11.3857 3.20703Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M9 23L9 19C9 17.3431 10.3431 16 12 16C13.6569 16 15 17.3431 15 19L15 23M21.2929 1.7071L21 2L18 5L22 5L19 8L18.7071 8.2929" />
+      <path d="M11.3857 3.20703C11.7469 2.92599 12.253 2.92599 12.6142 3.20703L13 3.50684V11H21V22C20.9999 22.5522 20.5522 23 20 23H3.99996C3.44776 23 3.00007 22.5522 2.99996 22V12.2666L2.22848 12.8672L0.999962 11.2891L11.3857 3.20703Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M9 23L9 19C9 17.3431 10.3431 16 12 16C13.6569 16 15 17.3431 15 19L15 23M19.2929 1.7071L19 2L16 5L20 5L17 8L16.7071 8.2929" />
     </Icon>
   )
 }
@@ -9222,7 +9222,7 @@ export function ServerZap(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M2 1L18 1C18.5523 1 19 1.4477 19 2L19 10C19 10.5523 18.5523 11 18 11L2 11C1.4477 11 1 10.5523 1 10L1 2C1 1.4477 1.4477 1 2 1ZM2 13L13 13L13 23L2 23C1.4477 23 1 22.5523 1 22L1 14C1 13.4477 1.4477 13 2 13Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M21.2929 15.7071L18 19L22 19L18.7071 22.2929" />
+      <path d="M19.2929 15.7071L16 19L20 19L16.7071 22.2929" />
       <path d="M7 6C7 6.5523 6.5523 7 6 7C5.4477 7 5 6.5523 5 6C5 5.4477 5.4477 5 6 5C6.5523 5 7 5.4477 7 6ZM11 6C11 6.5523 10.5523 7 10 7C9.4477 7 9 6.5523 9 6C9 5.4477 9.4477 5 10 5C10.5523 5 11 5.4477 11 6ZM7 18C7 18.5523 6.5523 19 6 19C5.4477 19 5 18.5523 5 18C5 17.4477 5.4477 17 6 17C6.5523 17 7 17.4477 7 18ZM11 18C11 18.5523 10.5523 19 10 19C9.4477 19 9 18.5523 9 18C9 17.4477 9.4477 17 10 17C10.5523 17 11 17.4477 11 18Z" fill="currentColor" stroke="none" />
     </Icon>
   )
@@ -11916,7 +11916,7 @@ export function UserZap(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M8 13L10 13C13.7279 13 17 16.2721 17 20L17 21C17 21.5523 16.5523 22 16 22L2 22C1.4477 22 1 21.5523 1 21L1 20C1 16.2721 4.2721 13 8 13ZM9 3C11.0711 3 13 4.9289 13 7C13 9.0711 11.0711 11 9 11C6.9289 11 5 9.0711 5 7C5 4.9289 6.9289 3 9 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M21.2929 3.7071L18 7L22 7L18.7071 10.2929" />
+      <path d="M19.2929 3.7071L16 7L20 7L16.7071 10.2929" />
     </Icon>
   )
 }

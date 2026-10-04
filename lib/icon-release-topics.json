@@ -124,7 +124,7 @@
      "sections": [
       {
        "title": "Web",
-       "text": "The cloud opens along its floor and its sign moves out beneath it at full size, where it used to sit small inside: the tick, the cross, the plus, the arrows for upload and download, and the prompt. The lightning bolt at the corner of `home` is bigger, the size of the plus beside it.",
+       "text": "The cloud opens along its floor and its sign moves out beneath it at full size, where it used to sit small inside: the tick, the cross, the plus, the arrows for upload and download, and the prompt. And `home-zap` moves one unit left, to stand where `home-plus` does.",
        "redraws": [
         "cloud-check",
         "cloud-x",
@@ -151,7 +151,7 @@
       },
       {
        "title": "Devices",
-       "text": "The database and the server carry a bigger lightning bolt, the size of the plus in their plus versions.",
+       "text": "The database and the server with a lightning bolt move one unit left, to stand where their plus versions do. Nothing else about them changes.",
        "redraws": [
         "database-zap",
         "server-zap"
@@ -159,7 +159,7 @@
       },
       {
        "title": "Users",
-       "text": "The person with a lightning bolt and the person speaking stand where the person with a plus stands, so the three line up, and the bolt and the voice fill the same corner the plus does.",
+       "text": "The person with a lightning bolt moves one unit left, to stand where the person with a plus does. The person speaking moves there too, and its two arcs of voice grow to fill the corner the plus does.",
        "redraws": [
         "user-zap",
         "user-voice"
