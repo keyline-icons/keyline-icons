@@ -58,14 +58,15 @@ export const CATEGORIES = [
   // both design files sort shelves by label, so leading changes resolution
   // only.
   //
-  // Opened 4 Oct 2026 for 1.6.0, the refs batch: forty-one new drawings and six redraws (the five badged clouds on
-  // their opened body and brain-cog's cog), the same forty-seven sets as the design file's New band. Every name is
+  // Opened 4 Oct 2026 for 1.6.0, the refs batch: fifty new drawings (his small gear on nine bases among them) and six
+  // redraws (the five badged clouds on their opened body and brain-cog's cog), the same fifty-six sets as the design
+  // file's New band. Every name is
   // also matched by its real shelf below: `house` files beside `home` in Web as its name-to-name twin, the eyewear in
   // Commerce beside the shirt (ahead of Weather, whose `sun` would take sunglasses), the jigsaw piece in Shapes
   // beside the dice.
   {
     label: "New",
-    match: /^(arrow-down-up|arrow-up-down-2|arrow-left-right-2|home-simple|home-check|home-x|home-heart|homes|house|house-simple|house-plus|house-check|house-x|house-zap|house-heart|house-chimney|house-cast|house-plug|house-cog|house-wifi|houses|user-cog|user-heart|user-key|user-list|user-lock|user-pen|user-search|user-shield|user-message|id-badge|cloud-search|cloud-network|smartphone-ringing|smartphone-nfc|sunglasses|glasses|video-2|bike-2|heart-crack|puzzle|cloud-plus|cloud-check|cloud-x|cloud-download|cloud-upload|brain-cog)$/,
+    match: /^(arrow-down-up|arrow-up-down-2|arrow-left-right-2|home-simple|home-check|home-x|home-heart|homes|house|house-simple|house-plus|house-check|house-x|house-zap|house-heart|house-chimney|house-cast|house-plug|house-cog|house-wifi|houses|user-cog|user-heart|user-key|user-list|user-lock|user-pen|user-search|user-shield|user-message|id-badge|cloud-search|cloud-network|smartphone-ringing|smartphone-nfc|sunglasses|glasses|video-2|bike-2|heart-crack|puzzle|file-cog|folder-cog|calendar-cog|mail-cog|smartphone-cog|clock-cog|globe-cog|database-cog|bell-cog|cloud-plus|cloud-check|cloud-x|cloud-download|cloud-upload|brain-cog)$/,
     blurb: "Drawn since the last release, waiting on review.",
   },
   // The machine that thinks: the bots, the brain wired to a circuit and the

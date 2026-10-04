@@ -1200,6 +1200,15 @@
     "video-2": "A camcorder with its lens to the side, for video calls, recording and live streams.",
     "bike-2": "A bicycle without a rider, for bike rental, cycling routes and bike parking.",
     "heart-crack": "A heart split by a crack, for a breakup, a lost favourite and heartbreak.",
-    "puzzle": "A jigsaw piece, for plugins, extensions, integrations and solving a problem."
+    "puzzle": "A jigsaw piece, for plugins, extensions, integrations and solving a problem.",
+    "file-cog": "A file with a small gear, for file settings, document properties and processing options.",
+    "folder-cog": "A folder with a small gear, for folder settings, sync rules and managed directories.",
+    "calendar-cog": "A calendar with a small gear, for calendar settings, scheduling rules and availability.",
+    "mail-cog": "An envelope with a small gear, for mail settings, inbox rules and email preferences.",
+    "smartphone-cog": "A phone with a small gear, for device settings, mobile configuration and app preferences.",
+    "clock-cog": "A clock with a small gear, for time settings, schedules and automated jobs.",
+    "globe-cog": "A globe with a small gear, for language and region settings and site configuration.",
+    "database-cog": "A database with a small gear, for database settings, migrations and data configuration.",
+    "bell-cog": "A bell with a small gear, for notification settings, alert rules and quiet hours."
   }
 }

@@ -1158,6 +1158,15 @@ export function BellCheck(props: IconProps) {
   )
 }
 
+export function BellCog(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M13 3.6251L13 8.4199C13 9.793 14.0725 10.9155 15.4255 10.9954L16.1993 10.7285C16.6326 11.9847 17.0404 12.7542 17.3428 13.293C17.5741 13.7052 18 14.341 18 15L18 16C18 16.5523 17.5523 17 17 17L3 17C2.4477 17 2 16.5523 2 16L2 15C2 14.4387 2.2784 13.9674 2.455 13.673C2.6689 13.3166 2.8785 13.007 3.1056 12.5528C3.5331 11.6977 4 10.3517 4 8C4 4.6863 6.6863 2 10 2C10.9153 2 11.7414 2.2118 13.3168 2.9Z" fill="currentColor" stroke="none" />
+      <path d="M7.7679 19.134C8.6252 20.6188 9.2855 21 10 21C10.7145 21 11.3748 20.6188 12.2321 19.134M21 5C21 6.1046 20.1046 7 19 7C17.8954 7 17 6.1046 17 5C17 3.8954 17.8954 3 19 3C20.1046 3 21 3.8954 21 5ZM20.99 5L23 5M20.4071 6.4071L21.8284 7.8284M19 6.99L19 9M17.5929 6.4071L16.1716 7.8284M17.01 5L15 5M17.5929 3.5929L16.1716 2.1716M19 3.01L19 1M20.4071 3.5929L21.8284 2.1716" />
+    </Icon>
+  )
+}
+
 export function BellDot(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -1697,6 +1706,15 @@ export function CalendarCheck(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M3 4L21 4C21.5523 4 22 4.4477 22 5L22 11C22 11.5523 21.5523 12 21 12L12 12L12 21C12 21.5523 11.5523 22 11 22L3 22C2.4477 22 2 21.5523 2 21L2 5C2 4.4477 2.4477 4 3 4ZM6 10L18 10L18 12L6 12L6 10Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
       <path d="M8 2L8 8M16 2L16 8M14.7071 17.7071L17 20L21.2929 15.7071" />
+    </Icon>
+  )
+}
+
+export function CalendarCog(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M3 4L21 4C21.5523 4 22 4.4477 22 5L22 11C22 11.5523 21.5523 12 21 12L12 12L12 21C12 21.5523 11.5523 22 11 22L3 22C2.4477 22 2 21.5523 2 21L2 5C2 4.4477 2.4477 4 3 4ZM6 10L18 10L18 12L6 12L6 10Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M8 2L8 8M16 2L16 8M20 18C20 19.1046 19.1046 20 18 20C16.8954 20 16 19.1046 16 18C16 16.8954 16.8954 16 18 16C19.1046 16 20 16.8954 20 18ZM19.99 18L22 18M19.4071 19.4071L20.8284 20.8284M18 19.99L18 22M16.5929 19.4071L15.1716 20.8284M16.01 18L14 18M16.5929 16.5929L15.1716 15.1716M18 16.01L18 14M19.4071 16.5929L20.8284 15.1716" />
     </Icon>
   )
 }
@@ -3318,6 +3336,15 @@ export function ClockCheck(props: IconProps) {
   )
 }
 
+export function ClockCog(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M22 13L13 13L13 22C13 22.5523 12.5523 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12C23 12.5523 22.5523 13 22 13ZM11 5L11 12C11 12.5523 11.4477 13 12 13L18 13L18 11L13 11L13 5L11 5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M21 19C21 20.1046 20.1046 21 19 21C17.8954 21 17 20.1046 17 19C17 17.8954 17.8954 17 19 17C20.1046 17 21 17.8954 21 19ZM20.99 19L23 19M20.4071 20.4071L21.8284 21.8284M19 20.99L19 23M17.5929 20.4071L16.1716 21.8284M17.01 19L15 19M17.5929 17.5929L16.1716 16.1716M19 17.01L19 15M20.4071 17.5929L21.8284 16.1716" />
+    </Icon>
+  )
+}
+
 export function ClockMinus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -3899,6 +3926,15 @@ export function DatabaseCheck(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M20 4L20 13L12 13L12 23L11 23C9.5601 23 8.1227 22.9045 6.8571 22.7218C5.5915 22.5391 4.5074 22.2784 3.6744 21.9177C3.2811 21.7484 2.9009 21.5361 2.6034 21.2628C2.3069 20.9903 2 20.5666 2 20L2 4C2 3.4334 2.3069 3.0097 2.6034 2.7372C2.9009 2.4639 3.2811 2.2516 3.674 2.0819C4.5074 1.7216 5.5915 1.4609 6.8571 1.2782C8.1227 1.0955 9.5601 1 11 1C12.4399 1 13.8773 1.0955 15.1429 1.2782C16.4085 1.4609 17.4926 1.7216 18.3256 2.0823C18.7189 2.2516 19.0991 2.4639 19.3966 2.7372C19.6931 3.0097 20 3.4334 20 4ZM17.7082 4C17.2131 3.7524 16.2473 3.4715 15.0532 3.287C13.859 3.1025 12.4301 3 11 3C9.5699 3 8.141 3.1025 6.9468 3.287C5.7527 3.4715 4.7869 3.7524 4.2918 4C4.7869 4.2476 5.7527 4.5285 6.9468 4.713C8.141 4.8975 9.5699 5 11 5C12.4301 5 13.859 4.8975 15.0532 4.713C16.2473 4.5285 17.2131 4.2476 17.7082 4ZM4 11.8244L4 14.0485C5.4646 14.596 7.6634 14.9144 10 14.985L10 12.9833C8.7219 12.9407 7.4894 12.8183 6.4729 12.6335C5.8329 12.5171 5.2777 12.3763 4.8497 12.2288C4.4085 12.0773 4.1377 11.9324 4 11.8244Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
       <path d="M14.7071 18.7071L17 21L21.2929 16.7071" />
+    </Icon>
+  )
+}
+
+export function DatabaseCog(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M20 4L20 13L12 13L12 23L11 23C9.5601 23 8.1227 22.9045 6.8571 22.7218C5.5915 22.5391 4.5074 22.2784 3.6744 21.9177C3.2811 21.7484 2.9009 21.5361 2.6034 21.2628C2.3069 20.9903 2 20.5666 2 20L2 4C2 3.4334 2.3069 3.0097 2.6034 2.7372C2.9009 2.4639 3.2811 2.2516 3.674 2.0819C4.5074 1.7216 5.5915 1.4609 6.8571 1.2782C8.1227 1.0955 9.5601 1 11 1C12.4399 1 13.8773 1.0955 15.1429 1.2782C16.4085 1.4609 17.4926 1.7216 18.3256 2.0823C18.7189 2.2516 19.0991 2.4639 19.3966 2.7372C19.6931 3.0097 20 3.4334 20 4ZM17.7082 4C17.2131 3.7524 16.2473 3.4715 15.0532 3.287C13.859 3.1025 12.4301 3 11 3C9.5699 3 8.141 3.1025 6.9468 3.287C5.7527 3.4715 4.7869 3.7524 4.2918 4C4.7869 4.2476 5.7527 4.5285 6.9468 4.713C8.141 4.8975 9.5699 5 11 5C12.4301 5 13.859 4.8975 15.0532 4.713C16.2473 4.5285 17.2131 4.2476 17.7082 4ZM4 11.8244L4 14.0485C5.4646 14.596 7.6634 14.9144 10 14.985L10 12.9833C8.7219 12.9407 7.4894 12.8183 6.4729 12.6335C5.8329 12.5171 5.2777 12.3763 4.8497 12.2288C4.4085 12.0773 4.1377 11.9324 4 11.8244Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M20 19C20 20.1046 19.1046 21 18 21C16.8954 21 16 20.1046 16 19C16 17.8954 16.8954 17 18 17C19.1046 17 20 17.8954 20 19ZM19.99 19L22 19M19.4071 20.4071L20.8284 21.8284M18 20.99L18 23M16.5929 20.4071L15.1716 21.8284M16.01 19L14 19M16.5929 17.5929L15.1716 16.1716M18 17.01L18 15M19.4071 17.5929L20.8284 16.1716" />
     </Icon>
   )
 }
@@ -4496,6 +4532,15 @@ export function FileCode(props: IconProps) {
   )
 }
 
+export function FileCog(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M14.707 1.293L20.7071 7.2929C20.8946 7.4805 21 7.7348 21 8.0001L21 12C21 12.5523 20.5523 13 20 13L11 13L11 22C11 22.5523 10.5523 23 10 23L4 23C3.4477 23 3 22.5523 3 22L3 2C3 1.4477 3.4477 1 4 1L14 1C14.2652 1 14.5195 1.1054 14.707 1.293ZM14 8L18.5858 8L14 3.4142L14 8Z" fill="currentColor" stroke="none" />
+      <path d="M19 19C19 20.1046 18.1046 21 17 21C15.8954 21 15 20.1046 15 19C15 17.8954 15.8954 17 17 17C18.1046 17 19 17.8954 19 19ZM18.99 19L21 19M18.4071 20.4071L19.8284 21.8284M17 20.99L17 23M15.5929 20.4071L14.1716 21.8284M15.01 19L13 19M15.5929 17.5929L14.1716 16.1716M17 17.01L17 15M18.4071 17.5929L19.8284 16.1716" />
+    </Icon>
+  )
+}
+
 export function FileImage(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
@@ -4785,6 +4830,15 @@ export function FolderCheck(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M3 3L9.5 3C9.7652 3 10.0196 3.1054 10.2071 3.2929L12.4144 5.5L21 5.5C21.5523 5.5 22 5.9477 22 6.5L22 10C22 10.5523 21.5523 11 21 11L11 11L11 20C11 20.5523 10.5523 21 10 21L3 21C2.4477 21 2 20.5523 2 20L2 4C2 3.4477 2.4477 3 3 3Z" fill="currentColor" stroke="none" />
       <path d="M14.7071 16.7071L17 19L21.2929 14.7071" />
+    </Icon>
+  )
+}
+
+export function FolderCog(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M3 3L9.5 3C9.7652 3 10.0196 3.1054 10.2071 3.2929L12.4144 5.5L21 5.5C21.5523 5.5 22 5.9477 22 6.5L22 10C22 10.5523 21.5523 11 21 11L11 11L11 20C11 20.5523 10.5523 21 10 21L3 21C2.4477 21 2 20.5523 2 20L2 4C2 3.4477 2.4477 3 3 3Z" fill="currentColor" stroke="none" />
+      <path d="M20 17C20 18.1046 19.1046 19 18 19C16.8954 19 16 18.1046 16 17C16 15.8954 16.8954 15 18 15C19.1046 15 20 15.8954 20 17ZM19.99 17L22 17M19.4071 18.4071L20.8284 19.8284M18 18.99L18 21M16.5929 18.4071L15.1716 19.8284M16.01 17L14 17M16.5929 15.5929L15.1716 14.1716M18 15.01L18 13M19.4071 15.5929L20.8284 14.1716" />
     </Icon>
   )
 }
@@ -5286,6 +5340,15 @@ export function GlobeCheck(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M12 1C18.0751 1 23 5.9249 23 12C23 11.4477 22.5523 11 22 11L16.9658 11C16.7774 8.2182 15.8031 5.4794 14.0649 3L9.9351 3C8.1969 5.4793 7.2226 8.2182 7.0342 11L3 11L3 13L7.0342 13C7.2658 16.4205 8.6858 19.7761 11.2529 22.6641C11.4504 22.8863 11.7246 22.998 12 22.998L12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1ZM12 3.5713C13.7801 5.8823 14.7568 8.4349 14.958 11L9.042 11C9.2432 8.4349 10.2199 5.8823 12 3.5713Z" fill="currentColor" stroke="none" />
       <path d="M15.7055 19.2971L18.3333 22L22.1467 15.76" />
+    </Icon>
+  )
+}
+
+export function GlobeCog(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M12 1C18.0751 1 23 5.9249 23 12C23 11.4477 22.5523 11 22 11L16.9658 11C16.7774 8.2182 15.8031 5.4794 14.0649 3L9.9351 3C8.1969 5.4793 7.2226 8.2182 7.0342 11L3 11L3 13L7.0342 13C7.2658 16.4205 8.6858 19.7761 11.2529 22.6641C11.4504 22.8863 11.7246 22.998 12 22.998L12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1ZM12 3.5713C13.7801 5.8823 14.7568 8.4349 14.958 11L9.042 11C9.2432 8.4349 10.2199 5.8823 12 3.5713Z" fill="currentColor" stroke="none" />
+      <path d="M21 19C21 20.1046 20.1046 21 19 21C17.8954 21 17 20.1046 17 19C17 17.8954 17.8954 17 19 17C20.1046 17 21 17.8954 21 19ZM20.99 19L23 19M20.4071 20.4071L21.8284 21.8284M19 20.99L19 23M17.5929 20.4071L16.1716 21.8284M17.01 19L15 19M17.5929 17.5929L16.1716 16.1716M19 17.01L19 15M20.4071 17.5929L21.8284 16.1716" />
     </Icon>
   )
 }
@@ -6507,6 +6570,15 @@ export function MailCheck(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M5 4L19 4C20.6569 4 22 5.3431 22 7L12.7071 11C12.2846 11.2817 11.7154 11.2817 11.2929 11L2 7C2 5.3431 3.3432 4 5 4Z" fill="currentColor" stroke="none" />
       <path d="M13 20L2 20L2 4L22 4L22 11M2 7L11.2929 11C11.7154 11.2817 12.2846 11.2817 12.7071 11L22 7M15.7071 16.7071L18 19L22.2929 14.7071" />
+    </Icon>
+  )
+}
+
+export function MailCog(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M5 4L19 4C20.6569 4 22 5.3431 22 7L12.7071 11C12.2846 11.2817 11.7154 11.2817 11.2929 11L2 7C2 5.3431 3.3432 4 5 4Z" fill="currentColor" stroke="none" />
+      <path d="M13 20L2 20L2 4L22 4L22 11M2 7L11.2929 11C11.7154 11.2817 12.2846 11.2817 12.7071 11L22 7M21 17C21 18.1046 20.1046 19 19 19C17.8954 19 17 18.1046 17 17C17 15.8954 17.8954 15 19 15C20.1046 15 21 15.8954 21 17ZM20.99 17L23 17M20.4071 18.4071L21.8284 19.8284M19 18.99L19 21M17.5929 18.4071L16.1716 19.8284M17.01 17L15 17M17.5929 15.5929L16.1716 14.1716M19 15.01L19 13M20.4071 15.5929L21.8284 14.1716" />
     </Icon>
   )
 }
@@ -9003,6 +9075,15 @@ export function SmartphoneCheck(props: IconProps) {
   )
 }
 
+export function SmartphoneCog(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M5 3L5 21C5 21.5523 5.4477 22 6 22L10 22L10 13L19 13L19 3C19 2.4477 18.5523 2 18 2L6 2C5.4477 2 5 2.4477 5 3ZM14.5 7L9.5 7L9.5 5L14.5 5L14.5 7Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M19 13L19 2L5 2L5 22L10 22M18 19C18 20.1046 17.1046 21 16 21C14.8954 21 14 20.1046 14 19C14 17.8954 14.8954 17 16 17C17.1046 17 18 17.8954 18 19ZM17.99 19L20 19M17.4071 20.4071L18.8284 21.8284M16 20.99L16 23M14.5929 20.4071L13.1716 21.8284M14.01 19L12 19M14.5929 17.5929L13.1716 16.1716M16 17.01L16 15M17.4071 17.5929L18.8284 16.1716" />
+    </Icon>
+  )
+}
+
 export function SmartphoneHorizontal(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
@@ -11476,6 +11557,7 @@ export {
   BedSingle as BedSingleIcon,
   Bed as BedIcon,
   BellCheck as BellCheckIcon,
+  BellCog as BellCogIcon,
   BellDot as BellDotIcon,
   BellMinus as BellMinusIcon,
   BellOff as BellOffIcon,
@@ -11539,6 +11621,7 @@ export {
   CalendarArrowRight as CalendarArrowRightIcon,
   CalendarArrowUp as CalendarArrowUpIcon,
   CalendarCheck as CalendarCheckIcon,
+  CalendarCog as CalendarCogIcon,
   CalendarDays as CalendarDaysIcon,
   CalendarMinus as CalendarMinusIcon,
   CalendarOff as CalendarOffIcon,
@@ -11733,6 +11816,7 @@ export {
   ClockArrowRight as ClockArrowRightIcon,
   ClockArrowUp as ClockArrowUpIcon,
   ClockCheck as ClockCheckIcon,
+  ClockCog as ClockCogIcon,
   ClockMinus as ClockMinusIcon,
   ClockPlus as ClockPlusIcon,
   ClockSparkles as ClockSparklesIcon,
@@ -11801,6 +11885,7 @@ export {
   DatabaseArrowRight as DatabaseArrowRightIcon,
   DatabaseArrowUp as DatabaseArrowUpIcon,
   DatabaseCheck as DatabaseCheckIcon,
+  DatabaseCog as DatabaseCogIcon,
   DatabaseMinus as DatabaseMinusIcon,
   DatabasePlus as DatabasePlusIcon,
   DatabaseSparkles as DatabaseSparklesIcon,
@@ -11872,6 +11957,7 @@ export {
   FileChartColumn as FileChartColumnIcon,
   FileCheck as FileCheckIcon,
   FileCode as FileCodeIcon,
+  FileCog as FileCogIcon,
   FileImage as FileImageIcon,
   FileMinus as FileMinusIcon,
   FileOff as FileOffIcon,
@@ -11906,6 +11992,7 @@ export {
   FolderArrowRight as FolderArrowRightIcon,
   FolderArrowUp as FolderArrowUpIcon,
   FolderCheck as FolderCheckIcon,
+  FolderCog as FolderCogIcon,
   FolderMinus as FolderMinusIcon,
   FolderOpen as FolderOpenIcon,
   FolderPlus as FolderPlusIcon,
@@ -11963,6 +12050,7 @@ export {
   GitX as GitXIcon,
   Glasses as GlassesIcon,
   GlobeCheck as GlobeCheckIcon,
+  GlobeCog as GlobeCogIcon,
   GlobeCursor as GlobeCursorIcon,
   GlobeOff as GlobeOffIcon,
   GlobePlus as GlobePlusIcon,
@@ -12107,6 +12195,7 @@ export {
   Lock as LockIcon,
   Lungs as LungsIcon,
   MailCheck as MailCheckIcon,
+  MailCog as MailCogIcon,
   MailDot as MailDotIcon,
   MailMinus as MailMinusIcon,
   MailOpen as MailOpenIcon,
@@ -12395,6 +12484,7 @@ export {
   SmartphoneArrowUpLeft as SmartphoneArrowUpLeftIcon,
   SmartphoneCast as SmartphoneCastIcon,
   SmartphoneCheck as SmartphoneCheckIcon,
+  SmartphoneCog as SmartphoneCogIcon,
   SmartphoneHorizontal as SmartphoneHorizontalIcon,
   SmartphoneMinus as SmartphoneMinusIcon,
   SmartphoneNfc as SmartphoneNfcIcon,

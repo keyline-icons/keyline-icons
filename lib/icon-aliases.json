@@ -2302,7 +2302,6 @@
     "calendar": [
       "calendar-1",
       "calendar-clock",
-      "calendar-cog",
       "calendar-fold",
       "calendar-heart",
       "calendar-range",
@@ -2365,7 +2364,6 @@
       "file-chart-pie",
       "file-clock",
       "file-code-corner",
-      "file-cog",
       "file-diff",
       "file-digit",
       "file-headphone",
@@ -2407,7 +2405,6 @@
       "folder-clock",
       "folder-closed",
       "folder-code",
-      "folder-cog",
       "folder-dot",
       "folder-git",
       "folder-git-2",
