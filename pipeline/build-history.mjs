@@ -70,6 +70,20 @@ const canon = (name) => {
 }
 
 /**
+ * Every name a rename took somewhere, from any version.
+ *
+ * `RENAMED` leaves 0.x alone for the sake of the counts those releases
+ * published. Whether a name that left a tree went anywhere is a different
+ * question, and the 0.x renames answer it too: `tag-horizontal` left v0.2.0's
+ * tree as `tag-horizontal-start`, and listing it under that entry as removed
+ * would be untrue about a release that took nothing out. See `retired`.
+ */
+const MOVED = new Set(
+  JSON.parse(readFileSync(join(ROOT, "lib", "icon-renames.json"), "utf8"))
+    .renames.map(({ from }) => from)
+)
+
+/**
  * The counts a note is allowed to quote, filled in here rather than typed.
  *
  * A number in a sentence is a claim with an expiry date, and this repository
@@ -424,6 +438,30 @@ const redraws = (candidates, from, to) =>
     .filter(Boolean)
     .sort((a, b) => a.name.localeCompare(b.name))
 
+/**
+ * The drawings a window took out of the set: held at its start, gone at its
+ * end, and not renamed.
+ *
+ * Until 1.6.0 a release only ever added and redrew, so an entry was built from
+ * those two lists alone. Then `cloud-minus` was retired, and nothing read off
+ * the tree could say so, because the tree no longer held it: the entry listed
+ * what arrived and stayed silent about what left, which reads to anyone
+ * importing the drawing as though it were still there.
+ *
+ * Each carries its stroke drawing from the window's start, since the surfaces
+ * can no longer look it up by name. Empty for every release before 1.6.0, and
+ * left off those entries rather than written as an empty list, so what they
+ * published is rebuilt byte for byte.
+ */
+const retired = (from, was, now) =>
+  [...was]
+    .filter((name) => !now.has(name) && !MOVED.has(name))
+    .sort(byFiling)
+    .map((name) => ({
+      name,
+      before: fileAt(from, `icons/stroke/${name}.svg`)?.trim() ?? null,
+    }))
+
 /** The version an unreleased icon will first appear in. */
 const current = JSON.parse(
   await readFile(join(ROOT, "packages", "react", "package.json"), "utf8")
@@ -657,11 +695,12 @@ const slug = (s) =>
 
 const titleFor = (version) => TOPICS[version]?.title ?? null
 
-const topicsFor = (version, names, updatedNames) => {
+const topicsFor = (version, names, updatedNames, removedNames = []) => {
   const want = TOPICS[version]?.sections
   if (!want) return null
   const added = new Set(names)
   const redrawn = new Set(updatedNames)
+  const gone = new Set(removedNames)
   const claimed = new Set()
   const own = (list, pool) =>
     (list ?? []).map(canon).filter((n) => pool.has(n) && !claimed.has(n) && claimed.add(n))
@@ -679,6 +718,9 @@ const topicsFor = (version, names, updatedNames) => {
       text: fill(topic.text ?? null),
       names: own(topic.names, added),
       updatedNames: own(topic.redraws, redrawn),
+      /* Written only where a section names a removal, for the reason under
+         `retired`: the entries before one are rebuilt exactly as published. */
+      ...(topic.removed && { removedNames: own(topic.removed, gone) }),
       sections: (topic.sections ?? []).map((sub) =>
         section(sub, anchor?.replace(`v${version}-`, ""))
       ),
@@ -694,9 +736,11 @@ const topicsFor = (version, names, updatedNames) => {
     updatedNames: updatedNames.filter((n) => !claimed.has(n)),
     sections: [],
   }
-  if (rest.names.length || rest.updatedNames.length) {
+  const unclaimed = removedNames.filter((n) => !claimed.has(n))
+  if (unclaimed.length) rest.removedNames = unclaimed
+  if (rest.names.length || rest.updatedNames.length || unclaimed.length) {
     console.log(
-      `  ${c(33, "!")} ${version}: ${[...rest.names, ...rest.updatedNames].join(", ")} ` +
+      `  ${c(33, "!")} ${version}: ${[...rest.names, ...rest.updatedNames, ...unclaimed].join(", ")} ` +
         `in no section of lib/icon-release-topics.json, appended.`
     )
     topics.push(rest)
@@ -952,6 +996,7 @@ const out =
             before?.tag,
             r.tag
           )
+          const removed = before ? retired(before.tag, known.get(before.version), known.get(r.version)) : []
           /* Named only where the drawing still exists, since the surfaces draw
              it; `count` below is the whole tree, retired drawings included,
              because that is what the release actually shipped. */
@@ -983,7 +1028,7 @@ const out =
             /* The headline the page heads the entry by. See `titleFor`. */
             title: titleFor(r.version),
             /* The entry read topic by topic, or null. See `topicsFor`. */
-            topics: topicsFor(r.version, names, updated.map((u) => u.name)),
+            topics: topicsFor(r.version, names, updated.map((u) => u.name), removed.map((g) => g.name)),
             /* Kept beside `updated` because five surfaces already count off it
                and a name is all a count needs. */
             updatedNames: updated.map((u) => u.name),
@@ -993,6 +1038,8 @@ const out =
              * the entry can show the change rather than assert it.
              */
             updated,
+            /* What the release took out. See `retired`. */
+            ...(removed.length && { removed }),
           }
         }),
       /**
@@ -1040,7 +1087,8 @@ const out =
            rather than a drawing leaves both lists empty, and returning null
            there would drop the announcement along with them. */
         const note = fill(NOTES.unreleased)
-        if (!names.length && !updated.length && !note) return null
+        const removed = since ? retired(since.tag, known.get(since.version), live) : []
+        if (!names.length && !updated.length && !removed.length && !note) return null
         return {
           note,
           since: since?.version ?? null,
@@ -1049,9 +1097,10 @@ const out =
           count: Object.keys(icons).length,
           names,
           title: titleFor(current),
-          topics: topicsFor(current, names, updated.map((u) => u.name)),
+          topics: topicsFor(current, names, updated.map((u) => u.name), removed.map((g) => g.name)),
           updatedNames: updated.map((u) => u.name),
           updated,
+          ...(removed.length && { removed }),
         }
       })(),
       people: people.map((who) => {

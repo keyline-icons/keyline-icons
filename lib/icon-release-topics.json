@@ -1,6 +1,182 @@
 {
- "$comment": "SOURCE, NOT GENERATED. How a release reads on the changelog, shaped after Preline's (Zafar, 17 Sep 2026, pointing at preline.co/docs/changelog.html): a title, then chips (an icon and a label, like Preline's \"New Components & Improvements\" and \"Fixes and Improvements\"), each followed by its items with a bold lead (\"People:\", \"Layout:\") and the drawings the item is about. His asks on the way: \"topic > icons, topic > icons. not all topics first and then all icons after that\", \"categorize them, not just text > icons. titles, etc.\", \"redrawns deserve to be a separate topic, not within a topic and each subtitle must carry shareable link like the main titles\". So redraws are always their own chip. Per version: `title` (the release's headline, which every version has, released ones included, because the page heads each entry by it) and optionally `sections`: chips with `title`, `icon` (a drawing from this set, by name) or `logo` (a platform's own mark, for a chip about that platform, where a drawing of ours would stand in for someone else's trademark: `react`, drawn from components/brand-logos.tsx), `text`, and items in `sections` with `title`, `text`, `names` (added) or `redraws`. A version with no `sections` is drawn with default chips, New drawings and Redrawn, straight off git. pipeline/build-history.mjs gives every chip and item an `anchor` (v<version>-<chip>, v<version>-<chip>-<item>) that the site links, keeps only the drawings the entry carries, and appends anything no item claims in a last untitled group, reported, so a stale list never drops a drawing. Keyed by the version the work ships as, so nothing is re-keyed at the tag. Numbers go in as {names} and {files}. Anything in backticks is set as code, on the page and the Paper board both, the way a post sets an icon name. Where a version has sections they replace the note.",
+ "$comment": "SOURCE, NOT GENERATED. How a release reads on the changelog, shaped after Preline's (Zafar, 17 Sep 2026, pointing at preline.co/docs/changelog.html): a title, then chips (an icon and a label, like Preline's \"New Components & Improvements\" and \"Fixes and Improvements\"), each followed by its items with a bold lead (\"People:\", \"Layout:\") and the drawings the item is about. His asks on the way: \"topic > icons, topic > icons. not all topics first and then all icons after that\", \"categorize them, not just text > icons. titles, etc.\", \"redrawns deserve to be a separate topic, not within a topic and each subtitle must carry shareable link like the main titles\". So redraws are always their own chip. Per version: `title` (the release's headline, which every version has, released ones included, because the page heads each entry by it) and optionally `sections`: chips with `title`, `icon` (a drawing from this set, by name) or `logo` (a platform's own mark, for a chip about that platform, where a drawing of ours would stand in for someone else's trademark: `react`, drawn from components/brand-logos.tsx), `text`, and items in `sections` with `title`, `text`, `names` (added), `redraws` or `removed` (drawings the release took out of the set, since 1.6.0 retired `cloud-minus`: the generator reads them off the two trees, so a name listed here only places one, it never claims one). A version with no `sections` is drawn with default chips, New drawings and Redrawn, straight off git. pipeline/build-history.mjs gives every chip and item an `anchor` (v<version>-<chip>, v<version>-<chip>-<item>) that the site links, keeps only the drawings the entry carries, and appends anything no item claims in a last untitled group, reported, so a stale list never drops a drawing. Keyed by the version the work ships as, so nothing is re-keyed at the tag. Numbers go in as {names} and {files}. Anything in backticks is set as code, on the page and the Paper board both, the way a post sets an icon name. Where a version has sections they replace the note.",
  "releases": {
+  "1.6.0": {
+   "title": "A house family, a person with nine signs, and cogs for files and folders",
+   "sections": [
+    {
+     "title": "New drawings",
+     "icon": "sparkles",
+     "sections": [
+      {
+       "title": "Actions",
+       "text": "A heart cracked down the middle.",
+       "names": [
+        "heart-crack"
+       ]
+      },
+      {
+       "title": "Arrows",
+       "text": "Two long arrows side by side, down on the left and up on the right. And four pairs of shorter arrows, one a step past the other: down and up, up and down, left and right, right and left.",
+       "names": [
+        "arrow-down-up",
+        "arrow-down-up-2",
+        "arrow-up-down-2",
+        "arrow-left-right-2",
+        "arrow-right-left-2"
+       ]
+      },
+      {
+       "title": "Commerce",
+       "text": "Glasses with round lenses, and sunglasses with dark ones.",
+       "names": [
+        "glasses",
+        "sunglasses"
+       ]
+      },
+      {
+       "title": "Devices",
+       "text": "A database with a cog. A phone with waves to one side, for tapping to pay, and a phone ringing, with waves to both.",
+       "names": [
+        "database-cog",
+        "smartphone-nfc",
+        "smartphone-ringing"
+       ]
+      },
+      {
+       "title": "Files",
+       "text": "A file and a folder, each with a cog.",
+       "names": [
+        "file-cog",
+        "folder-cog"
+       ]
+      },
+      {
+       "title": "Media",
+       "text": "A video camera without its reels.",
+       "names": [
+        "video-2"
+       ]
+      },
+      {
+       "title": "Shapes",
+       "text": "A puzzle piece.",
+       "names": [
+        "puzzle"
+       ]
+      },
+      {
+       "title": "Transport",
+       "text": "The bicycle on its own, without a rider.",
+       "names": [
+        "bike-2"
+       ]
+      },
+      {
+       "title": "Users",
+       "text": "A person with a sign beside them: a cog, a heart, a key, a list, a padlock, a speech bubble, a pen, a magnifying glass and a shield. And an ID badge with its photo.",
+       "names": [
+        "user-cog",
+        "user-heart",
+        "user-key",
+        "user-list",
+        "user-lock",
+        "user-message",
+        "user-pen",
+        "user-search",
+        "user-shield",
+        "id-badge"
+       ]
+      },
+      {
+       "title": "Web",
+       "text": "`house`, a second house with a roof that overhangs its walls and an arched door. It comes with a chimney, plain without a door, and as a pair; with a tick, a cross, a plus and a lightning bolt at its corner; with a heart, a cog, a plug and a wireless signal inside; and casting to a screen. `home` gains a tick, a cross, a heart, a plain version and a pair of its own. And a cloud with a magnifying glass, a cloud on a network, and a globe with a cog.",
+       "names": [
+        "house",
+        "house-chimney",
+        "house-simple",
+        "houses",
+        "house-check",
+        "house-x",
+        "house-plus",
+        "house-zap",
+        "house-heart",
+        "house-cog",
+        "house-plug",
+        "house-wifi",
+        "house-cast",
+        "home-check",
+        "home-x",
+        "home-heart",
+        "home-simple",
+        "homes",
+        "cloud-search",
+        "cloud-network",
+        "globe-cog"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Redrawn",
+     "icon": "pen",
+     "text": "Thirteen drawings that already shipped were drawn again. Before and after below.",
+     "sections": [
+      {
+       "title": "Web",
+       "text": "The cloud opens along its floor and its sign moves out beneath it at full size, where it used to sit small inside: the tick, the cross, the plus, the arrows for upload and download, and the prompt. The lightning bolt at the corner of `home` is bigger, the size of the plus beside it.",
+       "redraws": [
+        "cloud-check",
+        "cloud-x",
+        "cloud-plus",
+        "cloud-upload",
+        "cloud-download",
+        "cloud-terminal",
+        "home-zap"
+       ]
+      },
+      {
+       "title": "Weather",
+       "text": "The rain cloud opens along its floor the same way, and the rain falls from it.",
+       "redraws": [
+        "cloud-rain"
+       ]
+      },
+      {
+       "title": "AI",
+       "text": "The cog inside the brain takes the proportions of every other cog in the set: a smaller ring and longer teeth.",
+       "redraws": [
+        "brain-cog"
+       ]
+      },
+      {
+       "title": "Devices",
+       "text": "The database and the server carry a bigger lightning bolt, the size of the plus in their plus versions.",
+       "redraws": [
+        "database-zap",
+        "server-zap"
+       ]
+      },
+      {
+       "title": "Users",
+       "text": "The person with a lightning bolt and the person speaking stand where the person with a plus stands, so the three line up, and the bolt and the voice fill the same corner the plus does.",
+       "redraws": [
+        "user-zap",
+        "user-voice"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Removed",
+     "icon": "circle-minus",
+     "text": "`cloud-minus` is no longer in the set, and its page and its React export go with it.",
+     "removed": [
+      "cloud-minus"
+     ]
+    }
+   ]
+  },
   "1.5.0": {
    "title": "A bot family, six shields, and clipboards and floppy disks with their signs",
    "sections": [

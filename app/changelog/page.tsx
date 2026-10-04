@@ -8,6 +8,7 @@ import {
   type Icon,
   type Redraw,
   type ReleaseTopic,
+  type Removal,
   type StyleArt,
 } from "@/lib/icons"
 import {
@@ -73,6 +74,28 @@ import Link from "next/link"
    same sentence reads as two different kinds of number. */
 const plural = (n: number, one: string, many = one + "s") =>
   `${n.toLocaleString("en-US")} ${n === 1 ? one : many}`
+
+/**
+ * "47 drawings added, 13 redrawn and 1 removed": every figure the window has,
+ * the noun on the first. The removals joined it with 1.6.0, which retired
+ * `cloud-minus`; before that the sentence had two halves and spelled both out.
+ */
+const tally = (added: number, redrawn: number, removed: number) =>
+  (
+    [
+      [added, "added"],
+      [redrawn, "redrawn"],
+      [removed, "removed"],
+    ] as const
+  )
+    .filter(([n]) => n > 0)
+    .map(([n, verb], i) =>
+      i === 0
+        ? `${plural(n, "drawing")} ${verb}`
+        : `${n.toLocaleString("en-US")} ${verb}`
+    )
+    .join(", ")
+    .replace(/, ([^,]*)$/, " and $1")
 
 /**
  * One drawing, named, and a link to its page.
@@ -372,6 +395,46 @@ function Redrawn({ pairs }: { pairs: Pair[] }) {
 }
 
 /**
+ * A drawing a release took out of the set, parsed ready to render.
+ *
+ * Its name has no page and no file in `icons/` any more, so the drawing comes
+ * off the previous tag, carried by the history file. See `retired` in
+ * `pipeline/build-history.mjs`.
+ */
+type Gone = { name: string; art: StyleArt | null }
+
+const gones = (removed: Removal[]): Gone[] =>
+  removed.map((g) => ({
+    name: g.name,
+    art: g.before ? toStyleArt(g.before) : null,
+  }))
+
+/**
+ * What a release took out, shown as the drawing that left.
+ *
+ * Faded and unlinked, because both are true of it: the drawing is not in the
+ * set a reader installs, and its page answers 404. Printed the way a redraw's
+ * "before" is, at the same size on the same tile, so the section reads as the
+ * one beside it with the "after" missing, which is what a removal is.
+ */
+function Removed({ gone }: { gone: Gone[] }) {
+  return (
+    <ul className="not-prose grid grid-cols-[repeat(auto-fill,minmax(9.5rem,1fr))] gap-2">
+      {gone.map((g) => (
+        <Tile key={g.name} name={g.name} href={null}>
+          {g.art && (
+            <span className="relative opacity-40">
+              <Glyph art={g.art} size={24} stroke={2} />
+              <span className="sr-only">Removed</span>
+            </span>
+          )}
+        </Tile>
+      ))}
+    </ul>
+  )
+}
+
+/**
  * The cover's drawings, and the arithmetic that crops them.
  *
  * Same construction as the blog index's band, for the same reason: with a hard
@@ -526,6 +589,7 @@ function coverOf({
 const drawingsIn = (topic: ReleaseTopic): number =>
   topic.names.length +
   topic.updatedNames.length +
+  (topic.removedNames?.length ?? 0) +
   topic.sections.reduce((n, section) => n + drawingsIn(section), 0)
 
 const redrawsIn = (topic: ReleaseTopic): boolean =>
@@ -551,15 +615,18 @@ function Chips({
   topics,
   byName,
   redrawn,
+  gone = [],
   extra,
 }: {
   topics: ReleaseTopic[]
   byName: Map<string, Icon>
   redrawn: Pair[]
+  gone?: Gone[]
   /** Something drawn under one section's sentence, found by its anchor. */
   extra?: { anchor: string; node: React.ReactNode }
 }) {
   const pairOf = new Map(redrawn.map((pair) => [pair.name, pair]))
+  const goneOf = new Map(gone.map((g) => [g.name, g]))
   const drawings = (topic: ReleaseTopic) => {
     const icons = topic.names
       .map((name) => byName.get(name))
@@ -567,10 +634,14 @@ function Chips({
     const pairs = topic.updatedNames
       .map((name) => pairOf.get(name))
       .filter(Boolean) as Pair[]
+    const left = (topic.removedNames ?? [])
+      .map((name) => goneOf.get(name))
+      .filter(Boolean) as Gone[]
     return (
       <>
         {icons.length > 0 && <Tiles icons={icons} />}
         {pairs.length > 0 && <Redrawn pairs={pairs} />}
+        {left.length > 0 && <Removed gone={left} />}
       </>
     )
   }
@@ -679,7 +750,8 @@ const LOGOS: Record<string, typeof ReactLogo> = { react: ReactLogo }
 const defaultChips = (
   anchor: string,
   names: string[],
-  updatedNames: string[]
+  updatedNames: string[],
+  removedNames: string[] = []
 ): ReleaseTopic[] =>
   [
     {
@@ -690,8 +762,18 @@ const defaultChips = (
       updatedNames: [],
     },
     { title: "Redrawn", icon: "pen", key: "redrawn", names: [], updatedNames },
+    {
+      title: "Removed",
+      icon: "circle-minus",
+      key: "removed",
+      names: [],
+      updatedNames: [],
+      removedNames,
+    },
   ]
-    .filter((c) => c.names.length || c.updatedNames.length)
+    .filter(
+      (c) => c.names.length || c.updatedNames.length || c.removedNames?.length
+    )
     .map(({ key, ...c }) => ({
       ...c,
       anchor: `${anchor}-${key}`,
@@ -907,6 +989,7 @@ async function release() {
         .map((name) => byName.get(name))
         .filter(Boolean) as Icon[],
       redrawn: pairs(SET_UNRELEASED.updated, byName),
+      gone: gones(SET_UNRELEASED.removed ?? []),
     },
     entries: SET_RELEASES.map((entry, i) => ({
       ...entry,
@@ -924,6 +1007,7 @@ async function release() {
          corrections could only say "0 drawings added", which is true and tells
          a reader nothing about why they would upgrade. */
       redrawn: pairs(entry.updated ?? [], byName),
+      gone: gones(entry.removed ?? []),
     })),
   }
 }
@@ -968,6 +1052,8 @@ export default async function Page() {
     now sits under a chip, so nothing follows it directly.
   */
   const counted = (entry: (typeof entries)[number]) =>
+    countedBefore(entry) + removedTail(entry.gone.length)
+  const countedBefore = (entry: (typeof entries)[number]) =>
     entry.initial
       ? `The first cut of the set: ${entry.count.toLocaleString("en-US")} drawings on one 24×24 grid, at a 2px keyline, built for shadcn/ui and free under the MIT licence, shipping as SVGs, JSX snippets and React components.`
       : entry.icons.length === 0 && entry.redrawn.length === 0
@@ -982,6 +1068,12 @@ export default async function Page() {
             : entry.redrawn.length === 0
               ? `${plural(entry.icons.length, "drawing")} added since ${entry.previous}, bringing the set to ${entry.count.toLocaleString("en-US")}.`
               : `${plural(entry.icons.length, "drawing")} added since ${entry.previous}, bringing the set to ${entry.count.toLocaleString("en-US")}, and ${plural(entry.redrawn.length, "redrawn", "redrawn")}.`
+
+  /* The removals close the sentence rather than joining its list: the count
+     before them is already "bringing the set to", which a removal moves the
+     other way, so the two read better kept apart. */
+  const removedTail = (n: number) =>
+    n > 0 ? ` ${plural(n, "drawing")} removed.` : ""
 
   /* The ticks, in page order, labelled the way each entry labels itself. */
   const ticks: ReleaseTick[] = [
@@ -1080,13 +1172,13 @@ export default async function Page() {
                   was non-empty and drop the other, so a stretch that added
                   three drawings and corrected six announced the three.
                 */}
-                  {unreleased.icons.length > 0 && unreleased.redrawn.length > 0
-                    ? `${plural(unreleased.icons.length, "drawing")} added and ` +
-                      `${unreleased.redrawn.length} redrawn since ${unreleased.since}`
-                    : unreleased.icons.length > 0
-                      ? `${plural(unreleased.icons.length, "drawing")} added since ${unreleased.since}`
-                      : `${plural(unreleased.redrawn.length, "drawing")} redrawn since ${unreleased.since}`}
-                  . The set is now {unreleased.count.toLocaleString("en-US")}.
+                  {tally(
+                    unreleased.icons.length,
+                    unreleased.redrawn.length,
+                    unreleased.gone.length
+                  )}{" "}
+                  since {unreleased.since}. The set is now{" "}
+                  {unreleased.count.toLocaleString("en-US")}.
                 </p>
               }
               notice="In the repo and the design files. Not on npm until the next release."
@@ -1108,11 +1200,13 @@ export default async function Page() {
                   defaultChips(
                     "unreleased",
                     unreleased.names,
-                    unreleased.updatedNames
+                    unreleased.updatedNames,
+                    unreleased.gone.map((g) => g.name)
                   )
                 }
                 byName={byName}
                 redrawn={unreleased.redrawn}
+                gone={unreleased.gone}
                 extra={stylesExtra(SET_VERSION)}
               />
             </Release>
@@ -1165,7 +1259,8 @@ export default async function Page() {
                   defaultChips(
                     `v${entry.version}`,
                     entry.names,
-                    entry.updatedNames
+                    entry.updatedNames,
+                    entry.gone.map((g) => g.name)
                   )
                 const content = (
                   <>
@@ -1188,6 +1283,7 @@ export default async function Page() {
                         topics={topics}
                         byName={byName}
                         redrawn={entry.redrawn}
+                        gone={entry.gone}
                         extra={stylesExtra(entry.version)}
                       />
                     )}

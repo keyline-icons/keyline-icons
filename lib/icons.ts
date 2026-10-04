@@ -155,8 +155,23 @@ export type ReleaseTopic = {
   text: string | null
   names: string[]
   updatedNames: string[]
+  /** Drawings the release took out of the set. Absent before 1.6.0. */
+  removedNames?: string[]
   /** Sections inside this one: the `Redrawn` section's shelves. */
   sections: ReleaseTopic[]
+}
+
+/**
+ * A drawing a release took out of the set, as the release before it had it.
+ *
+ * Carried whole because nothing else can supply it: the name no longer has a
+ * file in `icons/`, so a surface that only had the name could print it and
+ * nothing more.
+ */
+export type Removal = {
+  name: string
+  /** The stroke drawing at the previous tag. */
+  before: string | null
 }
 
 export type Release = {
@@ -199,6 +214,8 @@ export type Release = {
   updatedNames: string[]
   /** The same drawings, before and after. Never narrower than `updatedNames`. */
   updated: Redraw[]
+  /** What the release took out of the set. Absent where it took nothing. */
+  removed?: Removal[]
 }
 
 /**
@@ -233,6 +250,7 @@ export type Unreleased = {
   topics?: ReleaseTopic[] | null
   updatedNames: string[]
   updated: Redraw[]
+  removed?: Removal[]
 }
 
 const NOT_CONTAINERS = new Set<string>(notContainers.names)
