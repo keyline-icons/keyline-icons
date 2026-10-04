@@ -14,6 +14,7 @@ import {
   type StyleArt,
 } from "@/lib/icons"
 import { Glyph } from "@/components/glyph"
+import { ArrowRight } from "@/components/icons"
 import { prose } from "@/components/prose"
 
 /**
@@ -278,10 +279,13 @@ function PairsFigure({ pairs, caption }: { pairs: Pair[]; caption: string }) {
           >
             <span className="flex items-center gap-4">
               {face(pair.before, "Before")}
+              {/* The set's own arrow, as the changelog's pairs draw it. A typed
+                  "→" stood here, the one mark on the site the set did not draw. */}
               {pair.before && pair.after && (
-                <span aria-hidden="true" className="text-muted-foreground">
-                  →
-                </span>
+                <ArrowRight
+                  aria-hidden="true"
+                  className="size-4 shrink-0 text-muted-foreground"
+                />
               )}
               {face(pair.after, "After")}
             </span>
