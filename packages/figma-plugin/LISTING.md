@@ -122,6 +122,17 @@ github.com/keyline-icons/keyline-icons
 
 Changelog
 
+1.6.0
+47 new drawings, taking the set to 1,332 names and 10,656 SVGs.
+
+* Web: house, a second house with a roof reaching past its walls and an arched door, with a chimney, plain, as a pair, a tick, a cross, a plus or a lightning bolt at its corner, a heart, a cog, a plug or a wireless signal inside, and casting to a screen; home with a tick, a cross, a heart, plain and as a pair; a cloud with a magnifying glass and a cloud on a network
+* Users: a person with a cog, a heart, a key, a list, a padlock, a speech bubble, a pen, a magnifying glass or a shield beside them, and an ID badge
+* Files, Devices and Web: a cog on a file, a folder, a database and the globe
+* Arrows: two long arrows, down beside up, and four shorter pairs, one a step past the other
+* And more: glasses and sunglasses, a heart cracked down the middle, a puzzle piece, a video camera without its reels, the bicycle without its rider, a phone for tapping to pay and a phone ringing
+
+Also redrawn: the clouds with a tick, a cross, a plus, an exclamation mark, an arrow or a prompt now open along their bottom edge, with the symbol beneath at full size, and the rain cloud with them; four icons with a lightning bolt, and the person speaking, stand where their plus versions stand; the cog in the brain matches every other cog. cloud-minus is no longer in the set.
+
 1.5.0
 53 new drawings, taking the set to 1,286 names and 10,288 SVGs.
 
@@ -168,18 +179,6 @@ Also redrawn: the table and all twenty-seven panels, in their filled styles. The
 
 1.1.1
 The panel, redrawn: browse by shelf, recent icons at the top, drag onto the canvas, insert at 16, 20, 24 or 32, and your style, corners and size remembered between runs.
-
-1.1.0
-114 new drawings, taking the set to 1,114 names and 8,912 SVGs, and two new shelves. The set now installs in React Native too, as @keyline-icons/react-native.
-
-* AI: seventy-six drawings marked with the same pair of stars, from search, message, file, chart and cursor to a truck and a wallet, and a second bot; every sparkle in the set now sits on this one shelf
-* Math: asterisk, divide, equals with its approximate and not-equal forms, hash, infinity, parentheses, radical, variable and a barred x, four of them circled and squared too
-* Keyboard: command, option, escape and space
-* Arrows: six corner turns, an arrow with a dash on top and an arrow that runs into a line
-* And more: a file with a waveform and one with a play triangle, eject, a line that goes both ways and a plain wand
-* Math and Keyboard opened as shelves of their own, taking categories from 38 to 40
-
-Also redrawn: the pen with sparkles, its plus signs swapped for the pair of stars.
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
@@ -239,6 +238,18 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 1.6.0
+
+```
+47 new drawings, taking the set to 1,332 names and 10,656 SVGs: house, a second house, with a chimney, plain, as a pair, four symbols at its corner and four inside, and casting to a screen; home with five more; a person with nine symbols beside them, and an ID badge; a cog on a file, a folder, a database and the globe; two long arrows and four shorter pairs; glasses and sunglasses, a heart cracked down the middle, a puzzle piece, a second video camera and bicycle, a phone for tapping to pay and one ringing, and two more clouds. Fourteen drawings redrawn, mostly clouds, which now open along their bottom edge with the symbol beneath at full size. cloud-minus is no longer in the set.
+```
+
+**No plugin code changed this time.** The drawings reach the plugin from
+jsDelivr once they are pushed, so this republish is for the listing alone: the
+counts moved at graduation (the tagline, the style bullets, the totals and the
+curated-word count), and the Description gains the 1.6.0 entry. The category
+count stayed at 40.
 
 ### 1.5.0
 
@@ -670,6 +681,17 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+v1.6.0
+47 new drawings. The set is 1,332 names now, 1,205 component sets and 10,656 variants, up from 1,286 and 10,288. One set was removed, cloud-minus. Nothing was renamed and no other component was replaced, so instances already placed in your files keep their link.
+
+* Web: house, a second house with a roof reaching past its walls and an arched door, with a chimney, plain, as a pair, a tick, a cross, a plus or a lightning bolt at its corner, a heart, a cog, a plug or a wireless signal inside, and casting to a screen; home with a tick, a cross, a heart, plain and as a pair; a cloud with a magnifying glass and a cloud on a network
+* Users: a person with a cog, a heart, a key, a list, a padlock, a speech bubble, a pen, a magnifying glass or a shield beside them, and an ID badge
+* Files, Devices and Web: a cog on a file, a folder, a database and the globe
+* Arrows: two long arrows, down beside up, and four shorter pairs, one a step past the other
+* And more: glasses and sunglasses, a heart cracked down the middle, a puzzle piece, a video camera without its reels, the bicycle without its rider, a phone for tapping to pay and a phone ringing
+
+Also redrawn: the clouds with a tick, a cross, a plus, an exclamation mark, an arrow or a prompt now open along their bottom edge, with the symbol beneath at full size, and the rain cloud with them; four icons with a lightning bolt, and the person speaking, stand where their plus versions stand; the cog in the brain matches every other cog. cloud-minus is no longer in the set. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
+
 v1.5.0
 53 new drawings. The set is 1,286 names now, 1,159 component sets and 10,288 variants, up from 1,233 and 9,864. One set was renamed, bot-2 to bot-circle, in place, and no component was replaced, so instances already placed in your files keep their link.
 
@@ -711,23 +733,6 @@ v1.2.0
 
 Also redrawn: the table and all twenty-seven panels, in two-tone, duotone and fill: the header row or the docked side is now the solid part. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
 
-v1.1.1
-One drawing redrawn, and nothing else in the file moved. The set is still 1,114 names, 989 component sets and 8,912 variants. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
-
-Also redrawn: option. Its two bars now land on whole pixels at 12px, the size shortcut hints use, and it takes the same 20 by 20 box as command. The vectors were swapped inside the existing set, so its instances pick the new drawing up.
-
-v1.1.0
-114 new drawings, and two new shelves. The set is 1,114 names now, 989 component sets and 8,912 variants, up from 1,000 and 8,000. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
-
-* AI: seventy-six drawings marked with the same pair of stars, from search, message, file, chart and cursor to a truck and a wallet, and a second bot; every sparkle in the file now sits on this one shelf
-* Math: asterisk, divide, equals with its approximate and not-equal forms, hash, infinity, parentheses, radical, variable and a barred x, four of them circled and squared too
-* Keyboard: command, option, escape and space
-* Arrows: six corner turns, an arrow with a dash on top and an arrow that runs into a line
-* Singles: a file with a waveform and one with a play triangle, eject, a line that goes both ways and a plain wand
-* Categories went from 38 to 40: Math and Keyboard took the new marks that had nowhere honest to sit
-
-Also redrawn: the pen with sparkles, its plus signs swapped for the pair of stars every other drawing on the AI shelf carries. The vectors were swapped inside the existing set, so its instances keep their link too.
-
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
 
@@ -755,7 +760,9 @@ before, 8,161 after; the file's stayed at 8,842, under the 8,876 Figma has
 accepted), v1.0.0 from the file's on 28 Sep 2026 with the 1.4.0 entry (9,584
 before, 6,818 after; the plugin's reached 8,687 and kept its 1.0.0), 1.0.0
 from the plugin's on 1 Oct 2026 with the 1.5.0 entry (10,072 before, 7,457
-after; the file's reached 8,165 and kept its v1.1.0), and a
+after; the file's reached 8,165 and kept its v1.1.0), 1.1.0 from the plugin's
+and v1.1.1 and v1.1.0 from the file's on 4 Oct 2026 with the 1.6.0 entries
+(8,796 and 9,800 before, 7,830 and 8,120 after), and a
 last line points at
 `keylineicons.com/changelog`, which keeps every release.
 
