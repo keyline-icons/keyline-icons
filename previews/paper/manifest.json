@@ -14,9 +14,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 1210,
-  "names": 1337,
-  "variants": 10696,
+  "icons": 1209,
+  "names": 1336,
+  "variants": 10688,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -2390,7 +2390,7 @@
       "parts": 12,
       "into": "artboard",
       "width": 742,
-      "icons": 57,
+      "icons": 56,
       "variants": 48,
       "bytes": 33804
     },
@@ -2403,8 +2403,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 36863
+      "variants": 32,
+      "bytes": 39938
     },
     {
       "file": "new-3.html",
@@ -2415,8 +2415,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 38964
+      "variants": 40,
+      "bytes": 28616
     },
     {
       "file": "new-4.html",
@@ -2428,7 +2428,7 @@
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 35949
+      "bytes": 38105
     },
     {
       "file": "new-5.html",
@@ -2439,8 +2439,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 40701
+      "variants": 40,
+      "bytes": 36092
     },
     {
       "file": "new-6.html",
@@ -2451,8 +2451,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 34302
+      "variants": 48,
+      "bytes": 40400
     },
     {
       "file": "new-7.html",
@@ -2464,7 +2464,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 39109
+      "bytes": 39128
     },
     {
       "file": "new-8.html",
@@ -2476,7 +2476,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 35565
+      "bytes": 35546
     },
     {
       "file": "new-9.html",
@@ -2488,7 +2488,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 35313
+      "bytes": 36320
     },
     {
       "file": "new-10.html",
@@ -2500,7 +2500,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 37473
+      "bytes": 37454
     },
     {
       "file": "new-11.html",
@@ -2512,7 +2512,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 36542
+      "bytes": 36561
     },
     {
       "file": "new-12.html",
@@ -2524,7 +2524,7 @@
       "width": 742,
       "icons": 0,
       "variants": 8,
-      "bytes": 5692
+      "bytes": 5673
     },
     {
       "file": "people-1.html",
@@ -3276,7 +3276,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 96198
+      "bytes": 96034
     },
     {
       "file": "changelog-earlier.html",
