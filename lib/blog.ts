@@ -5559,7 +5559,373 @@ const RELEASE_1_5_0: BlogPost = {
   ],
 }
 
+export const BLOG_V160_THUMBNAIL_ICON_NAMES = [
+  "house",
+  "user-cog",
+  "folder-cog",
+  "glasses",
+  "house-heart",
+  "user-shield",
+  "globe-cog",
+  "puzzle",
+  "house-wifi",
+  "user-key",
+  "file-cog",
+  "sunglasses",
+  "house-chimney",
+  "user-lock",
+  "database-cog",
+  "heart-crack",
+  "houses",
+  "user-message",
+  "cloud-search",
+  "smartphone-ringing",
+  "house-check",
+  "user-pen",
+  "arrow-down-up",
+  "id-badge",
+  "house-cast",
+  "user-search",
+  "cloud-network",
+  "smartphone-nfc",
+  "house-plug",
+  "user-heart",
+  "video-2",
+  "bike-2",
+  "home-heart",
+  "user-list",
+  "arrow-left-right-2",
+  "house-zap",
+  "home-check",
+  "homes",
+  "house-simple",
+  "house-cog",
+] as const
+
+export const BLOG_V160_HERO_ICON_NAMES = [
+  "house",
+  "house-heart",
+  "user-cog",
+  "folder-cog",
+  "glasses",
+  "puzzle",
+  "house-wifi",
+  "user-shield",
+] as const
+
+/** `house` and its twelve, then `home` and its five. */
+export const BLOG_V160_HOUSE_ICON_NAMES = [
+  "house",
+  "house-simple",
+  "house-chimney",
+  "houses",
+  "house-check",
+  "house-x",
+  "house-plus",
+  "house-zap",
+  "house-heart",
+  "house-cog",
+  "house-plug",
+  "house-wifi",
+  "house-cast",
+  "home",
+  "home-simple",
+  "homes",
+  "home-check",
+  "home-x",
+  "home-heart",
+] as const
+
+export const BLOG_V160_USER_ICON_NAMES = [
+  "user-cog",
+  "user-heart",
+  "user-key",
+  "user-list",
+  "user-lock",
+  "user-message",
+  "user-pen",
+  "user-search",
+  "user-shield",
+  "id-badge",
+] as const
+
+export const BLOG_V160_COG_ICON_NAMES = [
+  "file-cog",
+  "folder-cog",
+  "database-cog",
+  "globe-cog",
+  "house-cog",
+  "user-cog",
+  "brain-cog",
+] as const
+
+export const BLOG_V160_SINGLE_ICON_NAMES = [
+  "arrow-down-up",
+  "arrow-down-up-2",
+  "arrow-up-down-2",
+  "arrow-left-right-2",
+  "arrow-right-left-2",
+  "glasses",
+  "sunglasses",
+  "heart-crack",
+  "puzzle",
+  "video-2",
+  "bike-2",
+  "smartphone-nfc",
+  "smartphone-ringing",
+  "cloud-search",
+  "cloud-network",
+] as const
+
+export const BLOG_V160_REDRAWN_ICON_NAMES = [
+  "cloud-check",
+  "cloud-x",
+  "cloud-plus",
+  "cloud-upload",
+  "cloud-download",
+  "cloud-terminal",
+  "cloud-rain",
+  "home-zap",
+  "database-zap",
+  "server-zap",
+  "user-zap",
+  "user-voice",
+  "brain-cog",
+] as const
+
+const RELEASE_1_6_0: BlogPost = {
+  /* The count, "free", "shadcn/ui" and what a search types for these: house,
+     user and settings icons. The slug names the drawings, not the version. */
+  slug: "house-user-and-settings-icons",
+  version: "1.6.0",
+  title: "47 free shadcn/ui icons for houses, users, settings and arrows",
+  description:
+    "1,332 free, MIT-licensed SVG icons for React and shadcn/ui. New: a " +
+    "second house with twelve variations, a person with nine symbols, and a " +
+    "cog for files, folders, databases and the globe.",
+  standfirst: "Home has company.",
+  date: "2026-10-04",
+  updated: "2026-10-04",
+  readingMinutes: 4,
+  thumbnail: BLOG_V160_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "house icon",
+    "home icon",
+    "smart home icons",
+    "user icons",
+    "user settings icon",
+    "settings icon",
+    "cog icon",
+    "gear icon",
+    "folder settings icon",
+    "id badge icon",
+    "glasses icon",
+    "sunglasses icon",
+    "broken heart icon",
+    "puzzle icon",
+    "phone ringing icon",
+    "sort arrows icon",
+    "cloud icons",
+    "free svg icons",
+    "shadcn/ui icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "Forty-seven icons are new. Eighteen of them are houses: `house`, a " +
+        "second house to stand beside `home`, with twelve variations, and " +
+        "five more for `home` itself. Ten are people, a person with a symbol " +
+        "beside them nine ways over and an ID badge. The rest are cogs, " +
+        "arrows, two pairs of glasses and a handful of everyday objects.",
+    },
+    {
+      kind: "p",
+      text:
+        "Thirteen icons that already shipped were redrawn, most of them " +
+        "clouds. That makes 1,332 icons, each in stroke, two-tone, duotone " +
+        "and fill, with rounded or sharp corners: 10,656 SVGs in all.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V160_HERO_ICON_NAMES,
+        caption: "Eight of the forty-seven, one style to a row.",
+      },
+    },
+
+    { kind: "h2", text: "A second house", id: "house" },
+    {
+      kind: "p",
+      text:
+        "`home` has a rounded peak and a square door, and it stays as it is. " +
+        "`house` is the other picture people reach for: a roof that reaches " +
+        "out past its walls, over an arched door.",
+    },
+    {
+      kind: "p",
+      text:
+        "It comes with a chimney, plain without a door, and as a pair. A " +
+        "tick, a cross, a plus or a lightning bolt sits at the top right, " +
+        "where the roof stops short to make room. A heart, a cog or a plug " +
+        "takes the place of the door, for favourites, settings and power. " +
+        "`house-wifi` holds a wireless signal, its dot resting in a gap in " +
+        "the floor, and `house-cast` sends one out from its lower corner. " +
+        "Together they cover most of what a smart home app needs to say.",
+    },
+    {
+      kind: "p",
+      text:
+        "`home` gains a heart, a cross, a tick, a version without a door and " +
+        "a pair of its own, so either house can carry an app from start to " +
+        "finish.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V160_HOUSE_ICON_NAMES,
+        caption: "`house` and its twelve, then `home` and its five.",
+      },
+    },
+
+    { kind: "h2", text: "A person with something to say", id: "people" },
+    {
+      kind: "p",
+      text:
+        "The person already came with a tick, a plus, a minus, a cross and a " +
+        "lightning bolt. Nine more symbols join them: a cog for account " +
+        "settings, a heart, a key, a list, a padlock, a speech bubble, a pen " +
+        "for editing, a magnifying glass for finding people, and a shield.",
+    },
+    {
+      kind: "p",
+      text:
+        "These are objects rather than marks, so they are drawn larger, low " +
+        "on the right beside the shoulder. The shoulder stops short to give " +
+        "each one room. The person stands where it does in `user-plus`, so " +
+        "switching one symbol for another never moves it. `id-badge` is the " +
+        "tenth: a badge with a photo on it and the slot it hangs from.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V160_USER_ICON_NAMES,
+        caption: "Nine people with a symbol, and the ID badge.",
+      },
+    },
+
+    { kind: "h2", text: "One cog for everything", id: "cogs" },
+    {
+      kind: "p",
+      text:
+        "Settings attach to all sorts of things, so the cog now comes with " +
+        "a file, a folder, a database and the globe, in the corner the plus " +
+        "takes on each of them. It is the same cog each time, and the same " +
+        "one beside the person.",
+    },
+    {
+      kind: "p",
+      text:
+        "`brain-cog` was redrawn to match. Its cog had a wider ring and " +
+        "shorter teeth than any other in the set; now it has the same " +
+        "proportions as the rest.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V160_COG_ICON_NAMES,
+        caption: "Four new cogs, the two from the families above, and the brain.",
+      },
+    },
+
+    { kind: "h2", text: "And the rest", id: "singles" },
+    {
+      kind: "p",
+      text:
+        "`arrow-down-up` is two long arrows side by side, down on the left " +
+        "and up on the right, the usual picture for sorting. Four shorter " +
+        "pairs sit one a step past the other, for swapping two things in " +
+        "either direction.",
+    },
+    {
+      kind: "p",
+      text:
+        "There are glasses with round lenses and sunglasses with dark ones, " +
+        "a heart cracked down the middle, and a puzzle piece. `video-2` is a " +
+        "video camera without its reels, and `bike-2` is the bicycle " +
+        "without its rider. A phone with waves to one side is for tapping " +
+        "to pay; with waves on both sides, it is ringing. And two more " +
+        "clouds: one with a magnifying glass and one on a network.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V160_SINGLE_ICON_NAMES,
+        caption: "Five pairs of arrows, then the singles.",
+      },
+    },
+
+    { kind: "h2", text: "Clouds that open", id: "redrawn" },
+    {
+      kind: "p",
+      text:
+        "Each cloud with a check mark, a cross, a plus, an arrow or a prompt " +
+        "used to hold it inside, drawn small to fit. Now the cloud opens along its " +
+        "bottom edge and the symbol stands beneath it at full size, the " +
+        "arrows for upload and download included. The rain cloud " +
+        "opens the same way, and the rain falls straight out of it. " +
+        "`cloud-minus` is no longer part of the set.",
+    },
+    {
+      kind: "p",
+      text:
+        "Four icons with a lightning bolt moved a step to the left: " +
+        "`home-zap`, `database-zap`, `server-zap` and `user-zap`. Each now " +
+        "stands exactly where its plus version stands, so switching one for " +
+        "the other no longer makes the picture jump. `user-voice` moved with " +
+        "them, and its voice grew to fill the same corner.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "pairs",
+        names: BLOG_V160_REDRAWN_ICON_NAMES,
+        caption: "All thirteen, before beside after.",
+      },
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text:
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui " +
+        "registry, the CLI, the MCP server, and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
+  RELEASE_1_6_0,
   RELEASE_1_5_0,
   RELEASE_1_4_0,
   RELEASE_1_3_0,
