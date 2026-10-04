@@ -2302,6 +2302,7 @@
     "calendar": [
       "calendar-1",
       "calendar-clock",
+      "calendar-cog",
       "calendar-fold",
       "calendar-heart",
       "calendar-range",
