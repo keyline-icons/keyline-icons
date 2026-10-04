@@ -59,14 +59,15 @@ export const CATEGORIES = [
   // only.
   //
   // Opened 4 Oct 2026 for 1.6.0, the refs batch: forty-eight new drawings (user-cog's gear on five bases among them)
-  // and ten redraws (the five badged clouds on their opened body, brain-cog's cog, and four zaps put back on their
-  // -plus rows), the same fifty-eight sets as the design file's New band. Every name is
+  // and fifteen redraws (the five badged clouds on their opened body, brain-cog's cog, and nine compounds put back on
+  // their -plus rows: four zaps, wifi-exclamation, wifi-info, user-voice, cloud-terminal and cloud-rain), the same
+  // sixty-three sets as the design file's New band. Every name is
   // also matched by its real shelf below: `house` files beside `home` in Web as its name-to-name twin, the eyewear in
   // Commerce beside the shirt (ahead of Weather, whose `sun` would take sunglasses), the jigsaw piece in Shapes
   // beside the dice.
   {
     label: "New",
-    match: /^(arrow-down-up|arrow-up-down-2|arrow-down-up-2|arrow-left-right-2|arrow-right-left-2|home-simple|home-check|home-x|home-heart|homes|house|house-simple|house-plus|house-check|house-x|house-zap|house-heart|house-chimney|house-cast|house-plug|house-cog|house-wifi|houses|user-cog|user-heart|user-key|user-list|user-lock|user-pen|user-search|user-shield|user-message|id-badge|cloud-search|cloud-network|smartphone-ringing|smartphone-nfc|sunglasses|glasses|video-2|bike-2|heart-crack|puzzle|file-cog|folder-cog|smartphone-cog|globe-cog|database-cog|cloud-plus|cloud-check|cloud-x|cloud-download|cloud-upload|brain-cog|database-zap|server-zap|user-zap|home-zap)$/,
+    match: /^(arrow-down-up|arrow-up-down-2|arrow-down-up-2|arrow-left-right-2|arrow-right-left-2|home-simple|home-check|home-x|home-heart|homes|house|house-simple|house-plus|house-check|house-x|house-zap|house-heart|house-chimney|house-cast|house-plug|house-cog|house-wifi|houses|user-cog|user-heart|user-key|user-list|user-lock|user-pen|user-search|user-shield|user-message|id-badge|cloud-search|cloud-network|smartphone-ringing|smartphone-nfc|sunglasses|glasses|video-2|bike-2|heart-crack|puzzle|file-cog|folder-cog|smartphone-cog|globe-cog|database-cog|cloud-plus|cloud-check|cloud-x|cloud-download|cloud-upload|brain-cog|database-zap|server-zap|user-zap|home-zap|wifi-exclamation|wifi-info|user-voice|cloud-terminal|cloud-rain)$/,
     blurb: "Drawn since the last release, waiting on review.",
   },
   // The machine that thinks: the bots, the brain wired to a circuit and the

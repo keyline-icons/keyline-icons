@@ -3762,8 +3762,8 @@ export function CloudPlus(props: IconProps) {
 export function CloudRain(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M6 17L18 17C20.5784 17 22.734 15.0393 22.9776 12.4724C23.2212 9.9055 21.4729 7.5743 18.9405 7.0893C18.4833 3.6052 15.5139 1 12 1C8.4861 1 5.5167 3.6052 5.0595 7.0893C2.5271 7.5743 0.7788 9.9055 1.0224 12.4724C1.266 15.0393 3.4216 17 6 17Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M8 20L8 22M12 20L12 22M16 20L16 22" />
+      <path d="M4 16.4641C2.7624 15.7496 2 14.4291 2 13C2 10.7909 3.7909 9 6 9C6 5.6863 8.6863 3 12 3C15.3137 3 18 5.6863 18 9C20.2091 9 22 10.7909 22 13C22 14.4291 21.2376 15.7496 20 16.4641" fill="none" strokeOpacity={0.4} />
+      <path d="M8 17L8 21M12 17L12 21M16 17L16 21" />
     </Icon>
   )
 }
@@ -3799,8 +3799,8 @@ export function CloudSun(props: IconProps) {
 export function CloudTerminal(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M22 15C22 12.7909 20.2091 11 18 11C18 7.6863 15.3137 5 12 5C8.6863 5 6 7.6863 6 11C3.7909 11 2 12.7909 2 15C2 17.2091 3.7909 19 6 19H9" strokeOpacity={0.4} />
-      <path d="M13 12L16.0571 14.6204C16.2899 14.8199 16.2899 15.1801 16.0571 15.3796L13 18M21 19H18" />
+      <path d="M5 16.874C3.2748 16.4299 2 14.8638 2 13C2 10.7909 3.7909 9 6 9C6 5.6863 8.6863 3 12 3C15.3137 3 18 5.6863 18 9C20.2091 9 22 10.7909 22 13C22 14.8638 20.7252 16.4299 19 16.874" fill="none" strokeOpacity={0.4} />
+      <path d="M9 14L12.0571 16.6204C12.2899 16.8199 12.2899 17.1801 12.0571 17.3796L9 20M14 21L17 21" />
     </Icon>
   )
 }
@@ -11885,8 +11885,8 @@ export function UserSparkles(props: IconProps) {
 export function UserVoice(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M9 13L11 13C14.866 13 18 16.134 18 20C18 21.1046 17.1046 22 16 22L4 22C2.8954 22 2 21.1046 2 20C2 16.134 5.134 13 9 13ZM14 7C14 9.2091 12.2091 11 10 11C7.7909 11 6 9.2091 6 7C6 4.7909 7.7909 3 10 3C12.2091 3 14 4.7909 14 7Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M16.0622 3.5C16.6766 4.5641 17 5.7712 17 7C17 8.2288 16.6766 9.4359 16.0622 10.5M20.247 3C20.7446 4.2749 21 5.6314 21 7C21 8.9309 20.4917 10.8278 19.5263 12.5" />
+      <path d="M8 13H10C13.866 13 17 16.134 17 20C17 21.1046 16.1046 22 15 22H3C1.89543 22 1 21.1046 1 20C1 16.134 4.13401 13 8 13ZM13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M17.0623 3C17.6791 4.2432 18 5.6122 18 7C18 8.3878 17.6791 9.7568 17.0623 11M21.3693 3C21.7872 4.2922 22 5.6419 22 7C22 9.282 21.3993 11.5238 20.2583 13.5" />
     </Icon>
   )
 }
@@ -12102,10 +12102,10 @@ export function WholeWord(props: IconProps) {
 export function WifiExclamation(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M4 9.0557C6.2001 7.0879 9.0483 6 12 6C14.9517 6 17.7999 7.0879 20 9.0557M9.3333 15.0186C10.0667 14.3626 11.0161 14 12 14C12.2451 14 12.4898 14.0225 12.7308 14.0673M6.6667 12.0372C8.1334 10.7253 10.0322 10 12 10C12.4903 10 12.9795 10.0451 13.4616 10.1346" strokeLinejoin="miter" strokeOpacity={0.4} />
-      <path d="M13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18C11 17.4477 11.4477 17 12 17C12.5523 17 13 17.4477 13 18Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M17 12L17 14" strokeLinejoin="miter" />
-      <path d="M18 18C18 18.5523 17.5523 19 17 19C16.4477 19 16 18.5523 16 18C16 17.4477 16.4477 17 17 17C17.5523 17 18 17.4477 18 18Z" fill="currentColor" stroke="none" />
+      <path d="M7.3333 15.0186C8.0667 14.3626 9.0161 14 10 14C10.9839 14 11.9333 14.3626 12.6667 15.0186M4.6667 12.0372C6.1334 10.7253 8.0322 10 10 10C11.9678 10 13.8666 10.7253 15.3333 12.0372M2 9.0557C4.2001 7.0879 7.0483 6 10 6C12.9517 6 15.7999 7.0879 18 9.0557" strokeOpacity={0.4} />
+      <path d="M11 18C11 18.5523 10.5523 19 10 19C9.4477 19 9 18.5523 9 18C9 17.4477 9.4477 17 10 17C10.5523 17 11 17.4477 11 18Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M22 12L22 14" />
+      <path d="M23 18C23 18.5523 22.5523 19 22 19C21.4477 19 21 18.5523 21 18C21 17.4477 21.4477 17 22 17C22.5523 17 23 17.4477 23 18Z" fill="currentColor" stroke="none" />
     </Icon>
   )
 }
@@ -12113,10 +12113,10 @@ export function WifiExclamation(props: IconProps) {
 export function WifiInfo(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M4 9.0557C6.2001 7.0879 9.0483 6 12 6C14.9517 6 17.7999 7.0879 20 9.0557M9.3333 15.0186C10.0667 14.3626 11.0161 14 12 14C12.2451 14 12.4898 14.0225 12.7308 14.0673M6.6667 12.0372C8.1334 10.7253 10.0322 10 12 10C12.4903 10 12.9795 10.0451 13.4616 10.1346" strokeLinejoin="miter" strokeOpacity={0.4} />
-      <path d="M13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18C11 17.4477 11.4477 17 12 17C12.5523 17 13 17.4477 13 18Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M17 16L17 18" strokeLinejoin="miter" />
-      <path d="M18 12C18 12.5523 17.5523 13 17 13C16.4477 13 16 12.5523 16 12C16 11.4477 16.4477 11 17 11C17.5523 11 18 11.4477 18 12Z" fill="currentColor" stroke="none" />
+      <path d="M7.3333 15.0186C8.0667 14.3626 9.0161 14 10 14C10.9839 14 11.9333 14.3626 12.6667 15.0186M4.6667 12.0372C6.1334 10.7253 8.0322 10 10 10C11.9678 10 13.8666 10.7253 15.3333 12.0372M2 9.0557C4.2001 7.0879 7.0483 6 10 6C12.9517 6 15.7999 7.0879 18 9.0557" strokeOpacity={0.4} />
+      <path d="M11 18C11 18.5523 10.5523 19 10 19C9.4477 19 9 18.5523 9 18C9 17.4477 9.4477 17 10 17C10.5523 17 11 17.4477 11 18Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M22 16L22 18" />
+      <path d="M23 12C23 12.5523 22.5523 13 22 13C21.4477 13 21 12.5523 21 12C21 11.4477 21.4477 11 22 11C22.5523 11 23 11.4477 23 12Z" fill="currentColor" stroke="none" />
     </Icon>
   )
 }
