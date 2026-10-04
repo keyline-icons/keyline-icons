@@ -3087,8 +3087,8 @@
       "into": "artboard",
       "width": 742,
       "icons": 72,
-      "variants": 48,
-      "bytes": 36390
+      "variants": 56,
+      "bytes": 42805
     },
     {
       "file": "web-2.html",
@@ -3100,7 +3100,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 34159
+      "bytes": 36735
     },
     {
       "file": "web-3.html",
@@ -3112,7 +3112,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 37257
+      "bytes": 36635
     },
     {
       "file": "web-4.html",
@@ -3124,7 +3124,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 38541
+      "bytes": 37523
     },
     {
       "file": "web-5.html",
@@ -3136,7 +3136,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 37852
+      "bytes": 36633
     },
     {
       "file": "web-6.html",
@@ -3148,7 +3148,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 38418
+      "bytes": 39955
     },
     {
       "file": "web-7.html",
@@ -3160,7 +3160,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 35578
+      "bytes": 34552
     },
     {
       "file": "web-8.html",
@@ -3171,8 +3171,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 39875
+      "variants": 40,
+      "bytes": 32748
     },
     {
       "file": "web-9.html",
@@ -3288,7 +3288,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 116395
+      "bytes": 118598
     },
     {
       "file": "changelog-earlier.html",

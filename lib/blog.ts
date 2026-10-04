@@ -5681,6 +5681,7 @@ export const BLOG_V160_REDRAWN_ICON_NAMES = [
   "cloud-check",
   "cloud-x",
   "cloud-plus",
+  "cloud-alert",
   "cloud-upload",
   "cloud-download",
   "cloud-terminal",
@@ -5743,7 +5744,7 @@ const RELEASE_1_6_0: BlogPost = {
     {
       kind: "p",
       text:
-        "Thirteen icons that already shipped were redrawn, most of them " +
+        "Fourteen icons that already shipped were redrawn, most of them " +
         "clouds. That makes 1,332 icons, each in stroke, two-tone, duotone " +
         "and fill, with rounded or sharp corners: 10,656 SVGs in all.",
     },
@@ -5875,8 +5876,8 @@ const RELEASE_1_6_0: BlogPost = {
     {
       kind: "p",
       text:
-        "Each cloud with a check mark, a cross, a plus, an arrow or a prompt " +
-        "used to hold it inside, drawn small to fit. Now the cloud opens along its " +
+        "Each cloud with a check mark, a cross, a plus, an exclamation mark, " +
+        "an arrow or a prompt used to hold it inside, drawn small to fit. Now the cloud opens along its " +
         "bottom edge and the symbol stands beneath it at full size, the " +
         "arrows for upload and download included. The rain cloud " +
         "opens the same way, and the rain falls straight out of it. " +
@@ -5896,7 +5897,7 @@ const RELEASE_1_6_0: BlogPost = {
       figure: {
         kind: "pairs",
         names: BLOG_V160_REDRAWN_ICON_NAMES,
-        caption: "All thirteen, before beside after.",
+        caption: "All fourteen, before beside after.",
       },
     },
 
