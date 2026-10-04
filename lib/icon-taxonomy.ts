@@ -58,6 +58,16 @@ export const CATEGORIES = [
   // both design files sort shelves by label, so leading changes resolution
   // only.
   //
+  // Opened 4 Oct 2026 for 1.6.0, the refs batch: forty-one new drawings and six redraws (the five badged clouds on
+  // their opened body and brain-cog's cog), the same forty-seven sets as the design file's New band. Every name is
+  // also matched by its real shelf below: `house` files beside `home` in Web as its name-to-name twin, the eyewear in
+  // Commerce beside the shirt (ahead of Weather, whose `sun` would take sunglasses), the jigsaw piece in Shapes
+  // beside the dice.
+  {
+    label: "New",
+    match: /^(arrow-down-up|arrow-up-down-2|arrow-left-right-2|home-simple|home-check|home-x|home-heart|homes|house|house-simple|house-plus|house-check|house-x|house-zap|house-heart|house-chimney|house-cast|house-plug|house-cog|house-wifi|houses|user-cog|user-heart|user-key|user-list|user-lock|user-pen|user-search|user-shield|user-message|id-badge|cloud-search|cloud-network|smartphone-ringing|smartphone-nfc|sunglasses|glasses|video-2|bike-2|heart-crack|puzzle|cloud-plus|cloud-check|cloud-x|cloud-download|cloud-upload|brain-cog)$/,
+    blurb: "Drawn since the last release, waiting on review.",
+  },
   // The machine that thinks: the bots, the brain wired to a circuit and the
   // brain turning a cog. The bare `brain` is an organ and goes to Health,
   // which is why this is anchored on the two names rather than on `brain`.
@@ -165,7 +175,7 @@ export const CATEGORIES = [
     // and one name does not earn a row.
     label: "Commerce",
     match:
-      /^(shopping-|handbag|briefcase|receipt|tag|package|truck|gift|coupon|(badge-)?percent|store|shirt$|paper-bag$|container$)/,
+      /^(shopping-|handbag|briefcase|receipt|tag|package|truck|gift|coupon|(badge-)?percent|store|shirt$|paper-bag$|container$|glasses$|sunglasses$)/,
     blurb:
       "Carts, bags, a paper bag, receipts, shipping and its container, the shopfront, a shirt, the tags and the discount marks.",
   },
@@ -208,7 +218,7 @@ export const CATEGORIES = [
     // wherever the two disagree — the same call the taxonomy makes for `wifi`.
     label: "Media",
     match:
-      /^(play|pause|stop|record|skip-|fast-forward|rewind|repeat|replay|volume|audio-lines|mic|megaphone|headphones|headset|earbuds|airpods|shuffle|music-note|list-music|list-video|camera|image|cast|subtitles|captions|picture-in-picture|gallery-|podcast|queue|film|airplay$|video$|broadcast$|radio$|eject$)/,
+      /^(play|pause|stop|record|skip-|fast-forward|rewind|repeat|replay|volume|audio-lines|mic|megaphone|headphones|headset|earbuds|airpods|shuffle|music-note|list-music|list-video|camera|image|cast|subtitles|captions|picture-in-picture|gallery-|podcast|queue|film|airplay$|video(?:-2)?$|broadcast$|radio$|eject$)/,
     // `earbuds` and `airpods` beside `headphones`, 13 Sep 2026: what you listen
     // through files where listening does, not with the phone they pair to.
     blurb:
@@ -288,7 +298,7 @@ export const CATEGORIES = [
   },
   {
     label: "Users",
-    match: /^(user|scan-face|contacts$|id-card$|accessibility$|fingerprint-pattern$|hat-glasses$)/,
+    match: /^(user|scan-face|contacts$|id-(?:card|badge)$|accessibility$|fingerprint-pattern$|hat-glasses$)/,
     blurb: "People, accounts, contacts, the ID card, a fingerprint, the incognito hat, the accessibility figure and the signs that badge them.",
   },
   // Opened 14 Sep 2026 with the six faces of 1.0.0. NOT Users: `user` is an
@@ -453,7 +463,7 @@ export const CATEGORIES = [
   {
     label: "Shapes",
     match:
-      /^(circle|square|triangle|shapes|dashed|dice|flower|full|half|quarter|three-quarter|hexagon)/,
+      /^(circle|square|triangle|shapes|dashed|dice|flower|full|half|quarter|three-quarter|hexagon|puzzle$)/,
     blurb: "Squares, circles, hexagons, dashes and the progress states drawn from them.",
   },
   {
@@ -471,7 +481,7 @@ export const CATEGORIES = [
     // upload and download (1.5.0) are a sync in either direction.
     label: "Web",
     match:
-      /^(globe|link|unlink|share|navigation|home|search|settings|bookmark|wifi|cloud-(?:check|x|plus|minus|alert|dot|off|arrow|backup|cog|terminal|download|upload)|earth$)/,
+      /^(globe|link|unlink|share|navigation|home|house|search|settings|bookmark|wifi|cloud-(?:check|x|plus|minus|alert|dot|off|arrow|backup|cog|terminal|download|upload|search|network)|earth$)/,
     blurb: "Globes and the earth, links, connectivity, sync states and web-scoped actions.",
   },
   {

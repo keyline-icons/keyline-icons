@@ -2434,7 +2434,6 @@
       "headphone-off"
     ],
     "heart": [
-      "heart-crack",
       "heart-handshake",
       "heart-minus",
       "heart-x"
@@ -2574,8 +2573,7 @@
       "signal-zero"
     ],
     "smartphone": [
-      "smartphone-charging",
-      "smartphone-nfc"
+      "smartphone-charging"
     ],
     "square-dashed": [
       "square-dashed-bottom",
@@ -2607,18 +2605,12 @@
     "user": [
       "square-user",
       "square-user-round",
-      "user-cog",
-      "user-key",
-      "user-lock",
-      "user-pen",
       "user-round",
       "user-round-arrow-left",
       "user-round-cog",
       "user-round-key",
       "user-round-pen",
       "user-round-search",
-      "user-search",
-      "user-shield",
       "user-star"
     ],
     "user-check": [

@@ -383,6 +383,8 @@ const SKEW_KNOWN = new Set([
   'signal-high', 'signal-low', 'signal-medium', 'terminal-cursor',
   // user-zap (1.2.0) keeps user-plus's vertical 3 and 2; its bolt, centred, is even across
   'user', 'user-check', 'user-minus', 'user-plus', 'user-x', 'user-zap', 'users',
+  // 1.6.0's object compounds (an 8 box, bottom right, the body opened 2 clear) keep the family's 3 and 2
+  'user-cog', 'user-heart', 'user-key', 'user-list', 'user-lock', 'user-message', 'user-pen', 'user-search', 'user-shield',
 ]);
 
 /**
