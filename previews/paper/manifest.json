@@ -14,9 +14,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 1209,
-  "names": 1336,
-  "variants": 10688,
+  "icons": 1208,
+  "names": 1335,
+  "variants": 10680,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -2390,9 +2390,9 @@
       "parts": 12,
       "into": "artboard",
       "width": 742,
-      "icons": 56,
-      "variants": 40,
-      "bytes": 33279
+      "icons": 55,
+      "variants": 32,
+      "bytes": 23690
     },
     {
       "file": "new-2.html",
@@ -2404,7 +2404,7 @@
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 36844
+      "bytes": 36863
     },
     {
       "file": "new-3.html",
@@ -2416,7 +2416,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 38983
+      "bytes": 38964
     },
     {
       "file": "new-4.html",
@@ -2452,7 +2452,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 34283
+      "bytes": 34302
     },
     {
       "file": "new-7.html",
@@ -2464,7 +2464,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 39128
+      "bytes": 39109
     },
     {
       "file": "new-8.html",
@@ -2476,7 +2476,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 35546
+      "bytes": 35565
     },
     {
       "file": "new-9.html",
@@ -2488,7 +2488,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 35332
+      "bytes": 35313
     },
     {
       "file": "new-10.html",
@@ -2500,7 +2500,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 37454
+      "bytes": 37473
     },
     {
       "file": "new-11.html",
@@ -2512,7 +2512,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 36561
+      "bytes": 36542
     },
     {
       "file": "new-12.html",
@@ -2524,7 +2524,7 @@
       "width": 742,
       "icons": 0,
       "variants": 8,
-      "bytes": 5673
+      "bytes": 5692
     },
     {
       "file": "people-1.html",
@@ -3276,7 +3276,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 96160
+      "bytes": 94570
     },
     {
       "file": "changelog-earlier.html",

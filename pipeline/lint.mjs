@@ -374,8 +374,7 @@ const MAX_SKEW = 1;
 const SKEW_KNOWN = new Set([
   'banknote-2-minus', 'banknote-minus',
   // bell-zap (1.2.0) is bell-plus with the sign swapped for the centred bolt: even across, bell-plus's vertical
-  // bell-cog (1.6.0) is bell-plus with his small gear for the plus: the same box, so the same 2 and 1
-  'bell-check', 'bell-cog', 'bell-dot', 'bell-minus', 'bell-plus', 'bell-x', 'bell-zap',
+  'bell-check', 'bell-dot', 'bell-minus', 'bell-plus', 'bell-x', 'bell-zap',
   'git-graph', 'git-pull-request-arrow',
   // his heading numerals of 17 Sep 2026, one unit short on the right; see SIZE_KNOWN
   'heading-3', 'heading-5', 'heading-6',
