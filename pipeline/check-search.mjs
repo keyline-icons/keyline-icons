@@ -409,7 +409,7 @@ const FIRST = [
   ["life-buoy", "lifebuoy", "led through its words alone"],
   ["loader-2", "loader-circle", "led with `loader`, the spokes rather than the ring"],
   ["lock-keyhole", "lock", "the plugin found nothing"],
-  ["log-out", "bracket-arrow-left", "the plugin's Enter key inserted `truck-sparkles`"],
+  ["log-out", "bracket-arrow-right", "bracket on the left, arrow leaving it: their drawing, which the row had mirrored"],
   ["message-circle", "message", "the plugin found nothing"],
   ["pencil", "pen", "the packages and the plugin led with `pencil-ruler`"],
   ["pie-chart", "chart-pie", "led through its words alone"],
@@ -432,6 +432,19 @@ const FIRST = [
   ["file-warning", "file-alert", "the set calls that mark `alert`"],
   ["message-circle-question", "message-question", "the round bubble is plain `message` here"],
   ["upload-cloud", "cloud-upload", "the older order, with the element last"],
+
+  // Names nothing routed before 1.7.0, read off shadcn/ui's own source and the
+  // other set's renames. Each found a drawing through its words, or nothing.
+  ["ellipsis", "more-horizontal", "led with `more-vertical`; their ellipsis lies flat"],
+  ["check-check", "double-check", "led with a lone `check`"],
+  ["face-slightly-smiling", "face-smile", "their rename of `smile`, which found nothing"],
+  ["mouse-pointer-2", "cursor", "the same arrowhead; found nothing"],
+  ["undo", "arrow-u-turn-left", "led with `eraser`, the u-turn fifth"],
+  ["redo", "arrow-u-turn-right", "led with `rotate-cw`, and the undo arrow ahead of it"],
+  ["text-align-start", "align-left", "their rename of `align-left`, which found nothing"],
+  ["text-align-end", "align-right", "same"],
+  ["funnel", "filter", "their rename of `filter`"],
+  ["wifi-off", "wifi-x", "a slash shreds the arcs (drawing-a-new-icon.md); the x negates"],
 ]
 
 /**

@@ -2725,9 +2725,6 @@
     "bin": [
       "trash"
     ],
-    "bracket-arrow-left": [
-      "log-out"
-    ],
     "chart-pie": [
       "pie-chart"
     ],
@@ -2735,6 +2732,7 @@
       "terminal-square"
     ],
     "face-smile": [
+      "face-slightly-smiling",
       "smile"
     ],
     "more-vertical": [
@@ -2787,6 +2785,44 @@
     "file-chart-column": [
       "file-bar-chart",
       "file-chart-column-increasing"
+    ],
+    "bracket-arrow-right": [
+      "log-out"
+    ],
+    "more-horizontal": [
+      "ellipsis"
+    ],
+    "double-check": [
+      "check-check"
+    ],
+    "cursor": [
+      "mouse-pointer-2"
+    ],
+    "filter": [
+      "funnel"
+    ],
+    "wifi-x": [
+      "wifi-off"
+    ],
+    "arrow-u-turn-left": [
+      "undo",
+      "undo-2"
+    ],
+    "arrow-u-turn-right": [
+      "redo",
+      "redo-2"
+    ],
+    "align-left": [
+      "text-align-start"
+    ],
+    "align-center": [
+      "text-align-center"
+    ],
+    "align-right": [
+      "text-align-end"
+    ],
+    "align-justify": [
+      "text-align-justify"
     ]
   },
   "$names": "Names other sets use for a drawing here, keyed by the drawing. Matched against the whole query, never split into words: these are names, not keywords, and folding `message-square` into a keyword list makes a search for `square` return every message icon. All four searches rank one second only to the exact name, so it leads wherever the set does not draw that name itself; once the set does, the row is stale, and pipeline/check-search.mjs fails until it is deleted."
