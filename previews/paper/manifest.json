@@ -14,9 +14,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 1234,
-  "names": 1361,
-  "variants": 10888,
+  "icons": 1237,
+  "names": 1364,
+  "variants": 10912,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -1684,7 +1684,7 @@
       "width": 742,
       "icons": 35,
       "variants": 40,
-      "bytes": 39929
+      "bytes": 39944
     },
     {
       "file": "finance-2.html",
@@ -1864,7 +1864,7 @@
       "width": 742,
       "icons": 6,
       "variants": 32,
-      "bytes": 37179
+      "bytes": 37196
     },
     {
       "file": "health-2.html",
@@ -2447,60 +2447,72 @@
       "artboard": "New",
       "category": "New",
       "part": 1,
-      "parts": 5,
+      "parts": 6,
       "into": "artboard",
       "width": 742,
-      "icons": 29,
-      "variants": 56,
-      "bytes": 39734
+      "icons": 32,
+      "variants": 48,
+      "bytes": 39396
     },
     {
       "file": "new-2.html",
       "artboard": "New",
       "category": "New",
       "part": 2,
-      "parts": 5,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 37109
+      "bytes": 37115
     },
     {
       "file": "new-3.html",
       "artboard": "New",
       "category": "New",
       "part": 3,
-      "parts": 5,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 40003
+      "variants": 48,
+      "bytes": 37003
     },
     {
       "file": "new-4.html",
       "artboard": "New",
       "category": "New",
       "part": 4,
-      "parts": 5,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 39736
+      "bytes": 36780
     },
     {
       "file": "new-5.html",
       "artboard": "New",
       "category": "New",
       "part": 5,
-      "parts": 5,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 15510
+      "variants": 48,
+      "bytes": 35411
+    },
+    {
+      "file": "new-6.html",
+      "artboard": "New",
+      "category": "New",
+      "part": 6,
+      "parts": 6,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 16,
+      "bytes": 12133
     },
     {
       "file": "people-1.html",
@@ -3348,7 +3360,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 49869
+      "bytes": 54135
     },
     {
       "file": "changelog-earlier.html",

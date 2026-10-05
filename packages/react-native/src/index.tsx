@@ -1376,6 +1376,14 @@ export function BookMinus(props: IconProps) {
   )
 }
 
+export function BookOpenCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M22 14.6568L22 15C22 16.1046 21.1046 17 20 17L15 17C13.3431 17 12 18.3431 12 20C12 18.3431 10.6569 17 9 17L4 17C2.8954 17 2 16.1046 2 15L2 6C2 4.8954 2.8954 4 4 4L8 4C10.2091 4 12 5.7909 12 8C12 5.7909 13.7909 4 16 4L20 4C20.7439 4 21.3929 4.4061 21.7374 5.0086M12 8L12 20M16 11L18 13L22 9" fill="none" />
+    </Icon>
+  )
+}
+
 export function BookOpen(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -5511,6 +5519,14 @@ export function HandClosed(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M9.8958 7.2985L9.8958 5.7317C9.8958 4.7753 10.6647 4 11.6131 4C12.5615 4 13.3303 4.7753 13.3303 5.7317L13.3303 7.2985M13.3303 7.4634L13.3303 6.6762C13.3303 5.7199 14.0991 4.9445 15.0475 4.9445C15.9959 4.9445 16.7648 5.7199 16.7648 6.6762L16.7648 8.093M7.0858 11.8712L6.6116 6.8501C6.5285 5.9704 7.1661 5.1883 8.0381 5.1004C8.8978 5.0137 9.6691 5.6342 9.7763 6.4988L9.8958 7.4634M16.7648 7.4633C16.9409 7.0193 17.5343 6.3348 18.6207 6.5925C19.052 6.6948 19.3651 7.0557 19.497 7.4823C20.277 10.005 20.5255 15.0056 17.3892 18.1682C15.1118 20.4648 6.7736 21.9464 4.2758 14.0752C4.0677 13.3405 3.7763 11.6194 4.2758 10.6118C4.9003 9.3524 6.1492 9.6673 6.7736 10.297" fill="none" />
+    </Icon>
+  )
+}
+
+export function HandCoins(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M21 4.5C21 5.8807 19.8807 7 18.5 7C17.1193 7 16 5.8807 16 4.5C16 3.1193 17.1193 2 18.5 2C19.8807 2 21 3.1193 21 4.5ZM12 5.5C12 6.8807 10.8807 8 9.5 8C8.1193 8 7 6.8807 7 5.5C7 4.1193 8.1193 3 9.5 3C10.8807 3 12 4.1193 12 5.5ZM3 14L3 22M11 14.5C11 13.6716 10.3284 13 9.5 13L7 13C6.5 13 6.1 13.2 5.8 13.5L3 16.3M3 21L4.4142 19.5858C4.7892 19.2108 5.2985 19 5.8284 19L10.5 19C11.5 19 12.4 18.6 13 18L17 14C17.7811 13.219 17.7811 11.9511 17 11.17C16.219 10.389 14.9511 10.389 14.17 11.17L11.17 14.17" fill="none" />
     </Icon>
   )
 }
@@ -9830,6 +9846,14 @@ export function Star(props: IconProps) {
   )
 }
 
+export function Stethoscope(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M4 3L4 8C4 9.6569 5.3431 11 7 11C8.6569 11 10 9.6569 10 8L10 3M7 11L7 16C7 18.7614 9.2386 21 12 21C14.7614 21 17 18.7614 17 16L17 13M20 10C20 11.6569 18.6569 13 17 13C15.3431 13 14 11.6569 14 10C14 8.3431 15.3431 7 17 7C18.6569 7 20 8.3431 20 10Z" fill="none" />
+    </Icon>
+  )
+}
+
 export function StickyNoteCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -11481,6 +11505,7 @@ export {
   Bold as BoldIcon,
   BookCheck as BookCheckIcon,
   BookMinus as BookMinusIcon,
+  BookOpenCheck as BookOpenCheckIcon,
   BookOpen as BookOpenIcon,
   BookPlus as BookPlusIcon,
   BookX as BookXIcon,
@@ -11981,6 +12006,7 @@ export {
   GripVertical as GripVerticalIcon,
   Hammer as HammerIcon,
   HandClosed as HandClosedIcon,
+  HandCoins as HandCoinsIcon,
   HandHeart as HandHeartIcon,
   HandOpen as HandOpenIcon,
   HandPointerDown as HandPointerDownIcon,
@@ -12501,6 +12527,7 @@ export {
   StarOff as StarOffIcon,
   StarShooting as StarShootingIcon,
   Star as StarIcon,
+  Stethoscope as StethoscopeIcon,
   StickyNoteCheck as StickyNoteCheckIcon,
   StickyNoteMinus as StickyNoteMinusIcon,
   StickyNoteOff as StickyNoteOffIcon,

@@ -1512,6 +1512,15 @@ export function BookMinus(props: IconProps) {
   )
 }
 
+export function BookOpenCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M23 12.2426L23 15C23 16.6569 21.6569 18 20 18L15 18C13.8954 18 13 18.8954 13 20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20C11 18.8954 10.1046 18 9 18L4 18C2.3431 18 1 16.6569 1 15L1 6C1 4.3431 2.3431 3 4 3L8 3C9.5738 3 11.0557 3.741 12 5C12.9443 3.741 14.4262 3 16 3L20 3C21.6569 3 23 4.3431 23 6L23 6.1714C22.6789 6.0579 22.3408 5.9999 22.0003 5.9999C21.2045 5.9999 20.4414 6.316 19.8787 6.8787L17.9966 8.7608C17.447 8.2708 16.7364 8 16 8C14.3432 8 13 9.3431 13 11C13 11.7956 13.3161 12.5587 13.8787 13.1213L15.8787 15.1213C16.4413 15.6839 17.2044 16 18 16C18.7956 16 19.5587 15.6839 20.1213 15.1213L23 12.2426Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M22 14.6568L22 15C22 16.1046 21.1046 17 20 17L15 17C13.3431 17 12 18.3431 12 20C12 18.3431 10.6569 17 9 17L4 17C2.8954 17 2 16.1046 2 15L2 6C2 4.8954 2.8954 4 4 4L8 4C10.2091 4 12 5.7909 12 8C12 5.7909 13.7909 4 16 4L20 4C20.7439 4 21.3929 4.4061 21.7374 5.0086M12 8L12 20M16 11L18 13L22 9" fill="none" />
+    </Icon>
+  )
+}
+
 export function BookOpen(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -6142,6 +6151,15 @@ export function HandClosed(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M11.6137 3.0002C12.5592 3.0003 13.3863 3.4845 13.8724 4.215C14.2277 4.0432 14.626 3.9445 15.0482 3.9445C16.1771 3.9446 17.1381 4.6344 17.5501 5.6104C17.9398 5.5156 18.3775 5.5068 18.8518 5.6192C19.7103 5.8229 20.2437 6.5122 20.4524 7.1865C20.8816 8.5749 21.1542 10.5968 20.9045 12.7029C20.6542 14.8144 19.8685 17.088 18.0999 18.8716C17.3755 19.602 16.2586 20.1939 15.016 20.5629C13.7571 20.9367 12.2844 21.1085 10.7944 20.9271C7.7549 20.5569 4.699 18.7141 3.3228 14.3776C3.3197 14.3677 3.3168 14.3573 3.314 14.3474C3.1922 13.9175 3.0532 13.2309 3.0122 12.5018C2.9729 11.8016 3.0139 10.9075 3.3804 10.1679C3.8505 9.2198 4.6532 8.7463 5.5249 8.746C5.6133 8.746 5.7013 8.7514 5.7876 8.7607L5.6167 6.9444C5.4827 5.5252 6.5116 4.2498 7.938 4.1056C8.4163 4.0574 8.8758 4.1455 9.2817 4.3341C9.7547 3.5379 10.618 3.0003 11.6137 3.0002Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <path d="M9.8958 7.2985L9.8958 5.7317C9.8958 4.7753 10.6647 4 11.6131 4C12.5615 4 13.3303 4.7753 13.3303 5.7317L13.3303 7.2985M13.3303 7.4634L13.3303 6.6762C13.3303 5.7199 14.0991 4.9445 15.0475 4.9445C15.9959 4.9445 16.7648 5.7199 16.7648 6.6762L16.7648 8.093M7.0858 11.8712L6.6116 6.8501C6.5285 5.9704 7.1661 5.1883 8.0381 5.1004C8.8978 5.0137 9.6691 5.6342 9.7763 6.4988L9.8958 7.4634M16.7648 7.4633C16.9409 7.0193 17.5343 6.3348 18.6207 6.5925C19.052 6.6948 19.3651 7.0557 19.497 7.4823C20.277 10.005 20.5255 15.0056 17.3892 18.1682C15.1118 20.4648 6.7736 21.9464 4.2758 14.0752C4.0677 13.3405 3.7763 11.6194 4.2758 10.6118C4.9003 9.3524 6.1492 9.6673 6.7736 10.297" fill="none" />
+    </Icon>
+  )
+}
+
+export function HandCoins(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M3 16.3L5.8 13.5C6.1 13.2 6.5 13 7 13L9.5 13C10.3284 13 11 13.6716 11 14.5L11.17 14.17L14.17 11.17C14.9511 10.389 16.219 10.389 17 11.17C17.7811 11.9511 17.7811 13.219 17 14L13 18C12.4 18.6 11.5 19 10.5 19L5.8284 19C5.2985 19 4.7892 19.2108 4.4142 19.5858L3 21ZM22 4.5C22 6.433 20.433 8 18.5 8C16.567 8 15 6.433 15 4.5C15 2.567 16.567 1 18.5 1C20.433 1 22 2.567 22 4.5ZM13 5.5C13 7.433 11.433 9 9.5 9C7.567 9 6 7.433 6 5.5C6 3.567 7.567 2 9.5 2C11.433 2 13 3.567 13 5.5Z" fill="currentColor" fillOpacity={0.4} fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M21 4.5C21 5.8807 19.8807 7 18.5 7C17.1193 7 16 5.8807 16 4.5C16 3.1193 17.1193 2 18.5 2C19.8807 2 21 3.1193 21 4.5ZM12 5.5C12 6.8807 10.8807 8 9.5 8C8.1193 8 7 6.8807 7 5.5C7 4.1193 8.1193 3 9.5 3C10.8807 3 12 4.1193 12 5.5ZM3 14L3 22M11 14.5C11 13.6716 10.3284 13 9.5 13L7 13C6.5 13 6.1 13.2 5.8 13.5L3 16.3M3 21L4.4142 19.5858C4.7892 19.2108 5.2985 19 5.8284 19L10.5 19C11.5 19 12.4 18.6 13 18L17 14C17.7811 13.219 17.7811 11.9511 17 11.17C16.219 10.389 14.9511 10.389 14.17 11.17L11.17 14.17" fill="none" />
     </Icon>
   )
 }
@@ -10957,6 +10975,15 @@ export function Star(props: IconProps) {
   )
 }
 
+export function Stethoscope(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M21 10C21 12.2091 19.2091 14 17 14C14.7909 14 13 12.2091 13 10C13 7.7909 14.7909 6 17 6C19.2091 6 21 7.7909 21 10Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M4 3L4 8C4 9.6569 5.3431 11 7 11C8.6569 11 10 9.6569 10 8L10 3M7 11L7 16C7 18.7614 9.2386 21 12 21C14.7614 21 17 18.7614 17 16L17 13M20 10C20 11.6569 18.6569 13 17 13C15.3431 13 14 11.6569 14 10C14 8.3431 15.3431 7 17 7C18.6569 7 20 8.3431 20 10Z" fill="none" />
+    </Icon>
+  )
+}
+
 export function StickyNoteCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -12778,6 +12805,7 @@ export {
   Bold as BoldIcon,
   BookCheck as BookCheckIcon,
   BookMinus as BookMinusIcon,
+  BookOpenCheck as BookOpenCheckIcon,
   BookOpen as BookOpenIcon,
   BookPlus as BookPlusIcon,
   BookX as BookXIcon,
@@ -13278,6 +13306,7 @@ export {
   GripVertical as GripVerticalIcon,
   Hammer as HammerIcon,
   HandClosed as HandClosedIcon,
+  HandCoins as HandCoinsIcon,
   HandHeart as HandHeartIcon,
   HandOpen as HandOpenIcon,
   HandPointerDown as HandPointerDownIcon,
@@ -13798,6 +13827,7 @@ export {
   StarOff as StarOffIcon,
   StarShooting as StarShootingIcon,
   Star as StarIcon,
+  Stethoscope as StethoscopeIcon,
   StickyNoteCheck as StickyNoteCheckIcon,
   StickyNoteMinus as StickyNoteMinusIcon,
   StickyNoteOff as StickyNoteOffIcon,

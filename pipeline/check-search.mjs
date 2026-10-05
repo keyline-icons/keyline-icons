@@ -450,6 +450,7 @@ const FIRST = [
   ["audio-waveform", "audio-lines", "the sound's levels, drawn here as bars"],
   ["circle-fading-plus", "circle-progress-plus", "their fading ring is our progress ring, drawn in 1.7.0"],
   ["circle-fading-arrow-up", "circle-progress-arrow-up", "same"],
+  ["video-off", "camera-off", "a slash leaves video's reels as a half and a nicked ring; a call's video off is its camera"],
 ]
 
 /**

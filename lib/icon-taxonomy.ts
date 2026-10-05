@@ -70,10 +70,11 @@ export const CATEGORIES = [
   // Text beside case-upper, braces and brackets in Math beside the parentheses, regex in Devices beside code, the
   // dot in Shapes, the locate marks in Maps, voicemail in Mail, the heart's pulse, the pill, the plaster and the
   // syringe in Health, the webcam in Devices, image-off in Media beside image, the telescope in Science, and the gavel,
-  // the balance and the signature in Law, a shelf opened for them; the notebooks match Stationery as they are.
+  // the balance and the signature in Law, a shelf opened for them, the stethoscope in Health, coins in hand in Finance;
+  // the notebooks and book-open-check match Stationery and Files as they are.
   {
     label: "New",
-    match: /^(log-in|a-arrow-up|a-arrow-down|spell-check|type|list-filter|list-todo|dot|braces|brackets|regex|circle-progress-plus|circle-progress-arrow-up|locate|locate-fixed|heart-pulse|battery-charging|voicemail|pill|bandage|notebook|notebook-pen|webcam|image-off|syringe|scale|signature|gavel|telescope)$/,
+    match: /^(log-in|a-arrow-up|a-arrow-down|spell-check|type|list-filter|list-todo|dot|braces|brackets|regex|circle-progress-plus|circle-progress-arrow-up|locate|locate-fixed|heart-pulse|battery-charging|voicemail|pill|bandage|notebook|notebook-pen|webcam|image-off|syringe|scale|signature|gavel|telescope|book-open-check|stethoscope|hand-coins)$/,
     blurb: "Drafts under review.",
   },
   // The machine that thinks: the bots, the brain wired to a circuit and the
@@ -168,9 +169,9 @@ export const CATEGORIES = [
     // The money bag and the gold bars joined on 28 Sep 2026, from a banking
     // app's menu. `money-bag` is a prefix so its five signs land with it.
     match:
-      /^(badge-)?(dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin|credit-card|wallet|coins|piggy-bank|banknote|money-bag|gold-bars)/,
+      /^(badge-)?(dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin|credit-card|wallet|coins|piggy-bank|banknote|money-bag|gold-bars|hand-coins$)/,
     blurb:
-      "The currency marks, the banknotes, the payment cards, the wallets, the money box, the money bag with its signs and the gold bars.",
+      "The currency marks, the banknotes, the payment cards, the wallets, the money box, the money bag with its signs, the gold bars and coins in hand.",
   },
   {
     // `percent` is here rather than with the marks in Actions: the batch that
@@ -411,8 +412,8 @@ export const CATEGORIES = [
     // through to Weather: a clinical stick takes a temperature, a tube beside a
     // sun reports one.
     label: "Health",
-    match: /^(brain$|lungs|ear(-|$)|heart-pulse$|pill$|bandage$|syringe$|thermometer$)/,
-    blurb: "The brain, the lungs, the ear and what it hears, the heart's pulse, a pill, a plaster, a syringe and the clinical thermometer.",
+    match: /^(brain$|lungs|ear(-|$)|heart-pulse$|pill$|bandage$|syringe$|stethoscope$|thermometer$)/,
+    blurb: "The brain, the lungs, the ear and what it hears, the heart's pulse, a pill, a plaster, a syringe, the stethoscope and the clinical thermometer.",
   },
   {
     // `crown` is what a winner gets, so it sits with the trophy rather than

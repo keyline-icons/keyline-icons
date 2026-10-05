@@ -1234,6 +1234,9 @@
     "scale": "A balance with two pans, for law and justice, weighing options and fairness.",
     "signature": "An x and a written stroke on a line, for signing a document and e-signature fields.",
     "gavel": "A judge's mallet, for law, rulings, auctions and moderation.",
-    "telescope": "A telescope on its stand, for discovery, astronomy, exploring and looking ahead."
+    "telescope": "A telescope on its stand, for discovery, astronomy, exploring and looking ahead.",
+    "book-open-check": "An open book with a check on its page, for finished reading, done lessons and read items.",
+    "stethoscope": "A stethoscope with its chest piece, for doctors, check-ups and health care.",
+    "hand-coins": "A hand under two coins, for payments, donations, tips and earning."
   }
 }

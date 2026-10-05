@@ -742,6 +742,104 @@ function telescope(sharp) {
   };
 }
 
+/* ------------------------------------------------------------- book-open-check */
+// book-open as shipped with the house check on its right page, ending on the right wall's centre
+// line: (16,11) (18,13) (22,9). The outline gives way where its centre line comes within 4 of the
+// check's (2 painted between), which opens the wall from the top corner's turn down to 14.66, as the
+// other compounds open their bodies; the check clears the spine, the page's foot and its head by 2.
+// Plates and fills are book-open's, notched 3 off the check's centre line so their edge passes the
+// wall's cut caps tangent and stands 2 off the check's ink. Two-tone: the notched plate under the
+// stroke; duotone: book-open's grey plate and black right page, both notched, the check black;
+// fill: book-open's fill notched, the check stroked. Sharp: the check's ends 0.4142 on, the wall
+// cut where its own edge, not its centre line, comes within 3 of the check.
+function bookOpenCheck(sharp) {
+  const c = C(sharp);
+  const a = sharp ? 0.4142 / Math.SQRT2 : 0;
+  const checkPts = [[16 - a, 11 - a], [18, 13], [22 + a, 9 - a]];
+  const check = polyline(checkPts);
+  const line = rawLayers('book-open', 'stroke', c).find((l) => l.kind === 'stroke').d;
+  const cpts = Array.from({ length: 2 }, (_, i) => checkPts.slice(i, i + 2)).flatMap(([p, q]) => Array.from({ length: 101 }, (_, k) => [p[0] + (q[0] - p[0]) * k / 100, p[1] + (q[1] - p[1]) * k / 100]));
+  const dist = (p) => Math.min(...cpts.map((q) => Math.hypot(q[0] - p[0], q[1] - p[1])));
+  const f = sharp
+    ? (sg, t) => { const p = L.segAt(sg, t), tg = X.tangent(sg, t), nn = [-tg[1], tg[0]]; return Math.min(dist([p[0] + nn[0], p[1] + nn[1]]), dist([p[0] - nn[0], p[1] - nn[1]])) - 3; }
+    : (sg, t) => dist(L.segAt(sg, t)) - 4;
+  const runs = L.parseRuns(line);
+  let outline = '';
+  runs.forEach((run) => { for (const pc of X.clipRunF(run, f)) outline += X.segsD(pc); });
+  // the notch: everything within 3 of the check's centre line
+  const notch = [B.band(B.runFromD(polyline([[16, 11], [18, 13], [22, 9]]))[0], 'round')].map((r) => r);
+  const grown = B.runFromD(polyline([[16, 11], [18, 13], [22, 9]])).map((r) => B.grow(B.band(r, 'round'), 2));
+  void notch;
+  const plate = rawLayers('book-open', 'two-tone', c).find((l) => l.kind === 'plate').d;
+  const duoGrey = rawLayers('book-open', 'duotone', c).find((l) => l.kind === 'plate').d;
+  const duoBlack = rawLayers('book-open', 'duotone', c).find((l) => l.kind === 'solid').d;
+  const fillD = rawLayers('book-open', 'fill', c).find((l) => l.kind === 'solid').d;
+  const cut = (d) => E(B.subtract(B.runFromD(d), grown));
+  return {
+    stroke: [S(outline + check)],
+    'two-tone': [Pl(cut(plate)), S(outline + check)],
+    duotone: [Pl(cut(duoGrey)), F(cut(duoBlack)), S(check)],
+    fill: [F(cut(fillD)), S(check)],
+  };
+}
+
+/* ----------------------------------------------------------------- stethoscope */
+// The binaural as a U (arms on 4 and 10 from the ear ends at 3, an r=3 turn about (7,8)), the tube
+// down from its foot and round an r=5 turn about (12,16) to the chest piece, a ring r=3 about (17,10)
+// it rises into. Ink 3..21 by 2..22; the chest piece clears the right arm by 2. Both turns are
+// shape, kept round in sharp, where the ear ends take a unit on. One element with one closed part:
+// two-tone puts the chest piece's disc under the stroke, duotone the disc grey under the black
+// tube, fill the disc solid.
+function stethoscope(sharp) {
+  const e = sharp ? 1 : 0;
+  const u = `M4 ${3 - e}L4 8` + L.arcC([7, 8], 3, 180, 90) + L.arcC([7, 8], 3, 90, 0) + `L10 ${3 - e}`;
+  const tube = 'M7 11L7 16' + L.arcC([12, 16], 5, 180, 90) + L.arcC([12, 16], 5, 90, 0) + 'L17 13';
+  const ringSegs = [As([17, 10], 3, 0, 360)];
+  const ring = dLA(ringSegs);
+  const disc = E(geo(grow(ringSegs)));
+  return {
+    stroke: [S(u + tube + ring)],
+    'two-tone': [Pl(disc), S(u + tube + ring)],
+    duotone: [Pl(disc), S(u + tube)],
+    fill: [F(disc), S(u + tube)],
+  };
+}
+
+/* ------------------------------------------------------------------ hand-coins */
+// hand-heart's hand as shipped, with two coins where the heart was: rings r=2.5 about (18.5,4.5),
+// which puts the ink on 1 and 22 to keep hand-heart's box, and (9.5,5.5), 2 clear of it. Any coin
+// larger comes within 2 of the fingertips (a single r=3.5 coin stood 0.4 off them). Tones as
+// hand-heart's: two-tone the hand's and the coins' plates under the stroke; duotone the coins grey,
+// the hand black; fill the hand and the coins solid, the thumb's line and the cuff stroked.
+function handCoins(sharp) {
+  const c = C(sharp);
+  const L2 = rawLayers('hand-heart', 'stroke', c).find((l) => l.kind === 'stroke').d;
+  const sub = L2.split(/(?=M)/);
+  const heart = sub[0];
+  assert(/C/.test(heart) && sub.length >= 2, 'hand-heart: the heart is its first subpath');
+  const hand = sub.slice(1).join('');
+  const coins = [[18.5, 4.5], [9.5, 5.5]].map((cc) => [As(cc, 2.5, 0, 360)]);
+  const coinD = coins.map((r) => dLA(r)).join('');
+  const discs = coins.map((r) => E(geo(grow(r)))).join('');
+  const handPlate = rawLayers('hand-heart', 'two-tone', c).find((l) => l.kind === 'plate').d;
+  const duoHand = rawLayers('hand-heart', 'duotone', c).filter((l) => l.kind !== 'muted');
+  const fillHand = rawLayers('hand-heart', 'fill', c).find((l) => l.kind === 'solid').d;
+  const fillLines = rawLayers('hand-heart', 'fill', c).find((l) => l.kind === 'stroke').d.split(/(?=M)/).filter((x) => x !== heart.trim() && !x.startsWith(heart.slice(0, 12))).join('');
+  // the same check on the coins as on any compound: 2 painted units to the hand
+  if (!sharp) {
+    let m = Infinity;
+    const hp = L.parseRuns(hand).flatMap((r) => r.segs.flatMap((sg) => Array.from({ length: 201 }, (_, i) => L.segAt(sg, i / 200))));
+    for (const [cc] of [[[18.5, 4.5]], [[9.5, 5.5]]]) for (const q of hp) m = Math.min(m, Math.hypot(q[0] - cc[0], q[1] - cc[1]) - 2.5);
+    assert(m - 2 >= 2 - 1e-6, `hand-coins: a coin clears the hand by ${(m - 2).toFixed(3)}`);
+  }
+  return {
+    stroke: [S(coinD + hand)],
+    'two-tone': [Pl(handPlate + discs), S(coinD + hand)],
+    duotone: [Pl(discs), ...duoHand],
+    fill: [F(fillHand + discs), S(fillLines)],
+  };
+}
+
 export const STYLES = {
   'log-in': logIn,
   'a-arrow-up': (sh) => aArrow(sh, true),
@@ -772,4 +870,7 @@ export const STYLES = {
   signature,
   gavel,
   telescope,
+  'book-open-check': bookOpenCheck,
+  stethoscope,
+  'hand-coins': handCoins,
 };
