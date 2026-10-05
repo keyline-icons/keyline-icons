@@ -717,7 +717,8 @@ function scale(sharp, tilt = false, flip = false) {
 // tall loop that closes on (5.99,13.21), then a running squiggle out to (22,13.64), over a line
 // 8.5..22 on 18. Ink 1..23 by 2..22. Two-tone and duotone take the one-part-grey split as before:
 // the line grey, the writing black; fill is the stroke. Sharp: the free ends a unit on along their
-// own tangents (the tail by the shorter axis's k, the squiggle's and the line's ends flat on x).
+// own tangents (the squiggle's and the line's ends flat on x), the tail's tip moved to where its
+// butt face's corners land on the box.
 const SIG = {
   tail: [[2, 21], [3.19383, 18.9186], [4.71283, 16.0493], [5.99294, 13.2135]],
   loop: 'M5.99294 13.2135C8.20397 8.31533 9.7023 3.51693 7.5814 3.05055C3.63084 2.18185 2.58008 12.7908 5.99294 13.2135Z',
@@ -725,11 +726,14 @@ const SIG = {
 };
 function signature(sharp) {
   const [p0, c1, c2, p1] = SIG.tail;
-  // the tail's tip bounds both the left and the bottom, so its stub takes the shorter of the two
-  // axes' k (telescope's side legs): the nearer-axis k alone put the butt face's corner 0.16 past 1
-  const t0 = L_unit(c1, p0), a0 = t0.map(Math.abs);
-  const k0 = sharp ? Math.min((1 - a0[1]) / a0[0], (1 - a0[0]) / a0[1]) : 0;
-  const tail = (sharp ? `M${P([p0[0] + t0[0] * k0, p0[1] + t0[1] * k0])}L${P(p0)}` : `M${P(p0)}`) + `C${P(c1)} ${P(c2)} ${P(p1)}`;
+  // The tail's tip bounds both the left and the bottom, and a butt face on its own tangent cannot
+  // reach both: the nearer-axis k put a corner 0.16 past 1, the shorter k left the bottom 0.27 high.
+  // So in sharp the tip itself moves (the overshooting vertex, sharp.md) to where the face's two
+  // corners land on x=1 and y=22, its first control point moved with it to keep the tangent.
+  const t0 = L_unit(c1, p0), n0 = [Math.abs(t0[1]), Math.abs(t0[0])];
+  const tip = sharp ? [1 + n0[0], 22 - n0[1]] : p0;
+  const shiftC1 = [c1[0] + tip[0] - p0[0], c1[1] + tip[1] - p0[1]];
+  const tail = `M${P(tip)}C${P(shiftC1)} ${P(c2)} ${P(p1)}`;
   const writing = tail + SIG.loop + SIG.run + (sharp ? 'L23 13.6361' : '');
   const line = sharp ? 'M7.5 18L23 18' : 'M8.5 18L22 18';
   return { stroke: [S(writing + line)], 'two-tone': [M(line), S(writing)], duotone: [M(line), S(writing)], fill: [S(writing + line)] };
