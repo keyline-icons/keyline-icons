@@ -10099,8 +10099,8 @@ export function Star(props: IconProps) {
 export function Stethoscope(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M21 10C21 12.2091 19.2091 14 17 14C14.7909 14 13 12.2091 13 10C13 7.7909 14.7909 6 17 6C19.2091 6 21 7.7909 21 10Z" fill="currentColor" stroke="none" />
-      <path d="M4 3L4 8C4 9.6569 5.3431 11 7 11C8.6569 11 10 9.6569 10 8L10 3M7 11L7 16C7 18.7614 9.2386 21 12 21C14.7614 21 17 18.7614 17 16L17 13" fill="none" />
+      <path d="M23 10C23 11.6569 21.6569 13 20 13C18.3431 13 17 11.6569 17 10C17 8.3431 18.3431 7 20 7C21.6569 7 23 8.3431 23 10Z" fill="currentColor" stroke="none" />
+      <path d="M8 15C2.9955 15 1.7856 8.2335 2.0294 4.623C2.0936 3.672 2.8935 3 3.8097 3L5.117 3M8 15C13.0045 15 14.2144 8.2335 13.9706 4.623C13.9064 3.672 13.1065 3 12.1903 3L10.883 3M20 12L20 15C20 18.3137 17.3137 21 14 21C10.6863 21 8 18.3137 8 15" fill="none" />
     </Icon>
   )
 }
@@ -11384,8 +11384,8 @@ export function VisionPro(props: IconProps) {
 export function Voicemail(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M9 12C9 14.2091 7.2091 16 5 16C2.7909 16 1 14.2091 1 12C1 9.7909 2.7909 8 5 8C7.2091 8 9 9.7909 9 12ZM23 12C23 14.2091 21.2091 16 19 16C16.7909 16 15 14.2091 15 12C15 9.7909 16.7909 8 19 8C21.2091 8 23 9.7909 23 12Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <path d="M5 15L19 15" fill="none" />
+      <path d="M11 12C11 14.7614 8.7614 17 6 17C3.2386 17 1 14.7614 1 12C1 9.2386 3.2386 7 6 7C8.7614 7 11 9.2386 11 12ZM23 12C23 14.7614 20.7614 17 18 17C15.2386 17 13 14.7614 13 12C13 9.2386 15.2386 7 18 7C20.7614 7 23 9.2386 23 12Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M6 16L18 16" fill="none" />
     </Icon>
   )
 }
@@ -11497,8 +11497,8 @@ export function Watch(props: IconProps) {
 export function Webcam(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M20 9C20 13.4183 16.4183 17 12 17C7.5817 17 4 13.4183 4 9C4 4.5817 7.5817 1 12 1C16.4183 1 20 4.5817 20 9ZM16 9C16 6.7909 14.2091 5 12 5C9.7909 5 8 6.7909 8 9C8 11.2091 9.7909 13 12 13C14.2091 13 16 11.2091 16 9ZM14 9C14 10.1046 13.1046 11 12 11C10.8954 11 10 10.1046 10 9C10 7.8954 10.8954 7 12 7C13.1046 7 14 7.8954 14 9Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <path d="M12 16L12 22M4 22L20 22" fill="none" />
+      <path d="M3 7C3 3.6863 5.6863 1 9 1L15 1C18.3137 1 21 3.6863 21 7L21 13C21 16.3137 18.3137 19 15 19L9 19C5.6863 19 3 16.3137 3 13L3 7ZM16 10C16 7.7909 14.2091 6 12 6C9.7909 6 8 7.7909 8 10C8 12.2091 9.7909 14 12 14C14.2091 14 16 12.2091 16 10ZM14 10C14 11.1046 13.1046 12 12 12C10.8954 12 10 11.1046 10 10C10 8.8954 10.8954 8 12 8C13.1046 8 14 8.8954 14 10Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <path d="M12 18L12 22M6 22L18 22" fill="none" />
     </Icon>
   )
 }

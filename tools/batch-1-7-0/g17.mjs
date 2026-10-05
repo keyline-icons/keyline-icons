@@ -336,16 +336,16 @@ function batteryCharging(sharp) {
 }
 
 /* ------------------------------------------------------------------- voicemail */
-// Two reels and the tape between them. Rings r=3 on (5,12) and (19,12), the tape on their bottom
-// tangent from centre to centre: ink 1..23 by 8..16, the 22 a horizontal icon owes. The reels
-// stand 6 apart; drawn 2 apart at r=4 (the largest pair on whole paddings) it lands on the other
-// set's drawing exactly, and at r=3 2 apart it paints 18. Two-tone: the reels' discs under the
+// His drawing (refs/, 5 Oct 2026): two reels r=4 on (6,12) and (18,12), 4 apart, and the tape on
+// their bottom tangent from centre to centre. Ink 1..23 by 7..17. It is the other set's drawing to
+// the unit, and he ruled it so: two reels and a tape at the largest whole size is the symbol, as a
+// play triangle is, and there is no other way to draw it. Two-tone: the reels' discs under the
 // whole stroke; duotone: discs grey, tape black; fill: discs solid, the tape stroked. Sharp: the
 // rings stay round and the tape's ends are buried in them, so nothing changes.
 function voicemail() {
-  const rings = [[5, 12], [19, 12]].map((c) => [As(c, 3, 0, 360)]);
+  const rings = [[6, 12], [18, 12]].map((c) => [As(c, 4, 0, 360)]);
   const ringD = rings.map((r) => dLA(r)).join('');
-  const tape = 'M5 15L19 15';
+  const tape = 'M6 16L18 16';
   const discs = rings.map((r) => E(geo(grow(r)))).join('');
   return {
     stroke: [S(ringD + tape)],
@@ -503,24 +503,24 @@ function clipBody(segs, f) {
 }
 
 /* ---------------------------------------------------------------------- webcam */
-// A round head on a neck down to a wide foot, 18 x 22 as a tall object owes (ink 3..21 by 1..23):
-// head r=7 about (12,9), lens r=3 inside it (2 clear), neck from the head to the foot, the foot
-// 4..20 on y=22, which is what sets the width. The narrower foot under an r=8 head is the other
-// set's drawing to the unit; this one stands on its foot. Two-tone: the head's disc under the
-// stroke; duotone: the disc grey, lens, neck and foot black; fill: the disc solid with the lens
-// cut out as a ring, neck and foot stroked. Sharp: the foot's ends a unit on; the neck's ends land
-// on the head and the foot and stay.
+// His drawing (refs/, 5 Oct 2026): a squarish head (4..20 by 2..18, r=5, the ladder's large-form
+// rung) with a lens r=3 at its centre, 3 clear of the walls, on a neck to a foot 6..18 on 22.
+// Ink 3..21 by 1..23. Two-tone: the head's plate under the stroke; duotone: the plate grey, lens,
+// neck and foot black; fill: the plate solid with the lens cut out as a ring, neck and foot
+// stroked. Sharp: the head's corners true (its box is the rounded one's), the foot's ends a unit
+// on; the neck lands on the head and the foot and stays.
 function webcam(sharp) {
-  const head = [As([12, 9], 7, 0, 360)], lens = [As([12, 9], 3, 0, 360)];
+  const r = sharp ? 0 : 5;
+  const head = polyLA([[4, 2], [20, 2], [20, 18], [4, 18]], [r, r, r, r]), lens = [As([12, 10], 3, 0, 360)];
   const headD = dLA(head), lensD = dLA(lens);
-  const stand = 'M12 16L12 22' + openRun([[4, 22], [20, 22]], sharp);
-  const disc = geo(grow(head));
+  const stand = 'M12 18L12 22' + openRun([[6, 22], [18, 22]], sharp);
+  const plate = geo(grow(head));
   const ring = B.subtract(geo(grow(lens)), geo(offsetLA(lens, -1)));
   return {
     stroke: [S(headD + lensD + stand)],
-    'two-tone': [Pl(E(disc)), S(headD + lensD + stand)],
-    duotone: [Pl(E(disc)), S(lensD + stand)],
-    fill: [F(E(B.subtract(disc, ring))), S(stand)],
+    'two-tone': [Pl(E(plate)), S(headD + lensD + stand)],
+    duotone: [Pl(E(plate)), S(lensD + stand)],
+    fill: [F(E(B.subtract(plate, ring))), S(stand)],
   };
 }
 
@@ -852,17 +852,32 @@ function telescope(sharp) {
 }
 
 /* ----------------------------------------------------------------- stethoscope */
-// The binaural as a U (arms on 4 and 10 from the ear ends at 3, an r=3 turn about (7,8)), the tube
-// down from its foot and round an r=5 turn about (12,16) to the chest piece, a ring r=3 about (17,10)
-// it rises into. Ink 3..21 by 2..22; the chest piece clears the right arm by 2. Both turns are
-// shape, kept round in sharp, where the ear ends take a unit on. One element with one closed part:
-// two-tone puts the chest piece's disc under the stroke, duotone the disc grey under the black
-// tube, fill the disc solid.
+// His drawing (refs/, 5 Oct 2026): the binaural as two bowed arms from the tube's top at (8,15) out
+// and up to ear tips turned in on y=3, the tube down from the chest piece (a ring r=2 about (20,10))
+// and round an r=6 turn about (14,15) up to (8,15). His export sat 0.004 off the grid (arms
+// mirrored about 7.996); the arms are scaled 1.0006 about x=8 so they mirror on 8 with the left
+// arm's extreme on 2, and the tube and ring snap to whole units. Ink 1..23 by 2..22; the ring
+// clears the right arm by 2. One element with one closed part: two-tone puts the ring's disc under
+// the stroke, duotone the disc grey under the black binaural and tube, fill the disc solid. Sharp:
+// each arm's turn into its ear tip becomes the true corner on the arm's own tangent at y=3, the
+// ear tips' ends a unit on; the arms' bow, the tube's turn and the ring are shape and stay.
+const STETH = { axis: 7.99623, f: 6 / 5.99623,
+  arm: [[7.99623, 15], [2.99488, 15], [1.78572, 8.23353], [2.0294, 4.623]], turn: [[2.09358, 3.67198], [2.89293, 3], [3.80853, 3]], tip: 5.11505 };
 function stethoscope(sharp) {
-  const e = sharp ? 1 : 0;
-  const u = `M4 ${3 - e}L4 8` + L.arcC([7, 8], 3, 180, 90) + L.arcC([7, 8], 3, 90, 0) + `L10 ${3 - e}`;
-  const tube = 'M7 11L7 16' + L.arcC([12, 16], 5, 180, 90) + L.arcC([12, 16], 5, 90, 0) + 'L17 13';
-  const ringSegs = [As([17, 10], 3, 0, 360)];
+  const X = (x) => 8 + (x - STETH.axis) * STETH.f, mx = (p) => [16 - p[0], p[1]];
+  const arm = STETH.arm.map(([x, y]) => [X(x), y]), turn = STETH.turn.map(([x, y]) => [X(x), y]), tip = X(STETH.tip);
+  const side = (m) => {
+    const q = (p) => P(m(p));
+    let d = `M${q(arm[0])}C${q(arm[1])} ${q(arm[2])} ${q(arm[3])}`;
+    if (sharp) {
+      const t = L_unit(arm[2], arm[3]), corner = [arm[3][0] + (t[0] * (3 - arm[3][1])) / t[1], 3];
+      d += `L${q(corner)}L${q([tip + 1, 3])}`;
+    } else d += `C${q(turn[0])} ${q(turn[1])} ${q(turn[2])}L${q([tip, 3])}`;
+    return d;
+  };
+  const u = side((p) => p) + side(mx);
+  const tube = 'M20 12L20 15' + L.arcC([14, 15], 6, 0, 90) + L.arcC([14, 15], 6, 90, 180);
+  const ringSegs = [As([20, 10], 2, 0, 360)];
   const ring = dLA(ringSegs);
   const disc = E(geo(grow(ringSegs)));
   return {

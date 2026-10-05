@@ -9856,7 +9856,7 @@ export function Star(props: IconProps) {
 export function Stethoscope(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M4 2L4 8C4 9.6569 5.3431 11 7 11C8.6569 11 10 9.6569 10 8L10 2M7 11L7 16C7 18.7614 9.2386 21 12 21C14.7614 21 17 18.7614 17 16L17 13M20 10C20 11.6569 18.6569 13 17 13C15.3431 13 14 11.6569 14 10C14 8.3431 15.3431 7 17 7C18.6569 7 20 8.3431 20 10Z" fill="none" />
+      <path d="M8 15C2.9955 15 1.7856 8.2335 2.0294 4.623L2.139 3L6.117 3M8 15C13.0045 15 14.2144 8.2335 13.9706 4.623L13.861 3L9.883 3M20 12L20 15C20 18.3137 17.3137 21 14 21C10.6863 21 8 18.3137 8 15M22 10C22 11.1046 21.1046 12 20 12C18.8954 12 18 11.1046 18 10C18 8.8954 18.8954 8 20 8C21.1046 8 22 8.8954 22 10Z" fill="none" />
     </Icon>
   )
 }
@@ -11082,7 +11082,7 @@ export function VisionPro(props: IconProps) {
 export function Voicemail(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M8 12C8 13.6569 6.6569 15 5 15C3.3431 15 2 13.6569 2 12C2 10.3431 3.3431 9 5 9C6.6569 9 8 10.3431 8 12ZM22 12C22 13.6569 20.6569 15 19 15C17.3431 15 16 13.6569 16 12C16 10.3431 17.3431 9 19 9C20.6569 9 22 10.3431 22 12ZM5 15L19 15" fill="none" />
+      <path d="M10 12C10 14.2091 8.2091 16 6 16C3.7909 16 2 14.2091 2 12C2 9.7909 3.7909 8 6 8C8.2091 8 10 9.7909 10 12ZM22 12C22 14.2091 20.2091 16 18 16C15.7909 16 14 14.2091 14 12C14 9.7909 15.7909 8 18 8C20.2091 8 22 9.7909 22 12ZM6 16L18 16" fill="none" />
     </Icon>
   )
 }
@@ -11188,7 +11188,7 @@ export function Watch(props: IconProps) {
 export function Webcam(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M19 9C19 12.866 15.866 16 12 16C8.134 16 5 12.866 5 9C5 5.134 8.134 2 12 2C15.866 2 19 5.134 19 9ZM15 9C15 10.6569 13.6569 12 12 12C10.3431 12 9 10.6569 9 9C9 7.3431 10.3431 6 12 6C13.6569 6 15 7.3431 15 9ZM12 16L12 22M3 22L21 22" fill="none" />
+      <path d="M4 2L20 2L20 18L4 18L4 2ZM15 10C15 11.6569 13.6569 13 12 13C10.3431 13 9 11.6569 9 10C9 8.3431 10.3431 7 12 7C13.6569 7 15 8.3431 15 10ZM12 18L12 22M5 22L19 22" fill="none" />
     </Icon>
   )
 }

@@ -2512,7 +2512,7 @@
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 32631
+      "bytes": 33259
     },
     {
       "file": "new-7.html",
@@ -2524,7 +2524,7 @@
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 39214
+      "bytes": 39238
     },
     {
       "file": "new-8.html",
@@ -2536,7 +2536,7 @@
       "width": 742,
       "icons": 0,
       "variants": 8,
-      "bytes": 5988
+      "bytes": 6040
     },
     {
       "file": "people-1.html",
@@ -3384,7 +3384,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 60290
+      "bytes": 60526
     },
     {
       "file": "changelog-earlier.html",
