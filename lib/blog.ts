@@ -5932,7 +5932,301 @@ const RELEASE_1_6_0: BlogPost = {
   ],
 }
 
+export const BLOG_V170_THUMBNAIL_ICON_NAMES = [
+  "gavel",
+  "scale",
+  "stethoscope",
+  "syringe",
+  "a-arrow-up",
+  "spell-check",
+  "scale-unbalanced",
+  "signature",
+  "heart-pulse",
+  "pill",
+  "bandage",
+  "a-arrow-down",
+  "type",
+  "braces",
+  "brackets",
+  "regex",
+  "log-in",
+  "log-out",
+  "webcam",
+  "battery-charging",
+  "voicemail",
+  "locate",
+  "locate-fixed",
+  "notebook",
+  "notebook-pen",
+  "telescope",
+  "hand-coins",
+  "image-off",
+  "list-filter",
+  "list-todo",
+  "circle-progress-plus",
+  "circle-progress-arrow-up",
+  "scale-unbalanced-flip",
+  "dot",
+] as const
+
+export const BLOG_V170_HERO_ICON_NAMES = [
+  "gavel",
+  "scale-unbalanced",
+  "stethoscope",
+  "syringe",
+  "spell-check",
+  "a-arrow-up",
+  "webcam",
+  "telescope",
+] as const
+
+export const BLOG_V170_LAW_ICON_NAMES = [
+  "gavel",
+  "scale",
+  "scale-unbalanced",
+  "scale-unbalanced-flip",
+  "signature",
+] as const
+
+export const BLOG_V170_HEALTH_ICON_NAMES = [
+  "heart-pulse",
+  "stethoscope",
+  "syringe",
+  "pill",
+  "bandage",
+] as const
+
+export const BLOG_V170_TEXT_ICON_NAMES = [
+  "a-arrow-up",
+  "a-arrow-down",
+  "spell-check",
+  "type",
+  "braces",
+  "brackets",
+  "regex",
+] as const
+
+export const BLOG_V170_SINGLE_ICON_NAMES = [
+  "log-in",
+  "log-out",
+  "locate",
+  "locate-fixed",
+  "battery-charging",
+  "webcam",
+  "voicemail",
+  "notebook",
+  "notebook-pen",
+  "image-off",
+  "telescope",
+  "hand-coins",
+  "list-filter",
+  "list-todo",
+  "circle-progress-plus",
+  "circle-progress-arrow-up",
+  "dot",
+] as const
+
+const RELEASE_1_7_0: BlogPost = {
+  /* The count, "free", "shadcn/ui", "React" and "Figma" (his ask for every
+     release title since 1.6.0), then what a search types for these: law,
+     health and text editing icons. The slug names the drawings, not the
+     version. */
+  slug: "law-health-and-text-editing-icons",
+  version: "1.7.0",
+  title: "34 free shadcn/ui, React and Figma icons for law, health and text editing",
+  description:
+    "1,366 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
+    "a gavel and balances, a stethoscope and syringe, text size arrows, a " +
+    "spell check and a webcam.",
+  standfirst: "Order in court.",
+  date: "2026-10-05",
+  updated: "2026-10-05",
+  readingMinutes: 3,
+  thumbnail: BLOG_V170_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "law icons",
+    "gavel icon",
+    "scale icon",
+    "justice icon",
+    "signature icon",
+    "medical icons",
+    "stethoscope icon",
+    "syringe icon",
+    "pill icon",
+    "bandage icon",
+    "heartbeat icon",
+    "font size icon",
+    "spell check icon",
+    "text icon",
+    "curly braces icon",
+    "regex icon",
+    "login icon",
+    "logout icon",
+    "battery charging icon",
+    "webcam icon",
+    "voicemail icon",
+    "location icon",
+    "notebook icon",
+    "telescope icon",
+    "free svg icons",
+    "shadcn/ui icons",
+    "figma icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "Thirty-four icons are new. Five start a Law category: a gavel, a " +
+        "balance standing level and tipped either way, and a signature. " +
+        "Five more fill out Health, seven help with text and code, and the " +
+        "rest are everyday things apps keep asking for: signing in and " +
+        "out, a charging battery, a webcam, voicemail, a notebook.",
+    },
+    {
+      kind: "p",
+      text:
+        "The set is now 1,366 icons, each in stroke, two-tone, duotone and " +
+        "fill, with rounded or sharp corners. That's 10,928 SVGs.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V170_HERO_ICON_NAMES,
+        caption: "Eight of the thirty-four, one style to a row.",
+      },
+    },
+
+    { kind: "h2", text: "A category for the law", id: "law" },
+    {
+      kind: "p",
+      text:
+        "A gavel, a balance and a signature cover most of what a legal or " +
+        "contracts screen needs. The balance comes three ways: level, for " +
+        "fairness and justice, and tipped to the right or to the left, for " +
+        "bias, an unfair comparison, or one option outweighing another. Its " +
+        "arms curl up at the ends, and a pan hangs below each one.",
+    },
+    {
+      kind: "p",
+      text:
+        "`signature` is handwritten: a looping letter and a running " +
+        "squiggle over a line, the way a name looks on a contract.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V170_LAW_ICON_NAMES,
+        caption: "The gavel, the balance level and tipped both ways, and the signature.",
+      },
+    },
+
+    { kind: "h2", text: "A first-aid kit", id: "health" },
+    {
+      kind: "p",
+      text:
+        "Health had a brain, lungs, ears and a thermometer. It now has a " +
+        "heart with a pulse running through it, a stethoscope, a syringe, " +
+        "a capsule and an adhesive bandage, enough for a clinic, a " +
+        "pharmacy or a fitness app to stay inside one set.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V170_HEALTH_ICON_NAMES,
+        caption: "The pulse, the stethoscope, the syringe, the capsule and the bandage.",
+      },
+    },
+
+    { kind: "h2", text: "For text and code", id: "text" },
+    {
+      kind: "p",
+      text:
+        "An A with an arrow up and an A with an arrow down make text bigger " +
+        "or smaller. `spell-check` is a lowercase ab with a tick under its " +
+        "corner. `type` is a capital T, for the text tool.",
+    },
+    {
+      kind: "p",
+      text:
+        "Code gets curly braces, square brackets, and `regex`: a dot and a " +
+        "star, the shorthand for any run of characters.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V170_TEXT_ICON_NAMES,
+        caption: "Text size, spell check and the T, then the braces, brackets and regex.",
+      },
+    },
+
+    { kind: "h2", text: "And the rest", id: "singles" },
+    {
+      kind: "p",
+      text:
+        "`log-in` is an arrow entering a bracket, and `log-out` turns it " +
+        "round: the bracket on the other side, the arrow leaving. Search " +
+        "for sign in or sign out and they come up first. `locate` is a " +
+        "crosshair for finding where you are, and `locate-fixed` shows the " +
+        "spot found.",
+    },
+    {
+      kind: "p",
+      text:
+        "`battery-charging` opens the battery for a lightning bolt. " +
+        "`webcam` is a square camera on a stand, and `voicemail` two reels " +
+        "joined by a tape. There's a spiral notebook, the same notebook " +
+        "with a pen writing in it, a picture struck through for an image " +
+        "that's missing, a telescope on two legs, and a hand held out " +
+        "under two coins.",
+    },
+    {
+      kind: "p",
+      text:
+        "`list-filter` narrows from top to bottom, and `list-todo` pairs " +
+        "a box with a tick. The dashed progress ring takes a plus and an " +
+        "arrow up, for adding or uploading while something is still " +
+        "underway. And `dot` is just that: one dot.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V170_SINGLE_ICON_NAMES,
+        caption: "Seventeen more, from signing in and out to a single dot.",
+      },
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text:
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui " +
+        "registry, the CLI, the MCP server, and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
+  RELEASE_1_7_0,
   RELEASE_1_6_0,
   RELEASE_1_5_0,
   RELEASE_1_4_0,
