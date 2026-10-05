@@ -64,19 +64,13 @@ export const CATEGORIES = [
   // in Commerce beside the shirt (ahead of Weather, whose `sun` would take sunglasses), the jigsaw piece in Shapes
   // beside the dice.
   //
-  // Opened 5 Oct 2026 for 1.7.0: the drawings the other set's names and shadcn/ui's own source asked for that the
-  // set did not draw, the same sets as the design file's New band. Every name is also matched by its real shelf
-  // below: log-in in Arrows beside the bracket arrows it pairs with, the text-size arrows and the spell check in
-  // Text beside case-upper, braces and brackets in Math beside the parentheses, regex in Devices beside code, the
-  // dot in Shapes, the locate marks in Maps, voicemail in Mail, the heart's pulse, the pill, the plaster and the
-  // syringe in Health, the webcam in Devices, image-off in Media beside image, the telescope in Science, and the gavel,
-  // the balance and the signature in Law, a shelf opened for them, the stethoscope in Health, coins in hand in Finance;
-  // the notebooks match Stationery as they are.
-  {
-    label: "New",
-    match: /^(log-in|a-arrow-up|a-arrow-down|spell-check|type|list-filter|list-todo|dot|braces|brackets|regex|circle-progress-plus|circle-progress-arrow-up|locate|locate-fixed|heart-pulse|battery-charging|voicemail|pill|bandage|notebook|notebook-pen|webcam|image-off|syringe|scale|signature|gavel|telescope|stethoscope|scale-unbalanced|scale-unbalanced-flip|hand-coins)$/,
-    blurb: "Drafts under review.",
-  },
+  // Closed 5 Oct 2026, when Zafar passed 1.7.0: the drawings the other set's names and shadcn/ui's own source asked
+  // for that the set did not draw. log-in files in Arrows beside the bracket arrows it pairs with, the text-size
+  // arrows, the spell check and the bare T in Text beside case-upper, braces and brackets in Math beside the
+  // parentheses, regex in Devices beside code, the dot in Shapes, the locate marks in Maps, voicemail in Mail, the
+  // heart's pulse, the pill, the plaster, the syringe and the stethoscope in Health, the webcam in Devices, image-off
+  // in Media beside image, the telescope in Science, coins in hand in Finance, the notebooks in Stationery, and the
+  // gavel, the balances and the signature in Law, a shelf opened for them.
   // The machine that thinks: the bots, the brain wired to a circuit and the
   // brain turning a cog. The bare `brain` is an organ and goes to Health,
   // which is why this is anchored on the two names rather than on `brain`.
