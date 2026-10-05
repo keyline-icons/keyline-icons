@@ -444,8 +444,11 @@ function notebook(sharp) {
 const PEN_SHIFT = ([x, y]) => [x + 1, y - 1];
 function notebookPen(sharp) {
   const penLine = mapPts(layer('square-pen', 'two-tone', sharp, 'stroke').split('M').filter(Boolean).slice(1).map((x) => 'M' + x).join(''), PEN_SHIFT);
-  const penSolid = mapPts(layer('square-pen', 'duotone', sharp, 'solid'), PEN_SHIFT);
-  const penPlate = mapPts(layer('square-pen', 'two-tone', sharp, 'plate'), PEN_SHIFT);
+  // The pen's stroke is the same line in both treatments (its end is shape, its joins round), so
+  // its solid and plate are too. square-pen's sharp solid flattens the end cap to 22.93 where its
+  // own stroke paints 23, which the ink box read as notebook-pen sitting 0.07 off-centre.
+  const penSolid = mapPts(layer('square-pen', 'duotone', false, 'solid'), PEN_SHIFT);
+  const penPlate = mapPts(layer('square-pen', 'two-tone', false, 'plate'), PEN_SHIFT);
   const { body, rings } = notebookParts(sharp, -1);
   const penPts = L.parseRuns(penLine).flatMap((r) => r.segs.flatMap((sg) => Array.from({ length: 201 }, (_, i) => L.segAt(sg, i / 200))));
   const far = (p) => Math.min(...penPts.map((q) => Math.hypot(q[0] - p[0], q[1] - p[1])));
