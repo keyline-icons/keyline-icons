@@ -122,6 +122,14 @@ github.com/keyline-icons/keyline-icons
 
 Changelog
 
+1.7.0
+33 new drawings, taking the set to 1,365 names and 10,920 SVGs, and a new Law category.
+
+* Law: a gavel, a balance standing level and tipped either way, and a signature over its line
+* Health: a heart with a pulse, a stethoscope, a syringe, a capsule and an adhesive bandage
+* Text, Math and Devices: an A with an arrow up or down for text size, a spell check, a capital T for the text tool, curly braces, square brackets and a regular expression
+* And more: an arrow entering a bracket for signing in, a charging battery, a webcam, voicemail, a location mark and the same mark with its centre found, a spiral notebook and one with a pen, an image struck through, a telescope, a hand under two coins, a filter list, a to-do list, the dashed progress ring with a plus or an arrow up, and a single dot
+
 1.6.0
 47 new drawings, taking the set to 1,332 names and 10,656 SVGs.
 
@@ -238,6 +246,18 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 1.7.0
+
+```
+33 new drawings, taking the set to 1,365 names and 10,920 SVGs, and a new Law category: a gavel, a balance level and tipped either way, and a signature; a heart with a pulse, a stethoscope, a syringe, a capsule and a bandage; text size arrows, a spell check, a capital T, curly braces, square brackets and a regular expression; and an arrow for signing in, a charging battery, a webcam, voicemail, two location marks, two notebooks, an image struck through, a telescope, a hand under two coins, a filter list, a to-do list, two progress rings and a dot.
+```
+
+**No plugin code changed this time.** The drawings reach the plugin from
+jsDelivr once they are pushed, so this republish is for the listing alone: the
+counts moved at graduation (the tagline, the style bullets, the totals and the
+curated-word count), and the Description gains the 1.7.0 entry. Law opened as a
+category with five of the drawings, taking categories from 40 to 41.
 
 ### 1.6.0
 
@@ -674,12 +694,20 @@ Every name comes in all four styles. Two-tone keeps the outline over a 40% plate
 
 Every drawing exists in both treatments, so sharp is a switch rather than a second library: 10,920 variants over the same 1,365 names.
 
-The Catalog page files every icon under one of 40 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
+The Catalog page files every icon under one of 41 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
 
 Also available as React and React Native components, a shadcn registry, an MCP server for agents, a CLI, and a Figma plugin that searches the set and drops an icon straight onto the canvas.
 
 keylineicons.com
 github.com/keyline-icons/keyline-icons
+
+v1.7.0
+33 new drawings, and a new category. The set is 1,365 names now, 1,238 component sets and 10,920 variants, up from 1,332 and 10,656. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
+
+* Law: a gavel, a balance standing level and tipped either way, and a signature over its line; Law opened as a category, taking the Catalog from 40 to 41
+* Health: a heart with a pulse, a stethoscope, a syringe, a capsule and an adhesive bandage
+* Text, Math and Devices: an A with an arrow up or down for text size, a spell check, a capital T for the text tool, curly braces, square brackets and a regular expression
+* And more: an arrow entering a bracket for signing in, a charging battery, a webcam, voicemail, a location mark and the same mark with its centre found, a spiral notebook and one with a pen, an image struck through, a telescope, a hand under two coins, a filter list, a to-do list, the dashed progress ring with a plus or an arrow up, and a single dot
 
 v1.6.0
 47 new drawings. The set is 1,332 names now, 1,205 component sets and 10,656 variants, up from 1,286 and 10,288. One set was removed, cloud-minus. Nothing was renamed and no other component was replaced, so instances already placed in your files keep their link.
@@ -722,17 +750,6 @@ v1.3.0
 
 Also redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones. The ring of power-off now opens as wide as power's, and volume-off in sharp takes the sharp speaker, so each is its original at the same size. app-window-cursor's cursor is a third bigger. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
 
-v1.2.0
-64 new drawings. The set is 1,178 names now, 1,053 component sets and 9,424 variants, up from 1,114 and 8,912. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
-
-* Layout: every edit a table takes, rows and columns added, removed and merged either way, cells merged and split, then a table with a header column, a tree table, a pivot and a table switched off; a plus on three grids
-* Devices: the database with plus, minus, check, x, four arrows and a bolt; the server with plus, minus and a bolt; a bolt on the phone and the tablet; a terminal with a plus
-* A bolt for anything instant on the bell, envelope, calendar, clock, file, folder, house, parcel and person too
-* Time and Charts: the hourglass full, half run and emptied; a gauge reading low and one reading high; an open loading ring
-* And more: a plus on the heart, bookmark, cart, basket, house, dashed circle, link and wifi; progress rings paused and stopped; a database with sparkles; a cloud with a terminal prompt
-
-Also redrawn: the table and all twenty-seven panels, in two-tone, duotone and fill: the header row or the docked side is now the solid part. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
-
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
 
@@ -762,7 +779,9 @@ before, 6,818 after; the plugin's reached 8,687 and kept its 1.0.0), 1.0.0
 from the plugin's on 1 Oct 2026 with the 1.5.0 entry (10,072 before, 7,457
 after; the file's reached 8,165 and kept its v1.1.0), 1.1.0 from the plugin's
 and v1.1.1 and v1.1.0 from the file's on 4 Oct 2026 with the 1.6.0 entries
-(8,796 and 9,800 before, 7,830 and 8,120 after), and a
+(8,796 and 9,800 before, 7,830 and 8,120 after), v1.2.0 from the file's on 5 Oct 2026
+with the 1.7.0 entries (9,143 before, 7,857 after; the plugin's reached 8,637 and kept its
+1.2.0), and a
 last line points at
 `keylineicons.com/changelog`, which keeps every release.
 
