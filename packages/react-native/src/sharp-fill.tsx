@@ -1126,8 +1126,7 @@ export function Basketball(props: IconProps) {
 export function BatteryCharging(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M2 5L18 5C18.5523 5 19 5.4477 19 6L19 18C19 18.5523 18.5523 19 18 19L2 19C1.4477 19 1 18.5523 1 18L1 6C1 5.4477 1.4477 5 2 5ZM11.5 10.4142L10.0858 9L7.7929 11.2929C7.6054 11.4804 7.5 11.7348 7.5 12C7.5 12.5523 7.9477 13 8.5 13L9.0858 13L8.5 13.5858L9.9142 15L12.2071 12.7071C12.3946 12.5196 12.5 12.2652 12.5 12C12.5 11.4477 12.0523 11 11.5 11L10.9142 11L11.5 10.4142Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <Path d="M22 8.5L22 15.5" fill="none" />
+      <Path d="M7 6L2 6L2 18L6.5 18M13.5 6L18 6L18 18L13 18M22 8.5L22 15.5M11.3 7.6L8 12L12 12L8.7 16.4" fill="none" />
     </Icon>
   )
 }
@@ -1398,15 +1397,6 @@ export function BookMinus(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <Path d="M4 1L20 1C20.5523 1 21 1.4477 21 2L21 12C21 12.5523 20.5523 13 20 13L11 13L11 22C11 22.5523 10.5523 23 10 23L4 23C3.4477 23 3 22.5523 3 22L3 2C3 1.4477 3.4477 1 4 1ZM5 19L5 21L11 21L11 19L5 19ZM7 6L7 14L9 14L9 6L7 6Z" fill="currentColor" stroke="none" />
       <Path d="M13 19L21 19" fill="none" />
-    </Icon>
-  )
-}
-
-export function BookOpenCheck(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M23 12.2426L23 17C23 17.5523 22.5523 18 22 18L15 18C13.8954 18 13 18.8954 13 20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20C11 18.8954 10.1046 18 9 18L2 18C1.4477 18 1 17.5523 1 17L1 4C1 3.4477 1.4477 3 2 3L8 3C9.5738 3 11.0557 3.741 12 5C12.9443 3.741 14.4262 3 16 3L22 3C22.5523 3 23 3.4477 23 4L23 6.1714C22.6789 6.0579 22.3408 5.9999 22.0003 5.9999C21.2045 5.9999 20.4414 6.316 19.8787 6.8787L17.9966 8.7608C17.447 8.2708 16.7364 8 16 8C14.3432 8 13 9.3431 13 11C13 11.7956 13.3161 12.5587 13.8787 13.1213L15.8787 15.1213C16.4413 15.6839 17.2044 16 18 16C18.7956 16 19.5587 15.6839 20.1213 15.1213L23 12.2426ZM11 4L11 16L13 16L13 4C12.621 4.2843 12.2843 4.621 12 5C11.7157 4.621 11.379 4.2843 11 4Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <Path d="M15.7071 10.7071L18 13L22.2929 8.7071" fill="none" />
     </Icon>
   )
 }
@@ -5142,9 +5132,8 @@ export function Gauge(props: IconProps) {
 
 export function Gavel(props: IconProps) {
   return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M15.0503 2.2929L21.7071 8.9497C21.8946 9.1373 22 9.3916 22 9.6569C22 9.9221 21.8946 10.1764 21.7071 10.364L18.5858 13.4853C18.3983 13.6728 18.1439 13.7782 17.8787 13.7782C17.6135 13.7782 17.3591 13.6728 17.1716 13.4853L10.5147 6.8284C10.3272 6.6409 10.2218 6.3865 10.2218 6.1213C10.2218 5.8561 10.3272 5.6017 10.5147 5.4142L13.636 2.2929C13.8236 2.1054 14.0779 2 14.3431 2C14.6084 2 14.8627 2.1054 15.0503 2.2929Z" fill="currentColor" stroke="none" />
-      <Path d="M14.5503 9.4497L2.7071 21.2929" fill="none" />
+    <Icon fill="none" {...props}>
+      <Path d="M9.43 10.0274L9.4055 10.0029C9.2774 9.8748 9.1036 9.8028 8.9224 9.8028C8.2108 9.8028 7.5283 9.5201 7.0251 9.0169C6.9432 8.935 6.8761 8.8394 6.8269 8.7346L6.0947 7.174C6.0323 7.041 6 6.896 6 6.7492C6 6.484 6.1054 6.2296 6.2929 6.0421L11.0421 1.2929C11.2296 1.1054 11.484 1 11.7492 1C11.896 1 12.041 1.0323 12.174 1.0947L13.7346 1.8269C13.8394 1.8761 13.935 1.9432 14.0169 2.0251C14.5201 2.5283 14.8028 3.2108 14.8028 3.9224C14.8028 4.1035 14.8747 4.2773 15.0028 4.4054L19.5945 8.9971C19.7226 9.1252 19.8964 9.1972 20.0776 9.1972C20.7892 9.1972 21.4717 9.4799 21.9749 9.9831C22.0568 10.065 22.1239 10.1606 22.1731 10.2654L22.9053 11.826C22.9677 11.959 23 12.104 23 12.2508C23 12.516 22.8946 12.7704 22.7071 12.9579L17.9579 17.7071C17.7704 17.8946 17.516 18 17.2508 18C17.104 18 16.959 17.9677 16.826 17.9053L15.2654 17.1731C15.1606 17.1239 15.065 17.0568 14.9831 16.9749C14.4799 16.4717 14.1972 15.7892 14.1972 15.0776C14.1972 14.8965 14.1253 14.7227 13.9972 14.5946L13.9722 14.5696L6.4836 22.0589C5.8812 22.6614 5.0641 22.9999 4.2121 22.9999C2.438 22.9999 0.9999 21.5618 0.9999 19.7878C0.9999 18.9361 1.3382 18.1192 1.9403 17.5169L9.43 10.0274ZM10.1126 7.8816L11.5268 9.2958L14.2958 6.5268L12.8816 5.1126L10.1126 7.8816ZM14.7042 12.4732L16.1184 13.8874L18.8874 11.1184L17.4732 9.7042L14.7042 12.4732Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
     </Icon>
   )
 }
@@ -6696,7 +6685,7 @@ export function Lock(props: IconProps) {
 export function LogIn(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M11.8907 4L22 4L22 20L11.8907 20M12.6493 12L1 12M6.7469 6.204L12.8907 12L6.7469 17.796" fill="none" />
+      <Path d="M14 4L21 4L21 20L14 20M13.6493 12L2 12M7.7469 6.204L13.8907 12L7.7469 17.796" fill="none" />
     </Icon>
   )
 }
@@ -7321,8 +7310,8 @@ export function Newspaper(props: IconProps) {
 export function NotebookPen(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M10.8714 14.4285L14.9962 12.7786C15.1219 12.7283 15.2361 12.653 15.3319 12.5572L21.1945 6.6945C22.1709 5.7183 22.1709 3.7817 21.1945 2.8054C20.2183 1.8291 18.2817 1.8291 17.3054 2.8055L11.4428 8.6681C11.347 8.7639 11.2717 8.8781 11.2214 9.0038L9.5715 13.1286C9.245 13.9449 10.0551 14.755 10.8714 14.4285Z" fill="currentColor" stroke="none" />
-      <Path d="M21 10.1317L21 22L6 22L6 2L14.8683 2M2 7L6 7M2 12L6 12M2 17L6 17" fill="none" />
+      <Path d="M11.8714 13.4285L15.9962 11.7786C16.1219 11.7283 16.2361 11.653 16.3319 11.5572L22.1945 5.6945C23.1709 4.7183 23.1709 2.7817 22.1945 1.8054C21.2183 0.8291 19.2817 0.8291 18.3054 1.8055L12.4428 7.6681C12.347 7.7639 12.2717 7.8781 12.2214 8.0038L10.5715 12.1286C10.245 12.9449 11.0551 13.755 11.8714 13.4285Z" fill="currentColor" stroke="none" />
+      <Path d="M20 11.1317L20 22L4 22L4 2L14.8683 2M1 7L7 7M1 12L7 12M1 17L7 17" fill="none" />
     </Icon>
   )
 }
@@ -7330,8 +7319,8 @@ export function NotebookPen(props: IconProps) {
 export function Notebook(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M6 1L21 1C21.5523 1 22 1.4477 22 2L22 22C22 22.5523 21.5523 23 21 23L6 23C5.4477 23 5 22.5523 5 22L5 2C5 1.4477 5.4477 1 6 1Z" fill="currentColor" stroke="none" />
-      <Path d="M2 7L6 7M2 12L6 12M2 17L6 17" fill="none" />
+      <Path d="M5 1L21 1C21.5523 1 22 1.4477 22 2L22 22C22 22.5523 21.5523 23 21 23L5 23C4.4477 23 4 22.5523 4 22L4 2C4 1.4477 4.4477 1 5 1ZM18 5L16 5L16 19L18 19L18 5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M2 7L8 7M2 12L8 12M2 17L8 17" fill="none" />
     </Icon>
   )
 }
@@ -7964,7 +7953,7 @@ export function PiggyBank(props: IconProps) {
 export function Pill(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
-      <Path d="M13.4645 3.4645C14.4021 2.5268 15.6739 2 17 2C19.7614 2 22 4.2386 22 7C22 8.3261 21.4732 9.5979 20.5355 10.5355L10.5355 20.5355C9.5979 21.4732 8.3261 22 7 22C4.2386 22 2 19.7614 2 17C2 15.6739 2.5268 14.4021 3.4645 13.4645L13.4645 3.4645ZM13.4142 14.8284L9.1716 10.5858L4.8787 14.8787C4.3161 15.4413 4 16.2044 4 17C4 18.6568 5.3432 20 7 20C7.7956 20 8.5586 19.6839 9.1212 19.1213L13.4142 14.8284Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+      <Path d="M12.2877 3.6664C13.3546 2.5994 14.8017 2 16.3106 2C19.4528 2 22 4.5472 22 7.6894C22 9.1983 21.4006 10.6454 20.3336 11.7123L11.7123 20.3336C10.6454 21.4006 9.1983 22 7.6894 22C4.5472 22 2 19.4528 2 16.3106C2 14.8017 2.5994 13.3546 3.6664 12.2877L12.2877 3.6664ZM13.9016 15.3159L8.6842 10.0984L5.0806 13.7019C4.3887 14.3938 4 15.3322 4 16.3107C4 18.3482 5.6518 20 7.6894 20C8.6678 20 9.6062 19.6113 10.2981 18.9194L13.9016 15.3159Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
     </Icon>
   )
 }
@@ -11825,7 +11814,6 @@ export {
   Bold as BoldIcon,
   BookCheck as BookCheckIcon,
   BookMinus as BookMinusIcon,
-  BookOpenCheck as BookOpenCheckIcon,
   BookOpen as BookOpenIcon,
   BookPlus as BookPlusIcon,
   BookX as BookXIcon,

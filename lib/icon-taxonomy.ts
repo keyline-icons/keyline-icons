@@ -71,10 +71,10 @@ export const CATEGORIES = [
   // dot in Shapes, the locate marks in Maps, voicemail in Mail, the heart's pulse, the pill, the plaster and the
   // syringe in Health, the webcam in Devices, image-off in Media beside image, the telescope in Science, and the gavel,
   // the balance and the signature in Law, a shelf opened for them, the stethoscope in Health, coins in hand in Finance;
-  // the notebooks and book-open-check match Stationery and Files as they are.
+  // the notebooks match Stationery as they are.
   {
     label: "New",
-    match: /^(log-in|a-arrow-up|a-arrow-down|spell-check|type|list-filter|list-todo|dot|braces|brackets|regex|circle-progress-plus|circle-progress-arrow-up|locate|locate-fixed|heart-pulse|battery-charging|voicemail|pill|bandage|notebook|notebook-pen|webcam|image-off|syringe|scale|signature|gavel|telescope|book-open-check|stethoscope|hand-coins)$/,
+    match: /^(log-in|a-arrow-up|a-arrow-down|spell-check|type|list-filter|list-todo|dot|braces|brackets|regex|circle-progress-plus|circle-progress-arrow-up|locate|locate-fixed|heart-pulse|battery-charging|voicemail|pill|bandage|notebook|notebook-pen|webcam|image-off|syringe|scale|signature|gavel|telescope|stethoscope|hand-coins)$/,
     blurb: "Drafts under review.",
   },
   // The machine that thinks: the bots, the brain wired to a circuit and the

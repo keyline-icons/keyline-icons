@@ -18,7 +18,7 @@ const { Ls, As, polyLA, dLA, toGeo, offsetLA, verifyOffset } = A;
 const S = (d) => ({ kind: 'stroke', d }), M = (d) => ({ kind: 'muted', d }), F = (d) => ({ kind: 'solid', d }), Pl = (d) => ({ kind: 'plate', d });
 const C = (s) => (s ? 'sharp' : 'regular');
 // every emitted region wound by nesting (outer +, hole -): a hole wound with its outer contour paints
-// solid under nonzero, which is what the site and icons/ use (book-open-check's spine slot did)
+// solid under nonzero, which is what the site and icons/ use (the dropped book-open-check's spine slot did)
 const E = (shape) => B.emitShape(orientShape(shape));
 /** bool.mjs's orient probes from a contour's first point, which can sit on another contour (book-open's spine slot
  *  touches the outline at the notch). Here a contour is inside another when most of its own points are, so one
@@ -65,13 +65,14 @@ function openRun(pts, sharp, ends = 'both') {
 }
 
 /* ---------------------------------------------------------------------- log-in */
-// bracket-arrow-left's bracket and arrow, the arrow turned end for end so it enters: mirrored
-// about x = 7.44535, which sends the apex's extreme (2) onto the bracket's mouth (12.8907) and the
-// shaft's end there back onto 2. The ink box is bracket-arrow-left's, 1..23 by 3..21, and the arms
-// clear the bracket's caps by 3.74. Their log-out is our bracket-arrow-right; this is its pair.
+// His drawing (refs/, 5 Oct 2026), fitted verbatim: a narrower bracket than bracket-arrow-left's
+// (15..21, its corners r=4 as the family's) and bracket-arrow-left's arrow turned to enter, shifted
+// a unit right so its shaft starts on 3: ink 2..22 by 3..21. Sharp: the bracket's ends a unit on,
+// its corners true; the arrow is the family's sharp arrow on the same shift. Bracket grey, arrow
+// black in two-tone and duotone, as bracket-arrow-left's.
 function logIn(sharp) {
-  const bracket = layer('bracket-arrow-left', 'two-tone', sharp, 'muted');
-  const arrow = mapPts(layer('bracket-arrow-left', 'two-tone', sharp, 'stroke'), ([x, y]) => [14.8907 - x, y]);
+  const bracket = sharp ? 'M14 4L21 4L21 20L14 20' : 'M15 4L17 4C19.2091 4 21 5.7909 21 8L21 16C21 18.2091 19.2091 20 17 20L15 20';
+  const arrow = mapPts(layer('bracket-arrow-left', 'two-tone', sharp, 'stroke'), ([x, y]) => [15.8907 - x, y]);
   return { stroke: [S(bracket + arrow)], 'two-tone': [M(bracket), S(arrow)], duotone: [M(bracket), S(arrow)], fill: [S(bracket + arrow)] };
 }
 
@@ -291,25 +292,37 @@ function belowTrace(pts) {
 }
 
 /* ------------------------------------------------------------- battery-charging */
-// battery-full's body and terminal with the zap sign (database-zap's 4 x 6 bolt, 45 degree legs
-// either side of a 4-unit step) in place of the bars, at two thirds and upright, the step widened
-// to 3 so every point sits on a half unit: (10.5,10) (8.5,12) (11.5,12) (9.5,14), centred on the
-// inside at (10, 12). Its ink 7.5..12.5 by 9..15 clears the lid and the floor by 2, as the bars
-// do. Laid along the body at full size it read as an N at 16px; a full-size bolt upright needs 12
-// of the inside's 10. Duotone: battery's grey body, terminal and bolt black; fill: the body solid
-// with the bolt cut out, the terminal stroked. Sharp: the two free ends 0.4142 on their diagonals.
+// His drawing (refs/, 5 Oct 2026): battery's body opened top and bottom for a full-height bolt,
+// (11,8) (8,12) (12,12) (9,16), point-symmetric about the body's centre, with battery's terminal.
+// One fix: his wall ends at (14,6) and (6,18) stood 1.61 from the bolt's ends; opened half a unit
+// more, to 14.5 and 5.5, they clear by 2.03 and keep his symmetry. An opened body is not a closed
+// region, so no plate is notched round the bolt (his cloud-terminal ruling, 24 Sep 2026): two-tone
+// is the duotone split, the walls grey and the terminal and bolt black as battery's duotone has its
+// terminal; fill is the stroke, as cloud-terminal's and battery-sparkles' are. Sharp: square
+// corners, the walls' cut ends a unit on, the bolt's ends on their own k.
+const BOLT = [[11, 8], [8, 12], [12, 12], [9, 16]];
 function batteryCharging(sharp) {
-  const body = layer('battery', 'stroke', sharp, 'stroke');
-  const plate = layer('battery', 'two-tone', sharp, 'plate');
   const term = sharp ? 'M22 8.5L22 15.5' : 'M22 9.5L22 14.5';
-  const a = sharp ? 0.4142 / Math.SQRT2 : 0;
-  const bolt = polyline([[10.5 + a, 10 - a], [8.5, 12], [11.5, 12], [9.5 - a, 14 + a]]);
-  const boltBand = B.band(B.runFromD(bolt)[0], sharp ? 'butt' : 'round');
+  const e = sharp ? 1 : 0;
+  const walls = sharp
+    ? `M${6 + e} 6L2 6L2 18L${5.5 + e} 18M${14.5 - e} 6L18 6L18 18L${14 - e} 18`
+    : 'M6 6L5 6C3.3431 6 2 7.3431 2 9L2 15C2 16.6569 3.3431 18 5 18L5.5 18M14.5 6L15 6C16.6569 6 18 7.3431 18 9L18 15C18 16.6569 16.6569 18 15 18L14 18';
+  const kb = (p0, p1) => k45(L_unit(p0, p1));
+  const bolt = sharp
+    ? polyline([L.add(BOLT[0], L.mul(L_unit(BOLT[1], BOLT[0]), kb(BOLT[1], BOLT[0]))), BOLT[1], BOLT[2], L.add(BOLT[3], L.mul(L_unit(BOLT[2], BOLT[3]), kb(BOLT[2], BOLT[3])))])
+    : polyline(BOLT);
+  // 2 painted units between every wall end and the bolt (sharp: the butt face's nearer corner)
+  const bp = L.parseRuns(polyline(BOLT)).flatMap((r) => r.segs.flatMap((sg) => Array.from({ length: 201 }, (_, i) => L.segAt(sg, i / 200))));
+  const dist = (p) => Math.min(...bp.map((q) => Math.hypot(q[0] - p[0], q[1] - p[1])));
+  for (const run of L.parseRuns(walls)) for (const end of [run.segs[0].p[0], run.segs.at(-1).p.at(-1)]) {
+    const d = sharp ? Math.min(dist([end[0], end[1] - 1]), dist([end[0], end[1] + 1])) - 1 : dist(end) - 2;
+    assert(d >= (sharp ? 2 - 0.4142 : 2) - 1e-3, `battery-charging: a wall end clears the bolt by ${d.toFixed(3)}`);
+  }
   return {
-    stroke: [S(body + bolt)],
-    'two-tone': [Pl(plate), S(body + bolt)],
-    duotone: [Pl(plate), S(term + bolt)],
-    fill: [F(E(B.subtract(B.runFromD(plate), [boltBand]))), S(term)],
+    stroke: [S(walls + term + bolt)],
+    'two-tone': [M(walls), S(term + bolt)],
+    duotone: [M(walls), S(term + bolt)],
+    fill: [S(walls + term + bolt)],
   };
 }
 
@@ -334,9 +347,9 @@ function voicemail() {
 }
 
 /* ------------------------------------------------------------------------ pill */
-// A capsule on the free diagonal (bottom left to top right, as search and paperclip run): caps
-// r=4 about (7,17) and (17,7), the largest that keeps the ink on 2..22, and a divider across the
-// middle from wall to wall. Every curve is shape and nothing ends free, so sharp is the same
+// A capsule on the free diagonal (bottom left to top right, as search and paperclip run), his
+// proportions (refs/, 5 Oct 2026): caps r=4.69 about (7.69,16.31) and (16.31,7.69), ink on 2..22,
+// and a divider across the middle from wall to wall. Every curve is shape and nothing ends free, so sharp is the same
 // drawing. Two-tone: the plate under the whole stroke. Duotone and fill split it at the divider
 // (image's ridge rule, the region on one side cut out): the upper half black over the grey in
 // duotone, solid in fill with the lower half left an outline.
@@ -345,7 +358,8 @@ const at = (c, s, t) => [c[0] + s * DIAG.a[0] + t * DIAG.n[0], c[1] + s * DIAG.a
 /** The half plane u = x - y <= k (lo) or >= k, as a triangle well past the canvas; its long edge is the line u = k. */
 const halfPlane = (k, lo) => B.runFromD(lo ? `M${k - 60} -60L${k + 60} 60L${k - 60} 60Z` : `M${k - 60} -60L${k + 60} 60L${k + 60} -60Z`);
 function pill() {
-  const R = 4, c = [12, 12], s = 5 * Math.SQRT2;
+  // his radius (refs/, 5 Oct 2026): the divider's ends on (8.68412, 8.68412) and (15.31588, 15.31588)
+  const R = (12 - 8.68412) * Math.SQRT2, c = [12, 12], s = (9 - R) * Math.SQRT2;
   const body = polyLA([at(c, s + R, -R), at(c, s + R, R), at(c, -s - R, R), at(c, -s - R, -R)], [R, R, R, R]);
   const divider = `M${P(at(c, 0, -R))}L${P(at(c, 0, R))}`;
   const bodyD = dLA(body);
@@ -395,52 +409,54 @@ function bandage(sharp) {
 }
 
 /* -------------------------------------------------------------------- notebook */
-// A cover 15 wide (path 6..21, r=3) with three rings on its spine, on 7, 12 and 17, each from x=3
-// to the wall's centre line at 6 (joined). Run on through the wall into the cover, the middle ring
-// came within 0.88 of notebook-pen's nib, which sits where square-pen's does; a ring stopping 2
-// clear of it would end half a unit past the wall as a nub. Ink 2..22 by 1..23,
-// the 22 a tall object owes. Two-tone: the plate under the stroke; duotone: the cover grey, the
-// rings black; fill: the cover solid with the rings stroked beside it. Sharp: square corners, each
-// ring's outer end a unit on; the inner end lands on the wall and stays.
+// His drawing (refs/, 5 Oct 2026), fitted verbatim: a cover 16 wide (path 5..21, r=3), three rings
+// through its spine from 3 to 7 (crossing the wall at 5), and the elastic band on x=17, 6..18, 2
+// clear of the cover all round. Ink 2..22 by 1..23. Two-tone: the plate under the stroke; duotone:
+// the cover grey, rings and band black; fill: the cover solid with the band cut out, the rings
+// stroked over it. Sharp: square corners, every free end a unit on. `dx` moves the whole notebook,
+// which notebook-pen does.
+function notebookParts(sharp, dx = 0) {
+  const body = polyLA([[5 + dx, 2], [21 + dx, 2], [21 + dx, 22], [5 + dx, 22]], sharp ? [0, 0, 0, 0] : [3, 3, 3, 3]);
+  const rings = [7, 12, 17].map((y) => openRun([[3 + dx, y], [7 + dx, y]], sharp)).join('');
+  return { body, rings };
+}
 function notebook(sharp) {
-  const body = polyLA([[6, 2], [21, 2], [21, 22], [6, 22]], sharp ? [0, 0, 0, 0] : [3, 3, 3, 3]);
-  const bodyD = dLA(body);
-  const rings = [7, 12, 17].map((y) => openRun([[3, y], [6, y]], sharp, 'start')).join('');
-  const plate = E(geo(grow(body)));
+  const { body, rings } = notebookParts(sharp);
+  const band = openRun([[17, 6], [17, 18]], sharp);
+  const bodyD = dLA(body), plate = geo(grow(body));
+  const cutBand = [B.band(B.runFromD(band)[0], sharp ? 'butt' : 'round')];
   return {
-    stroke: [S(bodyD + rings)],
-    'two-tone': [Pl(plate), S(bodyD + rings)],
-    duotone: [Pl(plate), S(rings)],
-    fill: [F(plate), S(rings)],
+    stroke: [S(bodyD + rings + band)],
+    'two-tone': [Pl(E(plate)), S(bodyD + rings + band)],
+    duotone: [Pl(E(plate)), S(rings + band)],
+    fill: [F(E(B.subtract(plate, cutBand))), S(rings)],
   };
 }
 
 /* ---------------------------------------------------------------- notebook-pen */
-// notebook's cover and rings with square-pen's pen where square-pen has it; the cover opens at
-// its top right, cut where its centre line comes within 4 of the pen's (2 painted between), as
-// square-pen's square opens. Styles as square-pen's: two-tone the pen's plate under the whole
-// stroke; duotone the notebook grey (strokes at 0.4), the pen a black solid; fill the pen solid
-// over the notebook's stroke.
+// His drawing (refs/, 5 Oct 2026): square-pen's pen moved a unit right and a unit up, so its nib
+// clears the rings by 2.53, over the notebook without its band. As he drew it the pen reached 23
+// on the right against the rings' 2 on the left, so the notebook moves a unit left (a compound is
+// its base translated) and the ink sits on 1..23 both ways. The cover opens where its centre line
+// comes within 4 of the pen's (his right wall stopped 1.91 short of 2). Styles as square-pen's:
+// two-tone the pen's plate under the stroke; duotone the notebook grey (strokes at 0.4), the pen a
+// black solid; fill the pen solid over the notebook's stroke.
+const PEN_SHIFT = ([x, y]) => [x + 1, y - 1];
 function notebookPen(sharp) {
-  const penLine = layer('square-pen', 'two-tone', sharp, 'stroke').split('M').filter(Boolean).slice(1).map((x) => 'M' + x).join('');
-  const penSolid = layer('square-pen', 'duotone', sharp, 'solid');
-  const penPlate = layer('square-pen', 'two-tone', sharp, 'plate');
-  const body = polyLA([[6, 2], [21, 2], [21, 22], [6, 22]], sharp ? [0, 0, 0, 0] : [3, 3, 3, 3]);
-  // the pen as lines and arcs is not to hand; clip against its centre line sampled densely
-  // (outlines() keeps a straight run as its two ends, which put the cut 1.17 from the barrel)
+  const penLine = mapPts(layer('square-pen', 'two-tone', sharp, 'stroke').split('M').filter(Boolean).slice(1).map((x) => 'M' + x).join(''), PEN_SHIFT);
+  const penSolid = mapPts(layer('square-pen', 'duotone', sharp, 'solid'), PEN_SHIFT);
+  const penPlate = mapPts(layer('square-pen', 'two-tone', sharp, 'plate'), PEN_SHIFT);
+  const { body, rings } = notebookParts(sharp, -1);
   const penPts = L.parseRuns(penLine).flatMap((r) => r.segs.flatMap((sg) => Array.from({ length: 201 }, (_, i) => L.segAt(sg, i / 200))));
   const far = (p) => Math.min(...penPts.map((q) => Math.hypot(q[0] - p[0], q[1] - p[1])));
   const kept = clipBody(body, (p) => far(p) - 4);
   assert(kept.length === 1, `notebook-pen: the cover splits into ${kept.length}`);
   let open = kept[0];
   if (sharp) {
-    // the two cut ends are free: a unit on along their own runs
     const f = open[0], l = open.at(-1);
     open = [{ ...f, p0: L.sub(f.p0, L.mul(L.unit(L.sub(f.p1, f.p0)), 1)) }, ...open.slice(1, -1), { ...l, p1: L.add(l.p1, L.mul(L.unit(L.sub(l.p1, l.p0)), 1)) }];
-    if (open.length === 1) open = [{ ...f, p0: L.sub(f.p0, L.mul(L.unit(L.sub(f.p1, f.p0)), 1)), p1: L.add(f.p1, L.mul(L.unit(L.sub(f.p1, f.p0)), 1)) }];
   }
   const bodyD = dLA(open, false);
-  const rings = [7, 12, 17].map((y) => openRun([[3, y], [6, y]], sharp, 'start')).join('');
   return {
     stroke: [S(bodyD + rings + penLine)],
     'two-tone': [Pl(penPlate), S(bodyD + rings + penLine)],
@@ -675,31 +691,49 @@ function signature(sharp) {
 }
 
 /* ----------------------------------------------------------------------- gavel */
-// A mallet on the anti-diagonal: the handle along the free diagonal from the bottom left, the
-// head across its top right end (10 x 5, r=1, its long axis top left to bottom right). The drawing
-// is its own mirror about x + y = 24, so placing it along that line centres it; the head's far
-// corners are solved onto 22 and the handle's end onto 2: head centre 5.81 along the axis, the
-// handle 16 to the head's face. Sharp: every head corner pulled 0.29 in along both axes so the
-// true point's round join paints the rounded box (drawing-a-new-icon.md, rotated drawings), the
-// handle's end 0.4142 on. Two-tone: the head's plate under the stroke; duotone: the head black,
-// the handle grey (the tools rule, as hammer); fill: the head solid, the handle stroked.
+// His drawing (refs/, 5 Oct 2026): a mallet on the anti-diagonal, its head a neck between two
+// flared caps (the flares r=1.68 S-turns) with a line across each end of the neck, and a handle 3
+// wide with a round end, running from the head's lower face to the bottom left. Ink 1..23 both ways.
+// One fix: his caps' corners were r=2.09, off the ladder, a size that puts each arc's extreme on the
+// padding exactly. At r=2 the extremes would poke 0.04 out, so each cap's end face moves in 0.053
+// along the head instead, and the arcs land on 2 with their extremes still on 2 and 22. The head is
+// one closed run, so the two halves meet as a corner, not as two ends. Sharp: each cap corner's arc
+// becomes the true point at the arc's own extreme (11.7492,2), (7,6.7492), (17.2508,17),
+// (22,12.2508), so the round join paints the rounded box (drawing-a-new-icon.md, de-filleting); the
+// flares and the handle's end are shape and stay. Two-tone: the silhouette's plate under the stroke. Duotone, the tools rule (head
+// black, handle grey): the silhouette grey, the head black over it with the neck's two lines cut out
+// so the grey shows through them. Fill: the silhouette solid with the same two lines cut out.
+const GAVEL = {
+  handle: 'M10.5611 10.3105L2.6476 18.2238C2.2329 18.6387 1.9999 19.2014 2 19.7881C2.0001 20.3748 2.2333 20.9375 2.6481 21.3523C3.0631 21.7671 3.6257 22.0001 4.2124 22C4.5028 22 4.7905 21.9427 5.0588 21.8315C5.3272 21.7203 5.571 21.5573 5.7765 21.3518L13.6891 13.4384',
+  a: 'M18.8874 9.7042L14.2958 5.1126C13.9801 4.797 13.8028 4.3688 13.8028 3.9224C13.8028 3.476 13.6255 3.0479 13.3098 2.7322L13.1634 2.5858C12.3824 1.8047 11.1161 1.8047 10.335 2.5858L7.5858 5.335C6.8047 6.1161 6.8047 7.3824 7.5858 8.1634L7.7322 8.3098C8.0479 8.6255 8.476 8.8028 8.9224 8.8028C9.3688 8.8028 9.797 8.9801 10.1126 9.2958L14.7042 13.8874',
+  b: 'M14.7042 13.8874C15.0199 14.203 15.1972 14.6312 15.1972 15.0776C15.1972 15.524 15.3745 15.9521 15.6902 16.2678L15.8366 16.4142C16.6176 17.1953 17.8839 17.1953 18.665 16.4142L21.4142 13.665C22.1953 12.8839 22.1953 11.6176 21.4142 10.8366L21.2678 10.6902C20.9521 10.3745 20.524 10.1972 20.0776 10.1972C19.6312 10.1972 19.203 10.0199 18.8874 9.7042',
+  lines: 'M10.1126 9.2958L14.2958 5.1126M14.7042 13.8874L18.8874 9.7042',
+};
+const GAVEL_SHARP = [
+  ['L13.1634 2.5858C12.3824 1.8047 11.1161 1.8047 10.335 2.5858L7.5858 5.335C6.8047 6.1161 6.8047 7.3824 7.5858 8.1634L7.7322 8.3098', 'L11.7492 2L7 6.7492L7.7322 8.3098'],
+  ['L15.8366 16.4142C16.6176 17.1953 17.8839 17.1953 18.665 16.4142L21.4142 13.665C22.1953 12.8839 22.1953 11.6176 21.4142 10.8366L21.2678 10.6902', 'L17.2508 17L22 12.2508L21.2678 10.6902'],
+];
 function gavel(sharp) {
-  const r = sharp ? 0 : 1, hl0 = 5, hw0 = 2.5;
-  const sFar = 8 * Math.SQRT2 + 2 - hl0;                         // (sFar + hl - 2r)/sqrt2 = 9 - r at r = 1
-  const sh = sFar - hw0;
-  const pull = sharp ? (Math.SQRT2 - 1) / Math.SQRT2 : 0;
-  const hl = hl0 - pull, hw = hw0 - pull;
-  const c = [12, 12];
-  const head = polyLA([at(c, sh + hw, -hl), at(c, sh + hw, hl), at(c, sh - hw, hl), at(c, sh - hw, -hl)], [r, r, r, r]);
-  const S1 = 9 * Math.SQRT2 + (sharp ? 0.4142 : 0);
-  const handle = `M${P(at(c, sh - hw, 0))}L${P(at(c, -S1, 0))}`;
-  const headD = dLA(head);
-  const plate = E(geo(grow(head)));
+  let a = GAVEL.a, b = GAVEL.b;
+  if (sharp) for (const [from, to] of GAVEL_SHARP) { a = a.replace(from, to); b = b.replace(from, to); }
+  assert(!sharp || (a !== GAVEL.a && b !== GAVEL.b), 'gavel: a sharp corner did not match');
+  const headD = a + b.replace(/^M[^LC]*/, '') + 'Z';
+  const strokes = GAVEL.handle + headD + GAVEL.lines;
+  const head = B.runFromD(headD);
+  const handle = B.runFromD(GAVEL.handle + 'Z');
+  const silhouette = B.union(head.map((r) => B.grow(r)), handle.map((r) => B.grow(r)));
+  // the neck's lines meet both walls square, so each knockout is its line a unit short at both ends
+  // with flat ends: it stops flush on the walls' inner edge and the rim holds
+  const cuts = [[[10.1126, 9.2958], [14.2958, 5.1126]], [[14.7042, 13.8874], [18.8874, 9.7042]]].map(([p0, p1]) => {
+    const t = L_unit(p0, p1);
+    return B.band(B.runFromD(polyline([L.add(p0, t), L.sub(p1, t)]))[0], 'butt');
+  });
+  const headSolid = B.subtract(head.map((r) => B.grow(r)), cuts);
   return {
-    stroke: [S(headD + handle)],
-    'two-tone': [Pl(plate), S(headD + handle)],
-    duotone: [M(handle), F(plate)],
-    fill: [F(plate), S(handle)],
+    stroke: [S(strokes)],
+    'two-tone': [Pl(E(silhouette)), S(strokes)],
+    duotone: [Pl(E(silhouette)), F(E(headSolid))],
+    fill: [F(E(B.subtract(silhouette, cuts)))],
   };
 }
 
@@ -756,52 +790,6 @@ function telescope(sharp) {
     'two-tone': [Pl(plate), S(tubeD + g.eye + g.stand)],
     duotone: [M(g.eye + g.stand), F(plate)],
     fill: [F(plate), S(g.eye + g.stand)],
-  };
-}
-
-/* ------------------------------------------------------------- book-open-check */
-// book-open as shipped with the house check on its right page, ending on the right wall's centre
-// line: (16,11) (18,13) (22,9). The outline gives way where its centre line comes within 4 of the
-// check's (2 painted between), which opens the wall from the top corner's turn down to 14.66, as the
-// other compounds open their bodies; the check clears the spine, the page's foot and its head by 2.
-// Plates and fills are book-open's, notched 3 off the check's centre line so their edge passes the
-// wall's cut caps tangent and stands 2 off the check's ink. Two-tone: the notched plate under the
-// stroke; duotone: book-open's grey plate and black right page, both notched, the check black;
-// fill: book-open's fill notched, the check stroked. Sharp: the check's ends 0.4142 on, the wall
-// cut where its own edge, not its centre line, comes within 3 of the check.
-function bookOpenCheck(sharp) {
-  const c = C(sharp);
-  const a = sharp ? 0.4142 / Math.SQRT2 : 0;
-  const checkPts = [[16 - a, 11 - a], [18, 13], [22 + a, 9 - a]];
-  const check = polyline(checkPts);
-  const line = rawLayers('book-open', 'stroke', c).find((l) => l.kind === 'stroke').d;
-  const cpts = Array.from({ length: 2 }, (_, i) => checkPts.slice(i, i + 2)).flatMap(([p, q]) => Array.from({ length: 101 }, (_, k) => [p[0] + (q[0] - p[0]) * k / 100, p[1] + (q[1] - p[1]) * k / 100]));
-  const dist = (p) => Math.min(...cpts.map((q) => Math.hypot(q[0] - p[0], q[1] - p[1])));
-  const f = sharp
-    ? (sg, t) => { const p = L.segAt(sg, t), tg = X.tangent(sg, t), nn = [-tg[1], tg[0]]; return Math.min(dist([p[0] + nn[0], p[1] + nn[1]]), dist([p[0] - nn[0], p[1] - nn[1]])) - 3; }
-    : (sg, t) => dist(L.segAt(sg, t)) - 4;
-  const runs = L.parseRuns(line);
-  // only the outer outline opens; the spine keeps its full run (sharp's check stub leans 0.29 nearer
-  // it, inside the house allowance, and cut against it the spine lost a unit and a half)
-  let outline = '';
-  runs.forEach((run, k) => {
-    if (k === 0) for (const pc of X.clipRunF(run, f)) outline += X.segsD(pc);
-    else outline += X.segsD(run.segs, run.closed);
-  });
-  // the notch: everything within 3 of the check's centre line
-  const grown = B.runFromD(polyline([[16, 11], [18, 13], [22, 9]])).map((r) => B.grow(B.band(r, 'round'), 2));
-  const plate = rawLayers('book-open', 'two-tone', c).find((l) => l.kind === 'plate').d;
-  const duoGrey = rawLayers('book-open', 'duotone', c).find((l) => l.kind === 'plate').d;
-  const duoBlack = rawLayers('book-open', 'duotone', c).find((l) => l.kind === 'solid').d;
-  const fillD = rawLayers('book-open', 'fill', c).find((l) => l.kind === 'solid').d;
-  // the notch cuts the outline alone: book-open's spine slot touches it at the notch's point, and run
-  // through the boolean the two were stitched into one contour that a nonzero renderer fills solid
-  const cut = (d) => { const [outer, ...rest] = d.split(/(?=M)/); return E(B.subtract(B.runFromD(outer), grown)) + rest.join(''); };
-  return {
-    stroke: [S(outline + check)],
-    'two-tone': [Pl(cut(plate)), S(outline + check)],
-    duotone: [Pl(cut(duoGrey)), F(cut(duoBlack)), S(check)],
-    fill: [F(cut(fillD)), S(check)],
   };
 }
 
@@ -892,7 +880,6 @@ export const STYLES = {
   signature,
   gavel,
   telescope,
-  'book-open-check': bookOpenCheck,
   stethoscope,
   'hand-coins': handCoins,
 };
