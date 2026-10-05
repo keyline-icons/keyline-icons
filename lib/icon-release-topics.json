@@ -1,6 +1,134 @@
 {
  "$comment": "SOURCE, NOT GENERATED. How a release reads on the changelog, shaped after Preline's (Zafar, 17 Sep 2026, pointing at preline.co/docs/changelog.html): a title, then chips (an icon and a label, like Preline's \"New Components & Improvements\" and \"Fixes and Improvements\"), each followed by its items with a bold lead (\"People:\", \"Layout:\") and the drawings the item is about. His asks on the way: \"topic > icons, topic > icons. not all topics first and then all icons after that\", \"categorize them, not just text > icons. titles, etc.\", \"redrawns deserve to be a separate topic, not within a topic and each subtitle must carry shareable link like the main titles\". So redraws are always their own chip. Per version: `title` (the release's headline, which every version has, released ones included, because the page heads each entry by it) and optionally `sections`: chips with `title`, `icon` (a drawing from this set, by name) or `logo` (a platform's own mark, for a chip about that platform, where a drawing of ours would stand in for someone else's trademark: `react`, drawn from components/brand-logos.tsx), `text`, and items in `sections` with `title`, `text`, `names` (added), `redraws` or `removed` (drawings the release took out of the set, since 1.6.0 retired `cloud-minus`: the generator reads them off the two trees, so a name listed here only places one, it never claims one). A version with no `sections` is drawn with default chips, New drawings and Redrawn, straight off git. pipeline/build-history.mjs gives every chip and item an `anchor` (v<version>-<chip>, v<version>-<chip>-<item>) that the site links, keeps only the drawings the entry carries, and appends anything no item claims in a last untitled group, reported, so a stale list never drops a drawing. Keyed by the version the work ships as, so nothing is re-keyed at the tag. Numbers go in as {names} and {files}. Anything in backticks is set as code, on the page and the Paper board both, the way a post sets an icon name. Where a version has sections they replace the note.",
  "releases": {
+  "1.7.0": {
+   "title": "A Law shelf, a first-aid kit and the marks text tools ask for",
+   "sections": [
+    {
+     "title": "New drawings",
+     "icon": "sparkles",
+     "sections": [
+      {
+       "title": "Arrows",
+       "text": "An arrow entering a bracket, for signing in. It pairs with `bracket-arrow-right`, the arrow on its way out.",
+       "names": [
+        "log-in"
+       ]
+      },
+      {
+       "title": "Devices",
+       "text": "A battery opened for a lightning bolt, charging. A dot and a star, the shorthand of a regular expression. And a webcam, a square head with its lens, on a stand.",
+       "names": [
+        "battery-charging",
+        "regex",
+        "webcam"
+       ]
+      },
+      {
+       "title": "Finance",
+       "text": "A hand held out under two coins.",
+       "names": [
+        "hand-coins"
+       ]
+      },
+      {
+       "title": "Health",
+       "text": "A heart with a pulse running through it, a stethoscope, a syringe, a capsule and an adhesive bandage.",
+       "names": [
+        "heart-pulse",
+        "stethoscope",
+        "syringe",
+        "pill",
+        "bandage"
+       ]
+      },
+      {
+       "title": "Law",
+       "text": "A new shelf. A judge's gavel, a balance standing level and tipped either way, and a signature written over its line.",
+       "names": [
+        "gavel",
+        "scale",
+        "scale-unbalanced",
+        "scale-unbalanced-flip",
+        "signature"
+       ]
+      },
+      {
+       "title": "Layout",
+       "text": "A list narrowing as it filters, and a to-do list with a box and a tick.",
+       "names": [
+        "list-filter",
+        "list-todo"
+       ]
+      },
+      {
+       "title": "Mail",
+       "text": "Two reels joined by a tape, for voicemail.",
+       "names": [
+        "voicemail"
+       ]
+      },
+      {
+       "title": "Maps",
+       "text": "A location mark, and the same mark with its centre found.",
+       "names": [
+        "locate",
+        "locate-fixed"
+       ]
+      },
+      {
+       "title": "Math",
+       "text": "Curly braces and square brackets.",
+       "names": [
+        "braces",
+        "brackets"
+       ]
+      },
+      {
+       "title": "Media",
+       "text": "A picture struck through, for an image that is off or missing.",
+       "names": [
+        "image-off"
+       ]
+      },
+      {
+       "title": "Science",
+       "text": "A telescope on two legs.",
+       "names": [
+        "telescope"
+       ]
+      },
+      {
+       "title": "Shapes",
+       "text": "A single dot. And the dashed progress ring with a plus or an arrow up at its centre.",
+       "names": [
+        "dot",
+        "circle-progress-plus",
+        "circle-progress-arrow-up"
+       ]
+      },
+      {
+       "title": "Stationery",
+       "text": "A spiral notebook, and the same notebook with a pen writing in it.",
+       "names": [
+        "notebook",
+        "notebook-pen"
+       ]
+      },
+      {
+       "title": "Text",
+       "text": "An A with an arrow up and one with an arrow down, for larger and smaller text. A spell check, ab with a tick. And a capital T for the text tool.",
+       "names": [
+        "a-arrow-up",
+        "a-arrow-down",
+        "spell-check",
+        "type"
+       ]
+      }
+     ]
+    }
+   ]
+  },
   "1.6.0": {
    "title": "A house family, a person with nine signs, and cogs for files and folders",
    "sections": [
