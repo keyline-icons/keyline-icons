@@ -74,7 +74,7 @@ export const CATEGORIES = [
   // the notebooks match Stationery as they are.
   {
     label: "New",
-    match: /^(log-in|a-arrow-up|a-arrow-down|spell-check|type|list-filter|list-todo|dot|braces|brackets|regex|circle-progress-plus|circle-progress-arrow-up|locate|locate-fixed|heart-pulse|battery-charging|voicemail|pill|bandage|notebook|notebook-pen|webcam|image-off|syringe|scale|signature|gavel|telescope|stethoscope|hand-coins)$/,
+    match: /^(log-in|a-arrow-up|a-arrow-down|spell-check|type|list-filter|list-todo|dot|braces|brackets|regex|circle-progress-plus|circle-progress-arrow-up|locate|locate-fixed|heart-pulse|battery-charging|voicemail|pill|bandage|notebook|notebook-pen|webcam|image-off|syringe|scale|signature|gavel|telescope|stethoscope|scale-unbalanced|scale-unbalanced-flip|hand-coins)$/,
     blurb: "Drafts under review.",
   },
   // The machine that thinks: the bots, the brain wired to a circuit and the
@@ -395,11 +395,12 @@ export const CATEGORIES = [
   // names had been filing under Other. Each files by what the drawing IS.
   // The third, AI, now leads the list (see the top).
   // Opened 5 Oct 2026 for 1.7.0: the balance and the gavel are the law's marks, not a tool or a
-  // weight, and the signature line is where a document is made binding. A shelf of three.
+  // weight, and the signature line is where a document is made binding. The two tipped balances
+  // joined it the same day.
   {
     label: "Law",
-    match: /^(gavel|scale|signature)$/,
-    blurb: "The gavel, the balance and the line you sign on.",
+    match: /^(gavel|scale|scale-unbalanced|scale-unbalanced-flip|signature)$/,
+    blurb: "The gavel, the balance level and tipped, and the line you sign on.",
   },
   {
     label: "Science",

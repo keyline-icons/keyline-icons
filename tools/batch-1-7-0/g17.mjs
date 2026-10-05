@@ -92,23 +92,32 @@ function aArrow(sharp, up) {
 }
 
 /* ----------------------------------------------------------------- spell-check */
-// case-upper's big A with the house check (6 x 4, 45 degree arms) low in the small A's column:
-// path 16..22 by 15..19, so the ink box is case-upper's again; the check's near end clears the
-// A's foot by 2.47. A grey, check black.
+// His drawing (refs/, 5 Oct 2026), fitted verbatim: a lowercase a (bowl r=3 about (5,12), stem 9..15
+// on 8) and b (stem 5..15 on 12, bowl r=3 about (15,12)), the b's bowl stopped 19.5 degrees past its
+// right extreme so its end clears the house check (16,17) (18,19) (22,15) by 2.36. Ink 1..23 by 4..20.
+// Letters grey, check black, as before. Sharp: the stems' ends a unit on, the bowl's end on its own
+// tangent by its k, the check's arms 0.4142 along their diagonals.
 function spellCheck(sharp) {
-  const bigA = layer('case-upper', 'two-tone', sharp, 'muted');
-  const a = sharp ? 0.4142 / Math.SQRT2 : 0;
+  const e = sharp ? 1 : 0, a = sharp ? 0.4142 / Math.SQRT2 : 0;
+  const th = Math.asin(1 / 3);                                           // the bowl's end, y=13 on r=3
+  const end = [15 + 3 * Math.cos(th), 13], tan = [-Math.sin(th), Math.cos(th)];
+  const kb = sharp ? k45(tan) : 0;
+  const letters = `M5 9${L.arcC([5, 12], 3, 270, 450)}${L.arcC([5, 12], 3, 90, 270)}ZM8 ${9 - e}L8 ${15 + e}`
+    + `M12 ${5 - e}L12 ${15 + e}M12 12${L.arcC([15, 12], 3, 180, 360)}${L.arcC([15, 12], 3, 0, (th * 180) / Math.PI)}`
+    + (sharp ? `L${P([end[0] + tan[0] * kb, end[1] + tan[1] * kb])}` : '');
   const check = `M${P([16 - a, 17 - a])}L18 19L${P([22 + a, 15 - a])}`;
-  return { stroke: [S(bigA + check)], 'two-tone': [M(bigA), S(check)], duotone: [M(bigA), S(check)], fill: [S(bigA + check)] };
+  return { stroke: [S(letters + check)], 'two-tone': [M(letters), S(check)], duotone: [M(letters), S(check)], fill: [S(letters + check)] };
 }
 
 /* ------------------------------------------------------------------------ type */
-// The plain T beside type-outline, in heading's and bold's letter: bare strokes, no serifs,
-// 20 tall (2..22), the bar 18 wide. One element, so every style is the stroke (case-sensitive's
-// rule for a single glyph). Sharp: the bar's ends and the stem's foot on a unit; the stem's top
-// is buried in the bar.
+// His drawing (refs/, 5 Oct 2026): a T with its bar's ends turned down 3 (4..20 on 3, to 6) and a
+// foot 8..16 on 21, the stem 3..21 on 12. Ink 3..21 by 2..22. One fix: the bar's two corners take
+// r=2, type-outline's corner, where his met square (every corner gets a fillet from the ladder).
+// A letter, so every style is the stroke (case-sensitive's rule for a single glyph). Sharp: the
+// corners true, the drops' and the foot's ends a unit on; the stem is buried at both ends.
 function type(sharp) {
-  const d = sharp ? 'M3 3L21 3M12 3L12 22' : 'M4 3L20 3M12 3L12 21';
+  const bar = sharp ? 'M4 7L4 3L20 3L20 7' : 'M4 6L4 5C4 3.8954 4.8954 3 6 3L18 3C19.1046 3 20 3.8954 20 5L20 6';
+  const d = bar + 'M12 3L12 21' + (sharp ? 'M7 21L17 21' : 'M8 21L16 21');
   return allStroke(d);
 }
 
@@ -596,101 +605,134 @@ function roundedFarPlate(farSegs, prun, baseD) {
 }
 
 /* --------------------------------------------------------------------- syringe */
-// Drawn along its own axis and laid on the free diagonal, needle bottom left: a barrel 12 long and
-// 6 across (path), its front corners r=2, closed at the back by the finger flange (10 across);
-// the plunger's rod and thumb press behind it; two graduations off the upper wall, 4 apart and 2
-// clear of the ends; the needle from the barrel's front. The needle's length is the free number,
-// solved so the ink is 20 square; the whole drawing then sits on 2..22. Sharp: the barrel's front
-// corners true, every free end 0.4142 along its own diagonal. Two-tone: the barrel's plate under
-// the stroke; duotone: the barrel grey, everything else black; fill: the barrel solid with the
-// graduations cut in from its wall, the rest stroked.
+// His drawing (refs/, 5 Oct 2026), on the free diagonal through (12,12), needle bottom left. Along
+// the axis s (toward the top right) and across it t: a barrel 6 across from the flange at s=5.7279
+// to its front at -7.6863, front corners r=2; the needle on to s=-12.7279, its tip on (3,21); the
+// finger flange 10 across; a rod 4 long to the thumb press 6 across at s=9.7279, its end on y=3.
+// Ink 2..22 both ways. One fix: his first graduation leaned 0.8 degrees off square and stood 4.23
+// from the second; both now cross square, 2 long, at s=-3 and s=1, 4 apart. Sharp: the barrel's
+// front corners true, every free end 0.4142 along its own diagonal. Two-tone: the barrel's plate
+// under the stroke; duotone: the barrel grey, everything else black; fill: the barrel solid with
+// the graduations cut in from its wall, the rest stroked.
+const SYR = { back: 5.7279, front: -7.6863, tip: -9 * Math.SQRT2, press: 9 * Math.SQRT2 - 3, ticks: [-3, 1] };
 function syringe(sharp) {
-  const build = (Lx, c) => build0(Lx, c, sharp);
-  function build0(L, c, sharp) {
   const k = sharp ? 0.4142 : 0;
-  {
-    const W = (x, y) => [c[0] + x * DIAG.a[0] + y * DIAG.n[0], c[1] + x * DIAG.a[1] + y * DIAG.n[1]];
-    const ext = (p0, p1, which = 'end') => { const t = L_unit(p0, p1); return which === 'end' ? [p0, [p1[0] + t[0] * k, p1[1] + t[1] * k]] : [[p0[0] - t[0] * k, p0[1] - t[1] * k], p1]; };
-    const barrel = openPolyLA([W(5, -3), W(-7, -3), W(-7, 3), W(5, 3)], [0, sharp ? 0 : 2, sharp ? 0 : 2, 0]);
-    const lines = [
-      ext(W(-7, 0), W(-L, 0)),                       // needle, its tip free
-      [ext(W(5, 0), W(5, -5))[1], W(5, 0), W(9, 0)],  // the flange's upper half turning into the rod, so the
-                                                      // barrel's ends and the rod touch one subpath (lint read 1.0)
-      ext(...ext(W(9, -3), W(9, 3)), 'start'),       // thumb press
-      ext(W(5, 0), W(5, 5)),                         // flange's lower half
-      ext(W(-3, -3), W(-3, -1)),                     // graduations off the wall
-      ext(W(1, -3), W(1, -1)),
-    ];
-    const closed = polyLA([W(5, -3), W(-7, -3), W(-7, 3), W(5, 3)], [0, sharp ? 0 : 2, sharp ? 0 : 2, 0]);
-    return { barrel, lines, closed };
-  }
-  }
-  const dOf = (g) => dLA(g.barrel, false) + g.lines.map((l) => polyline(l)).join('');
-  // the needle's length, solved on the rounded drawing so its ink is 20 wide; sharp keeps that
-  // length, its stubs landing on the same box
-  const roundBox = (Lx, c) => { const g = build(Lx, c); return L.strokedBBox(dOf(g), 1, sharp ? 'butt' : 'round'); };
-  const Lr = L.bisect((Lx) => { const bb = L.strokedBBox(dLA(buildRound(Lx).barrel, false) + buildRound(Lx).lines.map((l) => polyline(l)).join(''), 1, 'round'); return bb[2] - bb[0] - 20; }, 8, 20, 60);
-  const b0 = L.strokedBBox(dLA(buildRound(Lr).barrel, false) + buildRound(Lr).lines.map((l) => polyline(l)).join(''), 1, 'round');
-  const c = [12 + (12 - (b0[0] + b0[2]) / 2), 12 + (12 - (b0[1] + b0[3]) / 2)];
-  const g = build(Lr, c);
-  const b = roundBox(Lr, c);
+  const W = (x, y) => [12 + x * DIAG.a[0] + y * DIAG.n[0], 12 + x * DIAG.a[1] + y * DIAG.n[1]];
+  const ext = (p0, p1, which = 'end') => { const t = L_unit(p0, p1); return which === 'end' ? [p0, [p1[0] + t[0] * k, p1[1] + t[1] * k]] : [[p0[0] - t[0] * k, p0[1] - t[1] * k], p1]; };
+  const { back, front, tip, press } = SYR;
+  const corners = [W(back, -3), W(front, -3), W(front, 3), W(back, 3)], radii = [0, sharp ? 0 : 2, sharp ? 0 : 2, 0];
+  const barrel = openPolyLA(corners, radii);
+  const lines = [
+    ext(W(front, 0), W(tip, 0)),                         // needle, its tip free
+    [ext(W(back, 0), W(back, -5))[1], W(back, 0), W(press, 0)], // the flange's upper half turning into the rod, so the
+                                                         // barrel's ends and the rod touch one subpath (lint read 1.0)
+    ext(...ext(W(press, -3), W(press, 3)), 'start'),     // thumb press
+    ext(W(back, 0), W(back, 5)),                         // flange's lower half
+    ...SYR.ticks.map((s0) => ext(W(s0, -3), W(s0, -1))), // graduations off the upper wall
+  ];
+  const d = dLA(barrel, false) + lines.map((l) => polyline(l)).join('');
+  const b = L.strokedBBox(d, 1, sharp ? 'butt' : 'round');
   assert(b.every((v, i) => Math.abs(v - [2, 2, 22, 22][i]) < 2e-3), `syringe box ${b.map((v) => v.toFixed(3))}`);
-  const d = dOf(g);
-  const plate = geo(grow(g.closed));
-  const inner = geo(offsetLA(g.closed, -1));
-  const ticks = g.lines.slice(4).map((l) => [B.band(B.runFromD(polyline(l))[0], sharp ? 'butt' : 'round')]);
-  const tickD = g.lines.slice(4).map((l) => polyline(l)).join('');
-  const othersNoBarrel = g.lines.slice(0, 4).map((l) => polyline(l)).join('');
+  const closed = polyLA(corners, radii);
+  const plate = geo(grow(closed));
+  const inner = geo(offsetLA(closed, -1));
+  const ticks = lines.slice(4).map((l) => [B.band(B.runFromD(polyline(l))[0], sharp ? 'butt' : 'round')]);
+  const tickD = lines.slice(4).map((l) => polyline(l)).join('');
+  const others = lines.slice(0, 4).map((l) => polyline(l)).join('');
   return {
     stroke: [S(d)],
     'two-tone': [Pl(E(plate)), S(d)],
-    duotone: [Pl(E(plate)), S(othersNoBarrel + tickD)],
-    fill: [F(E(B.subtract(plate, B.intersect(inner, B.union(...ticks))))), S(othersNoBarrel)],
+    duotone: [Pl(E(plate)), S(others + tickD)],
+    fill: [F(E(B.subtract(plate, B.intersect(inner, B.union(...ticks))))), S(others)],
   };
-  function buildRound(Lx) { return build0(Lx, [12, 12], false); }
 }
 const L_unit = (p0, p1) => { const v = [p1[0] - p0[0], p1[1] - p0[1]], n = Math.hypot(...v); return [v[0] / n, v[1] / n]; };
 
-/* ----------------------------------------------------------------------- scale */
-// A balance: the post (12, 2..22) with a knob above the beam (y=6, 5..19), a foot (7..17 on 22),
-// and two triangular pans hung from the beam's ends, bases on y=14 six wide. The pans' corners
-// are r=1, their base vertices solved so the fillet's extreme sits on 2 and 22 (ink 1..23); in
-// sharp the true corner sits there and its round join paints the unit. The apex is under the beam.
-// Ink 1..23 both ways: it reads as round, which owes 22 on both axes.
-// Two-tone: the pans' plates under the stroke; duotone: the pans grey solids, post, beam and foot
-// black; fill: the pans solid, the rest stroked.
-function scale(sharp) {
-  const pan = (side) => {
-    const ax = side < 0 ? 5 : 19;
-    const mk = (x0) => polyLA(side < 0 ? [[ax, 6], [ax + (ax - x0), 14], [x0, 14]] : [[ax, 6], [x0, 14], [ax - (x0 - ax), 14]], sharp ? [0, 0, 0] : [1, 1, 1]);
-    if (sharp) return mk(side < 0 ? 2 : 22);
-    const x0 = L.bisect((x) => { const bb = L.strokedBBox(dLA(mk(x)), 1, 'round'); return side < 0 ? bb[0] - 1 : bb[2] - 23; }, side < 0 ? 0 : 21, side < 0 ? 3 : 24, 60);
-    return mk(x0);
+/* --------------------------------------------- scale, scale-unbalanced, scale-unbalanced-flip */
+// His drawings (refs/, 5 Oct 2026): a balance with a ring for its pivot (r=2 about (12,4)), the post
+// down from it to a foot 7..17 on 22, a beam of two drooping arms out to tips on 4 and 20, and two
+// pans, rounded triangles with a bowed base, hung below the tips about x=5 and 19. The unbalanced
+// pair tilts the beam about (12,4.5) and lifts one pan 1.5 while the other drops 2, as he drew them;
+// the flip is the mirror. Three fixes:
+// - his left arm was the right arm moved across, not mirrored, so it drooped by the post where the
+//   right one drooped by its tip; it is the mirror now and the beam is symmetric.
+// - his pans reached 1.16 from the sides; each is scaled 1.06 about its apex so the ink lands on 1.
+// - his tilt of 15 degrees put the high tip's cap 0.05 past the padding; it tilts 14.6 so the cap
+//   sits on 1 (solved).
+// Ink 1..23 both ways. Two-tone: plates under the pans and the pivot; duotone: the pans grey solids,
+// pivot black disc, beam, post and foot black; fill: pans and pivot solid, the rest stroked. Sharp:
+// each pan's corners true, the apex where its round join paints the rounded apex, the base corners
+// on the side lines at x=2 and 8 so the ink keeps 1; the arms' tips and the foot's ends a unit on
+// (the tips on their own tangent by its k); the pivot stays round.
+const SCALE = {
+  arm: [[14, 4], [14.8333, 4.75462], [18, 5.8111], [20, 4]],
+  pan: 'M2.22486 13.9203L4.54727 8.96582C4.72713 8.58211 5.27287 8.58211 5.45273 8.96582L7.77514 13.9203C7.89717 14.1806 7.77525 14.4915 7.50253 14.5825C5.83418 15.1392 4.16582 15.1392 2.49747 14.5825C2.22475 14.4915 2.10283 14.1806 2.22486 13.9203Z',
+  side: [[2.22486, 13.9203], [4.54727, 8.96582]],
+  bowl: [[7.50253, 14.5825], [5.83418, 15.1392], [4.16582, 15.1392], [2.49747, 14.5825]],
+  apexY: 0.25 * 8.96582 + 0.75 * 8.58211,                               // the apex arc's top, t = 0.5
+  lift: { left: -1.5, right: 2 },
+};
+function scaleParts(sharp, tilt) {
+  const apex = [5, SCALE.apexY];
+  const sc = (f) => ([x, y]) => [apex[0] + (x - apex[0]) * f, apex[1] + (y - apex[1]) * f];
+  const f = L.bisect((ff) => L.strokedBBox(mapPts(SCALE.pan, sc(ff)), 1, 'round')[0] - 1, 1, 1.2, 60);
+  let pan = mapPts(SCALE.pan, sc(f));
+  if (sharp) {
+    const [s0, s1] = SCALE.side.map(sc(f)), t = (2 - s0[0]) / (s1[0] - s0[0]);
+    const bl = [2, s0[1] + t * (s1[1] - s0[1])], br = [8, bl[1]];
+    const [, c1, c2] = SCALE.bowl.map(sc(f));
+    pan = `M${P(bl)}L${P(apex)}L${P(br)}C${P(c1)} ${P(c2)} ${P(bl)}Z`;
+  }
+  const at = (d, dx, dy) => mapPts(d, ([x, y]) => [x + dx, y + dy]);
+  const pans = [at(pan, 0, tilt ? SCALE.lift.left : 0), at(pan, 14, tilt ? SCALE.lift.right : 0)];
+  // the beam: the right arm and its mirror, tilted about (12,4.5) until the high tip's ink is on 1
+  const armD = (q) => {
+    const [p0, c1, c2, p1] = q, tn = L_unit(c2, p1), k = sharp ? k45(tn) : 0;
+    return `M${P(p0)}C${P(c1)} ${P(c2)} ${P(p1)}` + (sharp ? `L${P([p1[0] + tn[0] * k, p1[1] + tn[1] * k])}` : '');
   };
-  const pans = [pan(-1), pan(1)];
-  const rest = openRun([[12, 2], [12, 22]], sharp, 'start') + openRun([[5, 6], [19, 6]], false, 'none') + openRun([[7, 22], [17, 22]], sharp);
-  const panD = pans.map((p) => dLA(p)).join('');
-  const plates = pans.map((p) => E(geo(grow(p)))).join('');
+  const rot = (th) => ([x, y]) => { const c = Math.cos(th), s = Math.sin(th), dx = x - 12, dy = y - 4.5; return [12 + c * dx - s * dy, 4.5 + s * dx + c * dy]; };
+  const right = SCALE.arm, left = right.map(([x, y]) => [24 - x, y]);
+  const th = tilt ? L.bisect((a) => rot(a)(left[3])[1] - 2, 0.1, 0.4, 60) : 0;
+  const beam = armD(right.map(rot(th))) + armD(left.map(rot(th)));
+  const ringSegs = [As([12, 4], 2, 0, 360)];
+  const rest = beam + openRun([[12, 6], [12, 22]], false, 'none') + openRun([[7, 22], [17, 22]], sharp);
+  return { pans, ringSegs, rest, th };
+}
+function scale(sharp, tilt = false, flip = false) {
+  const { pans, ringSegs, rest } = scaleParts(sharp, tilt);
+  const mx = (d) => (flip ? mapPts(d, ([x, y]) => [24 - x, y]) : d);
+  const panD = pans.join(''), ring = dLA(ringSegs);
+  const plates = pans.map((d) => E([B.grow(B.runFromD(d)[0])])).join('');
+  const disc = E(geo(grow(ringSegs)));
   return {
-    stroke: [S(panD + rest)],
-    'two-tone': [Pl(plates), S(panD + rest)],
-    duotone: [Pl(plates), S(rest)],
-    fill: [F(plates), S(rest)],
+    stroke: [S(mx(panD + ring + rest))],
+    'two-tone': [Pl(mx(plates + disc)), S(mx(panD + ring + rest))],
+    duotone: [Pl(mx(plates)), F(mx(disc)), S(mx(rest))],
+    fill: [F(mx(plates + disc)), S(mx(rest))],
   };
 }
 
 /* ------------------------------------------------------------------- signature */
-// Sign here: an x, a written stroke and the line under them. The x is the house x at 4 (3..7 by
-// 8..12); the stroke two half turns r=2 on y=10, over then under, from 12 to 20; the line runs the
-// width on y=16. Ink 1..23 by 7..17. Three elements, so two-tone and duotone take the one-part-grey
-// split: the line grey, the x and the stroke black. Sharp: the x's arms 0.4142 along their
-// diagonals, the stroke's ends a unit on along their tangents, the line's ends a unit on.
+// His drawing (refs/, 5 Oct 2026), fitted verbatim: a written letter, its tail from (2,21) up into a
+// tall loop that closes on (5.99,13.21), then a running squiggle out to (22,13.64), over a line
+// 8.5..22 on 18. Ink 1..23 by 2..22. Two-tone and duotone take the one-part-grey split as before:
+// the line grey, the writing black; fill is the stroke. Sharp: the free ends a unit on along their
+// own tangents (the tail by the shorter axis's k, the squiggle's and the line's ends flat on x).
+const SIG = {
+  tail: [[2, 21], [3.19383, 18.9186], [4.71283, 16.0493], [5.99294, 13.2135]],
+  loop: 'M5.99294 13.2135C8.20397 8.31533 9.7023 3.51693 7.5814 3.05055C3.63084 2.18185 2.58008 12.7908 5.99294 13.2135Z',
+  run: 'M5.99294 13.2135C6.19638 13.2387 6.41568 13.2277 6.65116 13.1759C10.8372 12.2554 11.3023 8.57347 11.7674 10.4144C12.2326 12.2554 13.1628 14.0964 14.5581 13.6361C15.9535 13.1759 16.4186 10.8747 17.3488 12.2554C18.2791 13.6361 20.6047 13.6361 22 13.6361',
+};
 function signature(sharp) {
-  const a = sharp ? 0.4142 / Math.SQRT2 : 0;
-  const x = `M${P([3 - a, 8 - a])}L${P([7 + a, 12 + a])}M${P([7 + a, 8 - a])}L${P([3 - a, 12 + a])}`;
-  const wave = (sharp ? 'M12 11L12 10' : 'M12 10') + L.arcC([14, 10], 2, 180, 360) + L.arcC([18, 10], 2, 180, 0) + (sharp ? 'L20 9' : '');
-  const line = openRun([[2, 16], [22, 16]], sharp);
-  return { stroke: [S(x + wave + line)], 'two-tone': [M(line), S(x + wave)], duotone: [M(line), S(x + wave)], fill: [S(x + wave + line)] };
+  const [p0, c1, c2, p1] = SIG.tail;
+  // the tail's tip bounds both the left and the bottom, so its stub takes the shorter of the two
+  // axes' k (telescope's side legs): the nearer-axis k alone put the butt face's corner 0.16 past 1
+  const t0 = L_unit(c1, p0), a0 = t0.map(Math.abs);
+  const k0 = sharp ? Math.min((1 - a0[1]) / a0[0], (1 - a0[0]) / a0[1]) : 0;
+  const tail = (sharp ? `M${P([p0[0] + t0[0] * k0, p0[1] + t0[1] * k0])}L${P(p0)}` : `M${P(p0)}`) + `C${P(c1)} ${P(c2)} ${P(p1)}`;
+  const writing = tail + SIG.loop + SIG.run + (sharp ? 'L23 13.6361' : '');
+  const line = sharp ? 'M7.5 18L23 18' : 'M8.5 18L22 18';
+  return { stroke: [S(writing + line)], 'two-tone': [M(line), S(writing)], duotone: [M(line), S(writing)], fill: [S(writing + line)] };
 }
 
 /* ----------------------------------------------------------------------- gavel */
@@ -741,58 +783,65 @@ function gavel(sharp) {
 }
 
 /* ------------------------------------------------------------------- telescope */
-// A tube raised 30 degrees toward the top right (12 long, 5 across, r=1) with the eyepiece run out
-// of its lower end, on a stem 2 below the tube's middle and three legs. The legs' spread and length
-// are the free numbers, solved so the ink is 18 wide by 20 tall (3..21 by 2..22); four variants were
-// rendered against this one at 16px (45 degrees, no stem, two legs). Sharp: the tube's corners pulled
-// in along both of its axes until the true corner's round join paints the rounded top, the free ends
-// stubbed on the axis each one bounds. Two-tone: the tube's plate
-// under the stroke; duotone: the tube black, the stand grey (the tools rule); fill: the tube solid.
-const TELE = { deg: 30, Lf: 7, Lb: 5, w: 2.5, eye: 3, stem: 2 };
-function teleParts(o, sharp, c, pull = 0) {
-  const th = (o.deg * Math.PI) / 180, a = [Math.cos(th), -Math.sin(th)], n = [Math.sin(th), Math.cos(th)];
-  const atx = (s, t) => [c[0] + s * a[0] + t * n[0], c[1] + s * a[1] + t * n[1]];
-  const r = sharp ? 0 : 1;
-  const tube = polyLA([atx(o.Lf - pull, -o.w + pull), atx(o.Lf - pull, o.w - pull), atx(-o.Lb + pull, o.w - pull), atx(-o.Lb + pull, -o.w + pull)], [r, r, r, r]);
-  const top = atx(0, o.w - pull), hub0 = atx(0, o.w), hub = [hub0[0], hub0[1] + o.stem];
-  // a free end's stub: k on the axis that end bounds. The eyepiece bounds the left, so its own
-  // k45; a side leg's foot bounds the side, where a stub long enough for the floor (0.54) puts the
-  // face's corner 0.03 past the rounded cap, so it takes the shorter of the two and the middle leg
-  // keeps the floor.
-  const end = (p0, p1, k) => { const t = L_unit(p0, p1); return polyline([p0, [p1[0] + t[0] * k, p1[1] + t[1] * k]]); };
-  const kOf = (p0, p1, mode) => {
-    const t = L_unit(p0, p1).map(Math.abs), nn = [t[1], t[0]];
-    const kx = t[0] > 1e-9 ? (1 - nn[0]) / t[0] : Infinity, ky = t[1] > 1e-9 ? (1 - nn[1]) / t[1] : Infinity;
-    return mode === 'min' ? Math.min(kx, ky) : k45(L_unit(p0, p1));
-  };
-  const leg = (dx, mode) => { const f = [hub[0] + dx, hub[1] + o.H]; return sharp ? end(hub, f, kOf(hub, f, mode)) : polyline([hub, f]); };
-  const e0 = atx(-o.Lb, 0), e1 = atx(-o.Lb - o.eye, 0);
-  const runs = [
-    sharp ? end(e0, e1, kOf(e0, e1, 'own')) : polyline([e0, e1]),
-    'M' + P(top) + 'L' + P(hub),
-    leg(-o.spread, 'min'), leg(o.spread, 'min'), leg(0, 'own'),
-  ];
-  return { tube, eye: runs[0], stand: runs.slice(1).join('') };
-}
+// His drawing (refs/, 5 Oct 2026, sent outlined; the centre lines are the mean of each outline's
+// two sides): a refractor raised 16 degrees, three sections stepping down from the lens hood to a
+// round-ended eyepiece, each joined to the next by a bowed face; a ring hub r=2 about (12.5,14.5)
+// that the middle section's underside runs over; two legs to (8,21) and (17,21). Ink 1..23 by 2..22,
+// as his outline. One fix: the hood's two right corners were uneven (tangent runs 1.18 and 1.10, a
+// 2-degree skew); solved as r=1 fillets on his top and bottom edges with their extremes on his box
+// (top 3, right 22), the front face is their common tangent, within 0.12 of his. Sharp: those two
+// corners true, each on its bisector where the round join meets the box; the legs' feet on their
+// own k; the shoulders, faces, eyepiece end and hub are shape and stay. Two-tone: the tube's and
+// the hub's plates under the stroke. Duotone, as gavel's head and handle: the tube black with its
+// two faces cut through to the grey beneath, the hub and legs grey. Fill: tube and hub solid with
+// the faces cut, the legs stroked.
+const TELE = {
+  top: [[16.2208, 3.7454], [0.9605, -0.2783]], bot: [[18.7539, 13.9638], [0.9605, -0.2783]],
+  body: 'L16.2208 3.7454C14.9979 4.0995 13.9552 4.9643 13.3222 6.1495L9.83 7.1609C8.607 7.5151 7.5644 8.3798 6.9313 9.565L3.555 10.5429C2.4362 10.8669 1.7722 12.1099 2.072 13.3193C2.3718 14.5286 3.5218 15.2462 4.6406 14.9222L8.017 13.9443C8.7785 14.4196 9.6397 14.6542 10.5044 14.6345',
+  shoulder: 'L15.1316 13.4484C16.228 14.1326 17.531 14.318 18.7539 13.9638',
+  faces: 'M13.3222 6.1495C13.5057 9.2255 14.6049 12.2971 15.1316 13.4484M6.9313 9.565C6.9394 10.0842 7.0034 10.9261 7.1691 11.7648C7.3347 12.6034 7.6021 13.4386 8.017 13.9443',
+  hub: [12.5, 14.5], legs: [[[10.8458, 15.6245], [8, 21]], [[14.1542, 15.6245], [17, 21]]],
+};
 function telescope(sharp) {
-  const dOf = (g) => dLA(g.tube) + g.eye + g.stand;
-  const box = (o, sh = false, c = [0, 0]) => L.strokedBBox(dOf(teleParts(o, sh, c)), 1, sh ? 'butt' : 'round');
-  const spread = L.bisect((sp) => { const b = box({ ...TELE, spread: sp, H: 10 }); return b[2] - b[0] - 18; }, 2, 14, 60);
-  const H = L.bisect((h) => { const b = box({ ...TELE, spread, H: h }); return b[3] - b[1] - 20; }, 3, 18, 60);
-  const o = { ...TELE, spread, H };
-  const b0 = box(o);
-  const c = [12 - (b0[0] + b0[2]) / 2, 12 - (b0[1] + b0[3]) / 2];
-  // sharp: the tube's corners pulled in until the true corner's round join paints the rounded top
-  const pull = sharp ? L.bisect((pl) => L.strokedBBox(dOf(teleParts(o, true, c, pl)), 1, 'butt')[1] - 2, 0, 1, 60) : 0;
-  const g = teleParts(o, sharp, c, pull);
-  const b = L.strokedBBox(dOf(g), 1, sharp ? 'butt' : 'round');
-  assert(b.every((v, i) => Math.abs(v - [3, 2, 21, 22][i]) < 2e-3), `telescope box ${b.map((v) => v.toFixed(3))}`);
-  const tubeD = dLA(g.tube), plate = E(geo(grow(g.tube)));
+  const unit = (v) => { const n = Math.hypot(...v); return [v[0] / n, v[1] / n]; };
+  const nIn = (d) => [-d[1], d[0]];                                     // the inward normal of a rightward edge
+  const [t0, td] = TELE.top, [b0, bd] = TELE.bot;
+  // r=1 corner centres: on the top edge's inner offset at y=4, on the bottom edge's at x=21
+  const nt = nIn(td), nb = [-nt[0], -nt[1]];
+  const c1 = [t0[0] + (1 - (4 - t0[1]) * nt[1]) / nt[0], 4];
+  const c2 = [21, b0[1] + (1 - (21 - b0[0]) * nb[0]) / nb[1]];
+  const fd = unit([c2[0] - c1[0], c2[1] - c1[1]]), fo = [fd[1], -fd[0]]; // the front face, its outward normal
+  const ang = (v) => (Math.atan2(v[1], v[0]) * 180) / Math.PI;
+  const hubA = (p) => ang([p[0] - TELE.hub[0], p[1] - TELE.hub[1]]);
+  const hA = hubA([10.5044, 14.6345]), hB = hubA([14.3255, 13.6818]) + 360;
+  const tTop = [c1[0] - nt[0], c1[1] - nt[1]], tBot = [c2[0] - nb[0], c2[1] - nb[1]];
+  let right;
+  if (sharp) {
+    const bis = (u, v) => unit([u[0] + v[0], u[1] + v[1]]);
+    const b1 = bis([-nt[0], -nt[1]], fo), b2 = bis([-nb[0], -nb[1]], fo);
+    const v1 = [c1[0] + (b1[0] * (c1[1] - 3)) / -b1[1], 3], v2 = [22, c2[1] + (b2[1] * (22 - c2[0])) / b2[0]];
+    right = { start: v1, d: `L${P(v2)}L${P(v1)}`, bottomTo: v2 };
+  }
+  const tube = sharp
+    ? `M${P(right.start)}` + TELE.body + L.arcC(TELE.hub, 2, hA, hB) + TELE.shoulder + `L${P(right.bottomTo)}Z`
+    : `M${P(tTop)}` + TELE.body + L.arcC(TELE.hub, 2, hA, hB) + TELE.shoulder + `L${P(tBot)}`
+      + L.arcC(c2, 1, ang([-nb[0], -nb[1]]), ang(fo)) + `L${P([c1[0] + fo[0], c1[1] + fo[1]])}` + L.arcC(c1, 1, ang(fo), ang([-nt[0], -nt[1]])) + 'Z';
+  const hubLow = `M14.3255 13.6818` + L.arcC(TELE.hub, 2, hB - 360, hA);
+  const legs = TELE.legs.map(([p0, p1]) => { const t = L_unit(p0, p1), k = sharp ? k45(t) : 0; return polyline([p0, [p1[0] + t[0] * k, p1[1] + t[1] * k]]); }).join('');
+  const d = tube + TELE.faces + hubLow + legs;
+  const b = L.strokedBBox(d, 1, sharp ? 'butt' : 'round');
+  assert(b.every((v, i) => Math.abs(v - [1, 2, 23, 22][i]) < 3e-3), `telescope box ${b.map((v) => v.toFixed(3))}`);
+  const tubeRun = B.runFromD(tube)[0];
+  const hubSegs = [As(TELE.hub, 2, 0, 360)];
+  const disc = geo(grow(hubSegs));
+  const body = [B.grow(tubeRun)];
+  const cuts = B.subtract(B.runFromD(TELE.faces).map((r) => B.band(r, 'butt')), [B.band(tubeRun, 'round')]);
+  const plate = B.union(body, disc);
   return {
-    stroke: [S(tubeD + g.eye + g.stand)],
-    'two-tone': [Pl(plate), S(tubeD + g.eye + g.stand)],
-    duotone: [M(g.eye + g.stand), F(plate)],
-    fill: [F(plate), S(g.eye + g.stand)],
+    stroke: [S(d)],
+    'two-tone': [Pl(E(plate)), S(d)],
+    duotone: [Pl(E(plate)), F(E(B.subtract(B.subtract(body, disc), cuts))), M(legs)],
+    fill: [F(E(B.subtract(plate, cuts))), S(legs)],
   };
 }
 
@@ -879,7 +928,9 @@ export const STYLES = {
   webcam,
   'image-off': imageOff,
   syringe,
-  scale,
+  scale: (sh) => scale(sh),
+  'scale-unbalanced': (sh) => scale(sh, true),
+  'scale-unbalanced-flip': (sh) => scale(sh, true, true),
   signature,
   gavel,
   telescope,
