@@ -123,12 +123,12 @@ github.com/keyline-icons/keyline-icons
 Changelog
 
 1.7.0
-33 new drawings, taking the set to 1,365 names and 10,920 SVGs, and a new Law category.
+34 new drawings, taking the set to 1,366 names and 10,928 SVGs, and a new Law category.
 
 * Law: a gavel, a balance standing level and tipped either way, and a signature over its line
 * Health: a heart with a pulse, a stethoscope, a syringe, a capsule and an adhesive bandage
 * Text, Math and Devices: an A with an arrow up or down for text size, a spell check, a capital T for the text tool, curly braces, square brackets and a regular expression
-* And more: an arrow entering a bracket for signing in, a charging battery, a webcam, voicemail, a location mark and the same mark with its centre found, a spiral notebook and one with a pen, an image struck through, a telescope, a hand under two coins, a filter list, a to-do list, the dashed progress ring with a plus or an arrow up, and a single dot
+* And more: an arrow entering a bracket for signing in and one leaving it for signing out, a charging battery, a webcam, voicemail, a location mark and the same mark with its centre found, a spiral notebook and one with a pen, an image struck through, a telescope, a hand under two coins, a filter list, a to-do list, the dashed progress ring with a plus or an arrow up, and a single dot
 
 1.6.0
 47 new drawings, taking the set to 1,332 names and 10,656 SVGs.
@@ -250,7 +250,7 @@ to be **pushed** before any of this is true for anyone but you.
 ### 1.7.0
 
 ```
-33 new drawings, taking the set to 1,365 names and 10,920 SVGs, and a new Law category: a gavel, a balance level and tipped either way, and a signature; a heart with a pulse, a stethoscope, a syringe, a capsule and a bandage; text size arrows, a spell check, a capital T, curly braces, square brackets and a regular expression; and an arrow for signing in, a charging battery, a webcam, voicemail, two location marks, two notebooks, an image struck through, a telescope, a hand under two coins, a filter list, a to-do list, two progress rings and a dot.
+34 new drawings, taking the set to 1,366 names and 10,928 SVGs, and a new Law category: a gavel, a balance level and tipped either way, and a signature; a heart with a pulse, a stethoscope, a syringe, a capsule and a bandage; text size arrows, a spell check, a capital T, curly braces, square brackets and a regular expression; and arrows for signing in and out, a charging battery, a webcam, voicemail, two location marks, two notebooks, an image struck through, a telescope, a hand under two coins, a filter list, a to-do list, two progress rings and a dot.
 ```
 
 **No plugin code changed this time.** The drawings reach the plugin from
@@ -702,12 +702,12 @@ keylineicons.com
 github.com/keyline-icons/keyline-icons
 
 v1.7.0
-33 new drawings, and a new category. The set is 1,365 names now, 1,238 component sets and 10,920 variants, up from 1,332 and 10,656. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
+34 new drawings, and a new category. The set is 1,366 names now, 1,239 component sets and 10,928 variants, up from 1,332 and 10,656. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
 
 * Law: a gavel, a balance standing level and tipped either way, and a signature over its line; Law opened as a category, taking the Catalog from 40 to 41
 * Health: a heart with a pulse, a stethoscope, a syringe, a capsule and an adhesive bandage
 * Text, Math and Devices: an A with an arrow up or down for text size, a spell check, a capital T for the text tool, curly braces, square brackets and a regular expression
-* And more: an arrow entering a bracket for signing in, a charging battery, a webcam, voicemail, a location mark and the same mark with its centre found, a spiral notebook and one with a pen, an image struck through, a telescope, a hand under two coins, a filter list, a to-do list, the dashed progress ring with a plus or an arrow up, and a single dot
+* And more: an arrow entering a bracket for signing in and one leaving it for signing out, a charging battery, a webcam, voicemail, a location mark and the same mark with its centre found, a spiral notebook and one with a pen, an image struck through, a telescope, a hand under two coins, a filter list, a to-do list, the dashed progress ring with a plus or an arrow up, and a single dot
 
 v1.6.0
 47 new drawings. The set is 1,332 names now, 1,205 component sets and 10,656 variants, up from 1,286 and 10,288. One set was removed, cloud-minus. Nothing was renamed and no other component was replaced, so instances already placed in your files keep their link.
@@ -780,7 +780,7 @@ from the plugin's on 1 Oct 2026 with the 1.5.0 entry (10,072 before, 7,457
 after; the file's reached 8,165 and kept its v1.1.0), 1.1.0 from the plugin's
 and v1.1.1 and v1.1.0 from the file's on 4 Oct 2026 with the 1.6.0 entries
 (8,796 and 9,800 before, 7,830 and 8,120 after), v1.2.0 from the file's on 5 Oct 2026
-with the 1.7.0 entries (9,143 before, 7,857 after; the plugin's reached 8,637 and kept its
+with the 1.7.0 entries (9,143 before, 7,892 after; the plugin's reached 8,672 and kept its
 1.2.0), and a
 last line points at
 `keylineicons.com/changelog`, which keeps every release.
