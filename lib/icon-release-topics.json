@@ -10,9 +10,10 @@
      "sections": [
       {
        "title": "Arrows",
-       "text": "An arrow entering a bracket, for signing in. It pairs with `bracket-arrow-right`, the arrow on its way out.",
+       "text": "An arrow entering a bracket, for signing in, and the same bracket with the arrow leaving it, for signing out.",
        "names": [
-        "log-in"
+        "log-in",
+        "log-out"
        ]
       },
       {

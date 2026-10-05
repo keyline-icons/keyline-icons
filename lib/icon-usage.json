@@ -1207,6 +1207,7 @@
     "arrow-down-up-2": "Two arrows passing vertically, the falling one on the left, for reverse swaps and moving rows.",
     "arrow-right-left-2": "Two arrows passing sideways, the top one leading right, for handing over and swapping places.",
     "log-in": "An arrow entering a bracket, for sign-in buttons, login links and the way into an app.",
+    "log-out": "An arrow leaving a bracket, for sign-out buttons, logout links and ending a session.",
     "a-arrow-up": "A capital A beside an arrow up, for making text larger in an editor or reader.",
     "a-arrow-down": "A capital A beside an arrow down, for making text smaller in an editor or reader.",
     "spell-check": "Lowercase ab with a check, for spell check, proofreading and grammar tools.",

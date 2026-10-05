@@ -76,6 +76,17 @@ function logIn(sharp) {
   return { stroke: [S(bracket + arrow)], 'two-tone': [M(bracket), S(arrow)], duotone: [M(bracket), S(arrow)], fill: [S(bracket + arrow)] };
 }
 
+/* --------------------------------------------------------------------- log-out */
+// His ask (5 Oct 2026): log-in turned round for leaving. The bracket mirrors to the left (3..9,
+// r=4) and log-in's arrow keeps pointing right, moved on until its tip stands on 21 where log-in's
+// bracket stood: x -> 23 - x on bracket-arrow-left's arrow. Ink 2..22 by 3..21, log-in's box.
+// Styles and sharp as log-in's.
+function logOut(sharp) {
+  const bracket = sharp ? 'M10 4L3 4L3 20L10 20' : 'M9 4L7 4C4.7909 4 3 5.7909 3 8L3 16C3 18.2091 4.7909 20 7 20L9 20';
+  const arrow = mapPts(layer('bracket-arrow-left', 'two-tone', sharp, 'stroke'), ([x, y]) => [23 - x, y]);
+  return { stroke: [S(bracket + arrow)], 'two-tone': [M(bracket), S(arrow)], duotone: [M(bracket), S(arrow)], fill: [S(bracket + arrow)] };
+}
+
 /* ---------------------------------------------------- a-arrow-up, a-arrow-down */
 // case-upper with its small A swapped for an arrow in the same 6 x 10 column (path 16..22 by
 // 9..19): the 6-box sign arrow's head (45 degree arms, 3 deep) on a shaft the small A's height,
@@ -925,6 +936,7 @@ function handCoins(sharp) {
 
 export const STYLES = {
   'log-in': logIn,
+  'log-out': logOut,
   'a-arrow-up': (sh) => aArrow(sh, true),
   'a-arrow-down': (sh) => aArrow(sh, false),
   'spell-check': spellCheck,

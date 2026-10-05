@@ -65,7 +65,7 @@ export const CATEGORIES = [
   // beside the dice.
   //
   // Closed 5 Oct 2026, when Zafar passed 1.7.0: the drawings the other set's names and shadcn/ui's own source asked
-  // for that the set did not draw. log-in files in Arrows beside the bracket arrows it pairs with, the text-size
+  // for that the set did not draw. log-in and log-out file in Arrows beside the bracket arrows, the text-size
   // arrows, the spell check and the bare T in Text beside case-upper, braces and brackets in Math beside the
   // parentheses, regex in Devices beside code, the dot in Shapes, the locate marks in Maps, voicemail in Mail, the
   // heart's pulse, the pill, the plaster, the syringe and the stethoscope in Health, the webcam in Devices, image-off
@@ -89,7 +89,7 @@ export const CATEGORIES = [
     // through its corner, filed beside the dashed-panel arrows rather than under
     // Shapes, where its first word would otherwise send it. `square-arrow-out-`
     // joined on 1 Oct 2026 (1.5.0): the same square left by the same arrow.
-    match: /^(arrow|bracket-arrow|log-in$|expand|refresh|rotate|corner-|move$|square-arrow-in-|square-arrow-out-)/,
+    match: /^(arrow|bracket-arrow|log-(in|out)$|expand|refresh|rotate|corner-|move$|square-arrow-in-|square-arrow-out-)/,
     blurb:
       "Direction, movement and resizing, with the brackets and the arrow into one, u-turns, corner turns and dashed panels.",
   },

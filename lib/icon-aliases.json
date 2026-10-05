@@ -198,21 +198,21 @@
       ]
     },
     {
-      "match": "^bracket-arrow-left$",
-      "note": "Figma's description spells these `log out` and `log in`, which reaches `LogOut` because the identifier splits into two words, and misses `logout` typed as one. The closed-up forms are what people type.",
-      "terms": [
-        "logout",
-        "signout",
-        "log out"
-      ]
-    },
-    {
-      "match": "^bracket-arrow-right$",
-      "note": "Figma's description spells these `log out` and `log in`, which reaches `LogOut` because the identifier splits into two words, and misses `logout` typed as one. The closed-up forms are what people type.",
+      "match": "^log-in$",
+      "note": "The closed-up and spaced forms people type for signing in. These sat on the bracket arrows until 1.7.0 drew log-in and log-out, which own the words now, so a search for them leads with the log drawings (his ask, 5 Oct 2026).",
       "terms": [
         "login",
         "signin",
         "log in"
+      ]
+    },
+    {
+      "match": "^log-out$",
+      "note": "As log-in's row, for leaving.",
+      "terms": [
+        "logout",
+        "signout",
+        "log out"
       ]
     },
     {
@@ -2780,9 +2780,6 @@
       "file-bar-chart",
       "file-chart-column-increasing"
     ],
-    "bracket-arrow-right": [
-      "log-out"
-    ],
     "more-horizontal": [
       "ellipsis"
     ],
@@ -2832,6 +2829,18 @@
     ],
     "camera-off": [
       "video-off"
+    ],
+    "log-in": [
+      "sign-in",
+      "sign in",
+      "login",
+      "log in"
+    ],
+    "log-out": [
+      "sign-out",
+      "sign out",
+      "logout",
+      "log out"
     ]
   },
   "$names": "Names other sets use for a drawing here, keyed by the drawing. Matched against the whole query, never split into words: these are names, not keywords, and folding `message-square` into a keyword list makes a search for `square` return every message icon. All four searches rank one second only to the exact name, so it leads wherever the set does not draw that name itself; once the set does, the row is stale, and pipeline/check-search.mjs fails until it is deleted."

@@ -409,7 +409,7 @@ const FIRST = [
   ["life-buoy", "lifebuoy", "led through its words alone"],
   ["loader-2", "loader-circle", "led with `loader`, the spokes rather than the ring"],
   ["lock-keyhole", "lock", "the plugin found nothing"],
-  ["log-out", "bracket-arrow-right", "bracket on the left, arrow leaving it: their drawing, which the row had mirrored"],
+  ["log-out", "log-out", "a redirect sent it to `bracket-arrow-right` until 1.7.0 drew log-out"],
   ["message-circle", "message", "the plugin found nothing"],
   ["pencil", "pen", "the packages and the plugin led with `pencil-ruler`"],
   ["pie-chart", "chart-pie", "led through its words alone"],
@@ -451,6 +451,14 @@ const FIRST = [
   ["circle-fading-plus", "circle-progress-plus", "their fading ring is our progress ring, drawn in 1.7.0"],
   ["circle-fading-arrow-up", "circle-progress-arrow-up", "same"],
   ["video-off", "camera-off", "a slash leaves video's reels as a half and a nicked ring; a call's video off is its camera"],
+ ["sign-in", "log-in", "the bracket arrows carried the signing words until 1.7.0 drew log-in and log-out (his ask: log first)"],
+ ["sign-out", "log-out", "same, for leaving"],
+ ["sign in", "log-in", "the spaced form, through log-in's words"],
+ ["sign out", "log-out", "same"],
+ ["login", "log-in", "the closed-up form, as a name and a word"],
+ ["logout", "log-out", "same"],
+ ["log in", "log-in", "the identifier split into two words"],
+ ["log out", "log-out", "same"],
 ]
 
 /**

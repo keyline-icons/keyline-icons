@@ -7285,6 +7285,15 @@ export function LogIn(props: IconProps) {
   )
 }
 
+export function LogOut(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M9 4L7 4C4.7909 4 3 5.7909 3 8L3 16C3 18.2091 4.7909 20 7 20L9 20" fill="none" strokeOpacity={0.4} />
+      <path d="M20.2307 12L10.1093 12M15.17 6.5L20.8359 11.6314C21.0547 11.8296 21.0547 12.1704 20.8359 12.3686L15.17 17.5" fill="none" />
+    </Icon>
+  )
+}
+
 export function Lungs(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -13438,6 +13447,7 @@ export {
   Locate as LocateIcon,
   Lock as LockIcon,
   LogIn as LogInIcon,
+  LogOut as LogOutIcon,
   Lungs as LungsIcon,
   MailCheck as MailCheckIcon,
   MailDot as MailDotIcon,

@@ -1,6 +1,6 @@
 # Keyline Icons for Figma
 
-Search the set inside Figma and drop an icon on the canvas. 1,365 names, four
+Search the set inside Figma and drop an icon on the canvas. 1,366 names, four
 styles, two corner treatments, MIT.
 
 Two ways into Figma exist and they solve different problems. A published library
