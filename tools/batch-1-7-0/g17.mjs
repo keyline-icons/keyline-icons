@@ -797,7 +797,7 @@ function gavel(sharp) {
 // corners true, each on its bisector where the round join meets the box; the legs' feet on their
 // own k; the shoulders, faces, eyepiece end and hub are shape and stay. Two-tone: the tube's and
 // the hub's plates under the stroke. Duotone, as gavel's head and handle: the tube black with its
-// two faces cut through to the grey beneath, the hub and legs grey. Fill: tube and hub solid with
+// two faces cut through to the grey beneath, the hub and legs grey, one shape. Fill: tube and hub solid with
 // the faces cut, the legs stroked.
 const TELE = {
   top: [[16.2208, 3.7454], [0.9605, -0.2783]], bot: [[18.7539, 13.9638], [0.9605, -0.2783]],
@@ -844,7 +844,9 @@ function telescope(sharp) {
   return {
     stroke: [S(d)],
     'two-tone': [Pl(E(plate)), S(d)],
-    duotone: [Pl(E(plate)), F(E(B.subtract(B.subtract(body, disc), cuts))), M(legs)],
+    // the legs join the grey as one shape: drawn as a 0.4 stroke over the 0.4 hub they painted
+    // twice where they cross it and went dark (his catch, 5 Oct 2026)
+    duotone: [Pl(E(B.union(plate, B.runFromD(legs).map((r) => B.band(r, sharp ? 'butt' : 'round'))))), F(E(B.subtract(B.subtract(body, disc), cuts)))],
     fill: [F(E(B.subtract(plate, cuts))), S(legs)],
   };
 }
