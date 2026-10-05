@@ -17,7 +17,25 @@ const { rawLayers, mapPts, P, assert } = X;
 const { Ls, As, polyLA, dLA, toGeo, offsetLA, verifyOffset, bandAny } = A;
 const S = (d) => ({ kind: 'stroke', d }), M = (d) => ({ kind: 'muted', d }), F = (d) => ({ kind: 'solid', d }), Pl = (d) => ({ kind: 'plate', d });
 const C = (s) => (s ? 'sharp' : 'regular');
-const E = (shape) => B.emitShape(shape);
+// every emitted region wound by nesting (outer +, hole -): a hole wound with its outer contour paints
+// solid under nonzero, which is what the site and icons/ use (book-open-check's spine slot did)
+const E = (shape) => B.emitShape(orientShape(shape));
+/** bool.mjs's orient probes from a contour's first point, which can sit on another contour (book-open's spine slot
+ *  touches the outline at the notch). Here a contour is inside another when most of its own points are, so one
+ *  shared point decides nothing and a hole at the centre cannot pull its outline in. */
+function orientShape(shape) {
+  const polys = shape.map((r) => B.flat(r, 0.05));
+  return shape.map((r, i) => {
+    let depth = 0;
+    polys.forEach((o, j) => {
+      if (j === i) return;
+      const pts = polys[i].filter((_, k) => k % 3 === 0);
+      if (pts.filter((pt) => B.winding(pt, [o]) !== 0).length > pts.length / 2) depth++;
+    });
+    const want = depth % 2 === 0 ? 1 : -1;
+    return Math.sign(B.area(r)) === want ? r : B.revRun(r);
+  });
+}
 const geo = (segs) => [toGeo(segs)];
 const grow = (segs) => { const o = offsetLA(segs, 1); verifyOffset(segs, o, 1); return o; };
 const band = (segs, sharp) => geo(bandAny(segs, sharp ? 'butt' : 'round'));
@@ -486,8 +504,8 @@ function webcam(sharp) {
 // goes: its bead sits on u = 0.5, inside the cut, and what the near side keeps of it is a sliver.
 // Plates: the near one cut on u = 0, the far one notched on 3 sqrt 2 with an r=1 turn about each
 // far stroke end (sharp: clipped straight). Two-tone: the plates grey under the near strokes and
-// the slash. Duotone: the plates grey, the near ridge cut out of the near one, the slash black.
-// Fill: as image's, the ground under the ridge cut out, on the near side; the far piece solid.
+// the slash. Duotone and fill: image's fill on the near side (the ground under the ridge cut out)
+// and the far piece, grey in duotone under the black slash, solid in fill.
 function imageOff(sharp) {
   const c = C(sharp);
   const line = rawLayers('image', 'stroke', c).find((l) => l.kind === 'stroke').d;
@@ -515,8 +533,10 @@ function imageOff(sharp) {
   const fillRuns = B.runFromD(fillD);
   const noSun = fillRuns.slice(0, 2);
   const nearFill = B.intersect(noSun, halfPlane(0, true));
-  const ridgeBand = ridgeNear.map((pc) => B.band(pc.map((sg) => ({ t: sg.t, p: sg.p })), sharp ? 'butt' : 'round'));
-  const nearDuo = B.subtract(nearPlate, ridgeBand);
+  // duotone's near solid is fill's, grey: image's own duotone and fill differ (a black ridge on grey
+  // against a ground cut out), and an -off has no black but the slash, so the ridge goes as fill cuts it
+  void ridgeNear;
+  const nearDuo = nearFill;
   const slash = X.SLASH[c];
   return {
     stroke: [S(nearD + farD + slash)],
@@ -779,7 +799,9 @@ function bookOpenCheck(sharp) {
   const duoGrey = rawLayers('book-open', 'duotone', c).find((l) => l.kind === 'plate').d;
   const duoBlack = rawLayers('book-open', 'duotone', c).find((l) => l.kind === 'solid').d;
   const fillD = rawLayers('book-open', 'fill', c).find((l) => l.kind === 'solid').d;
-  const cut = (d) => E(B.subtract(B.runFromD(d), grown));
+  // the notch cuts the outline alone: book-open's spine slot touches it at the notch's point, and run
+  // through the boolean the two were stitched into one contour that a nonzero renderer fills solid
+  const cut = (d) => { const [outer, ...rest] = d.split(/(?=M)/); return E(B.subtract(B.runFromD(outer), grown)) + rest.join(''); };
   return {
     stroke: [S(outline + check)],
     'two-tone': [Pl(cut(plate)), S(outline + check)],
