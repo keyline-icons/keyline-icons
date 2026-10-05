@@ -150,7 +150,8 @@ function openPolyLA(pts, radii) {
     if (L.len(L.sub(fl.T1, cur)) > 1e-9) out.push(Ls(cur, fl.T1));
     out.push(As(fl.F, r, a0, a1)); cur = fl.T2;
   }
-  out.push(Ls(cur, pts.at(-1)));
+  // a fillet whose tangent lands on the end point leaves nothing to run: no zero-length piece
+  if (L.len(L.sub(pts.at(-1), cur)) > 1e-9) out.push(Ls(cur, pts.at(-1)));
   return out;
 }
 const mirror = (d) => mapPts(d, ([x, y]) => [24 - x, y]);

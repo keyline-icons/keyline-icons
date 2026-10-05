@@ -2452,7 +2452,7 @@
       "width": 742,
       "icons": 18,
       "variants": 64,
-      "bytes": 42560
+      "bytes": 42516
     },
     {
       "file": "new-2.html",
@@ -3324,7 +3324,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 30245
+      "bytes": 30223
     },
     {
       "file": "changelog-earlier.html",
