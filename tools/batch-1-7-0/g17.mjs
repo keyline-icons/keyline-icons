@@ -764,8 +764,13 @@ function bookOpenCheck(sharp) {
     ? (sg, t) => { const p = L.segAt(sg, t), tg = X.tangent(sg, t), nn = [-tg[1], tg[0]]; return Math.min(dist([p[0] + nn[0], p[1] + nn[1]]), dist([p[0] - nn[0], p[1] - nn[1]])) - 3; }
     : (sg, t) => dist(L.segAt(sg, t)) - 4;
   const runs = L.parseRuns(line);
+  // only the outer outline opens; the spine keeps its full run (sharp's check stub leans 0.29 nearer
+  // it, inside the house allowance, and cut against it the spine lost a unit and a half)
   let outline = '';
-  runs.forEach((run) => { for (const pc of X.clipRunF(run, f)) outline += X.segsD(pc); });
+  runs.forEach((run, k) => {
+    if (k === 0) for (const pc of X.clipRunF(run, f)) outline += X.segsD(pc);
+    else outline += X.segsD(run.segs, run.closed);
+  });
   // the notch: everything within 3 of the check's centre line
   const notch = [B.band(B.runFromD(polyline([[16, 11], [18, 13], [22, 9]]))[0], 'round')].map((r) => r);
   const grown = B.runFromD(polyline([[16, 11], [18, 13], [22, 9]])).map((r) => B.grow(B.band(r, 'round'), 2));

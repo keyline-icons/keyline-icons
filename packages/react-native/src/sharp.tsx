@@ -1379,7 +1379,7 @@ export function BookMinus(props: IconProps) {
 export function BookOpenCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M22 14.2424L22 17L15 17C13.3431 17 12 18.3431 12 20C12 18.3431 10.6569 17 9 17L2 17L2 4L8 4C10.2091 4 12 5.7909 12 8C12 5.7909 13.7909 4 16 4L22 4L22 5.7916M12 8L12 9.4142M12 12L12 20M15.7071 10.7071L18 13L22.2929 8.7071" fill="none" />
+      <Path d="M22 14.2424L22 17L15 17C13.3431 17 12 18.3431 12 20C12 18.3431 10.6569 17 9 17L2 17L2 4L8 4C10.2091 4 12 5.7909 12 8C12 5.7909 13.7909 4 16 4L22 4L22 5.7916M12 8L12 20M15.7071 10.7071L18 13L22.2929 8.7071" fill="none" />
     </Icon>
   )
 }
