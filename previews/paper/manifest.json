@@ -14,9 +14,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 1229,
-  "names": 1356,
-  "variants": 10848,
+  "icons": 1234,
+  "names": 1361,
+  "variants": 10888,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -1864,7 +1864,7 @@
       "width": 742,
       "icons": 6,
       "variants": 32,
-      "bytes": 37168
+      "bytes": 37179
     },
     {
       "file": "health-2.html",
@@ -2447,10 +2447,10 @@
       "artboard": "New",
       "category": "New",
       "part": 1,
-      "parts": 4,
+      "parts": 5,
       "into": "artboard",
       "width": 742,
-      "icons": 24,
+      "icons": 29,
       "variants": 56,
       "bytes": 39734
     },
@@ -2459,36 +2459,48 @@
       "artboard": "New",
       "category": "New",
       "part": 2,
-      "parts": 4,
+      "parts": 5,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 40068
+      "variants": 48,
+      "bytes": 37109
     },
     {
       "file": "new-3.html",
       "artboard": "New",
       "category": "New",
       "part": 3,
-      "parts": 4,
+      "parts": 5,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 38751
+      "bytes": 40003
     },
     {
       "file": "new-4.html",
       "artboard": "New",
       "category": "New",
       "part": 4,
-      "parts": 4,
+      "parts": 5,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 48,
+      "bytes": 39736
+    },
+    {
+      "file": "new-5.html",
+      "artboard": "New",
+      "category": "New",
+      "part": 5,
+      "parts": 5,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 15491
+      "bytes": 15510
     },
     {
       "file": "people-1.html",
@@ -2596,7 +2608,7 @@
       "width": 742,
       "icons": 7,
       "variants": 40,
-      "bytes": 36110
+      "bytes": 36124
     },
     {
       "file": "science-2.html",
@@ -3336,7 +3348,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 40279
+      "bytes": 49869
     },
     {
       "file": "changelog-earlier.html",

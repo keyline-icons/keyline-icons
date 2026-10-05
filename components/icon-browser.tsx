@@ -41,6 +41,7 @@ import {
   Play,
   Plus,
   RotateCcw,
+  Scale,
   Settings,
   Shapes,
   ShoppingCart,
@@ -218,6 +219,9 @@ const CATEGORY_ICONS: Record<
   // rather than the equals, which at 16px is two bars and reads as the menu.
   Math: Divide,
   Keyboard: Command,
+  // Opened 5 Oct 2026 (1.7.0). The balance rather than the gavel: at 16px the
+  // mallet is a diagonal stick, and the pans are the mark people know.
+  Law: Scale,
   [OTHER_CATEGORY]: Circle,
 }
 

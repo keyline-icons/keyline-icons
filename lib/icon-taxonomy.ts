@@ -68,11 +68,12 @@ export const CATEGORIES = [
   // set did not draw, the same sets as the design file's New band. Every name is also matched by its real shelf
   // below: log-in in Arrows beside the bracket arrows it pairs with, the text-size arrows and the spell check in
   // Text beside case-upper, braces and brackets in Math beside the parentheses, regex in Devices beside code, the
-  // dot in Shapes, the locate marks in Maps, voicemail in Mail, the heart's pulse, the pill and the plaster in Health,
-  // the webcam in Devices, image-off in Media beside image; the notebooks match Stationery as they are.
+  // dot in Shapes, the locate marks in Maps, voicemail in Mail, the heart's pulse, the pill, the plaster and the
+  // syringe in Health, the webcam in Devices, image-off in Media beside image, the telescope in Science, and the gavel,
+  // the balance and the signature in Law, a shelf opened for them; the notebooks match Stationery as they are.
   {
     label: "New",
-    match: /^(log-in|a-arrow-up|a-arrow-down|spell-check|type|list-filter|list-todo|dot|braces|brackets|regex|circle-progress-plus|circle-progress-arrow-up|locate|locate-fixed|heart-pulse|battery-charging|voicemail|pill|bandage|notebook|notebook-pen|webcam|image-off)$/,
+    match: /^(log-in|a-arrow-up|a-arrow-down|spell-check|type|list-filter|list-todo|dot|braces|brackets|regex|circle-progress-plus|circle-progress-arrow-up|locate|locate-fixed|heart-pulse|battery-charging|voicemail|pill|bandage|notebook|notebook-pen|webcam|image-off|syringe|scale|signature|gavel|telescope)$/,
     blurb: "Drafts under review.",
   },
   // The machine that thinks: the bots, the brain wired to a circuit and the
@@ -392,10 +393,17 @@ export const CATEGORIES = [
   // Three shelves opened 13 Sep 2026 with the twenty-nine of batch B, whose
   // names had been filing under Other. Each files by what the drawing IS.
   // The third, AI, now leads the list (see the top).
+  // Opened 5 Oct 2026 for 1.7.0: the balance and the gavel are the law's marks, not a tool or a
+  // weight, and the signature line is where a document is made binding. A shelf of three.
+  {
+    label: "Law",
+    match: /^(gavel|scale|signature)$/,
+    blurb: "The gavel, the balance and the line you sign on.",
+  },
   {
     label: "Science",
-    match: /^(flask|test-tube|atom$)/,
-    blurb: "Flasks and test tubes, with the off state and the rack, and the atom.",
+    match: /^(flask|test-tube|atom$|telescope$)/,
+    blurb: "Flasks and test tubes, with the off state and the rack, the atom and the telescope.",
   },
   {
     // The body and what measures it. `ear` is anchored so `earbuds` falls
@@ -403,8 +411,8 @@ export const CATEGORIES = [
     // through to Weather: a clinical stick takes a temperature, a tube beside a
     // sun reports one.
     label: "Health",
-    match: /^(brain$|lungs|ear(-|$)|heart-pulse$|pill$|bandage$|thermometer$)/,
-    blurb: "The brain, the lungs, the ear and what it hears, the heart's pulse, a pill, a plaster and the clinical thermometer.",
+    match: /^(brain$|lungs|ear(-|$)|heart-pulse$|pill$|bandage$|syringe$|thermometer$)/,
+    blurb: "The brain, the lungs, the ear and what it hears, the heart's pulse, a pill, a plaster, a syringe and the clinical thermometer.",
   },
   {
     // `crown` is what a winner gets, so it sits with the trophy rather than

@@ -5045,6 +5045,14 @@ export function Gauge(props: IconProps) {
   )
 }
 
+export function Gavel(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M14.3431 3L21 9.6569L17.8787 12.7782L11.2218 6.1213L14.3431 3ZM14.5503 9.4497L2.7071 21.2929" fill="none" />
+    </Icon>
+  )
+}
+
 export function GiftSparkles(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -8176,6 +8184,14 @@ export function Save(props: IconProps) {
   )
 }
 
+export function Scale(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M5 6L8 14L2 14L5 6ZM19 6L22 14L16 14L19 6ZM12 1L12 22M5 6L19 6M6 22L18 22" fill="none" />
+    </Icon>
+  )
+}
+
 export function ScanBarcode(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -8771,6 +8787,14 @@ export function Signal(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M7 21L7 15M12 21L12 11M17 21L17 7M22 21L22 3" />
       <path d="M1 19L3 19L3 21L1 21Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function Signature(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M2.7071 7.7071L7.2929 12.2929M7.2929 7.7071L2.7071 12.2929M12 11L12 10C12 8.8954 12.8954 8 14 8C15.1046 8 16 8.8954 16 10C16 11.1046 16.8954 12 18 12C19.1046 12 20 11.1046 20 10L20 9M1 16L23 16" fill="none" />
     </Icon>
   )
 }
@@ -9985,6 +10009,14 @@ export function SwissFranc(props: IconProps) {
   )
 }
 
+export function Syringe(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M13.9289 5.8284L5.4436 14.3137L9.6863 18.5564L18.1716 10.0711M7.565 16.435L2.7072 21.2928M12.2218 4.1213L16.0502 7.9498L18.8787 5.1213M16.4645 2.7071L21.2929 7.5355M16.0502 7.9498L19.8787 11.7782M8.2721 11.4853L9.9792 13.1924M11.1005 8.6569L12.8076 10.364" fill="none" />
+    </Icon>
+  )
+}
+
 export function TableCellsMerge(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -10320,6 +10352,14 @@ export function Target(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM18 12C18 15.3137 15.3137 18 12 18C8.6863 18 6 15.3137 6 12C6 8.6863 8.6863 6 12 6C15.3137 6 18 8.6863 18 12Z" fill="none" />
       <path d="M13.5 12C13.5 12.8284 12.8284 13.5 12 13.5C11.1716 13.5 10.5 12.8284 10.5 12C10.5 11.1716 11.1716 10.5 12 10.5C12.8284 10.5 13.5 11.1716 13.5 12Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function Telescope(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M15.6423 2.9999L17.8744 6.866L7.9461 12.598L5.7141 8.732L15.6423 2.9999ZM6.5981 10.799L3.5 12.5877M12.0442 10.232L12.1782 12.4641M12.1782 12.4641L4.0937 21.2867M12.1782 12.4641L20.2627 21.2867M12.1782 12.4641L12.1782 21.9999" fill="none" />
     </Icon>
   )
 }
@@ -11882,6 +11922,7 @@ export {
   GaugeHigh as GaugeHighIcon,
   GaugeLow as GaugeLowIcon,
   Gauge as GaugeIcon,
+  Gavel as GavelIcon,
   GiftSparkles as GiftSparklesIcon,
   Gift as GiftIcon,
   Girl as GirlIcon,
@@ -12265,6 +12306,7 @@ export {
   SavePlus as SavePlusIcon,
   SaveX as SaveXIcon,
   Save as SaveIcon,
+  Scale as ScaleIcon,
   ScanBarcode as ScanBarcodeIcon,
   ScanEye as ScanEyeIcon,
   ScanFace as ScanFaceIcon,
@@ -12337,6 +12379,7 @@ export {
   SignalMedium as SignalMediumIcon,
   SignalSparkles as SignalSparklesIcon,
   Signal as SignalIcon,
+  Signature as SignatureIcon,
   Siren as SirenIcon,
   SkipBack as SkipBackIcon,
   SkipForward as SkipForwardIcon,
@@ -12479,6 +12522,7 @@ export {
   Sunset as SunsetIcon,
   SwatchBook as SwatchBookIcon,
   SwissFranc as SwissFrancIcon,
+  Syringe as SyringeIcon,
   TableCellsMerge as TableCellsMergeIcon,
   TableCellsRows as TableCellsRowsIcon,
   TableCellsSplit as TableCellsSplitIcon,
@@ -12519,6 +12563,7 @@ export {
   Tag as TagIcon,
   Tape as TapeIcon,
   Target as TargetIcon,
+  Telescope as TelescopeIcon,
   TemperatureEmpty as TemperatureEmptyIcon,
   TemperatureFull as TemperatureFullIcon,
   TemperatureHalf as TemperatureHalfIcon,
