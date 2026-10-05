@@ -445,6 +445,11 @@ const FIRST = [
   ["text-align-end", "align-right", "same"],
   ["funnel", "filter", "their rename of `filter`"],
   ["wifi-off", "wifi-x", "a slash shreds the arcs (drawing-a-new-icon.md); the x negates"],
+  ["a-large-small", "case-upper", "the same drawing: a capital A beside a small one"],
+  ["building-complex", "buildings", "a tall block beside a low one, under our plural"],
+  ["audio-waveform", "audio-lines", "the sound's levels, drawn here as bars"],
+  ["circle-fading-plus", "circle-progress-plus", "their fading ring is our progress ring, drawn in 1.7.0"],
+  ["circle-fading-arrow-up", "circle-progress-arrow-up", "same"],
 ]
 
 /**

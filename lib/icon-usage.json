@@ -1205,6 +1205,24 @@
     "globe-cog": "A globe with a cog, for language and region settings and site configuration.",
     "database-cog": "A database with a cog, for database settings, migrations and data configuration.",
     "arrow-down-up-2": "Two arrows passing vertically, the falling one on the left, for reverse swaps and moving rows.",
-    "arrow-right-left-2": "Two arrows passing sideways, the top one leading right, for handing over and swapping places."
+    "arrow-right-left-2": "Two arrows passing sideways, the top one leading right, for handing over and swapping places.",
+    "log-in": "An arrow entering a bracket, for sign-in buttons, login links and the way into an app.",
+    "a-arrow-up": "A capital A beside an arrow up, for making text larger in an editor or reader.",
+    "a-arrow-down": "A capital A beside an arrow down, for making text smaller in an editor or reader.",
+    "spell-check": "A capital A with a check, for spell check, proofreading and grammar tools.",
+    "type": "A plain capital T, for the text tool, typography settings and adding a text block.",
+    "list-filter": "Three rules narrowing to the centre, for filtering a list, a table or search results.",
+    "list-todo": "An open box and a check, each beside a rule, for to-do lists, tasks and checklists.",
+    "dot": "A single dot, for separators, status markers and the selected option in a group.",
+    "braces": "A pair of curly braces, for code blocks, JSON objects and developer settings.",
+    "brackets": "A pair of square brackets, for arrays, optional syntax and code tools.",
+    "regex": "A dot and an asterisk, for regular expressions and pattern matching in a search.",
+    "circle-progress-plus": "A ring half drawn and half dashed round a plus, for adding to work in progress.",
+    "circle-progress-arrow-up": "A ring half drawn and half dashed round an arrow up, for an upgrade or upload under way.",
+    "locate": "A ring with four ticks, for finding your own position on a map.",
+    "locate-fixed": "A ring with four ticks round a dot, for a position found and held on a map.",
+    "heart-pulse": "A heart with a pulse trace through it, for heart rate, vitals and wellbeing.",
+    "battery-charging": "A battery with a lightning bolt inside, for a device on charge and power settings.",
+    "voicemail": "Two reels joined by a tape, for voicemail, recorded messages and a call inbox."
   }
 }

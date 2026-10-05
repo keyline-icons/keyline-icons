@@ -63,6 +63,17 @@ export const CATEGORIES = [
   // rows; cloud-minus retired the same day. `house` files beside `home` in Web as its name-to-name twin, the eyewear
   // in Commerce beside the shirt (ahead of Weather, whose `sun` would take sunglasses), the jigsaw piece in Shapes
   // beside the dice.
+  //
+  // Opened 5 Oct 2026 for 1.7.0: the drawings the other set's names and shadcn/ui's own source asked for that the
+  // set did not draw, the same sets as the design file's New band. Every name is also matched by its real shelf
+  // below: log-in in Arrows beside the bracket arrows it pairs with, the text-size arrows and the spell check in
+  // Text beside case-upper, braces and brackets in Math beside the parentheses, regex in Devices beside code, the
+  // dot in Shapes, the locate marks in Maps, voicemail in Mail, the heart's pulse in Health.
+  {
+    label: "New",
+    match: /^(log-in|a-arrow-up|a-arrow-down|spell-check|type|list-filter|list-todo|dot|braces|brackets|regex|circle-progress-plus|circle-progress-arrow-up|locate|locate-fixed|heart-pulse|battery-charging|voicemail)$/,
+    blurb: "Drafts under review.",
+  },
   // The machine that thinks: the bots, the brain wired to a circuit and the
   // brain turning a cog. The bare `brain` is an organ and goes to Health,
   // which is why this is anchored on the two names rather than on `brain`.
@@ -81,9 +92,9 @@ export const CATEGORIES = [
     // through its corner, filed beside the dashed-panel arrows rather than under
     // Shapes, where its first word would otherwise send it. `square-arrow-out-`
     // joined on 1 Oct 2026 (1.5.0): the same square left by the same arrow.
-    match: /^(arrow|bracket-arrow|expand|refresh|rotate|corner-|move$|square-arrow-in-|square-arrow-out-)/,
+    match: /^(arrow|bracket-arrow|log-in$|expand|refresh|rotate|corner-|move$|square-arrow-in-|square-arrow-out-)/,
     blurb:
-      "Direction, movement and resizing, with the brackets, u-turns, corner turns and dashed panels.",
+      "Direction, movement and resizing, with the brackets and the arrow into one, u-turns, corner turns and dashed panels.",
   },
   // Split out of Arrows on 29 Aug 2026: the sharp matrix doubled every catalog
   // card's cells, and 104 rows, one per name on a card of 60 sets, stopped
@@ -134,8 +145,8 @@ export const CATEGORIES = [
     // `send` is here with `forward` and `reply` rather than in Actions: a
     // paper plane is the verb a message takes, and the family it reads against
     // is the one it is sent from.
-    match: /^(message-square|messages-square|mail|message|bell|inbox|reply|forward|send|at$)/,
-    blurb: "Envelopes, messages, bells, the paper plane and the marks that badge them.",
+    match: /^(message-square|messages-square|mail|message|bell|inbox|reply|forward|send|at$|voicemail$)/,
+    blurb: "Envelopes, messages, voicemail, bells, the paper plane and the marks that badge them.",
   },
   {
     // Money, and what carries it. Split out of Commerce on 9 Sep 2026, when
@@ -185,8 +196,8 @@ export const CATEGORIES = [
     // an anchor is not one. A prefix, so the anchor's states land here too.
     // `landmark` joined on 28 Sep 2026: the columned front a bank or a museum
     // wears, a building like `building` and `buildings` beside it, not money.
-    match: /^(map|compass|building|landmark$|route|radar|flag$|traffic-light|milestone$|anchor(-|$))/,
-    blurb: "Pins, maps, compasses, routes, the radar, the buildings and a landmark, flags, a milestone, the lights at the junction and two anchors.",
+    match: /^(map|compass|locate(-fixed)?$|building|landmark$|route|radar|flag$|traffic-light|milestone$|anchor(-|$))/,
+    blurb: "Pins, maps, compasses, the locate marks, routes, the radar, the buildings and a landmark, flags, a milestone, the lights at the junction and two anchors.",
   },
   // Opened 11 Sep 2026 with the seven of batch C, the first time the set has
   // drawn the inside of a building rather than its outline. The `home` icon
@@ -252,8 +263,8 @@ export const CATEGORIES = [
     // IS, and it is a desk device, not money. `usb` is a prefix, so `usb-drive`
     // and anything else on that port lands beside it.
     label: "Devices",
-    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse$|shredder$|gamepad$|tv$)/,
-    blurb: "Phones, tablets, laptops, handsets, printers, keyboards, servers, databases, terminals, code, processors, bugs, the app tiles, the QR code, the scan frame with what it reads, a watch, a hard drive, a cable, a headset visor, the app windows, a CCTV camera, a mouse, a shredder, a gamepad and a television.",
+    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse$|shredder$|gamepad$|tv$|regex$)/,
+    blurb: "Phones, tablets, laptops, handsets, printers, keyboards, servers, databases, terminals, code and a regular expression, processors, bugs, the app tiles, the QR code, the scan frame with what it reads, a watch, a hard drive, a cable, a headset visor, the app windows, a CCTV camera, a mouse, a shredder, a gamepad and a television.",
   },
   {
     label: "Pointers",
@@ -274,8 +285,8 @@ export const CATEGORIES = [
     // is letterforms first and internationalisation second.
     label: "Text",
     match:
-      /^(bold|italic|underline|strikethrough|heading|pilcrow|indent|letter-|line-height|text-|type$|quote|language|slash$|align-(?:left|center|right|justify)$|case-(sensitive|upper)$|type-outline$|whole-word$)/,
-    blurb: "The quotation marks, the formatting marks, the case marks, the slash, the alignment stack and what sets a paragraph.",
+      /^(bold|italic|underline|strikethrough|heading|pilcrow|indent|letter-|line-height|text-|type$|quote|language|slash$|align-(?:left|center|right|justify)$|case-(sensitive|upper)$|a-arrow-(?:up|down)$|spell-check$|type-outline$|whole-word$)/,
+    blurb: "The quotation marks, the formatting marks, the case marks with the text-size arrows and the spell check, the slash, the alignment stack and what sets a paragraph.",
   },
   {
     label: "Layout",
@@ -319,9 +330,9 @@ export const CATEGORIES = [
   // formula is written in.
   {
     label: "Math",
-    match: /^(asterisk|divide|equal|hash|infinity|parentheses|radical|variable|x-line-top)(-|$)/,
+    match: /^(asterisk|braces|brackets|divide|equal|hash|infinity|parentheses|radical|variable|x-line-top)(-|$)/,
     blurb:
-      "The equals and its approximate and negated forms, divide, the radical, infinity, the asterisk, the hash, the parentheses, the variable and the mean.",
+      "The equals and its approximate and negated forms, divide, the radical, infinity, the asterisk, the hash, the parentheses, braces and brackets, the variable and the mean.",
   },
   // Opened the same day: the keys a shortcut is spelled with. Caps lock, tab
   // and return are arrows and file in Arrows; eject is a transport control and
@@ -354,7 +365,7 @@ export const CATEGORIES = [
     // `lifebuoy` joined on 28 Sep 2026 beside the siren: the ring you throw to
     // someone in trouble, and the mark a help or support link wears.
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|key(?:-round|-square)?$|shield|badge|download|upload|filter|eye|star|heart|hand-heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|ban|siren$|delete$|lifebuoy$)/,
+      /^(check|double-check|plus|minus|x|more|lock|unlock|key(?:-round|-square)?$|shield|badge|download|upload|filter|eye|star|heart(?!-pulse)|hand-heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|ban(?!dage)|siren$|delete$|lifebuoy$)/,
     blurb: "Checks, crosses, pluses, the everyday verbs, the siren, the lifebuoy and the marks that guard a thing.",
   },
   {
@@ -391,8 +402,8 @@ export const CATEGORIES = [
     // through to Weather: a clinical stick takes a temperature, a tube beside a
     // sun reports one.
     label: "Health",
-    match: /^(brain$|lungs|ear(-|$)|thermometer$)/,
-    blurb: "The brain, the lungs, the ear and what it hears, and the clinical thermometer.",
+    match: /^(brain$|lungs|ear(-|$)|heart-pulse$|thermometer$)/,
+    blurb: "The brain, the lungs, the ear and what it hears, the heart's pulse and the clinical thermometer.",
   },
   {
     // `crown` is what a winner gets, so it sits with the trophy rather than
@@ -458,8 +469,8 @@ export const CATEGORIES = [
   {
     label: "Shapes",
     match:
-      /^(circle|square|triangle|shapes|dashed|dice|flower|full|half|quarter|three-quarter|hexagon|puzzle$)/,
-    blurb: "Squares, circles, hexagons, dashes and the progress states drawn from them.",
+      /^(circle|square|triangle|shapes|dashed|dice|dot$|flower|full|half|quarter|three-quarter|hexagon|puzzle$)/,
+    blurb: "Squares, circles, hexagons, a dot, dashes and the progress states drawn from them.",
   },
   {
     // `wifi` is here rather than in Charts beside `signal`, which is the sibling

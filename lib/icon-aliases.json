@@ -2172,15 +2172,13 @@
     }
   ],
   "names": {
-    "activity": [
-      "heart-pulse"
-    ],
     "captions": [
       "closed-caption"
     ],
     "audio-lines": [
       "audio-lines-off",
-      "audio-lines-x"
+      "audio-lines-x",
+      "audio-waveform"
     ],
     "bookmark": [
       "bookmark-check",
@@ -2255,7 +2253,6 @@
       "archive-restore"
     ],
     "arrow-down": [
-      "a-arrow-down",
       "arrow-big-down-dash",
       "arrow-down-0-1",
       "arrow-down-1-0",
@@ -2277,7 +2274,6 @@
       "square-arrow-right-exit"
     ],
     "arrow-up": [
-      "a-arrow-up",
       "arrow-up-0-1",
       "arrow-up-1-0",
       "arrow-up-a-z",
@@ -2292,7 +2288,6 @@
       "chart-bar-increasing"
     ],
     "battery": [
-      "battery-charging",
       "battery-plus",
       "battery-warning"
     ],
@@ -2823,6 +2818,18 @@
     ],
     "align-justify": [
       "text-align-justify"
+    ],
+    "circle-progress-plus": [
+      "circle-fading-plus"
+    ],
+    "circle-progress-arrow-up": [
+      "circle-fading-arrow-up"
+    ],
+    "case-upper": [
+      "a-large-small"
+    ],
+    "buildings": [
+      "building-complex"
     ]
   },
   "$names": "Names other sets use for a drawing here, keyed by the drawing. Matched against the whole query, never split into words: these are names, not keywords, and folding `message-square` into a keyword list makes a search for `square` return every message icon. All four searches rank one second only to the exact name, so it leads wherever the set does not draw that name itself; once the set does, the row is stale, and pipeline/check-search.mjs fails until it is deleted."

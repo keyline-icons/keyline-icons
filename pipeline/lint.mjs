@@ -251,6 +251,10 @@ const SIZE_KNOWN = new Set([
   // asterisk or a divide sign at full size outweighs every sign beside it.
   'asterisk', 'divide', 'equal', 'equal-approximately', 'equal-approximately-not',
   'equal-not', 'x-line-top',
+  // One of more-horizontal's beads on the centre (5 Oct 2026): the separator,
+  // status and radio dot of a component library. It is the size of the mark it
+  // stands in for; a 20-unit disc is `circle` filled.
+  'dot',
   // The table's own 20 x 20 frame with the sign on one edge, overhanging it by
   // 2, so they paint 20 by 22. Every table op keeps the table's frame at its
   // size (Zafar, 24 Sep 2026: "your tables are changing their size"); run to 20
@@ -1017,6 +1021,9 @@ async function main() {
             add('warn', 'OPTICAL', id,
               `${got.toFixed(2)} units ${axis} — a ${shape} icon is drawn ${want}` +
               (NARROW.has(name) ? ' (narrow: 16 on the short axis)' : ''));
+      } else if (SIZE_KNOWN.has(name) && onlyDots(src)) {
+        // A drawing of nothing but ladder dots is sized by the ladder: `dot` is
+        // one bead, 4 across, and no floor for a glyph's reach applies to it.
       } else if (spread < band[0] - EPS - (corners === 'sharp' ? 2 * (1 - CAP_CORNER) : 0))
         // A sharp diagonal end is cut back to its disc box, so its chisel face
         // sits 1 - 0.414 short of where the disc's tip reached along the arm;
