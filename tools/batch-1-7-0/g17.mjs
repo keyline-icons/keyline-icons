@@ -14,7 +14,7 @@ import * as B from '../batch-1-4-0/bool.mjs';
 import * as X from '../batch-1-5-0/lib15.mjs';
 
 const { rawLayers, mapPts, P, assert } = X;
-const { Ls, As, polyLA, dLA, toGeo, offsetLA, verifyOffset, bandAny } = A;
+const { Ls, As, polyLA, dLA, toGeo, offsetLA, verifyOffset } = A;
 const S = (d) => ({ kind: 'stroke', d }), M = (d) => ({ kind: 'muted', d }), F = (d) => ({ kind: 'solid', d }), Pl = (d) => ({ kind: 'plate', d });
 const C = (s) => (s ? 'sharp' : 'regular');
 // every emitted region wound by nesting (outer +, hole -): a hole wound with its outer contour paints
@@ -38,7 +38,6 @@ function orientShape(shape) {
 }
 const geo = (segs) => [toGeo(segs)];
 const grow = (segs) => { const o = offsetLA(segs, 1); verifyOffset(segs, o, 1); return o; };
-const band = (segs, sharp) => geo(bandAny(segs, sharp ? 'butt' : 'round'));
 const layer = (name, style, sharp, kind, n = 0) => {
   const l = rawLayers(name, style, C(sharp)).filter((x) => x.kind === kind)[n];
   assert(l, `${name} ${style} ${C(sharp)} has no ${kind} layer ${n}`);
@@ -518,9 +517,9 @@ function imageOff(sharp) {
   // a survivor under ~3 units is debris (drawing-a-new-icon.md): sharp's corner test keeps a
   // quarter-unit of the ridge round its last vertex, which the rounded cut takes whole
   const runLen = (pc) => pc.reduce((a, sg) => a + B.flat([sg], 0.05).reduce((acc, q, i, arr) => acc + (i ? Math.hypot(q[0] - arr[i - 1][0], q[1] - arr[i - 1][1]) : 0), 0) + Math.hypot(sg.p.at(-1)[0] - B.flat([sg], 0.05).at(-1)[0], sg.p.at(-1)[1] - B.flat([sg], 0.05).at(-1)[1]), 0);
-  let nearD = '', farD = '', frameFar = null, ridgeNear = [];
+  let nearD = '', farD = '', frameFar = null;
   L.parseRuns(line).forEach((run, k) => {
-    for (const pc of X.clipRunF(run, (s, t) => -X.u(L.segAt(s, t))).map(real).filter((pc) => pc.length)) { nearD += X.segsD(pc); if (k === 1) ridgeNear.push(pc); }
+    for (const pc of X.clipRunF(run, (s, t) => -X.u(L.segAt(s, t))).map(real).filter((pc) => pc.length)) nearD += X.segsD(pc);
     const far = X.clipRunF(run, farF).map(real).filter((pc) => pc.length && runLen(pc) >= 3);
     for (const pc of far) farD += X.segsD(pc);
     if (k === 0) { assert(far.length === 1, `image-off: the frame has ${far.length} far pieces`); frameFar = far[0]; }
@@ -535,7 +534,6 @@ function imageOff(sharp) {
   const nearFill = B.intersect(noSun, halfPlane(0, true));
   // duotone's near solid is fill's, grey: image's own duotone and fill differ (a black ridge on grey
   // against a ground cut out), and an -off has no black but the slash, so the ridge goes as fill cuts it
-  void ridgeNear;
   const nearDuo = nearFill;
   const slash = X.SLASH[c];
   return {
@@ -623,7 +621,6 @@ function syringe(sharp) {
   const inner = geo(offsetLA(g.closed, -1));
   const ticks = g.lines.slice(4).map((l) => [B.band(B.runFromD(polyline(l))[0], sharp ? 'butt' : 'round')]);
   const tickD = g.lines.slice(4).map((l) => polyline(l)).join('');
-  const others = dLA(g.barrel, false) + g.lines.slice(0, 4).map((l) => polyline(l)).join('');
   const othersNoBarrel = g.lines.slice(0, 4).map((l) => polyline(l)).join('');
   return {
     stroke: [S(d)],
@@ -792,9 +789,7 @@ function bookOpenCheck(sharp) {
     else outline += X.segsD(run.segs, run.closed);
   });
   // the notch: everything within 3 of the check's centre line
-  const notch = [B.band(B.runFromD(polyline([[16, 11], [18, 13], [22, 9]]))[0], 'round')].map((r) => r);
   const grown = B.runFromD(polyline([[16, 11], [18, 13], [22, 9]])).map((r) => B.grow(B.band(r, 'round'), 2));
-  void notch;
   const plate = rawLayers('book-open', 'two-tone', c).find((l) => l.kind === 'plate').d;
   const duoGrey = rawLayers('book-open', 'duotone', c).find((l) => l.kind === 'plate').d;
   const duoBlack = rawLayers('book-open', 'duotone', c).find((l) => l.kind === 'solid').d;
