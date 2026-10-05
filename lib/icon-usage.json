@@ -1223,6 +1223,12 @@
     "locate-fixed": "A ring with four ticks round a dot, for a position found and held on a map.",
     "heart-pulse": "A heart with a pulse trace through it, for heart rate, vitals and wellbeing.",
     "battery-charging": "A battery with a lightning bolt inside, for a device on charge and power settings.",
-    "voicemail": "Two reels joined by a tape, for voicemail, recorded messages and a call inbox."
+    "voicemail": "Two reels joined by a tape, for voicemail, recorded messages and a call inbox.",
+    "pill": "A capsule split across the middle, for medicine, prescriptions and dosage reminders.",
+    "bandage": "A plaster with its pad marked, for first aid, injuries and recovery.",
+    "notebook": "A cover with three rings on its spine, for notes, journals and a notes app.",
+    "notebook-pen": "A ringed notebook with a pen across its corner, for writing a note or a new entry.",
+    "webcam": "A round camera head on a foot, for video calls, the webcam and camera settings.",
+    "image-off": "A picture struck through, for hidden images, a missing preview and media turned off."
   }
 }

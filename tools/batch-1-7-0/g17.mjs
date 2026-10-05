@@ -316,6 +316,248 @@ function voicemail() {
   };
 }
 
+/* ------------------------------------------------------------------------ pill */
+// A capsule on the free diagonal (bottom left to top right, as search and paperclip run): caps
+// r=4 about (7,17) and (17,7), the largest that keeps the ink on 2..22, and a divider across the
+// middle from wall to wall. Every curve is shape and nothing ends free, so sharp is the same
+// drawing. Two-tone: the plate under the whole stroke. Duotone and fill split it at the divider
+// (image's ridge rule, the region on one side cut out): the upper half black over the grey in
+// duotone, solid in fill with the lower half left an outline.
+const DIAG = { a: [Math.SQRT1_2, -Math.SQRT1_2], n: [Math.SQRT1_2, Math.SQRT1_2] };
+const at = (c, s, t) => [c[0] + s * DIAG.a[0] + t * DIAG.n[0], c[1] + s * DIAG.a[1] + t * DIAG.n[1]];
+/** The half plane u = x - y <= k (lo) or >= k, as a triangle well past the canvas; its long edge is the line u = k. */
+const halfPlane = (k, lo) => B.runFromD(lo ? `M${k - 60} -60L${k + 60} 60L${k - 60} 60Z` : `M${k - 60} -60L${k + 60} 60L${k + 60} -60Z`);
+function pill() {
+  const R = 4, c = [12, 12], s = 5 * Math.SQRT2;
+  const body = polyLA([at(c, s + R, -R), at(c, s + R, R), at(c, -s - R, R), at(c, -s - R, -R)], [R, R, R, R]);
+  const divider = `M${P(at(c, 0, -R))}L${P(at(c, 0, R))}`;
+  const bodyD = dLA(body);
+  const plate = geo(grow(body));
+  const inner = B.runFromD(bodyD).map((r) => B.shrink(r));
+  const r2 = Math.SQRT2;
+  const hole = B.intersect(inner, halfPlane(-r2, true));          // u = x - y <= -sqrt 2: past the divider's lower edge
+  const top = B.intersect(plate, halfPlane(-r2, false));
+  const v = {
+    stroke: [S(bodyD + divider)],
+    'two-tone': [Pl(E(plate)), S(bodyD + divider)],
+    duotone: [Pl(E(plate)), F(E(top))],
+    fill: [F(E(B.subtract(plate, hole)))],
+  };
+  return v;
+}
+
+/* --------------------------------------------------------------------- bandage */
+// A plaster on the free diagonal: a band 8 wide (path) with r=3 ends, the pad marked by two lines
+// across it 4 either side of the centre. Rounded: 21 long so the ink sits on 2..22. Sharp: a
+// rotated drawing takes its own scale (drawing-a-new-icon.md, Padding): with the fillets gone
+// each true corner paints 1 past its vertex on the diagonal, so the whole drawing shrinks about
+// the centre until the corners land on the box, 0.8787. Two-tone: the plate under the stroke.
+// Duotone: the pad black (the band between the lines' outer edges) over the grey. Fill: the band
+// solid with the two lines cut out wall to wall.
+function bandage(sharp) {
+  const c = [12, 12];
+  let k = 4, h = 6 * Math.SQRT2 + 6 - 4, r = 3, pad = 4;
+  if (sharp) { const sc = 9 / ((h + k) / Math.SQRT2); h *= sc; k *= sc; pad *= sc; r = 0; }
+  const body = polyLA([at(c, h, -k), at(c, h, k), at(c, -h, k), at(c, -h, -k)], [r, r, r, r]);
+  const bodyD = dLA(body);
+  const lines = [pad, -pad].map((t) => `M${P(at(c, t, -k))}L${P(at(c, t, k))}`).join('');
+  const plate = geo(grow(body));
+  // the inner edge as an exact offset: the free-cubic shrink folds the sharp body's 45 degree
+  // square into a speck at one corner
+  const inner = geo(offsetLA(body, -1));
+  const r2 = Math.SQRT2, w = (pad + 1) * r2;                    // |u| <= w: the pad between the lines' outer edges
+  const strip = (u0, u1) => B.runFromD(`M${u0 - 40} -40L${u0 + 40} 40L${u1 + 40} 40L${u1 - 40} -40Z`);
+  const padBand = B.intersect(plate, strip(-w, w));
+  const cuts = [pad, -pad].map((t) => strip(t * r2 - r2, t * r2 + r2)).map((st) => B.intersect(inner, st)).flat();
+  return {
+    stroke: [S(bodyD + lines)],
+    'two-tone': [Pl(E(plate)), S(bodyD + lines)],
+    duotone: [Pl(E(plate)), F(E(padBand))],
+    fill: [F(E(B.subtract(plate, cuts)))],
+  };
+}
+
+/* -------------------------------------------------------------------- notebook */
+// A cover 15 wide (path 6..21, r=3) with three rings on its spine, on 7, 12 and 17, each from x=3
+// to the wall's centre line at 6 (joined). Run on through the wall into the cover, the middle ring
+// came within 0.88 of notebook-pen's nib, which sits where square-pen's does; a ring stopping 2
+// clear of it would end half a unit past the wall as a nub. Ink 2..22 by 1..23,
+// the 22 a tall object owes. Two-tone: the plate under the stroke; duotone: the cover grey, the
+// rings black; fill: the cover solid with the rings stroked beside it. Sharp: square corners, each
+// ring's outer end a unit on; the inner end lands on the wall and stays.
+function notebook(sharp) {
+  const body = polyLA([[6, 2], [21, 2], [21, 22], [6, 22]], sharp ? [0, 0, 0, 0] : [3, 3, 3, 3]);
+  const bodyD = dLA(body);
+  const rings = [7, 12, 17].map((y) => openRun([[3, y], [6, y]], sharp, 'start')).join('');
+  const plate = E(geo(grow(body)));
+  return {
+    stroke: [S(bodyD + rings)],
+    'two-tone': [Pl(plate), S(bodyD + rings)],
+    duotone: [Pl(plate), S(rings)],
+    fill: [F(plate), S(rings)],
+  };
+}
+
+/* ---------------------------------------------------------------- notebook-pen */
+// notebook's cover and rings with square-pen's pen where square-pen has it; the cover opens at
+// its top right, cut where its centre line comes within 4 of the pen's (2 painted between), as
+// square-pen's square opens. Styles as square-pen's: two-tone the pen's plate under the whole
+// stroke; duotone the notebook grey (strokes at 0.4), the pen a black solid; fill the pen solid
+// over the notebook's stroke.
+function notebookPen(sharp) {
+  const penLine = layer('square-pen', 'two-tone', sharp, 'stroke').split('M').filter(Boolean).slice(1).map((x) => 'M' + x).join('');
+  const penSolid = layer('square-pen', 'duotone', sharp, 'solid');
+  const penPlate = layer('square-pen', 'two-tone', sharp, 'plate');
+  const body = polyLA([[6, 2], [21, 2], [21, 22], [6, 22]], sharp ? [0, 0, 0, 0] : [3, 3, 3, 3]);
+  // the pen as lines and arcs is not to hand; clip against its centre line sampled densely
+  // (outlines() keeps a straight run as its two ends, which put the cut 1.17 from the barrel)
+  const penPts = L.parseRuns(penLine).flatMap((r) => r.segs.flatMap((sg) => Array.from({ length: 201 }, (_, i) => L.segAt(sg, i / 200))));
+  const far = (p) => Math.min(...penPts.map((q) => Math.hypot(q[0] - p[0], q[1] - p[1])));
+  const kept = clipBody(body, (p) => far(p) - 4);
+  assert(kept.length === 1, `notebook-pen: the cover splits into ${kept.length}`);
+  let open = kept[0];
+  if (sharp) {
+    // the two cut ends are free: a unit on along their own runs
+    const f = open[0], l = open.at(-1);
+    open = [{ ...f, p0: L.sub(f.p0, L.mul(L.unit(L.sub(f.p1, f.p0)), 1)) }, ...open.slice(1, -1), { ...l, p1: L.add(l.p1, L.mul(L.unit(L.sub(l.p1, l.p0)), 1)) }];
+    if (open.length === 1) open = [{ ...f, p0: L.sub(f.p0, L.mul(L.unit(L.sub(f.p1, f.p0)), 1)), p1: L.add(f.p1, L.mul(L.unit(L.sub(f.p1, f.p0)), 1)) }];
+  }
+  const bodyD = dLA(open, false);
+  const rings = [7, 12, 17].map((y) => openRun([[3, y], [6, y]], sharp, 'start')).join('');
+  return {
+    stroke: [S(bodyD + rings + penLine)],
+    'two-tone': [Pl(penPlate), S(bodyD + rings + penLine)],
+    duotone: [M(bodyD + rings), F(penSolid)],
+    fill: [F(penSolid), S(bodyD + rings)],
+  };
+}
+/** The runs of a closed LA contour where f(point) >= 0, cut at the boundary by bisection, joined round the seam. */
+function clipBody(segs, f) {
+  const pieces = [];
+  for (const s of segs) {
+    const N = 200, ts = [0];
+    let prev = f(A.segAt(s, 0));
+    for (let i = 1; i <= N; i++) {
+      const cur = f(A.segAt(s, i / N));
+      if ((prev < 0) !== (cur < 0)) ts.push(L.bisect((t) => f(A.segAt(s, t)), (i - 1) / N, i / N, 60));
+      prev = cur;
+    }
+    ts.push(1);
+    for (let k = 0; k + 1 < ts.length; k++) {
+      const t0 = ts[k], t1 = ts[k + 1];
+      if (t1 - t0 < 1e-9) continue;
+      const part = s.type === 'L' ? Ls(A.segAt(s, t0), A.segAt(s, t1)) : As(s.c, s.r, s.a0 + (s.a1 - s.a0) * t0, s.a0 + (s.a1 - s.a0) * t1);
+      pieces.push({ part, keep: f(A.segAt(s, (t0 + t1) / 2)) >= 0 });
+    }
+  }
+  const runs = []; let cur = null;
+  for (const p of pieces) { if (!p.keep) { if (cur) { runs.push(cur); cur = null; } continue; } (cur ||= []).push(p.part); }
+  if (cur) runs.push(cur);
+  if (runs.length > 1 && pieces[0].keep && pieces.at(-1).keep) runs[0] = [...runs.pop(), ...runs[0]];
+  return runs;
+}
+
+/* ---------------------------------------------------------------------- webcam */
+// A round head on a neck down to a wide foot, 18 x 22 as a tall object owes (ink 3..21 by 1..23):
+// head r=7 about (12,9), lens r=3 inside it (2 clear), neck from the head to the foot, the foot
+// 4..20 on y=22, which is what sets the width. The narrower foot under an r=8 head is the other
+// set's drawing to the unit; this one stands on its foot. Two-tone: the head's disc under the
+// stroke; duotone: the disc grey, lens, neck and foot black; fill: the disc solid with the lens
+// cut out as a ring, neck and foot stroked. Sharp: the foot's ends a unit on; the neck's ends land
+// on the head and the foot and stay.
+function webcam(sharp) {
+  const head = [As([12, 9], 7, 0, 360)], lens = [As([12, 9], 3, 0, 360)];
+  const headD = dLA(head), lensD = dLA(lens);
+  const stand = 'M12 16L12 22' + openRun([[4, 22], [20, 22]], sharp);
+  const disc = geo(grow(head));
+  const ring = B.subtract(geo(grow(lens)), geo(offsetLA(lens, -1)));
+  return {
+    stroke: [S(headD + lensD + stand)],
+    'two-tone': [Pl(E(disc)), S(headD + lensD + stand)],
+    duotone: [Pl(E(disc)), S(lensD + stand)],
+    fill: [F(E(B.subtract(disc, ring))), S(stand)],
+  };
+}
+
+/* ------------------------------------------------------------------- image-off */
+// image with the house slash (his rule: an -off is its original at the same size), star-off's
+// and save-off's recipe: the near side runs into the slash and stops on its centre line, the far
+// side stands off at u = 4 sqrt 2 (sharp: the butt face's nearer corner on 4 sqrt 2 - 2). The sun
+// goes: its bead sits on u = 0.5, inside the cut, and what the near side keeps of it is a sliver.
+// Plates: the near one cut on u = 0, the far one notched on 3 sqrt 2 with an r=1 turn about each
+// far stroke end (sharp: clipped straight). Two-tone: the plates grey under the near strokes and
+// the slash. Duotone: the plates grey, the near ridge cut out of the near one, the slash black.
+// Fill: as image's, the ground under the ridge cut out, on the near side; the far piece solid.
+function imageOff(sharp) {
+  const c = C(sharp);
+  const line = rawLayers('image', 'stroke', c).find((l) => l.kind === 'stroke').d;
+  const plateD = rawLayers('image', 'two-tone', c).find((l) => l.kind === 'plate').d;
+  const fillD = rawLayers('image', 'fill', c).find((l) => l.kind === 'solid').d;
+  const farF = sharp
+    ? (s, t) => { const p = L.segAt(s, t), tg = X.tangent(s, t), nn = [-tg[1], tg[0]]; return Math.min(X.u([p[0] + nn[0], p[1] + nn[1]]), X.u([p[0] - nn[0], p[1] - nn[1]])) - X.US; }
+    : (s, t) => X.u(L.segAt(s, t)) - X.U4;
+  const real = (pc) => pc.filter((sg) => Math.hypot(sg.p.at(-1)[0] - sg.p[0][0], sg.p.at(-1)[1] - sg.p[0][1]) > 1e-6);
+  // a survivor under ~3 units is debris (drawing-a-new-icon.md): sharp's corner test keeps a
+  // quarter-unit of the ridge round its last vertex, which the rounded cut takes whole
+  const runLen = (pc) => pc.reduce((a, sg) => a + B.flat([sg], 0.05).reduce((acc, q, i, arr) => acc + (i ? Math.hypot(q[0] - arr[i - 1][0], q[1] - arr[i - 1][1]) : 0), 0) + Math.hypot(sg.p.at(-1)[0] - B.flat([sg], 0.05).at(-1)[0], sg.p.at(-1)[1] - B.flat([sg], 0.05).at(-1)[1]), 0);
+  let nearD = '', farD = '', frameFar = null, ridgeNear = [];
+  L.parseRuns(line).forEach((run, k) => {
+    for (const pc of X.clipRunF(run, (s, t) => -X.u(L.segAt(s, t))).map(real).filter((pc) => pc.length)) { nearD += X.segsD(pc); if (k === 1) ridgeNear.push(pc); }
+    const far = X.clipRunF(run, farF).map(real).filter((pc) => pc.length && runLen(pc) >= 3);
+    for (const pc of far) farD += X.segsD(pc);
+    if (k === 0) { assert(far.length === 1, `image-off: the frame has ${far.length} far pieces`); frameFar = far[0]; }
+    else assert(far.length === 0, 'image-off: the ridge reaches the far side');
+  });
+  const [prun] = L.parseRuns(plateD);
+  const nearPlate = B.intersect(B.runFromD(plateD), halfPlane(0, true));
+  const farPlateD = sharp ? E(B.intersect(B.runFromD(plateD), halfPlane(X.US, false))) : roundedFarPlate(frameFar, prun, X.segsD(L.parseRuns(line)[0].segs, true));
+  // fill: image's own fill without its sun (a hole the cut would leave as a sliver), cut on u = 0
+  const fillRuns = B.runFromD(fillD);
+  const noSun = fillRuns.slice(0, 2);
+  const nearFill = B.intersect(noSun, halfPlane(0, true));
+  const ridgeBand = ridgeNear.map((pc) => B.band(pc.map((sg) => ({ t: sg.t, p: sg.p })), sharp ? 'butt' : 'round'));
+  const nearDuo = B.subtract(nearPlate, ridgeBand);
+  const slash = X.SLASH[c];
+  return {
+    stroke: [S(nearD + farD + slash)],
+    'two-tone': [Pl(E(nearPlate) + farPlateD), S(nearD + slash)],
+    duotone: [Pl(E(nearDuo) + farPlateD), S(slash)],
+    fill: [F(E(nearFill) + farPlateD), S(slash)],
+  };
+}
+/**
+ * The far plate of a regular -off (1.5.0's g15.mjs, copied): the base's plate from the point beside
+ * each far stroke end, an r = 1 turn about the end round to the notch line u = 3 sqrt 2, and that
+ * line between the two turns (bell-dot's recipe, as heart-off and monitor-off ship).
+ */
+function roundedFarPlate(farSegs, prun, baseD) {
+  const [base] = L.parseRuns(baseD);
+  const polys = [B.flat(base.segs.map((s) => ({ t: s.t, p: s.p })), 0.02)];
+  const Ee = [farSegs[0].p[0], farSegs.at(-1).p.at(-1)];
+  const into = [X.tangent(farSegs[0], 0), X.tangent(farSegs.at(-1), 1).map((v) => -v)];
+  const out = Ee.map((e, k) => { const t = into[k], nn = [-t[1], t[0]]; const probe = [e[0] + nn[0] * 0.5, e[1] + nn[1] * 0.5]; return B.winding(probe, polys) !== 0 ? [-nn[0], -nn[1]] : nn; });
+  const O = Ee.map((e, k) => [e[0] + out[k][0], e[1] + out[k][1]]);
+  const T = Ee.map((e) => [e[0] - 1 / X.R2, e[1] + 1 / X.R2]);
+  for (const t of T) assert(Math.abs(X.u(t) - X.U3) < 1e-6, 'notch tangent off the line');
+  const near = (q) => { let best = { d: Infinity }; prun.segs.forEach((s, i) => { for (let j = 0; j <= 2000; j++) { const p = L.segAt(s, j / 2000), d = Math.hypot(p[0] - q[0], p[1] - q[1]); if (d < best.d) best = { d, i, t: j / 2000 }; } }); return best; };
+  const refine = (q, b) => { let lo = Math.max(0, b.t - 1 / 2000), hi = Math.min(1, b.t + 1 / 2000); const s = prun.segs[b.i]; for (let k = 0; k < 60; k++) { const m1 = lo + (hi - lo) / 3, m2 = hi - (hi - lo) / 3; const d1 = Math.hypot(...L.segAt(s, m1).map((v, j) => v - q[j])), d2 = Math.hypot(...L.segAt(s, m2).map((v, j) => v - q[j])); if (d1 < d2) hi = m2; else lo = m1; } return { ...b, t: (lo + hi) / 2, d: Math.hypot(...L.segAt(s, (lo + hi) / 2).map((v, j) => v - q[j])) }; };
+  const Aa = refine(O[0], near(O[0])), Bp = refine(O[1], near(O[1]));
+  assert(Aa.d < 2e-3 && Bp.d < 2e-3, `far plate: the offset point is ${Math.max(Aa.d, Bp.d).toFixed(4)} off the plate`);
+  const walk = (a, b) => { const segs = [], n = prun.segs.length; if (a.i === b.i && b.t > a.t) return [L.segPiece(prun.segs[a.i], a.t, b.t)]; segs.push(L.segPiece(prun.segs[a.i], a.t, 1)); for (let i = (a.i + 1) % n; i !== b.i; i = (i + 1) % n) segs.push(prun.segs[i]); if (b.t > 0) segs.push(L.segPiece(prun.segs[b.i], 0, b.t)); return segs; };
+  const meanU = (segs) => segs.reduce((acc, s) => acc + X.u(L.segAt(s, 0.5)), 0) / segs.length;
+  const fwd = walk(Aa, Bp), bwd = walk(Bp, Aa);
+  const piece = meanU(fwd) > meanU(bwd) ? fwd : bwd.reverse().map((s) => ({ t: s.t, p: [...s.p].reverse() }));
+  piece[0] = { ...piece[0], p: [O[0], ...piece[0].p.slice(1)] };
+  piece[piece.length - 1] = { ...piece.at(-1), p: [...piece.at(-1).p.slice(0, -1), O[1]] };
+  const deg = (v) => (Math.atan2(v[1], v[0]) * 180) / Math.PI;
+  const turn = (e, from, to, avoid) => { let a0 = deg([from[0] - e[0], from[1] - e[1]]), a1 = deg([to[0] - e[0], to[1] - e[1]]); const av = deg(avoid); const inside = (a, lo, hi) => { let x = a; while (x < lo) x += 360; while (x > lo + 360) x -= 360; return x <= hi; }; let up = a1; while (up < a0) up += 360; if (inside(av, a0, up)) { let dn = a1; while (dn > a0) dn -= 360; return L.arcC(e, 1, a0, dn); } return L.arcC(e, 1, a0, up); };
+  let d = `M${P(T[0])}`;
+  d += turn(Ee[0], T[0], O[0], into[0]);
+  d += piece.map((s) => L.segD(s)).join('');
+  d += turn(Ee[1], O[1], T[1], into[1]);
+  return d + 'Z';
+}
+
 export const STYLES = {
   'log-in': logIn,
   'a-arrow-up': (sh) => aArrow(sh, true),
@@ -335,4 +577,10 @@ export const STYLES = {
   'heart-pulse': heartPulse,
   'battery-charging': batteryCharging,
   voicemail,
+  pill,
+  bandage,
+  notebook,
+  'notebook-pen': notebookPen,
+  webcam,
+  'image-off': imageOff,
 };

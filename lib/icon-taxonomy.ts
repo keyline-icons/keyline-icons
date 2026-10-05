@@ -68,10 +68,11 @@ export const CATEGORIES = [
   // set did not draw, the same sets as the design file's New band. Every name is also matched by its real shelf
   // below: log-in in Arrows beside the bracket arrows it pairs with, the text-size arrows and the spell check in
   // Text beside case-upper, braces and brackets in Math beside the parentheses, regex in Devices beside code, the
-  // dot in Shapes, the locate marks in Maps, voicemail in Mail, the heart's pulse in Health.
+  // dot in Shapes, the locate marks in Maps, voicemail in Mail, the heart's pulse, the pill and the plaster in Health,
+  // the webcam in Devices, image-off in Media beside image; the notebooks match Stationery as they are.
   {
     label: "New",
-    match: /^(log-in|a-arrow-up|a-arrow-down|spell-check|type|list-filter|list-todo|dot|braces|brackets|regex|circle-progress-plus|circle-progress-arrow-up|locate|locate-fixed|heart-pulse|battery-charging|voicemail)$/,
+    match: /^(log-in|a-arrow-up|a-arrow-down|spell-check|type|list-filter|list-todo|dot|braces|brackets|regex|circle-progress-plus|circle-progress-arrow-up|locate|locate-fixed|heart-pulse|battery-charging|voicemail|pill|bandage|notebook|notebook-pen|webcam|image-off)$/,
     blurb: "Drafts under review.",
   },
   // The machine that thinks: the bots, the brain wired to a circuit and the
@@ -263,8 +264,8 @@ export const CATEGORIES = [
     // IS, and it is a desk device, not money. `usb` is a prefix, so `usb-drive`
     // and anything else on that port lands beside it.
     label: "Devices",
-    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse$|shredder$|gamepad$|tv$|regex$)/,
-    blurb: "Phones, tablets, laptops, handsets, printers, keyboards, servers, databases, terminals, code and a regular expression, processors, bugs, the app tiles, the QR code, the scan frame with what it reads, a watch, a hard drive, a cable, a headset visor, the app windows, a CCTV camera, a mouse, a shredder, a gamepad and a television.",
+    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse$|shredder$|gamepad$|tv$|regex$|webcam$)/,
+    blurb: "Phones, tablets, laptops, handsets, printers, keyboards, servers, databases, terminals, code and a regular expression, processors, bugs, the app tiles, the QR code, the scan frame with what it reads, a watch, a hard drive, a cable, a headset visor, the app windows, a CCTV camera, a mouse, a webcam, a shredder, a gamepad and a television.",
   },
   {
     label: "Pointers",
@@ -402,8 +403,8 @@ export const CATEGORIES = [
     // through to Weather: a clinical stick takes a temperature, a tube beside a
     // sun reports one.
     label: "Health",
-    match: /^(brain$|lungs|ear(-|$)|heart-pulse$|thermometer$)/,
-    blurb: "The brain, the lungs, the ear and what it hears, the heart's pulse and the clinical thermometer.",
+    match: /^(brain$|lungs|ear(-|$)|heart-pulse$|pill$|bandage$|thermometer$)/,
+    blurb: "The brain, the lungs, the ear and what it hears, the heart's pulse, a pill, a plaster and the clinical thermometer.",
   },
   {
     // `crown` is what a winner gets, so it sits with the trophy rather than
@@ -464,7 +465,7 @@ export const CATEGORIES = [
     // The rubber stamp joined on 28 Sep 2026: an office drawer's tool for marking
     // a paper approved. Anchored, so a `stamp-*` family is filed on purpose.
     match: /^(eraser|tape|stapler|notebook|sticky-note|pin(-|$)|stamp$)/,
-    blurb: "The desk drawer: the eraser, the roll of tape, the sticky notes, the push pin and the rubber stamp.",
+    blurb: "The desk drawer: the eraser, the roll of tape, the sticky notes, the notebooks, the push pin and the rubber stamp.",
   },
   {
     label: "Shapes",

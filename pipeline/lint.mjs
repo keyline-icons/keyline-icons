@@ -229,6 +229,8 @@ const SIZE_KNOWN = new Set([
   'cctv-off',
   // table is 20 x 20; its -off paints the slash's 1..23 like cctv-off's
   'table-off',
+  // image is 20 x 20; its -off paints the slash's 1..23 like table-off's (1.7.0)
+  'image-off',
   // The same box for the same reason, 27 Sep 2026: captions and subtitles are
   // 22 wide and their -off forms add the slash's height, and square-play's
   // square is 20 x 20, so the slash puts ink in all four corners of each.

@@ -941,6 +941,14 @@ export function Ban(props: IconProps) {
   )
 }
 
+export function Bandage(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M14.4645 3.8787C15.0271 3.3161 15.7901 3 16.5858 3C17.3814 3 18.1445 3.3161 18.7071 3.8787L20.1213 5.2929C20.6839 5.8555 21 6.6186 21 7.4142C21 8.2099 20.6839 8.9729 20.1213 9.5355L9.5355 20.1213C8.9729 20.6839 8.2099 21 7.4142 21C6.6186 21 5.8555 20.6839 5.2929 20.1213L3.8787 18.7071C3.3161 18.1445 3 17.3814 3 16.5858C3 15.7901 3.3161 15.0271 3.8787 14.4645L14.4645 3.8787ZM12 6.3431L17.6569 12M6.3431 12L12 17.6569" fill="none" />
+    </Icon>
+  )
+}
+
 export function Banknote2Check(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -6055,6 +6063,14 @@ export function ImageMinus(props: IconProps) {
   )
 }
 
+export function ImageOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20.1213 20.1213C19.5785 20.6642 18.8285 21 18 21L6 21C4.3431 21 3 19.6569 3 18L3 6C3 5.1716 3.3358 4.4216 3.8787 3.8787M3 18L7.9393 13.0607C8.5251 12.4749 9.4749 12.4749 10.0607 13.0607L12.0801 15.0801C12.6079 15.6079 13.4436 15.6673 14.0408 15.2194L14.7143 14.7143M8.6569 3L18 3C19.6569 3 21 4.3431 21 6L21 15.3431M2 2L22 22" fill="none" />
+    </Icon>
+  )
+}
+
 export function ImagePlus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -7095,6 +7111,22 @@ export function Newspaper(props: IconProps) {
   )
 }
 
+export function NotebookPen(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M21 11.1317L21 19C21 20.6569 19.6569 22 18 22L9 22C7.3431 22 6 20.6569 6 19L6 5C6 3.3431 7.3431 2 9 2L13.8683 2M3 7L6 7M3 12L6 12M3 17L6 17M10.5 13.5L14.6248 11.8501L20.4874 5.9874C21.1709 5.304 21.1709 4.196 20.4874 3.5126C19.804 2.8291 18.696 2.8291 18.0126 3.5126L12.1499 9.3752Z" fill="none" />
+    </Icon>
+  )
+}
+
+export function Notebook(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M6 5C6 3.3431 7.3431 2 9 2L18 2C19.6569 2 21 3.3431 21 5L21 19C21 20.6569 19.6569 22 18 22L9 22C7.3431 22 6 20.6569 6 19L6 5ZM3 7L6 7M3 12L6 12M3 17L6 17" fill="none" />
+    </Icon>
+  )
+}
+
 export function OctagonAlert(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -7670,6 +7702,14 @@ export function PiggyBank(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M13.074 6C13.4604 5.3259 14.6805 4.1477 17.2892 4.0127C17.5649 3.9984 17.7895 4.2239 17.7895 4.5L17.7895 7.4175C17.7895 7.6383 17.9368 7.8288 18.1392 7.9171C19.311 8.4281 19.7857 9.5613 19.7979 11.0491C19.8002 11.3367 20.0264 11.579 20.314 11.579L21.5 11.579C21.7761 11.579 22 11.8028 22 12.079L22 13.9211C22 14.1972 21.7761 14.4211 21.5 14.4211L20.2839 14.4211C20.0078 14.4211 19.7927 14.6441 19.8085 14.9198C19.8692 15.978 19.8425 17.6743 16.8811 18.2913C16.6406 18.3414 16.4598 18.5493 16.4598 18.795L16.4598 21.5C16.4598 21.7761 16.236 22 15.9598 22L13.8308 22C13.6724 22 13.5233 21.9249 13.429 21.7976L11.6236 19.3603C11.5293 19.233 11.3802 19.1579 11.2218 19.1579L10.6729 19.1579C10.5145 19.1579 10.3654 19.233 10.2711 19.3603L8.4657 21.7976C8.3714 21.9249 8.2224 22 8.0639 22L5.8795 22C5.6034 22 5.3795 21.7761 5.3795 21.5L5.3795 19.4879C5.3795 19.2877 5.2589 19.1084 5.0791 19.0205C3.0584 18.0324 2 16.1626 2 13C2 12.0836 2.1851 11.2551 2.5263 10.5197C2.7763 9.9809 3.072 9.4716 3.4139 9M9 4C9 5.1046 8.1046 6 7 6C5.8954 6 5 5.1046 5 4C5 2.8954 5.8954 2 7 2C8.1046 2 9 2.8954 9 4Z" fill="none" />
       <Path d="M17 10.5C17 11.0523 16.5523 11.5 16 11.5C15.4477 11.5 15 11.0523 15 10.5C15 9.9477 15.4477 9.5 16 9.5C16.5523 9.5 17 9.9477 17 10.5Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function Pill(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M14.1716 4.1716C14.9217 3.4214 15.9391 3 17 3C18.0609 3 19.0783 3.4214 19.8284 4.1716C20.5786 4.9217 21 5.9391 21 7C21 8.0609 20.5786 9.0783 19.8284 9.8284L9.8284 19.8284C9.0783 20.5786 8.0609 21 7 21C5.9391 21 4.9217 20.5786 4.1716 19.8284C3.4214 19.0783 3 18.0609 3 17C3 15.9391 3.4214 14.9217 4.1716 14.1716L14.1716 4.1716ZM9.1716 9.1716L14.8284 14.8284" fill="none" />
     </Icon>
   )
 }
@@ -11074,6 +11114,14 @@ export function Watch(props: IconProps) {
   )
 }
 
+export function Webcam(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M19 9C19 12.866 15.866 16 12 16C8.134 16 5 12.866 5 9C5 5.134 8.134 2 12 2C15.866 2 19 5.134 19 9ZM15 9C15 10.6569 13.6569 12 12 12C10.3431 12 9 10.6569 9 9C9 7.3431 10.3431 6 12 6C13.6569 6 15 7.3431 15 9ZM12 16L12 22M4 22L20 22" fill="none" />
+    </Icon>
+  )
+}
+
 export function WholeWord(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -11339,6 +11387,7 @@ export {
   BadgeX as BadgeXIcon,
   Badge as BadgeIcon,
   Ban as BanIcon,
+  Bandage as BandageIcon,
   Banknote2Check as Banknote2CheckIcon,
   Banknote2Minus as Banknote2MinusIcon,
   Banknote2Plus as Banknote2PlusIcon,
@@ -11959,6 +12008,7 @@ export {
   ImageArrowUp as ImageArrowUpIcon,
   ImageCheck as ImageCheckIcon,
   ImageMinus as ImageMinusIcon,
+  ImageOff as ImageOffIcon,
   ImagePlus as ImagePlusIcon,
   ImageSparkles as ImageSparklesIcon,
   ImageX as ImageXIcon,
@@ -12086,6 +12136,8 @@ export {
   MusicNote as MusicNoteIcon,
   Navigation as NavigationIcon,
   Newspaper as NewspaperIcon,
+  NotebookPen as NotebookPenIcon,
+  Notebook as NotebookIcon,
   OctagonAlert as OctagonAlertIcon,
   OctagonX as OctagonXIcon,
   Option as OptionIcon,
@@ -12156,6 +12208,7 @@ export {
   PictureInPicture as PictureInPictureIcon,
   Pig as PigIcon,
   PiggyBank as PiggyBankIcon,
+  Pill as PillIcon,
   PinOff as PinOffIcon,
   Pin as PinIcon,
   PlaneLanding as PlaneLandingIcon,
@@ -12563,6 +12616,7 @@ export {
   WandSparkles as WandSparklesIcon,
   Wand as WandIcon,
   Watch as WatchIcon,
+  Webcam as WebcamIcon,
   WholeWord as WholeWordIcon,
   WifiExclamation as WifiExclamationIcon,
   WifiInfo as WifiInfoIcon,
