@@ -1869,6 +1869,27 @@
       ]
     },
     {
+      "match": "^move-(up|down|left|right|up-left|up-right|down-left|down-right|horizontal|vertical|diagonal|diagonal-2)$",
+      "note": "The long arrows (1.8.0). Their names are the other set's and say nothing of an arrow, so `arrow` and `long arrow` have to be said here or the search for the very thing they are misses all twelve.",
+      "terms": [
+        "arrow",
+        "long arrow",
+        "long",
+        "direction"
+      ]
+    },
+    {
+      "match": "^move-(horizontal|vertical|diagonal|diagonal-2)$",
+      "note": "One shaft, a head at each end: the plural question `arrows` asks, and the resize handle.",
+      "terms": [
+        "arrows",
+        "two-way",
+        "both ways",
+        "resize",
+        "stretch"
+      ]
+    },
+    {
       "match": "^maximize-2$",
       "terms": [
         "expand",
@@ -2841,6 +2862,36 @@
       "sign out",
       "logout",
       "log out"
+    ],
+    "move-right": [
+      "arrow-long-right",
+      "arrow-right-long"
+    ],
+    "move-left": [
+      "arrow-long-left",
+      "arrow-left-long"
+    ],
+    "move-up": [
+      "arrow-long-up",
+      "arrow-up-long"
+    ],
+    "move-down": [
+      "arrow-long-down",
+      "arrow-down-long"
+    ],
+    "move-horizontal": [
+      "arrows-horizontal",
+      "arrows-left-right"
+    ],
+    "move-vertical": [
+      "arrows-vertical",
+      "arrows-up-down"
+    ],
+    "move-diagonal": [
+      "arrows-diagonal"
+    ],
+    "move-diagonal-2": [
+      "arrows-diagonal-2"
     ]
   },
   "$names": "Names other sets use for a drawing here, keyed by the drawing. Matched against the whole query, never split into words: these are names, not keywords, and folding `message-square` into a keyword list makes a search for `square` return every message icon. All four searches rank one second only to the exact name, so it leads wherever the set does not draw that name itself; once the set does, the row is stale, and pipeline/check-search.mjs fails until it is deleted."

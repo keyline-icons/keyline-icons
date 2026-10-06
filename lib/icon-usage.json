@@ -1239,6 +1239,18 @@
     "gavel": "A judge's mallet, for law, rulings, auctions and moderation.",
     "telescope": "A refractor on a two-legged stand, for discovery, astronomy, exploring and looking ahead.",
     "stethoscope": "A stethoscope with its chest piece, for doctors, check-ups and health care.",
-    "hand-coins": "A hand under two coins, for payments, donations, tips and earning."
+    "hand-coins": "A hand under two coins, for payments, donations, tips and earning.",
+    "move-right": "A long arrow pointing east, for next, continue and read-more links that want a slimmer arrow.",
+    "move-left": "A long arrow pointing west, for a slimmer back link or a previous step in a long row.",
+    "move-up": "A long arrow pointing north, for back to top, rising values and a slim scroll-up control.",
+    "move-down": "A long arrow pointing south, for scroll cues, falling values and a slim jump-down link.",
+    "move-up-right": "A long arrow to the northeast, for outbound links and open-in-new-tab with more reach.",
+    "move-up-left": "A long arrow to the northwest, for a slim return-to-origin or a pull back toward the corner.",
+    "move-down-right": "A long arrow to the southeast, for a resize corner or a cue to continue down the page.",
+    "move-down-left": "A long arrow to the southwest, for a slim drop-in cue or a move toward the lower corner.",
+    "move-horizontal": "One shaft with a head at each end, for width, horizontal resize and a two-way slider.",
+    "move-vertical": "One upright shaft with a head at each end, for height, vertical resize and row reordering.",
+    "move-diagonal": "A long double-headed diagonal, for scaling from a corner and a free resize handle.",
+    "move-diagonal-2": "The other diagonal, double-headed, for scaling from the opposite corner of a selection."
   }
 }

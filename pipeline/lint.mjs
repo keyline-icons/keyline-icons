@@ -269,6 +269,12 @@ const SIZE_KNOWN = new Set([
   // kept it 20 wide under its 22 over the 22 x 22 dome it was first drawn as, so
   // it paints 20 x 22 and reads as a circle.
   'alien',
+  // The long arrows of 6 Oct 2026 (1.8.0) take arrow-left-right's shaft, 3..21,
+  // which is where arrow-left-right and move already stop. A line carries no
+  // body to fill a horizontal band with: run to 22 it would paint 1..23, the
+  // padding kept for round and frame-filling forms, and land on the other
+  // set's shaft exactly. The diagonals sit in a 3..21 square and pass as drawn.
+  'move-up', 'move-down', 'move-left', 'move-right', 'move-horizontal', 'move-vertical',
 ]);
 /**
  * Drawings of a real product, which keep the product's proportions and radii

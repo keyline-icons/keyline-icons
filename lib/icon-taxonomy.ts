@@ -71,6 +71,14 @@ export const CATEGORIES = [
   // heart's pulse, the pill, the plaster, the syringe and the stethoscope in Health, the webcam in Devices, image-off
   // in Media beside image, the telescope in Science, coins in hand in Finance, the notebooks in Stationery, and the
   // gavel, the balances and the signature in Law, a shelf opened for them.
+  //
+  // Opened 6 Oct 2026 for 1.8.0: the long arrows a user asked for beside the short ones, the other set's
+  // `move-*` row taken name to name. Every name is also matched by Arrows below, beside `move`.
+  {
+    label: "New",
+    match: /^move-(up|down|left|right|up-left|up-right|down-left|down-right|horizontal|vertical|diagonal|diagonal-2)$/,
+    blurb: "Drafts under review.",
+  },
   // The machine that thinks: the bots, the brain wired to a circuit and the
   // brain turning a cog. The bare `brain` is an organ and goes to Health,
   // which is why this is anchored on the two names rather than on `brain`.
@@ -89,9 +97,11 @@ export const CATEGORIES = [
     // through its corner, filed beside the dashed-panel arrows rather than under
     // Shapes, where its first word would otherwise send it. `square-arrow-out-`
     // joined on 1 Oct 2026 (1.5.0): the same square left by the same arrow.
-    match: /^(arrow|bracket-arrow|log-(in|out)$|expand|refresh|rotate|corner-|move$|square-arrow-in-|square-arrow-out-)/,
+    // `move-` joined on 6 Oct 2026 (1.8.0): the long arrows, filed under the
+    // name of the four-way `move` that heads their row in the other set.
+    match: /^(arrow|bracket-arrow|log-(in|out)$|expand|refresh|rotate|corner-|move(-|$)|square-arrow-in-|square-arrow-out-)/,
     blurb:
-      "Direction, movement and resizing, with the brackets and the arrow into one, u-turns, corner turns and dashed panels.",
+      "Direction, movement and resizing, short and long, with the brackets and the arrow into one, u-turns, corner turns and dashed panels.",
   },
   // Split out of Arrows on 29 Aug 2026: the sharp matrix doubled every catalog
   // card's cells, and 104 rows, one per name on a card of 60 sets, stopped

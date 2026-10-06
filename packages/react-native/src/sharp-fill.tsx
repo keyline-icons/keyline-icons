@@ -7272,6 +7272,102 @@ export function Mouse(props: IconProps) {
   )
 }
 
+export function MoveDiagonal2(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M4.1757 4.1757L19.8243 19.8243M20 15L20 20L15 20M4 9L4 4L9 4" fill="none" />
+    </Icon>
+  )
+}
+
+export function MoveDiagonal(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M4.1757 19.8243L19.8243 4.1757M15 4L20 4L20 9M9 20L4 20L4 15" fill="none" />
+    </Icon>
+  )
+}
+
+export function MoveDownLeft(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M20.2929 3.7071L4.1757 19.8243M9 20L4 20L4 15" fill="none" />
+    </Icon>
+  )
+}
+
+export function MoveDownRight(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M3.7071 3.7071L19.8243 19.8243M20 15L20 20L15 20" fill="none" />
+    </Icon>
+  )
+}
+
+export function MoveDown(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M12 2L12 21M15.2929 17.7071L12 21L8.7071 17.7071" fill="none" />
+    </Icon>
+  )
+}
+
+export function MoveHorizontal(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M3 12L21 12M17.7071 8.7071L21 12L17.7071 15.2929M6.2929 8.7071L3 12L6.2929 15.2929" fill="none" />
+    </Icon>
+  )
+}
+
+export function MoveLeft(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M22 12L3 12M6.2929 15.2929L3 12L6.2929 8.7071" fill="none" />
+    </Icon>
+  )
+}
+
+export function MoveRight(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M2 12L21 12M17.7071 8.7071L21 12L17.7071 15.2929" fill="none" />
+    </Icon>
+  )
+}
+
+export function MoveUpLeft(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M20.2929 20.2929L4.1757 4.1757M4 9L4 4L9 4" fill="none" />
+    </Icon>
+  )
+}
+
+export function MoveUpRight(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M3.7071 20.2929L19.8243 4.1757M15 4L20 4L20 9" fill="none" />
+    </Icon>
+  )
+}
+
+export function MoveUp(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M12 22L12 3M8.7071 6.2929L12 3L15.2929 6.2929" fill="none" />
+    </Icon>
+  )
+}
+
+export function MoveVertical(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M12 21L12 3M8.7071 6.2929L12 3L15.2929 6.2929M8.7071 17.7071L12 21L15.2929 17.7071" fill="none" />
+    </Icon>
+  )
+}
+
 export function Move(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -12533,6 +12629,18 @@ export {
   MoreHorizontal as MoreHorizontalIcon,
   MoreVertical as MoreVerticalIcon,
   Mouse as MouseIcon,
+  MoveDiagonal2 as MoveDiagonal2Icon,
+  MoveDiagonal as MoveDiagonalIcon,
+  MoveDownLeft as MoveDownLeftIcon,
+  MoveDownRight as MoveDownRightIcon,
+  MoveDown as MoveDownIcon,
+  MoveHorizontal as MoveHorizontalIcon,
+  MoveLeft as MoveLeftIcon,
+  MoveRight as MoveRightIcon,
+  MoveUpLeft as MoveUpLeftIcon,
+  MoveUpRight as MoveUpRightIcon,
+  MoveUp as MoveUpIcon,
+  MoveVertical as MoveVerticalIcon,
   Move as MoveIcon,
   MusicNoteOff as MusicNoteOffIcon,
   MusicNote as MusicNoteIcon,
