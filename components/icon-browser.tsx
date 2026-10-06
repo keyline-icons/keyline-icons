@@ -344,16 +344,31 @@ const namedBy = (icon: BrowserIcon, query: string) => {
  * it only filtered one. The MCP server, the CLI and the Figma plugin rank the
  * same two tiers first, so a name typed into any of the four leads with the
  * same drawing; pipeline/check-search.mjs runs the names shadcn/create uses
- * through all four to keep it that way. Only those two tiles move, so the rest
- * of the grid still reads in name order, and only page 1 changes, which is
- * the one page `pageSpan` never labels.
+ * through all four to keep it that way.
+ *
+ * Below those two, the drawings whose name carries the query come next, as
+ * the Figma plugin orders them, the other surface that matches inside words:
+ * the name starting with it, then the query at a word boundary, then inside a
+ * word, and only then the drawings that answer through a keyword alone. Until
+ * 6 Oct 2026 the site lifted the first two tiles and sorted everything else by
+ * name, and the twelve long arrows of 1.8.0 went missing under `move`: 184
+ * drawings answer it through `remove` and the arrows' own keyword, and
+ * `move-right` sat in the middle of them, behind `alarm-clock-minus`. The base
+ * is read as well as the name, so `circle-arrow-down` stays beside
+ * `arrow-down` under a search for it, as it does in grid order.
  */
 const leadOf = (icon: BrowserIcon, query: string) => {
   const q = query.trim().toLowerCase()
-  return icon.name === q ? 0 : icon.name === iconNamedElsewhere(q) ? 1 : 2
+  if (icon.name === q) return 0
+  if (icon.name === iconNamedElsewhere(q)) return 1
+  const tier = (name: string) => {
+    const i = q ? name.indexOf(q) : -1
+    return i === -1 ? 5 : i === 0 ? 2 : name[i - 1] === "-" ? 3 : 4
+  }
+  return Math.min(tier(icon.name), tier(icon.base))
 }
 
-/** Grid order under a search: the lead first, then name order. */
+/** Grid order under a search: tier by tier, then name order within each. */
 const bySearch = (query: string) => (a: BrowserIcon, b: BrowserIcon) =>
   leadOf(a, query) - leadOf(b, query) || byName(a, b)
 
