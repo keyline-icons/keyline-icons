@@ -275,6 +275,13 @@ const SIZE_KNOWN = new Set([
   // padding kept for round and frame-filling forms, and land on the other
   // set's shaft exactly. The diagonals sit in a 3..21 square and pass as drawn.
   'move-up', 'move-down', 'move-left', 'move-right', 'move-horizontal', 'move-vertical',
+  // The four pairs took the same head of 4 the same day, his call, and their
+  // rows stepped in to 7 and 17 so the wings stay inside the 20 square they
+  // shipped at. That leaves every corner of the box 3.24 to 4.10 from ink, so
+  // the classifier reads a circle and asks for 22: `repeat`'s artefact above, a
+  // reading of their half-turn symmetry rather than of the drawing. They stay
+  // 20, as `shuffle` is.
+  'arrow-left-right', 'arrow-right-left', 'arrow-down-up', 'arrow-up-down',
 ]);
 /**
  * Drawings of a real product, which keep the product's proportions and radii

@@ -503,7 +503,7 @@ export function ArrowDownUp2(props: IconProps) {
 export function ArrowDownUp(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M6 2L6 3L6 21M2.7071 17.7071L3 18L6 21L9 18L9.2929 17.7071M18 22L18 21L18 3M14.7071 6.2929L15 6L18 3L21 6L21.2929 6.2929" />
+      <Path d="M7 2L7 21M11.2929 16.7071L7 21L2.7071 16.7071M17 22L17 3M12.7071 7.2929L17 3L21.2929 7.2929" fill="none" />
     </Icon>
   )
 }
@@ -607,7 +607,7 @@ export function ArrowLeftRight2(props: IconProps) {
 export function ArrowLeftRight(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M22 6L3 6M6.2929 2.7071L3 6L6.2929 9.2929M2 18L21 18M17.7071 14.7071L21 18L17.7071 21.2929" fill="none" />
+      <Path d="M22 7L3 7M7.2929 11.2929L3 7L7.2929 2.7071M2 17L21 17M16.7071 12.7071L21 17L16.7071 21.2929" fill="none" />
     </Icon>
   )
 }
@@ -639,7 +639,7 @@ export function ArrowRightLeft2(props: IconProps) {
 export function ArrowRightLeft(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M2 6L21 6M17.7071 2.7071L21 6L17.7071 9.2929M22 18L3 18M6.2929 14.7071L3 18L6.2929 21.2929" fill="none" />
+      <Path d="M2 7L21 7M16.7071 2.7071L21 7L16.7071 11.2929M22 17L3 17M7.2929 21.2929L3 17L7.2929 12.7071" fill="none" />
     </Icon>
   )
 }
@@ -695,7 +695,7 @@ export function ArrowUpDown2(props: IconProps) {
 export function ArrowUpDown(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M18 2L18 21M21.2929 17.7071L18 21L14.7071 17.7071M6 22L6 3M9.2929 6.2929L6 3L2.7071 6.2929" fill="none" />
+      <Path d="M17 2L17 21M21.2929 16.7071L17 21L12.7071 16.7071M7 22L7 3M2.7071 7.2929L7 3L11.2929 7.2929" fill="none" />
     </Icon>
   )
 }
@@ -7275,7 +7275,7 @@ export function Mouse(props: IconProps) {
 export function MoveDiagonal2(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M4.1757 4.1757L19.8243 19.8243M20 15L20 20L15 20M4 9L4 4L9 4" fill="none" />
+      <Path d="M4.1757 4.1757L19.8243 19.8243M20 13L20 20L13 20M4 11L4 4L11 4" fill="none" />
     </Icon>
   )
 }
@@ -7283,7 +7283,7 @@ export function MoveDiagonal2(props: IconProps) {
 export function MoveDiagonal(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M4.1757 19.8243L19.8243 4.1757M15 4L20 4L20 9M9 20L4 20L4 15" fill="none" />
+      <Path d="M4.1757 19.8243L19.8243 4.1757M13 4L20 4L20 11M11 20L4 20L4 13" fill="none" />
     </Icon>
   )
 }
@@ -7291,7 +7291,7 @@ export function MoveDiagonal(props: IconProps) {
 export function MoveDownLeft(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M20.2929 3.7071L4.1757 19.8243M9 20L4 20L4 15" fill="none" />
+      <Path d="M20.2929 3.7071L4.1757 19.8243M11 20L4 20L4 13" fill="none" />
     </Icon>
   )
 }
@@ -7299,7 +7299,7 @@ export function MoveDownLeft(props: IconProps) {
 export function MoveDownRight(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M3.7071 3.7071L19.8243 19.8243M20 15L20 20L15 20" fill="none" />
+      <Path d="M3.7071 3.7071L19.8243 19.8243M20 13L20 20L13 20" fill="none" />
     </Icon>
   )
 }
@@ -7307,7 +7307,7 @@ export function MoveDownRight(props: IconProps) {
 export function MoveDown(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M12 2L12 21M15.2929 17.7071L12 21L8.7071 17.7071" fill="none" />
+      <Path d="M12 2L12 21M16.2929 16.7071L12 21L7.7071 16.7071" fill="none" />
     </Icon>
   )
 }
@@ -7315,7 +7315,7 @@ export function MoveDown(props: IconProps) {
 export function MoveHorizontal(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M3 12L21 12M17.7071 8.7071L21 12L17.7071 15.2929M6.2929 8.7071L3 12L6.2929 15.2929" fill="none" />
+      <Path d="M3 12L21 12M16.7071 7.7071L21 12L16.7071 16.2929M7.2929 7.7071L3 12L7.2929 16.2929" fill="none" />
     </Icon>
   )
 }
@@ -7323,7 +7323,7 @@ export function MoveHorizontal(props: IconProps) {
 export function MoveLeft(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M22 12L3 12M6.2929 15.2929L3 12L6.2929 8.7071" fill="none" />
+      <Path d="M22 12L3 12M7.2929 16.2929L3 12L7.2929 7.7071" fill="none" />
     </Icon>
   )
 }
@@ -7331,7 +7331,7 @@ export function MoveLeft(props: IconProps) {
 export function MoveRight(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M2 12L21 12M17.7071 8.7071L21 12L17.7071 15.2929" fill="none" />
+      <Path d="M2 12L21 12M16.7071 7.7071L21 12L16.7071 16.2929" fill="none" />
     </Icon>
   )
 }
@@ -7339,7 +7339,7 @@ export function MoveRight(props: IconProps) {
 export function MoveUpLeft(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M20.2929 20.2929L4.1757 4.1757M4 9L4 4L9 4" fill="none" />
+      <Path d="M20.2929 20.2929L4.1757 4.1757M4 11L4 4L11 4" fill="none" />
     </Icon>
   )
 }
@@ -7347,7 +7347,7 @@ export function MoveUpLeft(props: IconProps) {
 export function MoveUpRight(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M3.7071 20.2929L19.8243 4.1757M15 4L20 4L20 9" fill="none" />
+      <Path d="M3.7071 20.2929L19.8243 4.1757M13 4L20 4L20 11" fill="none" />
     </Icon>
   )
 }
@@ -7355,7 +7355,7 @@ export function MoveUpRight(props: IconProps) {
 export function MoveUp(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M12 22L12 3M8.7071 6.2929L12 3L15.2929 6.2929" fill="none" />
+      <Path d="M12 22L12 3M7.7071 7.2929L12 3L16.2929 7.2929" fill="none" />
     </Icon>
   )
 }
@@ -7363,7 +7363,7 @@ export function MoveUp(props: IconProps) {
 export function MoveVertical(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M12 21L12 3M8.7071 6.2929L12 3L15.2929 6.2929M8.7071 17.7071L12 21L15.2929 17.7071" fill="none" />
+      <Path d="M12 21L12 3M7.7071 7.2929L12 3L16.2929 7.2929M7.7071 16.7071L12 21L16.2929 16.7071" fill="none" />
     </Icon>
   )
 }
