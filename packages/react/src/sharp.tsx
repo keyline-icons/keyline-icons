@@ -7091,7 +7091,7 @@ export function Mouse(props: IconProps) {
   )
 }
 
-export function MoveDiagonal2(props: IconProps) {
+export function MoveDiagonalFlip(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M4.1757 4.1757L19.8243 19.8243M20 13L20 20L13 20M4 11L4 4L11 4" fill="none" />
@@ -12309,7 +12309,7 @@ export {
   MoreHorizontal as MoreHorizontalIcon,
   MoreVertical as MoreVerticalIcon,
   Mouse as MouseIcon,
-  MoveDiagonal2 as MoveDiagonal2Icon,
+  MoveDiagonalFlip as MoveDiagonalFlipIcon,
   MoveDiagonal as MoveDiagonalIcon,
   MoveDownLeft as MoveDownLeftIcon,
   MoveDownRight as MoveDownRightIcon,

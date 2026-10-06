@@ -76,7 +76,7 @@ export const CATEGORIES = [
   // `move-*` row taken name to name. Every name is also matched by Arrows below, beside `move`.
   {
     label: "New",
-    match: /^move-(up|down|left|right|up-left|up-right|down-left|down-right|horizontal|vertical|diagonal|diagonal-2)$/,
+    match: /^move-(up|down|left|right|up-left|up-right|down-left|down-right|horizontal|vertical|diagonal|diagonal-flip)$/,
     blurb: "Drafts under review.",
   },
   // The machine that thinks: the bots, the brain wired to a circuit and the

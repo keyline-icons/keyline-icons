@@ -1251,6 +1251,6 @@
     "move-horizontal": "One shaft with a head at each end, for width, horizontal resize and a two-way slider.",
     "move-vertical": "One upright shaft with a head at each end, for height, vertical resize and row reordering.",
     "move-diagonal": "A long double-headed diagonal, for scaling from a corner and a free resize handle.",
-    "move-diagonal-2": "The other diagonal, double-headed, for scaling from the opposite corner of a selection."
+    "move-diagonal-flip": "The other diagonal, double-headed, for scaling from the opposite corner of a selection."
   }
 }

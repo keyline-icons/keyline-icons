@@ -15,8 +15,10 @@
 //   3..21): the diagonal runs 16 * sqrt 2 = 22.6 against the cardinal's 18, the same 1.13 the
 //   shipped arrow-up-right keeps against arrow-right.
 // - A long arrow is one element, so every style is the stroke, as `arrow-right` and `move` ship.
-//   The double-headed `move-horizontal`, `move-vertical`, `move-diagonal` and `move-diagonal-2`
-//   are one line with a head at each end: one element too.
+//   The double-headed `move-horizontal`, `move-vertical`, `move-diagonal` and `move-diagonal-flip`
+//   are one line with a head at each end: one element too. The last is the other set's
+//   `move-diagonal-2`, renamed on his word for the mirror it is, as `scale-unbalanced-flip` is
+//   `scale-unbalanced`'s; their name redirects to it.
 // - Redrawn with them: `arrow-left-right`, `arrow-right-left`, `arrow-down-up` and `arrow-up-down`,
 //   two of the long arrows side by side, the first grey in two-tone and duotone as they shipped.
 //   The head of 4 would put their wings on 2 and 22 at the old rows 6 and 18 (ink 1..23), so the
@@ -79,7 +81,7 @@ const NAMES = {
   'move-right': [cardinal, false, 0], 'move-down': [cardinal, false, 1], 'move-left': [cardinal, false, 2], 'move-up': [cardinal, false, 3],
   'move-up-right': [diagonal, false, 0], 'move-down-right': [diagonal, false, 1], 'move-down-left': [diagonal, false, 2], 'move-up-left': [diagonal, false, 3],
   'move-horizontal': [cardinal, true, 0], 'move-vertical': [cardinal, true, 3],
-  'move-diagonal': [diagonal, true, 0], 'move-diagonal-2': [diagonal, true, 1],
+  'move-diagonal': [diagonal, true, 0], 'move-diagonal-flip': [diagonal, true, 1],
 };
 const BOX = { [cardinal.name]: [2, 7, 22, 17], [diagonal.name]: [3, 3, 21, 21] };
 

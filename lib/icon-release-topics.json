@@ -23,7 +23,7 @@
         "move-horizontal",
         "move-vertical",
         "move-diagonal",
-        "move-diagonal-2"
+        "move-diagonal-flip"
        ]
       }
      ]

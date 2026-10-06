@@ -396,6 +396,7 @@ const FIRST = [
   ["alert-triangle", "triangle-alert", "led through its words alone"],
   ["arrow-left-circle", "circle-arrow-left", "the site opened on `circle-arrow-down-left`"],
   ["arrow-long-right", "move-right", "a third set's long arrow, drawn here under the other set's name"],
+  ["move-diagonal-2", "move-diagonal-flip", "the other set's name, drawn here as the flip, as scale-unbalanced-flip is"],
   ["building-2", "building", "the plugin found nothing"],
   ["check-circle-2", "circle-check", "nothing anywhere: the `2` is theirs and the order is ours"],
   ["circle-help", "circle-question", "led through its words alone"],

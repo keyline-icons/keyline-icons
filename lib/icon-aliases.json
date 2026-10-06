@@ -1869,7 +1869,7 @@
       ]
     },
     {
-      "match": "^move-(up|down|left|right|up-left|up-right|down-left|down-right|horizontal|vertical|diagonal|diagonal-2)$",
+      "match": "^move-(up|down|left|right|up-left|up-right|down-left|down-right|horizontal|vertical|diagonal|diagonal-flip)$",
       "note": "The long arrows (1.8.0). Their names are the other set's and say nothing of an arrow, so `arrow` and `long arrow` have to be said here or the search for the very thing they are misses all twelve.",
       "terms": [
         "arrow",
@@ -1879,7 +1879,7 @@
       ]
     },
     {
-      "match": "^move-(horizontal|vertical|diagonal|diagonal-2)$",
+      "match": "^move-(horizontal|vertical|diagonal|diagonal-flip)$",
       "note": "One shaft, a head at each end: the plural question `arrows` asks, and the resize handle.",
       "terms": [
         "arrows",
@@ -2890,7 +2890,8 @@
     "move-diagonal": [
       "arrows-diagonal"
     ],
-    "move-diagonal-2": [
+    "move-diagonal-flip": [
+      "move-diagonal-2",
       "arrows-diagonal-2"
     ]
   },
