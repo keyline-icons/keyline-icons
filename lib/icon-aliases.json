@@ -412,6 +412,32 @@
       ]
     },
     {
+      "match": "^file-text$",
+      "note": "File formats answer by kind. The set draws no letters, so there is no `file-pdf` or `file-docx` to find: a document in any format is `file-text`, a sheet is `file-spreadsheet`, a picture is `file-image`. Added 7 Oct 2026; `pdf` was the most searched word that found nothing.",
+      "terms": [
+        "pdf",
+        "doc",
+        "docx"
+      ]
+    },
+    {
+      "match": "^file-spreadsheet$",
+      "note": "As the row above, for sheets.",
+      "terms": [
+        "xls",
+        "xlsx"
+      ]
+    },
+    {
+      "match": "^file-image$",
+      "note": "As the rows above, for pictures.",
+      "terms": [
+        "jpg",
+        "jpeg",
+        "png"
+      ]
+    },
+    {
       "match": "^flower$",
       "terms": [
         "nature",

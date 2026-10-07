@@ -356,6 +356,15 @@ const FINDS = [
   ["feedback", "message-square", "the bubble on every feedback button"],
   ["execute", "play", "`run` was there, the formal word was not"],
   ["process", "terminal", "a running process, where it runs"],
+
+  // File formats, answered by kind because the set draws no letters. `pdf`
+  // was the top single miss in the same export, and DOC, XLSX, JPG and PNG
+  // were asked for by name on 7 Oct 2026.
+  ["pdf", "file-text", "11 empty searches, the most of any word"],
+  ["docx", "file-text", "a document in any format is the page with lines"],
+  ["xlsx", "file-spreadsheet", "`excel` and `csv` were there, the extension was not"],
+  ["jpg", "file-image", "the picture file"],
+  ["png", "file-image", "same"],
 ]
 
 /**
