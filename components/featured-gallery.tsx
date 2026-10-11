@@ -40,10 +40,19 @@ export function FeaturedGallery({
    */
   columns?: 3 | 4
 }) {
+  /*
+    Two entries spread over four columns are two thumbnails and a wall of
+    nothing, which reads as a page that failed to load rather than a gallery
+    that has just begun. Until there are more entries than two columns hold,
+    the cards take half the width each, and the wall drops back to `columns`
+    on its own the day a third lands, with nobody remembering to switch it.
+  */
+  const fit = entries.length <= 2 ? 2 : columns
+
   return (
-    <ul className={`columns-1 gap-4 sm:columns-2 ${COLUMNS[columns]}`}>
+    <ul className={`columns-1 gap-4 sm:columns-2 ${COLUMNS[fit]}`}>
       {entries.map((entry) => (
-        <Card key={entry.slug} entry={entry} />
+        <Card key={entry.slug} entry={entry} sizes={SIZES[fit]} />
       ))}
     </ul>
   )
@@ -54,8 +63,20 @@ export function FeaturedGallery({
   written out rather than interpolated from the prop.
 */
 const COLUMNS = {
+  2: "",
   3: "lg:columns-3",
   4: "lg:columns-3 xl:columns-4",
+} as const
+
+/*
+  The rendered width at each layout, so the optimiser serves a 700px card a
+  700px image rather than the 340px one a four-column card needs. The page is
+  capped at 1440px, which is where the fixed values come from.
+*/
+const SIZES = {
+  2: "(min-width: 1440px) 700px, (min-width: 640px) 50vw, 100vw",
+  3: "(min-width: 1280px) 340px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+  4: "(min-width: 1280px) 340px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
 } as const
 
 /*
@@ -159,7 +180,7 @@ const GHOST_HEIGHTS = [232, 310, 196, 268, 288, 208, 252, 184]
  * this arrangement is worth the trouble: it is only paint, so it can sit inside
  * the screenshot's hit area and still light up when the card is hovered.
  */
-function Card({ entry }: { entry: FeaturedExample }) {
+function Card({ entry, sizes }: { entry: FeaturedExample; sizes: string }) {
   /*
     The credit points at X rather than GitHub, because that is where the
     submission came from and where the person can be thanked. `initials` is
@@ -187,7 +208,7 @@ function Card({ entry }: { entry: FeaturedExample }) {
     <Image
       src={entry.image}
       alt={entry.alt}
-      sizes="(min-width: 1280px) 340px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+      sizes={sizes}
       className="h-auto w-full"
     />
   )
