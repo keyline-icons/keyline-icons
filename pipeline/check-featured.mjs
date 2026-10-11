@@ -27,6 +27,9 @@
  * - `avatar` is imported from `public/featured/avatars/`, so faces stay in one
  *   folder rather than mixed in with the screenshots.
  * - Slugs are kebab-case and unique, since the slug is the card's React key.
+ * - `video` is `/featured/<slug>.mp4` and on disk. It is a path, not an import,
+ *   so nothing else would notice a missing clip before the card showed a
+ *   poster that never plays.
  *
  * It reads `lib/featured.ts` as text rather than importing it, the same reason
  * `check-usage.mjs` reads `lib/icon-pages.ts`: the file is TypeScript and this
@@ -80,7 +83,7 @@ for (const line of source.split("\n")) {
     continue
   }
   if (!entry) continue
-  const field = line.match(/^\s*(url|post|added|image|avatar): (.+?),?$/)
+  const field = line.match(/^\s*(url|post|added|image|avatar|video): (.+?),?$/)
   if (field) entry[field[1]] = field[2].replace(/^"|"$/g, "")
 }
 
@@ -155,6 +158,23 @@ for (const e of entries) {
     }
   }
 
+  if (e.video) {
+    const clip = e.video.replace(/^\/featured\//, "")
+    if (e.video !== `/featured/${e.slug}.mp4`) {
+      problems.push({
+        kind: "MISFILED",
+        slug: e.slug,
+        why: `its video is ${e.video}: it should be /featured/${e.slug}.mp4`,
+      })
+    } else if (!existsSync(join(IMAGES_DIR, clip))) {
+      problems.push({
+        kind: "NOFILE",
+        slug: e.slug,
+        why: `video is ${e.video}, which is not on disk`,
+      })
+    }
+  }
+
   const file = imports.get(e.image)
   if (!file) {
     problems.push({
@@ -205,6 +225,10 @@ for (const [name, file] of imports) {
   }
 }
 const imported = new Set(imports.values())
+/* Clips are referenced by path, not imported, so they count from the entries. */
+for (const e of entries) {
+  if (e.video) imported.add(e.video.replace(/^\/featured\//, ""))
+}
 for (const file of onDisk) {
   if (!imported.has(file)) {
     console.log(

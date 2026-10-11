@@ -99,6 +99,19 @@ export type FeaturedExample = {
   home?: true
   /** The screenshot, statically imported so its dimensions travel with it. */
   image: StaticImageData
+  /**
+   * The clip, when the post was a video: `/featured/<slug>.mp4`. The card
+   * plays it muted over `image`, which stays as the poster, the reduced-motion
+   * still and the shape the masonry reserves before a frame arrives.
+   *
+   * A path rather than an import, because Next has no loader for video and
+   * adding one is a webpack rule for a single file type on a single page. The
+   * cost is the static import's guarantee: a missing file would 404 rather
+   * than fail the build, so `check-featured.mjs` checks it exists instead.
+   * Take the 720p variant off the post, not the original: the card is 340px
+   * wide, and Leeway's 25 seconds came to 760 KB at that size.
+   */
+  video?: string
 }
 
 /** Everyone featured, oldest first, like `SPONSORS`. */
@@ -126,6 +139,7 @@ export const FEATURED: FeaturedExample[] = [
     avatar: zafarlabFace,
     added: "2026-10-11",
     image: leeway,
+    video: "/featured/leeway.mp4",
   },
 ]
 

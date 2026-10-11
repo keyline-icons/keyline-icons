@@ -1,6 +1,7 @@
 import Image, { type StaticImageData } from "next/image"
 import Link from "next/link"
 
+import { FeaturedVideo } from "@/components/featured-video"
 import { ArrowUpRight } from "@/components/icons"
 import { initials } from "@/lib/icon-contributors"
 import { featuredHref, type FeaturedExample } from "@/lib/featured"
@@ -170,7 +171,9 @@ function Card({ entry }: { entry: FeaturedExample }) {
   const href = featuredHref(entry)
   const internal = href?.startsWith("/")
 
-  const shot = (
+  const shot = entry.video ? (
+    <FeaturedVideo src={entry.video} poster={entry.image} label={entry.alt} />
+  ) : (
     <Image
       src={entry.image}
       alt={entry.alt}

@@ -6,6 +6,7 @@
  *     --post https://x.com/adareyes/status/1234567890 \
  *     --alt "An admin console: a sidebar of projects beside a table of runs." \
  *     [--url https://acme.com] [--avatar ~/Downloads/ada.jpg] \
+ *     [--video ~/Downloads/clip.mp4] \
  *     [--name "Ada Reyes"] [--x adareyes] [--slug acme-console] \
  *     [--date 2026-08-29] [--home] [--dry-run]
  *
@@ -147,6 +148,18 @@ if (flags.avatar && !existsSync(flags.avatar)) {
   die(`no such file: ${flags.avatar}`)
 }
 
+/*
+  A video post brings its clip, and the image argument becomes its poster: the
+  post's own thumbnail, which is the still every reader without motion sees.
+*/
+const videoFile = flags.video ? `${slug}.mp4` : null
+if (flags.video) {
+  if (!existsSync(flags.video)) die(`no such file: ${flags.video}`)
+  if (extname(flags.video).toLowerCase() !== ".mp4") {
+    die(`${flags.video} is not an .mp4; the card plays MP4 only`)
+  }
+}
+
 const source = await readFile(FEATURED_TS, "utf8")
 
 if (source.includes(`slug: "${slug}"`)) {
@@ -198,6 +211,7 @@ const entry = [
   `    added: ${str(added)},`,
   ...(flags.home ? [`    home: true,`] : []),
   `    image: ${imageVar},`,
+  ...(videoFile ? [`    video: ${str(`/featured/${videoFile}`)},`] : []),
   `  },`,
 ].join("\n")
 
@@ -243,6 +257,7 @@ await mkdir(IMAGES_DIR, { recursive: true })
 if (avatarFile) await mkdir(AVATARS_DIR, { recursive: true })
 
 await copyFile(image, join(IMAGES_DIR, imageFile))
+if (videoFile) await copyFile(flags.video, join(IMAGES_DIR, videoFile))
 if (avatarFile) await copyFile(flags.avatar, join(IMAGES_DIR, avatarFile))
 await writeFile(FEATURED_TS, next, "utf8")
 
@@ -251,6 +266,11 @@ console.log(`  public/featured/${imageFile}${c(90, `  <- ${basename(image)}`)}`)
 if (avatarFile) {
   console.log(
     `  public/featured/${avatarFile}${c(90, `  <- ${basename(flags.avatar)}`)}`
+  )
+}
+if (videoFile) {
+  console.log(
+    `  public/featured/${videoFile}${c(90, `  <- ${basename(flags.video)}`)}`
   )
 }
 console.log(`  lib/featured.ts${c(90, "  +1 entry")}`)
