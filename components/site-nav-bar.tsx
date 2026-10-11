@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import {
+  ArrowUpRight,
   Camera,
   Check,
   ChevronDown,
@@ -13,11 +14,18 @@ import {
 } from "@/components/icons"
 
 import { BrandMark } from "@/components/brand-mark"
-import { FigmaLogo, GitHubLogo, XLogo } from "@/components/brand-logos"
+import {
+  FigmaLogo,
+  GitHubLogo,
+  MakerMark,
+  XLogo,
+} from "@/components/brand-logos"
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
@@ -27,6 +35,8 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { formatStars } from "@/lib/github"
 import {
   currentHref,
+  MAKER_LABEL,
+  MAKER_PROJECTS,
   SET_FIGMA_PROFILE_URL,
   SET_REPO_URL,
   SET_TITLE,
@@ -271,6 +281,79 @@ export function SiteNavBar({
                   </DropdownMenu>
                 )
               })}
+
+              {/*
+                The maker's other projects, as a menu at the end of the routes.
+
+                A word rather than a mark, unlike the outbound row to its right.
+                X, GitHub and Figma are marks everyone reads at 16px; these are
+                not, and a row of unfamiliar logos says nothing until each one
+                is hovered. The menu's label is what says whose they are, and
+                each row says what the project is, for the reason the Examples
+                menu gives its rows a sentence.
+
+                `max-lg:hidden`, folding with the marks rather than with the
+                routes. At 768 the bar has 50px to spare and the trigger takes
+                75, and the phone menu carries the same rows below `lg`.
+
+                An arrow beside each name where the Examples menu puts its tick:
+                every other menu in the bar stays on the site, and this is the
+                one whose rows leave it.
+              */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1 rounded-lg px-3 py-2 text-muted-foreground transition-colors hover:text-foreground data-[popup-open]:text-foreground max-lg:hidden">
+                  More
+                  <ChevronDown className="size-3.5 opacity-60" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-72">
+                  <DropdownMenuGroup>
+                    <DropdownMenuLabel className="px-2">
+                      {MAKER_LABEL}
+                    </DropdownMenuLabel>
+                    {MAKER_PROJECTS.map((project) => (
+                      <DropdownMenuItem
+                        key={project.id}
+                        /*
+                          No `noreferrer`, for the reason the showcase cards
+                          dropped it: the referrer is how each project's own
+                          analytics learns the visit came from here, and with
+                          no Referrer-Policy set the browser sends the origin
+                          alone. No `ugc` either. These are not submitted
+                          links; the maker vouches for them.
+                        */
+                        render={
+                          <a
+                            href={project.href}
+                            target="_blank"
+                            rel="noopener"
+                          />
+                        }
+                        className="items-start gap-3 p-2"
+                      >
+                        <MakerMark
+                          project={project}
+                          className="mt-0.5 size-4 shrink-0 text-muted-foreground"
+                        />
+                        <span className="flex min-w-0 flex-col gap-0.5">
+                          <span className="flex items-center gap-2 leading-none">
+                            {project.name}
+                            <ArrowUpRight
+                              aria-hidden="true"
+                              className="size-3.5 text-muted-foreground"
+                            />
+                          </span>
+                          <span className="text-xs leading-snug text-muted-foreground">
+                            {project.description}
+                          </span>
+                        </span>
+                        <span className="sr-only">
+                          {" (opens in a new tab)"}
+                        </span>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
 
               {/*
                 A hairline, not a gap: the pages and the two outbound links are
@@ -524,6 +607,32 @@ export function SiteNavBar({
                   Figma
                   <span className="sr-only">{" (opens in a new tab)"}</span>
                 </DropdownMenuItem>
+
+                {/*
+                  The maker's projects, which the bar's own "More" menu holds
+                  from `lg`. Name and mark only: the label says whose they are,
+                  and a sentence under each would make this the longest group
+                  in a menu that is mostly single words.
+                */}
+                <DropdownMenuSeparator />
+                <DropdownMenuGroup>
+                  <DropdownMenuLabel>{MAKER_LABEL}</DropdownMenuLabel>
+                  {MAKER_PROJECTS.map((project) => (
+                    <DropdownMenuItem
+                      key={project.id}
+                      render={
+                        <a href={project.href} target="_blank" rel="noopener" />
+                      }
+                    >
+                      <MakerMark
+                        project={project}
+                        className="size-4 text-muted-foreground"
+                      />
+                      {project.name}
+                      <span className="sr-only">{" (opens in a new tab)"}</span>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuGroup>
               </DropdownMenuContent>
             </DropdownMenu>
 

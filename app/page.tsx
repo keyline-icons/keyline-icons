@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 
-import { GitHubLogo, NpmLogo } from "@/components/brand-logos"
-import { ArrowRight } from "@/components/icons"
+import { GitHubLogo, MakerMark, NpmLogo } from "@/components/brand-logos"
+import { ArrowRight, ArrowUpRight } from "@/components/icons"
 import { Glyph } from "@/components/glyph"
 import { HomeSearch } from "@/components/home-search"
 import { IconWall } from "@/components/icon-wall"
@@ -21,6 +22,7 @@ import { StyleShowcase } from "@/components/style-showcase"
 import dashboardData from "@/app/data.json"
 import { pickDashboardIcons } from "@/lib/dashboard-demo"
 import { homeFaq } from "@/lib/faq"
+import { MAKER_COVERS } from "@/lib/maker-covers"
 import { homeFeatured } from "@/lib/featured"
 import {
   HERO_FACT_ICON_NAMES,
@@ -42,6 +44,9 @@ import {
   pageMetadata,
 } from "@/lib/seo"
 import {
+  MAKER_LABEL,
+  MAKER_PROJECTS,
+  makerHost,
   SET_LICENSE,
   SET_LICENSE_NAME,
   SET_NPM_URL,
@@ -354,7 +359,9 @@ export default async function Page() {
                   one. `text-muted-foreground` on a heading is the same device
                   the hero's tagline uses, one level up.
                 */}
-                <span className="text-muted-foreground">four styles, two corners</span>
+                <span className="text-muted-foreground">
+                  four styles, two corners
+                </span>
               </h1>
 
               {/*
@@ -866,8 +873,8 @@ export default async function Page() {
           Only the licence appears in both, deliberately, because it is the
           question asked in both moods.
 
-          Before the sponsor card rather than after it. The ask is the last thing
-          the page says, and a list of questions under it would bury it.
+          Before the sponsor card rather than after it. The ask closes the
+          page's case, and a list of questions under it would bury it.
         */}
         <section className={`${CONTAINER} py-16 lg:py-24`}>
           <SectionHead
@@ -921,7 +928,7 @@ export default async function Page() {
           itself is one click away in the footer, on every page rather than
           only this one.
 
-          So the last thing the page does is ask, once, in the smallest shape
+          So the page closes its case by asking, once, in the smallest shape
           that can carry it. Both larger versions of this block were the same
           mistake at different sizes: a centred slab of prose with a button
           under it, which is a wall to read before finding out what it wants.
@@ -941,8 +948,8 @@ export default async function Page() {
           has started. This card is a footnote to the page rather than a subject
           of its own, and at 96 it floated in the middle of a screen of nothing,
           which is what put it as far from the demos above as the demos are from
-          each other. 48 keeps it clear of the last section and lets it settle
-          onto the footer, where an ask belongs.
+          each other. 48 keeps it clear of the sections either side of it,
+          which bring their own 96.
         */}
         <section className={`${CONTAINER} py-8 lg:py-12`}>
           {/*
@@ -1074,6 +1081,85 @@ export default async function Page() {
               )}
             </div>
           </div>
+        </section>
+
+        {/*
+          The maker's other projects, last on the page: under the sponsor card
+          and on top of the footer. Everything above is the set making its case
+          and then asking for something, and this is neither, so it waits until
+          both are done, where a reader finished with the set is looking for
+          somewhere to go next.
+
+          Two to a row, wrapping from the centre rather than a fixed grid, so a
+          third project sits centred under the first two and a fourth squares
+          them up, without anyone choosing a column count. Two rather than the
+          hero's three because each card leads with the project's own social
+          card, and at a third of the column that picture is 285px wide, which
+          takes its headline down to caption size. See `lib/maker-covers.ts`
+          for where the pictures come from.
+
+          Each card is a link with the address written on it, because a
+          card-shaped link with nothing on it that looks clickable is the
+          mistake the sponsor card above records.
+
+          The foot takes the sponsor card's 48 rather than the page's 96: this
+          is the block that meets the footer now, and 48 is the gap the page
+          already ended on.
+        */}
+        <section className={`${CONTAINER} pt-16 pb-8 lg:pt-24 lg:pb-12`}>
+          <SectionHead title={MAKER_LABEL} />
+
+          <ul className="mx-auto mt-10 flex max-w-5xl flex-wrap justify-center gap-3">
+            {MAKER_PROJECTS.map((project) => {
+              const cover = MAKER_COVERS[project.id]
+
+              return (
+                <li
+                  key={project.id}
+                  className="w-full md:w-[calc((100%-0.75rem)/2)]"
+                >
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener"
+                    className="flex h-full flex-col gap-6 rounded-lg bg-muted p-6 transition-colors hover:bg-muted-hover"
+                  >
+                    {/*
+                      Cropped to 1200 by 630, the shape `og:image` is drawn to,
+                      so a card whose site publishes another shape (Overflow's
+                      is 1500 by 960) loses margin top and bottom rather than
+                      standing taller than its neighbour. Empty `alt`: the
+                      link's name is the text under it, and the picture is the
+                      project's advert for itself rather than content of this
+                      page.
+                    */}
+                    {cover && (
+                      <Image
+                        src={cover}
+                        alt=""
+                        sizes="(min-width: 1088px) 458px, (min-width: 768px) 42vw, calc(100vw - 96px)"
+                        className="aspect-[1200/630] w-full rounded-md object-cover"
+                      />
+                    )}
+                    <p className="text-lg leading-snug font-medium tracking-tight text-balance text-muted-foreground">
+                      <span className="flex items-center gap-2 text-foreground">
+                        <MakerMark project={project} className="size-5" />
+                        {project.name}
+                      </span>
+                      {project.description}
+                    </p>
+                    {/* `mt-auto`, so the address lines up across cards whose
+                        descriptions run to different lengths. */}
+                    <span className="mt-auto flex items-center gap-1 text-sm text-muted-foreground">
+                      {makerHost(project)}
+                      <ArrowUpRight aria-hidden="true" className="size-4" />
+                    </span>
+                    <span className="sr-only">{" (opens in a new tab)"}</span>
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
         </section>
       </main>
 

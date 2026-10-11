@@ -393,6 +393,63 @@ export const SET_PAPER_URL = SET_PAPER_FILES[0].url
 export const SET_SPONSOR_URL = "https://github.com/sponsors/keyline-icons"
 
 /**
+ * What the maker's other work is called, in the bar's menu, the footer and the
+ * landing page's section, which is why it is one string.
+ *
+ * "The maker" rather than a name, for the reason `SET_TITLE` holds the
+ * copyright: the author does not want their legal name on the page. And not
+ * "Sponsors" or "Partners", the labels a row of other companies' marks usually
+ * wears. Nobody paid for these places. They are projects the person drawing the
+ * set owns or works on, and the heading has to say so before a reader assumes
+ * the other thing.
+ */
+export const MAKER_LABEL = "More from the maker"
+
+/**
+ * The maker's other projects, in the order every surface lists them.
+ *
+ * Not rows in `SITE_LINKS`, for the reason the footer's outbound links are
+ * not: that list is also the sitemap, and a sitemap may only name its own
+ * origin.
+ *
+ * One list for every place that renders it, so a project added here reaches the
+ * bar's menu, the phone menu, the footer and the landing page in one edit. Two
+ * pictures go with it, both filed under `id`: its mark in `MAKER_LOGOS`
+ * (`components/brand-logos.tsx`) and its social card in `MAKER_COVERS`
+ * (`lib/maker-covers.ts`). A row missing either still renders, by name alone or
+ * without a picture, so the edits can land in any order without breaking a
+ * page.
+ */
+export type MakerProject = {
+  /** The key its mark is filed under in `MAKER_LOGOS`. */
+  id: string
+  name: string
+  href: string
+  /** One line on what it is, for the bar's menu and the landing page's cards. */
+  description: string
+}
+
+export const MAKER_PROJECTS: readonly MakerProject[] = [
+  {
+    id: "overflow",
+    name: "Overflow Design",
+    href: "https://www.overflow.design",
+    description: "Hand-drawn icons, illustrations and covers for Notion",
+  },
+  {
+    id: "preline",
+    name: "Preline UI",
+    href: "https://preline.co",
+    description:
+      "Open-source Tailwind CSS components, with Pro blocks and templates",
+  },
+]
+
+/** A project's address as a reader would type it: no scheme, no `www.`. */
+export const makerHost = (project: MakerProject) =>
+  new URL(project.href).host.replace(/^www\./, "")
+
+/**
  * Who holds the copyright: the project, deliberately.
  *
  * `SET_TITLE` serves as the holder in both places that name one, the footer

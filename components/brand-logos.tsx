@@ -1,6 +1,7 @@
 import { useId, type SVGProps } from "react"
 
 import { BrandMark } from "@/components/brand-mark"
+import type { MakerProject } from "@/lib/site-chrome"
 
 /**
  * Three company logos, GitHub's, X's and Figma's, for the links that point at
@@ -558,4 +559,95 @@ export function RedditLogo(props: LogoProps) {
       <path d="M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.314 3.515 8.485l-2.286 2.286C.775 23.225 1.097 24 1.738 24H12c6.627 0 12-5.373 12-12S18.627 0 12 0Zm4.388 3.199c1.104 0 1.999.895 1.999 1.999 0 1.105-.895 2-1.999 2-.946 0-1.739-.657-1.947-1.539v.002c-1.147.162-2.032 1.15-2.032 2.341v.007c1.776.067 3.4.567 4.686 1.363.473-.363 1.064-.58 1.707-.58 1.547 0 2.802 1.254 2.802 2.802 0 1.117-.655 2.081-1.601 2.531-.088 3.256-3.637 5.876-7.997 5.876-4.361 0-7.905-2.617-7.998-5.87-.954-.447-1.614-1.415-1.614-2.538 0-1.548 1.255-2.802 2.803-2.802.645 0 1.239.218 1.712.585 1.275-.79 2.881-1.291 4.64-1.365v-.01c0-1.663 1.263-3.034 2.88-3.207.188-.911.993-1.595 1.959-1.595Zm-8.085 8.376c-.784 0-1.459.78-1.506 1.797-.047 1.016.64 1.429 1.426 1.429.786 0 1.371-.369 1.418-1.385.047-1.017-.553-1.841-1.338-1.841Zm7.406 0c-.786 0-1.385.824-1.338 1.841.047 1.017.634 1.385 1.418 1.385.785 0 1.473-.413 1.426-1.429-.046-1.017-.721-1.797-1.506-1.797Zm-3.703 4.013c-.974 0-1.907.048-2.77.135-.147.015-.241.168-.183.305.483 1.154 1.622 1.964 2.953 1.964 1.33 0 2.47-.81 2.953-1.964.057-.137-.037-.29-.184-.305-.863-.087-1.795-.135-2.769-.135Z" />
     </svg>
   )
+}
+
+/**
+ * The marks of the maker's other projects, for `MAKER_PROJECTS` in
+ * `lib/site-chrome.ts`.
+ *
+ * In `currentColor`, both of them, so they sit in the bar's menu, the footer and
+ * the landing page's cards in the same ink as GitHub's and X's. That is each
+ * project's own rule rather than this site's: Overflow's mark is drawn in
+ * `currentColor` on its own site, and Preline's turns white in its own dark
+ * theme, so neither is a fixed colour the way Figma's five are.
+ *
+ * The paths are each project's published mark, not redrawn: Overflow's from its
+ * `lib/brand-mark.json`, Preline's the symbol half of its wordmark, cropped to
+ * the square it sits in.
+ */
+export function OverflowLogo(props: LogoProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 28 40"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path
+        d="M26.7727 20C26.7727 30.7696 18.0423 39.5 7.27273 39.5C4.89047 39.5 2.60902 39.073 0.5 38.2919V1.70814C2.60902 0.926961 4.89047 0.5 7.27273 0.5C18.0423 0.5 26.7727 9.23045 26.7727 20Z"
+        stroke="currentColor"
+      />
+      <path
+        d="M14.9545 20C14.9545 23.5723 12.1888 26.4986 8.68176 26.7546V13.2454C12.1888 13.5014 14.9545 16.4277 14.9545 20Z"
+        stroke="currentColor"
+      />
+      <path
+        d="M11.8181 20C11.8181 17.4618 11.2402 15.1261 10.2711 13.2727C9.99888 13.0909 9.19994 12.7273 8.18176 12.7273C9.09298 14.7309 9.63631 17.256 9.63631 20C9.63631 22.744 9.09298 25.2691 8.18176 27.2727C9.05449 27.2727 9.93827 26.9091 10.2711 26.7273C11.2402 24.8739 11.8181 22.5382 11.8181 20Z"
+        fill="currentColor"
+        fillOpacity={0.2}
+      />
+      <path
+        d="M0 38.1818C5.92652 34.8637 10 27.9684 10 20C10 12.0316 5.92652 5.13625 0 1.81818V38.1818Z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
+
+export function PrelineLogo(props: LogoProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 2 26 26"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path
+        d="M1 28V15C1 8.37258 6.37258 3 13 3C19.6274 3 25 8.37258 25 15C25 21.6274 19.6274 27 13 27H12"
+        stroke="currentColor"
+        strokeWidth={2}
+      />
+      <path
+        d="M5 28V15.16C5 10.6534 8.58172 7 13 7C17.4183 7 21 10.6534 21 15.16C21 19.6666 17.4183 23.32 13 23.32H12"
+        stroke="currentColor"
+        strokeWidth={2}
+      />
+      <circle cx="13" cy="15.0214" r="5" fill="currentColor" />
+    </svg>
+  )
+}
+
+/**
+ * The marks above, filed under each project's `id`. Partial on purpose: a
+ * project added to the list before its mark is drawn renders by name alone.
+ */
+export const MAKER_LOGOS: Partial<
+  Record<string, (props: LogoProps) => React.ReactElement>
+> = {
+  overflow: OverflowLogo,
+  preline: PrelineLogo,
+}
+
+/** A project's mark, or nothing if it has none yet. */
+export function MakerMark({
+  project,
+  ...props
+}: LogoProps & { project: MakerProject }) {
+  const Logo = MAKER_LOGOS[project.id]
+
+  return Logo ? <Logo {...props} /> : null
 }

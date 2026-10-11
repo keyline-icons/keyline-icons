@@ -1,9 +1,11 @@
 import Link from "next/link"
 
 import { BrandMark } from "@/components/brand-mark"
-import { FigmaLogo, XLogo } from "@/components/brand-logos"
+import { FigmaLogo, MakerMark, XLogo } from "@/components/brand-logos"
 import {
   LEGAL,
+  MAKER_LABEL,
+  MAKER_PROJECTS,
   SET_FIGMA_PROFILE_URL,
   SET_LICENSE_NAME,
   SET_REPO_URL,
@@ -185,6 +187,37 @@ export function SiteFooter() {
                 >
                   {link.label}
                 </Link>
+              ))}
+            </nav>
+
+            {/*
+              The maker's other projects, as a credit under the notice rather
+              than as a third group in the row opposite. That row is measured
+              to fit beside this block at `xl`, and two more names would break
+              it onto a second line at exactly the width it was fixed for.
+
+              Under the notice is also where it reads right: who made this, and
+              what else they make, in the same small print. The label is the
+              one ink-strength word, so the line cannot be read as two more
+              legal links.
+            */}
+            <nav
+              aria-label={MAKER_LABEL}
+              className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs"
+            >
+              <span className="font-medium text-foreground">{MAKER_LABEL}</span>
+              {MAKER_PROJECTS.map((project) => (
+                <a
+                  key={project.id}
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  <MakerMark project={project} className="size-3.5" />
+                  {project.name}
+                  <span className="sr-only">{" (opens in a new tab)"}</span>
+                </a>
               ))}
             </nav>
           </div>
