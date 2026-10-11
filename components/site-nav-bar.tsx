@@ -217,6 +217,24 @@ export function SiteNavBar({
                 know if another is added: `DropdownMenuContent` defaults to
                 `w-(--anchor-width)`, so a popup carrying descriptions has to say
                 a width or it comes out as narrow as the word "Examples".
+
+                `openOnHover`, here and on "More" below, so the two menus open as
+                the pointer reaches them rather than on a click. A word with a
+                chevron in a row of links is read as part of the row, and a
+                click spent only to see what is under it is a click a link
+                beside it does not ask for. Clicking still opens them, which
+                is what touch and the keyboard have, and a click within 500ms
+                of a hover-open leaves the menu open, so a reader who hovers
+                and clicks out of habit does not shut what just appeared. Base
+                UI drops the modal lock for a menu opened by hover, so the page
+                does not freeze under the pointer as it passes.
+
+                The open delay is Base UI's default, kept on purpose: it waits
+                for the pointer to rest 100ms on the trigger, and every movement
+                restarts the wait, so the menu appears once the hand has stopped,
+                which can read as half a second. `delay={0}` was tried and
+                opens on arrival instead, at the cost of flashing every menu a
+                pass along the bar crosses. The default won.
               */}
               {menus.map(([name, entries]) => {
                 const inMenu = entries.some((entry) => isCurrent(entry.href))
@@ -224,6 +242,7 @@ export function SiteNavBar({
                 return (
                   <DropdownMenu key={name}>
                     <DropdownMenuTrigger
+                      openOnHover
                       className={cn(
                         "flex items-center gap-1 rounded-lg px-3 py-2 transition-colors",
                         inMenu
@@ -301,7 +320,10 @@ export function SiteNavBar({
                 one whose rows leave it.
               */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 rounded-lg px-3 py-2 text-muted-foreground transition-colors hover:text-foreground data-[popup-open]:text-foreground max-lg:hidden">
+                <DropdownMenuTrigger
+                  openOnHover
+                  className="flex items-center gap-1 rounded-lg px-3 py-2 text-muted-foreground transition-colors hover:text-foreground data-[popup-open]:text-foreground max-lg:hidden"
+                >
                   More
                   <ChevronDown className="size-3.5 opacity-60" />
                 </DropdownMenuTrigger>
