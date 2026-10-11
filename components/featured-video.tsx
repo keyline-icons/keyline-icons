@@ -1,7 +1,23 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useSyncExternalStore } from "react"
 import type { StaticImageData } from "next/image"
+
+const REDUCED_MOTION = "(prefers-reduced-motion: reduce)"
+
+// The setting lives outside React, so it is read as an external store rather
+// than copied into state by an effect: that copy costs a second render, and
+// `react-hooks/set-state-in-effect` fails `pnpm lint` on it. The server cannot
+// read the setting, so it renders the moving clip and the client corrects it
+// straight after hydration. The subscription also follows the setting if it
+// changes while the page is open.
+function subscribe(onChange: () => void) {
+  const query = window.matchMedia(REDUCED_MOTION)
+  query.addEventListener("change", onChange)
+  return () => query.removeEventListener("change", onChange)
+}
+const prefersStill = () => window.matchMedia(REDUCED_MOTION).matches
+const onTheServer = () => false
 
 /**
  * A showcase clip: muted, looping, and only playing while it is on screen.
@@ -28,15 +44,11 @@ export function FeaturedVideo({
   label: string
 }) {
   const ref = useRef<HTMLVideoElement>(null)
-  const [still, setStill] = useState(false)
+  const still = useSyncExternalStore(subscribe, prefersStill, onTheServer)
 
   useEffect(() => {
     const video = ref.current
-    if (!video) return
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setStill(true)
-      return
-    }
+    if (!video || still) return
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) void video.play().catch(() => {})
@@ -45,8 +57,13 @@ export function FeaturedVideo({
       { threshold: 0.25 }
     )
     observer.observe(video)
-    return () => observer.disconnect()
-  }, [])
+    // Dropping `src` does not stop a clip that is already playing, so a
+    // setting switched on mid-play has to pause it here.
+    return () => {
+      observer.disconnect()
+      video.pause()
+    }
+  }, [still])
 
   return (
     <video
