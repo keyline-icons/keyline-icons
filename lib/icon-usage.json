@@ -99,8 +99,6 @@
     "input-text-cursor": "A text field with a caret and an I-beam, for typing into a field and editing a value.",
     "keyframes": "Two diamonds, one behind the other, for keyframes, animation timelines and motion editing.",
     "landmark": "A classical building on columns, for banks, branches, courts and public institutions.",
-    "layers-plus": "Stacked layers with a plus, for adding a layer, a new level or another overlay.",
-    "layers-minus": "Stacked layers with a minus, for removing a layer, flattening or taking an overlay away.",
     "layout-bento": "Tiles of mixed widths in two rows, for bento layouts, feature grids and dashboards.",
     "list-todo-circle": "Two empty circles beside two lines, for a to-do list, open tasks and radio options.",
     "money-bag": "A tied sack, for savings, deposits, funds and a pot of money.",

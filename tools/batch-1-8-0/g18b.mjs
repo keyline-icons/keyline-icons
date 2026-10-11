@@ -161,26 +161,33 @@ def('fold-horizontal', (sharp) => {
 }, [1, 4, 23, 20]);
 
 /* ------------------------------------------------------------------- diff */
-// The ref is our own plus (with the .005 its raw file carries, dropped here) raised 2, over
-// our minus on y=21: the other set's diff, name to name. A symbol glyph: every style the stroke,
+// The ref was our own plus raised 2 over our minus on y=21, the other set's diff, name to name:
+// 16 by 20 of ink, which the size rule reads as a vertical drawing short of 22. Here the plus
+// takes arms of 8 (path 4..20 by 2..18) and the minus the same width on y=22, 2 under the plus's
+// foot, so the ink is 18 by 22, the vertical band. A symbol glyph: every style the stroke,
 // black, as percent and command ship.
-def('diff', (sharp) => allStroke(openRun([[12, 3], [12, 17]], sharp) + openRun([[5, 10], [19, 10]], sharp) + openRun([[5, 21], [19, 21]], sharp)), [4, 2, 20, 22]);
+def('diff', (sharp) => allStroke(openRun([[12, 2], [12, 18]], sharp) + openRun([[4, 10], [20, 10]], sharp) + openRun([[4, 22], [20, 22]], sharp)), [3, 1, 21, 23]);
 
 /* ------------------------------------------------------------------ ratios */
 // Aspect ratios (Zafar's ask, 11 Oct 2026). A ratio is the shape itself, so each is one rounded
-// rectangle: the house body at r=3, its long side 18 (path, the 2..22 box a square sits in), its
-// short side the even number nearest the ratio, since an odd side cannot sit on whole equal
-// paddings. 16:9 draws 18 by 10 (1.80), 4:3 18 by 14 (1.29), 21:9 18 by 8 (2.25); 3:2 and 1:1
-// are exact, and 5:4 is left out because at 18 it is 4:3's 14. ratio-1-1 is square file for file,
-// as clock-3 is clock. One shape: duotone is the stroke, two-tone the plate under it.
+// rectangle, sized as the size rule sizes a rectangle: its long side 22 of ink (path 20, as the
+// horizontal and vertical bands have it), its short side the even number nearest the ratio,
+// since an odd side cannot sit on whole equal paddings. 4:3 draws 20 by 16 (1.25; 14 would be
+// 3:2's), 3:2 20 by 14 (1.43), 16:9 20 by 12 (1.67), 21:9 20 by 8 (2.50); 5:4 is left out
+// because it is 4:3's 16. ratio-1-1 is square file for file (the square band's 20), as clock-3
+// is clock. Radii by the ladder on the short side, as the set's own rectangles take them: 12 and
+// up is a body at r=3 (monitor is 20 by 12 at 3), under that a mid-size part at r=2 (input is
+// 20 by 10 at 2), so 21:9 turns at 2 where 3 would leave it a pill. One shape: duotone is the
+// stroke, two-tone the plate under it.
 const RATIOS = {
-  'ratio-1-1': [18, 18], 'ratio-4-3': [18, 14], 'ratio-3-4': [14, 18], 'ratio-3-2': [18, 12],
-  'ratio-2-3': [12, 18], 'ratio-16-9': [18, 10], 'ratio-9-16': [10, 18], 'ratio-21-9': [18, 8],
+  'ratio-1-1': [18, 18], 'ratio-4-3': [20, 16], 'ratio-3-4': [16, 20], 'ratio-3-2': [20, 14],
+  'ratio-2-3': [14, 20], 'ratio-16-9': [20, 12], 'ratio-9-16': [12, 20], 'ratio-21-9': [20, 8],
 };
 for (const [name, [w, h]] of Object.entries(RATIOS)) {
   def(name, (sharp) => {
     if (w === h) return Object.fromEntries(STY.map((s) => [s, rawLayers('square', s, C(sharp))]));
-    const body = polyLA([[12 - w / 2, 12 - h / 2], [12 + w / 2, 12 - h / 2], [12 + w / 2, 12 + h / 2], [12 - w / 2, 12 + h / 2]], sharp ? [0, 0, 0, 0] : [3, 3, 3, 3]);
+    const r = sharp ? 0 : Math.min(w, h) >= 12 ? 3 : 2;
+    const body = polyLA([[12 - w / 2, 12 - h / 2], [12 + w / 2, 12 - h / 2], [12 + w / 2, 12 + h / 2], [12 - w / 2, 12 + h / 2]], [r, r, r, r]);
     const d = dLA(body), plate = E(geo(grow(body)));
     return { stroke: [S(d)], 'two-tone': [Pl(plate), S(d)], duotone: [S(d)], fill: [F(plate)] };
   }, [11 - w / 2, 11 - h / 2, 13 + w / 2, 13 + h / 2]);
@@ -189,17 +196,19 @@ for (const [name, [w, h]] of Object.entries(RATIOS)) {
 /* ---------------------------------------------------------------- aspect-ratio */
 // Zafar's ask (11 Oct 2026, with a reference): one aspect-ratio drawing beside the ratios, a frame
 // with a corner mark in two opposite corners. The frame is 5:4, 20 by 16 (path 2..22 by 4..20) at
-// r=3, the house body; each mark is maximize's corner made smaller, arms 4 at r=2 (maximize's 6
-// at 3, the same half), set 4 in from the frame on both axes so it stands 2 clear of it, top right
-// and bottom left as the free diagonal runs. Tones as input's: the plate under the stroke in
-// two-tone, the marks black on the grey body in duotone and cut out of the solid in fill. Sharp:
-// the frame square, each mark's corner true and its ends a unit on.
+// r=3, the house body; each mark is a corner with arms of 4, set 4 in from the frame on both axes
+// so it stands 2 clear of it, top right and bottom left as the free diagonal runs. A mark is a
+// small detail, so it turns at r=1 (r=2, maximize's corner halved, read rounder than the frame
+// round it: Zafar, 11 Oct 2026); at 1 its outer edge turns at 2, as the frame's inner edge does
+// beside it. Tones as input's: the plate under the stroke in two-tone, the marks black on the
+// grey body in duotone and cut out of the solid in fill. Sharp: the frame square, each mark's
+// corner true and its ends a unit on.
 function aspectRatio(sharp) {
   const frame = polyLA([[2, 4], [22, 4], [22, 20], [2, 20]], sharp ? [0, 0, 0, 0] : [3, 3, 3, 3]);
   const d = dLA(frame), plate = geo(grow(frame));
   const marks = sharp
     ? openRun([[14, 8], [18, 8], [18, 12]], true) + openRun([[6, 12], [6, 16], [10, 16]], true)
-    : 'M14 8L16 8C17.1046 8 18 8.8954 18 10L18 12M6 12L6 14C6 15.1046 6.8954 16 8 16L10 16';
+    : openD([[14, 8], [18, 8], [18, 12]], [0, 1, 0]) + openD([[6, 12], [6, 16], [10, 16]], [0, 1, 0]);
   return {
     stroke: [S(d + marks)], 'two-tone': [Pl(E(plate)), S(d + marks)], duotone: [Pl(E(plate)), S(marks)],
     fill: [F(E(B.subtract(plate, B.union(...bandsOf(marks, sharp).map((r) => [r])))))],
@@ -208,31 +217,34 @@ function aspectRatio(sharp) {
 
 /* ------------------------------------------------------- undo, redo, -dot */
 // Zafar's ask: "we don't have undo and undo-dot". Built from rotate-ccw, the set's own curved arrow:
-// its r=9 arc and its corner head, an L with r=0.5 at the corner whose bisector runs along the
-// arc's tangent. Here the arc sweeps 135 degrees, from its free end pointing down on the right
-// up over the top to 45 degrees on the left, where the tangent runs at 45 degrees and the head is
-// therefore square to the axes. The arc stops short of the corner by g = 7 sqrt 2 - 9 (0.90,
-// rotate-ccw's is 0.76), which is what puts the corner on x=4 with the centre on x=11: ink 3..21.
-// The arms are 4.27, the length that takes the upper one to y=7 so the ink is 6..18, 12 tall
-// (the arc alone is 11, which cannot sit on whole paddings). The -dot puts a 4 dot on the arc's
-// centre line, its foot on 18 with the arc's free end: the 2 mark it began as read small (Zafar,
-// 11 Oct 2026) and a 3 bead is still a speck at 16, and centred on the arc's centre any bigger one
-// would paint below undo's box. Its arrow goes grey there, as history greys rotate-ccw's under its hands. redo and
-// redo-dot are the mirrors, as the other set pairs them. Sharp: the arc's free end a unit on, its
-// other end run on to the corner, the corner true and each arm a unit on.
-const UNDO = { c: [11, 17], r: 9, g: 7 * R2 - 9 };
+// its arc and its corner head, an L with r=0.5 at the corner whose bisector runs along the arc's
+// tangent. Here the arc sweeps 135 degrees, from its free end pointing down on the right up over
+// the top to 45 degrees on the left, where the tangent runs at 45 degrees and the head is
+// therefore square to the axes. A horizontal drawing, so 22 wide by the size rule: the free end on
+// x=22 and the corner on x=2. That fixes the arc against the gap g it leaves before the corner,
+// r (1 + 1/sqrt 2) + g/sqrt 2 = 20; r=11.5 about (10.5, 18) leaves g = 0.52, the nearest of the
+// half steps to rotate-ccw's 0.76 (r=11 would leave 1.73 of straight before the corner). The arms
+// are 4.24, the length that takes the upper one to y=6, so the ink is 1..23 by 5..19, whole on
+// both axes (the arc alone stands 5.5 off the top). The -dot puts a 4 dot on the arc's centre
+// line, its foot on 19 with the arc's free end: the 2 mark it began as read small (Zafar, 11 Oct
+// 2026) and a 3 bead is still a speck at 16. Its arrow goes grey there, as history greys
+// rotate-ccw's under its hands. redo and redo-dot are the mirrors, as the other set pairs them.
+// Sharp: the arc's free end a unit on, its other end run on to the corner, the corner true and
+// each arm a unit on.
+const UNDO = { c: [10.5, 18], r: 11.5, corner: 2, top: 6 };
+UNDO.g = (UNDO.c[0] - UNDO.r / R2 - UNDO.corner) * R2;
 function undoArrow(sharp) {
-  const { c, r, g } = UNDO;
+  const { c, r, g, corner: x, top } = UNDO;
   const end = [c[0] - r / R2, c[1] - r / R2], t = [-1 / R2, 1 / R2];
-  const k = L.add(end, L.mul(t, g)), arm = k[1] - 7;
-  assert(Math.abs(k[0] - 4) < 1e-9, 'undo corner off x=4');
+  const k = L.add(end, L.mul(t, g)), arm = k[1] - top;
+  assert(Math.abs(k[0] - x) < 1e-9 && Math.abs(c[0] + r - 22) < 1e-9, 'undo off the 2..22 path');
   const arc = (sharp ? `M${P([c[0] + r, c[1] + 1])}L${P([c[0] + r, c[1]])}` : `M${P([c[0] + r, c[1]])}`) + L.arcC(c, r, 0, -135) + (sharp ? `L${P(k)}` : '');
   const head = sharp
-    ? poly([[4, 6], k, [k[0] + arm + 1, k[1]]])
-    : `M4 7L${P([4, k[1] - 0.5])}C${P([4, k[1] - 0.5 + 0.5 * 0.5523])} ${P([4.5 - 0.5 * 0.5523, k[1]])} ${P([4.5, k[1]])}L${P([k[0] + arm, k[1]])}`;
+    ? poly([[x, top - 1], k, [k[0] + arm + 1, k[1]]])
+    : `M${P([x, top])}L${P([x, k[1] - 0.5])}C${P([x, k[1] - 0.5 + 0.5 * 0.5523])} ${P([x + 0.5 - 0.5 * 0.5523, k[1]])} ${P([x + 0.5, k[1]])}L${P([k[0] + arm, k[1]])}`;
   return arc + head;
 }
-const UNDO_DOT = L.circle([UNDO.c[0], 16], 2);
+const UNDO_DOT = L.circle([UNDO.c[0], 17], 2);
 const mirrorAll = (v) => Object.fromEntries(STY.map((s) => [s, v[s].map(({ kind, d }) => ({ kind, d: X.mirrorX(d) }))]));
 const undo = (sharp) => allStroke(undoArrow(sharp));
 const undoDot = (sharp) => {
@@ -240,10 +252,10 @@ const undoDot = (sharp) => {
   return { stroke: [S(a), F(UNDO_DOT)], 'two-tone': [M(a), F(UNDO_DOT)], duotone: [M(a), F(UNDO_DOT)], fill: [S(a), F(UNDO_DOT)] };
 };
 def('aspect-ratio', aspectRatio, [1, 3, 23, 21]);
-def('undo', undo, [3, 6, 21, 18]);
-def('undo-dot', undoDot, [3, 6, 21, 18]);
-def('redo', (sharp) => mirrorAll(undo(sharp)), [3, 6, 21, 18]);
-def('redo-dot', (sharp) => mirrorAll(undoDot(sharp)), [3, 6, 21, 18]);
+def('undo', undo, [1, 5, 23, 19]);
+def('undo-dot', undoDot, [1, 5, 23, 19]);
+def('redo', (sharp) => mirrorAll(undo(sharp)), [1, 5, 23, 19]);
+def('redo-dot', (sharp) => mirrorAll(undoDot(sharp)), [1, 5, 23, 19]);
 
 /* -------------------------------------------------------------- text-cursor */
 // Zafar's I-beam (refs/): serifs that sweep out of the stem in one curve each. Zafar drew it 7 wide
@@ -350,20 +362,22 @@ function keyframes(sharp) {
 def('keyframes', keyframes, [2, 2, 22, 22]);
 
 /* ----------------------------------------------------------------- card-sim */
-// The ref, the other set's name: a card 14 by 18 with its corner cut 5 on each axis, every
-// corner r=2 as Zafar drew it (the card's short side puts it on the mid-size rung, and 2 fills to 3),
-// and a 6-unit chip 2 clear of the walls and the floor. Duotone: the card grey and the chip a
-// black solid over it (details as black solids); fill: the card solid with the chip's outline cut
-// out. Sharp: every corner true.
+// The ref, the other set's name: a card with its corner cut 5 on each axis, every corner r=2 as
+// Zafar drew it (the card's short side puts it on the mid-size rung, and 2 fills to 3), and a
+// 6-unit chip at r=1 (a small detail) 2 clear of the walls and the floor. Zafar's card was 14 by
+// 18, 16 by 20 of ink, which the size rule reads as a vertical drawing short of 22: here it is
+// 14 by 20 (path 5..19 by 2..22), the narrow vertical band, 16 by 22, its width kept. Duotone:
+// the card grey and the chip a black solid over it (details as black solids); fill: the card
+// solid with the chip's outline cut out. Sharp: every corner true.
 function cardSim(sharp) {
   const r = sharp ? 0 : 2, rc = sharp ? 0 : 1;
-  const body = polyLA([[5, 3], [14, 3], [19, 8], [19, 21], [5, 21]], [r, r, r, r, r]);
-  const chip = polyLA([[9, 11], [15, 11], [15, 17], [9, 17]], [rc, rc, rc, rc]);
+  const body = polyLA([[5, 2], [14, 2], [19, 7], [19, 22], [5, 22]], [r, r, r, r, r]);
+  const chip = polyLA([[9, 12], [15, 12], [15, 18], [9, 18]], [rc, rc, rc, rc]);
   const plate = geo(grow(body)), ring = B.subtract(geo(grow(chip)), geo(offsetLA(chip, -1)));
   const d = dLA(body) + dLA(chip);
   return { stroke: [S(d)], 'two-tone': [Pl(E(plate)), S(d)], duotone: [Pl(E(plate)), F(E(geo(grow(chip))))], fill: [F(E(B.subtract(plate, ring)))] };
 }
-def('card-sim', cardSim, [4, 2, 20, 22]);
+def('card-sim', cardSim, [4, 1, 20, 23]);
 
 /* ---------------------------------------------------------------------- box */
 // Zafar's `box`, the other set's name: the isometric box. It is our package without its tape, every
@@ -414,13 +428,15 @@ def('layout-bento', (sharp) => transposeAll(fromRaw('layout-dashboard', (l) => l
 // a solid axis, the flip that shows an object and where its mirror will land. A second drawing of
 // flip-horizontal (which mirrors two triangles), so -2 on the base. Not scan's corners: it is the
 // square, r=3 (Zafar's 2.5 is off the ladder), its dashed half square-dashed's own right-hand dashes
-// so the rhythm is the set's, and the drawn half's ends 2 clear of the axis on x=8. Mirrors put
+// so the rhythm is the set's, and both halves' ends 2 clear of the axis, on x=8 and x=16: the
+// corner dashes run on along the top and the floor to meet it (where square-dashed stops them,
+// they stood 4 off the axis against the drawn half's 2: Zafar, 11 Oct 2026). Mirrors put
 // their shapes grey and the axis black (flip-horizontal): duotone the drawn half a grey solid and
 // the dashes grey, two-tone its plate under the whole stroke, fill it solid with the rest stroked.
 function flip2(sharp) {
   const half = sharp ? 'M9 3L3 3L3 21L9 21' : openD([[8, 3], [3, 3], [3, 21], [8, 21]], [0, 3, 3, 0]);
   const axis = sharp ? 'M12 2L12 22' : 'M12 3L12 21';
-  const dashes = sharp ? 'M17 3L21 3L21 7M21 9.5L21 14.5M21 17L21 21L17 21' : 'M18 3C19.6569 3 21 4.3431 21 6M21 10.5L21 13.5M21 18C21 19.6569 19.6569 21 18 21';
+  const dashes = sharp ? 'M15 3L21 3L21 7M21 9.5L21 14.5M21 17L21 21L15 21' : 'M16 3L18 3C19.6569 3 21 4.3431 21 6M21 10.5L21 13.5M21 18C21 19.6569 19.6569 21 18 21L16 21';
   // the drawn half filled to its outer edge: the bracket grown a unit, closed 2 short of the axis
   const solid = E(geo(polyLA([[2, 2], [9, 2], [9, 22], [2, 22]], sharp ? [1, 0, 0, 1] : [4, 1, 1, 4])));
   return {
@@ -544,7 +560,8 @@ const rawBox = (name, container = 'regular') => (sharp) => paintedBox(rawLayers(
 function notchedPlate(sharp, { outline, kept, silhouette, notch }) {
   if (sharp) return B.subtract(shapeOf(silhouette), shapeOf(notch));
   // each band its own shape: overlapping runs inside one shape cancel under evenodd
-  return B.union(B.subtract(shapeOf(outline), shapeOf(notch)), ...bandsOf(kept, false).map((r) => [r]));
+  const region = typeof outline === 'string' ? shapeOf(outline) : outline;
+  return B.union(B.subtract(region, shapeOf(notch)), ...bandsOf(kept, false).map((r) => [r]));
 }
 const SEARCH = (l, t, sharp) => L.circle([l + 2.5, t + 2.5], 2.5)
   + (sharp ? poly([[l + 4.2678, t + 4.2678], [l + 6.2929, t + 6.2929]]) : poly([[l + 4.5, t + 4.5], [l + 6, t + 6]]));
@@ -584,31 +601,6 @@ def('file-diff', (sharp) => {
   };
 }, rawBox('file'));
 
-/* ------------------------------------------------------- layers-plus, layers-minus */
-// The ref, the other set's name: layers with the plus in the bottom-right 6 box, flush on the
-// stack's ink corner. The two lower layers stop where Zafar stopped them, at their vertex fillets
-// (the middle one before it, the bottom one after), which leaves the plus 2.59 clear; the top
-// layer is whole. Tones as layers': the top's plate under everything, the lower layers and the
-// sign black in duotone and stroked over the solid top in fill. layers-minus (asked 11 Oct 2026,
-// whether layers takes other signs: add and remove a layer is the pair a layers panel has; a
-// check, an x or an alert names nothing done to a layer) is the plus's drawing with the minus in
-// the same box, the base cut the same, as folder-minus is folder-plus's.
-const layersSign = (sign) => (sharp) => {
-  const top = subs(rawLayers('layers', 'stroke', C(sharp))[0].d)[0];
-  const lower = sharp
-    ? 'M1.4819 11.7151L11.5618 17.2591M1.4819 16.2151L12 22L12.4382 21.7827'
-    : 'M2 12.625L11.5618 17.2864M2 17.2375L11.5618 21.8989C11.8384 22.0337 12.1616 22.0337 12.4382 21.8989';
-  const s = sign[C(sharp)];
-  const plate = rawLayers('layers', 'two-tone', C(sharp)).find((l) => l.kind === 'plate').d;
-  const solid = rawLayers('layers', 'fill', C(sharp)).find((l) => l.kind === 'solid').d;
-  return { stroke: [S(top + lower + s)], 'two-tone': [Pl(plate), S(top + lower + s)], duotone: [Pl(plate), S(lower + s)], fill: [F(solid), S(lower + s)] };
-};
-def('layers-plus', layersSign({ regular: 'M19 16L19 22M16 19L22 19', sharp: 'M19 15L19 23M15 19L23 19' }), rawBox('layers'));
-// No box asserted here: in sharp the cut bottom layer turns at (12, 22) into a 0.49 stub, and ink()
-// reads that round join 0.25 short of the 23 it paints (so does inspect, and the pads it prints);
-// rendered, it reaches 23 and the drawing pads 1 all round, as layers-plus does.
-def('layers-minus', layersSign({ regular: 'M16 19L22 19', sharp: 'M15 19L23 19' }));
-
 /* ------------------------------------------------------------------ inbox-dot */
 // The ref: inbox with the dot badge on its top right, hung above the tray at the family's r=3,
 // which painted 1 at the top against 3 at the bottom. inbox and inbox-dot are a state pair, so the
@@ -637,8 +629,13 @@ def('inbox-dot', (sharp) => {
     kept = `M${P(piece.p[0])}C${P(piece.p[1])} ${P(piece.p[2])} ${P(piece.p[3])}L22 17C22 18.6569 20.6569 20 19 20L5 20C3.3431 20 2 18.6569 2 17L2 13C2 12.4464 2.1532 11.9036 2.4426 11.4317L6.122 5.4317C6.6675 4.5422 7.636 4 8.6794 4L14 4`;
   }
   const outline = rawLayers('inbox', 'stroke', C(sharp))[0].d;
+  // Rounded, the right side's cap sits on the slant's fillet a little right of where the slant
+  // crosses the notch line, so the outline's interior stops short of the cap and the plate dips
+  // between them. Filled out under the notch line to the cap's centre, the plate's edge runs flat
+  // along y = 11 into the cap's top, which it meets on its tangent.
+  const capX = sharp ? 0 : X.parseD(kept)[0].p[0][0];
   const plate = notchedPlate(sharp, {
-    outline: subs(outline)[0], kept,
+    outline: sharp ? subs(outline)[0] : B.union(shapeOf(subs(outline)[0]), shapeOf(`M${capX - 1} 10L${capX} 10L${capX} 12L${capX - 1} 12Z`)), kept,
     silhouette: rawLayers('inbox', 'two-tone', C(sharp)).find((l) => l.kind === 'plate').d,
     notch: sharp ? 'M15 -10L15 11L40 11L40 -10Z' : 'M15 -10L15 8C15 9.6569 16.3431 11 18 11L40 11L40 -10Z',
   });
@@ -817,37 +814,85 @@ def('flame-2', (sharp) => {
   // apart, so grown where it is drawn it stops 0.04 short of the floor's lowest point, a hairline
   // the fill's moat would take, and the fill would paint 0.011 short of the other styles' 23
   const inSolid = B.intersect([B.grow(B.runFromD(X.shift(inner, 0, 0.05))[0], 1)], plate);
-  // corners to 1, an opening: it moves nothing whose radius is 1 or more (the tips above stay to
-  // 0.0000, measured), so it rounds only the outer's two feet where the moat leaves the floor. The
-  // inner solid is left as it is: its corners at the floor turn by 0.01, and the floor is its own
-  const open1 = (shape) => shape.map((r) => B.grow(B.shrink(r, 1), 1));
-  const outerCut = B.subtract(plate, inSolid.map((r) => B.grow(r, 2)));
   return {
     stroke: [S(outer + inner)], 'two-tone': [Pl(E(plate)), S(outer + inner)],
     duotone: [Pl(E(plate)), F(E(inSolid))],
-    fill: [F(E([...open1(outerCut), ...inSolid]))],
+    fill: [F(E(B.subtract(plate, inSolid)))],
   };
 }, [3, 1, 21, 23]);
 
 /* ------------------------------------------------------------------ scribble */
 // Zafar's `illustration`: a freehand scribble, one stroke. Named for what it draws; illustration,
-// drawing and doodle are its search words. Redrawn on his word (11 Oct 2026, "wrong and ugly
-// turns"): his gesture kept, in at the middle of the left edge, up to the top, back down to the
-// bottom left, up to the right and down to the floor, drawn as four parallel passes on the free
-// diagonal 4 apart, each pair joined by a half turn of r=2, so every pass is straight, every turn
-// the same and every gap 2. Each runs as far as the 3..21 box lets it: the turns touch the top,
-// the right and the bottom left, the ends the left and the floor, ink 2..22. One element: every
-// style the stroke. Sharp: each end a stub along its pass.
+// drawing and doodle are its search words. Zafar's own line, fitted to the 3..21 box (ink 2..22),
+// with the three turns Zafar marked rolled round (11 Oct 2026, "just fix those angles", after a
+// rebuild on parallel passes was turned down). At the top, the bottom left and the right the
+// line turned at under 1, which pinches the white inside each loop to a point and leaves a
+// knuckle outside it. In each, the circle of r=1.5 that touches the line on both sides of the
+// turn takes the place of the line between the two points it touches, so the passes are Zafar's
+// exactly up to there and each loop ends round. 1.5 is the rung the loops leave room for: the
+// bottom-left loop's passes run 3.36 apart, so a 2 circle would only touch them a third of the
+// way up it. The hook at the end, unmarked, is Zafar's. Fitted to the box again after (the top
+// turn comes in 0.12, a 0.7 percent stretch). One element: every style the stroke. Sharp: each
+// end a stub along its run; the r=1.5 turns stay round, as fillets over 1.2 do.
+const SCRIBBLE = 'M3 11.5135C6.69667 8.18074 14.6181 1.84852 16.7305 3.18162C18.8429 4.51472 12.3297 10.7729 8.80905 13.7353C7.48881 14.8462 6.59105 17.1792 8.28095 17.6235C9.97086 18.0679 14.6181 13.7353 16.7305 11.5135C18.3148 9.84711 21.4079 8.18074 20.9552 11.5135C20.4272 15.4017 14.4943 17.7059 16.2024 20.4008C17.2586 22.0672 19.8991 19.8453 20.4272 18.7344';
+// where the fitted line turns tightest in each marked turn, as cubic index + t
+const SCRIBBLE_TURNS = [1.056, 3.002, 4.71];
+/** Point, velocity and signed curvature of a run of cubics at u (cubic index + t). */
+function lineAt(segs, u) {
+  const i = Math.max(0, Math.min(segs.length - 1, Math.floor(u))), t = u - i, [a, b, c, e] = segs[i], m = 1 - t;
+  const p = [0, 1].map((k) => m * m * m * a[k] + 3 * m * m * t * b[k] + 3 * m * t * t * c[k] + t * t * t * e[k]);
+  const v = [0, 1].map((k) => 3 * m * m * (b[k] - a[k]) + 6 * m * t * (c[k] - b[k]) + 3 * t * t * (e[k] - c[k]));
+  const w = [0, 1].map((k) => 6 * m * (c[k] - 2 * b[k] + a[k]) + 6 * t * (e[k] - 2 * c[k] + b[k]));
+  return { p, v, k: (v[0] * w[1] - v[1] * w[0]) / Math.hypot(...v) ** 3 };
+}
+/** The circle of radius r inside the turn at uTip that touches the line before it and after it. */
+function rollTurn(segs, uTip, r) {
+  // the centre stands r off the line on the turn's inside; its touch point walks back from the
+  // tip until the line after the turn stands r off the centre too
+  const sg = Math.sign(lineAt(segs, uTip).k);
+  const centre = (u) => { const { p, v } = lineAt(segs, u), l = Math.hypot(...v); return [p[0] - (sg * r * v[1]) / l, p[1] + (sg * r * v[0]) / l]; };
+  const after = [];
+  for (let u = uTip + 0.001; u <= Math.min(segs.length - 1e-9, uTip + 1.2); u += 0.001) after.push(u);
+  const nearest = (c) => after.reduce((m, u) => { const d = Math.hypot(...L.sub(lineAt(segs, u).p, c)); return d < m.d ? { d, u } : m; }, { d: Infinity, u: null });
+  let lo = uTip - 0.001, hi = null;
+  for (let u = uTip - 0.01; u >= Math.max(0, uTip - 1.2); u -= 0.01) { if (nearest(centre(u)).d > r) { hi = u; break; } lo = u; }
+  assert(hi !== null, `no r=${r} circle fits the scribble's turn at ${uTip}`);
+  for (let i = 0; i < 60; i++) { const mid = (lo + hi) / 2; if (nearest(centre(mid)).d > r) hi = mid; else lo = mid; }
+  const c = centre(hi);
+  let ub = nearest(c).u, best = Infinity;
+  for (let u = ub - 0.002; u <= ub + 0.002; u += 1e-5) { const d = Math.hypot(...L.sub(lineAt(segs, u).p, c)); if (d < best) { best = d; ub = u; } }
+  assert(Math.abs(best - r) < 1e-3, `scribble turn at ${uTip} touches ${best.toFixed(4)} off its circle`);
+  return { ua: hi, ub, c, sg };
+}
+function scribbleLine() {
+  const r = 1.5, segs = L.parseRuns(fitTo(SCRIBBLE, pathBox(SCRIBBLE), [3, 3, 21, 21]))[0].segs.map((s) => s.p);
+  const run = (u0, u1) => {
+    let o = '';
+    for (let i = Math.floor(u0); i < Math.ceil(u1 - 1e-12); i++) {
+      const t0 = Math.max(0, u0 - i), t1 = Math.min(1, u1 - i);
+      if (t1 - t0 > 1e-9) o += L.segD(L.segPiece({ t: 'C', p: segs[i] }, t0, t1));
+    }
+    return o;
+  };
+  let d = `M${P(segs[0][0])}`, u = 0;
+  for (const { ua, ub, c, sg } of SCRIBBLE_TURNS.map((t) => rollTurn(segs, t, r))) {
+    // a turn whose curvature is positive runs clockwise on screen, its angles increasing
+    let a0 = ang(c, lineAt(segs, ua).p), a1 = ang(c, lineAt(segs, ub).p);
+    if (sg > 0) while (a1 < a0) a1 += 360;
+    else while (a1 > a0) a1 -= 360;
+    d += run(u, ua) + L.arcC(c, r, a0, a1);
+    u = ub;
+  }
+  d += run(u, segs.length);
+  return fitTo(d, pathBox(d), [3, 3, 21, 21]);
+}
 function scribble(sharp) {
-  // t runs up the free diagonal, s across it (down and right); the box is |t| + |s| <= 9 sqrt 2
-  const at = (t, s) => [12 + (t + s) / R2, 12 + (s - t) / R2], lim = 9 * R2, r = 2;
-  const T = lim - 4 - r * R2, B = lim - r * R2, A = lim - 6;
-  const start = at(-A, -6), end = at(-A, 6);
-  const d = `M${P(sharp ? stubOut(start, at(T, -6)) : start)}L${P(at(T, -6))}` + L.arcC(at(T, -4), r, -135, 45)
-    + `L${P(at(-B, -2))}` + L.arcC(at(-B, 0), r, -135, -315)
-    + `L${P(at(T, 2))}` + L.arcC(at(T, 4), r, -135, 45)
-    + `L${P(sharp ? stubOut(end, at(T, 6)) : end)}`;
-  return allStroke(sharp ? d.replace(/^M([^L]*)L/, `M$1L${P(start)}L`) : d);
+  let d = scribbleLine();
+  if (sharp) {
+    const c = X.parseD(d), s0 = c[0].p[0], s1 = c[1].p[0], e1 = c.at(-1).p[1], e0 = c.at(-1).p[2];
+    d = `M${P(stubOut(s0, s1))}L${P(s0)}` + d.slice(1).replace(/^[^C]*/, '') + `L${P(stubOut(e0, e1))}`;
+  }
+  return allStroke(d);
 }
 def('scribble', scribble, [2, 2, 22, 22]);
 

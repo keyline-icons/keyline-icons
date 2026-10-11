@@ -79,7 +79,7 @@ export const CATEGORIES = [
   {
     label: "New",
     match:
-      /^(move-(up|down|left|right|up-left|up-right|down-left|down-right|horizontal|vertical|diagonal|diagonal-flip)|arrow-(down-up|up-down|left-right|right-left)-3|arrow-right-left-4|aspect-ratio|badge-terminal|bot-simple|box|braces-ellipsis|brackets-ellipsis|broom-sparkles|card-sim|chevrons-down-up|circle-dashed-user|compact|connections?|diff|directions|file-diff|flame-2|flip-2-(horizontal|vertical)|fold-(horizontal|vertical)|grid-masonry|hand-sparkles|handbag-search|home-smile|inbox-dot|input(-cursor|-sparkles|-text-cursor)?|keyframes|layers-(plus|minus)|layout-bento|list-todo-circle|ratio-(1-1|4-3|3-4|3-2|2-3|16-9|9-16|21-9)|(undo|redo)(-dot)?|scribble|shopping-basket-search|shuffle-2|text-cursor(-input)?|text-split|unplug|webhook)$/,
+      /^(move-(up|down|left|right|up-left|up-right|down-left|down-right|horizontal|vertical|diagonal|diagonal-flip)|arrow-(down-up|up-down|left-right|right-left)-3|arrow-right-left-4|aspect-ratio|badge-terminal|bot-simple|box|braces-ellipsis|brackets-ellipsis|broom-sparkles|card-sim|chevrons-down-up|circle-dashed-user|compact|connections?|diff|directions|file-diff|flame-2|flip-2-(horizontal|vertical)|fold-(horizontal|vertical)|grid-masonry|hand-sparkles|handbag-search|home-smile|inbox-dot|input(-cursor|-sparkles|-text-cursor)?|keyframes|layout-bento|list-todo-circle|ratio-(1-1|4-3|3-4|3-2|2-3|16-9|9-16|21-9)|(undo|redo)(-dot)?|scribble|shopping-basket-search|shuffle-2|text-cursor(-input)?|text-split|unplug|webhook)$/,
     blurb: "Drafts under review.",
   },
   // The machine that thinks: the bots, the brain wired to a circuit and the

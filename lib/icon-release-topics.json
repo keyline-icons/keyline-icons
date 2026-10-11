@@ -100,15 +100,13 @@
       },
       {
        "title": "Layout",
-       "text": "Two arrows pressing on a rule, across and upright, to fold. The flips again as a square half drawn and half dashed. A bento of tiles, a masonry grid, layers with a plus and with a minus, and a to-do list with round boxes.",
+       "text": "Two arrows pressing on a rule, across and upright, to fold. The flips again as a square half drawn and half dashed. A bento of tiles, a masonry grid and a to-do list with round boxes.",
        "names": [
         "fold-vertical",
         "fold-horizontal",
         "flip-2-horizontal",
         "flip-2-vertical",
         "grid-masonry",
-        "layers-plus",
-        "layers-minus",
         "layout-bento",
         "list-todo-circle"
        ]
