@@ -72,16 +72,11 @@ export const CATEGORIES = [
   // in Media beside image, the telescope in Science, coins in hand in Finance, the notebooks in Stationery, and the
   // gavel, the balances and the signature in Law, a shelf opened for them.
   //
-  // Opened 6 Oct 2026 for 1.8.0: the long arrows a user asked for beside the short ones, the other set's
-  // `move-*` row taken name to name. Every name is also matched by Arrows below, beside `move`.
-  // 11 Oct 2026, the same release: Zafar's refs batch, the aspect ratios and undo and redo, each also filed
-  // on its real shelf below.
-  {
-    label: "New",
-    match:
-      /^(move-(up|down|left|right|up-left|up-right|down-left|down-right|horizontal|vertical|diagonal|diagonal-flip)|arrow-(down-up|up-down|left-right|right-left)-3|arrow-right-left-4|aspect-ratio|badge-terminal|bot-simple|box|braces-ellipsis|brackets-ellipsis|broom-sparkles|card-sim|chevrons-down-up|circle-dashed-user|compact|connections?|diff|directions|file-diff|flame-2|flip-2-(horizontal|vertical)|fold-(horizontal|vertical)|grid-masonry|hand-sparkles|handbag-search|home-smile|inbox-dot|input(-cursor|-sparkles|-text-cursor)?|keyframes|layout-bento|list-todo-circle|ratio-(1-1|4-3|3-4|3-2|2-3|16-9|9-16|21-9)|(undo|redo)(-dot)?|scribble|shopping-basket-search|shuffle-2|text-cursor(-input)?|text-split|unplug|webhook)$/,
-    blurb: "Drafts under review.",
-  },
+  // Closed 11 Oct 2026, when Zafar passed 1.8.0: the long arrows a user asked for, the other set's `move-*` row
+  // name to name, in Arrows beside `move`, with the short pairs' third and fourth drawings and undo and redo.
+  // Zafar's refs batch filed with its families: flame-2 in Actions beside flame, the sparkle compounds and
+  // bot-simple in AI, box beside package in Commerce, card-sim and unplug in Devices, diff in Git, the inputs and
+  // the I-beam in Text, the nodes and the webhook in Web, and the aspect ratios in Media beside keyframes.
   // The machine that thinks: the bots, the brain wired to a circuit and the
   // brain turning a cog. The bare `brain` is an organ and goes to Health,
   // which is why this is anchored on the two names rather than on `brain`.
@@ -471,9 +466,7 @@ export const CATEGORIES = [
     // `frame` joined on 1 Oct 2026 (1.5.0): the design app's frame tool, beside
     // its magic wand. Anchored, so `frame-*` is filed on purpose.
     label: "Art",
-    // `scribble` joined on 11 Oct 2026 (1.8.0): a freehand line, the drawing an
-    // illustration starts as.
-    match: /^(paint|palette|easel|swatch-book$|wand$|frame$|scribble$)/,
+    match: /^(paint|palette|easel|swatch-book$|wand$|frame$)/,
     blurb: "The brush, the roller, the palette, the swatch book, the easel, the magic wand and the frame tool.",
   },
   {

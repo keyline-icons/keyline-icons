@@ -9804,14 +9804,6 @@ export function Scissors(props: IconProps) {
   )
 }
 
-export function Scribble(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M2.6715 11.7478L3 11.4501C5.9921 8.7386 11.7479 4.0548 14.9627 3.066C15.1052 3.0222 15.2534 3 15.4023 3C16.232 3 16.9046 3.6759 16.9046 4.5099C16.9046 4.7582 16.8436 5.0028 16.7271 5.2219C15.3973 7.7213 11.3405 11.5532 8.8179 13.6869C8.2858 14.1369 7.8223 14.7862 7.5685 15.4306C7.4989 15.6075 7.4632 15.796 7.4632 15.9862C7.4632 16.8201 8.1357 17.4961 8.9654 17.4961C9.1724 17.4961 9.377 17.4531 9.5666 17.3699C11.6901 16.4379 15.0459 13.2534 16.7516 11.4501C17.3241 10.8448 18.0934 10.2394 18.8216 9.8706C19.0313 9.7643 19.263 9.709 19.4977 9.709C20.3275 9.709 21 10.385 21 11.2189C21 11.2836 20.9959 11.3483 20.9877 11.4125C20.9861 11.425 20.9844 11.4376 20.9827 11.4501C20.4539 15.3645 14.512 17.6841 16.2227 20.3971C17.2805 22.0747 19.925 19.8379 20.4539 18.7195L20.7246 18.147" fill="none" />
-    </Icon>
-  )
-}
-
 export function Search2Check(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -14346,7 +14338,6 @@ export {
   Scan as ScanIcon,
   ScissorsHorizontal as ScissorsHorizontalIcon,
   Scissors as ScissorsIcon,
-  Scribble as ScribbleIcon,
   Search2Check as Search2CheckIcon,
   Search2List as Search2ListIcon,
   Search2Minus as Search2MinusIcon,
