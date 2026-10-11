@@ -6463,10 +6463,10 @@ const RELEASE_1_8_0: BlogPost = {
     {
       kind: "p",
       text:
-        "The four pairs of short arrows, `arrow-left-right`, " +
-        "`arrow-right-left`, `arrow-down-up` and `arrow-up-down`, were " +
-        "redrawn with the same head as the long ones, a size up from what they " +
-        "had, so a pair and a long arrow look like one family.",
+        "The four two-arrow pairs, `arrow-left-right`, `arrow-right-left`, " +
+        "`arrow-down-up` and `arrow-up-down`, were redrawn with the same head " +
+        "as the new arrows, a size up from what they had, so the pairs and " +
+        "the long arrows look like one family.",
     },
     {
       kind: "figure",
