@@ -1,5 +1,8 @@
 import type { StaticImageData } from "next/image"
 
+import leeway from "@/public/featured/leeway.png"
+import zafarlabFace from "@/public/featured/avatars/zafarlab.jpg"
+
 import valence from "@/public/featured/valence.png"
 import marquescodingFace from "@/public/featured/avatars/MarquesCoding.jpg"
 
@@ -112,6 +115,17 @@ export const FEATURED: FeaturedExample[] = [
     added: "2026-10-10",
     home: true,
     image: valence,
+  },
+  {
+    slug: "leeway",
+    title: "Leeway",
+    alt: "A scheduling view of who can book over your focus: faces in rings by how freely they can book, grouped by team, beside lists for any time, in your hours and ask first.",
+    name: "Zafar Ismatullaev",
+    x: "zafarlab",
+    post: "https://x.com/zafarlab/status/2107452588262379557",
+    avatar: zafarlabFace,
+    added: "2026-10-11",
+    image: leeway,
   },
 ]
 
