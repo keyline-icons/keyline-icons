@@ -126,7 +126,6 @@ export const FEATURED: FeaturedExample[] = [
     post: "https://x.com/MarquesCoding/status/2108952052499911168",
     avatar: marquescodingFace,
     added: "2026-10-10",
-    home: true,
     image: valence,
   },
   {
