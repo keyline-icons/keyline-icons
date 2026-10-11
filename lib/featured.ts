@@ -1,5 +1,8 @@
 import type { StaticImageData } from "next/image"
 
+import valence from "@/public/featured/valence.png"
+import marquescodingFace from "@/public/featured/avatars/MarquesCoding.jpg"
+
 /**
  * The showcase: screenshots of the set shipping in real interfaces, rendered on
  * `/examples` and, for the entries that earn it, on the landing page.
@@ -96,7 +99,21 @@ export type FeaturedExample = {
 }
 
 /** Everyone featured, oldest first, like `SPONSORS`. */
-export const FEATURED: FeaturedExample[] = []
+export const FEATURED: FeaturedExample[] = [
+  {
+    slug: "valence",
+    title: "Valence",
+    url: "https://getvalence.app",
+    alt: "Valence's dark admin console: a sidebar of activity, content, people and request sections beside CPU, memory, graphics and storage meters over a table of finished jobs.",
+    name: "Marques",
+    x: "MarquesCoding",
+    post: "https://x.com/MarquesCoding/status/2108952052499911168",
+    avatar: marquescodingFace,
+    added: "2026-10-10",
+    home: true,
+    image: valence,
+  },
+]
 
 /** The gallery's reading: everyone, newest first. */
 export const allFeatured = () =>
