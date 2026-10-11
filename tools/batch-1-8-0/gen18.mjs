@@ -1,8 +1,11 @@
-// Write every variant of the 1.8.0 batch in raw/ format into --out=DIR (never into raw/ itself).
+// Write every variant of the 1.8.0 batch (g18.mjs, the long arrows; g18b.mjs, his refs, the ratios
+// and undo) in raw/ format into --out=DIR (never into raw/ itself).
 //
 //   node tools/batch-1-8-0/gen18.mjs --out=DIR [name ...]
 //   node tools/batch-1-8-0/check.mjs          regenerate them all and diff against raw/
-import { STYLES } from './g18.mjs';
+import { STYLES as LONG } from './g18.mjs';
+import { STYLES as REFS } from './g18b.mjs';
+const STYLES = { ...LONG, ...REFS };
 import { writeSet } from '../batch-1-4-0/rawio.mjs';
 import { rmSync } from 'node:fs';
 const args = process.argv.slice(2);

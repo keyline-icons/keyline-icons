@@ -2407,7 +2407,6 @@
       "file-chart-pie",
       "file-clock",
       "file-code-corner",
-      "file-diff",
       "file-digit",
       "file-headphone",
       "file-heart",
@@ -2843,11 +2842,9 @@
       "wifi-off"
     ],
     "arrow-u-turn-left": [
-      "undo",
       "undo-2"
     ],
     "arrow-u-turn-right": [
-      "redo",
       "redo-2"
     ],
     "align-left": [

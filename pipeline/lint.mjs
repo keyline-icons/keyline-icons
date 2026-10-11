@@ -282,6 +282,31 @@ const SIZE_KNOWN = new Set([
   // reading of their half-turn symmetry rather than of the drawing. They stay
   // 20, as `shuffle` is.
   'arrow-left-right', 'arrow-right-left', 'arrow-down-up', 'arrow-up-down',
+  // arrow-right-left-4 (1.8.0) is that pair with one barb each, the same 20 wide
+  // and the same half-turn symmetry, so the same circle reading.
+  'arrow-right-left-4',
+  // braces-ellipsis (1.8.0): three marks on the 4 pitch need the braces 2 out
+  // each side to keep their bends 2 off the outer marks; at a unit out (20
+  // wide) they come within 1.61. The braces are the shipped pair, moved.
+  'braces-ellipsis',
+  // The aspect ratios (1.8.0, 11 Oct 2026). The ratio is the object, so each is
+  // the closest even pair at a long side of 18 (path; ink 20): 18 by 14, 12, 10
+  // and 8 for 4:3, 3:2, 16:9 and 21:9. At the rectangle band's 20 the even
+  // short sides miss 4:3, 3:2 and 16:9 by 5 to 6 per cent, where 18 holds them
+  // within 4, and a family drawn at two long sides stops comparing as one.
+  'ratio-4-3', 'ratio-3-4', 'ratio-3-2', 'ratio-2-3', 'ratio-16-9', 'ratio-9-16', 'ratio-21-9',
+  // undo is rotate-ccw's r=9 arc and corner head opened to 135 degrees, 18 by
+  // 12. The horizontal band's 22 is an r=11 arc, a different curve from the
+  // rotate arrow it is drawn from; the redo and -dot forms share the arrow.
+  'undo', 'undo-dot', 'redo', 'redo-dot',
+  // card-sim is Zafar's card, 14 by 18 at r=2 (ink 16 by 20). Grown to the vertical
+  // band's 22 at that proportion it is 16 by 20, the other set's card-sim
+  // outline coordinate for coordinate, chamfer and radii included.
+  'card-sim',
+  // diff is the set's own plus over its own minus, 2 between: 16 by 20. A
+  // symbol takes its parts' sizes, as percent does, and a 22 means a plus
+  // longer than the plus.
+  'diff',
 ]);
 /**
  * Drawings of a real product, which keep the product's proportions and radii
@@ -633,7 +658,7 @@ const FULL_LEVEL = /^(?:signal|wifi)$/;
  * sized by the tightest case, which is that facing-apart pair. 12 wide is the
  * largest unit that survives it, and the whole family uses it.
  */
-const CHEVRON = /^chevrons?-(?:up|down|left|right)(?:-(?:down|right))?$/;
+const CHEVRON = /^chevrons?-(?:up|down|left|right)(?:-(?:down|right|up))?$/;
 
 /**
  * Icons whose container is deliberately open on one side.

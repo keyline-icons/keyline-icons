@@ -74,9 +74,12 @@ export const CATEGORIES = [
   //
   // Opened 6 Oct 2026 for 1.8.0: the long arrows a user asked for beside the short ones, the other set's
   // `move-*` row taken name to name. Every name is also matched by Arrows below, beside `move`.
+  // 11 Oct 2026, the same release: Zafar's refs batch, the aspect ratios and undo and redo, each also filed
+  // on its real shelf below.
   {
     label: "New",
-    match: /^move-(up|down|left|right|up-left|up-right|down-left|down-right|horizontal|vertical|diagonal|diagonal-flip)$/,
+    match:
+      /^(move-(up|down|left|right|up-left|up-right|down-left|down-right|horizontal|vertical|diagonal|diagonal-flip)|arrow-(down-up|up-down|left-right|right-left)-3|arrow-right-left-4|aspect-ratio|badge-terminal|bot-simple|box|braces-ellipsis|brackets-ellipsis|broom-sparkles|card-sim|chevrons-down-up|circle-dashed-user|compact|connections?|diff|directions|file-diff|flame-2|flip-2-(horizontal|vertical)|fold-(horizontal|vertical)|grid-masonry|hand-sparkles|handbag-search|home-smile|inbox-dot|input(-cursor|-sparkles|-text-cursor)?|keyframes|layers-(plus|minus)|layout-bento|list-todo-circle|ratio-(1-1|4-3|3-4|3-2|2-3|16-9|9-16|21-9)|(undo|redo)(-dot)?|scribble|shopping-basket-search|shuffle-2|text-cursor(-input)?|text-split|unplug|webhook)$/,
     blurb: "Drafts under review.",
   },
   // The machine that thinks: the bots, the brain wired to a circuit and the
@@ -84,7 +87,7 @@ export const CATEGORIES = [
   // which is why this is anchored on the two names rather than on `brain`.
   {
     label: "AI",
-    match: /(^|-)sparkles?$|^(bot(-off|-circle|-square|-heart|-droplet|-star|-message|-cloud)?$|brain-circuit|brain-cog)/,
+    match: /(^|-)sparkles?$|^(bot(-off|-circle|-square|-heart|-droplet|-star|-message|-cloud|-simple)?$|brain-circuit|brain-cog)/,
     blurb:
       "The bots, the brain wired to a circuit and turning a cog, the sparkles and everything they mark as AI.",
   },
@@ -99,7 +102,9 @@ export const CATEGORIES = [
     // joined on 1 Oct 2026 (1.5.0): the same square left by the same arrow.
     // `move-` joined on 6 Oct 2026 (1.8.0): the long arrows, filed under the
     // name of the four-way `move` that heads their row in the other set.
-    match: /^(arrow|bracket-arrow|log-(in|out)$|expand|refresh|rotate|corner-|move(-|$)|square-arrow-in-|square-arrow-out-)/,
+    // `undo` and `redo` joined on 11 Oct 2026 (1.8.0): rotate-ccw's arc opened
+    // into a turn back, beside it and the u-turns. Anchored, with their -dot.
+    match: /^(arrow|bracket-arrow|log-(in|out)$|expand|refresh|rotate|corner-|move(-|$)|square-arrow-in-|square-arrow-out-|(undo|redo)(-dot)?$)/,
     blurb:
       "Direction, movement and resizing, short and long, with the brackets and the arrow into one, u-turns, corner turns and dashed panels.",
   },
@@ -114,7 +119,9 @@ export const CATEGORIES = [
   },
   {
     label: "Git",
-    match: /^git-/,
+    // `diff` joined on 11 Oct 2026 (1.8.0): what changed between two versions,
+    // the plus over the minus. `file-diff` stays with the files.
+    match: /^(git-|diff$)/,
     blurb: "Branches, commits, merges and pull requests.",
   },
   {
@@ -188,7 +195,7 @@ export const CATEGORIES = [
     // and one name does not earn a row.
     label: "Commerce",
     match:
-      /^(shopping-|handbag|briefcase|receipt|tag|package|truck|gift|coupon|(badge-)?percent|store|shirt$|paper-bag$|container$|glasses$|sunglasses$)/,
+      /^(shopping-|handbag|briefcase|receipt|tag|package|box$|truck|gift|coupon|(badge-)?percent|store|shirt$|paper-bag$|container$|glasses$|sunglasses$)/,
     blurb:
       "Carts, bags, a paper bag, receipts, shipping and its container, the shopfront, a shirt, the tags and the discount marks.",
   },
@@ -203,7 +210,9 @@ export const CATEGORIES = [
     // an anchor is not one. A prefix, so the anchor's states land here too.
     // `landmark` joined on 28 Sep 2026: the columned front a bank or a museum
     // wears, a building like `building` and `buildings` beside it, not money.
-    match: /^(map|compass|locate(-fixed)?$|building|landmark$|route|radar|flag$|traffic-light|milestone$|anchor(-|$))/,
+    // `directions` joined on 11 Oct 2026 (1.8.0): three ways out of a junction,
+    // beside the routes.
+    match: /^(map|compass|locate(-fixed)?$|building|landmark$|route|radar|flag$|traffic-light|milestone$|anchor(-|$)|directions$)/,
     blurb: "Pins, maps, compasses, the locate marks, routes, the radar, the buildings and a landmark, flags, a milestone, the lights at the junction and two anchors.",
   },
   // Opened 11 Sep 2026 with the seven of batch C, the first time the set has
@@ -231,9 +240,12 @@ export const CATEGORIES = [
     // wherever the two disagree — the same call the taxonomy makes for `wifi`.
     label: "Media",
     match:
-      /^(play|pause|stop|record|skip-|fast-forward|rewind|repeat|replay|volume|audio-lines|mic|megaphone|headphones|headset|earbuds|airpods|shuffle|music-note|list-music|list-video|camera|image|cast|subtitles|captions|picture-in-picture|gallery-|podcast|queue|film|airplay$|video(?:-2)?$|broadcast$|radio$|eject$)/,
+      /^(play|pause|stop|record|skip-|fast-forward|rewind|repeat|replay|volume|audio-lines|mic|megaphone|headphones|headset|earbuds|airpods|shuffle|music-note|list-music|list-video|camera|image|cast|subtitles|captions|picture-in-picture|gallery-|podcast|queue|film|airplay$|video(?:-2)?$|broadcast$|radio$|eject$|keyframes$|aspect-ratio$|ratio-)/,
     // `earbuds` and `airpods` beside `headphones`, 13 Sep 2026: what you listen
     // through files where listening does, not with the phone they pair to.
+    // `keyframes`, the aspect ratios and `aspect-ratio` joined on 11 Oct 2026
+    // (1.8.0): the timeline's marks and the shapes a frame is cut to, where video
+    // and photos are.
     blurb:
       "Playback, volume, capture, casting and AirPlay, eject, video, broadcast and the radio, the sound and image marks and what you listen through.",
   },
@@ -270,7 +282,9 @@ export const CATEGORIES = [
     // IS, and it is a desk device, not money. `usb` is a prefix, so `usb-drive`
     // and anything else on that port lands beside it.
     label: "Devices",
-    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse$|shredder$|gamepad$|tv$|regex$|webcam$)/,
+    // `card-sim` and `unplug` joined on 11 Oct 2026 (1.8.0): the phone's SIM, and
+    // `plug` pulled from its socket.
+    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse$|shredder$|gamepad$|tv$|regex$|webcam$|card-sim$|unplug$)/,
     blurb: "Phones, tablets, laptops, handsets, printers, keyboards, servers, databases, terminals, code and a regular expression, processors, bugs, the app tiles, the QR code, the scan frame with what it reads, a watch, a hard drive, a cable, a headset visor, the app windows, a CCTV camera, a mouse, a webcam, a shredder, a gamepad and a television.",
   },
   {
@@ -290,9 +304,12 @@ export const CATEGORIES = [
     // the thing it goes inside. `language` is here for the same reason and it is
     // the one that could have gone to Web — it is an A beside a CJK glyph, so it
     // is letterforms first and internationalisation second.
+    // The inputs and `compact` joined on 11 Oct 2026 (1.8.0): a field text is
+    // typed into, beside the text cursor that types it, and the summary a thread
+    // is compacted to. `input-sparkles` goes to AI on its sparkles.
     label: "Text",
     match:
-      /^(bold|italic|underline|strikethrough|heading|pilcrow|indent|letter-|line-height|text-|type$|quote|language|slash$|align-(?:left|center|right|justify)$|case-(sensitive|upper)$|a-arrow-(?:up|down)$|spell-check$|type-outline$|whole-word$)/,
+      /^(bold|italic|underline|strikethrough|heading|pilcrow|indent|letter-|line-height|text-|type$|quote|language|slash$|align-(?:left|center|right|justify)$|case-(sensitive|upper)$|a-arrow-(?:up|down)$|spell-check$|type-outline$|whole-word$|input(-|$)|compact$)/,
     blurb: "The quotation marks, the formatting marks, the case marks with the text-size arrows and the spell check, the slash, the alignment stack and what sets a paragraph.",
   },
   {
@@ -306,7 +323,9 @@ export const CATEGORIES = [
     // 1.5.0 added the columns, the blocks and the flips: blocks are the page's
     // own building pieces beside the grids, and a flip mirrors an object the way
     // `align-*` moves one.
-    match: /^(panel|layout|layers|grid|table(-|$)|list|align|menu|maximize|minimize|fullscreen|columns-|blocks(-|$)|flip-)/,
+    // `fold-` joined on 11 Oct 2026 (1.8.0): two arrows pressing a rule, what
+    // collapses a section, beside the fullscreen corners.
+    match: /^(panel|layout|layers|grid|table(-|$)|list|align|menu|maximize|minimize|fullscreen|columns-|blocks(-|$)|flip-|fold-)/,
     blurb: "Panels, layers, grids, blocks, columns, tables and their row, column and cell edits, lists, alignment, the flips, the menu marks and the fullscreen corners.",
   },
   {
@@ -452,7 +471,9 @@ export const CATEGORIES = [
     // `frame` joined on 1 Oct 2026 (1.5.0): the design app's frame tool, beside
     // its magic wand. Anchored, so `frame-*` is filed on purpose.
     label: "Art",
-    match: /^(paint|palette|easel|swatch-book$|wand$|frame$)/,
+    // `scribble` joined on 11 Oct 2026 (1.8.0): a freehand line, the drawing an
+    // illustration starts as.
+    match: /^(paint|palette|easel|swatch-book$|wand$|frame$|scribble$)/,
     blurb: "The brush, the roller, the palette, the swatch book, the easel, the magic wand and the frame tool.",
   },
   {
@@ -500,9 +521,11 @@ export const CATEGORIES = [
     // `wifi-x` are. `cloud` and `cloud-rain` stay weather. `cloud-terminal` is a
     // shell run in the cloud, not a sky, so it joins its badged siblings, and the
     // upload and download (1.5.0) are a sync in either direction.
+    // `connection`, its plural and `webhook` joined on 11 Oct 2026 (1.8.0): nodes
+    // linked, beside `link` and `share`.
     label: "Web",
     match:
-      /^(globe|link|unlink|share|navigation|home|house|search|settings|bookmark|wifi|cloud-(?:check|x|plus|alert|dot|off|arrow|backup|cog|terminal|download|upload|search|network)|earth$)/,
+      /^(globe|link|unlink|share|navigation|home|house|search|settings|bookmark|wifi|cloud-(?:check|x|plus|alert|dot|off|arrow|backup|cog|terminal|download|upload|search|network)|earth$|connections?$|webhook$)/,
     blurb: "Globes and the earth, links, connectivity, sync states and web-scoped actions.",
   },
   {
