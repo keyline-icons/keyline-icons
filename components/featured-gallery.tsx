@@ -212,17 +212,17 @@ function Card({ entry }: { entry: FeaturedExample }) {
       )}
 
       {/*
-        The credit, over the bottom-left corner. `ring-2 ring-background` is
-        what keeps a face legible on a screenshot of any colour: the ring is
-        the page's own fill, so it reads as a cut-out in both themes rather
-        than as a white outline that only works on light shots.
+        The credit, over the bottom-left corner, with no ring. A
+        `ring-background` cut-out was meant to read as a hole in the shot, and
+        on a dark one it read as a white outline instead. The photo is its own
+        edge; the initials fallback carries `bg-muted` for the same job.
       */}
       {profile ? (
         <a
           href={profile}
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute bottom-3 left-3 rounded-full ring-2 ring-background transition-transform hover:scale-105"
+          className="absolute bottom-3 left-3 rounded-full transition-transform hover:scale-105"
         >
           <Avatar avatar={entry.avatar} name={entry.name} />
           <span className="sr-only">
@@ -230,7 +230,7 @@ function Card({ entry }: { entry: FeaturedExample }) {
           </span>
         </a>
       ) : (
-        <span className="absolute bottom-3 left-3 rounded-full ring-2 ring-background">
+        <span className="absolute bottom-3 left-3 rounded-full">
           <Avatar avatar={entry.avatar} name={entry.name} />
           <span className="sr-only">{entry.name}</span>
         </span>
@@ -242,14 +242,14 @@ function Card({ entry }: { entry: FeaturedExample }) {
         for a keyboard to step through, and `pointer-events-none` is what lets
         a click on the arrow land on the link underneath it.
 
-        The ring takes the fill's colour on hover. Left as `ring-border`, it is
-        a pale hairline around a blue disc, which on a dark screenshot reads as
-        a white outline drawn round the button rather than as its edge.
+        A filled disc, not an outlined one. Any ring here, `ring-border` or the
+        hover colour, drew a hairline that a dark screenshot turned into a white
+        outline. `bg-muted` gives the disc its edge by its own tone instead.
       */}
       {href && (
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute right-3 bottom-3 flex size-9 items-center justify-center rounded-full bg-background text-foreground ring-1 ring-border transition-colors group-hover:bg-primary group-hover:text-primary-foreground group-hover:ring-primary"
+          className="pointer-events-none absolute right-3 bottom-3 flex size-9 items-center justify-center rounded-full bg-muted text-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground"
         >
           <ArrowUpRight className="size-4" />
         </span>
