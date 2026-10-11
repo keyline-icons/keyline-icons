@@ -6225,7 +6225,436 @@ const RELEASE_1_7_0: BlogPost = {
   ],
 }
 
+export const BLOG_V180_THUMBNAIL_ICON_NAMES = [
+  "move-right",
+  "undo",
+  "ratio-16-9",
+  "input-cursor",
+  "layout-bento",
+  "webhook",
+  "move-up-right",
+  "redo",
+  "aspect-ratio",
+  "text-cursor",
+  "grid-masonry",
+  "connections",
+  "move-horizontal",
+  "undo-dot",
+  "ratio-9-16",
+  "input",
+  "fold-vertical",
+  "diff",
+  "move-diagonal",
+  "arrow-right-left-4",
+  "ratio-21-9",
+  "text-cursor-input",
+  "flip-2-horizontal",
+  "file-diff",
+  "card-sim",
+  "unplug",
+  "keyframes",
+  "box",
+  "directions",
+  "bot-simple",
+  "broom-sparkles",
+  "input-sparkles",
+  "home-smile",
+  "inbox-dot",
+  "shuffle-2",
+  "chevrons-down-up",
+  "braces-ellipsis",
+  "list-todo-circle",
+  "circle-dashed-user",
+  "flame-2",
+] as const
+
+export const BLOG_V180_HERO_ICON_NAMES = [
+  "move-up-right",
+  "undo-dot",
+  "aspect-ratio",
+  "input-cursor",
+  "layout-bento",
+  "webhook",
+  "card-sim",
+  "flame-2",
+] as const
+
+export const BLOG_V180_LONG_ARROW_ICON_NAMES = [
+  "move-up",
+  "move-right",
+  "move-down",
+  "move-left",
+  "move-up-right",
+  "move-down-right",
+  "move-down-left",
+  "move-up-left",
+  "move-horizontal",
+  "move-vertical",
+  "move-diagonal",
+  "move-diagonal-flip",
+] as const
+
+export const BLOG_V180_PAIR_REDRAW_ICON_NAMES = [
+  "arrow-left-right",
+  "arrow-right-left",
+  "arrow-down-up",
+  "arrow-up-down",
+] as const
+
+export const BLOG_V180_UNDO_ICON_NAMES = [
+  "arrow-left-right-3",
+  "arrow-right-left-3",
+  "arrow-up-down-3",
+  "arrow-down-up-3",
+  "arrow-right-left-4",
+  "undo",
+  "undo-dot",
+  "redo",
+  "redo-dot",
+] as const
+
+export const BLOG_V180_RATIO_ICON_NAMES = [
+  "ratio-1-1",
+  "ratio-4-3",
+  "ratio-3-4",
+  "ratio-3-2",
+  "ratio-2-3",
+  "ratio-16-9",
+  "ratio-9-16",
+  "ratio-21-9",
+  "aspect-ratio",
+] as const
+
+export const BLOG_V180_TEXT_FIELD_ICON_NAMES = [
+  "input",
+  "input-cursor",
+  "input-sparkles",
+  "text-cursor",
+  "text-cursor-input",
+  "input-text-cursor",
+  "text-split",
+  "compact",
+] as const
+
+export const BLOG_V180_LAYOUT_ICON_NAMES = [
+  "layout-bento",
+  "grid-masonry",
+  "fold-vertical",
+  "fold-horizontal",
+  "flip-2-horizontal",
+  "flip-2-vertical",
+  "list-todo-circle",
+  "connection",
+  "connections",
+  "webhook",
+  "diff",
+  "file-diff",
+  "braces-ellipsis",
+  "brackets-ellipsis",
+  "badge-terminal",
+] as const
+
+export const BLOG_V180_SINGLE_ICON_NAMES = [
+  "bot-simple",
+  "broom-sparkles",
+  "hand-sparkles",
+  "box",
+  "card-sim",
+  "unplug",
+  "directions",
+  "keyframes",
+  "shuffle-2",
+  "chevrons-down-up",
+  "circle-dashed-user",
+  "home-smile",
+  "inbox-dot",
+  "handbag-search",
+  "shopping-basket-search",
+  "flame-2",
+] as const
+
+export const BLOG_V180_HAND_REDRAW_ICON_NAMES = ["hand-coins"] as const
+
+const RELEASE_1_8_0: BlogPost = {
+  /* The count, "free", "shadcn/ui", "React" and "Figma", then what a search
+     types for this batch: arrows, aspect ratios and inputs. The slug names the
+     drawings, not the version. */
+  slug: "long-arrows-aspect-ratios-and-input-icons",
+  version: "1.8.0",
+  title: "69 free shadcn/ui, React and Figma icons for arrows, aspect ratios and inputs",
+  description:
+    "1,435 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
+    "long arrows, undo and redo, aspect ratios, text inputs, a bento grid " +
+    "and a webhook.",
+  standfirst: "Longer arrows, and frames from 1:1 to 21:9.",
+  date: "2026-10-11",
+  updated: "2026-10-11",
+  readingMinutes: 4,
+  thumbnail: BLOG_V180_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "arrow icons",
+    "long arrow icon",
+    "swap icon",
+    "undo icon",
+    "redo icon",
+    "aspect ratio icon",
+    "16:9 icon",
+    "input icon",
+    "text field icon",
+    "text cursor icon",
+    "bento grid icon",
+    "masonry grid icon",
+    "fold icon",
+    "connection icon",
+    "webhook icon",
+    "diff icon",
+    "sim card icon",
+    "unplug icon",
+    "keyframes icon",
+    "box icon",
+    "free svg icons",
+    "shadcn/ui icons",
+    "figma icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "Sixty-nine icons are new. Twelve are long arrows and nine are aspect " +
+        "ratios. The rest bring undo and redo, text fields and their cursors, " +
+        "two grids for dashboards, links between things, and a few everyday " +
+        "objects: a box, a SIM card, a plug pulled out of its socket.",
+    },
+    {
+      kind: "p",
+      text:
+        "The set is now 1,435 icons, each in stroke, two-tone, duotone and " +
+        "fill, with rounded or sharp corners. That's 11,480 SVGs.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V180_HERO_ICON_NAMES,
+        caption: "Eight of the sixty-nine, one style to a row.",
+      },
+    },
+
+    { kind: "h2", text: "Long arrows", id: "long-arrows" },
+    {
+      kind: "p",
+      text:
+        "These run almost edge to edge, where the plain arrows stop well " +
+        "short of the sides. Four point straight, four point on the " +
+        "diagonals, and four point both ways: across, up and down, and " +
+        "corner to corner either way, for resizing, dragging and stretching. " +
+        "They're named `move-right`, `move-up-left` and so on, after the " +
+        "four-way `move` they sit beside, and searching for long arrow finds them.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V180_LONG_ARROW_ICON_NAMES,
+        caption: "Straight, diagonal and two-way.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The four pairs of short arrows, `arrow-left-right`, " +
+        "`arrow-right-left`, `arrow-down-up` and `arrow-up-down`, were " +
+        "redrawn with the same head as the long ones, a size up from what they " +
+        "had, so a pair and a long arrow look like one family.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "pairs",
+        names: BLOG_V180_PAIR_REDRAW_ICON_NAMES,
+        caption: "Each pair before and after: the heads grew a little.",
+      },
+    },
+
+    { kind: "h2", text: "Swaps, undo and redo", id: "undo" },
+    {
+      kind: "p",
+      text:
+        "Each pair also gets a third drawing, its two arrows slid apart so " +
+        "each head sits at the far edge. The swap gets a fourth, " +
+        "`arrow-right-left-4`, with a single barb on each arrow, the way an " +
+        "exchange sign is often printed.",
+    },
+    {
+      kind: "p",
+      text:
+        "`undo` and `redo` are a curved arrow bending back over the top, the " +
+        "button every editor has. Their `-dot` versions add a dot under the " +
+        "curve, for a change that's waiting or not yet saved.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V180_UNDO_ICON_NAMES,
+        caption: "The pairs slid apart, the single-barb swap, then undo and redo with and without a dot.",
+      },
+    },
+
+    { kind: "h2", text: "Aspect ratios", id: "ratios" },
+    {
+      kind: "p",
+      text:
+        "Nine for picking a frame: square, 4:3 and 3:4, 3:2 and 2:3, 16:9 and " +
+        "9:16, and 21:9. Each one is simply the shape, and every long side is " +
+        "the same length, so a row of them looks like a row of frames to " +
+        "choose from. `aspect-ratio` is a frame with two corner marks, for " +
+        "the control that changes it.",
+    },
+    {
+      kind: "p",
+      text:
+        "At 24 pixels, a frame only sits dead centre when its short side is " +
+        "an even number of pixels, so each ratio rounds to the nearest even " +
+        "one. 16:9 comes out a little squarer than the real thing and 21:9 a " +
+        "little wider, still easy to tell apart. The widest frame also gets " +
+        "smaller corners, so it doesn't turn into a pill.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V180_RATIO_ICON_NAMES,
+        caption: "Square to ultrawide, then the aspect ratio control.",
+      },
+    },
+
+    { kind: "h2", text: "Text fields", id: "text-fields" },
+    {
+      kind: "p",
+      text:
+        "`input` is an empty text field with a caret near its start. " +
+        "`input-cursor` puts a pointer on its corner, for clicking into a " +
+        "field, and `input-sparkles` swaps the caret for two stars, for a " +
+        "prompt box.",
+    },
+    {
+      kind: "p",
+      text:
+        "`text-cursor` is the I-beam, its serifs curving out of the stem. " +
+        "`text-cursor-input` stands it inside a field, and `input-text-cursor` " +
+        "adds the caret beside it. `text-split` breaks three lines of text at " +
+        "one point, and `compact` holds two short lines between two corners, " +
+        "for the summary of something long.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V180_TEXT_FIELD_ICON_NAMES,
+        caption: "Fields, the I-beam, a split and a summary.",
+      },
+    },
+
+    { kind: "h2", text: "Layouts, links and code", id: "layouts" },
+    {
+      kind: "p",
+      text:
+        "`layout-bento` and `grid-masonry` are the two grids dashboards and " +
+        "galleries are built from: tiles of mixed sizes, and rows of bricks " +
+        "laid off-centre. `fold-vertical` and `fold-horizontal` press two " +
+        "arrows against a line, for collapsing a section. The flip gets a " +
+        "second drawing, half a square drawn and half dashed across a line, " +
+        "and `list-todo-circle` is a to-do list with round boxes.",
+    },
+    {
+      kind: "p",
+      text:
+        "`connection` joins two nodes, `connections` adds two more around " +
+        "them, and `webhook` is three nodes passing a signal round. For code " +
+        "there's `diff`, a plus over a minus, on its own and on a page; " +
+        "braces and brackets around three dots, for a folded object or list; " +
+        "and a badge with a prompt in it.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V180_LAYOUT_ICON_NAMES,
+        caption: "Grids, folds and flips, then nodes, diffs and folded code.",
+      },
+    },
+
+    { kind: "h2", text: "And the rest", id: "singles" },
+    {
+      kind: "p",
+      text:
+        "A simpler robot head joins the bots, and a broom and a hand each " +
+        "get two stars. `box` is the parcel without its tape. `card-sim` is " +
+        "a SIM card with its chip, and `unplug` pulls a plug out of its " +
+        "socket.",
+    },
+    {
+      kind: "p",
+      text:
+        "`directions` shows three ways out from where you start, one of them " +
+        "taken. `keyframes` marks a moment on an animation's timeline, and " +
+        "`shuffle-2` crosses two straight arrows. There's also a collapse " +
+        "mark, a dashed circle with a person in it, a house with a smile, an " +
+        "inbox with a dot, a bag and a basket with a magnifier, and a flame " +
+        "with a second one burning inside it.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V180_SINGLE_ICON_NAMES,
+        caption: "Sixteen more, from a robot head to a flame in a flame.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "One older drawing changed too. The hand under the coins is one shape " +
+        "now, its palm rising from the wrist into the fingers, where it used " +
+        "to have a separate thumb.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "pairs",
+        names: BLOG_V180_HAND_REDRAW_ICON_NAMES,
+        caption: "Before and after: the thumb joins the palm.",
+      },
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text:
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui " +
+        "registry, the CLI, the MCP server, and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
+  RELEASE_1_8_0,
   RELEASE_1_7_0,
   RELEASE_1_6_0,
   RELEASE_1_5_0,
