@@ -2523,8 +2523,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 36973
+      "variants": 40,
+      "bytes": 40758
     },
     {
       "file": "new-6.html",
@@ -2535,8 +2535,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 39214
+      "variants": 32,
+      "bytes": 34989
     },
     {
       "file": "new-7.html",

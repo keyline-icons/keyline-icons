@@ -813,11 +813,10 @@ def('flame-2', (sharp) => {
   if (sharp) { outer = deFilletAt(outer, [2, 4]); inner = deFilletAt(inner, [2]); }
   const oRun = B.runFromD(outer)[0], iRun = B.runFromD(inner)[0];
   const plate = [B.grow(oRun, 1)];
-  // the inner flame as a solid, its foot run down onto the floor: its lowest point stands 0.46 from
-  // the outer's, so grown by 1 alone it stops 0.011 short of y=23 between them, a hairline of floor
-  // the fill's moat would take
-  const below = B.runFromD('M-10 22L40 22L40 40L-10 40Z');
-  const inSolid = B.intersect(B.union([B.grow(iRun, 1)], B.intersect([B.grow(iRun, 1.1)], below)), plate);
+  // the inner flame as a solid sits 0.05 below its stroke: its foot and the outer's stand 0.46
+  // apart, so grown where it is drawn it stops 0.04 short of the floor's lowest point, a hairline
+  // the fill's moat would take, and the fill would paint 0.011 short of the other styles' 23
+  const inSolid = B.intersect([B.grow(B.runFromD(X.shift(inner, 0, 0.05))[0], 1)], plate);
   // corners to 1, an opening: it moves nothing whose radius is 1 or more (the tips above stay to
   // 0.0000, measured), so it rounds only the outer's two feet where the moat leaves the floor. The
   // inner solid is left as it is: its corners at the floor turn by 0.01, and the floor is its own
