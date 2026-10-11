@@ -171,6 +171,16 @@ function Card({ entry }: { entry: FeaturedExample }) {
   const href = featuredHref(entry)
   const internal = href?.startsWith("/")
 
+  /*
+    No `noreferrer`: the card is there to send people to the maker, and the
+    referrer is how they find out it did. With no Referrer-Policy set, the
+    browser default sends the origin alone, never the page path. `ugc` goes
+    on the maker's own site and not on the post, because a hand-picked entry
+    is still a submitted link, and the day a featured domain lapses to a
+    spammer it should not be carrying the site's endorsement with it.
+  */
+  const rel = entry.url ? "noopener ugc" : "noopener"
+
   const shot = entry.video ? (
     <FeaturedVideo src={entry.video} poster={entry.image} label={entry.alt} />
   ) : (
@@ -200,7 +210,7 @@ function Card({ entry }: { entry: FeaturedExample }) {
           <a
             href={href}
             target="_blank"
-            rel="noopener noreferrer"
+            rel={rel}
             aria-label={`Open ${entry.title} (opens in a new tab)`}
             className={surface}
           >
