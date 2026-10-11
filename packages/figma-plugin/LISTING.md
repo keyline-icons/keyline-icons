@@ -122,6 +122,17 @@ github.com/keyline-icons/keyline-icons
 
 Changelog
 
+1.8.0
+69 new drawings, taking the set to 1,435 names and 11,480 SVGs.
+
+* Arrows: long arrows up, down, left and right, on the four diagonals, and with a head at each end, across, upright and on both diagonals; the four arrow pairs again with their heads at the far ends, and the exchange pair with one barb on each arrow; undo and redo, each again with a dot
+* Media: the common aspect ratios as frames, square, 4:3 and 3:4, 3:2 and 2:3, 16:9 and 9:16, and 21:9, a frame marked at two corners for the ratio itself, keyframes on a timeline, and shuffle as two straight arrows crossing
+* Text: a text field with its caret, then with a pointer, with the text cursor and with both; the text cursor on its own, three lines split by a bar, and two lines held between two corners
+* Layout and Web: a bento grid, a masonry grid, two arrows folding against a line across and upright, the flips again as a square half drawn and half dashed, and a to-do list with round boxes; two nodes linked, four nodes, and a webhook
+* And more: a box, a SIM card, a plug pulled out of its socket, directions, the diff mark on its own and on a file, braces and brackets around an ellipsis, a badge with a prompt, a plainer robot head, a broom, a hand and a text field with sparkles, a collapse mark, a user in a dashed ring, a house with a smile, an inbox with a dot, a handbag and a basket with a search glass, and a flame with a second one burning inside it
+
+Also redrawn: the four two-arrow pairs take the long arrows' bigger head, and the hand under the coins closes into one shape.
+
 1.7.0
 34 new drawings, taking the set to 1,366 names and 10,928 SVGs, and a new Law category.
 
@@ -160,33 +171,6 @@ Search puts the drawing a name asks for first, including the names other sets us
 * A bank's columned front, a rubber stamp over the line it prints, and a newspaper
 * Two arrows passing each other, for transfers and swaps, and an arrow up beside an arrow down, for sorting
 * History as a clock inside an arrow turning back, a calendar marked with its days, a copy with a tick and a globe with a lens
-
-1.3.0
-39 new drawings, taking the set to 1,217 names and 9,736 SVGs.
-
-* Sport: an American football, a baseball, a basketball, a soccer ball and a tennis ball, a cricket bat, hockey sticks and a golf hole
-* Stock charts rising and falling, a gamepad, an alien, an atom, a paw print, hearts and a tree
-* Two anchors, a lifebuoy that search also finds as support, a push pin and the pin switched off, a bin with lines, and a terminal prompt in a shield, a file and an app window
-* Speed lines: a shooting star, a truck, a paper plane, a bike and a stopwatch, each with its trails behind it
-* Switched off: captions, subtitles and play, and play in its square and circle too
-* Arrows: an arrow entering a square, from each of its four corners
-* rocket-2 is rocket-fast now, for the speed lines it shares with them, and the old name still finds it
-
-Also redrawn: the parcel and its ten signs, in duotone. The lid is now the dark part, with the tape crossing it in grey. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones. The ring of power-off now opens as wide as power's, and volume-off in sharp takes the sharp speaker. app-window-cursor's cursor is a third bigger.
-
-1.2.0
-64 new drawings, taking the set to 1,178 names and 9,424 SVGs.
-
-* Layout: every edit a table takes, rows and columns added, removed and merged either way, cells merged and split, then a table with a header column, a tree table, a pivot and a table switched off; a plus on three grids
-* Devices: the database with plus, minus, check, x, four arrows and a bolt; the server with plus, minus and a bolt; a bolt on the phone and the tablet; a terminal with a plus
-* A bolt for anything instant on the bell, envelope, calendar, clock, file, folder, house, parcel and person too
-* Time and Charts: the hourglass full, half run and emptied; a gauge reading low and one reading high; an open loading ring
-* And more: a plus on the heart, bookmark, cart, basket, house, dashed circle, link and wifi; progress rings paused and stopped; a database with sparkles; a cloud with a terminal prompt
-
-Also redrawn: the table and all twenty-seven panels, in their filled styles. The header row or the docked side is now the solid part, so a left panel and a right panel read apart.
-
-1.1.1
-The panel, redrawn: browse by shelf, recent icons at the top, drag onto the canvas, insert at 16, 20, 24 or 32, and your style, corners and size remembered between runs.
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
@@ -246,6 +230,18 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 1.8.0
+
+```
+69 new drawings, taking the set to 1,435 names and 11,480 SVGs: long arrows in every direction, with one head or two; the arrow pairs again with their heads at the far ends, and the exchange with one barb on each arrow; undo and redo, with and without a dot; the common aspect ratios as frames, and a frame for the ratio itself; text fields with a caret, a pointer and the text cursor, and the text cursor on its own; a bento grid, a masonry grid, two folds and two more flips; two and four nodes, a webhook, the diff mark, a SIM card, a plug pulled out, directions, keyframes, a box and more. Five drawings redrawn: the four arrow pairs take the bigger head, and the hand under the coins is one shape.
+```
+
+**No plugin code changed this time.** The drawings reach the plugin from
+jsDelivr once they are pushed, so this republish is for the listing alone: the
+counts moved at graduation (the tagline, the style bullets, the totals and the
+curated-word count), and the Description gains the 1.8.0 entry. The category
+count stayed at 41.
 
 ### 1.7.0
 
@@ -701,6 +697,17 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+v1.8.0
+69 new drawings. The set is 1,435 names now, 1,308 component sets and 11,480 variants, up from 1,366 and 10,928. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
+
+* Arrows: long arrows up, down, left and right, on the four diagonals, and with a head at each end, across, upright and on both diagonals; the four arrow pairs again with their heads at the far ends, and the exchange pair with one barb on each arrow; undo and redo, each again with a dot
+* Media: the common aspect ratios as frames, square, 4:3 and 3:4, 3:2 and 2:3, 16:9 and 9:16, and 21:9, a frame marked at two corners for the ratio itself, keyframes on a timeline, and shuffle as two straight arrows crossing
+* Text: a text field with its caret, then with a pointer, with the text cursor and with both; the text cursor on its own, three lines split by a bar, and two lines held between two corners
+* Layout and Web: a bento grid, a masonry grid, two arrows folding against a line across and upright, the flips again as a square half drawn and half dashed, and a to-do list with round boxes; two nodes linked, four nodes, and a webhook
+* And more: a box, a SIM card, a plug pulled out of its socket, directions, the diff mark on its own and on a file, braces and brackets around an ellipsis, a badge with a prompt, a plainer robot head, a broom, a hand and a text field with sparkles, a collapse mark, a user in a dashed ring, a house with a smile, an inbox with a dot, a handbag and a basket with a search glass, and a flame with a second one burning inside it
+
+Also redrawn: the four two-arrow pairs take the long arrows' bigger head, and the hand under the coins closes into one shape. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
+
 v1.7.0
 34 new drawings, and a new category. The set is 1,366 names now, 1,239 component sets and 10,928 variants, up from 1,332 and 10,656. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
 
@@ -738,18 +745,6 @@ v1.4.0
 * Arrows: two arrows passing each other, for transfers and swaps, and an arrow up beside an arrow down, for sorting
 * Time, Files and Web: history as a clock inside an arrow turning back, a calendar marked with its days, a copy with a tick and a globe with a lens
 
-v1.3.0
-39 new drawings. The set is 1,217 names now, 1,090 component sets and 9,736 variants, up from 1,178 and 9,424. One set was renamed, rocket-2 to rocket-fast, in place, and no component was replaced, so instances already placed in your files keep their link.
-
-* Sport: an American football, a baseball, a basketball, a soccer ball and a tennis ball, a cricket bat, hockey sticks and a golf hole
-* Stock charts rising and falling, a gamepad, an alien, an atom, a paw print, hearts and a tree
-* Two anchors, a lifebuoy that search also finds as support, a push pin and the pin switched off, a bin with lines, and a terminal prompt in a shield, a file and an app window
-* Speed lines: a shooting star, a truck, a paper plane, a bike and a stopwatch, each with its trails behind it
-* Switched off: captions, subtitles and play, and play in its square and circle too, each at its original size
-* Arrows: an arrow entering a square, from each of its four corners
-
-Also redrawn: the parcel and its ten signs, in duotone only. The lid is now the dark part, with the tape crossing it in grey, and the lines that used to stop short of the edge are gone. In sharp, cpu-sparkles and film-sparkles now turn the corner where they open for their stars like every other corner of the frame, and brain-sparkles closes its two lobes on one level end instead of two crossed ones. The ring of power-off now opens as wide as power's, and volume-off in sharp takes the sharp speaker, so each is its original at the same size. app-window-cursor's cursor is a third bigger. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
-
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
 
@@ -781,7 +776,8 @@ after; the file's reached 8,165 and kept its v1.1.0), 1.1.0 from the plugin's
 and v1.1.1 and v1.1.0 from the file's on 4 Oct 2026 with the 1.6.0 entries
 (8,796 and 9,800 before, 7,830 and 8,120 after), v1.2.0 from the file's on 5 Oct 2026
 with the 1.7.0 entries (9,143 before, 7,892 after; the plugin's reached 8,672 and kept its
-1.2.0), and a
+1.2.0), 1.1.1, 1.2.0 and 1.3.0 from the plugin's and v1.3.0 from the file's on 11 Oct 2026
+with the 1.8.0 entries (10,234 and 9,710 before, 7,656 and 8,058 after), and a
 last line points at
 `keylineicons.com/changelog`, which keeps every release.
 
@@ -810,6 +806,13 @@ It is a different image from the plugin's `plugin-cover.png` and the two are
 regenerated together; re-upload whichever modal you are in.
 
 ### What changed, for the final details page
+
+```
+69 new icons: long arrows in every direction, with one head or two; the arrow pairs again with their heads at the far ends, and the exchange with one barb on each arrow; undo and redo, with and without a dot; the common aspect ratios as frames, and a frame for the ratio itself; text fields with a caret, a pointer and the text cursor; a bento grid, a masonry grid, two folds and two more flips; nodes, a webhook, the diff mark, a SIM card, a plug pulled out, directions, keyframes, a box and more. The four two-arrow pairs were redrawn with the long arrows' bigger head, and the hand under the coins as one shape. The file went from 1,239 component sets to 1,308 and from 10,928 variants to 11,480. Nothing was renamed or removed, and the redraws were swapped inside their existing sets, so instances already placed in your files keep their link.
+```
+
+The 1.3.0 entry this replaced, kept because a listing's history is worth
+reading back:
 
 ```
 39 new icons: five balls, a cricket bat, hockey sticks and a golf hole for sport, stock charts rising and falling, a gamepad, an alien, an atom, a paw print, hearts and a tree, two anchors, a lifebuoy, push pins, a bin with lines and three terminal compounds, a shooting star and four fast movers with speed lines, captions, subtitles and play switched off with play in its square and circle too, and an arrow entering a square from each corner. The parcel and its ten signs were redrawn in duotone, with the lid now the dark part. Also redrawn: cpu-sparkles, film-sparkles and brain-sparkles in sharp, where they open for their stars; power-off and sharp volume-off, back to their originals' size; and app-window-cursor, with a bigger cursor. The file went from 1,053 component sets to 1,090 and from 9,424 variants to 9,736. rocket-2 was renamed rocket-fast in place and nothing was removed, and the redraws were swapped inside their existing sets, so instances already placed in your files keep their link.
