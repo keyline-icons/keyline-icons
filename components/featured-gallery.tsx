@@ -238,11 +238,15 @@ function Card({ entry }: { entry: FeaturedExample }) {
         already the link; a second anchor here would be two links to one place
         for a keyboard to step through, and `pointer-events-none` is what lets
         a click on the arrow land on the link underneath it.
+
+        The ring takes the fill's colour on hover. Left as `ring-border`, it is
+        a pale hairline around a blue disc, which on a dark screenshot reads as
+        a white outline drawn round the button rather than as its edge.
       */}
       {href && (
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute right-3 bottom-3 flex size-9 items-center justify-center rounded-full bg-background text-foreground ring-1 ring-border transition-colors group-hover:bg-primary group-hover:text-primary-foreground"
+          className="pointer-events-none absolute right-3 bottom-3 flex size-9 items-center justify-center rounded-full bg-background text-foreground ring-1 ring-border transition-colors group-hover:bg-primary group-hover:text-primary-foreground group-hover:ring-primary"
         >
           <ArrowUpRight className="size-4" />
         </span>
