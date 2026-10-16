@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function MicOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M14.2841 14.2841C13.6365 14.7354 12.8492 15 12 15V15C9.7909 15 8 13.2091 8 11V8L14.2841 14.2841ZM8.6086 4.366C8.304 4.0615 8.2287 3.5961 8.4216 3.211C9.0781 1.8999 10.434 1 12 1V1C14.2091 1 16 2.7909 16 5V9.3431C16 9.7476 15.7564 10.1122 15.3827 10.267C15.009 10.4218 14.5789 10.3362 14.2929 10.0502L8.6086 4.366Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M13.5619 13.5619C13.1069 13.8398 12.5722 14 12 14C10.3431 14 9 12.6569 9 11V9M16.4246 16.4246C15.2187 17.4094 13.6783 18 12 18M12 18C8.134 18 5 14.866 5 11M12 18V22M8 22H16M2 2L22 22"/>
+    </svg>
+  )
+}

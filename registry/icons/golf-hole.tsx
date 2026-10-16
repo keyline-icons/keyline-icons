@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function GolfHole({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M15 15.1373C19.0571 15.5196 22 16.6567 22 18C22 19.6569 17.5228 21 12 21C6.4772 21 2 19.6569 2 18C2 16.8895 4.011 15.92 7 15.4013M11 3.6937C11 3.4176 11.2239 3.1937 11.5 3.1937C11.5537 3.1937 11.6071 3.2024 11.6581 3.2194L17.154 5.0513C17.5623 5.1874 17.8377 5.5696 17.8377 6C17.8377 6.4304 17.5623 6.8126 17.154 6.9487L11.6581 8.7806C11.6071 8.7976 11.5537 8.8063 11.5 8.8063C11.2239 8.8063 11 8.5824 11 8.3063L11 3.6937ZM11 3L11 17" fill="none"/>
+    </svg>
+  )
+}

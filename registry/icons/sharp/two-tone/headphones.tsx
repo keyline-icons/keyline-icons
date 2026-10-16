@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Headphones({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2 12C2 10.4812 3.4812 9 5 9L7 9C7.5523 9 8 9.4477 8 10L8 21C8 21.5523 7.5523 22 7 22L5 22C3.4812 22 2 20.5188 2 19L2 12ZM22 12C22 10.4812 20.5188 9 19 9L17 9C16.4477 9 16 9.4477 16 10L16 21C16 21.5523 16.4477 22 17 22L19 22C20.5188 22 22 20.5188 22 19L22 12Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M3 12C3 10.8954 3.8954 10 5 10L7 10L7 21L5 21C3.8954 21 3 20.1046 3 19L3 12ZM21 12C21 10.8954 20.1046 10 19 10L17 10L17 21L19 21C20.1046 21 21 20.1046 21 19L21 12ZM3 12C3 7.0294 7.0294 3 12 3C16.9706 3 21 7.0294 21 12"/>
+    </svg>
+  )
+}

@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CircleMenu({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 1 C18.0751 1 23 5.9249 23 12 C23 18.0751 18.0751 23 12 23 C5.9249 23 1 18.0751 1 12 C1 5.9249 5.9249 1 12 1 ZM8 15 C7.4477 15 7 15.4477 7 16 C7 16.5523 7.4477 17 8 17 L16 17 C16.5523 17 17 16.5523 17 16 C17 15.4477 16.5523 15 16 15 L8 15 ZM8 11 C7.4477 11 7 11.4477 7 12 C7 12.5523 7.4477 13 8 13 L16 13 C16.5523 13 17 12.5523 17 12 C17 11.4477 16.5523 11 16 11 L8 11 ZM8 7 C7.4477 7 7 7.4477 7 8 C7 8.5523 7.4477 9 8 9 L16 9 C16.5523 9 17 8.5523 17 8 C17 7.4477 16.5523 7 16 7 L8 7 Z" fill="currentColor"/>
+    </svg>
+  )
+}

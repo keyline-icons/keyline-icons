@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Unplug({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M7.6569 13.5147L10.0139 11.1577M10.4853 16.3431L12.8423 13.9861M3.8856 20.1144L2 22M20.1144 3.8856L22 2" fill="none"/>
+      <path d="M7.8925 12.3362L11.6638 16.1075C12.8354 17.279 12.8354 19.1785 11.6638 20.3501L11.1924 20.8215C8.9794 23.0345 5.3915 23.0344 3.1785 20.8215C0.9656 18.6085 0.9655 15.0206 3.1785 12.8076L3.6499 12.3362C4.8215 11.1646 6.721 11.1646 7.8925 12.3362ZM16.1075 11.6638L12.3362 7.8925C11.1646 6.721 11.1646 4.8215 12.3362 3.6499L12.8076 3.1785C15.0206 0.9655 18.6085 0.9656 20.8215 3.1785C23.0344 5.3915 23.0345 8.9794 20.8215 11.1924L20.3501 11.6638C19.1785 12.8354 17.279 12.8354 16.1075 11.6638Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+    </svg>
+  )
+}

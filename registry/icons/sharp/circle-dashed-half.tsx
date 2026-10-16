@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CircleDashedHalf({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M21.7205 9.448L21.8769 10.4357C22.041 11.4721 22.041 12.5279 21.8769 13.5643L21.7205 14.552M20.678 17.0688L20.0902 17.8778C19.4734 18.7268 18.7268 19.4734 17.8778 20.0902L17.0688 20.678M14.552 21.7205L13.5643 21.8769C12.5279 22.041 11.4721 22.041 10.4357 21.8769L9.448 21.7205M6.9312 20.678L6.1222 20.0902C5.2732 19.4734 4.5266 18.7268 3.9098 17.8778L3.3221 17.0688M2.2796 14.552L2.1231 13.5643C1.959 12.5279 1.959 11.4721 2.1231 10.4357L2.2796 9.448M3.322 6.9312L3.9098 6.1222C4.5266 5.2732 5.2732 4.5266 6.1222 3.9098L6.9312 3.322M9.448 2.2796L10.4357 2.1231C11.4721 1.959 12.5279 1.959 13.5643 2.1231L14.552 2.2796M17.0688 3.3221L17.8778 3.9098C18.7268 4.5266 19.4734 5.2732 20.0902 6.1222L20.678 6.9312"/>
+      <path d="M12 18L12 6C15.3138 6 18 8.6862 18 12C18 15.3138 15.3138 18 12 18Z" strokeLinejoin="miter"/>
+    </svg>
+  )
+}

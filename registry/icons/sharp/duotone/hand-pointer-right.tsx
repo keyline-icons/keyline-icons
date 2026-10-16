@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function HandPointerRight({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M22.956 8.0719C23.2209 9.4692 22.2535 10.7466 20.8955 10.9908L17.177 11.6588L17.2258 12.1715L17.2258 12.1734C17.3091 13.0528 16.9398 13.8542 16.3177 14.3815C16.5532 14.788 16.6729 15.2677 16.6243 15.7799C16.5355 16.7139 15.9045 17.4711 15.0609 17.7828C15.1646 18.0831 15.2069 18.4302 15.1273 18.8043C15.0093 19.3582 14.6585 19.8193 14.1801 20.1861C13.8443 20.4435 13.3945 20.6053 12.9722 20.7145C12.5231 20.8305 11.9947 20.9141 11.4234 20.9596C10.2816 21.0504 8.8988 20.9962 7.5203 20.7066C4.8061 20.1365 1.7797 18.5577 1.1075 15.0162C1.104 14.9976 1.1012 14.9784 1.0988 14.9596C0.9482 13.8062 0.8577 12.1112 1.7052 10.2545C2.5508 8.402 4.2679 6.5227 7.4627 4.8434L10.0279 3.3307C11.0619 2.7212 12.4205 2.9704 13.1469 3.9449C13.836 4.8696 13.721 6.1417 12.8931 6.9352L12.4321 7.3766L19.9767 6.0621C21.3314 5.8261 22.6922 6.682 22.956 8.0719Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M16.0924 10.8379L12.3077 11.5179M13.8166 14.1648L12.0244 14.4512M12.9871 17.1966L11.7497 17.4338"/>
+    </svg>
+  )
+}

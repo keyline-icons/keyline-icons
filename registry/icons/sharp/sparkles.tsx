@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Sparkles({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M15 8.8628L16.9799 13.0201L21.1372 15L16.9799 16.9799L15 21.1372L13.0201 16.9799L8.8628 15L13.0201 13.0201L15 8.8628ZM6.25 2.8628L7.4521 5.0479L9.6372 6.25L7.4521 7.4521L6.25 9.6372L5.0479 7.4521L2.8628 6.25L5.0479 5.0479L6.25 2.8628Z" fill="none"/>
+    </svg>
+  )
+}

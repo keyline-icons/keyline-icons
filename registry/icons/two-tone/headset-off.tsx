@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function HeadsetOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M8.7086 8.7086C8.8954 9.0997 9 9.5376 9 10V16C9 17.6569 7.6569 19 6 19C4.3431 19 3 17.6569 3 16V10C3 8.3431 4.3431 7 6 7C6.4624 7 6.9003 7.1046 7.2914 7.2914L8.7086 8.7086Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M16 10.3431V10C16 8.8954 16.8954 8 18 8C19.1046 8 20 8.8954 20 10M20 10V14.3431M20 10C20 5.5817 16.4183 2 12 2C10.7345 2 9.5376 2.2938 8.4739 2.817" strokeOpacity="0.4"/>
+      <path d="M4 10C4 8.8954 4.8954 8 6 8C7.1046 8 8 8.8954 8 10V16C8 17.1046 7.1046 18 6 18C4.8954 18 4 17.1046 4 16V10ZM4 10C4 8.3017 4.5292 6.7269 5.4317 5.4317M16 16C16 17.1046 16.8954 18 18 18C18 20.2091 16.2091 22 14 22H12M2 2L22 22"/>
+    </svg>
+  )
+}

@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Sliders2Vertical({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M4.5 5L9.5 5C10.3284 5 11 5.6716 11 6.5L11 13.5C11 14.3284 10.3284 15 9.5 15L4.5 15C3.6716 15 3 14.3284 3 13.5L3 6.5C3 5.6716 3.6716 5 4.5 5ZM14.5 9L19.5 9C20.3284 9 21 9.6716 21 10.5L21 17.5C21 18.3284 20.3284 19 19.5 19L14.5 19C13.6716 19 13 18.3284 13 17.5L13 10.5C13 9.6716 13.6716 9 14.5 9Z" fill="currentColor" stroke="none"/>
+      <path d="M7 2L7 7M7 13L7 22M17 2L17 11M17 17L17 22"/>
+    </svg>
+  )
+}

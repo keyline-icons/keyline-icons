@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function UmbrellaOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M4.929 4.929C3.1193 6.7386 2 9.2386 2 12C3.25 10 5.75 10 7 12C8.25 10 10.75 10 12 12M12 12L12 19C12 20.6569 13.3431 22 15 22C16.6569 22 18 20.6569 18 19L18 18M7.1691 3.2422C8.6011 2.4506 10.248 2 12 2C17.5228 2 22 6.4772 22 12C20.75 10 18.25 10 17 12C16.6205 11.3927 16.1257 10.9699 15.5857 10.7314M1.7071 1.7071L22.2929 22.2929"/>
+    </svg>
+  )
+}

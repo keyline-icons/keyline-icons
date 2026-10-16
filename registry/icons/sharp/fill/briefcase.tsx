@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Briefcase({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2 5.5L22 5.5C22.5523 5.5 23 5.9477 23 6.5L23 21C23 21.5523 22.5523 22 22 22L2 22C1.4477 22 1 21.5523 1 21L1 6.5C1 5.9477 1.4477 5.5 2 5.5ZM3 9.8797C4.9116 10.7123 8.3651 11.1875 12 11.1875C15.6349 11.1875 19.0884 10.7123 21 9.8797L21 7.5L3 7.5L3 9.8797ZM8.5 13.0435L8.5 15.5C8.5 16.0523 8.9477 16.5 9.5 16.5L14.5 16.5C15.0523 16.5 15.5 16.0523 15.5 15.5L15.5 13.0435C14.8417 13.0992 14.1716 13.1384 13.5 13.1616L13.5 14.5L10.5 14.5L10.5 13.1616C9.8284 13.1384 9.1583 13.0992 8.5 13.0435Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M8.25 6.5L8.25 3L15.75 3L15.75 6.5"/>
+    </svg>
+  )
+}

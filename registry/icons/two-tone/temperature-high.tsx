@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function TemperatureHigh({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M3 6C3 3.2386 5.2386 1 8 1C10.7614 1 13 3.2386 13 6L13 11.101C14.282 12.4094 15 14.1682 15 16C15 19.866 11.866 23 8 23C4.134 23 1 19.866 1 16C1 14.1682 1.718 12.4094 3 11.101L3 6ZM23 5C23 7.2091 21.2091 9 19 9C16.7909 9 15 7.2091 15 5C15 2.7909 16.7909 1 19 1C21.2091 1 23 2.7909 23 5Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M4 6C4 3.7909 5.7909 2 8 2C10.2091 2 12 3.7909 12 6L12 11.101C12 11.3627 12.1026 11.614 12.2857 11.8009C13.3846 12.9224 14 14.4299 14 16C14 19.3137 11.3137 22 8 22C4.6863 22 2 19.3137 2 16C2 14.4299 2.6154 12.9224 3.7143 11.8009C3.8974 11.614 4 11.3627 4 11.101L4 6ZM8 16L8 7.5M22 5C22 6.6569 20.6569 8 19 8C17.3431 8 16 6.6569 16 5C16 3.3431 17.3431 2 19 2C20.6569 2 22 3.3431 22 5Z" fill="none"/>
+      <path d="M9.5 16C9.5 16.8284 8.8284 17.5 8 17.5C7.1716 17.5 6.5 16.8284 6.5 16C6.5 15.1716 7.1716 14.5 8 14.5C8.8284 14.5 9.5 15.1716 9.5 16Z" fill="currentColor" stroke="none"/>
+    </svg>
+  )
+}

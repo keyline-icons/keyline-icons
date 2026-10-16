@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function TagHorizontalEnd({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M5 3C2.7909 3 1 4.7909 1 7L1 17C1 19.2091 2.7909 21 5 21L14 21C14.7957 21 15.5587 20.6839 16.1213 20.1213L22.1213 14.1213C23.2929 12.9497 23.2929 11.0503 22.1213 9.8787L16.1213 3.8787C15.5587 3.3161 14.7957 3 14 3L5 3Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M13.5 12C13.5 12.8284 14.1716 13.5 15 13.5C15.8284 13.5 16.5 12.8284 16.5 12C16.5 11.1716 15.8284 10.5 15 10.5C14.1716 10.5 13.5 11.1716 13.5 12Z" fill="currentColor"/>
+    </svg>
+  )
+}

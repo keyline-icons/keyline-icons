@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Puzzle({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M10 2C12.2092 2 14 3.79082 14 6H17C17.5523 6 18 6.44772 18 7V10C20.2092 10 22 11.7908 22 14C22 16.2092 20.2092 18 18 18V21C18 21.5523 17.5523 22 17 22H3C2.44772 22 2 21.5523 2 21V17C2 16.4477 2.44772 16 3 16H4C5.10462 16 6 15.1046 6 14C6 12.8954 5.10462 12 4 12H3C2.44772 12 2 11.5523 2 11V7C2 6.44772 2.44772 6 3 6H6C6 3.79082 7.79082 2 10 2Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M7 6L7 7L3 7L3 11L4 11C5.6569 11 7 12.3431 7 14C7 15.6569 5.6569 17 4 17L3 17L3 21L17 21L17 17L18 17C19.6569 17 21 15.6569 21 14C21 12.3431 19.6569 11 18 11L17 11L17 7L13 7L13 6C13 4.3431 11.6569 3 10 3C8.3431 3 7 4.3431 7 6Z"/>
+    </svg>
+  )
+}

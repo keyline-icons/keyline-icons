@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function LayoutBento({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M3 4L3 9C3 9.5523 3.4477 10 4 10L11 10C11.5523 10 12 9.5523 12 9L12 4C12 3.4477 11.5523 3 11 3L4 3C3.4477 3 3 3.4477 3 4ZM16 4L16 9C16 9.5523 16.4477 10 17 10L20 10C20.5523 10 21 9.5523 21 9L21 4C21 3.4477 20.5523 3 20 3L17 3C16.4477 3 16 3.4477 16 4ZM3 15L3 20C3 20.5523 3.4477 21 4 21L7 21C7.5523 21 8 20.5523 8 20L8 15C8 14.4477 7.5523 14 7 14L4 14C3.4477 14 3 14.4477 3 15ZM12 15L12 20C12 20.5523 12.4477 21 13 21L20 21C20.5523 21 21 20.5523 21 20L21 15C21 14.4477 20.5523 14 20 14L13 14C12.4477 14 12 14.4477 12 15Z" fill="none"/>
+    </svg>
+  )
+}

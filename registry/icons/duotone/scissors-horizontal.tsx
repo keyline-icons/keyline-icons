@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ScissorsHorizontal({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M10 6C10 8.2091 8.2091 10 6 10C3.7909 10 2 8.2091 2 6C2 3.7909 3.7909 2 6 2C8.2091 2 10 3.7909 10 6ZM8 6C8 4.8954 7.1046 4 6 4C4.8954 4 4 4.8954 4 6C4 7.1046 4.8954 8 6 8C7.1046 8 8 7.1046 8 6ZM10 18C10 20.2091 8.2091 22 6 22C3.7909 22 2 20.2091 2 18C2 15.7909 3.7909 14 6 14C8.2091 14 10 15.7909 10 18ZM8 18C8 16.8954 7.1046 16 6 16C4.8954 16 4 16.8954 4 18C4 19.1046 4.8954 20 6 20C7.1046 20 8 19.1046 8 18Z" fill="currentColor" stroke="none"/>
+      <path d="M8.1213 8.1213L21 17M8.1213 15.8787L13.7474 12M17.271 9.5708L21 7" fill="none" strokeOpacity="0.4"/>
+    </svg>
+  )
+}

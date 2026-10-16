@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function SquareArrowUTurnLeft({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M3 2L21 2C21.5523 2 22 2.4477 22 3L22 21C22 21.5523 21.5523 22 21 22L3 22C2.4477 22 2 21.5523 2 21L2 3C2 2.4477 2.4477 2 3 2ZM10.4717 6.4884L7.0887 9.7837C6.6858 10.1762 6.6858 10.8238 7.0887 11.2163L10.4716 14.5118L11.8672 13.0782L10.2471 11.5L12.9199 11.5C14.0934 11.5 15 12.42 15 13.5C15 14.58 14.0934 15.5 12.9199 15.5L10.8936 15.5L10.8936 17.5L12.9199 17.5C15.1482 17.5 17 15.7337 17 13.5C17 11.2663 15.1482 9.5 12.9199 9.5L10.2471 9.5L11.8673 7.922L10.4717 6.4884Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

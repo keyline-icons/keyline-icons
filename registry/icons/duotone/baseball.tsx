@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Baseball({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M9.4118 2.3407C9.8068 3.1401 10.0735 3.9967 10.2022 4.8789M9.7265 9.1526C9.4069 9.9849 8.9584 10.7619 8.3973 11.4548M4.9341 14.0036C4.1057 14.3333 3.2305 14.5305 2.3407 14.5882M21.6593 9.4118C20.7695 9.4695 19.8943 9.6667 19.0659 9.9964M15.6027 12.5452C15.0416 13.2381 14.5931 14.0151 14.2735 14.8474M13.7978 19.1211C13.9265 20.0033 14.1932 20.8599 14.5882 21.6593" fill="none" strokeOpacity="0.4"/>
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12Z" fill="none"/>
+    </svg>
+  )
+}

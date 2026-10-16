@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function MailOpen({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2 10L10.8375 16.3125C11.5329 16.8092 12.4671 16.8092 13.1625 16.3125L22 10L22 19C22 20.6569 20.6569 22 19 22L5 22C3.3431 22 2 20.6569 2 19L2 10Z" fill="currentColor" stroke="none"/>
+      <path d="M10.2563 2.5588L3.2563 7.5588C2.4679 8.1219 2 9.0311 2 10L2 19C2 20.6569 3.3431 22 5 22L19 22C20.6569 22 22 20.6569 22 19L22 10C22 9.0311 21.5321 8.1219 20.7437 7.5588L13.7437 2.5588C12.7006 1.8137 11.2994 1.8137 10.2563 2.5588ZM2 10L10.8375 16.3125C11.5329 16.8092 12.4671 16.8092 13.1625 16.3125L22 10"/>
+    </svg>
+  )
+}

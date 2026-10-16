@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function HockeySticks({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M3.4356 6.5569C3.1505 6.0875 2.9998 5.5488 2.9998 4.9996C2.9998 3.3427 4.3429 1.9996 5.9998 1.9996C7.0481 1.9996 8.0204 2.5468 8.5644 3.443L16.1882 16L19 16C20.6569 16 22 17.3431 22 19C22 20.6569 20.6569 22 19 22L13.3745 22C13.0251 22 12.7011 21.8176 12.5197 21.519L3.4356 6.5569Z" fill="currentColor" stroke="none"/>
+      <path d="M14.0477 7.6559L14.3398 7.1749L16.2904 3.962C16.6531 3.3647 17.3012 3 18 3C19.1046 3 20 3.8954 20 5C20 5.366 19.8995 5.725 19.7096 6.0379L16.6795 11.0286L16.3875 11.5096M9.695 21L8.695 21L5 21C3.8954 21 3 20.1046 3 19C3 17.8954 3.8954 17 5 17L6.2664 17L7.2664 17" fill="none"/>
+    </svg>
+  )
+}

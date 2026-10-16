@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Quote({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2 14.5C2 10.6868 3.9783 7.1467 7.2259 5.1483C7.3835 5.0513 7.565 5 7.75 5C8.3023 5 8.75 5.4477 8.75 6C8.75 6.2929 8.6216 6.571 8.3988 6.761C7.8725 7.2096 7.5694 7.8664 7.5694 8.5579C7.5694 9.4016 8.0194 10.1811 8.75 10.6029C10.1423 11.4067 11 12.8923 11 14.5C11 16.9853 8.9853 19 6.5 19C4.0147 19 2 16.9853 2 14.5Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M13 14.5C13 10.6868 14.9783 7.1467 18.2259 5.1483C18.3835 5.0513 18.565 5 18.75 5C19.3023 5 19.75 5.4477 19.75 6C19.75 6.2929 19.6216 6.571 19.3988 6.761C18.8725 7.2096 18.5694 7.8664 18.5694 8.5579C18.5694 9.4016 19.0194 10.1811 19.75 10.6029C21.1423 11.4067 22 12.8923 22 14.5C22 16.9853 19.9853 19 17.5 19C15.0147 19 13 16.9853 13 14.5Z" fill="currentColor"/>
+    </svg>
+  )
+}

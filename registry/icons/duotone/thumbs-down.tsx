@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ThumbsDown({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M20 15L16.7808 15L15.3489 20.7276C15.015 22.0631 13.8151 23 12.4384 23L10.7656 23C9.2526 23 7.9764 21.8734 7.7887 20.3721L7.1172 15L4 15C2.3431 15 1 13.6569 1 12C1 11.6403 1.0647 11.2835 1.191 10.9466L4.191 2.9466C4.6301 1.7757 5.7495 1 7 1L20 1C21.6569 1 23 2.3431 23 4L23 12C23 13.6569 21.6569 15 20 15ZM20 13C20.5523 13 21 12.5523 21 12L21 4C21 3.4477 20.5523 3 20 3L18 3C17.4477 3 17 3.4477 17 4L17 12C17 12.5523 17.4477 13 18 13L20 13Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M20 13C20.5523 13 21 12.5523 21 12L21 4C21 3.4477 20.5523 3 20 3L18 3C17.4477 3 17 3.4477 17 4L17 12C17 12.5523 17.4477 13 18 13L20 13Z" fill="currentColor"/>
+    </svg>
+  )
+}

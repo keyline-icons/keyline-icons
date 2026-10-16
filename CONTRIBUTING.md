@@ -6,13 +6,15 @@ live and which files you are allowed to edit.
 
 ## The one rule that saves the most time
 
-**`icons/`, `components/icons/` and `packages/*/src/` are generated. Do not edit
-them.** The source of truth is `raw/`, and everything else is built from it:
+**`icons/`, `components/icons/`, `packages/*/src/`, `registry.json` and
+`registry/` are generated. Do not edit them.** The source of truth is `raw/`,
+and everything else is built from it:
 
 ```
 raw/<name>/*.svg   ->  icons/<style>/<name>.svg   ->  components/icons/index.tsx
                                                   ->  packages/react/src/index.tsx
                                                   ->  packages/react-native/src/index.tsx
+                                                  ->  registry.json, registry/
 ```
 
 A hand-edit to a generated file passes review, gets committed, and is silently

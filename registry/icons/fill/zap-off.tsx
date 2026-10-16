@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ZapOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M7.394 7.394L2.4307 12.4491C2.1553 12.7296 2.001 13.1069 2.001 13.5C2.001 14.3284 2.6726 15 3.501 15L9.8656 15L9.194 20.3102C9.1861 20.3726 9.1821 20.4355 9.1821 20.4984C9.1821 21.3268 9.8537 21.9984 10.6821 21.9984C11.0847 21.9984 11.4704 21.8366 11.7524 21.5493L16.606 16.606ZM18.7079 14.4652L21.5693 11.5509C21.8447 11.2704 21.999 10.8931 21.999 10.5C21.999 9.6716 21.3274 9 20.499 9L14.1344 9L14.806 3.6898C14.8139 3.6274 14.8179 3.5645 14.8179 3.5016C14.8179 2.6732 14.1463 2.0016 13.3179 2.0016C12.9153 2.0016 12.5296 2.1634 12.2476 2.4507L9.4959 5.2533Z" fill="currentColor" stroke="none"/>
+      <path d="M2 2L22 22" fill="none"/>
+    </svg>
+  )
+}

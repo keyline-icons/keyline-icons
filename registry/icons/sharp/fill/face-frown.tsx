@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function FaceFrown({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12ZM10 9L8 9L8 12L10 12L10 9ZM16 9L14 9L14 12L16 12L16 9ZM9.4142 18L9.7071 17.7071C10.5981 16.8161 11.3588 16.5 12 16.5C12.6412 16.5 13.4019 16.8161 14.2929 17.7071L14.5858 18L16 16.5858L15.7071 16.2929C14.5981 15.1839 13.3588 14.5 12 14.5C10.6412 14.5 9.4019 15.1839 8.2929 16.2929L8 16.5858Z" fill="currentColor"/>
+    </svg>
+  )
+}

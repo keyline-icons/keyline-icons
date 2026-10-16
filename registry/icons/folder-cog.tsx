@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function FolderCog({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M9 20L6 20C4.3431 20 3 18.6569 3 17L3 7C3 5.3431 4.3431 4 6 4L8.6716 4C9.202 4 9.7107 4.2107 10.0858 4.5858L11.4142 5.9142C11.7893 6.2893 12.298 6.5 12.8284 6.5L18 6.5C19.1105 6.5 20.08 7.1033 20.5987 8M19.6667 16C19.6667 17.4728 18.4728 18.6667 17 18.6667C15.5272 18.6667 14.3333 17.4728 14.3333 16C14.3333 14.5272 15.5272 13.3333 17 13.3333C18.4728 13.3333 19.6667 14.5272 19.6667 16ZM20.5417 16L21 16M19.5043 18.5043L19.8284 18.8284M17 19.5417L17 20M14.4957 18.5043L14.1716 18.8284M13.4583 16L13 16M14.4957 13.4957L14.1716 13.1716M17 12.4583L17 12M19.5043 13.4957L19.8284 13.1716"/>
+    </svg>
+  )
+}

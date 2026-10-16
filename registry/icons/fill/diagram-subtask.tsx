@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function DiagramSubtask({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M4 2L13 2C14.1046 2 15 2.8954 15 4L15 7C15 8.1046 14.1046 9 13 9L4 9C2.8954 9 2 8.1046 2 7L2 4C2 2.8954 2.8954 2 4 2ZM11 15L20 15C21.1046 15 22 15.8954 22 17L22 20C22 21.1046 21.1046 22 20 22L11 22C9.8954 22 9 21.1046 9 20L9 17C9 15.8954 9.8954 15 11 15Z" fill="currentColor" stroke="none"/>
+      <path d="M6 8L6 17.5C6 18.0523 6.4477 18.5 7 18.5L10 18.5" fill="none"/>
+    </svg>
+  )
+}

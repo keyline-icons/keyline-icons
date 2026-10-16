@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Headset2({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M3 10C3 8.3431 4.3431 7 6 7L8 7C8.5523 7 9 7.4477 9 8L9 17C9 17.5523 8.5523 18 8 18L6 18C4.3431 18 3 16.6569 3 15L3 10ZM21 10C21 8.3431 19.6569 7 18 7L16 7C15.4477 7 15 7.4477 15 8L15 17C15 17.5523 15.4477 18 16 18L18 18C19.6569 18 21 16.6569 21 15L21 10ZM9 21C9 19.8954 9.8954 19 11 19L13 19C14.1046 19 15 19.8954 15 21C15 22.1046 14.1046 23 13 23L11 23C9.8954 23 9 22.1046 9 21Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M4 10C4 8.8954 4.8954 8 6 8L8 8L8 17L6 17C4.8954 17 4 16.1046 4 15L4 10ZM20 10C20 8.8954 19.1046 8 18 8L16 8L16 17L18 17C19.1046 17 20 16.1046 20 15L20 10ZM10 21C10 20.4477 10.4477 20 11 20L13 20C13.5523 20 14 20.4477 14 21C14 21.5523 13.5523 22 13 22L11 22C10.4477 22 10 21.5523 10 21ZM4 10C4 5.5817 7.5817 2 12 2C16.4183 2 20 5.5817 20 10M18 17L18 21L14 21"/>
+    </svg>
+  )
+}

@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ToggleOn({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2.5 6L21.5 6C21.7761 6 22 6.2239 22 6.5L22 17.5C22 17.7761 21.7761 18 21.5 18L2.5 18C2.2239 18 2 17.7761 2 17.5L2 6.5C2 6.2239 2.2239 6 2.5 6Z"/>
+      <path d="M14.5 10L17.5 10C17.7761 10 18 10.2239 18 10.5L18 13.5C18 13.7761 17.7761 14 17.5 14L14.5 14C14.2239 14 14 13.7761 14 13.5L14 10.5C14 10.2239 14.2239 10 14.5 10Z"/>
+    </svg>
+  )
+}

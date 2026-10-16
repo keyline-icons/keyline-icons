@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "keyline",
+  "homepage": "https://keylineicons.com",
+  "include": [
+    "registry/stroke.json",
+    "registry/two-tone.json",
+    "registry/duotone.json",
+    "registry/fill.json",
+    "registry/sharp-stroke.json",
+    "registry/sharp-two-tone.json",
+    "registry/sharp-duotone.json",
+    "registry/sharp-fill.json"
+  ]
+}

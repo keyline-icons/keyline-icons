@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ArrowDownUp2({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M17 23L17 22L17 11.7396L17 11.0856M11.7061 16.1938L12 15.8947L17 10.8066L22 15.8947L22.2939 16.1938" fill="none" strokeOpacity="0.4"/>
+      <path d="M7 1L7 2L7 12.2604L7 12.9144M12.2939 7.8062L12 8.1053L7 13.1934L2 8.1053L1.7061 7.8062"/>
+    </svg>
+  )
+}

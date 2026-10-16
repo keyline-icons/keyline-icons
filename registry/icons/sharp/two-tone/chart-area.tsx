@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ChartArea({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M6.2929 14.2929L12.2929 8.2929C12.4804 8.1054 12.7348 8 13 8C13.2652 8 13.5196 8.1054 13.7071 8.2929L16 10.5858L20.2929 6.2929C20.4804 6.1054 20.7348 6 21 6C21.5523 6 22 6.4477 22 7L22 17C22 17.5523 21.5523 18 21 18L7 18C6.4477 18 6 17.5523 6 17L6 15C6 14.7348 6.1054 14.4804 6.2929 14.2929Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M3 2L3 21L22 21" strokeOpacity="0.4"/>
+      <path d="M7 15L13 9L16 12L21 7L21 17L7 17L7 15Z"/>
+    </svg>
+  )
+}

@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function MessageSparkles({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M21.8882 12.2005C21.1642 16.0493 17.0128 19 12 19C11.1845 19 10.3721 18.9202 9.5808 18.7624L5 21L4.5686 16.353C2.915 14.8839 2 12.9769 2 11C2 6.5817 6.4772 3 12 3C12.2923 3 12.5817 3.01 12.8677 3.0297"/>
+      <path d="M19.5492 2.3739L20.4196 4.5804L22.6261 5.4508C22.8518 5.5397 23 5.7576 23 6C23 6.2424 22.8518 6.4603 22.6261 6.5492L20.4196 7.4196L19.5492 9.6261C19.4603 9.8518 19.2424 10 19 10C18.7576 10 18.5397 9.8518 18.4508 9.6261L17.5804 7.4196L15.3739 6.5492C15.1482 6.4603 15 6.2424 15 6C15 5.7576 15.1482 5.5397 15.3739 5.4508L17.5804 4.5804L18.4508 2.3739C18.5397 2.1482 18.7576 2 19 2C19.2424 2 19.4603 2.1482 19.5492 2.3739Z" fill="currentColor" stroke="none"/>
+      <path d="M10.8433 9.2337L11.3873 10.6127L12.7663 11.1567C12.9074 11.2123 13 11.3485 13 11.5C13 11.6515 12.9074 11.7877 12.7663 11.8433L11.3873 12.3873L10.8433 13.7663C10.7877 13.9074 10.6515 14 10.5 14C10.3485 14 10.2123 13.9074 10.1567 13.7663L9.6127 12.3873L8.2337 11.8433C8.0926 11.7877 8 11.6515 8 11.5C8 11.3485 8.0926 11.2123 8.2337 11.1567L9.6127 10.6127L10.1567 9.2337C10.2123 9.0926 10.3485 9 10.5 9C10.6515 9 10.7877 9.0926 10.8433 9.2337Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+    </svg>
+  )
+}

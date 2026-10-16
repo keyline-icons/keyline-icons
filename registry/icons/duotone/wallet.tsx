@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Wallet({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M5 2L15 2C17.2091 2 19 3.7909 19 6L19 6.127C20.7661 6.583 22 8.176 22 10L22 18C22 20.2091 20.2091 22 18 22L6 22C3.7909 22 2 20.2091 2 18L2 5C2 3.3431 3.3431 2 5 2Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M5 4C4.4477 4 4 4.4477 4 5C4 5.5523 4.4477 6 5 6L17 6C17 4.8954 16.1046 4 15 4L5 4ZM18 12C16.8954 12 16 12.8954 16 14C16 15.1046 16.8954 16 18 16L20 16L20 12L18 12Z" fill="currentColor"/>
+    </svg>
+  )
+}

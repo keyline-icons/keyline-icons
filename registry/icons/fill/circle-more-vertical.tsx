@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CircleMoreVertical({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 1 C18.0751 1 23 5.9249 23 12 C23 18.0751 18.0751 23 12 23 C5.9249 23 1 18.0751 1 12 C1 5.9249 5.9249 1 12 1 ZM12 15.333 C11.2636 15.333 10.667 15.9306 10.667 16.667 C10.6671 17.4033 11.2637 18 12 18 C12.7363 18 13.3329 17.4033 13.333 16.667 C13.333 15.9306 12.7364 15.333 12 15.333 ZM12 10.667 C11.2636 10.667 10.667 11.2636 10.667 12 C10.667 12.7364 11.2636 13.333 12 13.333 C12.7364 13.333 13.333 12.7364 13.333 12 C13.333 11.2636 12.7364 10.667 12 10.667 ZM12 6 C11.2637 6 10.6672 6.5967 10.667 7.333 C10.667 8.0694 11.2636 8.667 12 8.667 C12.7364 8.667 13.333 8.0694 13.333 7.333 C13.3328 6.5967 12.7363 6 12 6 Z" fill="currentColor"/>
+    </svg>
+  )
+}

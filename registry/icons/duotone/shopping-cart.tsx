@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ShoppingCart({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M4.02986 7.24254C3.87207 6.61139 4.34943 6 5 6H20.9978C22.443 6 23.4111 7.48578 22.8273 8.80787L20.178 14.8079C19.858 15.5325 19.1405 16 18.3484 16H7.78078C6.86305 16 6.06308 15.3754 5.8405 14.4851L4.02986 7.24254Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M2 3L3.2192 3C3.6781 3 4.0781 3.3123 4.1894 3.7575L5 7"/>
+      <path d="M10.5 20.5C10.5 21.3284 9.8284 22 9 22C8.1716 22 7.5 21.3284 7.5 20.5C7.5 19.6716 8.1716 19 9 19C9.8284 19 10.5 19.6716 10.5 20.5ZM18.5 20.5C18.5 21.3284 17.8284 22 17 22C16.1716 22 15.5 21.3284 15.5 20.5C15.5 19.6716 16.1716 19 17 19C17.8284 19 18.5 19.6716 18.5 20.5Z" fill="currentColor" stroke="none"/>
+    </svg>
+  )
+}

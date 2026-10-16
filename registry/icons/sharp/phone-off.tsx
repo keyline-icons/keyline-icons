@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function PhoneOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M5.3288 14.4286C3.1634 11.3823 2 7.7375 2 4L2 2L9 2L9 8L7.0953 9.4285C7.4054 10.1656 7.778 10.8748 8.2091 11.5482M10.1005 13.8995C11.3822 15.1812 12.9007 16.2018 14.5715 16.9047L16 15L22 15L22 22L20 22C15.2261 22 10.6477 20.1036 7.2721 16.7279M22.2929 1.7071L1.7071 22.2929" fill="none"/>
+    </svg>
+  )
+}

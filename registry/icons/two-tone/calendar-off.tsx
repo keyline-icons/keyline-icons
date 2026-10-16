@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CalendarOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M20.8284 20.8284C20.1046 21.5523 19.1046 22 18 22H6C3.7909 22 2 20.2091 2 18V8C2 6.3778 2.9657 4.9811 4.3535 4.3535L20.8284 20.8284ZM9.9497 5.7071C9.6637 5.4211 9.5782 4.991 9.733 4.6173C9.8878 4.2436 10.2524 4 10.6569 4H18C20.2091 4 22 5.7909 22 8V15.3431C22 15.7476 21.7564 16.1122 21.3827 16.267C21.009 16.4218 20.5789 16.3363 20.2929 16.0503L9.9497 5.7071Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M20.1213 20.1213C19.5785 20.6642 18.8285 21 18 21H6C4.3431 21 3 19.6569 3 18V8C3 6.6462 3.8967 5.5019 5.1285 5.1285M7 11H11M2 2L22 22"/>
+    </svg>
+  )
+}

@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function BookX({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M7 1L17 1C19.2091 1 21 2.7909 21 5L21 12C21 12.5523 20.5523 13 20 13L14 13C12.3431 13 11 14.3431 11 16L11 22C11 22.5523 10.5523 23 10 23L6 23C4.3431 23 3 21.6569 3 20L3 5C3 2.7909 4.7909 1 7 1ZM6 19C5.4477 19 5 19.4477 5 20C5 20.5523 5.4477 21 6 21L11 21L11 19L6 19ZM8 5C7.4477 5 7 5.4477 7 6L7 14C7 14.5523 7.4477 15 8 15C8.5523 15 9 14.5523 9 14L9 6C9 5.4477 8.5523 5 8 5Z" fill="currentColor" stroke="none"/>
+      <path d="M14 16L20 22M20 16L14 22" fill="none"/>
+    </svg>
+  )
+}

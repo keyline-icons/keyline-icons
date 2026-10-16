@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function BotDroplet({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M19.2 8.6C20.3684 10.1579 21 12.0527 21 14C21 18.9706 16.9706 23 12 23C7.0294 23 3 18.9706 3 14C3 12.0527 3.6316 10.1579 4.8 8.6L9.6 2.2C10.1666 1.4446 11.0557 1 12 1C12.9443 1 13.8334 1.4446 14.4 2.2L19.2 8.6ZM9.0114 11.7535L9.4635 14.7192C9.5468 15.2652 10.0568 15.6403 10.6028 15.5571C11.1488 15.4738 11.5239 14.9638 11.4407 14.4178L10.9886 11.4521C10.9053 10.9061 10.3953 10.531 9.8493 10.6142C9.3033 10.6974 8.9282 11.2075 9.0114 11.7535ZM12.9657 11.1507L13.4178 14.1164C13.501 14.6624 14.0111 15.0375 14.5571 14.9543C15.1031 14.8711 15.4782 14.361 15.395 13.815L14.9429 10.8493C14.8597 10.3033 14.3496 9.9282 13.8036 10.0114C13.2576 10.0946 12.8825 10.6047 12.9657 11.1507Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

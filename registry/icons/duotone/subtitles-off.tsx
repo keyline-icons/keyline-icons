@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function SubtitlesOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M20.6458 20.6458C20.1285 20.8792 19.5675 21 19 21L5 21C2.7909 21 1 19.2091 1 17L1 7C1 5.4277 1.9212 4.0012 3.3542 3.3542L9 9L6 9C5.4477 9 5 9.4477 5 10C5 10.5523 5.4477 11 6 11L10 11C10.2652 11 10.5196 10.8946 10.7071 10.7071L13 13L6 13C5.4477 13 5 13.4477 5 14C5 14.5523 5.4477 15 6 15L14 15C14.2652 15 14.5196 14.8946 14.7071 14.7071ZM9.6569 3L19 3C21.2091 3 23 4.7909 23 7L23 16.3431C23 16.8954 22.5523 17.3431 22 17.3431C21.7348 17.3431 21.4804 17.2378 21.2929 17.0503L8.9497 4.7071C8.7622 4.5196 8.6569 4.2652 8.6569 4C8.6569 3.4477 9.1046 3 9.6569 3Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M2 2L22 22"/>
+    </svg>
+  )
+}

@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function FileDiff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M14 1C14.2652 1 14.5195 1.1054 14.707 1.293L20.707 7.293C20.8946 7.4805 21 7.7348 21 8L21 18C21 20.7614 18.7614 23 16 23L8 23C5.2386 23 3 20.7614 3 18L3 6C3 3.2386 5.2386 1 8 1L14 1ZM13 12L15 12C15.5523 12 16 11.5523 16 11C16 10.4477 15.5523 10 15 10L13 10L13 8C13 7.4477 12.5523 7 12 7C11.4477 7 11 7.4477 11 8L11 10L9 10C8.4477 10 8 10.4477 8 11C8 11.5523 8.4477 12 9 12L11 12L11 14C11 14.5523 11.4477 15 12 15C12.5523 15 13 14.5523 13 14L13 12ZM9 17C8.4477 17 8 17.4477 8 18C8 18.5523 8.4477 19 9 19L15 19C15.5523 19 16 18.5523 16 18C16 17.4477 15.5523 17 15 17L9 17Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

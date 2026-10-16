@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Briefcase({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M5 5.5L19 5.5C21.2091 5.5 23 7.2909 23 9.5L23 18C23 20.2091 21.2091 22 19 22L5 22C2.7909 22 1 20.2091 1 18L1 9.5C1 7.2909 2.7909 5.5 5 5.5ZM3.3003 10.0027C5.2599 10.7589 8.5481 11.1875 12 11.1875C15.4519 11.1875 18.7401 10.7589 20.7025 10.0092C20.8834 9.9291 21 9.7499 21 9.5521L21 9.5C21 8.3954 20.1046 7.5 19 7.5L5 7.5C3.8954 7.5 3 8.3954 3 9.5L3 9.5521C3 9.7499 3.1166 9.9291 3.3003 10.0027ZM8.5 13.0435L8.5 13.5C8.5 15.1569 9.8431 16.5 11.5 16.5L12.5 16.5C14.1569 16.5 15.5 15.1569 15.5 13.5L15.5 13.0435C14.8417 13.0992 14.1716 13.1384 13.5 13.1616L13.5 13.5C13.5 14.0523 13.0523 14.5 12.5 14.5L11.5 14.5C10.9477 14.5 10.5 14.0523 10.5 13.5L10.5 13.1616C9.8284 13.1384 9.1583 13.0992 8.5 13.0435Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M8.25 6.5V6C8.25 4.3431 9.5931 3 11.25 3H12.75C14.4069 3 15.75 4.3431 15.75 6V6.5"/>
+    </svg>
+  )
+}

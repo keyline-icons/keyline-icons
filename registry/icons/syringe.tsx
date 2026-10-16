@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Syringe({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M13.9289 5.8284L5.8579 13.8995C5.4828 14.2746 5.2721 14.7833 5.2721 15.3137C5.2721 15.8441 5.4828 16.3529 5.8579 16.7279L7.2721 18.1421C7.6471 18.5172 8.1559 18.7279 8.6863 18.7279C9.2167 18.7279 9.7254 18.5172 10.1005 18.1421L18.1716 10.0711M6.565 17.435L3 21M12.5147 4.4142L16.0502 7.9498L18.8787 5.1213M16.7574 3L21 7.2426M16.0502 7.9498L19.5858 11.4853M7.7574 12L9.1716 13.4142M10.5858 9.1716L12 10.5858" fill="none"/>
+    </svg>
+  )
+}

@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function QrCode({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M4 3L7 3C7.5523 3 8 3.4477 8 4L8 7C8 7.5523 7.5523 8 7 8L4 8C3.4477 8 3 7.5523 3 7L3 4C3 3.4477 3.4477 3 4 3ZM17 3L20 3C20.5523 3 21 3.4477 21 4L21 7C21 7.5523 20.5523 8 20 8L17 8C16.4477 8 16 7.5523 16 7L16 4C16 3.4477 16.4477 3 17 3ZM17 16L20 16C20.5523 16 21 16.4477 21 17L21 20C21 20.5523 20.5523 21 20 21L17 21C16.4477 21 16 20.5523 16 20L16 17C16 16.4477 16.4477 16 17 16ZM12 7L12 10C12 11.1046 12.8954 12 14 12L17 12M12 21L12 18C12 16.8954 11.1046 16 10 16L7 16M8 12L3 12M3 16L3 21" fill="none"/>
+      <path d="M22 12C22 12.5523 21.5523 13 21 13C20.4477 13 20 12.5523 20 12C20 11.4477 20.4477 11 21 11C21.5523 11 22 11.4477 22 12ZM8 21C8 21.5523 7.5523 22 7 22C6.4477 22 6 21.5523 6 21C6 20.4477 6.4477 20 7 20C7.5523 20 8 20.4477 8 21ZM13 3C13 3.5523 12.5523 4 12 4C11.4477 4 11 3.5523 11 3C11 2.4477 11.4477 2 12 2C12.5523 2 13 2.4477 13 3Z" fill="currentColor" stroke="none"/>
+    </svg>
+  )
+}

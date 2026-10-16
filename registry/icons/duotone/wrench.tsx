@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Wrench({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M17.9749 8.1464L19.5607 6.5607C19.9357 6.1856 20.4444 5.9749 20.9749 5.9749C22.0055 5.9749 22.8673 6.758 22.9657 7.7839C22.9886 8.0219 23 8.2609 23 8.5C23 12.6421 19.6421 16 15.5 16C11.3579 16 8 12.6421 8 8.5C8 4.3579 11.3579 1 15.5 1C15.7391 1 15.9781 1.0114 16.2161 1.0343C17.242 1.1327 18.0251 1.9945 18.0251 3.0251C18.0251 3.5556 17.8144 4.0643 17.4393 4.4393L15.8536 6.0251C15.5722 6.3064 15.4142 6.688 15.4142 7.0858C15.4142 7.9142 16.0858 8.5858 16.9142 8.5858C17.312 8.5858 17.6936 8.4278 17.9749 8.1464Z" fill="currentColor" stroke="none"/>
+      <path d="M15.3955 14.9992C15.3688 14.9987 15.342 14.9985 15.3152 14.9985C13.9891 14.9985 12.7173 15.5253 11.7797 16.463L7.1213 21.1213C6.5587 21.6839 5.7956 22 5 22C3.3431 22 2 20.6569 2 19C2 18.2044 2.3161 17.4413 2.8787 16.8787L7.537 12.2203C8.4747 11.2827 9.0015 10.0109 9.0015 8.6848C9.0015 8.658 9.0013 8.6312 9.0008 8.6045" strokeOpacity="0.4"/>
+    </svg>
+  )
+}

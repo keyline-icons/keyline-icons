@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function FastForward({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M1 7.504964C1 5.313398 3.619285 4.182505 5.214383 5.685378L10.371506 10.544331C11.209498 11.333873 11.209498 12.666127 10.371506 13.455669L5.214383 18.314623C3.619286 19.817496 1 18.686603 1 16.495037ZM13 7.504963C13 5.313397 15.619285 4.182504 17.214383 5.685377L22.371507 10.544331C23.209499 11.333873 23.209499 12.666127 22.371507 13.455669L17.214383 18.314623C15.619285 19.817496 13 18.686603 13 16.495037Z" fill="currentColor"/>
+    </svg>
+  )
+}

@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CursorClick({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M13.0143 21.6534L9.27 9.8862C9.1468 9.499 9.5162 9.136 9.9026 9.2647L21.6597 13.1814C22.0965 13.3269 22.1184 13.9348 21.6933 14.1113L16.6698 16.1966C16.5552 16.2442 16.4625 16.3328 16.41 16.4449L13.9403 21.7135C13.7482 22.1234 13.1515 22.0847 13.0143 21.6534Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M11.4668 6.4688L14.6629 3.281M8.1994 5.6447L6.7529 1.317M5.6529 8.1826L1.3155 6.7405M6.4806 11.4418L3.2845 14.6296M8.9737 8.9553L13.4001 22L16.4918 16.2705L22 13.6016L8.9737 8.9553Z"/>
+    </svg>
+  )
+}

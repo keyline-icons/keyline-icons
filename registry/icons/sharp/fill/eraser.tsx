@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Eraser({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M13.4853 20L23 20L23 22L7.071 22C6.8058 22 6.5514 21.8946 6.3639 21.7071L1.2928 16.6361C1.1053 16.4486 1 16.1942 1 15.929C1 15.6638 1.1053 15.4094 1.2928 15.2219L14.2219 2.2928C14.4094 2.1053 14.6638 2 14.929 2C15.1942 2 15.4486 2.1053 15.6361 2.2928L22.7072 9.3639C22.8947 9.5514 23 9.8058 23 10.071C23 10.3362 22.8947 10.5906 22.7072 10.7781L13.4853 20ZM3.4142 15.929L7.4852 20L10.6569 20L13.6569 17L8 11.3431L3.4142 15.929Z" fill="currentColor"/>
+    </svg>
+  )
+}

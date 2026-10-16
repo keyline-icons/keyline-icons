@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Atom({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M19.1119 12C21.2171 15.4351 21.5935 18.5707 20.0821 20.0821C17.8951 22.269 12.5038 20.4234 8.0402 15.9598M4.8881 12C2.7829 8.5649 2.4065 5.4293 3.9179 3.9179C6.1049 1.731 11.4962 3.5766 15.9598 8.0402M12 4.8881C15.4351 2.7829 18.5707 2.4065 20.0821 3.9179C22.269 6.1049 20.4234 11.4962 15.9598 15.9598M12 19.1119C8.5649 21.2171 5.4293 21.5935 3.9179 20.0821C1.731 17.8951 3.5766 12.5038 8.0402 8.0402" fill="none" strokeOpacity="0.4"/>
+      <path d="M13.5 12C13.5 12.8284 12.8284 13.5 12 13.5C11.1716 13.5 10.5 12.8284 10.5 12C10.5 11.1716 11.1716 10.5 12 10.5C12.8284 10.5 13.5 11.1716 13.5 12Z" fill="currentColor" stroke="none"/>
+    </svg>
+  )
+}

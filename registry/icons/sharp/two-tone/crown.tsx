@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Crown({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2.5057 20.1065L1.0057 6.1065C0.9077 5.1921 1.9921 4.6414 2.6727 5.2601L7.298 9.4649L11.1588 3.4592C11.5525 2.8469 12.4475 2.8469 12.8412 3.4592L16.702 9.4649L21.3273 5.2601C22.0079 4.6414 23.0923 5.1921 22.9943 6.1065L21.4943 20.1065C21.4399 20.6147 21.011 21 20.5 21L3.5 21C2.989 21 2.5601 20.6147 2.5057 20.1065Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M3.5 20L2 6L7.5 11L12 4L16.5 11L22 6L20.5 20L3.5 20ZM2.9643 15L21.0357 15"/>
+    </svg>
+  )
+}

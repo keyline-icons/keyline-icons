@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Megaphone({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M16 5.5C17.42 4.886 18.788 4.02 20 3.214C20.186 3.095 20.407 3.022 20.638 3.004C20.869 2.986 21.101 3.024 21.309 3.113C21.517 3.202 21.691 3.339 21.813 3.508C21.935 3.677 22 3.872 22 4.071V17.429C22 17.628 21.935 17.823 21.813 17.992C21.691 18.161 21.517 18.298 21.309 18.387C21.101 18.476 20.869 18.516 20.638 18.496C20.407 18.478 20.186 18.405 20 18.286C18.788 17.48 17.42 16.614 16 16C14.849 15.4 13.664 15 12.5 15H5C3.34315 15 2 13.6569 2 12V9.5C2 7.84315 3.34315 6.5 5 6.5H12.5C13.664 6.5 14.849 6.1 16 5.5ZM10 15V19C10 20.1046 9.10457 21 8 21C6.2 21 5.5 18.5 5.5 15M16 5.5V16"/>
+    </svg>
+  )
+}

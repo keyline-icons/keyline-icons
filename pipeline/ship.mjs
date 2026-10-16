@@ -79,6 +79,8 @@ const OWNED = [
   "packages/mcp/icons.json",
   "packages/cli/icons.json",
   "packages/figma-plugin/icons.json",
+  "registry.json",
+  "registry",
   "previews",
   "lib/icon-history.json",
   "README.md",
@@ -108,6 +110,7 @@ for (const [script, label] of [
   ["build.mjs", "icons/"],
   ["build-react.mjs", "React modules"],
   ["build-data.mjs", "data bundles"],
+  ["build-github-registry.mjs", "GitHub registry"],
 ]) {
   if (node(script).code !== 0) die(`${label} failed to build`)
 }

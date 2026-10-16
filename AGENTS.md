@@ -11,15 +11,17 @@ the site that browses it, and its packages. 476 icons, 2,994 SVGs, MIT.
 
 ## The one rule
 
-**`icons/`, `components/icons/`, `packages/*/src/` and `packages/*/icons.json`
-are generated. Never edit them.** The source of truth is `raw/`, which holds
-Figma exports, and everything downstream is built from it:
+**`icons/`, `components/icons/`, `packages/*/src/`, `packages/*/icons.json`,
+`registry.json` and `registry/` are generated. Never edit them.** The source of
+truth is `raw/`, which holds Figma exports, and everything downstream is built
+from it:
 
 ```
 raw/<name>/*.svg  ->  icons/<style>/<name>.svg  ->  components/icons/index.tsx
                                                 ->  packages/react/src/*.tsx
                                                 ->  packages/react-native/src/*.tsx
                                                 ->  packages/{mcp,cli,figma-plugin}/icons.json
+                                                ->  registry.json, registry/
                                                 ->  previews/{figma-cover,social-preview}.svg
                                                 ->  previews/paper/*.html
 ```

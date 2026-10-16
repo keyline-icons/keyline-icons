@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function SendHorizontal({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2.4472 1.1056L22.4472 11.1056C22.786 11.275 23 11.6212 23 12C23 12.3788 22.786 12.725 22.4472 12.8944L2.4472 22.8944C2.3084 22.9639 2.1552 23 2 23C1.4477 23 1 22.5523 1 22C1 21.9378 1.0058 21.8758 1.0173 21.8147L2.868 12L1.0173 2.1853C1.0058 2.1242 1 2.0622 1 2C1 1.4477 1.4477 1 2 1C2.1552 1 2.3084 1.0361 2.4472 1.1056Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M2 2L22 12L2 22L3.8856 12L2 2ZM3.8856 12L22 12" fill="none"/>
+    </svg>
+  )
+}

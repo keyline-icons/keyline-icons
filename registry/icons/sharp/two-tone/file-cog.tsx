@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function FileCog({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M14 1C14.2652 1 14.5195 1.10547 14.707 1.29297L20.707 7.29297C20.8945 7.48047 21 7.7348 21 8V10C21 10.5523 20.5523 11 20 11H9V22C9 22.5523 8.5523 23 8 23H4C3.4477 23 3 22.5523 3 22V2C3 1.4477 3.4477 1 4 1H14Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M20 11L20 8L14 2L4 2L4 22L9 22M14 2L14 8L20 8M18.6667 18C18.6667 19.4728 17.4728 20.6667 16 20.6667C14.5272 20.6667 13.3333 19.4728 13.3333 18C13.3333 16.5272 14.5272 15.3333 16 15.3333C17.4728 15.3333 18.6667 16.5272 18.6667 18ZM18.99 18L21 18M18.1142 20.1142L19.5355 21.5355M16 20.99L16 23M13.8858 20.1142L12.4645 21.5355M13.01 18L11 18M13.8858 15.8858L12.4645 14.4645M16 15.01L16 13M18.1142 15.8858L19.5355 14.4645"/>
+    </svg>
+  )
+}

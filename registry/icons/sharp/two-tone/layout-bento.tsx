@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function LayoutBento({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2 3L2 10C2 10.5523 2.4477 11 3 11L12 11C12.5523 11 13 10.5523 13 10L13 3C13 2.4477 12.5523 2 12 2L3 2C2.4477 2 2 2.4477 2 3ZM15 3L15 10C15 10.5523 15.4477 11 16 11L21 11C21.5523 11 22 10.5523 22 10L22 3C22 2.4477 21.5523 2 21 2L16 2C15.4477 2 15 2.4477 15 3ZM2 14L2 21C2 21.5523 2.4477 22 3 22L8 22C8.5523 22 9 21.5523 9 21L9 14C9 13.4477 8.5523 13 8 13L3 13C2.4477 13 2 13.4477 2 14ZM11 14L11 21C11 21.5523 11.4477 22 12 22L21 22C21.5523 22 22 21.5523 22 21L22 14C22 13.4477 21.5523 13 21 13L12 13C11.4477 13 11 13.4477 11 14Z" fill="currentColor" fillOpacity="0.4" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M3 3L3 10L12 10L12 3L3 3ZM16 3L16 10L21 10L21 3L16 3ZM3 14L3 21L8 21L8 14L3 14ZM12 14L12 21L21 21L21 14L12 14Z" fill="none"/>
+    </svg>
+  )
+}

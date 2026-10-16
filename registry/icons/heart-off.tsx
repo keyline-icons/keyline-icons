@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function HeartOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M16.9343 16.9343C15.3695 18.2867 13.629 19.6087 12 21C7.4376 17.1033 2 13.75 2 8.75C2 6.9313 2.881 5.3099 4.2563 4.2563M8.6969 3.0401C9.9183 3.1821 11.0249 3.6962 12 4.5C13.1574 3.5459 14.5 3 16 3C19.3138 3 22 5.5743 22 8.75C22 10.7584 21.1226 12.5012 19.777 14.1202M2 2L22 22"/>
+    </svg>
+  )
+}

@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ArchiveX({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M4 8L20 8C20.5523 8 21 8.4477 21 9L21 17C21 19.2091 19.2091 21 17 21L7 21C4.7909 21 3 19.2091 3 17L3 9C3 8.4477 3.4477 8 4 8Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M4 3L20 3C21.6569 3 23 4.3431 23 6L23 7C23 8.6569 21.6569 10 20 10L4 10C2.3431 10 1 8.6569 1 7L1 6C1 4.3431 2.3431 3 4 3Z" fill="currentColor" stroke="none"/>
+      <path d="M10.5 13L13.5 16M13.5 13L10.5 16" fill="none"/>
+    </svg>
+  )
+}

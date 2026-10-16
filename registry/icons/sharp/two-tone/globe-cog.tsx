@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function GlobeCog({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 1C17.2467 1 21.8074 4.95463 22.7979 9.97168C22.7981 9.9811 22.7998 9.99051 22.7998 10C22.7998 10.3576 22.6114 10.6699 22.3291 10.8467L20.9453 11H11V20.9453L10.8467 22.3291C10.6699 22.6114 10.3576 22.7998 10 22.7998C9.99051 22.7998 9.9811 22.7981 9.97168 22.7979C4.95463 21.8074 1 17.2467 1 12C1 6.0629 6.0629 1 12 1Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M10.8903 21.9391C5.8896 21.387 2 17.1477 2 12C2 6.4771 6.4771 2 12 2C17.1477 2 21.387 5.8896 21.9391 10.8903M2 12L11 12M10.144 19.4911C8.7147 17.1249 8 14.5625 8 12C8 8.5 9.3333 5 12 2C14.3927 4.6918 15.712 7.7862 15.9578 10.9218M20.6667 18C20.6667 19.4728 19.4728 20.6667 18 20.6667C16.5272 20.6667 15.3333 19.4728 15.3333 18C15.3333 16.5272 16.5272 15.3333 18 15.3333C19.4728 15.3333 20.6667 16.5272 20.6667 18ZM20.99 18L23 18M20.1142 20.1142L21.5355 21.5355M18 20.99L18 23M15.8858 20.1142L14.4645 21.5355M15.01 18L13 18M15.8858 15.8858L14.4645 14.4645M18 15.01L18 13M20.1142 15.8858L21.5355 14.4645"/>
+    </svg>
+  )
+}

@@ -1,4 +1,6 @@
-import { registryComponent } from "@/lib/icon-code"
+import { readFile } from "node:fs/promises"
+import { join } from "node:path"
+
 import { artOf, CORNERS, type Corners } from "@/components/glyph"
 import { iconHref } from "@/lib/icon-pages"
 import { loadIcons, STYLES, type Icon, type Style } from "@/lib/icons"
@@ -35,6 +37,12 @@ import { absoluteUrl } from "@/lib/seo"
  * this hands you a component as *source in your own repo*, which is the shape
  * shadcn users already expect and the only one they can edit afterwards.
  *
+ * The same files sit at the repository root as a GitHub registry
+ * (`registry.json`, `pipeline/build-github-registry.mjs`), so
+ * `npx shadcn add keyline-icons/keyline-icons/bell` is this item without
+ * going through the site. The body is read off that generated file rather
+ * than rebuilt here, which is what keeps the two doors from disagreeing.
+ *
  * A catch-all rather than `[name]`, because the style lives in the path. The
  * stroke drawing is the bare name, since it is the only style every icon has
  * and the one anyone means by "the icon"; the other two are prefixed, matching
@@ -50,13 +58,14 @@ import { absoluteUrl } from "@/lib/seo"
  * per request and the items are not: see `lib/registry.ts`.
  */
 
-function item(icon: Icon, style: Style, corners: Corners): RegistryItem {
-  const art = artOf(icon, style, corners)!
+async function item(icon: Icon, style: Style, corners: Corners): Promise<RegistryItem> {
   // `@components/` resolves against components.json when the consumer has one
   // and falls back sanely when they do not, which is the case this whole route
   // exists to serve.
   // The treatment is a directory here rather than a suffix, so a project that
   // installs both gets two files instead of one overwriting the other.
+  const id = itemName(icon.name, style, corners)
+  const path = `registry/icons/${id}.tsx`
   const target =
     `@components/icons/` +
     `${corners === "sharp" ? "sharp/" : ""}${style === "stroke" ? "" : `${style}/`}` +
@@ -77,8 +86,11 @@ function item(icon: Icon, style: Style, corners: Corners): RegistryItem {
     dependencies: [],
     files: [
       {
-        path: `registry/icons/${itemName(icon.name, style, corners)}.tsx`,
-        content: registryComponent(icon.name, art),
+        path,
+        content: await readFile(
+          join(process.cwd(), "registry", "icons", ...`${id}.tsx`.split("/")),
+          "utf8"
+        ),
         type: "registry:component",
         target,
       },
@@ -142,7 +154,7 @@ export async function GET(
     )
   }
 
-  return json(item(icon, style, corners))
+  return json(await item(icon, style, corners))
 }
 
 /**

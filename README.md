@@ -126,6 +126,18 @@ package, so it can be renamed, edited or folded into the project's own
 conventions. Take the package to have the whole set behind one import; take the
 registry to own a handful of files.
 
+You can also install straight from GitHub, without configuring a registry in
+`components.json`:
+
+```bash
+npx shadcn@latest add keyline-icons/keyline-icons/bell
+npx shadcn@latest add keyline-icons/keyline-icons/fill/bell
+npx shadcn@latest add keyline-icons/keyline-icons/sharp/fill/bell
+```
+
+The GitHub registry installs the same self-contained source files and variant
+paths as the site registry.
+
 **Add one at a time from the terminal.** `@keyline-icons/cli` searches the set
 and writes SVGs into a project without adding a dependency to it:
 

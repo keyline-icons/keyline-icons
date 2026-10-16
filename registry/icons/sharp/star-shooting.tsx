@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function StarShooting({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M16.234 2.3825L17.2816 6.7184L21.6175 7.766C21.8419 7.8202 22 8.0211 22 8.252C22 8.4257 21.9099 8.587 21.7619 8.678L17.962 11.0142L18.3055 15.4615C18.3065 15.4744 18.307 15.4872 18.307 15.5001C18.307 15.7762 18.0831 16 17.807 16C17.6882 16 17.5733 15.9577 17.4828 15.8807L14.0867 12.9887L9.9632 14.6897C9.9027 14.7147 9.8379 14.7275 9.7725 14.7275C9.4963 14.7275 9.2725 14.5037 9.2725 14.2275C9.2725 14.1621 9.2853 14.0973 9.3103 14.0368L11.0113 9.9133L8.1193 6.5172C8.0423 6.4267 7.9999 6.3118 7.9999 6.193C7.9999 5.9169 8.2238 5.693 8.4999 5.693C8.5128 5.693 8.5256 5.6935 8.5385 5.6945L12.9858 6.038L15.322 2.2381C15.413 2.0901 15.5743 2 15.748 2C15.9789 2 16.1798 2.1581 16.234 2.3825ZM1.7071 22.2929L6.7929 17.2071M1.7071 16.2929L5.7929 12.2071M7.7071 22.2929L11.7929 18.2071" fill="none"/>
+    </svg>
+  )
+}

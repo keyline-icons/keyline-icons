@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CircleArrowUp({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 1C17.937 1 23 6.0629 23 12C23 17.937 17.937 23 12 23C6.0629 23 1 17.937 1 12C1 6.0629 6.0629 1 12 1ZM11.355 7.0932L10.9297 7.4521L6.9884 11.4984L8.422 12.8939L11 10.2461L11 17L13 17L13 10.2461L15.5764 12.8941L17.01 11.4986L13.0703 7.4521L12.645 7.0932C12.2725 6.7788 11.7275 6.7788 11.355 7.0932Z" fill="currentColor"/>
+    </svg>
+  )
+}

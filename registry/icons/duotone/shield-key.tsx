@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ShieldKey({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M5.0647 4.1754C7.4506 3.8923 9.2514 2.6998 10.3279 1.6554C10.7686 1.2278 11.3816 1 12 1C12.6184 1 13.2314 1.2278 13.6721 1.6554C14.7486 2.6998 16.5495 3.8923 18.9353 4.1754C20.0939 4.3129 21 5.2554 21 6.3829L21 12.5708C21 14.5658 20.6389 16.5862 19.4031 18.1846C18.1083 19.859 16.0537 21.7334 13.1746 22.7912C12.4169 23.0696 11.5831 23.0696 10.8253 22.7911C7.9462 21.7334 5.8916 19.859 4.5969 18.1846C3.3611 16.5862 3 14.5658 3 12.5708L3 6.3829C3 5.2554 3.9062 4.3129 5.0647 4.1754Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M14 9.5C14 10.6046 13.1046 11.5 12 11.5C10.8954 11.5 10 10.6046 10 9.5C10 8.3954 10.8954 7.5 12 7.5C13.1046 7.5 14 8.3954 14 9.5ZM12 11.5L12 17.5M12 15.5L14 15.5"/>
+    </svg>
+  )
+}

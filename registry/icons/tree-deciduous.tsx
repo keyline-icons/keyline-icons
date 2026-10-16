@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function TreeDeciduous({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M7.6015 6.545C8.0395 4.5184 9.8424 3 12 3C14.1576 3 15.9605 4.5184 16.3985 6.545C16.5946 6.5153 16.7955 6.5 17 6.5C19.2091 6.5 21 8.2909 21 10.5C21 12.1811 19.9629 13.62 18.4936 14.2118C18.3842 16.0462 16.8619 17.5 15 17.5C13.7268 17.5 12.6124 16.8202 12 15.8037C11.3876 16.8202 10.2732 17.5 9 17.5C7.1381 17.5 5.6158 16.0462 5.5063 14.2117C4.0371 13.62 3 12.1811 3 10.5C3 8.2909 4.7909 6.5 7 6.5C7.2045 6.5 7.4054 6.5153 7.6017 6.545ZM12 21L12 11.5M10.5 10L12 11.5L13.5 10" fill="none"/>
+    </svg>
+  )
+}

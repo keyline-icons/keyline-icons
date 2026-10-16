@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function MessageSquareDot({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M11.6754 2L6 2C3.7909 2 2 3.7909 2 6L2 21C2 21.5523 2.4477 22 3 22C3.2652 22 3.5196 21.8946 3.7071 21.7071L7.4142 18L18 18C20.2091 18 22 16.2091 22 14L22 12.3246C22 11.7723 21.5523 11.3246 21 11.3246C20.8518 11.3246 20.7054 11.3575 20.5714 11.421C19.7678 11.8022 18.8895 12 18 12C14.6863 12 12 9.3137 12 6C12 5.1105 12.1978 4.2322 12.579 3.4286C12.6425 3.2946 12.6754 3.1482 12.6754 3C12.6754 2.4477 12.2277 2 11.6754 2Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M21 6C21 7.6569 19.6569 9 18 9C16.3431 9 15 7.6569 15 6C15 4.3431 16.3431 3 18 3C19.6569 3 21 4.3431 21 6Z"/>
+    </svg>
+  )
+}

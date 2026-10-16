@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Flame2({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M11.7388 2.6979C12.3119 5.6813 12.1147 8.1708 9.9131 10.0232L8.7982 10.9612L8.9254 9.3889C9.0389 7.9854 8.6865 6.5536 8.3215 5.7792L8.0474 5.1976L7.6171 5.7364C6.3149 7.367 4.5091 10.4743 4.1054 12.8154C3.4557 16.5832 5.776 22.504 11.9014 21.9657C16.8018 21.5351 19.1406 17.8391 19.6974 16.0449C21.2003 10.2342 16.8445 5.7303 12.7114 2.1414C12.2947 1.7796 11.6365 2.1651 11.7388 2.6979ZM14.6705 20.3072C15.3502 18.5659 14.0365 15.6327 13.0067 13.9376L12.5139 13.1263L12.0492 13.9883C10.1354 17.5385 9.1431 17.3932 9.1431 19.7923C9.1431 22.3671 13.6655 22.882 14.6705 20.3072Z" fill="none"/>
+    </svg>
+  )
+}

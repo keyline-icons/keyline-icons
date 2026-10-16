@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function TagHorizontalEndPercent({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M5 3C2.7909 3 1 4.7909 1 7L1 17C1 19.2091 2.7909 21 5 21L14 21C14.7957 21 15.5587 20.6839 16.1213 20.1213L22.1213 14.1213C23.2929 12.9497 23.2929 11.0503 22.1213 9.8787L16.1213 3.8787C15.5587 3.3161 14.7957 3 14 3L5 3Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M12.75 15L6.75 9"/>
+      <path d="M11.25 8.5C11.25 9.3284 11.9216 10 12.75 10C13.5784 10 14.25 9.3284 14.25 8.5C14.25 7.6716 13.5784 7 12.75 7C11.9216 7 11.25 7.6716 11.25 8.5ZM5.25 15.5C5.25 16.3284 5.9216 17 6.75 17C7.5784 17 8.25 16.3284 8.25 15.5C8.25 14.6716 7.5784 14 6.75 14C5.9216 14 5.25 14.6716 5.25 15.5Z" fill="currentColor" stroke="none"/>
+    </svg>
+  )
+}

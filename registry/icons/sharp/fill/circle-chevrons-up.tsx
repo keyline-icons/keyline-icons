@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CircleChevronsUp({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 1C17.937 1 23 6.0629 23 12C23 17.937 17.937 23 12 23C6.0629 23 1 17.937 1 12C1 6.0629 6.0629 1 12 1ZM11.3691 12.4746L7.4994 16.333L8.9134 17.747L12 14.6641L15.0859 17.7498L16.4999 16.3358L12.707 12.543C12.3409 12.1769 11.7619 12.1543 11.3691 12.4746ZM11.3691 6.4746L7.4994 10.333L8.9134 11.747L12 8.6641L15.0859 11.7498L16.4999 10.3358L12.707 6.543C12.3409 6.1769 11.7619 6.1543 11.3691 6.4746Z" fill="currentColor"/>
+    </svg>
+  )
+}
