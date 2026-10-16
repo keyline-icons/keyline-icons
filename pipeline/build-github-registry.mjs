@@ -6,14 +6,16 @@
 // shadcn's GitHub registries (https://ui.shadcn.com/docs/registry/github) read
 // a `registry.json` at the repository root and the files that document names.
 // They do not call the site. The HTTP registry under `app/r/` inlines the same
-// component at request time, which is why those paths (`registry/icons/…tsx`)
-// existed as strings long before anything sat on disk: the CLI was always
+// component at request time, which is why `registry/<catalog>/icons/…tsx`
+// existed as a path long before anything sat on disk: the CLI was always
 // being told a file path. GitHub is what finally needs the file to be there.
 //
 // The catalog is split with `include`. One file of every drawing is several
-// megabytes, and GitHub's Contents API refuses a blob over 5 MiB; eight files
-// by style and treatment stay well under that. Item names still match the
-// HTTP registry (`bell`, `fill/bell`, `sharp/fill/bell`), so
+// megabytes, and GitHub's Contents API refuses a blob over 5 MiB; eight
+// catalogs by style and treatment stay well under that. shadcn requires each
+// included registry file to be named `registry.json`, so each catalog has its
+// own directory. Item names still match the HTTP registry (`bell`,
+// `fill/bell`, `sharp/fill/bell`), so
 // `keyline-icons/keyline-icons/sharp/fill/bell` is the GitHub spelling of
 // `@keyline/sharp/fill/bell`.
 //
@@ -164,12 +166,13 @@ const catalogs = new Map()
 
 for (const corners of CORNERS) {
   for (const style of STYLES) {
+    const key = catalogKey(style, corners)
     const items = []
     for (const name of names) {
       const art = icons[name][corners][style]
       if (!art) continue
       const id = itemName(name, style, corners)
-      const rel = `registry/icons/${id}.tsx`
+      const rel = `registry/${key}/icons/${name}.tsx`
       files.set(join(ROOT, rel), emitComponent(name, art))
       const styles = STYLES.filter((s) => icons[name][corners][s])
       items.push({
@@ -180,18 +183,18 @@ for (const corners of CORNERS) {
         docs: `Every style and both corners of ${name}: ${SITE}/icons/${name}`,
         files: [
           {
-            path: `icons/${id}.tsx`,
+            path: `icons/${name}.tsx`,
             type: "registry:component",
             target: targetOf(name, style, corners),
           },
         ],
       })
     }
-    catalogs.set(catalogKey(style, corners), items)
+    catalogs.set(key, items)
   }
 }
 
-const include = [...catalogs.keys()].map((key) => `registry/${key}.json`)
+const include = [...catalogs.keys()].map((key) => `registry/${key}/registry.json`)
 const rootJson = `${JSON.stringify(
   {
     $schema: SCHEMA,
@@ -206,7 +209,7 @@ const rootJson = `${JSON.stringify(
 files.set(join(ROOT, "registry.json"), rootJson)
 for (const [key, items] of catalogs) {
   files.set(
-    join(ROOT, "registry", `${key}.json`),
+    join(ROOT, "registry", key, "registry.json"),
     `${JSON.stringify({ $schema: SCHEMA, items }, null, 2)}\n`
   )
 }

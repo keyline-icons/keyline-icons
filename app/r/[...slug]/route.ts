@@ -65,7 +65,8 @@ async function item(icon: Icon, style: Style, corners: Corners): Promise<Registr
   // The treatment is a directory here rather than a suffix, so a project that
   // installs both gets two files instead of one overwriting the other.
   const id = itemName(icon.name, style, corners)
-  const path = `registry/icons/${id}.tsx`
+  const catalog = corners === "sharp" ? `sharp-${style}` : style
+  const path = `registry/${catalog}/icons/${icon.name}.tsx`
   const target =
     `@components/icons/` +
     `${corners === "sharp" ? "sharp/" : ""}${style === "stroke" ? "" : `${style}/`}` +
@@ -88,7 +89,7 @@ async function item(icon: Icon, style: Style, corners: Corners): Promise<Registr
       {
         path,
         content: await readFile(
-          join(process.cwd(), "registry", "icons", ...`${id}.tsx`.split("/")),
+          join(process.cwd(), "registry", catalog, "icons", `${icon.name}.tsx`),
           "utf8"
         ),
         type: "registry:component",

@@ -3,13 +3,13 @@
   "name": "keyline",
   "homepage": "https://keylineicons.com",
   "include": [
-    "registry/stroke.json",
-    "registry/two-tone.json",
-    "registry/duotone.json",
-    "registry/fill.json",
-    "registry/sharp-stroke.json",
-    "registry/sharp-two-tone.json",
-    "registry/sharp-duotone.json",
-    "registry/sharp-fill.json"
+    "registry/stroke/registry.json",
+    "registry/two-tone/registry.json",
+    "registry/duotone/registry.json",
+    "registry/fill/registry.json",
+    "registry/sharp-stroke/registry.json",
+    "registry/sharp-two-tone/registry.json",
+    "registry/sharp-duotone/registry.json",
+    "registry/sharp-fill/registry.json"
   ]
 }
