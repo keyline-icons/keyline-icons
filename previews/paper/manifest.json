@@ -2607,8 +2607,8 @@
       "into": "artboard",
       "width": 742,
       "icons": 53,
-      "variants": 72,
-      "bytes": 43033
+      "variants": 64,
+      "bytes": 39263
     },
     {
       "file": "new-2.html",
@@ -2619,8 +2619,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 36640
+      "variants": 72,
+      "bytes": 40674
     },
     {
       "file": "new-3.html",
@@ -3564,7 +3564,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 84860
+      "bytes": 84926
     },
     {
       "file": "changelog-earlier.html",

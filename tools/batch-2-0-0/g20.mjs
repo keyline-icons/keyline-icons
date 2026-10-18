@@ -681,14 +681,19 @@ function bookOpen2(sharp) {
 def('book-open-2', bookOpen2, [2, 2, 22, 22]);
 
 /* ================================================================ ampersand */
-// Redrawn from scratch, as Zafar asked: his ran on free cubics whose loop was no circle, whose arm
-// curled back on itself and whose bowl broke at the turn. Built from circles and tangents instead,
-// one stroke as written: the arm's end at the right extreme of the bowl's big arc (r=9 about
-// (9, 12)), down that arc to the bottom, on round the small arc (r=5 about (9, 16)) that sets the
-// left side, up the cross stroke (the internal tangent of that arc and the loop), round the loop
-// (r=3.5 about (10.5, 6.5)) against the clock, and down the leg, tangent off the loop, to the foot
-// at (20, 21). The leg crosses the cross stroke and the bowl, as an ampersand's does; 15 per cent of
-// it lies on the other set's (theirs bends its cross stroke and leg and caps the arm with a serif).
+// Redrawn from scratch, twice. His ran on free cubics whose loop was no circle, whose arm curled back
+// on itself and whose bowl broke at the turn. The first redraw (18 Oct) fixed those but ran its waist
+// into the loop at 19 degrees, so the two strokes under the loop met almost flat and knotted into a
+// blob at 16px. Now they cross the way a typeset ampersand's do, near a right angle (89.3 degrees).
+// One stroke as written, circles and the tangents between them: the arm's end at the right extreme of
+// the bottom arc (r=9 about (8, 12)), down it to the bottom, on round the bowl's left arc (r=4 about
+// (8, 17)), up the waist (the internal tangent of that arc and the loop, 44.3 degrees), round the
+// loop (r=3 about (5 + 3 sqrt 2, 6)) against the clock, and down the leg, tangent off the loop, to
+// the foot at (20, 21). The loop's x is the one that runs the leg at exactly 45: a butt end paints a
+// box corner only at 45 degrees, and on (9, 6) the leg ran at 44.5 and sharp's foot stopped 0.008
+// short of 21. The loop is 0.57 of the bowl's width and the crossing sits 41 per cent down, a typeset
+// ampersand's proportions; the arm ends at half height. 16 per cent of it lies on the other set's
+// (theirs bends its waist and leg and caps the arm with a serif).
 // Paints 3..21 by 2..22. A symbol: every style the stroke. Sharp: the two ends take the stub.
 const rad = (a) => (a * Math.PI) / 180, degA = (a) => (a * 180) / Math.PI;
 const cwT = (a) => [-Math.sin(rad(a)), Math.cos(rad(a))];
@@ -706,7 +711,7 @@ function tangentsCC(c1, r1, c2, r2) {
   }
   return out;
 }
-const AMP = { U: [10.5, 6.5], rU: 3.5, Wl: [9, 16], rWl: 5, Rr: 9, F: [20, 21] };
+const AMP = { U: [5 + 3 * Math.SQRT2, 6], rU: 3, Wl: [8, 17], rWl: 4, Rr: 9, F: [20, 21] };
 function ampersandD(sharp) {
   const { U, rU, Wl, rWl, Rr, F } = AMP, Wr = [Wl[0], Wl[1] + rWl - Rr];
   const along = (t, a, sign) => L.dot(nrm(L.sub(t.p2, t.p1)), cwT(a)) * sign > 0.999;

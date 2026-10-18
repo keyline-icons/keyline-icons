@@ -249,7 +249,7 @@ export function AmericanFootball(props: IconProps) {
 export function Ampersand(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M18 12C18 16.9706 13.9706 21 9 21C6.2386 21 4 18.7614 4 16C4 13.8636 5.3574 11.9632 7.3784 11.2703L11.6351 9.8108C13.0498 9.3258 14 7.9955 14 6.5C14 4.567 12.433 3 10.5 3C8.567 3 7 4.567 7 6.5C7 7.4257 7.3667 8.3137 8.02 8.9697L20 21" fill="none" />
+      <Path d="M17 12C17 16.9706 12.9706 21 8 21C5.7909 21 4 19.2091 4 17C4 15.923 4.4343 14.8914 5.2048 14.1388L11.3391 8.1459C11.9169 7.5814 12.2426 6.8078 12.2426 6C12.2426 4.3431 10.8995 3 9.2426 3C7.5858 3 6.2426 4.3431 6.2426 6C6.2426 6.7956 6.5587 7.5587 7.1213 8.1213L20 21" fill="none" />
     </Icon>
   )
 }
