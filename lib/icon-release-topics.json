@@ -1,6 +1,167 @@
 {
  "$comment": "SOURCE, NOT GENERATED. How a release reads on the changelog, shaped after Preline's (Zafar, 17 Sep 2026, pointing at preline.co/docs/changelog.html): a title, then chips (an icon and a label, like Preline's \"New Components & Improvements\" and \"Fixes and Improvements\"), each followed by its items with a bold lead (\"People:\", \"Layout:\") and the drawings the item is about. His asks on the way: \"topic > icons, topic > icons. not all topics first and then all icons after that\", \"categorize them, not just text > icons. titles, etc.\", \"redrawns deserve to be a separate topic, not within a topic and each subtitle must carry shareable link like the main titles\". So redraws are always their own chip. Per version: `title` (the release's headline, which every version has, released ones included, because the page heads each entry by it) and optionally `sections`: chips with `title`, `icon` (a drawing from this set, by name) or `logo` (a platform's own mark, for a chip about that platform, where a drawing of ours would stand in for someone else's trademark: `react`, drawn from components/brand-logos.tsx), `text`, and items in `sections` with `title`, `text`, `names` (added), `redraws` or `removed` (drawings the release took out of the set, since 1.6.0 retired `cloud-minus`: the generator reads them off the two trees, so a name listed here only places one, it never claims one). A version with no `sections` is drawn with default chips, New drawings and Redrawn, straight off git. pipeline/build-history.mjs gives every chip and item an `anchor` (v<version>-<chip>, v<version>-<chip>-<item>) that the site links, keeps only the drawings the entry carries, and appends anything no item claims in a last untitled group, reported, so a stale list never drops a drawing. Keyed by the version the work ships as, so nothing is re-keyed at the tag. Numbers go in as {names} and {files}. Anything in backticks is set as code, on the page and the Paper board both, the way a post sets an icon name. Where a version has sections they replace the note.",
  "releases": {
+  "2.0.0": {
+   "title": "Brackets and punctuation, tally marks, chevron levels and plain shapes",
+   "sections": [
+    {
+     "title": "New drawings",
+     "icon": "sparkles",
+     "sections": [
+      {
+       "title": "Actions",
+       "text": "The no-entry slash inside a square, both ways round, and the star and the lightning bolt in a square and a circle.",
+       "names": [
+        "ban-square",
+        "ban-square-flip",
+        "square-star",
+        "circle-star",
+        "square-zap",
+        "circle-zap"
+       ]
+      },
+      {
+       "title": "Arrows",
+       "text": "U-turns that turn back at a line, in all four directions and mirrored. Arrows passing through a line, and three big arrows with a bar behind, to match the one pointing up.",
+       "names": [
+        "arrow-u-turn-left-line",
+        "arrow-u-turn-left-line-flip",
+        "arrow-u-turn-right-line",
+        "arrow-u-turn-right-line-flip",
+        "arrow-u-turn-up-line",
+        "arrow-u-turn-up-line-flip",
+        "arrow-u-turn-down-line",
+        "arrow-u-turn-down-line-flip",
+        "arrow-up-through-line",
+        "arrow-down-through-line",
+        "arrow-left-through-line",
+        "arrow-right-through-line",
+        "arrow-big-right-dash",
+        "arrow-big-down-dash",
+        "arrow-big-left-dash"
+       ]
+      },
+      {
+       "title": "Chevrons & Carets",
+       "text": "Levels of one, two and three chevrons, pointing up and filling from the bottom, or pointing down and filling from the top.",
+       "names": [
+        "chevrons-up-1",
+        "chevrons-up-2",
+        "chevrons-up-3",
+        "chevrons-down-1",
+        "chevrons-down-2",
+        "chevrons-down-3"
+       ]
+      },
+      {
+       "title": "Devices",
+       "text": "A plug with a lightning bolt for charging, a plug in a ring, and a panel with code brackets set into its top edge.",
+       "names": [
+        "plug-zap",
+        "plug-circle",
+        "code-panel"
+       ]
+      },
+      {
+       "title": "Diagrams",
+       "text": "Two boxes joined by a path, a workflow.",
+       "names": [
+        "workflow"
+       ]
+      },
+      {
+       "title": "Files",
+       "text": "An open book with a page turning, and two books standing with a third leaning on them.",
+       "names": [
+        "book-open-2",
+        "library-big"
+       ]
+      },
+      {
+       "title": "Layout",
+       "text": "A list of checks, indents in and out, a nested list and a list with a pin.",
+       "names": [
+        "list-checks",
+        "list-indent-increase",
+        "list-indent-decrease",
+        "list-nested",
+        "list-pin"
+       ]
+      },
+      {
+       "title": "Maps",
+       "text": "A pin pushed into the ground.",
+       "names": [
+        "map-pin-2"
+       ]
+      },
+      {
+       "title": "Math",
+       "text": "Each bracket on its own: parentheses, square brackets and braces, opening and closing. Parentheses around an ellipsis and around an x. Tally marks from one to five, the fifth drawn across the other four.",
+       "names": [
+        "parenthesis-left",
+        "parenthesis-right",
+        "bracket-left",
+        "bracket-right",
+        "brace-left",
+        "brace-right",
+        "parentheses-ellipsis",
+        "parentheses-x",
+        "tally-1",
+        "tally-2",
+        "tally-3",
+        "tally-4",
+        "tally-5"
+       ]
+      },
+      {
+       "title": "Media",
+       "text": "A large frame over a strip of thumbnails, and play and pause on one key.",
+       "names": [
+        "gallery-thumbnails",
+        "play-pause"
+       ]
+      },
+      {
+       "title": "Shapes",
+       "text": "A plain triangle, diamond, hexagon and octagon, and a dot in a triangle, a diamond, an octagon, a square and a circle.",
+       "names": [
+        "triangle",
+        "triangle-dot",
+        "diamond",
+        "diamond-dot",
+        "hexagon",
+        "octagon",
+        "octagon-dot",
+        "square-dot",
+        "circle-dot"
+       ]
+      },
+      {
+       "title": "Text",
+       "text": "Punctuation on its own: a pipe, a colon, a semicolon, a comma, a grave accent and a tilde. Left and right alignment with a bar on the side the lines line up against.",
+       "names": [
+        "pipe",
+        "colon",
+        "semicolon",
+        "comma",
+        "accent-grave",
+        "tilde",
+        "align-left-2",
+        "align-right-2"
+       ]
+      },
+      {
+       "title": "Web",
+       "text": "NFC, four waves each wider than the last, for tapping to pay or pair.",
+       "names": [
+        "nfc"
+       ]
+      }
+     ]
+    }
+   ]
+  },
   "1.8.0": {
    "title": "Long arrows, aspect ratios, undo and redo, and text inputs",
    "sections": [
