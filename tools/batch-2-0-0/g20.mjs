@@ -413,6 +413,16 @@ def('tilde', (sharp) => allStroke(sharp ? stubEnds(TILDE, 'both', [4, 9, 20, 15]
 // tally-5: Zafar's prepared, the other set's name: four strokes on a 5 pitch about the centre and
 // the gate across them, a 1 in 2 slope corner to corner. Marks: every style the stroke.
 def('tally-5', (sharp) => allStroke([4.5, 9.5, 14.5, 19.5].map((x) => openRun([[x, 5], [x, 19]], sharp)).join('') + openRun([[2, 17], [22, 7]], sharp)), [1, 4, 23, 20]);
+// Options for tally-5, his ask of 18 Oct ("can tally-5 have other options?"). They live in Figma's New
+// band until he picks one; gen20 does not write OPTIONS, so raw/ keeps his drawing meanwhile. B leans
+// the four strokes 2 in 18, as a hand writes them, under a flat slash; C runs them full height with
+// the slash corner to corner at 45 degrees, the one angle at which a butt end paints a box corner.
+// Both paint 2..22 square. Left out: short strokes under a 45 degree slash (it meets the outer two at
+// their ends) and a square grid of four on a 4 pitch (37 per cent on the other set's).
+export const OPTIONS = {};
+const defO = (name, f, want) => { OPTIONS[name] = (sharp) => tidy(wantBox(name, f(sharp), sharp, want)); };
+defO('tally-5-option-b', (sharp) => allStroke([5, 9, 13, 17].map((x) => openRun([[x, 21], [x + 2, 3]], sharp)).join('') + openRun([[3, 15], [21, 9]], sharp)), [2, 2, 22, 22]);
+defO('tally-5-option-c', (sharp) => allStroke([6, 10, 14, 18].map((x) => openRun([[x, 3], [x, 21]], sharp)).join('') + openRun([[3, 21], [21, 3]], sharp)), [2, 2, 22, 22]);
 
 /* =================================================================== objects */
 const ang = (c, p) => (Math.atan2(p[1] - c[1], p[0] - c[0]) * 180) / Math.PI;
