@@ -77,15 +77,16 @@ export const CATEGORIES = [
   // Zafar's refs batch filed with its families: flame-2 in Actions beside flame, the sparkle compounds and
   // bot-simple in AI, box beside package in Commerce, card-sim and unplug in Devices, diff in Git, the inputs and
   // the I-beam in Text, the nodes and the webhook in Web, and the aspect ratios in Media beside keyframes.
-  // Opened 18 Oct 2026 for 2.0.0: Zafar's refs drop of 16 Oct, fixed and named. Every name is also
-  // matched by its real shelf below. The six container forms the batch adds to zap, star and dot
-  // (circle-zap and the rest) cannot be listed: a row matches the container-stripped base, and the
-  // bases ship. They review on the Figma New card instead.
-  {
-    label: "New",
-    match: /^(accent-grave|align-left-2|align-right-2|arrow-big-down-dash|arrow-big-left-dash|arrow-big-right-dash|arrow-down-through-line|arrow-left-through-line|arrow-right-through-line|arrow-u-turn-down-line|arrow-u-turn-down-line-flip|arrow-u-turn-left-line|arrow-u-turn-left-line-flip|arrow-u-turn-right-line|arrow-u-turn-right-line-flip|arrow-u-turn-up-line|arrow-u-turn-up-line-flip|arrow-up-through-line|ban-square|ban-square-flip|book-open-2|brace-left|brace-right|bracket-left|bracket-right|chevrons-down-1|chevrons-down-2|chevrons-down-3|chevrons-up-1|chevrons-up-2|chevrons-up-3|code-panel|colon|comma|diamond|diamond-dot|gallery-thumbnails|hexagon|library-big|list-checks|list-indent-decrease|list-indent-increase|list-nested|list-pin|map-pin-2|nfc|octagon|octagon-dot|parentheses-ellipsis|parentheses-x|parenthesis-left|parenthesis-right|pipe|play-pause|plug-circle|plug-zap|semicolon|tally-1|tally-2|tally-3|tally-4|tally-5|tilde|triangle|triangle-dot|workflow)$/,
-    blurb: "Drafts under review.",
-  },
+  //
+  // Closed 18 Oct 2026, when Zafar passed 2.0.0: his refs drop of 16 Oct and what the review added. The
+  // punctuation and align-left-2 and -right-2 in Text; the dash, through-line and u-turn-at-a-line arrows in
+  // Arrows; the single braces, brackets and parentheses, parentheses-ellipsis and -x, and tally-1 to tally-5
+  // in Math; the chevron levels in Chevrons & Carets; ban-square beside ban in Actions; book-open-2 and
+  // library-big in Files; code-panel and the plugs in Devices; the plain hexagon, octagon, triangle and
+  // diamond with their dotted frames in Shapes; gallery-thumbnails and play-pause in Media; the new lists in
+  // Layout; map-pin-2 in Maps, nfc in Web and workflow in Diagrams. zap, star and dot keep their shelves and
+  // gain their circle and square forms. Actions now wants a hyphen after `octagon`, so the plain one files
+  // in Shapes while octagon-x and octagon-alert stay.
   // The machine that thinks: the bots, the brain wired to a circuit and the
   // brain turning a cog. The bare `brain` is an organ and goes to Health,
   // which is why this is anchored on the two names rather than on `brain`.
@@ -401,7 +402,7 @@ export const CATEGORIES = [
     // `lifebuoy` joined on 28 Sep 2026 beside the siren: the ring you throw to
     // someone in trouble, and the mark a help or support link wears.
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|key(?:-round|-square)?$|shield|badge|download|upload|filter|eye|star|heart(?!-pulse)|hand-heart|alert|octagon(?!-dot$)|triangle-alert|info|question|lightbulb|zap|flame|ban(?!dage)|siren$|delete$|lifebuoy$)/,
+      /^(check|double-check|plus|minus|x|more|lock|unlock|key(?:-round|-square)?$|shield|badge|download|upload|filter|eye|star|heart(?!-pulse)|hand-heart|alert|octagon-(?!dot$)|triangle-alert|info|question|lightbulb|zap|flame|ban(?!dage)|siren$|delete$|lifebuoy$)/,
     blurb: "Checks, crosses, pluses, the everyday verbs, the siren, the lifebuoy and the marks that guard a thing.",
   },
   {
