@@ -190,11 +190,10 @@ def('parentheses-x', (sharp) => allStroke(rawLayers('parentheses', 'stroke', C(s
 // A glyph in a frame takes the container grammar every shipped one does (play, check, x): two-tone a
 // plate under the frame and the black glyph, duotone the grey plate and the black glyph, fill the
 // plate with the glyph's painted silhouette knocked out. Frames are read off shipped drawings:
-// the containers off play's, the octagon off octagon-x, the triangle off triangle-alert, the hexagon
-// off box (the set's own hexagon, the isometric box's outline).
+// the containers off play's, the octagon off octagon-x, the triangle off triangle-alert.
 function frameOf(name, sharp, container = 'regular') {
   const st = rawLayers(name, 'stroke', C(sharp), container), tt = rawLayers(name, 'two-tone', C(sharp), container);
-  const frame = name === 'box' ? subs(st[0].d).at(-1) : subs(st[0].d)[0];
+  const frame = subs(st[0].d)[0];
   return { frame, plate: tt.find((l) => l.kind === 'plate').d };
 }
 const FRAMES = {
@@ -202,7 +201,6 @@ const FRAMES = {
   square: (sharp) => frameOf('play', sharp, 'square'),
   octagon: (sharp) => frameOf('octagon-x', sharp),
   triangle: (sharp) => frameOf('triangle-alert', sharp),
-  hexagon: (sharp) => frameOf('box', sharp),
 };
 /** glyph: { stroke: d of the stroked part, dots: d of the solid marks, hole: Shape knocked out of the fill } */
 function framed(fr, g) {
@@ -232,21 +230,17 @@ for (const container of ['circle', 'square']) {
   defC('star', container, (sharp) => framed(FRAMES[container](sharp), STAR(sharp)), container === 'square' ? [2, 2, 22, 22] : [1, 1, 23, 23]);
 }
 
-/* ------------------------------------------- octagon-dot, triangle-dot, hexagon-* */
+/* ------------------------------------------------------- octagon-dot, triangle-dot */
 // octagon-x and triangle-alert with the dot for their sign, every variant otherwise theirs. The
 // triangle's dot sits on Zafar's 14, a unit above the centroid, 2.34 off the walls and 4 off the
-// floor. The hexagon is the box's outline (Zafar's sat on the other set's hexagon: 100 per cent of
-// theirs under his), 22 by 22 as a round form should be; its glyphs keep the centre where they clear
-// the slanted walls by 2 and otherwise rise until they do (the star, as Zafar raised it).
+// floor.
+// No hexagon frame (hexagon-dot, -zap, -star were dropped 18 Oct, his call: a regular hexagon or
+// none). The box's outline he was shown is 20 by 20 on its centre line, not a regular hexagon's
+// 0.866 to 1, and no regular one sits on whole paddings with a ladder radius: its vertex-to-vertex
+// reach is 2/sqrt(3) of its width less 0.155 r, so sides on 4 and 20 want r 1.536 for a padding of
+// 2; r 1.5 paints 1.994, and either way the plate's corners land on 2.5, off the filled ladder.
 def('octagon-dot', (sharp) => framed(FRAMES.octagon(sharp), dotAt([12, 12])), [2, 2, 22, 22]);
 def('triangle-dot', (sharp) => framed(FRAMES.triangle(sharp), dotAt([12, 14])), [1, 2, 23, 22]);
-def('hexagon-dot', (sharp) => framed(FRAMES.hexagon(sharp), dotAt([12, 12])), [1, 1, 23, 23]);
-def('hexagon-zap', (sharp) => framed(FRAMES.hexagon(sharp), ZAP(sharp)), [1, 1, 23, 23]);
-// The star rises 0.75, not Zafar's 1: centred, its lower tips stand 1.54 off the lower walls; at 1
-// up its top tip stands 1.98 off the upper ones (1.80 sharp); at 0.75 both sides clear by 2.20
-// (2.02 and 2.09 sharp), the balance point.
-export const HEX_STAR_DY = -0.75;
-def('hexagon-star', (sharp) => framed(FRAMES.hexagon(sharp), STAR(sharp, HEX_STAR_DY)), [1, 1, 23, 23]);
 
 /* ------------------------------------------------------------- ban-square, -flip */
 // ban in the square container: the frame and a diagonal from corner to corner. Zafar's diagonal

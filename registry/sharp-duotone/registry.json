@@ -10628,48 +10628,6 @@
       ]
     },
     {
-      "name": "sharp/duotone/hexagon-dot",
-      "type": "registry:component",
-      "title": "HexagonDot",
-      "description": "HexagonDot, the duotone drawing of hexagon-dot on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of hexagon-dot: https://keylineicons.com/icons/hexagon-dot",
-      "files": [
-        {
-          "path": "icons/hexagon-dot.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/sharp/duotone/hexagon-dot.tsx"
-        }
-      ]
-    },
-    {
-      "name": "sharp/duotone/hexagon-star",
-      "type": "registry:component",
-      "title": "HexagonStar",
-      "description": "HexagonStar, the duotone drawing of hexagon-star on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of hexagon-star: https://keylineicons.com/icons/hexagon-star",
-      "files": [
-        {
-          "path": "icons/hexagon-star.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/sharp/duotone/hexagon-star.tsx"
-        }
-      ]
-    },
-    {
-      "name": "sharp/duotone/hexagon-zap",
-      "type": "registry:component",
-      "title": "HexagonZap",
-      "description": "HexagonZap, the duotone drawing of hexagon-zap on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of hexagon-zap: https://keylineicons.com/icons/hexagon-zap",
-      "files": [
-        {
-          "path": "icons/hexagon-zap.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/sharp/duotone/hexagon-zap.tsx"
-        }
-      ]
-    },
-    {
       "name": "sharp/duotone/hexagons",
       "type": "registry:component",
       "title": "Hexagons",

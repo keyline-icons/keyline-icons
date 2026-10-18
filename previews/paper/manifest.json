@@ -14,9 +14,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 1364,
-  "names": 1497,
-  "variants": 11976,
+  "icons": 1361,
+  "names": 1494,
+  "variants": 11952,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -2606,7 +2606,7 @@
       "parts": 8,
       "into": "artboard",
       "width": 742,
-      "icons": 56,
+      "icons": 53,
       "variants": 72,
       "bytes": 43033
     },
@@ -2644,7 +2644,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 37812
+      "bytes": 33751
     },
     {
       "file": "new-5.html",
@@ -2655,8 +2655,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 38175
+      "variants": 56,
+      "bytes": 38037
     },
     {
       "file": "new-6.html",
@@ -2668,7 +2668,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 39690
+      "bytes": 38606
     },
     {
       "file": "new-7.html",
@@ -2679,8 +2679,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 40731
+      "variants": 48,
+      "bytes": 36537
     },
     {
       "file": "new-8.html",
@@ -2691,8 +2691,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 27098
+      "variants": 8,
+      "bytes": 6350
     },
     {
       "file": "people-1.html",
@@ -3564,7 +3564,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 90124
+      "bytes": 84860
     },
     {
       "file": "changelog-earlier.html",
