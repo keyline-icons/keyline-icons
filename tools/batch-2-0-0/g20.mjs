@@ -444,6 +444,19 @@ const TALLY_X = [6, 10, 14, 18];
 const tally = (n) => (sharp) => allStroke(TALLY_X.slice(0, Math.min(n, 4)).map((x) => openRun([[x, 5], [x, 19]], sharp)).join('') + (n === 5 ? openRun([[2, 17], [22, 7]], sharp) : ''));
 for (const n of [1, 2, 3, 4]) def(`tally-${n}`, tally(n), [5, 4, TALLY_X[n - 1] + 1, 20]);
 def('tally-5', tally(5), [1, 4, 23, 20]);
+// chevrons-up-1 .. 3 and chevrons-down-1 .. 3: Zafar's level family of 18 Oct ("something like a
+// status"), up and down his pick. One, two and three of chevrons-up's own 10 by 5 units, each standing
+// where it stands in the three, so a level change never moves a chevron, as signal's bars and the
+// tallies hold theirs. Up fills from the bottom, the way the chevrons point; down is up turned over
+// and fills from the top. Pitch 6.5: three units stand 20 tall on whole paddings, where his 6 left
+// 3 above and 2 below, and 2.6 clear between units (chevrons-up's two stand 7 apart). 1 and 2 sit off
+// centre on purpose (lint's LEVEL). Marks: every style the stroke.
+const CHEV_APEX = [16, 9.5, 3];   // the up units' apexes, the bottom one first
+const chevUnit = (apex, dir, sharp) => openRun([[7, apex + 5 * dir], [12, apex], [17, apex + 5 * dir]], sharp);
+for (const n of [1, 2, 3]) {
+  def(`chevrons-up-${n}`, (sharp) => allStroke(CHEV_APEX.slice(0, n).map((a) => chevUnit(a, 1, sharp)).join('')), [6, CHEV_APEX[n - 1] - 1, 18, 22]);
+  def(`chevrons-down-${n}`, (sharp) => allStroke(CHEV_APEX.slice(0, n).map((a) => chevUnit(24 - a, -1, sharp)).join('')), [6, 2, 18, 25 - CHEV_APEX[n - 1]]);
+}
 
 /* =================================================================== objects */
 const ang = (c, p) => (Math.atan2(p[1] - c[1], p[0] - c[0]) * 180) / Math.PI;

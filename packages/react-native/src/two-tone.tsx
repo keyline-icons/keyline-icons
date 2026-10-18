@@ -2860,6 +2860,30 @@ export function ChevronUp(props: IconProps) {
   )
 }
 
+export function ChevronsDown1(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M7 3L12 8L17 3" fill="none" />
+    </Icon>
+  )
+}
+
+export function ChevronsDown2(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M7 3L12 8L17 3M7 9.5L12 14.5L17 9.5" fill="none" />
+    </Icon>
+  )
+}
+
+export function ChevronsDown3(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M7 3L12 8L17 3M7 9.5L12 14.5L17 9.5M7 16L12 21L17 16" fill="none" />
+    </Icon>
+  )
+}
+
 export function ChevronsDownUp(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -2901,6 +2925,30 @@ export function ChevronsRight(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M6 17L11 12L6 7" strokeOpacity={0.4} />
       <Path d="M13 17L18 12L13 7" />
+    </Icon>
+  )
+}
+
+export function ChevronsUp1(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M7 21L12 16L17 21" fill="none" />
+    </Icon>
+  )
+}
+
+export function ChevronsUp2(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M7 21L12 16L17 21M7 14.5L12 9.5L17 14.5" fill="none" />
+    </Icon>
+  )
+}
+
+export function ChevronsUp3(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M7 21L12 16L17 21M7 14.5L12 9.5L17 14.5M7 8L12 3L17 8" fill="none" />
     </Icon>
   )
 }
@@ -14141,11 +14189,17 @@ export {
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
   ChevronUp as ChevronUpIcon,
+  ChevronsDown1 as ChevronsDown1Icon,
+  ChevronsDown2 as ChevronsDown2Icon,
+  ChevronsDown3 as ChevronsDown3Icon,
   ChevronsDownUp as ChevronsDownUpIcon,
   ChevronsDown as ChevronsDownIcon,
   ChevronsLeftRight as ChevronsLeftRightIcon,
   ChevronsLeft as ChevronsLeftIcon,
   ChevronsRight as ChevronsRightIcon,
+  ChevronsUp1 as ChevronsUp1Icon,
+  ChevronsUp2 as ChevronsUp2Icon,
+  ChevronsUp3 as ChevronsUp3Icon,
   ChevronsUpDown as ChevronsUpDownIcon,
   ChevronsUp as ChevronsUpIcon,
   CircleActivity as CircleActivityIcon,

@@ -440,7 +440,8 @@ genuinely shoved into a corner — are unaffected.
 ### Level indicators are exempt from three rules
 
 `circle-full/half/quarter/three-quarter`, their `square-` counterparts,
-`signal-low/medium/high` and `tally-1` to `tally-4` exist to show a *partial*
+`signal-low/medium/high`, `tally-1` to `tally-4` and the chevron levels
+`chevrons-up-1`, `-2` and `chevrons-down-1`, `-2` exist to show a *partial*
 state. The tallies keep `tally-5`'s strokes where they stand and count from the
 left; centred, `tally-1` would be `pipe` and `tally-2` two bars. `circle-quarter`'s
 outline is a 7x7 wedge in one corner and its solid is the whole disc; that is

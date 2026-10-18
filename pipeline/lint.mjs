@@ -623,7 +623,9 @@ const container = (name) =>
 // tally-1 to tally-4 (2.0.0) are tally-5's strokes counted from the left, as signal's bars light:
 // centred, tally-1 would be pipe and tally-2 two bars. tally-4 centres on its own but, like the rest,
 // is tally-5 less its gate, so it keeps tally-5's 16 rather than standing 22 as a vertical glyph.
-const LEVEL = /^(?:circle-|square-)?(?:full|half|quarter|three-quarter)$|^signal-(?:low|medium|high)$|^wifi-(?:low|medium)$|^volume-low$|^tally-[1-4]$/;   // volume-low is signal-low's case: one wave instead of two, and wifi-* is signal's ladder drawn as arcs
+// chevrons-up-1, -2 and chevrons-down-1, -2 (2.0.0) are the three-chevron levels' partial states,
+// each chevron where it stands in the three: up fills from the bottom, down from the top.
+const LEVEL = /^(?:circle-|square-)?(?:full|half|quarter|three-quarter)$|^signal-(?:low|medium|high)$|^wifi-(?:low|medium)$|^volume-low$|^tally-[1-4]$|^chevrons-(?:up|down)-[12]$/;   // volume-low is signal-low's case: one wave instead of two, and wifi-* is signal's ladder drawn as arcs
 const isLevel = (name) => LEVEL.test(name);
 
 /**
@@ -651,9 +653,11 @@ const FULL_LEVEL = /^(?:signal|wifi)$/;
  * two chevrons: the ends close up and `chevrons-up-down` becomes a diamond.
  * Since every chevron-* icon is built from one repeated unit, the unit is
  * sized by the tightest case, which is that facing-apart pair. 12 wide is the
- * largest unit that survives it, and the whole family uses it.
+ * largest unit that survives it, and the whole family uses it. The counted
+ * levels (`chevrons-up-1` to `-3`, 2.0.0) stack the same unit, so the three
+ * stand 20 tall by the unit's own pitch, not by the vertical band.
  */
-const CHEVRON = /^chevrons?-(?:up|down|left|right)(?:-(?:down|right|up))?$/;
+const CHEVRON = /^chevrons?-(?:up|down|left|right)(?:-(?:down|right|up))?(?:-[1-3])?$/;
 
 /**
  * Icons whose container is deliberately open on one side.

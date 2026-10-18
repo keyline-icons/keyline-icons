@@ -4370,6 +4370,48 @@
       ]
     },
     {
+      "name": "sharp/two-tone/chevrons-down-1",
+      "type": "registry:component",
+      "title": "ChevronsDown1",
+      "description": "ChevronsDown1, the two-tone drawing of chevrons-down-1 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of chevrons-down-1: https://keylineicons.com/icons/chevrons-down-1",
+      "files": [
+        {
+          "path": "icons/chevrons-down-1.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/chevrons-down-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/chevrons-down-2",
+      "type": "registry:component",
+      "title": "ChevronsDown2",
+      "description": "ChevronsDown2, the two-tone drawing of chevrons-down-2 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of chevrons-down-2: https://keylineicons.com/icons/chevrons-down-2",
+      "files": [
+        {
+          "path": "icons/chevrons-down-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/chevrons-down-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/chevrons-down-3",
+      "type": "registry:component",
+      "title": "ChevronsDown3",
+      "description": "ChevronsDown3, the two-tone drawing of chevrons-down-3 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of chevrons-down-3: https://keylineicons.com/icons/chevrons-down-3",
+      "files": [
+        {
+          "path": "icons/chevrons-down-3.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/chevrons-down-3.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/chevrons-down-up",
       "type": "registry:component",
       "title": "ChevronsDownUp",
@@ -4436,6 +4478,48 @@
           "path": "icons/chevrons-up.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/chevrons-up.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/chevrons-up-1",
+      "type": "registry:component",
+      "title": "ChevronsUp1",
+      "description": "ChevronsUp1, the two-tone drawing of chevrons-up-1 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of chevrons-up-1: https://keylineicons.com/icons/chevrons-up-1",
+      "files": [
+        {
+          "path": "icons/chevrons-up-1.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/chevrons-up-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/chevrons-up-2",
+      "type": "registry:component",
+      "title": "ChevronsUp2",
+      "description": "ChevronsUp2, the two-tone drawing of chevrons-up-2 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of chevrons-up-2: https://keylineicons.com/icons/chevrons-up-2",
+      "files": [
+        {
+          "path": "icons/chevrons-up-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/chevrons-up-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/chevrons-up-3",
+      "type": "registry:component",
+      "title": "ChevronsUp3",
+      "description": "ChevronsUp3, the two-tone drawing of chevrons-up-3 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of chevrons-up-3: https://keylineicons.com/icons/chevrons-up-3",
+      "files": [
+        {
+          "path": "icons/chevrons-up-3.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/chevrons-up-3.tsx"
         }
       ]
     },
