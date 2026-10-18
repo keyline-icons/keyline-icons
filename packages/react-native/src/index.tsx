@@ -3934,7 +3934,7 @@ export function Clouds(props: IconProps) {
 export function CodePanel(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M18 4L18 4C19.6569 4 21 5.3431 21 7L21 17C21 18.6569 19.6569 20 18 20L6 20C4.3431 20 3 18.6569 3 17L3 16M6.4286 4L3 8L6.4286 12M11 4L14.4286 8L11 12" fill="none" />
+      <Path d="M18 4C19.6569 4 21 5.3431 21 7L21 17C21 18.6569 19.6569 20 18 20L6 20C4.3431 20 3 18.6569 3 17L3 16M6.4286 4L3 8L6.4286 12M11 4L14.4286 8L11 12" fill="none" />
     </Icon>
   )
 }

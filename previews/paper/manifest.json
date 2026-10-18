@@ -2644,7 +2644,7 @@
       "width": 742,
       "icons": 0,
       "variants": 64,
-      "bytes": 38083
+      "bytes": 38063
     },
     {
       "file": "new-5.html",
@@ -2668,7 +2668,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 38060
+      "bytes": 38018
     },
     {
       "file": "new-7.html",
@@ -3576,7 +3576,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 90587
+      "bytes": 90582
     },
     {
       "file": "changelog-earlier.html",

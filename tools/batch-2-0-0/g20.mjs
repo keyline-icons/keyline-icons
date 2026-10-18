@@ -128,8 +128,25 @@ function wantBox(name, v, sharp, want) {
 }
 export const STYLES = {};
 export const CONTAINERS = {};
-const def = (name, f, want) => { STYLES[name] = (sharp) => (want ? wantBox(name, f(sharp), sharp, typeof want === 'function' ? want(sharp) : want) : f(sharp)); };
-const defC = (base, container, f, want) => { (CONTAINERS[base] ??= {})[container] = (sharp) => wantBox(`${container}-${base}`, f(sharp), sharp, want); };
+/**
+ * No zero-length pieces (drawing-a-new-icon.md, generator checks): a fillet whose tangent lands on
+ * a run's own end, or an offset's collapsed corner, leaves an L back onto the point it starts
+ * from, which createNodeFromSvg drops, so Figma's signature would disagree with raw/.
+ */
+function dropZero(d) {
+  const out = [];
+  let cur = null, start = null;
+  for (const c of X.parseD(d)) {
+    if (c.c === 'M') { cur = start = c.p[0]; out.push(c); continue; }
+    if (c.c === 'Z') { cur = start; out.push(c); continue; }
+    if (c.p.every((q) => Math.hypot(q[0] - cur[0], q[1] - cur[1]) < 1e-4)) continue;
+    out.push(c); cur = c.p.at(-1);
+  }
+  return X.emitD(out);
+}
+const tidy = (v) => layersMap(v, dropZero);
+const def = (name, f, want) => { STYLES[name] = (sharp) => tidy(want ? wantBox(name, f(sharp), sharp, typeof want === 'function' ? want(sharp) : want) : f(sharp)); };
+const defC = (base, container, f, want) => { (CONTAINERS[base] ??= {})[container] = (sharp) => tidy(wantBox(`${container}-${base}`, f(sharp), sharp, want)); };
 
 /* ------------------------------------------------- arrow-big-down/left/right-dash */
 // Zafar's three are the shipped arrow-big-up-dash turned, which is what they should be: every
