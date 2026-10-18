@@ -8642,6 +8642,14 @@ export function PlayOff(props: IconProps) {
   )
 }
 
+export function PlayPause(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M2 6L12 12L2 18L2 6ZM17 5L17 19M22 5L22 19" fill="none" />
+    </Icon>
+  )
+}
+
 export function Play(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -13540,6 +13548,7 @@ export {
   PlaneTakeoff as PlaneTakeoffIcon,
   Plane as PlaneIcon,
   PlayOff as PlayOffIcon,
+  PlayPause as PlayPauseIcon,
   Play as PlayIcon,
   PlugCircle as PlugCircleIcon,
   PlugZap as PlugZapIcon,

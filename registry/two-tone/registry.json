@@ -14674,6 +14674,20 @@
       ]
     },
     {
+      "name": "two-tone/play-pause",
+      "type": "registry:component",
+      "title": "PlayPause",
+      "description": "PlayPause, the two-tone drawing of play-pause on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of play-pause: https://keylineicons.com/icons/play-pause",
+      "files": [
+        {
+          "path": "icons/play-pause.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/play-pause.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/plug",
       "type": "registry:component",
       "title": "Plug",

@@ -14674,6 +14674,20 @@
       ]
     },
     {
+      "name": "sharp/fill/play-pause",
+      "type": "registry:component",
+      "title": "PlayPause",
+      "description": "PlayPause, the fill drawing of play-pause on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of play-pause: https://keylineicons.com/icons/play-pause",
+      "files": [
+        {
+          "path": "icons/play-pause.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/fill/play-pause.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/fill/plug",
       "type": "registry:component",
       "title": "Plug",

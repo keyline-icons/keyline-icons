@@ -792,6 +792,7 @@
     "plane-landing": "A plane descending to the ground, for arrivals, inbound flights and baggage reclaim.",
     "plane-takeoff": "A plane climbing away from the ground, for departures, outbound flights and check-in.",
     "play": "A solid triangle, for starting, resuming and running something.",
+    "play-pause": "A play triangle beside pause bars, for one toggle that plays or pauses, as on a media key.",
     "play-off": "A struck-through play triangle, for autoplay off, blocked playback and disabled players.",
     "plug": "A two-pin plug, for integrations, plugins and anything that connects.",
     "plus": "A cross of two rules, for add, new, create and increase.",

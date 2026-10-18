@@ -458,6 +458,28 @@ for (const n of [1, 2, 3]) {
   def(`chevrons-down-${n}`, (sharp) => allStroke(CHEV_APEX.slice(0, n).map((a) => chevUnit(24 - a, -1, sharp)).join('')), [6, 2, 18, 25 - CHEV_APEX[n - 1]]);
 }
 
+// play-pause: the middle one of the media keys Zafar photographed (18 Oct, F8); the keys either side
+// are the shipped rewind and fast-forward. Play's triangle beside pause's two bars as strokes, as the
+// key draws them. The triangle is fast-forward's (base corners r 1.5, tip r 1), 10 from base to tip
+// and 14 tall in ink, the bars as tall; the three stand 3 apart, which spans the 22 a horizontal glyph
+// owes with the gaps even. Styles as skip-forward's, a triangle beside a bar: two-tone the triangle's
+// plate, duotone the triangle a grey solid and the bars black, fill the triangle solid and the bars
+// strokes. Sharp puts true corners on the same box, as fast-forward's sharp does.
+/** A right-pointing media triangle: base on x `base`, its tip's centre line reaching x `apex`, painted 5 to 19. */
+function mediaTri(base, apex, sharp) {
+  if (sharp) return polyLA([[base, 6], [apex, 12], [base, 18]], [0, 0, 0]);
+  let tip = apex, h = 6;
+  const tri = () => polyLA([[base, 12 - h], [tip, 12], [base, 12 + h]], [1.5, 1, 1.5]);
+  for (let i = 0; i < 40; i++) { const b = paintedBox([S(dLA(tri()))], false); tip += apex + 1 - b[2]; h += b[1] - 5; }
+  return tri();
+}
+function playPause(sharp) {
+  const tri = mediaTri(2, 12, sharp), bars = [17, 22].map((x) => openRun([[x, 6], [x, 18]], sharp)).join('');
+  const d = dLA(tri), plate = dLA(growLA(tri));
+  return { stroke: [S(d + bars)], 'two-tone': [Pl(plate), S(d + bars)], duotone: [Pl(plate), S(bars)], fill: [F(plate), S(bars)] };
+}
+def('play-pause', playPause, [1, 5, 23, 19]);
+
 /* =================================================================== objects */
 const ang = (c, p) => (Math.atan2(p[1] - c[1], p[0] - c[0]) * 180) / Math.PI;
 /** An open polyline with a fillet of radii[i] at each interior vertex, as line and arc segments (g18b's). */
