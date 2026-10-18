@@ -634,9 +634,9 @@ def('plug-circle', plugCircle, [1, 1, 23, 23]);
 // re-solved through (7, 3) at the same R 8, since the regular arc runs on to y 2.66 and would paint
 // above the box. The two arcs at the foot meet there as one path, so its round join paints 22.
 // Two-tone: one plate under the whole book. Duotone: the standing page black over the full grey
-// book, as circles is. Fill: the solid book with the page's free edge (from 2 below the cover's top,
-// round its corner) and the spine (T to 5 above the foot, book-open's stop) knocked out as closed
-// slots, so the bottom stays whole where four edges meet.
+// book, as circles is. Fill, as Zafar drew it on 18 Oct: the solid book with the standing page's
+// inside knocked out to its stroke's inner edge, so the page stands white in its own outline; slots
+// on the free edge and spine read as two scratches rather than a page.
 const BOOK2 = (() => {
   const T = [13, 8], Ft = [13, 21], J = [7, 6];
   const below = (cs) => cs.sort((s, t) => t[1] - s[1])[0];
@@ -657,19 +657,17 @@ const BOOK2 = (() => {
   return {
     T, Ft, J,
     // toT: the cover and the right page, from the junction J round to T; top: the standing page's
-    // top to its free edge; page: down that edge to the foot; slots: the fill's knockouts
+    // top to its free edge; page: down that edge to the foot
     regular: {
       toT: `M${P(J)}L4 6` + arc([4, 7], 1, -90, -180) + 'L3 18' + arc([4, 18], 1, 180, 90) + arc(cCover, rCover, -90, Ft)
         + arc(cFoot, 10, Ft, -90) + arc([19, 17], 2, 90, 0) + 'L21 7' + arc([19, 7], 2, 0, tRight) + arc(cRight, 10, tRight, T),
       top: arc(cTop, 8, T, tPage) + arc([8, 4], 1, tPage, -180),
       page: 'L7 15' + arc([8, 15], 1, 180, 90) + arc(cPage, 5, -90, 0),
-      slots: ['M13 8L13 16', 'M7 8L7 15' + arc([8, 15], 1, 180, 90)],
     },
     sharp: {
       toT: `M${P(J)}L3 6L${P(bl)}` + arc(cCover, rCover, bl, Ft) + arc(cFoot, 10, Ft, br) + `L${P(tr)}` + arc(cRight, 10, tr, T),
       top: arc(cTopS, 8, T, [7, 3]),
       page: `L${P(pl)}` + arc(cPage, 5, pl, 0),
-      slots: ['M13 7L13 17', `M7 7L${P(pl)}` + arc(cPage, 5, pl, -90 + L.deg(1 / 5))],
     },
   };
 })();
@@ -678,12 +676,12 @@ function bookOpen2(sharp) {
   const stroke = g.toT + g.top + g.page + `M${P(T)}L${P(Ft)}`;
   const silhouette = B.grow(shapeOf(g.toT + g.top + `L${P(J)}Z`)[0]);
   const front = B.grow(shapeOf(`M${P(T)}` + g.top + g.page + `L${P(T)}Z`)[0]);
-  const slots = g.slots.map((s) => B.band(shapeOf(s)[0], sharp ? 'butt' : 'round'));
+  const inside = B.shrink(shapeOf(`M${P(T)}` + g.top + g.page + `L${P(T)}Z`)[0]);
   return {
     stroke: [S(stroke)],
     'two-tone': [Pl(E([silhouette])), S(stroke)],
     duotone: [Pl(E([silhouette])), F(E([front]))],
-    fill: [F(E(B.subtract([silhouette], slots)))],
+    fill: [F(E(B.subtract([silhouette], [inside])))],
   };
 }
 def('book-open-2', bookOpen2, [2, 2, 22, 22]);
