@@ -368,10 +368,10 @@ takes the warning.
 
 ### Punctuation is exempt from the optical floor
 
-`PUNCTUATION` (`accent-grave`, `comma`, `hyphen`) is drawn at the size it sits
-at beside text, the compact marks' size. Run to the 15.5 floor each becomes a
-different mark: a hyphen 16 long is `minus`, and a comma or a backtick 16 tall
-reads as a quote. Ladder dots are lifted from the floor the same way.
+`PUNCTUATION` (`accent-grave`, `comma`) is drawn at the size it sits at beside
+text, the compact marks' size. Run to the 15.5 floor each becomes a different
+mark: a comma or a backtick 16 tall reads as a quote. Ladder dots are lifted
+from the floor the same way.
 
 ### CENTERING has two tiers, and the strict one is the real standard
 
@@ -439,8 +439,10 @@ genuinely shoved into a corner — are unaffected.
 
 ### Level indicators are exempt from three rules
 
-`circle-full/half/quarter/three-quarter`, their `square-` counterparts and
-`signal-low/medium/high` exist to show a *partial* state. `circle-quarter`'s
+`circle-full/half/quarter/three-quarter`, their `square-` counterparts,
+`signal-low/medium/high` and `tally-1` to `tally-4` exist to show a *partial*
+state. The tallies keep `tally-5`'s strokes where they stand and count from the
+left; centred, `tally-1` would be `pipe` and `tally-2` two bars. `circle-quarter`'s
 outline is a 7x7 wedge in one corner and its solid is the whole disc; that is
 the icon, not a mistake. Three rules assume a glyph fills its canvas and that
 every style covers the same ground, so they are skipped for these:

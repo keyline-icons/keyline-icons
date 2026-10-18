@@ -242,14 +242,6 @@ export function AmericanFootball(props: IconProps) {
   )
 }
 
-export function Ampersand(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M17 12C17 16.9706 12.9706 21 8 21C5.7909 21 4 19.2091 4 17C4 15.923 4.4343 14.8914 5.2048 14.1388L11.3391 8.1459C11.9169 7.5814 12.2426 6.8078 12.2426 6C12.2426 4.3431 10.8995 3 9.2426 3C7.5858 3 6.2426 4.3431 6.2426 6C6.2426 6.7956 6.5587 7.5587 7.1213 8.1213L20 21" fill="none" />
-    </Icon>
-  )
-}
-
 export function Anchor2(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -4447,6 +4439,14 @@ export function DiamondDot(props: IconProps) {
   )
 }
 
+export function Diamond(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M10.5858 2.5858C10.9609 2.2107 11.4696 2 12 2C12.5304 2 13.0391 2.2107 13.4142 2.5858L21.4142 10.5858C21.7893 10.9609 22 11.4696 22 12C22 12.5304 21.7893 13.0391 21.4142 13.4142L13.4142 21.4142C13.0391 21.7893 12.5304 22 12 22C11.4696 22 10.9609 21.7893 10.5858 21.4142L2.5858 13.4142C2.2107 13.0391 2 12.5304 2 12C2 11.4696 2.2107 10.9609 2.5858 10.5858L10.5858 2.5858Z" fill="none" />
+    </Icon>
+  )
+}
+
 export function Dice1(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -6284,6 +6284,14 @@ export function Hearts(props: IconProps) {
   )
 }
 
+export function Hexagon(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M10.4857 2.4102C10.9452 2.1416 11.4678 2 12 2C12.5322 2 13.0548 2.1416 13.5143 2.4102L19.5143 5.9185C20.4344 6.4565 21 7.4424 21 8.5083L21 15.4917C21 16.5576 20.4344 17.5435 19.5143 18.0815L13.5143 21.5898C13.0548 21.8584 12.5322 22 12 22C11.4678 22 10.9452 21.8584 10.4857 21.5898L4.4857 18.0815C3.5656 17.5435 3 16.5576 3 15.4917L3 8.5083C3 7.4424 3.5656 6.4565 4.4857 5.9185L10.4857 2.4102Z" fill="none" />
+    </Icon>
+  )
+}
+
 export function Hexagons(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -6522,14 +6530,6 @@ export function Humidity(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M14.8 13.6L17.2 10.4C17.6 9.8667 18.4 9.8667 18.8 10.4L21.2 13.6C21.7193 14.2924 22 15.1345 22 16C22 18.2091 20.2091 20 18 20C15.7909 20 14 18.2091 14 16C14 15.1345 14.2807 14.2924 14.8 13.6ZM2 5C2.8655 4.3509 3.9181 4 5 4C6.0819 4 7.1345 4.3509 8 5C8.8655 5.6491 9.9181 6 11 6C12.0819 6 13.1345 5.6491 14 5C14.8655 4.3509 15.9181 4 17 4C18.0819 4 19.1345 4.3509 20 5M2 10C2.8655 9.3509 3.9181 9 5 9C6.0819 9 7.1345 9.3509 8 10C8.8655 10.6491 9.9181 11 11 11C11.2673 11 11.5342 10.9786 11.7981 10.9359M2 15C2.8655 14.3509 3.9181 14 5 14C6.0819 14 7.1345 14.3509 8 15C8.5921 15.4441 9.2754 15.7512 10.0006 15.8991" />
-    </Icon>
-  )
-}
-
-export function Hyphen(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M7 12L17 12" fill="none" />
     </Icon>
   )
 }
@@ -7925,6 +7925,14 @@ export function OctagonX(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M3 14.5645V9.43553C3 8.77249 3.26339 8.13661 3.73223 7.66777L7.66777 3.73223C8.13661 3.26339 8.77249 3 9.43553 3H14.5645C15.2275 3 15.8634 3.26339 16.3322 3.73223L20.2678 7.66777C20.7366 8.13661 21 8.77249 21 9.43553V14.5645C21 15.2275 20.7366 15.8634 20.2678 16.3322L16.3322 20.2678C15.8634 20.7366 15.2275 21 14.5645 21H9.43553C8.77249 21 8.13661 20.7366 7.66777 20.2678L3.73223 16.3322C3.26339 15.8634 3 15.2275 3 14.5645Z" />
       <path d="M9 9L15 15M15 9L9 15" />
+    </Icon>
+  )
+}
+
+export function Octagon(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M3 14.5645L3 9.4355C3 8.7725 3.2634 8.1366 3.7322 7.6678L7.6678 3.7322C8.1366 3.2634 8.7725 3 9.4355 3L14.5645 3C15.2275 3 15.8634 3.2634 16.3322 3.7322L20.2678 7.6678C20.7366 8.1366 21 8.7725 21 9.4355L21 14.5645C21 15.2275 20.7366 15.8634 20.2678 16.3322L16.3322 20.2678C15.8634 20.7366 15.2275 21 14.5645 21L9.4355 21C8.7725 21 8.1366 20.7366 7.6678 20.2678L3.7322 16.3322C3.2634 15.8634 3 15.2275 3 14.5645Z" fill="none" />
     </Icon>
   )
 }
@@ -11327,10 +11335,42 @@ export function Tag(props: IconProps) {
   )
 }
 
+export function Tally1(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M6 5L6 19" fill="none" />
+    </Icon>
+  )
+}
+
+export function Tally2(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M6 5L6 19M10 5L10 19" fill="none" />
+    </Icon>
+  )
+}
+
+export function Tally3(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M6 5L6 19M10 5L10 19M14 5L14 19" fill="none" />
+    </Icon>
+  )
+}
+
+export function Tally4(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M6 5L6 19M10 5L10 19M14 5L14 19M18 5L18 19" fill="none" />
+    </Icon>
+  )
+}
+
 export function Tally5(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M4.5 5L4.5 19M9.5 5L9.5 19M14.5 5L14.5 19M19.5 5L19.5 19M2 17L22 7" fill="none" />
+      <path d="M6 5L6 19M10 5L10 19M14 5L14 19M18 5L18 19M2 17L22 7" fill="none" />
     </Icon>
   )
 }
@@ -11691,6 +11731,14 @@ export function TriangleDot(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M14.4051 4.3922C13.3181 2.536 10.6819 2.536 9.5949 4.3922L2.4006 16.6777C1.2854 18.5822 2.6307 21 4.8057 21L19.1943 21C21.3693 21 22.7146 18.5822 21.5994 16.6777L14.4051 4.3922Z" fill="none" />
       <path d="M14 14C14 15.1046 13.1046 16 12 16C10.8954 16 10 15.1046 10 14C10 12.8954 10.8954 12 12 12C13.1046 12 14 12.8954 14 14Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function Triangle(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M14.4051 4.3922C13.3181 2.536 10.6819 2.536 9.5949 4.3922L2.4006 16.6777C1.2854 18.5822 2.6307 21 4.8057 21L19.1943 21C21.3693 21 22.7146 18.5822 21.5994 16.6777L14.4051 4.3922Z" fill="none" />
     </Icon>
   )
 }
@@ -12420,7 +12468,6 @@ export {
   AlignRight2 as AlignRight2Icon,
   AlignRight as AlignRightIcon,
   AmericanFootball as AmericanFootballIcon,
-  Ampersand as AmpersandIcon,
   Anchor2 as Anchor2Icon,
   Anchor as AnchorIcon,
   AppCheck as AppCheckIcon,
@@ -12927,6 +12974,7 @@ export {
   DiagramSubtask as DiagramSubtaskIcon,
   DiagramSuccessor as DiagramSuccessorIcon,
   DiamondDot as DiamondDotIcon,
+  Diamond as DiamondIcon,
   Dice1 as Dice1Icon,
   Dice2 as Dice2Icon,
   Dice3 as Dice3Icon,
@@ -13153,6 +13201,7 @@ export {
   HeartSparkles as HeartSparklesIcon,
   Heart as HeartIcon,
   Hearts as HeartsIcon,
+  Hexagon as HexagonIcon,
   Hexagons as HexagonsIcon,
   History as HistoryIcon,
   HockeySticks as HockeySticksIcon,
@@ -13183,7 +13232,6 @@ export {
   House as HouseIcon,
   Houses as HousesIcon,
   Humidity as HumidityIcon,
-  Hyphen as HyphenIcon,
   IdBadge as IdBadgeIcon,
   IdCard as IdCardIcon,
   ImageArrowDown as ImageArrowDownIcon,
@@ -13354,6 +13402,7 @@ export {
   OctagonAlert as OctagonAlertIcon,
   OctagonDot as OctagonDotIcon,
   OctagonX as OctagonXIcon,
+  Octagon as OctagonIcon,
   Option as OptionIcon,
   PackageAlert as PackageAlertIcon,
   PackageArrowDown as PackageArrowDownIcon,
@@ -13761,6 +13810,10 @@ export {
   TagHorizontalStart as TagHorizontalStartIcon,
   TagSparkles as TagSparklesIcon,
   Tag as TagIcon,
+  Tally1 as Tally1Icon,
+  Tally2 as Tally2Icon,
+  Tally3 as Tally3Icon,
+  Tally4 as Tally4Icon,
   Tally5 as Tally5Icon,
   Tape as TapeIcon,
   Target as TargetIcon,
@@ -13805,6 +13858,7 @@ export {
   TrendingUp as TrendingUpIcon,
   TriangleAlert as TriangleAlertIcon,
   TriangleDot as TriangleDotIcon,
+  Triangle as TriangleIcon,
   Trophy as TrophyIcon,
   TruckArrowDown as TruckArrowDownIcon,
   TruckArrowLeft as TruckArrowLeftIcon,

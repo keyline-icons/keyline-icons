@@ -234,13 +234,34 @@ for (const container of ['circle', 'square']) {
 // octagon-x and triangle-alert with the dot for their sign, every variant otherwise theirs. The
 // triangle's dot sits on Zafar's 14, a unit above the centroid, 2.34 off the walls and 4 off the
 // floor.
-// No hexagon frame (hexagon-dot, -zap, -star were dropped 18 Oct, his call: a regular hexagon or
-// none). The box's outline he was shown is 20 by 20 on its centre line, not a regular hexagon's
-// 0.866 to 1, and no regular one sits on whole paddings with a ladder radius: its vertex-to-vertex
-// reach is 2/sqrt(3) of its width less 0.155 r, so sides on 4 and 20 want r 1.536 for a padding of
-// 2; r 1.5 paints 1.994, and either way the plate's corners land on 2.5, off the filled ladder.
+// hexagon-dot, -zap and -star were dropped 18 Oct, his call: a hexagon all round the same or none.
+// They framed the box's outline, 20 by 20 on its centre line where a regular hexagon stands 0.866
+// to 1. The plain hexagon below meets his rule; the frames wait for him to ask for them on it.
 def('octagon-dot', (sharp) => framed(FRAMES.octagon(sharp), dotAt([12, 12])), [2, 2, 22, 22]);
 def('triangle-dot', (sharp) => framed(FRAMES.triangle(sharp), dotAt([12, 14])), [1, 2, 23, 22]);
+
+// The plain shapes (Zafar, 18 Oct): each the frame its compounds use, alone, in the styles circle
+// and square ship: two-tone its plate under the outline, duotone the outline, fill the plate.
+// The hexagon is new. A regular one cannot sit on whole paddings with a ladder radius (its crown is
+// 2/sqrt(3) of its half width less 0.155 r out, so sides on x 3 and 21 want r 2.536), so it is drawn
+// equilateral instead: every side 10.43 long, its corners 119.4 at the crown and 120.3 at the sides,
+// two thirds of a degree off a regular one. Sides upright on x 3 and 21, crown on 2 and 22 under the square container's r 3: 20 wide by
+// 22 tall, as round forms stand. Sharp keeps the sides equal with its true corner on the crown, which
+// opens the top and bottom corners to 123 degrees.
+const plainShape = (fr) => ({ stroke: [S(fr.frame)], 'two-tone': [Pl(fr.plate), S(fr.frame)], duotone: [S(fr.frame)], fill: [F(fr.plate)] });
+function hexagonFrame(sharp) {
+  const r = sharp ? 0 : 3;
+  // the side vertices' height about the centre at which a slanted side is as long as an upright one
+  const halfH = (R) => (-2 * R + Math.sqrt(4 * R * R + 12 * (81 + R * R))) / 6;
+  const crown = (R) => R - r / Math.sin(Math.atan(9 / (R - halfH(R)))) + r;
+  const R = sharp ? 10 : L.bisect((x) => crown(x) - 10, 10, 11), h = halfH(R);
+  const segs = polyLA([[12, 12 - R], [21, 12 - h], [21, 12 + h], [12, 12 + R], [3, 12 + h], [3, 12 - h]], Array(6).fill(r));
+  return { frame: dLA(segs), plate: dLA(growLA(segs)) };
+}
+def('hexagon', (sharp) => plainShape(hexagonFrame(sharp)), [2, 1, 22, 23]);
+def('octagon', (sharp) => plainShape(FRAMES.octagon(sharp)), [2, 2, 22, 22]);
+def('triangle', (sharp) => plainShape(FRAMES.triangle(sharp)), [1, 2, 23, 22]);
+def('diamond', (sharp) => plainShape(diamondFrame(sharp)), [1, 1, 23, 23]);
 
 /* ------------------------------------------------------------- ban-square, -flip */
 // ban in the square container: the frame and a diagonal from corner to corner. Zafar's diagonal
@@ -381,8 +402,8 @@ def('list-nested', listNested, [2, 2, 22, 22]);
 // centred on its own ink with whole paddings. The dot of each is the shipped dot's 4 mark: Zafar's
 // colon used 3 marks, which cannot sit on whole paddings (an odd width about 12 lands on .5).
 const DOT = (c) => L.circle(c, 2);
-// hyphen and pipe: Zafar's, as drawn (hyphen 10 long against minus's 14).
-def('hyphen', (sharp) => allStroke(openRun([[7, 12], [17, 12]], sharp)), [6, 11, 18, 13]);
+// pipe: Zafar's, as drawn. His hyphen was dropped on 18 Oct, his call: 10 long against minus's 14,
+// it is minus wherever the two do not stand side by side, and search sends hyphen to minus.
 def('pipe', (sharp) => allStroke(openRun([[12, 5], [12, 19]], sharp)), [11, 4, 13, 20]);
 // colon: two 4 marks 4 apart, as far apart as they are wide, Zafar's proportion at the 4 mark.
 def('colon', () => { const d = F(DOT([12, 8]) + DOT([12, 16])); return { stroke: [d], 'two-tone': [d], duotone: [d], fill: [d] }; }, [10, 6, 14, 18]);
@@ -410,19 +431,19 @@ def('accent-grave', (sharp) => allStroke(openRun([[11, 9], [13, 15]], sharp)), (
 // tilde: Zafar's wave, 14 by 4 and turned half about the centre, as drawn.
 const TILDE = 'M5 13.8563C5.5395 11.8015 6.5934 10.4402 7.9162 10.0894C9.239 9.7386 10.7149 10.4291 12 12C13.2851 13.5709 14.761 14.2614 16.0838 13.9106C17.4066 13.5598 18.4605 12.1985 19 10.1437';
 def('tilde', (sharp) => allStroke(sharp ? stubEnds(TILDE, 'both', [4, 9, 20, 15]) : TILDE), [4, 9, 20, 15]);
-// tally-5: Zafar's prepared, the other set's name: four strokes on a 5 pitch about the centre and
-// the gate across them, a 1 in 2 slope corner to corner. Marks: every style the stroke.
-def('tally-5', (sharp) => allStroke([4.5, 9.5, 14.5, 19.5].map((x) => openRun([[x, 5], [x, 19]], sharp)).join('') + openRun([[2, 17], [22, 7]], sharp)), [1, 4, 23, 20]);
-// Options for tally-5, his ask of 18 Oct ("can tally-5 have other options?"). They live in Figma's New
-// band until he picks one; gen20 does not write OPTIONS, so raw/ keeps his drawing meanwhile. B leans
-// the four strokes 2 in 18, as a hand writes them, under a flat slash; C runs them full height with
-// the slash corner to corner at 45 degrees, the one angle at which a butt end paints a box corner.
-// Both paint 2..22 square. Left out: short strokes under a 45 degree slash (it meets the outer two at
-// their ends) and a square grid of four on a 4 pitch (37 per cent on the other set's).
-export const OPTIONS = {};
-const defO = (name, f, want) => { OPTIONS[name] = (sharp) => tidy(wantBox(name, f(sharp), sharp, want)); };
-defO('tally-5-option-b', (sharp) => allStroke([5, 9, 13, 17].map((x) => openRun([[x, 21], [x + 2, 3]], sharp)).join('') + openRun([[3, 15], [21, 9]], sharp)), [2, 2, 22, 22]);
-defO('tally-5-option-c', (sharp) => allStroke([6, 10, 14, 18].map((x) => openRun([[x, 3], [x, 21]], sharp)).join('') + openRun([[3, 21], [21, 3]], sharp)), [2, 2, 22, 22]);
+// tally-1 .. tally-5: Zafar's prepared and the counts before it, all the other set's names (his ask
+// of 18 Oct; the slanted and corner-slash options he was shown instead are gone). Four strokes on a
+// 4 pitch about the centre, x 6 to 18, and his gate across them, 2 to 22 at 1 in 2, so tally-5 still
+// stands 22 long. His 5 pitch put the strokes on half units, which the gate hid in tally-5 but which
+// painted tally-4 3.5 either side. The counts are a level family: each keeps tally-5's strokes where they
+// stand and grows from the left, as a hand writes them and as signal's bars light, so tally-1 to 3
+// sit off centre on purpose (lint's LEVEL, tally-4 too for its size); centred, tally-1 would be
+// pipe and tally-2 two bars.
+// Marks: every style the stroke.
+const TALLY_X = [6, 10, 14, 18];
+const tally = (n) => (sharp) => allStroke(TALLY_X.slice(0, Math.min(n, 4)).map((x) => openRun([[x, 5], [x, 19]], sharp)).join('') + (n === 5 ? openRun([[2, 17], [22, 7]], sharp) : ''));
+for (const n of [1, 2, 3, 4]) def(`tally-${n}`, tally(n), [5, 4, TALLY_X[n - 1] + 1, 20]);
+def('tally-5', tally(5), [1, 4, 23, 20]);
 
 /* =================================================================== objects */
 const ang = (c, p) => (Math.atan2(p[1] - c[1], p[0] - c[0]) * 180) / Math.PI;
@@ -638,7 +659,8 @@ def('plug-circle', plugCircle, [1, 1, 23, 23]);
 // re-solved through (7, 3) at the same R 8, since the regular arc runs on to y 2.66 and would paint
 // above the box. The two arcs at the foot meet there as one path, so its round join paints 22.
 // Two-tone: one plate under the whole book. Duotone: the standing page black over the full grey
-// book, as circles is. Fill, as Zafar drew it on 18 Oct: the solid book with the standing page's
+// book, as circles is, its foot run down the spine and cut flush along the book's bottom edge
+// (Zafar, 18 Oct: a stub stopping a unit short of the edge, grey under it, was unacceptable). Fill, as Zafar drew it on 18 Oct: the solid book with the standing page's
 // inside knocked out to its stroke's inner edge, so the page stands white in its own outline; slots
 // on the free edge and spine read as two scratches rather than a page.
 const BOOK2 = (() => {
@@ -680,57 +702,19 @@ function bookOpen2(sharp) {
   const stroke = g.toT + g.top + g.page + `M${P(T)}L${P(Ft)}`;
   const silhouette = B.grow(shapeOf(g.toT + g.top + `L${P(J)}Z`)[0]);
   const front = B.grow(shapeOf(`M${P(T)}` + g.top + g.page + `L${P(T)}Z`)[0]);
+  // the page's foot, which the grow stops square a unit above the binding, runs on down the spine
+  // (x 12 to 14, where the foot stands) and is cut flush along the book's own bottom edge
+  const black = B.intersect(B.union([front], shapeOf('M12 19L14 19L14 24L12 24Z')), [silhouette]);
   const inside = B.shrink(shapeOf(`M${P(T)}` + g.top + g.page + `L${P(T)}Z`)[0]);
   return {
     stroke: [S(stroke)],
     'two-tone': [Pl(E([silhouette])), S(stroke)],
-    duotone: [Pl(E([silhouette])), F(E([front]))],
+    duotone: [Pl(E([silhouette])), F(E(black))],
     fill: [F(E(B.subtract([silhouette], [inside])))],
   };
 }
 def('book-open-2', bookOpen2, [2, 2, 22, 22]);
 
 /* ================================================================ ampersand */
-// Redrawn from scratch, twice. His ran on free cubics whose loop was no circle, whose arm curled back
-// on itself and whose bowl broke at the turn. The first redraw (18 Oct) fixed those but ran its waist
-// into the loop at 19 degrees, so the two strokes under the loop met almost flat and knotted into a
-// blob at 16px. Now they cross the way a typeset ampersand's do, near a right angle (89.3 degrees).
-// One stroke as written, circles and the tangents between them: the arm's end at the right extreme of
-// the bottom arc (r=9 about (8, 12)), down it to the bottom, on round the bowl's left arc (r=4 about
-// (8, 17)), up the waist (the internal tangent of that arc and the loop, 44.3 degrees), round the
-// loop (r=3 about (5 + 3 sqrt 2, 6)) against the clock, and down the leg, tangent off the loop, to
-// the foot at (20, 21). The loop's x is the one that runs the leg at exactly 45: a butt end paints a
-// box corner only at 45 degrees, and on (9, 6) the leg ran at 44.5 and sharp's foot stopped 0.008
-// short of 21. The loop is 0.57 of the bowl's width and the crossing sits 41 per cent down, a typeset
-// ampersand's proportions; the arm ends at half height. 16 per cent of it lies on the other set's
-// (theirs bends its waist and leg and caps the arm with a serif).
-// Paints 3..21 by 2..22. A symbol: every style the stroke. Sharp: the two ends take the stub.
-const rad = (a) => (a * Math.PI) / 180, degA = (a) => (a * 180) / Math.PI;
-const cwT = (a) => [-Math.sin(rad(a)), Math.cos(rad(a))];
-const nrm = (v) => { const k = Math.hypot(v[0], v[1]); return [v[0] / k, v[1] / k]; };
-function tangentsCC(c1, r1, c2, r2) {
-  const out = [], d = L.sub(c2, c1), D = Math.hypot(d[0], d[1]), base = Math.atan2(d[1], d[0]);
-  for (const s of [1, -1]) {
-    const cosT = (r1 - s * r2) / D;
-    if (Math.abs(cosT) > 1) continue;
-    for (const k of [1, -1]) {
-      const a1 = base + k * Math.acos(cosT), n = [Math.cos(a1), Math.sin(a1)];
-      const p1 = L.add(c1, L.mul(n, r1)), p2 = L.add(c2, L.mul(n, s * r2));
-      out.push({ p1, p2, a1: degA(a1), a2: degA(Math.atan2(p2[1] - c2[1], p2[0] - c2[0])), s });
-    }
-  }
-  return out;
-}
-const AMP = { U: [5 + 3 * Math.SQRT2, 6], rU: 3, Wl: [8, 17], rWl: 4, Rr: 9, F: [20, 21] };
-function ampersandD(sharp) {
-  const { U, rU, Wl, rWl, Rr, F } = AMP, Wr = [Wl[0], Wl[1] + rWl - Rr];
-  const along = (t, a, sign) => L.dot(nrm(L.sub(t.p2, t.p1)), cwT(a)) * sign > 0.999;
-  const cross = tangentsCC(Wl, rWl, U, rU).find((t) => t.s === -1 && along(t, t.a1, 1) && along(t, t.a2, -1));
-  const leg = tangentsCC(U, rU, F, 0).find((t) => L.dot(nrm(L.sub(F, t.p1)), cwT(t.a1)) < -0.999);
-  assert(cross && leg, 'ampersand tangents');
-  let w1 = cross.a1; while (w1 < 90) w1 += 360;
-  let u1 = leg.a1; while (u1 > cross.a2) u1 -= 360;
-  const d = `M${P(L.add(Wr, [Rr, 0]))}` + L.arcC(Wr, Rr, 0, 90) + L.arcC(Wl, rWl, 90, w1) + `L${P(cross.p2)}` + L.arcC(U, rU, cross.a2, u1) + `L${P(F)}`;
-  return sharp ? stubEnds(d, 'both', [3, 2, 21, 22]) : d;
-}
-def('ampersand', (sharp) => allStroke(ampersandD(sharp)), [3, 2, 21, 22]);
+// Dropped 18 Oct, Zafar's call, after his drawing and two redraws missed: a glyph that keeps missing
+// is dropped rather than drawn a fourth time, as scribble was in 1.8.0.

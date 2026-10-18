@@ -83,7 +83,7 @@ export const CATEGORIES = [
   // bases ship. They review on the Figma New card instead.
   {
     label: "New",
-    match: /^(accent-grave|align-left-2|align-right-2|ampersand|arrow-big-down-dash|arrow-big-left-dash|arrow-big-right-dash|arrow-down-through-line|arrow-left-through-line|arrow-right-through-line|arrow-u-turn-down-line|arrow-u-turn-down-line-flip|arrow-u-turn-left-line|arrow-u-turn-left-line-flip|arrow-u-turn-right-line|arrow-u-turn-right-line-flip|arrow-u-turn-up-line|arrow-u-turn-up-line-flip|arrow-up-through-line|ban-square|ban-square-flip|book-open-2|brace-left|brace-right|bracket-left|bracket-right|code-panel|colon|comma|diamond-dot|gallery-thumbnails|hyphen|library-big|list-checks|list-indent-decrease|list-indent-increase|list-nested|list-pin|map-pin-2|nfc|octagon-dot|parentheses-ellipsis|parentheses-x|parenthesis-left|parenthesis-right|pipe|plug-circle|plug-zap|semicolon|tally-5|tilde|triangle-dot|workflow)$/,
+    match: /^(accent-grave|align-left-2|align-right-2|arrow-big-down-dash|arrow-big-left-dash|arrow-big-right-dash|arrow-down-through-line|arrow-left-through-line|arrow-right-through-line|arrow-u-turn-down-line|arrow-u-turn-down-line-flip|arrow-u-turn-left-line|arrow-u-turn-left-line-flip|arrow-u-turn-right-line|arrow-u-turn-right-line-flip|arrow-u-turn-up-line|arrow-u-turn-up-line-flip|arrow-up-through-line|ban-square|ban-square-flip|book-open-2|brace-left|brace-right|bracket-left|bracket-right|code-panel|colon|comma|diamond|diamond-dot|gallery-thumbnails|hexagon|library-big|list-checks|list-indent-decrease|list-indent-increase|list-nested|list-pin|map-pin-2|nfc|octagon|octagon-dot|parentheses-ellipsis|parentheses-x|parenthesis-left|parenthesis-right|pipe|plug-circle|plug-zap|semicolon|tally-1|tally-2|tally-3|tally-4|tally-5|tilde|triangle|triangle-dot|workflow)$/,
     blurb: "Drafts under review.",
   },
   // The machine that thinks: the bots, the brain wired to a circuit and the
@@ -368,7 +368,7 @@ export const CATEGORIES = [
     label: "Math",
     match: /^(asterisk|braces|brackets|divide|equal|hash|infinity|parentheses|radical|variable|x-line-top|brace-(?:left|right)|bracket-(?:left|right)|parenthesis-(?:left|right)|tally)(-|$)/,
     blurb:
-      "The equals and its approximate and negated forms, divide, the radical, infinity, the asterisk, the hash, the parentheses, braces and brackets in pairs and alone, the tally, the variable and the mean.",
+      "The equals and its approximate and negated forms, divide, the radical, infinity, the asterisk, the hash, the parentheses, braces and brackets in pairs and alone, the tally from one to five, the variable and the mean.",
   },
   // Opened the same day: the keys a shortcut is spelled with. Caps lock, tab
   // and return are arrows and file in Arrows; eject is a transport control and
@@ -513,8 +513,8 @@ export const CATEGORIES = [
   {
     label: "Shapes",
     match:
-      /^(circle|square|triangle|shapes|dashed|dice|dot$|flower|full|half|quarter|three-quarter|hexagon|puzzle$|diamond|octagon-dot$)/,
-    blurb: "Squares, circles, hexagons, a diamond, a dot and the shapes that hold one, dashes and the progress states drawn from them.",
+      /^(circle|square|triangle|shapes|dashed|dice|dot$|flower|full|half|quarter|three-quarter|hexagon|puzzle$|diamond|octagon(-dot)?$)/,
+    blurb: "Squares, circles, triangles, hexagons, an octagon, a diamond, a dot and the shapes that hold one, dashes and the progress states drawn from them.",
   },
   {
     // `wifi` is here rather than in Charts beside `signal`, which is the sibling

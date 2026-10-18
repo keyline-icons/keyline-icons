@@ -366,20 +366,6 @@
       ]
     },
     {
-      "name": "sharp/ampersand",
-      "type": "registry:component",
-      "title": "Ampersand",
-      "description": "Ampersand, the stroke drawing of ampersand on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of ampersand: https://keylineicons.com/icons/ampersand",
-      "files": [
-        {
-          "path": "icons/ampersand.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/sharp/ampersand.tsx"
-        }
-      ]
-    },
-    {
       "name": "sharp/anchor",
       "type": "registry:component",
       "title": "Anchor",
@@ -7450,6 +7436,20 @@
       ]
     },
     {
+      "name": "sharp/diamond",
+      "type": "registry:component",
+      "title": "Diamond",
+      "description": "Diamond, the stroke drawing of diamond on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of diamond: https://keylineicons.com/icons/diamond",
+      "files": [
+        {
+          "path": "icons/diamond.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/diamond.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/diamond-dot",
       "type": "registry:component",
       "title": "DiamondDot",
@@ -10628,6 +10628,20 @@
       ]
     },
     {
+      "name": "sharp/hexagon",
+      "type": "registry:component",
+      "title": "Hexagon",
+      "description": "Hexagon, the stroke drawing of hexagon on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of hexagon: https://keylineicons.com/icons/hexagon",
+      "files": [
+        {
+          "path": "icons/hexagon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/hexagon.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/hexagons",
       "type": "registry:component",
       "title": "Hexagons",
@@ -11044,20 +11058,6 @@
           "path": "icons/humidity.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/humidity.tsx"
-        }
-      ]
-    },
-    {
-      "name": "sharp/hyphen",
-      "type": "registry:component",
-      "title": "Hyphen",
-      "description": "Hyphen, the stroke drawing of hyphen on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of hyphen: https://keylineicons.com/icons/hyphen",
-      "files": [
-        {
-          "path": "icons/hyphen.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/sharp/hyphen.tsx"
         }
       ]
     },
@@ -13396,6 +13396,20 @@
           "path": "icons/notebook-pen.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/notebook-pen.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/octagon",
+      "type": "registry:component",
+      "title": "Octagon",
+      "description": "Octagon, the stroke drawing of octagon on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of octagon: https://keylineicons.com/icons/octagon",
+      "files": [
+        {
+          "path": "icons/octagon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/octagon.tsx"
         }
       ]
     },
@@ -19140,6 +19154,62 @@
       ]
     },
     {
+      "name": "sharp/tally-1",
+      "type": "registry:component",
+      "title": "Tally1",
+      "description": "Tally1, the stroke drawing of tally-1 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of tally-1: https://keylineicons.com/icons/tally-1",
+      "files": [
+        {
+          "path": "icons/tally-1.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/tally-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/tally-2",
+      "type": "registry:component",
+      "title": "Tally2",
+      "description": "Tally2, the stroke drawing of tally-2 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of tally-2: https://keylineicons.com/icons/tally-2",
+      "files": [
+        {
+          "path": "icons/tally-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/tally-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/tally-3",
+      "type": "registry:component",
+      "title": "Tally3",
+      "description": "Tally3, the stroke drawing of tally-3 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of tally-3: https://keylineicons.com/icons/tally-3",
+      "files": [
+        {
+          "path": "icons/tally-3.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/tally-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/tally-4",
+      "type": "registry:component",
+      "title": "Tally4",
+      "description": "Tally4, the stroke drawing of tally-4 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of tally-4: https://keylineicons.com/icons/tally-4",
+      "files": [
+        {
+          "path": "icons/tally-4.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/tally-4.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/tally-5",
       "type": "registry:component",
       "title": "Tally5",
@@ -19724,6 +19794,20 @@
           "path": "icons/trending-up-down.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/trending-up-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/triangle",
+      "type": "registry:component",
+      "title": "Triangle",
+      "description": "Triangle, the stroke drawing of triangle on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of triangle: https://keylineicons.com/icons/triangle",
+      "files": [
+        {
+          "path": "icons/triangle.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/triangle.tsx"
         }
       ]
     },

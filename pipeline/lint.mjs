@@ -209,8 +209,11 @@ const SIZE_KNOWN = new Set([
   'git-commit-horizontal', 'git-commit-vertical',
   'terminal', 'terminal-asterisk',
   'octagon-alert', 'octagon-x', 'package', 'package-check', 'settings', 'user', 'x',
-  // octagon-x's own 20 x 20 octagon with the dot for its sign (2.0.0).
-  'octagon-dot',
+  // octagon-x's own 20 x 20 octagon with the dot for its sign, and alone (2.0.0).
+  'octagon-dot', 'octagon',
+  // The plain hexagon (2.0.0) is drawn equilateral, so its proportion is fixed: 22 tall makes it 20
+  // wide, and 22 wide would stand it 25 tall, past the canvas.
+  'hexagon',
   'bell', 'paperclip', 'wifi', 'wifi-info', 'wifi-exclamation',
   'repeat', 'repeat-1',
   'arrow-down-left', 'arrow-down-right', 'arrow-up-left', 'arrow-up-right',
@@ -257,7 +260,7 @@ const SIZE_KNOWN = new Set([
   'equal-not', 'x-line-top',
   // Punctuation at the same mark size (2.0.0): the shipped dot's 4 mark for the dots, minus's
   // weight for the rest. A colon or a pipe run to 22 reads as a divider, a comma as a quote.
-  'accent-grave', 'colon', 'comma', 'hyphen', 'pipe', 'semicolon', 'tilde',
+  'accent-grave', 'colon', 'comma', 'pipe', 'semicolon', 'tilde',
   // One of more-horizontal's beads on the centre (5 Oct 2026): the separator,
   // status and radio dot of a component library. It is the size of the mark it
   // stands in for; a 20-unit disc is `circle` filled.
@@ -306,11 +309,10 @@ const SIZE_KNOWN = new Set([
 const PRODUCT_KNOWN = new Set(['airpods', 'airpods-open']);
 /**
  * Punctuation drawn at the size it sits at beside text (2.0.0), which no reach
- * floor can ask more of: a hyphen 16 long is minus, a comma or a backtick 16
- * tall is a quote mark. Their mark size is SIZE_KNOWN's compact marks'; this
+ * floor can ask more of: a comma or a backtick 16 tall is a quote mark. Their mark size is SIZE_KNOWN's compact marks'; this
  * lifts only the 15.5 floor, as ladder dots are lifted from it.
  */
-const PUNCTUATION = new Set(['accent-grave', 'comma', 'hyphen']);
+const PUNCTUATION = new Set(['accent-grave', 'comma']);
 const MIN_PAD = 1;
 
 /**
@@ -618,7 +620,10 @@ const container = (name) =>
  * Everything else still applies — they are held to the same paint, padding,
  * spacing and coverage rules as any other icon.
  */
-const LEVEL = /^(?:circle-|square-)?(?:full|half|quarter|three-quarter)$|^signal-(?:low|medium|high)$|^wifi-(?:low|medium)$|^volume-low$/;   // volume-low is signal-low's case: one wave instead of two, and wifi-* is signal's ladder drawn as arcs
+// tally-1 to tally-4 (2.0.0) are tally-5's strokes counted from the left, as signal's bars light:
+// centred, tally-1 would be pipe and tally-2 two bars. tally-4 centres on its own but, like the rest,
+// is tally-5 less its gate, so it keeps tally-5's 16 rather than standing 22 as a vertical glyph.
+const LEVEL = /^(?:circle-|square-)?(?:full|half|quarter|three-quarter)$|^signal-(?:low|medium|high)$|^wifi-(?:low|medium)$|^volume-low$|^tally-[1-4]$/;   // volume-low is signal-low's case: one wave instead of two, and wifi-* is signal's ladder drawn as arcs
 const isLevel = (name) => LEVEL.test(name);
 
 /**

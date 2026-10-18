@@ -21,7 +21,7 @@ export function Tally5({ size = 24, ...props }: IconProps) {
       focusable="false"
       {...props}
     >
-      <path d="M4.5 4L4.5 20M9.5 4L9.5 20M14.5 4L14.5 20M19.5 4L19.5 20M1.4472 17.2764L22.5528 6.7236" fill="none"/>
+      <path d="M6 4L6 20M10 4L10 20M14 4L14 20M18 4L18 20M1.4472 17.2764L22.5528 6.7236" fill="none"/>
     </svg>
   )
 }

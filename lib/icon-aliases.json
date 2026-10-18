@@ -2270,7 +2270,8 @@
       "minimize-2"
     ],
     "minus": [
-      "dash"
+      "dash",
+      "hyphen"
     ],
     "navigation": [
       "navigation-2",
