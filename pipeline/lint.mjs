@@ -209,6 +209,8 @@ const SIZE_KNOWN = new Set([
   'git-commit-horizontal', 'git-commit-vertical',
   'terminal', 'terminal-asterisk',
   'octagon-alert', 'octagon-x', 'package', 'package-check', 'settings', 'user', 'x',
+  // octagon-x's own 20 x 20 octagon with the dot for its sign (2.0.0).
+  'octagon-dot',
   'bell', 'paperclip', 'wifi', 'wifi-info', 'wifi-exclamation',
   'repeat', 'repeat-1',
   'arrow-down-left', 'arrow-down-right', 'arrow-up-left', 'arrow-up-right',
@@ -253,6 +255,9 @@ const SIZE_KNOWN = new Set([
   // asterisk or a divide sign at full size outweighs every sign beside it.
   'asterisk', 'divide', 'equal', 'equal-approximately', 'equal-approximately-not',
   'equal-not', 'x-line-top',
+  // Punctuation at the same mark size (2.0.0): the shipped dot's 4 mark for the dots, minus's
+  // weight for the rest. A colon or a pipe run to 22 reads as a divider, a comma as a quote.
+  'accent-grave', 'colon', 'comma', 'hyphen', 'pipe', 'semicolon', 'tilde',
   // One of more-horizontal's beads on the centre (5 Oct 2026): the separator,
   // status and radio dot of a component library. It is the size of the mark it
   // stands in for; a 20-unit disc is `circle` filled.
@@ -299,6 +304,13 @@ const SIZE_KNOWN = new Set([
  * with radius must be exempted in this case."
  */
 const PRODUCT_KNOWN = new Set(['airpods', 'airpods-open']);
+/**
+ * Punctuation drawn at the size it sits at beside text (2.0.0), which no reach
+ * floor can ask more of: a hyphen 16 long is minus, a comma or a backtick 16
+ * tall is a quote mark. Their mark size is SIZE_KNOWN's compact marks'; this
+ * lifts only the 15.5 floor, as ladder dots are lifted from it.
+ */
+const PUNCTUATION = new Set(['accent-grave', 'comma', 'hyphen']);
 const MIN_PAD = 1;
 
 /**
@@ -1039,7 +1051,7 @@ async function main() {
             add('warn', 'OPTICAL', id,
               `${got.toFixed(2)} units ${axis} — a ${shape} icon is drawn ${want}` +
               (NARROW.has(name) ? ' (narrow: 16 on the short axis)' : ''));
-      } else if (SIZE_KNOWN.has(name) && onlyDots(src)) {
+      } else if (SIZE_KNOWN.has(name) && (onlyDots(src) || PUNCTUATION.has(name))) {
         // A drawing of nothing but ladder dots is sized by the ladder: `dot` is
         // one bead, 4 across, and no floor for a glyph's reach applies to it.
       } else if (spread < band[0] - EPS - (corners === 'sharp' ? 2 * (1 - CAP_CORNER) : 0))

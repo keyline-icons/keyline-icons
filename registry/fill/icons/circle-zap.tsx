@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CircleZap({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12ZM13.9998 7.439C14.0066 7.3857 14.01 7.332 14.01 7.2783C14.01 6.5727 13.4379 6.0007 12.7323 6.0007C12.3893 6.0007 12.0606 6.1386 11.8204 6.3835L6.3666 11.9381C6.1319 12.177 6.0003 12.4986 6.0003 12.8335C6.0003 13.5393 6.5726 14.1114 7.2784 14.1111L10.31 14.1111L10.0002 16.561C9.9934 16.6143 9.99 16.668 9.99 16.7217C9.99 17.4273 10.5621 17.9993 11.2677 17.9993C11.6107 17.9993 11.9394 17.8614 12.1796 17.6165L17.6334 12.0619C17.8681 11.823 17.9997 11.5014 17.9997 11.1665C17.9997 10.4607 17.4274 9.8886 16.7216 9.8889L13.69 9.8889L13.9998 7.439Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

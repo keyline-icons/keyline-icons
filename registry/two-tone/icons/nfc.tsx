@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Nfc({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M16.2729 2C18.6731 4.7501 20 8.3104 20 12C20 15.6896 18.6731 19.2499 16.2729 22M12 4C13.9319 6.2001 15 9.0483 15 12C15 14.9517 13.9319 17.7999 12 20M8 7C9.288 8.3751 10 10.1552 10 12C10 13.8448 9.288 15.6249 8 17M4 9C4.644 9.825 5 10.8931 5 12C5 13.1069 4.644 14.175 4 15" fill="none"/>
+    </svg>
+  )
+}

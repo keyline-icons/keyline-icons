@@ -2244,6 +2244,9 @@
     "check": [
       "check-line"
     ],
+    "chevron-up": [
+      "control"
+    ],
     "copy": [
       "copy-minus",
       "copy-slash",
@@ -2265,6 +2268,9 @@
     ],
     "minimize": [
       "minimize-2"
+    ],
+    "minus": [
+      "dash"
     ],
     "navigation": [
       "navigation-2",
@@ -2300,7 +2306,6 @@
       "archive-restore"
     ],
     "arrow-down": [
-      "arrow-big-down-dash",
       "arrow-down-0-1",
       "arrow-down-1-0",
       "arrow-down-a-z",
@@ -2310,12 +2315,10 @@
       "arrow-down-z-a"
     ],
     "arrow-left": [
-      "arrow-big-left-dash",
       "arrow-left-from-line",
       "arrow-left-to-line"
     ],
     "arrow-right": [
-      "arrow-big-right-dash",
       "arrow-right-from-line",
       "square-arrow-right-enter",
       "square-arrow-right-exit"
@@ -2489,9 +2492,6 @@
     ],
     "bot-circle": [
       "bot-2"
-    ],
-    "list-check": [
-      "list-checks"
     ],
     "list-plus": [
       "list-filter-plus"

@@ -366,6 +366,13 @@ true extent is just its width, and clearing 15.5 would need a unit 13.5 wide —
 comfortably inside the range that produces the diamond. The family uses 12 and
 takes the warning.
 
+### Punctuation is exempt from the optical floor
+
+`PUNCTUATION` (`accent-grave`, `comma`, `hyphen`) is drawn at the size it sits
+at beside text, the compact marks' size. Run to the 15.5 floor each becomes a
+different mark: a hyphen 16 long is `minus`, and a comma or a backtick 16 tall
+reads as a quote. Ladder dots are lifted from the floor the same way.
+
 ### CENTERING has two tiers, and the strict one is the real standard
 
 The 1-unit tier is the old one, and on its own it was misleading: it exists so

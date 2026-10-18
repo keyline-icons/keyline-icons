@@ -77,6 +77,15 @@ export const CATEGORIES = [
   // Zafar's refs batch filed with its families: flame-2 in Actions beside flame, the sparkle compounds and
   // bot-simple in AI, box beside package in Commerce, card-sim and unplug in Devices, diff in Git, the inputs and
   // the I-beam in Text, the nodes and the webhook in Web, and the aspect ratios in Media beside keyframes.
+  // Opened 18 Oct 2026 for 2.0.0: Zafar's refs drop of 16 Oct, fixed and named. Every name is also
+  // matched by its real shelf below. The six container forms the batch adds to zap, star and dot
+  // (circle-zap and the rest) cannot be listed: a row matches the container-stripped base, and the
+  // bases ship. They review on the Figma New card instead.
+  {
+    label: "New",
+    match: /^(accent-grave|align-left-2|align-right-2|ampersand|arrow-big-down-dash|arrow-big-left-dash|arrow-big-right-dash|arrow-down-through-line|arrow-left-through-line|arrow-right-through-line|arrow-u-turn-down-line|arrow-u-turn-down-line-flip|arrow-u-turn-left-line|arrow-u-turn-left-line-flip|arrow-u-turn-right-line|arrow-u-turn-right-line-flip|arrow-u-turn-up-line|arrow-u-turn-up-line-flip|arrow-up-through-line|ban-square|ban-square-flip|book-open-2|brace-left|brace-right|bracket-left|bracket-right|code-panel|colon|comma|diamond-dot|gallery-thumbnails|hexagon-dot|hexagon-star|hexagon-zap|hyphen|library-big|list-checks|list-indent-decrease|list-indent-increase|list-nested|list-pin|map-pin-2|nfc|octagon-dot|parentheses-ellipsis|parentheses-x|parenthesis-left|parenthesis-right|pipe|plug-circle|plug-zap|semicolon|tally-5|tilde|triangle-dot|workflow)$/,
+    blurb: "Drafts under review.",
+  },
   // The machine that thinks: the bots, the brain wired to a circuit and the
   // brain turning a cog. The bare `brain` is an organ and goes to Health,
   // which is why this is anchored on the two names rather than on `brain`.
@@ -134,7 +143,7 @@ export const CATEGORIES = [
     // copy, paste and save are what is done to a document, so they sit with
     // `copy` rather than among the actions. `save` is anchored on a hyphen or
     // the end so a `savings-*` would not arrive through it.
-    match: /^(file|folder|copy|paperclip|bin|archive|book(?!mark)|pen(?!cil)|(square|circle)-pen|newspaper$|clipboard|paste$|save(-|$))/,
+    match: /^(file|folder|copy|paperclip|bin|archive|book(?!mark)|pen(?!cil)|(square|circle)-pen|newspaper$|clipboard|paste$|save(-|$)|library-big$)/,
     blurb: "Documents, folders, books, a newspaper, copies, clipboards, the floppy disk, the paperclip and the bin.",
   },
   {
@@ -256,7 +265,8 @@ export const CATEGORIES = [
   // Charts; `chart-diagram` stays with the charts because it is named as one.
   {
     label: "Diagrams",
-    match: /^diagram-/,
+    // `workflow` joined on 18 Oct 2026 (2.0.0): two boxes on an elbow, the other set's name for it.
+    match: /^(diagram-|workflow$)/,
     blurb: "Boxes on wires: a project, a subtask, and what comes before and after.",
   },
   // `code`, `terminal`, `bug` and the `app-*` tiles are the developer surface
@@ -302,10 +312,14 @@ export const CATEGORIES = [
     // The inputs and `compact` joined on 11 Oct 2026 (1.8.0): a field text is
     // typed into, beside the text cursor that types it, and the summary a thread
     // is compacted to. `input-sparkles` goes to AI on its sparkles.
+    // The punctuation joined on 18 Oct 2026 (2.0.0) for the reason `quote` is here: the ampersand,
+    // the comma, colon and semicolon, the hyphen, the pipe, the tilde and the backtick are marks a
+    // line of text is set in. align-left-2 and -right-2, the stack against a margin, sit with
+    // the stack they redraw.
     label: "Text",
     match:
-      /^(bold|italic|underline|strikethrough|heading|pilcrow|indent|letter-|line-height|text-|type$|quote|language|slash$|align-(?:left|center|right|justify)$|case-(sensitive|upper)$|a-arrow-(?:up|down)$|spell-check$|type-outline$|whole-word$|input(-|$)|compact$)/,
-    blurb: "The quotation marks, the formatting marks, the case marks with the text-size arrows and the spell check, the slash, the alignment stack and what sets a paragraph.",
+      /^(bold|italic|underline|strikethrough|heading|pilcrow|indent|letter-|line-height|text-|type$|quote|language|slash$|align-(?:left|center|right|justify)(?:-2)?$|case-(sensitive|upper)$|a-arrow-(?:up|down)$|spell-check$|type-outline$|whole-word$|input(-|$)|compact$|ampersand$|accent-grave$|colon$|semicolon$|comma$|hyphen$|pipe$|tilde$)/,
+    blurb: "The quotation marks and the punctuation, the formatting marks, the case marks with the text-size arrows and the spell check, the slash, the alignment stack and what sets a paragraph.",
   },
   {
     label: "Layout",
@@ -348,12 +362,13 @@ export const CATEGORIES = [
   // Opened 22 Sep 2026 with the symbol batch. Ahead of Actions, whose `x`
   // would otherwise take `x-line-top`. `plus`, `minus` and `x` stay in Actions
   // as verbs and `percent` in Commerce as a discount; these are the marks a
-  // formula is written in.
+  // formula is written in. The single brackets and the tally joined on 18 Oct 2026 (2.0.0); a
+  // single `bracket-` is spelled out, since `bracket-arrow-*` is the log-in pair in Arrows.
   {
     label: "Math",
-    match: /^(asterisk|braces|brackets|divide|equal|hash|infinity|parentheses|radical|variable|x-line-top)(-|$)/,
+    match: /^(asterisk|braces|brackets|divide|equal|hash|infinity|parentheses|radical|variable|x-line-top|brace-(?:left|right)|bracket-(?:left|right)|parenthesis-(?:left|right)|tally)(-|$)/,
     blurb:
-      "The equals and its approximate and negated forms, divide, the radical, infinity, the asterisk, the hash, the parentheses, braces and brackets, the variable and the mean.",
+      "The equals and its approximate and negated forms, divide, the radical, infinity, the asterisk, the hash, the parentheses, braces and brackets in pairs and alone, the tally, the variable and the mean.",
   },
   // Opened the same day: the keys a shortcut is spelled with. Caps lock, tab
   // and return are arrows and file in Arrows; eject is a transport control and
@@ -386,7 +401,7 @@ export const CATEGORIES = [
     // `lifebuoy` joined on 28 Sep 2026 beside the siren: the ring you throw to
     // someone in trouble, and the mark a help or support link wears.
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|key(?:-round|-square)?$|shield|badge|download|upload|filter|eye|star|heart(?!-pulse)|hand-heart|alert|octagon|triangle-alert|info|question|lightbulb|zap|flame|ban(?!dage)|siren$|delete$|lifebuoy$)/,
+      /^(check|double-check|plus|minus|x|more|lock|unlock|key(?:-round|-square)?$|shield|badge|download|upload|filter|eye|star|heart(?!-pulse)|hand-heart|alert|octagon(?!-dot$)|triangle-alert|info|question|lightbulb|zap|flame|ban(?!dage)|siren$|delete$|lifebuoy$)/,
     blurb: "Checks, crosses, pluses, the everyday verbs, the siren, the lifebuoy and the marks that guard a thing.",
   },
   {
@@ -498,8 +513,8 @@ export const CATEGORIES = [
   {
     label: "Shapes",
     match:
-      /^(circle|square|triangle|shapes|dashed|dice|dot$|flower|full|half|quarter|three-quarter|hexagon|puzzle$)/,
-    blurb: "Squares, circles, hexagons, a dot, dashes and the progress states drawn from them.",
+      /^(circle|square|triangle|shapes|dashed|dice|dot$|flower|full|half|quarter|three-quarter|hexagon|puzzle$|diamond|octagon-dot$)/,
+    blurb: "Squares, circles, hexagons, a diamond, a dot and the shapes that hold one, dashes and the progress states drawn from them.",
   },
   {
     // `wifi` is here rather than in Charts beside `signal`, which is the sibling
@@ -518,7 +533,7 @@ export const CATEGORIES = [
     // linked, beside `link` and `share`.
     label: "Web",
     match:
-      /^(globe|link|unlink|share|navigation|home|house|search|settings|bookmark|wifi|cloud-(?:check|x|plus|alert|dot|off|arrow|backup|cog|terminal|download|upload|search|network)|earth$|connections?$|webhook$)/,
+      /^(globe|link|unlink|share|navigation|home|house|search|settings|bookmark|wifi|cloud-(?:check|x|plus|alert|dot|off|arrow|backup|cog|terminal|download|upload|search|network)|earth$|connections?$|webhook$|nfc$)/,
     blurb: "Globes and the earth, links, connectivity, sync states and web-scoped actions.",
   },
   {
