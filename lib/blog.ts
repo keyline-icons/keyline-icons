@@ -6653,7 +6653,382 @@ const RELEASE_1_8_0: BlogPost = {
   ],
 }
 
+export const BLOG_V200_THUMBNAIL_ICON_NAMES = [
+  "play-pause",
+  "parentheses-x",
+  "tally-5",
+  "hexagon",
+  "arrow-u-turn-left-line",
+  "chevrons-up-3",
+  "list-checks",
+  "nfc",
+  "brace-left",
+  "octagon-dot",
+  "plug-zap",
+  "library-big",
+  "book-open-2",
+  "map-pin-2",
+  "circle-zap",
+  "square-star",
+  "tally-3",
+  "bracket-right",
+  "diamond",
+  "arrow-up-through-line",
+  "chevrons-down-2",
+  "workflow",
+  "gallery-thumbnails",
+  "code-panel",
+  "ban-square",
+  "list-indent-increase",
+  "triangle-dot",
+  "parentheses-ellipsis",
+  "semicolon",
+  "tilde",
+  "arrow-big-right-dash",
+  "list-pin",
+  "plug-circle",
+  "align-left-2",
+  "octagon",
+  "arrow-u-turn-down-line",
+  "list-nested",
+  "circle-dot",
+  "pipe",
+  "comma",
+] as const
+
+export const BLOG_V200_HERO_ICON_NAMES = [
+  "play-pause",
+  "book-open-2",
+  "circle-zap",
+  "octagon-dot",
+  "library-big",
+  "gallery-thumbnails",
+  "map-pin-2",
+  "code-panel",
+] as const
+
+export const BLOG_V200_BRACKET_ICON_NAMES = [
+  "parenthesis-left",
+  "parenthesis-right",
+  "bracket-left",
+  "bracket-right",
+  "brace-left",
+  "brace-right",
+  "parentheses-ellipsis",
+  "parentheses-x",
+  "pipe",
+  "colon",
+  "semicolon",
+  "comma",
+  "accent-grave",
+  "tilde",
+] as const
+
+export const BLOG_V200_LEVEL_ICON_NAMES = [
+  "tally-1",
+  "tally-2",
+  "tally-3",
+  "tally-4",
+  "tally-5",
+  "chevrons-up-1",
+  "chevrons-up-2",
+  "chevrons-up-3",
+  "chevrons-down-1",
+  "chevrons-down-2",
+  "chevrons-down-3",
+] as const
+
+export const BLOG_V200_SHAPE_ICON_NAMES = [
+  "triangle",
+  "triangle-dot",
+  "diamond",
+  "diamond-dot",
+  "hexagon",
+  "octagon",
+  "octagon-dot",
+  "square-dot",
+  "circle-dot",
+] as const
+
+export const BLOG_V200_ARROW_ICON_NAMES = [
+  "arrow-u-turn-left-line",
+  "arrow-u-turn-left-line-flip",
+  "arrow-u-turn-right-line",
+  "arrow-u-turn-right-line-flip",
+  "arrow-u-turn-up-line",
+  "arrow-u-turn-up-line-flip",
+  "arrow-u-turn-down-line",
+  "arrow-u-turn-down-line-flip",
+  "arrow-up-through-line",
+  "arrow-down-through-line",
+  "arrow-left-through-line",
+  "arrow-right-through-line",
+  "arrow-big-right-dash",
+  "arrow-big-down-dash",
+  "arrow-big-left-dash",
+] as const
+
+export const BLOG_V200_SINGLE_ICON_NAMES = [
+  "list-checks",
+  "list-indent-increase",
+  "list-indent-decrease",
+  "list-nested",
+  "list-pin",
+  "ban-square",
+  "ban-square-flip",
+  "square-star",
+  "circle-star",
+  "square-zap",
+  "circle-zap",
+  "plug-zap",
+  "plug-circle",
+  "code-panel",
+  "workflow",
+  "book-open-2",
+  "library-big",
+  "map-pin-2",
+  "gallery-thumbnails",
+  "align-left-2",
+  "align-right-2",
+  "nfc",
+  "play-pause",
+] as const
+
+const RELEASE_2_0_0: BlogPost = {
+  /* The count, "free", "shadcn/ui", "React" and "Figma", then what a search
+     types for this batch: brackets, tallies, shapes and arrows. The slug names
+     the drawings, not the version. */
+  slug: "brackets-tally-marks-and-shape-icons",
+  version: "2.0.0",
+  title: "72 free shadcn/ui, React and Figma icons for brackets, tallies, shapes and arrows",
+  description:
+    "1,507 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
+    "brackets and punctuation, tally marks, chevron levels, plain shapes and " +
+    "u-turn arrows.",
+  standfirst: "Small pieces, the kind you only notice when they're missing.",
+  date: "2026-10-18",
+  updated: "2026-10-18",
+  readingMinutes: 4,
+  thumbnail: BLOG_V200_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "bracket icon",
+    "parentheses icon",
+    "curly brace icon",
+    "punctuation icons",
+    "tally icon",
+    "tally marks icon",
+    "chevron icon",
+    "level icon",
+    "triangle icon",
+    "diamond icon",
+    "hexagon icon",
+    "octagon icon",
+    "u-turn arrow icon",
+    "list check icon",
+    "indent icon",
+    "plug icon",
+    "workflow icon",
+    "library icon",
+    "play pause icon",
+    "nfc icon",
+    "free svg icons",
+    "shadcn/ui icons",
+    "figma icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "This update brings 72 new icons. Fourteen are brackets and " +
+        "punctuation, eleven help you count or show a level, and fifteen are " +
+        "arrows, mostly u-turns that stop at a line. The rest are simple " +
+        "shapes, a few list icons, and some things people kept asking for, " +
+        "like a charging plug and a play-pause key.",
+    },
+    {
+      kind: "p",
+      text:
+        "With these, the set grows to 1,507 icons. Each one comes in stroke, " +
+        "two-tone, duotone and fill, with rounded or sharp corners, so that's " +
+        "12,056 SVGs in all.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V200_HERO_ICON_NAMES,
+        caption: "Eight of the seventy-two, one style to a row.",
+      },
+    },
+
+    { kind: "h2", text: "Brackets and punctuation", id: "brackets" },
+    {
+      kind: "p",
+      text:
+        "Parentheses, square brackets and curly braces now come as separate " +
+        "opening and closing halves. They're handy for buttons that wrap a " +
+        "selection or add one side of a pair. Two more keep both halves " +
+        "together: `parentheses-ellipsis` hides what's inside, just like the " +
+        "dotted braces and brackets from last time, and `parentheses-x` puts " +
+        "an x between them, for when you mean a variable.",
+    },
+    {
+      kind: "p",
+      text:
+        "The punctuation marks get their own icons too: `pipe`, `colon`, " +
+        "`semicolon`, `comma`, `accent-grave` and `tilde`. They work well for " +
+        "shortcut hints, separators and text tools. Since there's nothing " +
+        "inside them to fill, they look the same in every style.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V200_BRACKET_ICON_NAMES,
+        caption: "Each bracket alone, two pairs, then the punctuation.",
+      },
+    },
+
+    { kind: "h2", text: "Tallies and levels", id: "levels" },
+    {
+      kind: "p",
+      text:
+        "The tally marks count from one to five the way you'd keep score on " +
+        "paper: four strokes side by side, then a fifth across them. Each " +
+        "stroke stays in place as the count goes up, so going from `tally-2` " +
+        "to `tally-3` just adds one line. That makes it easy to animate a " +
+        "counter ticking up.",
+    },
+    {
+      kind: "p",
+      text:
+        "The chevron levels work a bit like signal bars. `chevrons-up-1` to " +
+        "`chevrons-up-3` fill from the bottom, for priority, speed or " +
+        "strength going up. `chevrons-down-1` to `chevrons-down-3` fill from " +
+        "the top. Each chevron stays put as the level changes.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V200_LEVEL_ICON_NAMES,
+        caption: "One to five, then one to three chevrons each way.",
+      },
+    },
+
+    { kind: "h2", text: "Plain shapes", id: "shapes" },
+    {
+      kind: "p",
+      text:
+        "A triangle, a diamond, a hexagon and an octagon join the square and " +
+        "circle as simple outlines. They're good for status markers, map keys " +
+        "and flowcharts. And yes, all six sides of the hexagon are the same " +
+        "length.",
+    },
+    {
+      kind: "p",
+      text:
+        "Five shapes now hold a dot. The triangle, diamond and octagon each " +
+        "get a new dotted version, and `dot` itself now comes framed as " +
+        "`square-dot` and `circle-dot`.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V200_SHAPE_ICON_NAMES,
+        caption: "Four plain shapes, and a dot in five.",
+      },
+    },
+
+    { kind: "h2", text: "Arrows at a line", id: "arrows" },
+    {
+      kind: "p",
+      text:
+        "The u-turn arrows now turn back at a line, for moments when you hit " +
+        "an edge or a limit and head back. They point in all four directions, " +
+        "and each has a mirrored version, so there are eight in total.",
+    },
+    {
+      kind: "p",
+      text:
+        "Four more arrows pass right through a line, for crossing a boundary. " +
+        "And the big outlined arrows pointing right, down and left now have a " +
+        "bar behind them, to match `arrow-big-up-dash`, the one you'd " +
+        "recognise from the caps lock key.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V200_ARROW_ICON_NAMES,
+        caption: "U-turns, arrows through a line, and big arrows with a bar behind.",
+      },
+    },
+
+    { kind: "h2", text: "And the rest", id: "singles" },
+    {
+      kind: "p",
+      text:
+        "Lists get a few new friends: a column of checks, indent in and out, " +
+        "a nested level and a pin. `ban-square` is the no-entry slash inside " +
+        "a square, available both ways round. The star and lightning bolt now " +
+        "come framed in a square and a circle too.",
+    },
+    {
+      kind: "p",
+      text:
+        "`plug-zap` is a plug that's charging, `plug-circle` is a plug inside " +
+        "a ring, and `code-panel` is a panel with code brackets tucked into " +
+        "its top edge. `workflow` links two boxes with a path. `book-open-2` " +
+        "is an open book mid page-turn, and `library-big` shows two books " +
+        "standing with a third leaning against them. There's also a pin " +
+        "pushed into the ground, a large frame above a row of thumbnails, two " +
+        "alignment icons with a bar along one edge, and `nfc`, for tapping to " +
+        "pay.",
+    },
+    {
+      kind: "p",
+      text:
+        "Finally, `play-pause` is the media key most keyboards have: play and " +
+        "pause on one button, for anything that switches between the two.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V200_SINGLE_ICON_NAMES,
+        caption: "Lists, the square bans, the framed star and bolt, and twelve more.",
+      },
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text:
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui " +
+        "registry, the CLI, the MCP server, and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
+  RELEASE_2_0_0,
   RELEASE_1_8_0,
   RELEASE_1_7_0,
   RELEASE_1_6_0,
