@@ -220,29 +220,35 @@ const BADGES = JSON.parse(
   await readFile(join(ROOT, "lib", "icon-badges.json"), "utf8")
 )
 /* The badge is an age, not a release. Same rule and same file as `isNewSince`
-   in lib/icons.ts, compared as instants because git's offset dates and a
-   computed window do not sort against each other as strings.
+   in lib/icons.ts: the floor compared as an instant, because git's offset
+   dates and a computed window do not sort against each other as strings, and
+   the window counted in whole days on the calendar each drawing is dated on,
+   so a day's drawings come off together on the fourteenth day after it.
 
    One difference, on purpose: the window counts back from the newest drawing,
    not from the clock. The site is rebuilt on every deploy, but these sheets
    are committed and `--check` recomposes them byte for byte in CI, so a clock
    window fails CI on the day a drawing ages out with nothing changed, and with
    drawings landing most days that is most days. The newest drawing is the
-   instant the sheets were last true, and the date "Last updated" prints. */
+   day the sheets were last true, and the date "Last updated" prints. */
 const NEW_FOR_DAYS = BADGES.newForDays ?? 14
-const AS_OF = Math.max(
-  0,
-  ...Object.values(HISTORY.icons ?? {}).map((h) => Date.parse(h.updated) || 0)
-)
-const NEW_WINDOW = AS_OF - NEW_FOR_DAYS * 86_400_000
-const NEW_SINCE = Math.max(
-  BADGES.clearedBefore ? Date.parse(BADGES.clearedBefore) : 0,
-  NEW_WINDOW
-)
+const DAY = 86_400_000
+const dayOf = (iso) =>
+  Date.UTC(+iso.slice(0, 4), +iso.slice(5, 7) - 1, +iso.slice(8, 10)) / DAY
+const AS_OF = Object.values(HISTORY.icons ?? {})
+  .map((h) => h.updated)
+  .filter(Boolean)
+  .reduce((a, b) => (Date.parse(b) > Date.parse(a) ? b : a), "1970-01-01T00:00:00Z")
+const NEW_AFTER_DAY = dayOf(AS_OF) - NEW_FOR_DAYS
+const FLOOR = BADGES.clearedBefore ? Date.parse(BADGES.clearedBefore) : 0
 /* Names the floor skips, as in lib/icons.ts; the window still applies. */
 const CLEARED_EXCEPT = new Set(BADGES.clearedExcept ?? [])
 const since = Object.entries(HISTORY.icons ?? {})
-  .filter(([name, h]) => Date.parse(h.added) > (CLEARED_EXCEPT.has(name) ? NEW_WINDOW : NEW_SINCE))
+  .filter(
+    ([name, h]) =>
+      Date.parse(h.added) > (CLEARED_EXCEPT.has(name) ? 0 : FLOOR) &&
+      dayOf(h.added) > NEW_AFTER_DAY
+  )
   .sort(([a], [b]) => a.localeCompare(b))
 const NEW_NAMES = new Set(since.map(([name]) => name))
 

@@ -371,14 +371,41 @@ const BADGES_CLEARED_EXCEPT = new Set<string>(badges.clearedExcept ?? [])
 const at = (iso: string) => (iso ? Date.parse(iso) : 0)
 const CLEARED_AT = at(BADGES_CLEARED_BEFORE)
 
+/**
+ * The window is counted in whole days, on the calendar the drawing is dated on.
+ *
+ * Counted to the millisecond, the drawings of 4 Oct lost their badges one at a
+ * time through the afternoon of 18 Oct, at whatever hour each was committed,
+ * and a build made in the morning badged what one made after lunch did not.
+ * The day is the unit the page prints ("Added 4 Oct 2026") and the unit anyone
+ * counts in, so on the fourteenth day after the date the badge is off, all day.
+ *
+ * The day comes straight off the string, as the labels in build-history.mjs
+ * take it, and today is the clock moved into the same offset, so a build on a
+ * UTC machine still counts on the calendar the drawing was dated on.
+ */
+const DAY = 86_400_000
+const dayOf = (iso: string) =>
+  Date.UTC(
+    Number(iso.slice(0, 4)),
+    Number(iso.slice(5, 7)) - 1,
+    Number(iso.slice(8, 10))
+  ) / DAY
+const todayBeside = (iso: string) => {
+  const m = /([+-])(\d\d):(\d\d)$/.exec(iso)
+  const offset = m
+    ? (m[1] === "-" ? -1 : 1) * (Number(m[2]) * 60 + Number(m[3])) * 60_000
+    : 0
+  return Math.floor((Date.now() + offset) / DAY)
+}
+
 export const isNewSince = (icon: Icon) =>
   Boolean(
     icon.history &&
       at(icon.history.added) >
-        Math.max(
-          BADGES_CLEARED_EXCEPT.has(icon.name) ? 0 : CLEARED_AT,
-          Date.now() - NEW_FOR_DAYS * 86_400_000
-        )
+        (BADGES_CLEARED_EXCEPT.has(icon.name) ? 0 : CLEARED_AT) &&
+      dayOf(icon.history.added) >
+        todayBeside(icon.history.added) - NEW_FOR_DAYS
   )
 
 /**
