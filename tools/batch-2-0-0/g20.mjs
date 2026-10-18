@@ -622,30 +622,71 @@ function plugCircle(sharp) {
 def('plug-circle', plugCircle, [1, 1, 23, 23]);
 
 // book-open-2: Zafar's, a second drawing of book-open: the book open with its left page standing,
-// part turned, over the cover. As he drew it for now. Two-tone: one plate under the whole book;
-// duotone: the standing page black in front of the grey book; fill: the solid book with the page's
-// inner edges and the spine knocked out as 2 slots (book-open's spine), so the page, cover and
-// right page read apart.
-const BOOK2 = {
-  left: 'M13 8.6604C12.5562 6.4714 10.0635 3.3765 7.8304 3.0094C7.3536 2.931 7 3.3551 7 3.8319L7 15.7958C7 16.1479 7.1899 16.469 7.4862 16.6585C7.5453 16.6963 7.6126 16.7203 7.6801 16.7391C10.5353 17.5366 12.0177 19.076 13.2533 20.9187C11.9888 20.2524 8 19.5 4 20C3.4112 20.0169 3 19.4057 3 18.8246L3 7.1703C3 6.8298 3.1766 6.5076 3.498 6.3833C4.2554 6.0904 5.5184 5.8529 7 6.1944',
-  right: 'M13 8.0417L13 20.485C13 20.8936 13.4827 21.1357 13.8338 20.9187C15.3301 19.994 17.7006 18.9163 19.8267 18.8246C20.443 18.7981 21 18.3335 21 17.725L21 6.073C21 5.9375 20.9736 5.8003 20.9078 5.6813C19.6544 3.4164 15.6108 5.6265 13.3813 7.2755C13.1373 7.4559 13 7.7409 13 8.0417Z',
-  silhouette: 'M13 8.6604C12.5562 6.4714 10.0635 3.3765 7.8304 3.0094C7.3536 2.931 7 3.3551 7 3.8319L7 6.1944C5.5184 5.8529 4.2554 6.0904 3.498 6.3833C3.1766 6.5076 3 6.8298 3 7.1703L3 18.8246C3 19.4057 3.4112 20.0169 4 20C8 19.5 11.9888 20.2524 13.2533 20.9187L13 20.485L13 8.6604Z',
-  page: 'M13 8.6604C12.5562 6.4714 10.0635 3.3765 7.8304 3.0094C7.3536 2.931 7 3.3551 7 3.8319L7 15.7958C7 16.1479 7.1899 16.469 7.4862 16.6585C7.5453 16.6963 7.6126 16.7203 7.6801 16.7391C10.5353 17.5366 12.0177 19.076 13.2533 20.9187L13 20.485L13 8.6604Z',
-  seams: 'M7 6.1944L7 15.7958C7 16.1479 7.1899 16.469 7.4862 16.6585C7.5453 16.6963 7.6126 16.7203 7.6801 16.7391C10.5353 17.5366 12.0177 19.076 13.2533 20.9187M13 9L13 20.485',
-};
-function bookOpen2(sharp) {
-  const d = BOOK2.left + BOOK2.right;
-  const g = (dd) => [B.grow(shapeOf(dd)[0])];
-  const plate = B.union(g(BOOK2.silhouette), g(BOOK2.right));
-  const seams = shapeOf(BOOK2.seams).map((r) => B.band(r, 'round'));
+// part turned, over the cover. His page edges were free cubics that fit circles to within 0.07 (the
+// standing page's top R 8.25, the cover's bottom R 20, the right page's bottom R 13.6), so they are
+// those circles now, through whole points: every edge meets the spine at its top T (13, 8) or its
+// foot (13, 21), where his met it at four points 0.6 apart. The standing page's bottom now lands on
+// the foot along the spine (R 5 about (8, 21)) instead of at 56 degrees, which closed the cover's
+// last 3 units of white between them into a wedge. Corners r 1 on the cover and the standing page,
+// r 2 on the right page, as he had them; the standing page's top-left fillet sits on (8, 4) so the
+// top paints 2. Paints 2..22 both ways.
+// Sharp: the fillets come off and the edges run on to true corners; the standing page's top is
+// re-solved through (7, 3) at the same R 8, since the regular arc runs on to y 2.66 and would paint
+// above the box. The two arcs at the foot meet there as one path, so its round join paints 22.
+// Two-tone: one plate under the whole book. Duotone: the standing page black over the full grey
+// book, as circles is. Fill: the solid book with the page's free edge (from 2 below the cover's top,
+// round its corner) and the spine (T to 5 above the foot, book-open's stop) knocked out as closed
+// slots, so the bottom stays whole where four edges meet.
+const BOOK2 = (() => {
+  const T = [13, 8], Ft = [13, 21], J = [7, 6];
+  const below = (cs) => cs.sort((s, t) => t[1] - s[1])[0];
+  // the circle of radius R through p that holds the fillet (q, rq) inside it; and through p and q
+  const holding = (p, q, rq, R) => {
+    const dd = Math.hypot(q[0] - p[0], q[1] - p[1]), a = (R * R - (R - rq) ** 2 + dd * dd) / (2 * dd), h = Math.sqrt(R * R - a * a);
+    const u = [(q[0] - p[0]) / dd, (q[1] - p[1]) / dd], m = [p[0] + a * u[0], p[1] + a * u[1]];
+    return below([[m[0] - h * u[1], m[1] + h * u[0]], [m[0] + h * u[1], m[1] - h * u[0]]]);
+  };
+  const through = (p, q, R) => holding(p, q, 0, R);
+  const touch = (c, R, q) => L.add(c, L.mul(L.unit(L.sub(q, c)), R));
+  const yAt = (c, R, x) => c[1] - Math.sqrt(R * R - (x - c[0]) ** 2);
+  const arc = (c, r, a0, a1) => L.arcC(c, r, typeof a0 === 'number' ? a0 : angOf(c, a0), typeof a1 === 'number' ? a1 : angOf(c, a1));
+  const cTop = holding(T, [8, 4], 1, 8), cTopS = through(T, [7, 3], 8), cRight = holding(T, [19, 7], 2, 10);
+  const cCover = [4, 40.25], rCover = 21.25, cFoot = [19, 29], cPage = [8, 21];
+  const tPage = touch(cTop, 8, [8, 4]), tRight = touch(cRight, 10, [19, 7]);
+  const bl = [3, yAt(cCover, rCover, 3)], br = [21, yAt(cFoot, 10, 21)], tr = [21, yAt(cRight, 10, 21)], pl = [7, cPage[1] - Math.sqrt(24)];
   return {
-    stroke: [S(d)],
-    'two-tone': [Pl(E(plate)), S(d)],
-    duotone: [Pl(E(plate)), F(E(g(BOOK2.page)))],
-    fill: [F(E(B.subtract(plate, seams.map((r) => r))))],
+    T, Ft, J,
+    // toT: the cover and the right page, from the junction J round to T; top: the standing page's
+    // top to its free edge; page: down that edge to the foot; slots: the fill's knockouts
+    regular: {
+      toT: `M${P(J)}L4 6` + arc([4, 7], 1, -90, -180) + 'L3 18' + arc([4, 18], 1, 180, 90) + arc(cCover, rCover, -90, Ft)
+        + arc(cFoot, 10, Ft, -90) + arc([19, 17], 2, 90, 0) + 'L21 7' + arc([19, 7], 2, 0, tRight) + arc(cRight, 10, tRight, T),
+      top: arc(cTop, 8, T, tPage) + arc([8, 4], 1, tPage, -180),
+      page: 'L7 15' + arc([8, 15], 1, 180, 90) + arc(cPage, 5, -90, 0),
+      slots: ['M13 8L13 16', 'M7 8L7 15' + arc([8, 15], 1, 180, 90)],
+    },
+    sharp: {
+      toT: `M${P(J)}L3 6L${P(bl)}` + arc(cCover, rCover, bl, Ft) + arc(cFoot, 10, Ft, br) + `L${P(tr)}` + arc(cRight, 10, tr, T),
+      top: arc(cTopS, 8, T, [7, 3]),
+      page: `L${P(pl)}` + arc(cPage, 5, pl, 0),
+      slots: ['M13 7L13 17', `M7 7L${P(pl)}` + arc(cPage, 5, pl, -90 + L.deg(1 / 5))],
+    },
+  };
+})();
+function bookOpen2(sharp) {
+  const g = sharp ? BOOK2.sharp : BOOK2.regular, { T, Ft, J } = BOOK2;
+  const stroke = g.toT + g.top + g.page + `M${P(T)}L${P(Ft)}`;
+  const silhouette = B.grow(shapeOf(g.toT + g.top + `L${P(J)}Z`)[0]);
+  const front = B.grow(shapeOf(`M${P(T)}` + g.top + g.page + `L${P(T)}Z`)[0]);
+  const slots = g.slots.map((s) => B.band(shapeOf(s)[0], sharp ? 'butt' : 'round'));
+  return {
+    stroke: [S(stroke)],
+    'two-tone': [Pl(E([silhouette])), S(stroke)],
+    duotone: [Pl(E([silhouette])), F(E([front]))],
+    fill: [F(E(B.subtract([silhouette], slots)))],
   };
 }
-def('book-open-2', bookOpen2);
+def('book-open-2', bookOpen2, [2, 2, 22, 22]);
 
 /* ================================================================ ampersand */
 // Redrawn from scratch, as Zafar asked: his ran on free cubics whose loop was no circle, whose arm

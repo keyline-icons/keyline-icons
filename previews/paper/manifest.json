@@ -2603,7 +2603,7 @@
       "artboard": "New",
       "category": "New",
       "part": 1,
-      "parts": 9,
+      "parts": 8,
       "into": "artboard",
       "width": 742,
       "icons": 56,
@@ -2615,7 +2615,7 @@
       "artboard": "New",
       "category": "New",
       "part": 2,
-      "parts": 9,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -2627,84 +2627,72 @@
       "artboard": "New",
       "category": "New",
       "part": 3,
-      "parts": 9,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 38749
+      "variants": 64,
+      "bytes": 40854
     },
     {
       "file": "new-4.html",
       "artboard": "New",
       "category": "New",
       "part": 4,
-      "parts": 9,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 38063
+      "variants": 56,
+      "bytes": 37812
     },
     {
       "file": "new-5.html",
       "artboard": "New",
       "category": "New",
       "part": 5,
-      "parts": 9,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 38760
+      "bytes": 38175
     },
     {
       "file": "new-6.html",
       "artboard": "New",
       "category": "New",
       "part": 6,
-      "parts": 9,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 38018
+      "bytes": 39690
     },
     {
       "file": "new-7.html",
       "artboard": "New",
       "category": "New",
       "part": 7,
-      "parts": 9,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 38625
+      "bytes": 40731
     },
     {
       "file": "new-8.html",
       "artboard": "New",
       "category": "New",
       "part": 8,
-      "parts": 9,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 36537
-    },
-    {
-      "file": "new-9.html",
-      "artboard": "New",
-      "category": "New",
-      "part": 9,
-      "parts": 9,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 8,
-      "bytes": 6331
+      "variants": 40,
+      "bytes": 27098
     },
     {
       "file": "people-1.html",
@@ -3576,7 +3564,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 90582
+      "bytes": 90124
     },
     {
       "file": "changelog-earlier.html",
