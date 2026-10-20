@@ -7027,7 +7027,337 @@ const RELEASE_2_0_0: BlogPost = {
   ],
 }
 
+export const BLOG_V210_THUMBNAIL_ICON_NAMES = [
+  "monitor-2-play",
+  "sigma",
+  "cone",
+  "flag-swallowtail",
+  "planet",
+  "drafting-compass",
+  "waves-2",
+  "gripper",
+  "monitor-2-check",
+  "pi",
+  "cuboid",
+  "flag-triangle-right",
+  "mouse-pointer",
+  "vector-polygon",
+  "weight",
+  "train-track",
+  "monitor-2-cog",
+  "lambda",
+  "cylinder",
+  "hook",
+  "scan-user",
+  "card-chip",
+  "layout-columns",
+  "copy-x",
+  "monitor-2-arrow-up",
+  "omega",
+  "pyramid",
+  "waves",
+  "symmetry-horizontal",
+  "grid-2x2-check",
+  "monitor-speaker",
+  "phi",
+  "triangle-right",
+  "vector-square",
+  "flip-3-horizontal",
+  "radius",
+  "monitor-2-pause",
+  "function",
+  "circle-slash-2",
+  "weight-tilde",
+] as const
+
+export const BLOG_V210_HERO_ICON_NAMES = [
+  "monitor-2-play",
+  "planet",
+  "cone",
+  "sigma",
+  "drafting-compass",
+  "flag-swallowtail",
+  "waves-2",
+  "gripper",
+] as const
+
+export const BLOG_V210_MONITOR_ICON_NAMES = [
+  "monitor-2",
+  "monitor-2-plus",
+  "monitor-2-minus",
+  "monitor-2-check",
+  "monitor-2-x",
+  "monitor-2-dot",
+  "monitor-2-cog",
+  "monitor-2-arrow-down",
+  "monitor-2-arrow-in-up-right",
+  "monitor-2-arrow-up",
+  "monitor-2-play",
+  "monitor-2-pause",
+  "monitor-2-stop",
+  "monitor-speaker",
+] as const
+
+export const BLOG_V210_MATH_ICON_NAMES = [
+  "sigma",
+  "square-sigma",
+  "circle-sigma",
+  "pi",
+  "square-pi",
+  "circle-pi",
+  "function",
+  "square-function",
+  "circle-function",
+  "lambda",
+  "omega",
+  "phi",
+  "angle",
+  "radius",
+] as const
+
+export const BLOG_V210_SOLID_ICON_NAMES = [
+  "cone",
+  "cuboid",
+  "cylinder",
+  "pyramid",
+  "triangle-right",
+  "circle-slash-2",
+  "square-slash-2",
+] as const
+
+export const BLOG_V210_SINGLE_ICON_NAMES = [
+  "flag-swallowtail",
+  "flag-triangle-right",
+  "planet",
+  "waves",
+  "waves-2",
+  "train-track",
+  "drafting-compass",
+  "hook",
+  "gripper",
+  "vector-square",
+  "vector-polygon",
+  "mouse-pointer",
+  "scan-user",
+  "card-chip",
+  "weight",
+  "weight-tilde",
+  "copy-minus",
+  "copy-x",
+  "copy-off",
+  "grid-2x2-check",
+  "grid-2x2-x",
+  "layout-columns",
+  "flip-3-horizontal",
+  "flip-3-vertical",
+  "symmetry-horizontal",
+  "symmetry-vertical",
+] as const
+
+const RELEASE_2_1_0: BlogPost = {
+  /* The count, "free", "shadcn/ui", "React" and "Figma", then what a search
+     types for this batch: monitors, Greek letters, 3D shapes and flags. The
+     slug names the drawings, not the version. */
+  slug: "monitor-greek-letter-and-3d-shape-icons",
+  version: "2.1.0",
+  title: "61 free shadcn/ui, React and Figma icons for monitors, Greek letters, 3D shapes and flags",
+  description:
+    "1,568 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
+    "a monitor with its signs, Greek letters and math, 3D shapes, pennants " +
+    "and waves.",
+  standfirst: "A screen that says what it's doing, and the letters a formula is written in.",
+  date: "2026-10-20",
+  updated: "2026-10-20",
+  readingMinutes: 4,
+  thumbnail: BLOG_V210_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "monitor icon",
+    "screen share icon",
+    "display settings icon",
+    "sigma icon",
+    "pi icon",
+    "function icon",
+    "lambda icon",
+    "omega icon",
+    "greek letter icons",
+    "math icons",
+    "3d shape icon",
+    "cube icon",
+    "cylinder icon",
+    "cone icon",
+    "pyramid icon",
+    "pennant icon",
+    "planet icon",
+    "waves icon",
+    "compass icon",
+    "cursor icon",
+    "free svg icons",
+    "shadcn/ui icons",
+    "figma icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "This update brings 61 new icons. Fourteen are a second monitor and " +
+        "the signs that go with it, fourteen are math, and seven are shapes, " +
+        "four of them solid. The rest are pennants, waves, a planet, tools " +
+        "for drawing and lifting, and a few signs for icons you already use.",
+    },
+    {
+      kind: "p",
+      text:
+        "With these, the set grows to 1,568 icons. Each one comes in stroke, " +
+        "two-tone, duotone and fill, with rounded or sharp corners, so that's " +
+        "12,544 SVGs in all.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V210_HERO_ICON_NAMES,
+        caption: "Eight of the sixty-one, one style to a row.",
+      },
+    },
+
+    { kind: "h2", text: "A monitor and its signs", id: "monitors" },
+    {
+      kind: "p",
+      text:
+        "`monitor-2` is a taller display on a stand, and it comes with " +
+        "thirteen signs. The ones about the device sit in the top corner: add " +
+        "and remove, a check and a cross, a dot for something new, settings, " +
+        "download, and an arrow for sending to another screen.",
+    },
+    {
+      kind: "p",
+      text:
+        "The ones about what's on the screen sit in the middle of it: play, " +
+        "pause and stop, and an arrow up for sharing your screen. " +
+        "`monitor-speaker` puts a speaker beside the display, for desktop " +
+        "audio.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V210_MONITOR_ICON_NAMES,
+        caption: "The display, its thirteen signs, and a display beside a speaker.",
+      },
+    },
+
+    { kind: "h2", text: "Greek letters and math", id: "math" },
+    {
+      kind: "p",
+      text:
+        "Sigma, pi, lambda, omega and phi join the math icons, with " +
+        "`function` for formulas and calculated fields. Sigma, pi and the " +
+        "function sign also come inside a square and a circle, the way the " +
+        "equals and divide signs do.",
+    },
+    {
+      kind: "p",
+      text:
+        "`angle` and `radius` are for geometry, and for the inputs that set " +
+        "an angle or round a corner. The letters stand as tall as the other " +
+        "letters in the set, so they line up beside bold and heading.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V210_MATH_ICON_NAMES,
+        caption: "Five letters and the function sign, three of them framed, then the angle and the radius.",
+      },
+    },
+
+    { kind: "h2", text: "3D shapes", id: "solids" },
+    {
+      kind: "p",
+      text:
+        "A cone, a cuboid, a cylinder and a pyramid, for 3D tools, geometry " +
+        "and anything with volume. In duotone and fill one face stands out, " +
+        "the way it does on `box`: the top of the cuboid and the cylinder, " +
+        "the open base of the cone, the right side of the pyramid.",
+    },
+    {
+      kind: "p",
+      text:
+        "A right triangle joins the plain one, and a circle and a square now " +
+        "come struck corner to corner, for an empty set or a value that isn't " +
+        "allowed.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V210_SOLID_ICON_NAMES,
+        caption: "Four solids, a right triangle, and a circle and a square crossed out.",
+      },
+    },
+
+    { kind: "h2", text: "And the rest", id: "singles" },
+    {
+      kind: "p",
+      text:
+        "Two pennants fly from a pole: a swallowtail and a plain triangle. " +
+        "`planet` has its ring, `waves` and `waves-2` bring the sea, and " +
+        "`train-track` runs off into the distance.",
+    },
+    {
+      kind: "p",
+      text:
+        "For making things there's a `drafting-compass`, a crane `hook` and " +
+        "a three-fingered `gripper`, and `vector-square` and `vector-polygon` " +
+        "show the nodes a vector tool edits. `mouse-pointer` is the arrow " +
+        "cursor with its tail, and `scan-user` puts a person inside scan " +
+        "marks.",
+    },
+    {
+      kind: "p",
+      text:
+        "`card-chip` is the chip on a payment card, and `weight` also comes " +
+        "with a tilde, for an estimated weight. Copy gets a minus, a cross " +
+        "and a slash, the two by two grid gets a check and a cross, and " +
+        "`layout-columns` splits a frame into three. Two flips turn a solid " +
+        "object over, and two symmetry icons mirror a shape across its axis.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V210_SINGLE_ICON_NAMES,
+        caption: "Pennants, water, tools, pointers and the new signs.",
+      },
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text:
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui " +
+        "registry, the CLI, the MCP server, and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
+  RELEASE_2_1_0,
   RELEASE_2_0_0,
   RELEASE_1_8_0,
   RELEASE_1_7_0,
