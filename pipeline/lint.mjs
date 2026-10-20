@@ -293,6 +293,14 @@ const SIZE_KNOWN = new Set([
   // arrow-right-left-4 (1.8.0) is that pair with one barb each, the same 20 wide
   // and the same half-turn symmetry, so the same circle reading.
   'arrow-right-left-4',
+  // The math letters of 2.1.0 stand at the set's letter height, 20, as bold,
+  // heading and type do: run to the vertical band's 22 a sigma stands taller
+  // than every letter beside it. Omega and pi reach 22 on their width.
+  'sigma', 'lambda', 'phi', 'function',
+  // grid-2x2's 20 x 20 with a sign in the corner paints 22 x 22, as the shipped
+  // grid-2x2-plus does; the sharp x's butt ends put ink in the fourth corner, so
+  // only its sharp half classifies as a square (table-off's reason).
+  'grid-2x2-x',
 ]);
 /**
  * Drawings of a real product, which keep the product's proportions and radii

@@ -394,6 +394,20 @@
       ]
     },
     {
+      "name": "two-tone/angle",
+      "type": "registry:component",
+      "title": "Angle",
+      "description": "Angle, the two-tone drawing of angle on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of angle: https://keylineicons.com/icons/angle",
+      "files": [
+        {
+          "path": "icons/angle.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/angle.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/app-check",
       "type": "registry:component",
       "title": "AppCheck",
@@ -3628,6 +3642,20 @@
       ]
     },
     {
+      "name": "two-tone/card-chip",
+      "type": "registry:component",
+      "title": "CardChip",
+      "description": "CardChip, the two-tone drawing of card-chip on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of card-chip: https://keylineicons.com/icons/card-chip",
+      "files": [
+        {
+          "path": "icons/card-chip.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/card-chip.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/card-sim",
       "type": "registry:component",
       "title": "CardSim",
@@ -5294,6 +5322,20 @@
       ]
     },
     {
+      "name": "two-tone/circle-function",
+      "type": "registry:component",
+      "title": "CircleFunction",
+      "description": "CircleFunction, the two-tone drawing of circle-function on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-function: https://keylineicons.com/icons/circle-function",
+      "files": [
+        {
+          "path": "icons/circle-function.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/circle-function.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/circle-half",
       "type": "registry:component",
       "title": "CircleHalf",
@@ -5458,6 +5500,20 @@
           "path": "icons/circle-percent.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/circle-percent.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/circle-pi",
+      "type": "registry:component",
+      "title": "CirclePi",
+      "description": "CirclePi, the two-tone drawing of circle-pi on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-pi: https://keylineicons.com/icons/circle-pi",
+      "files": [
+        {
+          "path": "icons/circle-pi.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/circle-pi.tsx"
         }
       ]
     },
@@ -5714,6 +5770,20 @@
       ]
     },
     {
+      "name": "two-tone/circle-sigma",
+      "type": "registry:component",
+      "title": "CircleSigma",
+      "description": "CircleSigma, the two-tone drawing of circle-sigma on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-sigma: https://keylineicons.com/icons/circle-sigma",
+      "files": [
+        {
+          "path": "icons/circle-sigma.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/circle-sigma.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/circle-slash",
       "type": "registry:component",
       "title": "CircleSlash",
@@ -5724,6 +5794,20 @@
           "path": "icons/circle-slash.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/circle-slash.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/circle-slash-2",
+      "type": "registry:component",
+      "title": "CircleSlash2",
+      "description": "CircleSlash2, the two-tone drawing of circle-slash-2 on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-slash-2: https://keylineicons.com/icons/circle-slash-2",
+      "files": [
+        {
+          "path": "icons/circle-slash-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/circle-slash-2.tsx"
         }
       ]
     },
@@ -6792,6 +6876,20 @@
       ]
     },
     {
+      "name": "two-tone/cone",
+      "type": "registry:component",
+      "title": "Cone",
+      "description": "Cone, the two-tone drawing of cone on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cone: https://keylineicons.com/icons/cone",
+      "files": [
+        {
+          "path": "icons/cone.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/cone.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/connection",
       "type": "registry:component",
       "title": "Connection",
@@ -6876,6 +6974,34 @@
       ]
     },
     {
+      "name": "two-tone/copy-minus",
+      "type": "registry:component",
+      "title": "CopyMinus",
+      "description": "CopyMinus, the two-tone drawing of copy-minus on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of copy-minus: https://keylineicons.com/icons/copy-minus",
+      "files": [
+        {
+          "path": "icons/copy-minus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/copy-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/copy-off",
+      "type": "registry:component",
+      "title": "CopyOff",
+      "description": "CopyOff, the two-tone drawing of copy-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of copy-off: https://keylineicons.com/icons/copy-off",
+      "files": [
+        {
+          "path": "icons/copy-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/copy-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/copy-plus",
       "type": "registry:component",
       "title": "CopyPlus",
@@ -6886,6 +7012,20 @@
           "path": "icons/copy-plus.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/copy-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/copy-x",
+      "type": "registry:component",
+      "title": "CopyX",
+      "description": "CopyX, the two-tone drawing of copy-x on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of copy-x: https://keylineicons.com/icons/copy-x",
+      "files": [
+        {
+          "path": "icons/copy-x.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/copy-x.tsx"
         }
       ]
     },
@@ -7156,6 +7296,20 @@
       ]
     },
     {
+      "name": "two-tone/cuboid",
+      "type": "registry:component",
+      "title": "Cuboid",
+      "description": "Cuboid, the two-tone drawing of cuboid on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cuboid: https://keylineicons.com/icons/cuboid",
+      "files": [
+        {
+          "path": "icons/cuboid.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/cuboid.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/cursor",
       "type": "registry:component",
       "title": "Cursor",
@@ -7278,6 +7432,20 @@
           "path": "icons/cursor-window.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/cursor-window.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/cylinder",
+      "type": "registry:component",
+      "title": "Cylinder",
+      "description": "Cylinder, the two-tone drawing of cylinder on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cylinder: https://keylineicons.com/icons/cylinder",
+      "files": [
+        {
+          "path": "icons/cylinder.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/cylinder.tsx"
         }
       ]
     },
@@ -7782,6 +7950,20 @@
           "path": "icons/download.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/download.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/drafting-compass",
+      "type": "registry:component",
+      "title": "DraftingCompass",
+      "description": "DraftingCompass, the two-tone drawing of drafting-compass on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of drafting-compass: https://keylineicons.com/icons/drafting-compass",
+      "files": [
+        {
+          "path": "icons/drafting-compass.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/drafting-compass.tsx"
         }
       ]
     },
@@ -8766,6 +8948,34 @@
       ]
     },
     {
+      "name": "two-tone/flag-swallowtail",
+      "type": "registry:component",
+      "title": "FlagSwallowtail",
+      "description": "FlagSwallowtail, the two-tone drawing of flag-swallowtail on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flag-swallowtail: https://keylineicons.com/icons/flag-swallowtail",
+      "files": [
+        {
+          "path": "icons/flag-swallowtail.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/flag-swallowtail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/flag-triangle-right",
+      "type": "registry:component",
+      "title": "FlagTriangleRight",
+      "description": "FlagTriangleRight, the two-tone drawing of flag-triangle-right on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flag-triangle-right: https://keylineicons.com/icons/flag-triangle-right",
+      "files": [
+        {
+          "path": "icons/flag-triangle-right.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/flag-triangle-right.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/flame",
       "type": "registry:component",
       "title": "Flame",
@@ -8860,6 +9070,34 @@
           "path": "icons/flip-2-vertical.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/flip-2-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/flip-3-horizontal",
+      "type": "registry:component",
+      "title": "Flip3Horizontal",
+      "description": "Flip3Horizontal, the two-tone drawing of flip-3-horizontal on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flip-3-horizontal: https://keylineicons.com/icons/flip-3-horizontal",
+      "files": [
+        {
+          "path": "icons/flip-3-horizontal.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/flip-3-horizontal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/flip-3-vertical",
+      "type": "registry:component",
+      "title": "Flip3Vertical",
+      "description": "Flip3Vertical, the two-tone drawing of flip-3-vertical on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flip-3-vertical: https://keylineicons.com/icons/flip-3-vertical",
+      "files": [
+        {
+          "path": "icons/flip-3-vertical.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/flip-3-vertical.tsx"
         }
       ]
     },
@@ -9252,6 +9490,20 @@
           "path": "icons/fullscreen-exit-2.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/fullscreen-exit-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/function",
+      "type": "registry:component",
+      "title": "Function",
+      "description": "Function, the two-tone drawing of function on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of function: https://keylineicons.com/icons/function",
+      "files": [
+        {
+          "path": "icons/function.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/function.tsx"
         }
       ]
     },
@@ -9998,6 +10250,20 @@
       ]
     },
     {
+      "name": "two-tone/grid-2x2-check",
+      "type": "registry:component",
+      "title": "Grid2x2Check",
+      "description": "Grid2x2Check, the two-tone drawing of grid-2x2-check on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of grid-2x2-check: https://keylineicons.com/icons/grid-2x2-check",
+      "files": [
+        {
+          "path": "icons/grid-2x2-check.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/grid-2x2-check.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/grid-2x2-plus",
       "type": "registry:component",
       "title": "Grid2x2Plus",
@@ -10008,6 +10274,20 @@
           "path": "icons/grid-2x2-plus.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/grid-2x2-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/grid-2x2-x",
+      "type": "registry:component",
+      "title": "Grid2x2X",
+      "description": "Grid2x2X, the two-tone drawing of grid-2x2-x on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of grid-2x2-x: https://keylineicons.com/icons/grid-2x2-x",
+      "files": [
+        {
+          "path": "icons/grid-2x2-x.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/grid-2x2-x.tsx"
         }
       ]
     },
@@ -10204,6 +10484,20 @@
           "path": "icons/grip-vertical.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/grip-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/gripper",
+      "type": "registry:component",
+      "title": "Gripper",
+      "description": "Gripper, the two-tone drawing of gripper on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gripper: https://keylineicons.com/icons/gripper",
+      "files": [
+        {
+          "path": "icons/gripper.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/gripper.tsx"
         }
       ]
     },
@@ -10894,6 +11188,20 @@
       ]
     },
     {
+      "name": "two-tone/hook",
+      "type": "registry:component",
+      "title": "Hook",
+      "description": "Hook, the two-tone drawing of hook on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of hook: https://keylineicons.com/icons/hook",
+      "files": [
+        {
+          "path": "icons/hook.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/hook.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/hourglass",
       "type": "registry:component",
       "title": "Hourglass",
@@ -11580,6 +11888,20 @@
       ]
     },
     {
+      "name": "two-tone/lambda",
+      "type": "registry:component",
+      "title": "Lambda",
+      "description": "Lambda, the two-tone drawing of lambda on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of lambda: https://keylineicons.com/icons/lambda",
+      "files": [
+        {
+          "path": "icons/lambda.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/lambda.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/landmark",
       "type": "registry:component",
       "title": "Landmark",
@@ -11688,6 +12010,20 @@
           "path": "icons/layout-bento.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/layout-bento.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/layout-columns",
+      "type": "registry:component",
+      "title": "LayoutColumns",
+      "description": "LayoutColumns, the two-tone drawing of layout-columns on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layout-columns: https://keylineicons.com/icons/layout-columns",
+      "files": [
+        {
+          "path": "icons/layout-columns.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/layout-columns.tsx"
         }
       ]
     },
@@ -13106,6 +13442,188 @@
       ]
     },
     {
+      "name": "two-tone/monitor-2",
+      "type": "registry:component",
+      "title": "Monitor2",
+      "description": "Monitor2, the two-tone drawing of monitor-2 on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2: https://keylineicons.com/icons/monitor-2",
+      "files": [
+        {
+          "path": "icons/monitor-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/monitor-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/monitor-2-arrow-down",
+      "type": "registry:component",
+      "title": "Monitor2ArrowDown",
+      "description": "Monitor2ArrowDown, the two-tone drawing of monitor-2-arrow-down on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-arrow-down: https://keylineicons.com/icons/monitor-2-arrow-down",
+      "files": [
+        {
+          "path": "icons/monitor-2-arrow-down.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/monitor-2-arrow-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/monitor-2-arrow-in-up-right",
+      "type": "registry:component",
+      "title": "Monitor2ArrowInUpRight",
+      "description": "Monitor2ArrowInUpRight, the two-tone drawing of monitor-2-arrow-in-up-right on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-arrow-in-up-right: https://keylineicons.com/icons/monitor-2-arrow-in-up-right",
+      "files": [
+        {
+          "path": "icons/monitor-2-arrow-in-up-right.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/monitor-2-arrow-in-up-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/monitor-2-arrow-up",
+      "type": "registry:component",
+      "title": "Monitor2ArrowUp",
+      "description": "Monitor2ArrowUp, the two-tone drawing of monitor-2-arrow-up on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-arrow-up: https://keylineicons.com/icons/monitor-2-arrow-up",
+      "files": [
+        {
+          "path": "icons/monitor-2-arrow-up.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/monitor-2-arrow-up.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/monitor-2-check",
+      "type": "registry:component",
+      "title": "Monitor2Check",
+      "description": "Monitor2Check, the two-tone drawing of monitor-2-check on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-check: https://keylineicons.com/icons/monitor-2-check",
+      "files": [
+        {
+          "path": "icons/monitor-2-check.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/monitor-2-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/monitor-2-cog",
+      "type": "registry:component",
+      "title": "Monitor2Cog",
+      "description": "Monitor2Cog, the two-tone drawing of monitor-2-cog on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-cog: https://keylineicons.com/icons/monitor-2-cog",
+      "files": [
+        {
+          "path": "icons/monitor-2-cog.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/monitor-2-cog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/monitor-2-dot",
+      "type": "registry:component",
+      "title": "Monitor2Dot",
+      "description": "Monitor2Dot, the two-tone drawing of monitor-2-dot on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-dot: https://keylineicons.com/icons/monitor-2-dot",
+      "files": [
+        {
+          "path": "icons/monitor-2-dot.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/monitor-2-dot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/monitor-2-minus",
+      "type": "registry:component",
+      "title": "Monitor2Minus",
+      "description": "Monitor2Minus, the two-tone drawing of monitor-2-minus on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-minus: https://keylineicons.com/icons/monitor-2-minus",
+      "files": [
+        {
+          "path": "icons/monitor-2-minus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/monitor-2-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/monitor-2-pause",
+      "type": "registry:component",
+      "title": "Monitor2Pause",
+      "description": "Monitor2Pause, the two-tone drawing of monitor-2-pause on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-pause: https://keylineicons.com/icons/monitor-2-pause",
+      "files": [
+        {
+          "path": "icons/monitor-2-pause.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/monitor-2-pause.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/monitor-2-play",
+      "type": "registry:component",
+      "title": "Monitor2Play",
+      "description": "Monitor2Play, the two-tone drawing of monitor-2-play on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-play: https://keylineicons.com/icons/monitor-2-play",
+      "files": [
+        {
+          "path": "icons/monitor-2-play.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/monitor-2-play.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/monitor-2-plus",
+      "type": "registry:component",
+      "title": "Monitor2Plus",
+      "description": "Monitor2Plus, the two-tone drawing of monitor-2-plus on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-plus: https://keylineicons.com/icons/monitor-2-plus",
+      "files": [
+        {
+          "path": "icons/monitor-2-plus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/monitor-2-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/monitor-2-stop",
+      "type": "registry:component",
+      "title": "Monitor2Stop",
+      "description": "Monitor2Stop, the two-tone drawing of monitor-2-stop on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-stop: https://keylineicons.com/icons/monitor-2-stop",
+      "files": [
+        {
+          "path": "icons/monitor-2-stop.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/monitor-2-stop.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/monitor-2-x",
+      "type": "registry:component",
+      "title": "Monitor2X",
+      "description": "Monitor2X, the two-tone drawing of monitor-2-x on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-x: https://keylineicons.com/icons/monitor-2-x",
+      "files": [
+        {
+          "path": "icons/monitor-2-x.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/monitor-2-x.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/monitor-off",
       "type": "registry:component",
       "title": "MonitorOff",
@@ -13130,6 +13648,20 @@
           "path": "icons/monitor-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/monitor-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/monitor-speaker",
+      "type": "registry:component",
+      "title": "MonitorSpeaker",
+      "description": "MonitorSpeaker, the two-tone drawing of monitor-speaker on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-speaker: https://keylineicons.com/icons/monitor-speaker",
+      "files": [
+        {
+          "path": "icons/monitor-speaker.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/monitor-speaker.tsx"
         }
       ]
     },
@@ -13200,6 +13732,20 @@
           "path": "icons/mouse.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/mouse.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/mouse-pointer",
+      "type": "registry:component",
+      "title": "MousePointer",
+      "description": "MousePointer, the two-tone drawing of mouse-pointer on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mouse-pointer: https://keylineicons.com/icons/mouse-pointer",
+      "files": [
+        {
+          "path": "icons/mouse-pointer.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/mouse-pointer.tsx"
         }
       ]
     },
@@ -13536,6 +14082,20 @@
           "path": "icons/octagon-x.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/octagon-x.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/omega",
+      "type": "registry:component",
+      "title": "Omega",
+      "description": "Omega, the two-tone drawing of omega on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of omega: https://keylineicons.com/icons/omega",
+      "files": [
+        {
+          "path": "icons/omega.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/omega.tsx"
         }
       ]
     },
@@ -14394,6 +14954,20 @@
       ]
     },
     {
+      "name": "two-tone/phi",
+      "type": "registry:component",
+      "title": "Phi",
+      "description": "Phi, the two-tone drawing of phi on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of phi: https://keylineicons.com/icons/phi",
+      "files": [
+        {
+          "path": "icons/phi.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/phi.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/phone",
       "type": "registry:component",
       "title": "Phone",
@@ -14502,6 +15076,20 @@
           "path": "icons/phone-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/phone-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/pi",
+      "type": "registry:component",
+      "title": "Pi",
+      "description": "Pi, the two-tone drawing of pi on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of pi: https://keylineicons.com/icons/pi",
+      "files": [
+        {
+          "path": "icons/pi.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/pi.tsx"
         }
       ]
     },
@@ -14642,6 +15230,20 @@
           "path": "icons/plane-takeoff.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/plane-takeoff.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/planet",
+      "type": "registry:component",
+      "title": "Planet",
+      "description": "Planet, the two-tone drawing of planet on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of planet: https://keylineicons.com/icons/planet",
+      "files": [
+        {
+          "path": "icons/planet.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/planet.tsx"
         }
       ]
     },
@@ -14884,6 +15486,20 @@
       ]
     },
     {
+      "name": "two-tone/pyramid",
+      "type": "registry:component",
+      "title": "Pyramid",
+      "description": "Pyramid, the two-tone drawing of pyramid on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of pyramid: https://keylineicons.com/icons/pyramid",
+      "files": [
+        {
+          "path": "icons/pyramid.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/pyramid.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/qr-code",
       "type": "registry:component",
       "title": "QrCode",
@@ -15020,6 +15636,20 @@
           "path": "icons/radio.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/radio.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/radius",
+      "type": "registry:component",
+      "title": "Radius",
+      "description": "Radius, the two-tone drawing of radius on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of radius: https://keylineicons.com/icons/radius",
+      "files": [
+        {
+          "path": "icons/radius.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/radius.tsx"
         }
       ]
     },
@@ -15720,6 +16350,20 @@
           "path": "icons/scan-text-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/scan-text-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/scan-user",
+      "type": "registry:component",
+      "title": "ScanUser",
+      "description": "ScanUser, the two-tone drawing of scan-user on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of scan-user: https://keylineicons.com/icons/scan-user",
+      "files": [
+        {
+          "path": "icons/scan-user.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/scan-user.tsx"
         }
       ]
     },
@@ -16574,6 +17218,20 @@
           "path": "icons/shuffle-2.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/shuffle-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/sigma",
+      "type": "registry:component",
+      "title": "Sigma",
+      "description": "Sigma, the two-tone drawing of sigma on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of sigma: https://keylineicons.com/icons/sigma",
+      "files": [
+        {
+          "path": "icons/sigma.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/sigma.tsx"
         }
       ]
     },
@@ -17964,6 +18622,20 @@
       ]
     },
     {
+      "name": "two-tone/square-function",
+      "type": "registry:component",
+      "title": "SquareFunction",
+      "description": "SquareFunction, the two-tone drawing of square-function on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-function: https://keylineicons.com/icons/square-function",
+      "files": [
+        {
+          "path": "icons/square-function.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/square-function.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/square-half",
       "type": "registry:component",
       "title": "SquareHalf",
@@ -18090,6 +18762,20 @@
       ]
     },
     {
+      "name": "two-tone/square-pi",
+      "type": "registry:component",
+      "title": "SquarePi",
+      "description": "SquarePi, the two-tone drawing of square-pi on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-pi: https://keylineicons.com/icons/square-pi",
+      "files": [
+        {
+          "path": "icons/square-pi.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/square-pi.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/square-play",
       "type": "registry:component",
       "title": "SquarePlay",
@@ -18188,6 +18874,20 @@
       ]
     },
     {
+      "name": "two-tone/square-sigma",
+      "type": "registry:component",
+      "title": "SquareSigma",
+      "description": "SquareSigma, the two-tone drawing of square-sigma on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-sigma: https://keylineicons.com/icons/square-sigma",
+      "files": [
+        {
+          "path": "icons/square-sigma.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/square-sigma.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/square-slash",
       "type": "registry:component",
       "title": "SquareSlash",
@@ -18198,6 +18898,20 @@
           "path": "icons/square-slash.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/square-slash.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/square-slash-2",
+      "type": "registry:component",
+      "title": "SquareSlash2",
+      "description": "SquareSlash2, the two-tone drawing of square-slash-2 on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-slash-2: https://keylineicons.com/icons/square-slash-2",
+      "files": [
+        {
+          "path": "icons/square-slash-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/square-slash-2.tsx"
         }
       ]
     },
@@ -18702,6 +19416,34 @@
           "path": "icons/swiss-franc.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/swiss-franc.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/symmetry-horizontal",
+      "type": "registry:component",
+      "title": "SymmetryHorizontal",
+      "description": "SymmetryHorizontal, the two-tone drawing of symmetry-horizontal on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of symmetry-horizontal: https://keylineicons.com/icons/symmetry-horizontal",
+      "files": [
+        {
+          "path": "icons/symmetry-horizontal.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/symmetry-horizontal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/symmetry-vertical",
+      "type": "registry:component",
+      "title": "SymmetryVertical",
+      "description": "SymmetryVertical, the two-tone drawing of symmetry-vertical on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of symmetry-vertical: https://keylineicons.com/icons/symmetry-vertical",
+      "files": [
+        {
+          "path": "icons/symmetry-vertical.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/symmetry-vertical.tsx"
         }
       ]
     },
@@ -19826,6 +20568,20 @@
       ]
     },
     {
+      "name": "two-tone/train-track",
+      "type": "registry:component",
+      "title": "TrainTrack",
+      "description": "TrainTrack, the two-tone drawing of train-track on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of train-track: https://keylineicons.com/icons/train-track",
+      "files": [
+        {
+          "path": "icons/train-track.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/train-track.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/tree-deciduous",
       "type": "registry:component",
       "title": "TreeDeciduous",
@@ -19934,6 +20690,20 @@
           "path": "icons/triangle-dot.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/triangle-dot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/triangle-right",
+      "type": "registry:component",
+      "title": "TriangleRight",
+      "description": "TriangleRight, the two-tone drawing of triangle-right on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of triangle-right: https://keylineicons.com/icons/triangle-right",
+      "files": [
+        {
+          "path": "icons/triangle-right.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/triangle-right.tsx"
         }
       ]
     },
@@ -20582,6 +21352,34 @@
       ]
     },
     {
+      "name": "two-tone/vector-polygon",
+      "type": "registry:component",
+      "title": "VectorPolygon",
+      "description": "VectorPolygon, the two-tone drawing of vector-polygon on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of vector-polygon: https://keylineicons.com/icons/vector-polygon",
+      "files": [
+        {
+          "path": "icons/vector-polygon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/vector-polygon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/vector-square",
+      "type": "registry:component",
+      "title": "VectorSquare",
+      "description": "VectorSquare, the two-tone drawing of vector-square on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of vector-square: https://keylineicons.com/icons/vector-square",
+      "files": [
+        {
+          "path": "icons/vector-square.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/vector-square.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/venus",
       "type": "registry:component",
       "title": "Venus",
@@ -20834,6 +21632,34 @@
       ]
     },
     {
+      "name": "two-tone/waves",
+      "type": "registry:component",
+      "title": "Waves",
+      "description": "Waves, the two-tone drawing of waves on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of waves: https://keylineicons.com/icons/waves",
+      "files": [
+        {
+          "path": "icons/waves.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/waves.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/waves-2",
+      "type": "registry:component",
+      "title": "Waves2",
+      "description": "Waves2, the two-tone drawing of waves-2 on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of waves-2: https://keylineicons.com/icons/waves-2",
+      "files": [
+        {
+          "path": "icons/waves-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/waves-2.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/webcam",
       "type": "registry:component",
       "title": "Webcam",
@@ -20858,6 +21684,34 @@
           "path": "icons/webhook.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/webhook.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/weight",
+      "type": "registry:component",
+      "title": "Weight",
+      "description": "Weight, the two-tone drawing of weight on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of weight: https://keylineicons.com/icons/weight",
+      "files": [
+        {
+          "path": "icons/weight.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/weight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/weight-tilde",
+      "type": "registry:component",
+      "title": "WeightTilde",
+      "description": "WeightTilde, the two-tone drawing of weight-tilde on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of weight-tilde: https://keylineicons.com/icons/weight-tilde",
+      "files": [
+        {
+          "path": "icons/weight-tilde.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/weight-tilde.tsx"
         }
       ]
     },

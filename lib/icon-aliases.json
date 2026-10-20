@@ -2247,11 +2247,6 @@
     "chevron-up": [
       "control"
     ],
-    "copy": [
-      "copy-minus",
-      "copy-slash",
-      "copy-x"
-    ],
     "flower": [
       "flower-2"
     ],
@@ -2469,10 +2464,6 @@
     "folder-open": [
       "folder-open-dot"
     ],
-    "grid-2x2": [
-      "grid-2x2-check",
-      "grid-2x2-x"
-    ],
     "headphones-off": [
       "headphone-off"
     ],
@@ -2565,17 +2556,8 @@
       "message-circle-x"
     ],
     "monitor": [
-      "monitor-check",
       "monitor-cloud",
-      "monitor-cog",
-      "monitor-dot",
-      "monitor-down",
-      "monitor-pause",
-      "monitor-play",
-      "monitor-smartphone",
-      "monitor-speaker",
-      "monitor-up",
-      "monitor-x"
+      "monitor-smartphone"
     ],
     "panel-top": [
       "panel-top-bottom-dashed"
@@ -2917,6 +2899,42 @@
     "move-diagonal-flip": [
       "move-diagonal-2",
       "arrows-diagonal-2"
+    ],
+    "copy-off": [
+      "copy-slash"
+    ],
+    "planet": [
+      "orbit"
+    ],
+    "circle-slash-2": [
+      "diameter"
+    ],
+    "badge-percent": [
+      "diamond-percent"
+    ],
+    "monitor-2-check": [
+      "monitor-check"
+    ],
+    "monitor-2-cog": [
+      "monitor-cog"
+    ],
+    "monitor-2-dot": [
+      "monitor-dot"
+    ],
+    "monitor-2-arrow-down": [
+      "monitor-down"
+    ],
+    "monitor-2-pause": [
+      "monitor-pause"
+    ],
+    "monitor-2-play": [
+      "monitor-play"
+    ],
+    "monitor-2-arrow-up": [
+      "monitor-up"
+    ],
+    "monitor-2-x": [
+      "monitor-x"
     ]
   },
   "$names": "Names other sets use for a drawing here, keyed by the drawing. Matched against the whole query, never split into words: these are names, not keywords, and folding `message-square` into a keyword list makes a search for `square` return every message icon. All four searches rank one second only to the exact name, so it leads wherever the set does not draw that name itself; once the set does, the row is stale, and pipeline/check-search.mjs fails until it is deleted."

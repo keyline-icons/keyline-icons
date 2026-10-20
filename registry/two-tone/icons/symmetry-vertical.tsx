@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function SymmetryVertical({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M4 16.3168L4 7.6832C4 6.8592 4.5054 6.1195 5.273 5.82L17.2731 1.1377C17.5047 1.0473 17.7513 1.0009 18 1.0009C19.1045 1.0009 20 1.8963 20 3.0009L20 20.9991C20 22.1036 19.1046 22.999 18.0001 22.999C17.7513 22.999 17.5047 22.9526 17.273 22.8622L5.2729 18.18C4.5053 17.8804 4 17.1408 4 16.3168Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M5 16.3168L5 7.6832C5 7.2712 5.2527 6.9014 5.6365 6.7516L17.6365 2.0693C18.2922 1.8135 19 2.2971 19 3.0009L19 20.9991C19 21.7029 18.2922 22.1865 17.6365 21.9306L5.6365 17.2484C5.2527 17.0986 5 16.7288 5 16.3168ZM2 12L22 12" fill="none"/>
+    </svg>
+  )
+}

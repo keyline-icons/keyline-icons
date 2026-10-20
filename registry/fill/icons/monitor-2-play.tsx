@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Monitor2Play({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M5 2L19 2C21.2092 2 23 3.7908 23 6L23 14C23 16.2092 21.2092 18 19 18L5 18C2.7908 18 1 16.2092 1 14L1 6C1 3.7908 2.7908 2 5 2ZM12.2712 6.4579C11.9153 6.162 11.4671 6 11.0043 6C10.9486 6 10.8929 6.0024 10.8374 6.0071C10.3544 6.0484 9.9022 6.2618 9.5633 6.6084C9.2021 6.9786 9 7.4753 9 7.9924C9 7.9956 9 7.9987 9 8.0019L9 11.9981C9 12.0013 9 12.0044 9 12.0076C9 12.5247 9.2021 13.0214 9.5633 13.3916C9.9022 13.7382 10.3544 13.9516 10.8374 13.9929C10.8929 13.9976 10.9486 14 11.0043 14C11.4671 14 11.9153 13.838 12.2712 13.5421L14.698 11.544C15.1594 11.1641 15.4267 10.5977 15.4267 10C15.4267 9.4023 15.1594 8.8359 14.698 8.456L12.2712 6.4579Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M12 17L12 21M8 21L16 21" fill="none"/>
+    </svg>
+  )
+}

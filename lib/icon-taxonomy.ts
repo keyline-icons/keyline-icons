@@ -184,10 +184,11 @@ export const CATEGORIES = [
     // has to beat Animals' `pig` below, which it does by sitting earlier.
     // The money bag and the gold bars joined on 28 Sep 2026, from a banking
     // app's menu. `money-bag` is a prefix so its five signs land with it.
+    // `card-chip` joined on 20 Oct 2026 (2.1.0): the payment card's chip, beside the card.
     match:
-      /^(badge-)?(dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin|credit-card|wallet|coins|piggy-bank|banknote|money-bag|gold-bars|hand-coins$)/,
+      /^(badge-)?(dollar-sign|euro|pound-sterling|japanese-yen|indian-rupee|swiss-franc|bitcoin|credit-card|card-chip$|wallet|coins|piggy-bank|banknote|money-bag|gold-bars|hand-coins$)/,
     blurb:
-      "The currency marks, the banknotes, the payment cards, the wallets, the money box, the money bag with its signs, the gold bars and coins in hand.",
+      "The currency marks, the banknotes, the payment cards and their chip, the wallets, the money box, the money bag with its signs, the gold bars and coins in hand.",
   },
   {
     // `percent` is here rather than with the marks in Actions: the batch that
@@ -199,10 +200,12 @@ export const CATEGORIES = [
     // `shopping-bag`, not because business is commerce: Files is documents,
     // and one name does not earn a row.
     label: "Commerce",
+    // `weight` and `weight-tilde` joined on 20 Oct 2026 (2.1.0): what a parcel or a product is sold by,
+    // the tilde the estimated quantity on a pack, beside shipping.
     match:
-      /^(shopping-|handbag|briefcase|receipt|tag|package|box$|truck|gift|coupon|(badge-)?percent|store|shirt$|paper-bag$|container$|glasses$|sunglasses$)/,
+      /^(shopping-|handbag|briefcase|receipt|tag|package|box$|truck|gift|coupon|(badge-)?percent|store|shirt$|paper-bag$|container$|glasses$|sunglasses$|weight(-tilde)?$)/,
     blurb:
-      "Carts, bags, a paper bag, receipts, shipping and its container, the shopfront, a shirt, the tags and the discount marks.",
+      "Carts, bags, a paper bag, receipts, shipping and its container, the weights a parcel is sold by, the shopfront, a shirt, the tags and the discount marks.",
   },
   {
     // `flag` and `traffic-light` are both road furniture: a marker you plant
@@ -217,7 +220,8 @@ export const CATEGORIES = [
     // wears, a building like `building` and `buildings` beside it, not money.
     // `directions` joined on 11 Oct 2026 (1.8.0): three ways out of a junction,
     // beside the routes.
-    match: /^(map|compass|locate(-fixed)?$|building|landmark$|route|radar|flag$|traffic-light|milestone$|anchor(-|$)|directions$)/,
+    // `flag-swallowtail` and `flag-triangle-right` joined on 20 Oct 2026 (2.1.0): two pennants beside the flag.
+    match: /^(map|compass|locate(-fixed)?$|building|landmark$|route|radar|flag(-swallowtail|-triangle-right)?$|traffic-light|milestone$|anchor(-|$)|directions$)/,
     blurb: "Pins, maps, compasses, the locate marks, routes, the radar, the buildings and a landmark, flags, a milestone, the lights at the junction and two anchors.",
   },
   // Opened 11 Sep 2026 with the seven of batch C, the first time the set has
@@ -290,7 +294,7 @@ export const CATEGORIES = [
     label: "Devices",
     // `card-sim` and `unplug` joined on 11 Oct 2026 (1.8.0): the phone's SIM, and
     // `plug` pulled from its socket.
-    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse$|shredder$|gamepad$|tv$|regex$|webcam$|card-sim$|unplug$)/,
+    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face|-user)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse$|shredder$|gamepad$|tv$|regex$|webcam$|card-sim$|unplug$)/,
     blurb: "Phones, tablets, laptops, handsets, printers, keyboards, servers, databases, terminals, code and a regular expression, processors, bugs, the app tiles, the QR code, the scan frame with what it reads, a watch, a hard drive, a cable, a headset visor, the app windows, a CCTV camera, a mouse, a webcam, a shredder, a gamepad and a television.",
   },
   {
@@ -298,8 +302,9 @@ export const CATEGORIES = [
     // The pointing hand is the other cursor, the one a link shows, so its four
     // directions file here rather than on a shelf of hands the set does not have.
     // The open and closed hands are the grab and grabbing cursors beside it.
-    match: /^(cursor|hand-(pointer|closed|open))/,
-    blurb: "Cursors, the pointing, open and closed hands and the states they carry.",
+    // `mouse-pointer` joined on 20 Oct 2026 (2.1.0): the cursor's arrow with its tail.
+    match: /^(cursor|mouse-pointer$|hand-(pointer|closed|open))/,
+    blurb: "Cursors, the mouse pointer, the pointing, open and closed hands and the states they carry.",
   },
   {
     // Ahead of Layout, which owns the `align-offset-*` family: those nudge an
@@ -324,6 +329,8 @@ export const CATEGORIES = [
   },
   {
     label: "Layout",
+    // `symmetry-horizontal` and `symmetry-vertical` joined on 20 Oct 2026 (2.1.0): a shape and its mirror
+    // across an axis, beside the flips.
     // `fullscreen` and `fullscreen-exit` sit here with `maximize` and
     // `minimize` for the reason given under Media: brackets and diagonals
     // framing a viewport read as layout, whatever they are used to resize.
@@ -335,12 +342,13 @@ export const CATEGORIES = [
     // `align-*` moves one.
     // `fold-` joined on 11 Oct 2026 (1.8.0): two arrows pressing a rule, what
     // collapses a section, beside the fullscreen corners.
-    match: /^(panel|layout|layers|grid|table(-|$)|list|align|menu|maximize|minimize|fullscreen|columns-|blocks(-|$)|flip-|fold-)/,
-    blurb: "Panels, layers, grids, blocks, columns, tables and their row, column and cell edits, lists, alignment, the flips, the menu marks and the fullscreen corners.",
+    match: /^(panel|layout|layers|grid|table(-|$)|list|align|menu|maximize|minimize|fullscreen|columns-|blocks(-|$)|flip-|fold-|symmetry-)/,
+    blurb: "Panels, layers, grids, blocks, columns, tables and their row, column and cell edits, lists, alignment, the flips and the symmetry axes, the menu marks and the fullscreen corners.",
   },
   {
     label: "Users",
-    match: /^(user|scan-face|contacts$|id-(?:card|badge)$|accessibility$|fingerprint-pattern$|hat-glasses$)/,
+    // `scan-user` joined on 20 Oct 2026 (2.1.0): scan-face's frame round a user, beside it.
+    match: /^(user|scan-(?:face|user)|contacts$|id-(?:card|badge)$|accessibility$|fingerprint-pattern$|hat-glasses$)/,
     blurb: "People, accounts, contacts, the ID card, a fingerprint, the incognito hat, the accessibility figure and the signs that badge them.",
   },
   // Opened 14 Sep 2026 with the six faces of 1.0.0. NOT Users: `user` is an
@@ -367,9 +375,12 @@ export const CATEGORIES = [
   // single `bracket-` is spelled out, since `bracket-arrow-*` is the log-in pair in Arrows.
   {
     label: "Math",
-    match: /^(asterisk|braces|brackets|divide|equal|hash|infinity|parentheses|radical|variable|x-line-top|brace-(?:left|right)|bracket-(?:left|right)|parenthesis-(?:left|right)|tally)(-|$)/,
+    // The Greek letters, the function sign, the angle and the radius joined on 20 Oct 2026 (2.1.0),
+    // sigma, pi and function with their square and circle forms, which have to be
+    // claimed here before Shapes takes every `square-` and `circle-`.
+    match: /^(asterisk|braces|brackets|divide|equal|hash|infinity|parentheses|radical|variable|x-line-top|brace-(?:left|right)|bracket-(?:left|right)|parenthesis-(?:left|right)|tally|angle|radius|lambda|omega|phi|(?:square-|circle-)?(?:sigma|pi|function))(-|$)/,
     blurb:
-      "The equals and its approximate and negated forms, divide, the radical, infinity, the asterisk, the hash, the parentheses, braces and brackets in pairs and alone, the tally from one to five, the variable and the mean.",
+      "The equals and its approximate and negated forms, divide, the radical, infinity, the asterisk, the hash, the parentheses, braces and brackets in pairs and alone, the tally from one to five, the variable and the mean, sigma, pi, lambda, omega and phi, the function sign, the angle and the radius.",
   },
   // Opened the same day: the keys a shortcut is spelled with. Caps lock, tab
   // and return are arrows and file in Arrows; eject is a transport control and
@@ -411,7 +422,8 @@ export const CATEGORIES = [
     // Prefixes rather than exact names, so the family this is being drawn
     // towards lands here too: a bare `slider`, a `toggle-left`.
     label: "Controls",
-    match: /^(toggle|slider|grip|power)/,
+    // `grip` anchored on 20 Oct 2026 (2.1.0), so `gripper`, the claw, falls through to Tools.
+    match: /^(toggle|slider|grip(?=-|$)|power)/,
     blurb: "Toggles, sliders and the drag handle.",
   },
   {
@@ -438,8 +450,9 @@ export const CATEGORIES = [
   },
   {
     label: "Science",
-    match: /^(flask|test-tube|atom$|telescope$)/,
-    blurb: "Flasks and test tubes, with the off state and the rack, the atom and the telescope.",
+    // `planet` joined on 20 Oct 2026 (2.1.0): the ringed planet, beside the telescope.
+    match: /^(flask|test-tube|atom$|telescope$|planet$)/,
+    blurb: "Flasks and test tubes, with the off state and the rack, the atom, the telescope and a planet.",
   },
   {
     // The body and what measures it. `ear` is anchored so `earbuds` falls
@@ -482,8 +495,9 @@ export const CATEGORIES = [
     // `frame` joined on 1 Oct 2026 (1.5.0): the design app's frame tool, beside
     // its magic wand. Anchored, so `frame-*` is filed on purpose.
     label: "Art",
-    match: /^(paint|palette|easel|swatch-book$|wand$|frame$)/,
-    blurb: "The brush, the roller, the palette, the swatch book, the easel, the magic wand and the frame tool.",
+    // `vector-square` and `vector-polygon` joined on 20 Oct 2026 (2.1.0): the vector tool's nodes, beside the frame tool.
+    match: /^(paint|palette|easel|swatch-book$|wand$|frame$|vector-)/,
+    blurb: "The brush, the roller, the palette, the swatch book, the easel, the magic wand, the frame tool and the vector nodes.",
   },
   {
     // The shelf follows what the thing is, not what the drawing is made of: a
@@ -492,8 +506,10 @@ export const CATEGORIES = [
     // Prefixes, so the family this is being drawn towards lands here too: a
     // `screwdriver`, a `wrench-plus`.
     label: "Tools",
-    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler|scissors|broom)/,
-    blurb: "The toolbox, the broom and what comes out of them.",
+    // `drafting-compass`, `hook` and `gripper` joined on 20 Oct 2026 (2.1.0): the compass beside the
+    // pencil and ruler, the crane's hook and the claw.
+    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler|scissors|broom|drafting-compass$|hook$|gripper$)/,
+    blurb: "The toolbox, the broom and what comes out of them, a drafting compass, a hook and a gripper.",
   },
   {
     // Opened 11 Sep 2026 for the two of batch A that no shelf could take. Tools
@@ -513,9 +529,10 @@ export const CATEGORIES = [
   },
   {
     label: "Shapes",
+    // `cone`, `cuboid`, `cylinder` and `pyramid` joined on 20 Oct 2026 (2.1.0): the solids, beside the flat shapes.
     match:
-      /^(circle|square|triangle|shapes|dashed|dice|dot$|flower|full|half|quarter|three-quarter|hexagon|puzzle$|diamond|octagon(-dot)?$)/,
-    blurb: "Squares, circles, triangles, hexagons, an octagon, a diamond, a dot and the shapes that hold one, dashes and the progress states drawn from them.",
+      /^(circle|square|triangle|shapes|dashed|dice|dot$|flower|full|half|quarter|three-quarter|hexagon|puzzle$|diamond|octagon(-dot)?$|cone$|cuboid$|cylinder$|pyramid$)/,
+    blurb: "Squares, circles, triangles, hexagons, an octagon, a diamond, a dot and the shapes that hold one, dashes and the progress states drawn from them, and the solids: a cone, a cuboid, a cylinder and a pyramid.",
   },
   {
     // `wifi` is here rather than in Charts beside `signal`, which is the sibling
@@ -567,7 +584,8 @@ export const CATEGORIES = [
     // it is the mark an eco set is read by, and it sits with leaf and droplet
     // rather than alone on a shelf of one.
     label: "Nature",
-    match: /^(tree|leaf|droplet|wind-turbine|recycle)(-|s$|$)/,
+    // `waves` and `waves-2` joined on 20 Oct 2026 (2.1.0): water on the move, beside the droplet.
+    match: /^(tree|leaf|droplet|wind-turbine|recycle|waves)(-|s$|$)/,
     blurb: "Trees, leaves, water, the turbine and the recycling arrows, with the off and plural forms.",
   },
   {
