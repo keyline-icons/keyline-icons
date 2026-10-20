@@ -35,7 +35,7 @@ const NAMES = Object.keys(icons)
 const renames = data.renames ?? {}
 const current = (name) => (!icons[name] && renames[name]) || name
 
-const VERSION = "2.0.0"
+const VERSION = "2.1.0"
 /** Fallback only. The client's requested version is echoed when it sends one. */
 const PROTOCOL = "2024-11-05"
 
