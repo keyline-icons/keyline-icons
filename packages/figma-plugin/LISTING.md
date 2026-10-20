@@ -122,6 +122,15 @@ github.com/keyline-icons/keyline-icons
 
 Changelog
 
+2.1.0
+61 new drawings, taking the set to 1,568 names and 12,544 SVGs.
+
+* Devices: a taller display on a stand, and the same display with a plus, a minus, a tick, a cross, a dot, a cog, an arrow down and an arrow to its corner, or with sharing, play, pause and stop on the screen itself; a display beside a speaker
+* Math: sigma, pi and the function sign, each also in a square and a circle; lambda, omega and phi; the angle and the radius
+* Shapes: a cone, a cuboid, a cylinder and a pyramid; a right triangle; a circle and a square struck corner to corner
+* Layout and Files: three equal columns, two flips for a solid object, two axes of symmetry, and the two by two grid with a tick and a cross; copy with a minus, a cross and a slash
+* And more: a swallowtail pennant and a triangular one, a planet with its ring, two kinds of wave, a railway track, a drafting compass, a crane hook, a gripper, vector nodes on a square and a pentagon, the arrow cursor with its tail, a user in scan marks, a card's chip, and a weight, plain and with a tilde
+
 2.0.0
 72 new drawings, taking the set to 1,507 names and 12,056 SVGs.
 
@@ -160,18 +169,6 @@ Also redrawn: the four two-arrow pairs take the long arrows' bigger head, and th
 * And more: glasses and sunglasses, a heart cracked down the middle, a puzzle piece, a video camera without its reels, the bicycle without its rider, a phone for tapping to pay and a phone ringing
 
 Also redrawn: the clouds with a tick, a cross, a plus, an exclamation mark, an arrow or a prompt now open along their bottom edge, with the symbol beneath at full size, and the rain cloud with them; four icons with a lightning bolt, and the person speaking, stand where their plus versions stand; the cog in the brain matches every other cog. cloud-minus is no longer in the set.
-
-1.5.0
-53 new drawings, taking the set to 1,286 names and 10,288 SVGs.
-
-* Files: the clipboard, and the clipboard with a tick, a plus, a minus, a cross, an alert, a list, code, a prompt or a T in the middle of the board; copy and paste as an arrow on the board, and paste as a page held in front of a clipboard; the floppy disk for save, with a tick, a plus, a minus or a cross in place of its hub, and struck through; a file with an alert, a file with a column chart, and the archive with a cross
-* AI: the bot's face in six more shapes, a square, a heart, a droplet, a star, a speech bubble and a cloud; bot-2 is bot-circle now, and the old name still finds it
-* Actions: the shield with an alert, a question mark, a padlock, a person and a heart, and switched off; the star struck through
-* Layout and Shapes: four blocks with one lifted out, three stacked into a pyramid, three hexagons, three columns, and a flip across and a flip up and down
-* Arrows and Web: an arrow leaving a square through each of its four corners, for external links, and left over right; a cloud that uploads and one that downloads
-* And more: a frame, a target, a television, a shipping container and a question in a speech bubble
-
-Search puts the drawing a name asks for first, including the names other sets use for it: external-link finds square-arrow-out-up-right and loader-2 finds loader-circle.
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
@@ -231,6 +228,18 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 2.1.0
+
+```
+61 new drawings, taking the set to 1,568 names and 12,544 SVGs: a taller display with thirteen signs, the device's in the corner and the screen's on it, and a display beside a speaker; sigma, pi and the function sign, also in a square and a circle, and lambda, omega and phi; the angle and the radius; a cone, a cuboid, a cylinder and a pyramid; a right triangle, and a circle and a square struck through; three columns, two flips, two symmetries, the grid with a tick and a cross, and copy with a minus, a cross and a slash; two pennants, a planet, waves, a railway track, a drafting compass, a hook, a gripper, vector nodes, the arrow cursor and more.
+```
+
+**No plugin code changed this time.** The drawings reach the plugin from
+jsDelivr once they are pushed, so this republish is for the listing alone: the
+counts moved at graduation (the tagline, the style bullets, the totals and the
+curated-word count), and the Description gains the 2.1.0 entry. The category
+count stayed at 41.
 
 ### 2.0.0
 
@@ -710,6 +719,15 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+v2.1.0
+61 new drawings. The set is 1,568 names now, 1,429 component sets and 12,544 variants, up from 1,507 and 12,056. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
+
+* Devices: a taller display on a stand, and the same display with a plus, a minus, a tick, a cross, a dot, a cog, an arrow down and an arrow to its corner, or with sharing, play, pause and stop on the screen itself; a display beside a speaker
+* Math: sigma, pi and the function sign, each also in a square and a circle; lambda, omega and phi; the angle and the radius
+* Shapes: a cone, a cuboid, a cylinder and a pyramid; a right triangle; a circle and a square struck corner to corner
+* Layout and Files: three equal columns, two flips for a solid object, two axes of symmetry, and the two by two grid with a tick and a cross; copy with a minus, a cross and a slash
+* And more: a swallowtail pennant and a triangular one, a planet with its ring, two kinds of wave, a railway track, a drafting compass, a crane hook, a gripper, vector nodes on a square and a pentagon, the arrow cursor with its tail, a user in scan marks, a card's chip, and a weight, plain and with a tilde
+
 v2.0.0
 72 new drawings. The set is 1,507 names now, 1,374 component sets and 12,056 variants, up from 1,435 and 11,480. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link; the star, the lightning bolt and the dot gained their square and circle variants inside their existing sets.
 
@@ -737,17 +755,6 @@ v1.7.0
 * Health: a heart with a pulse, a stethoscope, a syringe, a capsule and an adhesive bandage
 * Text, Math and Devices: an A with an arrow up or down for text size, a spell check, a capital T for the text tool, curly braces, square brackets and a regular expression
 * And more: an arrow entering a bracket for signing in and one leaving it for signing out, a charging battery, a webcam, voicemail, a location mark and the same mark with its centre found, a spiral notebook and one with a pen, an image struck through, a telescope, a hand under two coins, a filter list, a to-do list, the dashed progress ring with a plus or an arrow up, and a single dot
-
-v1.6.0
-47 new drawings. The set is 1,332 names now, 1,205 component sets and 10,656 variants, up from 1,286 and 10,288. One set was removed, cloud-minus. Nothing was renamed and no other component was replaced, so instances already placed in your files keep their link.
-
-* Web: house, a second house with a roof reaching past its walls and an arched door, with a chimney, plain, as a pair, a tick, a cross, a plus or a lightning bolt at its corner, a heart, a cog, a plug or a wireless signal inside, and casting to a screen; home with a tick, a cross, a heart, plain and as a pair; a cloud with a magnifying glass and a cloud on a network
-* Users: a person with a cog, a heart, a key, a list, a padlock, a speech bubble, a pen, a magnifying glass or a shield beside them, and an ID badge
-* Files, Devices and Web: a cog on a file, a folder, a database and the globe
-* Arrows: two long arrows, down beside up, and four shorter pairs, one a step past the other
-* And more: glasses and sunglasses, a heart cracked down the middle, a puzzle piece, a video camera without its reels, the bicycle without its rider, a phone for tapping to pay and a phone ringing
-
-Also redrawn: the clouds with a tick, a cross, a plus, an exclamation mark, an arrow or a prompt now open along their bottom edge, with the symbol beneath at full size, and the rain cloud with them; four icons with a lightning bolt, and the person speaking, stand where their plus versions stand; the cog in the brain matches every other cog. cloud-minus is no longer in the set. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
@@ -783,7 +790,9 @@ with the 1.7.0 entries (9,143 before, 7,892 after; the plugin's reached 8,672 an
 1.2.0), 1.1.1, 1.2.0 and 1.3.0 from the plugin's and v1.3.0 from the file's on 11 Oct 2026
 with the 1.8.0 entries (10,234 and 9,710 before, 7,656 and 8,058 after), 1.4.0
 from the plugin's and v1.5.0 and v1.4.0 from the file's on 18 Oct 2026 with the
-2.0.0 entries (9,011 and 9,682 before, 8,484 and 7,595 after), and a
+2.0.0 entries (9,011 and 9,682 before, 8,484 and 7,595 after), 1.5.0
+from the plugin's and v1.6.0 from the file's on 20 Oct 2026 with the 2.1.0
+entries (9,529 and 8,800 before, 8,147 and 7,165 after), and a
 last line points at
 `keylineicons.com/changelog`, which keeps every release.
 
@@ -812,6 +821,13 @@ It is a different image from the plugin's `plugin-cover.png` and the two are
 regenerated together; re-upload whichever modal you are in.
 
 ### What changed, for the final details page
+
+```
+61 new icons: a taller display with thirteen signs and a display beside a speaker; sigma, pi and the function sign, also in a square and a circle, and lambda, omega and phi; the angle and the radius; a cone, a cuboid, a cylinder and a pyramid; a right triangle, and a circle and a square struck through; three columns, two flips, two symmetries, the grid with a tick and a cross, and copy with a minus, a cross and a slash; two pennants, a planet, waves, a railway track, a drafting compass, a hook, a gripper, vector nodes, the arrow cursor and more. The file went from 1,374 component sets to 1,429 and from 12,056 variants to 12,544. Nothing was renamed or removed, so instances already placed in your files keep their link.
+```
+
+The 2.0.0 entry this replaced, kept because a listing's history is worth
+reading back:
 
 ```
 72 new icons: each bracket on its own, opening and closing, and parentheses around an ellipsis or an x; tally marks from one to five; punctuation on its own, from a pipe to a tilde; chevrons stacked into levels, up and down; a plain triangle, diamond, hexagon and octagon, and three of them with a dot; u-turns that turn back at a line, arrows through a line, and big arrows with a bar behind; lists with checks, indents, nesting and a pin; the star, the lightning bolt and the dot in a square and a circle; a charging plug, a workflow, an open book, a library, play and pause on one key, NFC and more. The file went from 1,308 component sets to 1,374 and from 11,480 variants to 12,056. Nothing was renamed or removed, and the star, the lightning bolt and the dot gained their square and circle variants inside their existing sets, so instances already placed in your files keep their link.
