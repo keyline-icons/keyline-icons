@@ -7356,7 +7356,324 @@ const RELEASE_2_1_0: BlogPost = {
   ],
 }
 
+export const BLOG_V220_THUMBNAIL_ICON_NAMES = [
+  "bus",
+  "traffic-cone",
+  "hamburger",
+  "boom-box",
+  "skull",
+  "router",
+  "mountain-snow",
+  "dumbbell",
+  "car-taxi-front",
+  "construction",
+  "pizza",
+  "cassette-tape",
+  "dna",
+  "mails",
+  "feather",
+  "chess-rook",
+  "tram-front",
+  "factory",
+  "cookie",
+  "speaker",
+  "bone-fractured",
+  "split",
+  "binoculars",
+  "fire-extinguisher",
+  "car-front",
+  "crosshair",
+  "satellite-dish",
+  "magnet",
+  "heart-handshake",
+  "flashlight",
+  "cloud-lightning",
+  "car-taxi",
+  "footprints",
+  "briefcase-medical",
+  "book-open-text",
+  "message-dashed",
+  "plane-off",
+  "scan-zap",
+  "alarm-clock-x",
+  "bike-off",
+] as const
+
+export const BLOG_V220_HERO_ICON_NAMES = [
+  "bus",
+  "car-taxi-front",
+  "traffic-cone",
+  "boom-box",
+  "hamburger",
+  "skull",
+  "mountain-snow",
+  "router",
+] as const
+
+export const BLOG_V220_TRANSPORT_ICON_NAMES = [
+  "bus",
+  "tram-front",
+  "car-front",
+  "car-taxi",
+  "car-taxi-front",
+  "car-off",
+  "car-front-off",
+  "car-taxi-front-off",
+  "bus-off",
+  "train-front-off",
+  "tram-front-off",
+  "truck-off",
+  "plane-off",
+  "ship-off",
+  "bike-off",
+  "bike-2-off",
+  "rocket-off",
+  "rocket-vertical-off",
+] as const
+
+export const BLOG_V220_STREET_ICON_NAMES = [
+  "traffic-cone",
+  "construction",
+  "factory",
+  "crosshair",
+  "footprints",
+  "fire-extinguisher",
+  "flashlight",
+] as const
+
+export const BLOG_V220_THINGS_ICON_NAMES = [
+  "hamburger",
+  "pizza",
+  "cookie",
+  "skull",
+  "bone",
+  "bone-fractured",
+  "dna",
+  "briefcase-medical",
+  "boom-box",
+  "cassette-tape",
+  "speaker",
+  "satellite-dish",
+] as const
+
+export const BLOG_V220_SINGLE_ICON_NAMES = [
+  "router",
+  "mails",
+  "message-dashed",
+  "message-square-dashed",
+  "split",
+  "alarm-clock-x",
+  "octagon-minus",
+  "scan-zap",
+  "heart-handshake",
+  "book-open-text",
+  "magnet",
+  "binoculars",
+  "chess-rook",
+  "dumbbell",
+  "feather",
+  "feather-2",
+  "mountain-snow",
+  "cloud-lightning",
+] as const
+
+const RELEASE_2_2_0: BlogPost = {
+  /* The count, "free", "shadcn/ui", "React" and "Figma", then what a search
+     types for this batch: transport, road works, food and music. The slug
+     names the drawings, not the version. */
+  slug: "transport-road-works-food-and-music-icons",
+  version: "2.2.0",
+  title: "55 free shadcn/ui, React and Figma icons for transport, road works, food and music",
+  description:
+    "1,623 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
+    "buses, trams and taxis with an off state for every vehicle, road works, " +
+    "food, bones and music players.",
+  standfirst: "Every vehicle in the set can be switched off now, and the street has its cones.",
+  date: "2026-10-25",
+  updated: "2026-10-25",
+  readingMinutes: 4,
+  thumbnail: BLOG_V220_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "bus icon",
+    "tram icon",
+    "taxi icon",
+    "car icon",
+    "car off icon",
+    "flight mode icon",
+    "traffic cone icon",
+    "construction icon",
+    "factory icon",
+    "crosshair icon",
+    "footprints icon",
+    "burger icon",
+    "pizza icon",
+    "cookie icon",
+    "skull icon",
+    "bone icon",
+    "dna icon",
+    "speaker icon",
+    "cassette icon",
+    "router icon",
+    "split icon",
+    "free svg icons",
+    "shadcn/ui icons",
+    "figma icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "This update brings 55 new icons. Eighteen are transport: a bus, a " +
+        "tram, a taxi and a car seen from the front, and an off state for " +
+        "every vehicle in the set. The rest are things from the street, the " +
+        "kitchen, the body and the music shelf, and a few signs for icons " +
+        "you already use.",
+    },
+    {
+      kind: "p",
+      text:
+        "With these, the set grows to 1,623 icons. Each one comes in stroke, " +
+        "two-tone, duotone and fill, with rounded or sharp corners, so that's " +
+        "12,984 SVGs in all.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V220_HERO_ICON_NAMES,
+        caption: "Eight of the fifty-five, one style to a row.",
+      },
+    },
+
+    { kind: "h2", text: "Vehicles, on and off", id: "transport" },
+    {
+      kind: "p",
+      text:
+        "`bus` and `tram-front` join the train and the plane. `car-taxi` and " +
+        "`car-taxi-front` put the light on the roof, from the side and from " +
+        "the front, and `car-front` is the car you see coming towards you.",
+    },
+    {
+      kind: "p",
+      text:
+        "Every vehicle that can take a slash has an off state now: the cars " +
+        "and the taxi, the bus, the train, the tram, the truck, the plane, " +
+        "the ship, both bikes and both rockets. Use them for a cancelled " +
+        "service, a closed road, a launch on hold or flight mode. The train " +
+        "seen from the front is called `train-front` now, beside " +
+        "`tram-front`, and the old name still works.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V220_TRANSPORT_ICON_NAMES,
+        caption: "Five new vehicles, then the off state of thirteen.",
+      },
+    },
+
+    { kind: "h2", text: "On the street", id: "street" },
+    {
+      kind: "p",
+      text:
+        "A traffic cone and a striped barrier mark road works, and a page " +
+        "that is still under construction. `factory` stands beside the " +
+        "buildings, `crosshair` is for aiming at a precise point, and " +
+        "`footprints` is a trail, a walk or a step count.",
+    },
+    {
+      kind: "p",
+      text:
+        "For safety there's a fire extinguisher beside the lifebuoy, and a " +
+        "flashlight for the torch on your phone or a search in the dark.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V220_STREET_ICON_NAMES,
+        caption: "Road works, a factory, a crosshair, footprints, and the safety kit.",
+      },
+    },
+
+    { kind: "h2", text: "Food, the body and music", id: "things" },
+    {
+      kind: "p",
+      text:
+        "A burger, a slice of pizza and a cookie, which is also the mark a " +
+        "cookie banner wears. For health there's a skull, a bone whole and " +
+        "broken in two, a DNA helix and the doctor's bag with its cross.",
+    },
+    {
+      kind: "p",
+      text:
+        "For sound, a boom box with its handle, a cassette tape, a speaker " +
+        "and the satellite dish that takes a broadcast in. In duotone the " +
+        "body is grey and its working parts are black: the boom box's " +
+        "handle and speakers, the cassette's reels, the speaker's cones.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V220_THINGS_ICON_NAMES,
+        caption: "Three foods, four for health and four for sound.",
+      },
+    },
+
+    { kind: "h2", text: "And the rest", id: "singles" },
+    {
+      kind: "p",
+      text:
+        "`router` has its two antennas, `mails` stacks two envelopes, and " +
+        "both speech bubbles come dashed, for a draft or a reply still " +
+        "being written. `split` forks one arrow into two.",
+    },
+    {
+      kind: "p",
+      text:
+        "The alarm clock gets a cross, the octagon a minus and the scan " +
+        "frame a bolt. `heart-handshake` puts two hands inside a heart, and " +
+        "`book-open-text` fills an open book with lines. There's a magnet, a " +
+        "pair of binoculars, a chess rook, a dumbbell, two feathers, a " +
+        "snow-capped mountain and a thunderstorm.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V220_SINGLE_ICON_NAMES,
+        caption: "Signs for icons you know, and the things that stand alone.",
+      },
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text:
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui " +
+        "registry, the CLI, the MCP server, and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
+  RELEASE_2_2_0,
   RELEASE_2_1_0,
   RELEASE_2_0_0,
   RELEASE_1_8_0,
