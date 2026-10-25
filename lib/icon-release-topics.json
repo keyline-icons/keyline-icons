@@ -1,6 +1,174 @@
 {
  "$comment": "SOURCE, NOT GENERATED. How a release reads on the changelog, shaped after Preline's (Zafar, 17 Sep 2026, pointing at preline.co/docs/changelog.html): a title, then chips (an icon and a label, like Preline's \"New Components & Improvements\" and \"Fixes and Improvements\"), each followed by its items with a bold lead (\"People:\", \"Layout:\") and the drawings the item is about. His asks on the way: \"topic > icons, topic > icons. not all topics first and then all icons after that\", \"categorize them, not just text > icons. titles, etc.\", \"redrawns deserve to be a separate topic, not within a topic and each subtitle must carry shareable link like the main titles\". So redraws are always their own chip. Per version: `title` (the release's headline, which every version has, released ones included, because the page heads each entry by it) and optionally `sections`: chips with `title`, `icon` (a drawing from this set, by name) or `logo` (a platform's own mark, for a chip about that platform, where a drawing of ours would stand in for someone else's trademark: `react`, drawn from components/brand-logos.tsx), `text`, and items in `sections` with `title`, `text`, `names` (added), `redraws` or `removed` (drawings the release took out of the set, since 1.6.0 retired `cloud-minus`: the generator reads them off the two trees, so a name listed here only places one, it never claims one). A version with no `sections` is drawn with default chips, New drawings and Redrawn, straight off git. pipeline/build-history.mjs gives every chip and item an `anchor` (v<version>-<chip>, v<version>-<chip>-<item>) that the site links, keeps only the drawings the entry carries, and appends anything no item claims in a last untitled group, reported, so a stale list never drops a drawing. Keyed by the version the work ships as, so nothing is re-keyed at the tag. Numbers go in as {names} and {files}. Anything in backticks is set as code, on the page and the Paper board both, the way a post sets an icon name. Where a version has sections they replace the note.",
  "releases": {
+  "2.2.0": {
+   "title": "Vehicles and their off states, road works, food and music players",
+   "sections": [
+    {
+     "title": "New drawings",
+     "icon": "sparkles",
+     "sections": [
+      {
+       "title": "Actions",
+       "text": "A fire extinguisher beside the lifebuoy, a heart with two hands meeting in it, and the octagon with a minus beside its cross.",
+       "names": [
+        "fire-extinguisher",
+        "heart-handshake",
+        "octagon-minus"
+       ]
+      },
+      {
+       "title": "Arrows",
+       "text": "One arrow forking into two.",
+       "names": [
+        "split"
+       ]
+      },
+      {
+       "title": "Commerce",
+       "text": "The delivery lorry struck through.",
+       "names": [
+        "truck-off"
+       ]
+      },
+      {
+       "title": "Devices",
+       "text": "A router with its two antennas, and the scan frame around a bolt.",
+       "names": [
+        "router",
+        "scan-zap"
+       ]
+      },
+      {
+       "title": "Files",
+       "text": "An open book with lines of text on both pages.",
+       "names": [
+        "book-open-text"
+       ]
+      },
+      {
+       "title": "Food & Drink",
+       "text": "A burger in its bun, a slice of pizza and a cookie with a bite taken.",
+       "names": [
+        "hamburger",
+        "pizza",
+        "cookie"
+       ]
+      },
+      {
+       "title": "Health",
+       "text": "The skull, a bone whole and broken in two, and the doctor's bag with its cross.",
+       "names": [
+        "skull",
+        "bone-fractured",
+        "bone",
+        "briefcase-medical"
+       ]
+      },
+      {
+       "title": "Mail",
+       "text": "Two envelopes stacked, and both speech bubbles drawn dashed for a draft.",
+       "names": [
+        "mails",
+        "message-dashed",
+        "message-square-dashed"
+       ]
+      },
+      {
+       "title": "Maps",
+       "text": "The cone and the striped barrier of road works, a factory, the crosshair and a pair of footprints.",
+       "names": [
+        "traffic-cone",
+        "construction",
+        "factory",
+        "crosshair",
+        "footprints"
+       ]
+      },
+      {
+       "title": "Media",
+       "text": "A boom box, a cassette tape, a speaker cabinet and the dish that takes a broadcast in.",
+       "names": [
+        "boom-box",
+        "cassette-tape",
+        "speaker",
+        "satellite-dish"
+       ]
+      },
+      {
+       "title": "Nature",
+       "text": "A snow-capped peak and two feathers.",
+       "names": [
+        "mountain-snow",
+        "feather",
+        "feather-2"
+       ]
+      },
+      {
+       "title": "Science",
+       "text": "A DNA helix, a horseshoe magnet and a pair of binoculars.",
+       "names": [
+        "dna",
+        "magnet",
+        "binoculars"
+       ]
+      },
+      {
+       "title": "Sport",
+       "text": "A dumbbell and a chess rook.",
+       "names": [
+        "dumbbell",
+        "chess-rook"
+       ]
+      },
+      {
+       "title": "Time",
+       "text": "The alarm clock with a cross, beside its plus, minus and check.",
+       "names": [
+        "alarm-clock-x"
+       ]
+      },
+      {
+       "title": "Tools",
+       "text": "A flashlight.",
+       "names": [
+        "flashlight"
+       ]
+      },
+      {
+       "title": "Transport",
+       "text": "A bus and a tram, the taxi head-on and in profile, the car head-on, and the off state of every vehicle that can take the slash: the cars and the taxi, the bus, the train, the tram, the plane, the ship, both bikes and both rockets. The head-on train is train-front now, renamed from train, and the old name still works.",
+       "names": [
+        "bus",
+        "car-taxi-front",
+        "tram-front",
+        "car-front",
+        "car-taxi",
+        "bus-off",
+        "car-off",
+        "car-front-off",
+        "car-taxi-front-off",
+        "train-front-off",
+        "tram-front-off",
+        "plane-off",
+        "ship-off",
+        "bike-off",
+        "bike-2-off",
+        "rocket-off",
+        "rocket-vertical-off"
+       ]
+      },
+      {
+       "title": "Weather",
+       "text": "A cloud with a bolt of lightning.",
+       "names": [
+        "cloud-lightning"
+       ]
+      }
+     ]
+    }
+   ]
+  },
   "2.1.0": {
    "title": "Monitor signs, Greek letters, solids and pennants",
    "sections": [
