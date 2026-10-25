@@ -107,7 +107,7 @@ Two corner treatments, and every drawing has both. Rounded is the keyline the se
 
 67 icons also come in a square- form and 72 in a circle- form, so a container is a search away rather than a second drawing.
 
-Search knows more than the file names. 1,484 icons carry curated words, so "south" finds arrow-down, "hamburger" finds menu and "trash" finds bin. Paste a component name straight out of your code and it resolves: CheckCircle2 finds circle-check.
+Search knows more than the file names. 1,484 icons carry curated words, so "south" finds arrow-down, "torch" finds flashlight and "trash" finds bin. Paste a component name straight out of your code and it resolves: CheckCircle2 finds circle-check.
 
 Browse the set the way the site files it, shelf by shelf, with every shelf a click away from wherever you are. The icons you used last wait at the top, and the panel opens next time on the style, corners and size you left it on.
 
@@ -121,6 +121,16 @@ keylineicons.com
 github.com/keyline-icons/keyline-icons
 
 Changelog
+
+2.2.0
+55 new drawings, taking the set to 1,623 names and 12,984 SVGs.
+
+* Transport: a bus, a tram seen from the front, the taxi from the side and from the front, the car from the front, and every vehicle struck through: the cars and the taxi, the bus, the train, the tram, the truck, the plane, the ship, both bikes and both rockets
+* Maps: a traffic cone and a road-works barrier, a factory, a crosshair and a pair of footprints
+* Food, Health and Media: a burger, a slice of pizza and a cookie; a skull, a bone whole and broken, a DNA helix and a doctor's bag; a boom box, a cassette tape, a speaker and a satellite dish
+* And more: a router, two envelopes, both speech bubbles dashed, an arrow forking in two, the alarm clock with a cross, the octagon with a minus, a bolt in the scan frame, a heart with two hands, an open book with text, a fire extinguisher, a flashlight, a magnet, binoculars, a chess rook, a dumbbell, two feathers, a snow-capped mountain and a thunder cloud
+
+train is train-front now, beside tram-front, and the old name still finds it.
 
 2.1.0
 61 new drawings, taking the set to 1,568 names and 12,544 SVGs.
@@ -158,17 +168,6 @@ Also redrawn: the four two-arrow pairs take the long arrows' bigger head, and th
 * Health: a heart with a pulse, a stethoscope, a syringe, a capsule and an adhesive bandage
 * Text, Math and Devices: an A with an arrow up or down for text size, a spell check, a capital T for the text tool, curly braces, square brackets and a regular expression
 * And more: an arrow entering a bracket for signing in and one leaving it for signing out, a charging battery, a webcam, voicemail, a location mark and the same mark with its centre found, a spiral notebook and one with a pen, an image struck through, a telescope, a hand under two coins, a filter list, a to-do list, the dashed progress ring with a plus or an arrow up, and a single dot
-
-1.6.0
-47 new drawings, taking the set to 1,332 names and 10,656 SVGs.
-
-* Web: house, a second house with a roof reaching past its walls and an arched door, with a chimney, plain, as a pair, a tick, a cross, a plus or a lightning bolt at its corner, a heart, a cog, a plug or a wireless signal inside, and casting to a screen; home with a tick, a cross, a heart, plain and as a pair; a cloud with a magnifying glass and a cloud on a network
-* Users: a person with a cog, a heart, a key, a list, a padlock, a speech bubble, a pen, a magnifying glass or a shield beside them, and an ID badge
-* Files, Devices and Web: a cog on a file, a folder, a database and the globe
-* Arrows: two long arrows, down beside up, and four shorter pairs, one a step past the other
-* And more: glasses and sunglasses, a heart cracked down the middle, a puzzle piece, a video camera without its reels, the bicycle without its rider, a phone for tapping to pay and a phone ringing
-
-Also redrawn: the clouds with a tick, a cross, a plus, an exclamation mark, an arrow or a prompt now open along their bottom edge, with the symbol beneath at full size, and the rain cloud with them; four icons with a lightning bolt, and the person speaking, stand where their plus versions stand; the cog in the brain matches every other cog. cloud-minus is no longer in the set.
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
@@ -228,6 +227,18 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 2.2.0
+
+```
+55 new drawings, taking the set to 1,623 names and 12,984 SVGs: a bus, a tram, the taxi and the car seen from the front, and an off state for every vehicle; a traffic cone, a road-works barrier, a factory, a crosshair and footprints; a burger, pizza and a cookie; a skull, bones, a DNA helix and a doctor's bag; a boom box, a cassette, a speaker and a satellite dish; a router, stacked envelopes, dashed speech bubbles, a forking arrow, a fire extinguisher, a flashlight, a magnet, binoculars, a chess rook, a dumbbell, feathers, a mountain and more. train is train-front now, and the old name still finds it.
+```
+
+**No plugin code changed this time.** The drawings reach the plugin from
+jsDelivr once they are pushed, so this republish is for the listing alone: the
+counts moved at graduation (the tagline, the style bullets, the totals and the
+curated-word count), and the Description gains the 2.2.0 entry. The category
+count stayed at 41.
 
 ### 2.1.0
 
@@ -719,6 +730,14 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+v2.2.0
+55 new drawings. The set is 1,623 names now, 1,484 component sets and 12,984 variants, up from 1,568 and 12,544. One set was renamed in place, train to train-front, and no component was replaced, so instances already placed in your files keep their link.
+
+* Transport: a bus, a tram seen from the front, the taxi from the side and from the front, the car from the front, and every vehicle struck through: the cars and the taxi, the bus, the train, the tram, the truck, the plane, the ship, both bikes and both rockets
+* Maps: a traffic cone and a road-works barrier, a factory, a crosshair and a pair of footprints
+* Food, Health and Media: a burger, a slice of pizza and a cookie; a skull, a bone whole and broken, a DNA helix and a doctor's bag; a boom box, a cassette tape, a speaker and a satellite dish
+* And more: a router, two envelopes, both speech bubbles dashed, an arrow forking in two, the alarm clock with a cross, the octagon with a minus, a bolt in the scan frame, a heart with two hands, an open book with text, a fire extinguisher, a flashlight, a magnet, binoculars, a chess rook, a dumbbell, two feathers, a snow-capped mountain and a thunder cloud
+
 v2.1.0
 61 new drawings. The set is 1,568 names now, 1,429 component sets and 12,544 variants, up from 1,507 and 12,056. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
 
@@ -792,7 +811,9 @@ with the 1.8.0 entries (10,234 and 9,710 before, 7,656 and 8,058 after), 1.4.0
 from the plugin's and v1.5.0 and v1.4.0 from the file's on 18 Oct 2026 with the
 2.0.0 entries (9,011 and 9,682 before, 8,484 and 7,595 after), 1.5.0
 from the plugin's and v1.6.0 from the file's on 20 Oct 2026 with the 2.1.0
-entries (9,529 and 8,800 before, 8,147 and 7,165 after), and a
+entries (9,529 and 8,800 before, 8,147 and 7,165 after), 1.6.0 from the
+plugin's on 25 Oct 2026 with the 2.2.0 entries (9,213 before, 7,874 after; the
+file's reached 8,342 and kept its v1.7.0), and a
 last line points at
 `keylineicons.com/changelog`, which keeps every release.
 
@@ -821,6 +842,13 @@ It is a different image from the plugin's `plugin-cover.png` and the two are
 regenerated together; re-upload whichever modal you are in.
 
 ### What changed, for the final details page
+
+```
+55 new icons: a bus, a tram, the taxi and the car seen from the front, and an off state for every vehicle; a traffic cone, a road-works barrier, a factory, a crosshair and footprints; a burger, pizza and a cookie; a skull, bones, a DNA helix and a doctor's bag; a boom box, a cassette, a speaker and a satellite dish; a router, stacked envelopes, dashed speech bubbles, a forking arrow, a fire extinguisher, a flashlight, a magnet, binoculars, a chess rook, a dumbbell, feathers, a mountain and more. The file went from 1,429 component sets to 1,484 and from 12,544 variants to 12,984. train was renamed train-front in place and nothing was removed, so instances already placed in your files keep their link.
+```
+
+The 2.1.0 entry this replaced, kept because a listing's history is worth
+reading back:
 
 ```
 61 new icons: a taller display with thirteen signs and a display beside a speaker; sigma, pi and the function sign, also in a square and a circle, and lambda, omega and phi; the angle and the radius; a cone, a cuboid, a cylinder and a pyramid; a right triangle, and a circle and a square struck through; three columns, two flips, two symmetries, the grid with a tick and a cross, and copy with a minus, a cross and a slash; two pennants, a planet, waves, a railway track, a drafting compass, a hook, a gripper, vector nodes, the arrow cursor and more. The file went from 1,374 component sets to 1,429 and from 12,056 variants to 12,544. Nothing was renamed or removed, so instances already placed in your files keep their link.
