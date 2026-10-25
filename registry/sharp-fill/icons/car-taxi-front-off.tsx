@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CarTaxiFrontOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M19.7877 22.6162C19.5983 22.8587 19.3077 23.0003 19 23L18 23C17.4477 23 17 22.5523 17 22L17 21L7 21L7 22C7 22.5523 6.5523 23 6 23L5 23C4.4477 23 4 22.5523 4 22L4 21L3 21C2.4477 21 2 20.5523 2 20L2 12C2 11.4477 2.4477 11 3 11L4.3076 11L4.3706 10.7904L5.0083 5.8714C5.0365 5.6524 5.1366 5.4489 5.2929 5.2929L7 7.0001C6.9114 7.0799 6.8543 7.1889 6.8389 7.3072L6.568 9.3965L6.3601 11L11 11L15 15.0001L21 21.0001L20.5 21.0001C20.2239 21.0001 20 21.2239 20 21.5001L20 22.0001C20.0004 22.2234 19.9256 22.4405 19.7877 22.6162ZM6 15L6 17L9 17L9 15L6 15ZM8.208 4.5512L9.5936 1.5776C9.7578 1.2253 10.1113 1 10.5 1L13.5 1C13.8887 1 14.2422 1.2253 14.4064 1.5776L16.0011 5L18 5C18.5026 5 18.9271 5.373 18.9917 5.8714L19.6294 10.7904L19.6924 11L21 11C21.5523 11 22 11.4477 22 12L22 18.3431L14.6569 11L17.6398 11L17.1213 7L10.6569 7L8.208 4.5512Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M5.3518 11L2.5 11M18.6482 11L21.5 11M1.7071 1.7071L22.2929 22.2929" fill="none"/>
+    </svg>
+  )
+}

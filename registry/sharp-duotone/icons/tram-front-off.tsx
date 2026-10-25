@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function TramFrontOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M14.618 5L20 5C20.5523 5 21 5.4477 21 6L21 17.3431L14.6569 11L19 11L19 7L10.6569 7L8.6569 5L10.657 5L9.637 4.49L10.382 3L7 3L7 1L17 1L17 3L13.618 3L14.618 5ZM15.382 21L8.618 21L7.618 23L5.8292 22.1056L6.382 21L4 21C3.4477 21 3 20.5523 3 20L3 6C2.9999 5.4477 3.4477 4.9999 4 4.9999L4.9999 4.9999L6.9999 6.9999L5.4909 7C5.2201 7.0049 5.0024 7.2245 5 7.4954L5 11L8.1716 10.9999L10.9999 10.9999L20.7071 20.7071C20.5197 20.8949 20.2653 21.0003 20 21L17.618 21L18.1708 22.1056L16.382 23L15.382 21ZM9 16C9 15.4477 8.5523 15 8 15C7.4477 15 7 15.4477 7 16C7 16.5523 7.4477 17 8 17C8.5523 17 9 16.5523 9 16Z" fill="currentColor" fillOpacity="0.4" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M1.7071 1.7071L22.2929 22.2929" fill="none"/>
+    </svg>
+  )
+}

@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function BikeOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M19.1281 21.9565C18.9199 21.9859 18.71 22.0006 18.4998 22.0006C16.0143 22.0006 13.9995 19.9857 13.9995 17.5003C13.9995 16.5509 14.2997 15.6258 14.8573 14.8573L21.1427 21.1428C20.5482 21.5754 19.8563 21.8549 19.1281 21.9565ZM10 17.5C10 19.9853 7.9853 22 5.5 22C3.0147 22 1 19.9853 1 17.5C1 15.0147 3.0147 13 5.5 13C7.9853 13 10 15.0147 10 17.5ZM16.9361 13.2792C17.4362 13.0941 17.9652 12.9994 18.4985 12.9994C20.985 12.9994 23.0006 15.015 23.0006 17.5015C23.0006 18.0348 22.9059 18.5638 22.7208 19.0639L16.9361 13.2792ZM19 4C19 5.1046 18.1046 6 17 6C15.8954 6 15 5.1046 15 4C15 2.8954 15.8954 2 17 2C18.1046 2 19 2.8954 19 4Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M11.8277 17.7858L12.8624 13.0671L9.0351 10.9545L10.1761 10.1761M12.5058 8.5865L14.4065 7.2897L16.0617 10.9109L19.4635 11.0352M1.7071 1.7071L22.2929 22.2929" fill="none"/>
+    </svg>
+  )
+}

@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function TruckOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M14 14L14 18L9 18C9 16.8954 8.1046 16 7 16C5.8954 16 5 16.8954 5 18L3 18C2.4477 18 2 17.5523 2 17L2 5C1.9999 4.4477 2.4477 3.9999 3 3.9999L3.9999 3.9999L14 14ZM7.6569 4L13 4C13.5523 4 14 4.4477 14 5L14 10.3431L7.6569 4Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M14 18L14 14M4 4L2 4L2 18L5 18M9 18L14 18M9 18C9 19.1046 8.1046 20 7 20C5.8954 20 5 19.1046 5 18C5 16.8954 5.8954 16 7 16C8.1046 16 9 16.8954 9 18ZM18.8233 18.8233C18.5094 19.5172 17.8111 20 17 20C15.8954 20 15 19.1046 15 18C15 17.1889 15.4828 16.4906 16.1767 16.1767M14 9.3431L14 4L8.6569 4M22 17.3431L22 12.1716L17.8284 8L14 8M1.7071 1.7071L22.2929 22.2929" fill="none"/>
+    </svg>
+  )
+}

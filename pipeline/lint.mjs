@@ -301,6 +301,12 @@ const SIZE_KNOWN = new Set([
   // grid-2x2-plus does; the sharp x's butt ends put ink in the fourth corner, so
   // only its sharp half classifies as a square (table-off's reason).
   'grid-2x2-x',
+  // 2.2.0: alarm-clock-x and octagon-minus are their shipped families' drawings with a new sign, so
+  // they keep alarm-clock's and octagon-x's 20. The skull stands 20 wide by 22 tall, a skull's
+  // proportion: run to a 22 circle it is a face, which Emoji already draws. The factory is a
+  // landscape building, 22 by 20, that the classifier takes for a square. rocket-off is rocket's 22
+  // under the slash, and the slash's corners are what make the pair read as a square.
+  'alarm-clock-x', 'octagon-minus', 'skull', 'factory', 'rocket-off',
 ]);
 /**
  * Drawings of a real product, which keep the product's proportions and radii

@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Flashlight({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2 17C1.4477 17 1 16.5523 1 16L1 8C1 7.4477 1.4477 7 2 7L9.7639 7C11.0792 7 12.3764 6.6938 13.5528 6.1056C15.0069 5.3785 16.6103 5 18.2361 5L22 5C22.5523 5 23 5.4477 23 6L23 18C23 18.5523 22.5523 19 22 19L18.2361 19C16.6104 19 15.0069 18.6215 13.5528 17.8944C12.3764 17.3063 11.0792 17 9.7639 17L2 17ZM18 7.0033C17.3239 7.0221 16.6524 7.1219 16 7.3004L16 16.6996C16.6524 16.8781 17.3239 16.9779 18 16.9967L18 7.0033ZM9 11L9 13L13 13L13 11L9 11Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

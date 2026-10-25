@@ -184,6 +184,20 @@
       ]
     },
     {
+      "name": "sharp/alarm-clock-x",
+      "type": "registry:component",
+      "title": "AlarmClockX",
+      "description": "AlarmClockX, the stroke drawing of alarm-clock-x on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of alarm-clock-x: https://keylineicons.com/icons/alarm-clock-x",
+      "files": [
+        {
+          "path": "icons/alarm-clock-x.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/alarm-clock-x.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/alert",
       "type": "registry:component",
       "title": "Alert",
@@ -2536,6 +2550,20 @@
       ]
     },
     {
+      "name": "sharp/bike-2-off",
+      "type": "registry:component",
+      "title": "Bike2Off",
+      "description": "Bike2Off, the stroke drawing of bike-2-off on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bike-2-off: https://keylineicons.com/icons/bike-2-off",
+      "files": [
+        {
+          "path": "icons/bike-2-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/bike-2-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/bike-fast",
       "type": "registry:component",
       "title": "BikeFast",
@@ -2546,6 +2574,20 @@
           "path": "icons/bike-fast.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/bike-fast.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/bike-off",
+      "type": "registry:component",
+      "title": "BikeOff",
+      "description": "BikeOff, the stroke drawing of bike-off on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bike-off: https://keylineicons.com/icons/bike-off",
+      "files": [
+        {
+          "path": "icons/bike-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/bike-off.tsx"
         }
       ]
     },
@@ -2574,6 +2616,20 @@
           "path": "icons/bin-2.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/bin-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/binoculars",
+      "type": "registry:component",
+      "title": "Binoculars",
+      "description": "Binoculars, the stroke drawing of binoculars on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of binoculars: https://keylineicons.com/icons/binoculars",
+      "files": [
+        {
+          "path": "icons/binoculars.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/binoculars.tsx"
         }
       ]
     },
@@ -2662,6 +2718,34 @@
       ]
     },
     {
+      "name": "sharp/bone",
+      "type": "registry:component",
+      "title": "Bone",
+      "description": "Bone, the stroke drawing of bone on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bone: https://keylineicons.com/icons/bone",
+      "files": [
+        {
+          "path": "icons/bone.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/bone.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/bone-fractured",
+      "type": "registry:component",
+      "title": "BoneFractured",
+      "description": "BoneFractured, the stroke drawing of bone-fractured on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bone-fractured: https://keylineicons.com/icons/bone-fractured",
+      "files": [
+        {
+          "path": "icons/bone-fractured.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/bone-fractured.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/book",
       "type": "registry:component",
       "title": "Book",
@@ -2732,6 +2816,20 @@
       ]
     },
     {
+      "name": "sharp/book-open-text",
+      "type": "registry:component",
+      "title": "BookOpenText",
+      "description": "BookOpenText, the stroke drawing of book-open-text on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of book-open-text: https://keylineicons.com/icons/book-open-text",
+      "files": [
+        {
+          "path": "icons/book-open-text.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/book-open-text.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/book-plus",
       "type": "registry:component",
       "title": "BookPlus",
@@ -2784,6 +2882,20 @@
           "path": "icons/bookmark-plus.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/bookmark-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/boom-box",
+      "type": "registry:component",
+      "title": "BoomBox",
+      "description": "BoomBox, the stroke drawing of boom-box on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of boom-box: https://keylineicons.com/icons/boom-box",
+      "files": [
+        {
+          "path": "icons/boom-box.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/boom-box.tsx"
         }
       ]
     },
@@ -3222,6 +3334,20 @@
       ]
     },
     {
+      "name": "sharp/briefcase-medical",
+      "type": "registry:component",
+      "title": "BriefcaseMedical",
+      "description": "BriefcaseMedical, the stroke drawing of briefcase-medical on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of briefcase-medical: https://keylineicons.com/icons/briefcase-medical",
+      "files": [
+        {
+          "path": "icons/briefcase-medical.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/briefcase-medical.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/broadcast",
       "type": "registry:component",
       "title": "Broadcast",
@@ -3302,6 +3428,34 @@
           "path": "icons/buildings.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/buildings.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/bus",
+      "type": "registry:component",
+      "title": "Bus",
+      "description": "Bus, the stroke drawing of bus on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bus: https://keylineicons.com/icons/bus",
+      "files": [
+        {
+          "path": "icons/bus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/bus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/bus-off",
+      "type": "registry:component",
+      "title": "BusOff",
+      "description": "BusOff, the stroke drawing of bus-off on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bus-off: https://keylineicons.com/icons/bus-off",
+      "files": [
+        {
+          "path": "icons/bus-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/bus-off.tsx"
         }
       ]
     },
@@ -3642,6 +3796,90 @@
       ]
     },
     {
+      "name": "sharp/car-front",
+      "type": "registry:component",
+      "title": "CarFront",
+      "description": "CarFront, the stroke drawing of car-front on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of car-front: https://keylineicons.com/icons/car-front",
+      "files": [
+        {
+          "path": "icons/car-front.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/car-front.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/car-front-off",
+      "type": "registry:component",
+      "title": "CarFrontOff",
+      "description": "CarFrontOff, the stroke drawing of car-front-off on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of car-front-off: https://keylineicons.com/icons/car-front-off",
+      "files": [
+        {
+          "path": "icons/car-front-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/car-front-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/car-off",
+      "type": "registry:component",
+      "title": "CarOff",
+      "description": "CarOff, the stroke drawing of car-off on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of car-off: https://keylineicons.com/icons/car-off",
+      "files": [
+        {
+          "path": "icons/car-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/car-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/car-taxi",
+      "type": "registry:component",
+      "title": "CarTaxi",
+      "description": "CarTaxi, the stroke drawing of car-taxi on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of car-taxi: https://keylineicons.com/icons/car-taxi",
+      "files": [
+        {
+          "path": "icons/car-taxi.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/car-taxi.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/car-taxi-front",
+      "type": "registry:component",
+      "title": "CarTaxiFront",
+      "description": "CarTaxiFront, the stroke drawing of car-taxi-front on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of car-taxi-front: https://keylineicons.com/icons/car-taxi-front",
+      "files": [
+        {
+          "path": "icons/car-taxi-front.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/car-taxi-front.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/car-taxi-front-off",
+      "type": "registry:component",
+      "title": "CarTaxiFrontOff",
+      "description": "CarTaxiFrontOff, the stroke drawing of car-taxi-front-off on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of car-taxi-front-off: https://keylineicons.com/icons/car-taxi-front-off",
+      "files": [
+        {
+          "path": "icons/car-taxi-front-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/car-taxi-front-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/card-chip",
       "type": "registry:component",
       "title": "CardChip",
@@ -3750,6 +3988,20 @@
           "path": "icons/case-upper.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/case-upper.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/cassette-tape",
+      "type": "registry:component",
+      "title": "CassetteTape",
+      "description": "CassetteTape, the stroke drawing of cassette-tape on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cassette-tape: https://keylineicons.com/icons/cassette-tape",
+      "files": [
+        {
+          "path": "icons/cassette-tape.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/cassette-tape.tsx"
         }
       ]
     },
@@ -4324,6 +4576,20 @@
           "path": "icons/check.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/chess-rook",
+      "type": "registry:component",
+      "title": "ChessRook",
+      "description": "ChessRook, the stroke drawing of chess-rook on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of chess-rook: https://keylineicons.com/icons/chess-rook",
+      "files": [
+        {
+          "path": "icons/chess-rook.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/chess-rook.tsx"
         }
       ]
     },
@@ -6554,6 +6820,20 @@
       ]
     },
     {
+      "name": "sharp/cloud-lightning",
+      "type": "registry:component",
+      "title": "CloudLightning",
+      "description": "CloudLightning, the stroke drawing of cloud-lightning on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-lightning: https://keylineicons.com/icons/cloud-lightning",
+      "files": [
+        {
+          "path": "icons/cloud-lightning.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/cloud-lightning.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/cloud-moon",
       "type": "registry:component",
       "title": "CloudMoon",
@@ -6918,6 +7198,20 @@
       ]
     },
     {
+      "name": "sharp/construction",
+      "type": "registry:component",
+      "title": "Construction",
+      "description": "Construction, the stroke drawing of construction on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of construction: https://keylineicons.com/icons/construction",
+      "files": [
+        {
+          "path": "icons/construction.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/construction.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/contacts",
       "type": "registry:component",
       "title": "Contacts",
@@ -6942,6 +7236,20 @@
           "path": "icons/container.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/container.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/cookie",
+      "type": "registry:component",
+      "title": "Cookie",
+      "description": "Cookie, the stroke drawing of cookie on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cookie: https://keylineicons.com/icons/cookie",
+      "files": [
+        {
+          "path": "icons/cookie.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/cookie.tsx"
         }
       ]
     },
@@ -7278,6 +7586,20 @@
           "path": "icons/cricket-bat.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/cricket-bat.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/crosshair",
+      "type": "registry:component",
+      "title": "Crosshair",
+      "description": "Crosshair, the stroke drawing of crosshair on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of crosshair: https://keylineicons.com/icons/crosshair",
+      "files": [
+        {
+          "path": "icons/crosshair.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/crosshair.tsx"
         }
       ]
     },
@@ -7856,6 +8178,20 @@
       ]
     },
     {
+      "name": "sharp/dna",
+      "type": "registry:component",
+      "title": "Dna",
+      "description": "Dna, the stroke drawing of dna on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of dna: https://keylineicons.com/icons/dna",
+      "files": [
+        {
+          "path": "icons/dna.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/dna.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/dollar-sign",
       "type": "registry:component",
       "title": "DollarSign",
@@ -8006,6 +8342,20 @@
           "path": "icons/droplets.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/droplets.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/dumbbell",
+      "type": "registry:component",
+      "title": "Dumbbell",
+      "description": "Dumbbell, the stroke drawing of dumbbell on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of dumbbell: https://keylineicons.com/icons/dumbbell",
+      "files": [
+        {
+          "path": "icons/dumbbell.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/dumbbell.tsx"
         }
       ]
     },
@@ -8472,6 +8822,20 @@
       ]
     },
     {
+      "name": "sharp/factory",
+      "type": "registry:component",
+      "title": "Factory",
+      "description": "Factory, the stroke drawing of factory on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of factory: https://keylineicons.com/icons/factory",
+      "files": [
+        {
+          "path": "icons/factory.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/factory.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/fast-forward",
       "type": "registry:component",
       "title": "FastForward",
@@ -8482,6 +8846,34 @@
           "path": "icons/fast-forward.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/fast-forward.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/feather",
+      "type": "registry:component",
+      "title": "Feather",
+      "description": "Feather, the stroke drawing of feather on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of feather: https://keylineicons.com/icons/feather",
+      "files": [
+        {
+          "path": "icons/feather.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/feather.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/feather-2",
+      "type": "registry:component",
+      "title": "Feather2",
+      "description": "Feather2, the stroke drawing of feather-2 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of feather-2: https://keylineicons.com/icons/feather-2",
+      "files": [
+        {
+          "path": "icons/feather-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/feather-2.tsx"
         }
       ]
     },
@@ -8920,6 +9312,20 @@
       ]
     },
     {
+      "name": "sharp/fire-extinguisher",
+      "type": "registry:component",
+      "title": "FireExtinguisher",
+      "description": "FireExtinguisher, the stroke drawing of fire-extinguisher on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of fire-extinguisher: https://keylineicons.com/icons/fire-extinguisher",
+      "files": [
+        {
+          "path": "icons/fire-extinguisher.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/fire-extinguisher.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/flag",
       "type": "registry:component",
       "title": "Flag",
@@ -9000,6 +9406,20 @@
           "path": "icons/flame-2.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/flame-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/flashlight",
+      "type": "registry:component",
+      "title": "Flashlight",
+      "description": "Flashlight, the stroke drawing of flashlight on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flashlight: https://keylineicons.com/icons/flashlight",
+      "files": [
+        {
+          "path": "icons/flashlight.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/flashlight.tsx"
         }
       ]
     },
@@ -9406,6 +9826,20 @@
           "path": "icons/folders.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/folders.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/footprints",
+      "type": "registry:component",
+      "title": "Footprints",
+      "description": "Footprints, the stroke drawing of footprints on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of footprints: https://keylineicons.com/icons/footprints",
+      "files": [
+        {
+          "path": "icons/footprints.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/footprints.tsx"
         }
       ]
     },
@@ -10502,6 +10936,20 @@
       ]
     },
     {
+      "name": "sharp/hamburger",
+      "type": "registry:component",
+      "title": "Hamburger",
+      "description": "Hamburger, the stroke drawing of hamburger on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of hamburger: https://keylineicons.com/icons/hamburger",
+      "files": [
+        {
+          "path": "icons/hamburger.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/hamburger.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/hammer",
       "type": "registry:component",
       "title": "Hammer",
@@ -10932,6 +11380,20 @@
           "path": "icons/heart-crack.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/heart-crack.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/heart-handshake",
+      "type": "registry:component",
+      "title": "HeartHandshake",
+      "description": "HeartHandshake, the stroke drawing of heart-handshake on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of heart-handshake: https://keylineicons.com/icons/heart-handshake",
+      "files": [
+        {
+          "path": "icons/heart-handshake.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/heart-handshake.tsx"
         }
       ]
     },
@@ -12588,6 +13050,20 @@
       ]
     },
     {
+      "name": "sharp/magnet",
+      "type": "registry:component",
+      "title": "Magnet",
+      "description": "Magnet, the stroke drawing of magnet on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of magnet: https://keylineicons.com/icons/magnet",
+      "files": [
+        {
+          "path": "icons/magnet.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/magnet.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/mail",
       "type": "registry:component",
       "title": "Mail",
@@ -12710,6 +13186,20 @@
           "path": "icons/mail-zap.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/mail-zap.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/mails",
+      "type": "registry:component",
+      "title": "Mails",
+      "description": "Mails, the stroke drawing of mails on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mails: https://keylineicons.com/icons/mails",
+      "files": [
+        {
+          "path": "icons/mails.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/mails.tsx"
         }
       ]
     },
@@ -12966,6 +13456,20 @@
       ]
     },
     {
+      "name": "sharp/message-dashed",
+      "type": "registry:component",
+      "title": "MessageDashed",
+      "description": "MessageDashed, the stroke drawing of message-dashed on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of message-dashed: https://keylineicons.com/icons/message-dashed",
+      "files": [
+        {
+          "path": "icons/message-dashed.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/message-dashed.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/message-dot",
       "type": "registry:component",
       "title": "MessageDot",
@@ -13102,6 +13606,20 @@
           "path": "icons/message-square-check.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/message-square-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/message-square-dashed",
+      "type": "registry:component",
+      "title": "MessageSquareDashed",
+      "description": "MessageSquareDashed, the stroke drawing of message-square-dashed on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of message-square-dashed: https://keylineicons.com/icons/message-square-dashed",
+      "files": [
+        {
+          "path": "icons/message-square-dashed.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/message-square-dashed.tsx"
         }
       ]
     },
@@ -13722,6 +14240,20 @@
       ]
     },
     {
+      "name": "sharp/mountain-snow",
+      "type": "registry:component",
+      "title": "MountainSnow",
+      "description": "MountainSnow, the stroke drawing of mountain-snow on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mountain-snow: https://keylineicons.com/icons/mountain-snow",
+      "files": [
+        {
+          "path": "icons/mountain-snow.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/mountain-snow.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/mouse",
       "type": "registry:component",
       "title": "Mouse",
@@ -14068,6 +14600,20 @@
           "path": "icons/octagon-dot.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/octagon-dot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/octagon-minus",
+      "type": "registry:component",
+      "title": "OctagonMinus",
+      "description": "OctagonMinus, the stroke drawing of octagon-minus on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of octagon-minus: https://keylineicons.com/icons/octagon-minus",
+      "files": [
+        {
+          "path": "icons/octagon-minus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/octagon-minus.tsx"
         }
       ]
     },
@@ -15192,6 +15738,20 @@
       ]
     },
     {
+      "name": "sharp/pizza",
+      "type": "registry:component",
+      "title": "Pizza",
+      "description": "Pizza, the stroke drawing of pizza on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of pizza: https://keylineicons.com/icons/pizza",
+      "files": [
+        {
+          "path": "icons/pizza.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/pizza.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/plane",
       "type": "registry:component",
       "title": "Plane",
@@ -15216,6 +15776,20 @@
           "path": "icons/plane-landing.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/plane-landing.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/plane-off",
+      "type": "registry:component",
+      "title": "PlaneOff",
+      "description": "PlaneOff, the stroke drawing of plane-off on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of plane-off: https://keylineicons.com/icons/plane-off",
+      "files": [
+        {
+          "path": "icons/plane-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/plane-off.tsx"
         }
       ]
     },
@@ -16018,6 +16592,20 @@
       ]
     },
     {
+      "name": "sharp/rocket-off",
+      "type": "registry:component",
+      "title": "RocketOff",
+      "description": "RocketOff, the stroke drawing of rocket-off on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of rocket-off: https://keylineicons.com/icons/rocket-off",
+      "files": [
+        {
+          "path": "icons/rocket-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/rocket-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/rocket-vertical",
       "type": "registry:component",
       "title": "RocketVertical",
@@ -16028,6 +16616,20 @@
           "path": "icons/rocket-vertical.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/rocket-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/rocket-vertical-off",
+      "type": "registry:component",
+      "title": "RocketVerticalOff",
+      "description": "RocketVerticalOff, the stroke drawing of rocket-vertical-off on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of rocket-vertical-off: https://keylineicons.com/icons/rocket-vertical-off",
+      "files": [
+        {
+          "path": "icons/rocket-vertical-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/rocket-vertical-off.tsx"
         }
       ]
     },
@@ -16098,6 +16700,34 @@
           "path": "icons/route-off.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/route-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/router",
+      "type": "registry:component",
+      "title": "Router",
+      "description": "Router, the stroke drawing of router on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of router: https://keylineicons.com/icons/router",
+      "files": [
+        {
+          "path": "icons/router.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/router.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/satellite-dish",
+      "type": "registry:component",
+      "title": "SatelliteDish",
+      "description": "SatelliteDish, the stroke drawing of satellite-dish on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of satellite-dish: https://keylineicons.com/icons/satellite-dish",
+      "files": [
+        {
+          "path": "icons/satellite-dish.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/satellite-dish.tsx"
         }
       ]
     },
@@ -16364,6 +16994,20 @@
           "path": "icons/scan-user.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/scan-user.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/scan-zap",
+      "type": "registry:component",
+      "title": "ScanZap",
+      "description": "ScanZap, the stroke drawing of scan-zap on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of scan-zap: https://keylineicons.com/icons/scan-zap",
+      "files": [
+        {
+          "path": "icons/scan-zap.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/scan-zap.tsx"
         }
       ]
     },
@@ -17054,6 +17698,20 @@
       ]
     },
     {
+      "name": "sharp/ship-off",
+      "type": "registry:component",
+      "title": "ShipOff",
+      "description": "ShipOff, the stroke drawing of ship-off on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of ship-off: https://keylineicons.com/icons/ship-off",
+      "files": [
+        {
+          "path": "icons/ship-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/ship-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/shirt",
       "type": "registry:component",
       "title": "Shirt",
@@ -17358,6 +18016,20 @@
           "path": "icons/skip-forward.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/skip-forward.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/skull",
+      "type": "registry:component",
+      "title": "Skull",
+      "description": "Skull, the stroke drawing of skull on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of skull: https://keylineicons.com/icons/skull",
+      "files": [
+        {
+          "path": "icons/skull.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/skull.tsx"
         }
       ]
     },
@@ -17810,6 +18482,20 @@
       ]
     },
     {
+      "name": "sharp/speaker",
+      "type": "registry:component",
+      "title": "Speaker",
+      "description": "Speaker, the stroke drawing of speaker on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of speaker: https://keylineicons.com/icons/speaker",
+      "files": [
+        {
+          "path": "icons/speaker.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/speaker.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/spell-check",
       "type": "registry:component",
       "title": "SpellCheck",
@@ -17820,6 +18506,20 @@
           "path": "icons/spell-check.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/spell-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/split",
+      "type": "registry:component",
+      "title": "Split",
+      "description": "Split, the stroke drawing of split on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of split: https://keylineicons.com/icons/split",
+      "files": [
+        {
+          "path": "icons/split.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/split.tsx"
         }
       ]
     },
@@ -20540,6 +21240,20 @@
       ]
     },
     {
+      "name": "sharp/traffic-cone",
+      "type": "registry:component",
+      "title": "TrafficCone",
+      "description": "TrafficCone, the stroke drawing of traffic-cone on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of traffic-cone: https://keylineicons.com/icons/traffic-cone",
+      "files": [
+        {
+          "path": "icons/traffic-cone.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/traffic-cone.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/traffic-light",
       "type": "registry:component",
       "title": "TrafficLight",
@@ -20554,16 +21268,30 @@
       ]
     },
     {
-      "name": "sharp/train",
+      "name": "sharp/train-front",
       "type": "registry:component",
-      "title": "Train",
-      "description": "Train, the stroke drawing of train on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of train: https://keylineicons.com/icons/train",
+      "title": "TrainFront",
+      "description": "TrainFront, the stroke drawing of train-front on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of train-front: https://keylineicons.com/icons/train-front",
       "files": [
         {
-          "path": "icons/train.tsx",
+          "path": "icons/train-front.tsx",
           "type": "registry:component",
-          "target": "@components/icons/sharp/train.tsx"
+          "target": "@components/icons/sharp/train-front.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/train-front-off",
+      "type": "registry:component",
+      "title": "TrainFrontOff",
+      "description": "TrainFrontOff, the stroke drawing of train-front-off on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of train-front-off: https://keylineicons.com/icons/train-front-off",
+      "files": [
+        {
+          "path": "icons/train-front-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/train-front-off.tsx"
         }
       ]
     },
@@ -20578,6 +21306,34 @@
           "path": "icons/train-track.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/train-track.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/tram-front",
+      "type": "registry:component",
+      "title": "TramFront",
+      "description": "TramFront, the stroke drawing of tram-front on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of tram-front: https://keylineicons.com/icons/tram-front",
+      "files": [
+        {
+          "path": "icons/tram-front.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/tram-front.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/tram-front-off",
+      "type": "registry:component",
+      "title": "TramFrontOff",
+      "description": "TramFrontOff, the stroke drawing of tram-front-off on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of tram-front-off: https://keylineicons.com/icons/tram-front-off",
+      "files": [
+        {
+          "path": "icons/tram-front-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/tram-front-off.tsx"
         }
       ]
     },
@@ -20844,6 +21600,20 @@
           "path": "icons/truck-minus.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/truck-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/truck-off",
+      "type": "registry:component",
+      "title": "TruckOff",
+      "description": "TruckOff, the stroke drawing of truck-off on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of truck-off: https://keylineicons.com/icons/truck-off",
+      "files": [
+        {
+          "path": "icons/truck-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/truck-off.tsx"
         }
       ]
     },

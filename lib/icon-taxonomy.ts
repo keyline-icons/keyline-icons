@@ -109,9 +109,10 @@ export const CATEGORIES = [
     // name of the four-way `move` that heads their row in the other set.
     // `undo` and `redo` joined on 11 Oct 2026 (1.8.0): rotate-ccw's arc opened
     // into a turn back, beside it and the u-turns. Anchored, with their -dot.
-    match: /^(arrow|bracket-arrow|log-(in|out)$|expand|refresh|rotate|corner-|move(-|$)|square-arrow-in-|square-arrow-out-|(undo|redo)(-dot)?$)/,
+    // `split` joined on 25 Oct 2026 (2.2.0): one arrow forking into two.
+    match: /^(arrow|bracket-arrow|log-(in|out)$|expand|refresh|rotate|corner-|move(-|$)|square-arrow-in-|square-arrow-out-|(undo|redo)(-dot)?$|split$)/,
     blurb:
-      "Direction, movement and resizing, short and long, with the brackets and the arrow into one, u-turns, corner turns and dashed panels.",
+      "Direction, movement and resizing, short and long, with the brackets and the arrow into one, u-turns, corner turns, a fork and dashed panels.",
   },
   // Split out of Arrows on 29 Aug 2026: the sharp matrix doubled every catalog
   // card's cells, and 104 rows, one per name on a card of 60 sets, stopped
@@ -144,7 +145,8 @@ export const CATEGORIES = [
     // copy, paste and save are what is done to a document, so they sit with
     // `copy` rather than among the actions. `save` is anchored on a hyphen or
     // the end so a `savings-*` would not arrive through it.
-    match: /^(file|folder|copy|paperclip|bin|archive|book(?!mark)|pen(?!cil)|(square|circle)-pen|newspaper$|clipboard|paste$|save(-|$)|library-big$)/,
+    // `bin` carries a lookahead since 25 Oct 2026 (2.2.0): `binoculars` is optics, filed in Science.
+    match: /^(file|folder|copy|paperclip|bin(?!oculars)|archive|book(?!mark)|pen(?!cil)|(square|circle)-pen|newspaper$|clipboard|paste$|save(-|$)|library-big$)/,
     blurb: "Documents, folders, books, a newspaper, copies, clipboards, the floppy disk, the paperclip and the bin.",
   },
   {
@@ -202,8 +204,10 @@ export const CATEGORIES = [
     label: "Commerce",
     // `weight` and `weight-tilde` joined on 20 Oct 2026 (2.1.0): what a parcel or a product is sold by,
     // the tilde the estimated quantity on a pack, beside shipping.
+    // `briefcase` carries a lookahead since 25 Oct 2026 (2.2.0): `briefcase-medical` is the first-aid
+    // kit, filed in Health.
     match:
-      /^(shopping-|handbag|briefcase|receipt|tag|package|box$|truck|gift|coupon|(badge-)?percent|store|shirt$|paper-bag$|container$|glasses$|sunglasses$|weight(-tilde)?$)/,
+      /^(shopping-|handbag|briefcase(?!-medical)|receipt|tag|package|box$|truck|gift|coupon|(badge-)?percent|store|shirt$|paper-bag$|container$|glasses$|sunglasses$|weight(-tilde)?$)/,
     blurb:
       "Carts, bags, a paper bag, receipts, shipping and its container, the weights a parcel is sold by, the shopfront, a shirt, the tags and the discount marks.",
   },
@@ -221,8 +225,11 @@ export const CATEGORIES = [
     // `directions` joined on 11 Oct 2026 (1.8.0): three ways out of a junction,
     // beside the routes.
     // `flag-swallowtail` and `flag-triangle-right` joined on 20 Oct 2026 (2.1.0): two pennants beside the flag.
-    match: /^(map|compass|locate(-fixed)?$|building|landmark$|route|radar|flag(-swallowtail|-triangle-right)?$|traffic-light|milestone$|anchor(-|$)|directions$)/,
-    blurb: "Pins, maps, compasses, the locate marks, routes, the radar, the buildings and a landmark, flags, a milestone, the lights at the junction and two anchors.",
+    // Joined on 25 Oct 2026 (2.2.0): the cone and the barrier that close a road, beside its lights; the
+    // factory beside the buildings; the crosshair beside the locate marks it is drawn like; the footprints,
+    // a trail someone walked. `route` carries a lookahead so `router` falls through to Devices.
+    match: /^(map|compass|locate(-fixed)?$|building|landmark$|route(?!r)|radar|flag(-swallowtail|-triangle-right)?$|traffic-light|traffic-cone$|construction$|milestone$|anchor(-|$)|directions$|factory$|crosshair$|footprints$)/,
+    blurb: "Pins, maps, compasses, the locate marks and the crosshair, routes, footprints, the radar, the buildings, a factory and a landmark, flags, a milestone, the lights at the junction, the cone and the barrier of road works and two anchors.",
   },
   // Opened 11 Sep 2026 with the seven of batch C, the first time the set has
   // drawn the inside of a building rather than its outline. The `home` icon
@@ -249,14 +256,16 @@ export const CATEGORIES = [
     // wherever the two disagree — the same call the taxonomy makes for `wifi`.
     label: "Media",
     match:
-      /^(play|pause|stop|record|skip-|fast-forward|rewind|repeat|replay|volume|audio-lines|mic|megaphone|headphones|headset|earbuds|airpods|shuffle|music-note|list-music|list-video|camera|image|cast|subtitles|captions|picture-in-picture|gallery-|podcast|queue|film|airplay$|video(?:-2)?$|broadcast$|radio$|eject$|keyframes$|aspect-ratio$|ratio-)/,
+      /^(play|pause|stop|record|skip-|fast-forward|rewind|repeat|replay|volume|audio-lines|mic|megaphone|headphones|headset|earbuds|airpods|shuffle|music-note|list-music|list-video|camera|image|cast|subtitles|captions|picture-in-picture|gallery-|podcast|queue|film|airplay$|video(?:-2)?$|broadcast$|radio$|eject$|keyframes$|aspect-ratio$|ratio-|speaker$|boom-box$|cassette-tape$|satellite-dish$)/,
     // `earbuds` and `airpods` beside `headphones`, 13 Sep 2026: what you listen
     // through files where listening does, not with the phone they pair to.
     // `keyframes`, the aspect ratios and `aspect-ratio` joined on 11 Oct 2026
     // (1.8.0): the timeline's marks and the shapes a frame is cut to, where video
     // and photos are.
+    // `speaker`, `boom-box`, `cassette-tape` and `satellite-dish` joined on 25 Oct 2026 (2.2.0): what
+    // plays sound and what it plays, beside the radio, and the dish that takes a broadcast in.
     blurb:
-      "Playback, volume, capture, casting and AirPlay, eject, video, broadcast and the radio, the sound and image marks and what you listen through.",
+      "Playback, volume, capture, casting and AirPlay, eject, video, broadcast, the dish and the radio, the speaker, the boom box and the cassette, the sound and image marks and what you listen through.",
   },
   // `activity` is a pulse trace, not a transport control — it reads against the
   // bar charts and the signal bars, which is where the design file files it too.
@@ -293,9 +302,9 @@ export const CATEGORIES = [
     // and anything else on that port lands beside it.
     label: "Devices",
     // `card-sim` and `unplug` joined on 11 Oct 2026 (1.8.0): the phone's SIM, and
-    // `plug` pulled from its socket.
-    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face|-user)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse$|shredder$|gamepad$|tv$|regex$|webcam$|card-sim$|unplug$)/,
-    blurb: "Phones, tablets, laptops, handsets, printers, keyboards, servers, databases, terminals, code and a regular expression, processors, bugs, the app tiles, the QR code, the scan frame with what it reads, a watch, a hard drive, a cable, a headset visor, the app windows, a CCTV camera, a mouse, a webcam, a shredder, a gamepad and a television.",
+    // `plug` pulled from its socket. `router` joined on 25 Oct 2026 (2.2.0), beside the server.
+    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face|-user)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse$|shredder$|gamepad$|tv$|regex$|webcam$|card-sim$|unplug$|router$)/,
+    blurb: "Phones, tablets, laptops, handsets, printers, keyboards, servers and a router, databases, terminals, code and a regular expression, processors, bugs, the app tiles, the QR code, the scan frame with what it reads, a watch, a hard drive, a cable, a headset visor, the app windows, a CCTV camera, a mouse, a webcam, a shredder, a gamepad and a television.",
   },
   {
     label: "Pointers",
@@ -412,9 +421,10 @@ export const CATEGORIES = [
     // thing, and there is no hand shelf for it to join.
     // `lifebuoy` joined on 28 Sep 2026 beside the siren: the ring you throw to
     // someone in trouble, and the mark a help or support link wears.
+    // `fire-extinguisher` joined on 25 Oct 2026 (2.2.0) beside them: the safety kit on the wall.
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|key(?:-round|-square)?$|shield|badge|download|upload|filter|eye|star|heart(?!-pulse)|hand-heart|alert|octagon-(?!dot$)|triangle-alert|info|question|lightbulb|zap|flame|ban(?!dage)|siren$|delete$|lifebuoy$)/,
-    blurb: "Checks, crosses, pluses, the everyday verbs, the siren, the lifebuoy and the marks that guard a thing.",
+      /^(check|double-check|plus|minus|x|more|lock|unlock|key(?:-round|-square)?$|shield|badge|download|upload|filter|eye|star|heart(?!-pulse)|hand-heart|alert|octagon-(?!dot$)|triangle-alert|info|question|lightbulb|zap|flame|ban(?!dage)|siren$|delete$|lifebuoy$|fire-extinguisher$)/,
+    blurb: "Checks, crosses, pluses, the everyday verbs, the siren, the lifebuoy, the fire extinguisher and the marks that guard a thing.",
   },
   {
     // Next to Actions rather than inside it: those are marks you read, a check
@@ -451,8 +461,9 @@ export const CATEGORIES = [
   {
     label: "Science",
     // `planet` joined on 20 Oct 2026 (2.1.0): the ringed planet, beside the telescope.
-    match: /^(flask|test-tube|atom$|telescope$|planet$)/,
-    blurb: "Flasks and test tubes, with the off state and the rack, the atom, the telescope and a planet.",
+    // Joined on 25 Oct 2026 (2.2.0): the binoculars beside the telescope, the DNA helix and the magnet.
+    match: /^(flask|test-tube|atom$|telescope$|planet$|binoculars$|dna$|magnet$)/,
+    blurb: "Flasks and test tubes, with the off state and the rack, the atom, the DNA helix, the magnet, the telescope, the binoculars and a planet.",
   },
   {
     // The body and what measures it. `ear` is anchored so `earbuds` falls
@@ -460,8 +471,10 @@ export const CATEGORIES = [
     // through to Weather: a clinical stick takes a temperature, a tube beside a
     // sun reports one.
     label: "Health",
-    match: /^(brain$|lungs|ear(-|$)|heart-pulse$|pill$|bandage$|syringe$|stethoscope$|thermometer$)/,
-    blurb: "The brain, the lungs, the ear and what it hears, the heart's pulse, a pill, a plaster, a syringe, the stethoscope and the clinical thermometer.",
+    // Joined on 25 Oct 2026 (2.2.0): the skull and the bone with its fracture, beside the brain and
+    // the lungs, and the first-aid kit.
+    match: /^(brain$|lungs|ear(-|$)|heart-pulse$|pill$|bandage$|syringe$|stethoscope$|thermometer$|skull$|bone(-fractured)?$|briefcase-medical$)/,
+    blurb: "The brain, the lungs, the skull, a bone whole and broken, the ear and what it hears, the heart's pulse, a pill, a plaster, a syringe, the stethoscope, the clinical thermometer and the first-aid kit.",
   },
   {
     // `crown` is what a winner gets, so it sits with the trophy rather than
@@ -473,16 +486,19 @@ export const CATEGORIES = [
     label: "Sport",
     // `target` joined on 1 Oct 2026 (1.5.0): the archer's and the darts player's
     // board, a goal hit, beside the trophies. Anchored, so it takes its own name.
-    match: /^(trophy|award|podium|medal|crown|flag-chequered|american-football|baseball|basketball|cricket|golf|hockey|soccer|tennis|target$)/,
-    blurb: "Trophies, awards, crowns and the places on the podium, the balls of five games, a cricket bat, hockey sticks, a golf hole and a target.",
+    // `chess-rook` and `dumbbell` joined on 25 Oct 2026 (2.2.0): a board game's piece and the gym's weight.
+    match: /^(trophy|award|podium|medal|crown|flag-chequered|american-football|baseball|basketball|cricket|golf|hockey|soccer|tennis|target$|chess-|dumbbell$)/,
+    blurb: "Trophies, awards, crowns and the places on the podium, the balls of five games, a cricket bat, hockey sticks, a golf hole, a target, a chess rook and a dumbbell.",
   },
   {
     // The four of them are the objects, not the act of eating: a mug, a cake, a
     // bowl and a bottle. `coffee` is filed here rather than beside `store` for
     // the reason `graduation-cap` left Sport — the line is what the drawing IS.
     label: "Food & Drink",
-    match: /^(coffee|cake|soup|bottle)/,
-    blurb: "The mug, the cake, the bowl and the bottle.",
+    // `cookie`, `hamburger` and `pizza` joined on 25 Oct 2026 (2.2.0). `hamburger` stays a search word
+    // for `menu` too, where it means the three bars.
+    match: /^(coffee|cake|soup|bottle|cookie$|hamburger$|pizza$)/,
+    blurb: "The mug, the cake, the bowl, the bottle, a cookie, a burger and a slice of pizza.",
   },
   {
     // Ahead of Tools, which would otherwise be the shelf a brush and a roller
@@ -508,8 +524,9 @@ export const CATEGORIES = [
     label: "Tools",
     // `drafting-compass`, `hook` and `gripper` joined on 20 Oct 2026 (2.1.0): the compass beside the
     // pencil and ruler, the crane's hook and the claw.
-    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler|scissors|broom|drafting-compass$|hook$|gripper$)/,
-    blurb: "The toolbox, the broom and what comes out of them, a drafting compass, a hook and a gripper.",
+    // `flashlight` joined on 25 Oct 2026 (2.2.0): the torch from the same drawer.
+    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler|scissors|broom|drafting-compass$|hook$|gripper$|flashlight$)/,
+    blurb: "The toolbox, the broom and what comes out of them, a drafting compass, a hook, a gripper and a flashlight.",
   },
   {
     // Opened 11 Sep 2026 for the two of batch A that no shelf could take. Tools
@@ -576,8 +593,10 @@ export const CATEGORIES = [
     // 15 Sep 2026 with its speed-line and upright forms: it is a vehicle before it
     // is a launch.
     label: "Transport",
-    match: /^(plane|ship|train|bike|rocket|car)(-|$)/,
-    blurb: "The vehicles: plane and its two states, ship, train, bike, car and the rocket.",
+    // `bus` and `tram` joined on 25 Oct 2026 (2.2.0) with the taxi and the off state of every vehicle
+    // that can carry one; `truck-off` stays with `truck` in Commerce.
+    match: /^(plane|ship|train|tram|bus|bike|rocket|car)(-|$)/,
+    blurb: "The vehicles: plane and its two states, ship, train, tram, bus, bike, car, taxi and the rocket, with their off states.",
   },
   {
     // The living and falling half of the outdoors, and `wind-turbine` with it:
@@ -585,8 +604,9 @@ export const CATEGORIES = [
     // rather than alone on a shelf of one.
     label: "Nature",
     // `waves` and `waves-2` joined on 20 Oct 2026 (2.1.0): water on the move, beside the droplet.
-    match: /^(tree|leaf|droplet|wind-turbine|recycle|waves)(-|s$|$)/,
-    blurb: "Trees, leaves, water, the turbine and the recycling arrows, with the off and plural forms.",
+    // `feather` and `mountain` joined on 25 Oct 2026 (2.2.0): two feathers and the snow-capped peak.
+    match: /^(tree|leaf|feather|droplet|wind-turbine|recycle|waves|mountain)(-|s$|$)/,
+    blurb: "Trees, leaves, feathers, water, a snow-capped mountain, the turbine and the recycling arrows, with the off and plural forms.",
   },
   {
     // `pig` is anchored so it cannot reach `piggy-bank`, which is Finance's and

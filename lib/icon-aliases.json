@@ -1443,12 +1443,6 @@
       ]
     },
     {
-      "match": "^mail$",
-      "terms": [
-        "mails"
-      ]
-    },
-    {
       "match": "^tag$",
       "terms": [
         "tags"
@@ -2380,7 +2374,6 @@
       "cloud-cog",
       "cloud-fog",
       "cloud-hail",
-      "cloud-lightning",
       "cloud-snow"
     ],
     "cloud-rain": [
@@ -2468,7 +2461,6 @@
       "headphone-off"
     ],
     "heart": [
-      "heart-handshake",
       "heart-minus",
       "heart-x"
     ],
@@ -2539,7 +2531,6 @@
     ],
     "message-square": [
       "message-square-code",
-      "message-square-dashed",
       "message-square-diff",
       "message-square-heart",
       "message-square-lock",
@@ -2778,6 +2769,9 @@
     ],
     "language": [
       "languages"
+    ],
+    "train-front": [
+      "train"
     ],
     "triangle-alert": [
       "alert-triangle"

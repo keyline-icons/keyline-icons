@@ -503,7 +503,7 @@ export const BLOG_SOCIAL_CARD_ICONS = 6
 /** All fifty-three of v0.9.0, most recognisable first, then release order. */
 export const BLOG_V090_THUMBNAIL_ICON_NAMES = [
   "plane", "bot", "leaf", "flask-conical", "truck-check", "brain",
-  "plane-takeoff", "plane-landing", "ship", "train", "bike", "truck-electric",
+  "plane-takeoff", "plane-landing", "ship", "train-front", "bike", "truck-electric",
   "truck-plus", "truck-minus", "truck-x", "truck-arrow-up", "truck-arrow-down",
   "truck-arrow-left", "truck-arrow-right", "tree-palm", "wind-turbine",
   "droplet", "droplet-off", "droplets", "bird", "pig", "piggy-bank",
@@ -518,7 +518,7 @@ export const BLOG_V090_THUMBNAIL_ICON_NAMES = [
 
 /** Transport, Nature and Animals, and the money box that is not an animal. */
 export const BLOG_V090_TRANSPORT_ICON_NAMES = [
-  "plane", "plane-takeoff", "plane-landing", "ship", "train", "bike",
+  "plane", "plane-takeoff", "plane-landing", "ship", "train-front", "bike",
 ] as const
 export const BLOG_V090_NATURE_ICON_NAMES = [
   "tree-palm", "leaf", "wind-turbine", "droplet", "droplet-off", "droplets",
