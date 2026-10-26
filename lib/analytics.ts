@@ -1,5 +1,6 @@
 import { track as vercelTrack } from "@vercel/analytics"
 
+import type { CustomSource } from "@/lib/custom"
 import type { Format, PackageManager } from "@/lib/icon-code"
 import type { Style } from "@/lib/icons"
 
@@ -131,6 +132,25 @@ export type Events = {
     /** Which command: the whole set, one icon, or the page's shell block. */
     target: string
   }
+  /**
+   * `/custom` was opened.
+   *
+   * A page view already counts this, under Pages. It is an event as well so
+   * that the week's visits and inquiries sit side by side in one panel, and so
+   * that each carries `from`: which of our links, or which site, brought the
+   * reader. That is the question the links on the READMEs, the install page
+   * and the plugin listing were added to answer, and a page view cannot say it
+   * for a reader who came by a link inside the site.
+   */
+  custom_view: { from: CustomSource }
+  /**
+   * The custom icons button was pressed, which opens the reader's mail app.
+   *
+   * An inquiry started, not one sent: nothing can see whether the message
+   * went. Sales are not counted here either; they are the replies. `place`
+   * says which copy of the one button, the hero's or the closing card's.
+   */
+  custom_click: { place: "hero" | "close"; from: CustomSource }
 }
 
 type EventName = keyof Events
@@ -166,6 +186,14 @@ export function track<E extends EventName>(event: E, props: Events[E]) {
   if (typeof window === "undefined") return
 
   try {
+    // The queue `<Analytics />` would have made, made here if it has not mounted
+    // yet: the same function its own `initQueue` installs, which its script
+    // drains on load. Vercel's `track` sends through `window.va?.()`, so an
+    // event fired before the layout's component mounts (a page's own effect on
+    // first load, `custom_view`) was dropped without a word.
+    window.va ??= (...params: [string, unknown?]) => {
+      ;(window.vaq ??= []).push(params)
+    }
     // Lands under Events in the Vercel Analytics tab. That needs Pro: on Hobby
     // the same call is accepted and silently discarded, so a plan change would
     // show up as an empty panel rather than as an error anywhere.

@@ -79,6 +79,12 @@ icons carry nothing that only makes sense on a phone.
 `@keyline-icons/react`, in the same pass of `pipeline/build-react.mjs`, so a new
 drawing reaches both packages or neither.
 
+## Custom icons
+
+Need icons the set does not have, drawn for your own product?
+[Custom sets](https://keylineicons.com/custom?ref=npm) are drawn on the same
+grid and delivered as SVG, a Figma file and a React package.
+
 ## Licence
 
 MIT. Use them in anything, commercial included, without attribution. The licence

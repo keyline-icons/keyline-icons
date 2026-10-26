@@ -120,6 +120,8 @@ MIT licensed. The set, the site and this plugin are all open source.
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+Need icons drawn for your own product? Custom sets on the same grid, as SVG, Figma and React: keylineicons.com/custom
+
 Changelog
 
 2.2.0

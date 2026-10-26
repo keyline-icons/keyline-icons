@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { cookies } from "next/headers"
+import Link from "next/link"
 
 import { parseSettings, SETTINGS_COOKIE } from "@/lib/browser-settings"
 import { CONTAINERS } from "@/components/glyph"
@@ -317,6 +318,22 @@ export default async function Page({
           than left there unrendered; `/install` and the icon pages keep their
           own.
         */}
+        {/*
+          One line under the grid, which is still not prose about the set: it
+          is the way out for a reader whose product needs drawings the set does
+          not have.
+        */}
+        <p className="mt-10 text-center text-sm text-muted-foreground">
+          Need icons drawn for your own product?{" "}
+          <Link
+            href="/custom?ref=icons"
+            prefetch={false}
+            className="underline underline-offset-2 transition-colors hover:text-foreground"
+          >
+            Custom icons
+          </Link>
+          , on the same grid.
+        </p>
         <Toaster />
       </div>
       <SiteFooter />

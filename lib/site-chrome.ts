@@ -655,6 +655,12 @@ export const SITE_LINKS: readonly SiteLink[] = [
   // pages at 0.6 for the same reason: a drawing is what someone came for, and
   // this is the page you read once you already have the set.
   { href: "/changelog", label: "Changelog", priority: 0.5 },
+  // The paid offer, drawn to order on the set's grid. A footer row and not a
+  // bar link: findable by anyone looking for it, and in the way of nobody who
+  // came for the free icons. The sitemap takes it at 0.5 with the changelog, a
+  // page with a real query of its own ("custom icon set") that no other page
+  // here answers.
+  { href: "/custom", label: "Custom icons", priority: 0.5, bar: false },
   /*
     The legal pages, last and lowest.
 

@@ -261,6 +261,13 @@ month puts your name in this section, and from $100 a month on
 [keylineicons.com](https://keylineicons.com) as well. `lib/sponsors.ts` is the
 list both read from.
 
+## Custom icons
+
+Need icons the set does not have, drawn for your own product?
+[Custom sets](https://keylineicons.com/custom?ref=readme) are drawn on the same
+grid and delivered as SVG, a Figma file and a React package. It is a separate
+paid service: the set stays free, and nothing drawn for a client changes it.
+
 ## Licence
 
 MIT. See [LICENSE](LICENSE). Use them in anything, commercial included, without

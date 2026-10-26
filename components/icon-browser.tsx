@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
 
 import {
   ArrowRight,
@@ -1988,6 +1989,22 @@ export function IconBrowser({
                   Message on <XLogo className="size-3.5" />
                 </Button>
               </div>
+
+              {/*
+                The paid offer, under the free ways to ask. A miss is the one
+                moment a reader learns the set lacks a drawing, and a team that
+                needs a dozen of them has a better answer than a dozen issues.
+              */}
+              <p className="mt-6 text-sm text-muted-foreground">
+                Need a whole set drawn for your product?{" "}
+                <Link
+                  href="/custom?ref=no-results"
+                  prefetch={false}
+                  className="underline underline-offset-2 transition-colors hover:text-foreground"
+                >
+                  Custom icons
+                </Link>
+              </p>
             </div>
           ) : (
             /*

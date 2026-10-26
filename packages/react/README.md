@@ -89,6 +89,12 @@ tree-shake in any modern bundler, so an app importing three icons ships three.
 `pipeline/build-react.mjs`, which emits this package and the site's own module
 in one pass so the two cannot drift.
 
+## Custom icons
+
+Need icons the set does not have, drawn for your own product?
+[Custom sets](https://keylineicons.com/custom?ref=npm) are drawn on the same
+grid and delivered as SVG, a Figma file and a React package.
+
 ## Licence
 
 MIT. Use them in anything, commercial included, without attribution. The licence

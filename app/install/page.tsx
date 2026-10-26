@@ -747,6 +747,19 @@ import IconBellSharpFill from "~icons/${ICONIFY_PREFIX}/bell-sharp-fill"
               beneath a page of full-width paragraphs.
             */}
             <Faq items={faq} className="gap-y-12 md:grid-cols-1" />
+            {/* Under the list, like the homepage's install link: an answer
+                cannot carry a link, see `components/faq.tsx`. */}
+            <p>
+              Need icons the set does not have, drawn for your own product?{" "}
+              <Link
+                href="/custom?ref=install"
+                prefetch={false}
+                className="underline underline-offset-2 transition-colors hover:text-foreground"
+              >
+                Custom icons
+              </Link>{" "}
+              are drawn on the same grid.
+            </p>
           </Section>
         </div>
       </main>

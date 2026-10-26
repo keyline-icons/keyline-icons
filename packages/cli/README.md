@@ -54,6 +54,12 @@ container.
 **Typos resolve.** `chekc` suggests `check`; `arow` suggests the `arrow-*`
 family, even though there is no bare `arrow` icon.
 
+## Custom icons
+
+Need icons the set does not have, drawn for your own product?
+[Custom sets](https://keylineicons.com/custom?ref=npm) are drawn on the same
+grid and delivered as SVG, a Figma file and a React package.
+
 ## Licence
 
 MIT.

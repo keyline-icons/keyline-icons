@@ -129,7 +129,7 @@ export default async function Page() {
   const googleAnalytics = Boolean(process.env.NEXT_PUBLIC_GA_ID)
 
   return (
-    <LegalPage path={LEGAL.privacy} title="Privacy" updated="2026-09-30">
+    <LegalPage path={LEGAL.privacy} title="Privacy" updated="2026-10-26">
       <LegalSection id="scope" title="What this covers">
         <p>
           This site, at {host}, and nothing else. The set is also published on
@@ -158,7 +158,9 @@ export default async function Page() {
           </li>
           <li>
             No forms. Nothing here collects an email address, so there is no
-            list to be on and nothing to unsubscribe from.
+            list to be on and nothing to unsubscribe from. The custom icons
+            page has none either: its button opens your own mail app, and a
+            message you choose to send is read only to answer it.
           </li>
         </LegalList>
         <p>
@@ -195,7 +197,8 @@ export default async function Page() {
         <p>
           On top of those, a handful of things you do with the set are counted:
           copying an icon&apos;s snippet or its name, downloading an SVG,
-          copying an install command, sharing the set or copying its link, and a
+          copying an install command, sharing the set or copying its link,
+          opening the custom icons page and pressing its email button, and a
           search that found nothing.
         </p>
         <p>
@@ -222,8 +225,9 @@ export default async function Page() {
         <p>
           Every one of those events describes the set, never you: an icon name,
           a style, a filter you picked, a file format, a package manager, a
-          query typed into the icon search. No identifiers, no addresses, and
-          nothing typed anywhere else on the site. The complete list is the{" "}
+          query typed into the icon search, or the kind of link that led to
+          the custom icons page. No identifiers, no addresses, and nothing
+          typed anywhere else on the site. The complete list is the{" "}
           <LegalLink href={`${SET_REPO_URL}/blob/main/lib/analytics.ts`}>
             Events type
           </LegalLink>{" "}
