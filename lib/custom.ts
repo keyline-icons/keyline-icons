@@ -16,13 +16,14 @@
 import type { FaqEntry } from "@/lib/faq"
 
 /**
- * Where the button writes.
+ * Where the button writes, and the address the closing card prints.
  *
- * keylineicons.com has no MX record, so there is no address on the domain to
- * use yet. This is the maker's working inbox until one exists: when it does,
- * this is the only line that moves.
+ * The project's own address rather than a personal one (Zafar's pick, 26 Oct
+ * 2026). The domain's DNS is on Vercel and had no MX record when this was
+ * written, so mail to it bounces until a forwarder is set up there: check
+ * `dig MX keylineicons.com` before this page deploys.
  */
-export const CUSTOM_EMAIL = "support@overflow.design"
+export const CUSTOM_EMAIL = "hello@keylineicons.com"
 
 /**
  * The message the button opens, prefilled.
@@ -54,7 +55,14 @@ export const CUSTOM_OFFERS = [
     summary: "3 icons",
     description:
       "Three icons from your product, drawn on the grid, so you judge the fit on real drawings before committing to a set.",
-    includes: ["3 icons from your product", "SVG and a Figma file"],
+    // A non-breaking hyphen: balanced onto two lines, the plain one split
+    // "30-" from "icon" at the end of the first.
+    note: "Credited toward the 30\u2011icon set if you go ahead.",
+    includes: [
+      "3 icons from your product",
+      "Back within 3 days",
+      "SVG and a Figma file",
+    ],
   },
   {
     id: "set",
@@ -63,6 +71,7 @@ export const CUSTOM_OFFERS = [
     summary: "30 icons in 7 days",
     description:
       "The icons your product needs, drawn as one system and delivered within a week.",
+    note: null,
     includes: [
       "30 icons, sizes and states included",
       "Delivered in 7 days",
@@ -87,6 +96,24 @@ export const CUSTOM_DELIVERY_ICON_NAMES = [
 export const CUSTOM_STEP_ICON_NAMES = ["send", "pen", "package-check"] as const
 
 export const CUSTOM_CLOSE_ICON_NAMES = ["mail"] as const
+
+/**
+ * The row under the hero: one drawing at the sizes it ships at, then the
+ * states an interface asks of it. Real files from the set, so the page shows
+ * the standard before the cards below describe it.
+ *
+ * `bell` because its family has every state the row names: struck through
+ * for off, filled for the active tab, and a dot for a badge.
+ */
+export const CUSTOM_SAMPLE_ICON_NAMES = ["bell", "bell-off", "bell-dot"] as const
+
+export const CUSTOM_SAMPLE_SIZES = [16, 20, 24] as const
+
+export const CUSTOM_SAMPLE_STATES = [
+  { label: "Off", name: "bell-off", style: "stroke" },
+  { label: "Active", name: "bell", style: "fill" },
+  { label: "Badged", name: "bell-dot", style: "stroke" },
+] as const
 
 /** What the set delivers, one card each, beside the glyphs above. */
 export const CUSTOM_DELIVERY = [

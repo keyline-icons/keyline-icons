@@ -200,7 +200,7 @@ export function SiteNavBar({
                       : "text-muted-foreground hover:text-foreground"
                   )}
                 >
-                  {link.label}
+                  {link.barLabel ?? link.label}
                 </Link>
               ))}
 

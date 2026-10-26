@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises"
 import { join } from "node:path"
+import Image from "next/image"
 
 import { CustomInquiry, CustomView } from "@/components/custom-inquiry"
 import { Faq } from "@/components/faq"
@@ -18,12 +19,17 @@ import {
   CUSTOM_EMAIL,
   CUSTOM_FAQ,
   CUSTOM_OFFERS,
+  CUSTOM_SAMPLE_ICON_NAMES,
+  CUSTOM_SAMPLE_SIZES,
+  CUSTOM_SAMPLE_STATES,
   CUSTOM_SEE_ALSO,
   CUSTOM_STEP_ICON_NAMES,
   CUSTOM_STEPS,
 } from "@/lib/custom"
 import { loadIcons } from "@/lib/icons"
 import { pageMetadata } from "@/lib/seo"
+import { SET_X_URL } from "@/lib/site-chrome"
+import makerFace from "@/public/featured/avatars/zafarlab.jpg"
 
 /**
  * The paid offer: icon sets drawn for one product, on the set's own grid.
@@ -33,9 +39,9 @@ import { pageMetadata } from "@/lib/seo"
  * muted fact card in three jobs (what you get, the offers, the steps). The
  * closing card is the sponsor card's shape, the one other ask on the site.
  *
- * Not in the bar. It is a footer row and a line on `/` and `/install`, which is
- * the weight a paid service should have on a free library's site: findable by
- * anyone looking, and in the way of nobody who came for the icons.
+ * A plain link in the bar, "Custom", after Icons and Install: text like its
+ * neighbours, never a button, so it is findable by anyone looking and in the
+ * way of nobody who came for the icons. The footer keeps the full name.
  */
 export const metadata = pageMetadata({
   path: "/custom",
@@ -67,6 +73,12 @@ export default async function Page() {
   const art = (name: string) =>
     icons.find((icon) => icon.name === name)?.art.stroke
   const total = icons.length.toLocaleString("en-US")
+  const samples = Object.fromEntries(
+    CUSTOM_SAMPLE_ICON_NAMES.map((name) => [
+      name,
+      icons.find((icon) => icon.name === name),
+    ])
+  )
 
   /*
     Shown once both rows have art. Until then, placeholders in development so
@@ -91,7 +103,13 @@ export default async function Page() {
       <SiteNav />
 
       <main>
-        <section className={`${CONTAINER} pt-8 pb-16 lg:pt-14 lg:pb-24`}>
+        {/*
+          No bottom padding: the sample row ends the hero, and the next
+          section's own top padding is the whole gap. Hero and section both
+          padding the seam left 192px of nothing between the buttons and the
+          first heading.
+        */}
+        <section className={`${CONTAINER} pt-8 lg:pt-14`}>
           <div className="mx-auto max-w-3xl text-center">
             {/* Word for word the `<title>`, as on every other page. */}
             <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl">
@@ -116,6 +134,55 @@ export default async function Page() {
                 See the offers
               </Button>
             </div>
+          </div>
+
+          {/*
+            Real drawings before any description of them: the page was all
+            text until the case study. The sizes are drawn at their actual
+            pixels, not scaled up, because how a set holds at 16 is the claim.
+          */}
+          <div className="mx-auto mt-14 grid max-w-3xl gap-6 rounded-lg bg-muted p-6 sm:grid-cols-2">
+            {[
+              {
+                title: "Sizes",
+                tiles: CUSTOM_SAMPLE_SIZES.map((size) => ({
+                  label: `${size}px`,
+                  art: samples.bell?.art.stroke,
+                  size,
+                })),
+              },
+              {
+                title: "States",
+                tiles: CUSTOM_SAMPLE_STATES.map((state) => ({
+                  label: state.label,
+                  art: samples[state.name]?.art[state.style],
+                  size: 24,
+                })),
+              },
+            ].map((group) => (
+              <figure key={group.title} className="flex flex-col gap-3">
+                <figcaption className="text-sm font-medium">
+                  {group.title}
+                </figcaption>
+                <ul className="grid grid-cols-3 gap-2">
+                  {group.tiles.map((tile) => (
+                    <li
+                      key={tile.label}
+                      className="flex h-24 flex-col items-center justify-center gap-3 rounded-md bg-background"
+                    >
+                      <span className="flex size-6 items-center justify-center">
+                        {tile.art && (
+                          <Glyph art={tile.art} size={tile.size} stroke={2} />
+                        )}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {tile.label}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </figure>
+            ))}
           </div>
         </section>
 
@@ -172,9 +239,16 @@ export default async function Page() {
                     </span>
                   </p>
                 </div>
-                <p className="text-base text-balance text-muted-foreground">
-                  {offer.description}
-                </p>
+                <div className="flex flex-col gap-2">
+                  <p className="text-base text-balance text-muted-foreground">
+                    {offer.description}
+                  </p>
+                  {offer.note && (
+                    <p className="text-base font-medium text-balance">
+                      {offer.note}
+                    </p>
+                  )}
+                </div>
                 <ul className="mt-auto flex flex-col gap-2 border-t pt-6 text-sm">
                   {offer.includes.map((item) => (
                     <li key={item} className="flex items-start gap-2">
@@ -186,6 +260,34 @@ export default async function Page() {
               </li>
             ))}
           </ul>
+
+          {/*
+            Who draws it, beside what it costs: the one fact a buyer weighs
+            against the price. The X avatar the showcase already carries, so
+            the face here is the face on the account the name links to.
+          */}
+          <p className="mx-auto mt-8 flex max-w-3xl items-center gap-3 text-sm text-balance text-muted-foreground">
+            <Image
+              src={makerFace}
+              alt=""
+              sizes="40px"
+              className="size-10 shrink-0 rounded-full object-cover"
+            />
+            <span>
+              Drawn by{" "}
+              <a
+                href={SET_X_URL}
+                target="_blank"
+                rel="noopener"
+                className="font-medium text-foreground underline underline-offset-2 hover:no-underline"
+              >
+                Zafar Ismatullaev
+                <span className="sr-only">{" (opens in a new tab)"}</span>
+              </a>
+              , head designer at Preline UI and the designer of all {total}{" "}
+              Keyline icons.
+            </span>
+          </p>
         </section>
 
         {(caseReady || caseDraft) && (

@@ -508,6 +508,11 @@ export type SiteLink = {
   href: string
   label: string
   /**
+   * A shorter name for the bar, where every other label is one word. The
+   * footer and the phone menu read `label`, and have the room for it.
+   */
+  barLabel?: string
+  /**
    * The sitemap's `<priority>`. Relative weight within this site only. It says
    * nothing about how this site ranks against another, and Google largely
    * ignores it. Set anyway because other crawlers read it and it costs nothing.
@@ -592,6 +597,20 @@ export const SITE_LINKS: readonly SiteLink[] = [
   // a second page carrying the term in its address is how two pages end up
   // competing for one query. `next.config.ts` redirects the old URL.
   { href: "/install", label: "Install", priority: 0.9 },
+  // The paid offer, drawn to order on the set's grid, right after the two
+  // pages the free set is used through (Zafar, 26 Oct 2026: "right after Icons
+  // and Install"). A plain link like its neighbours, never a button: a paid
+  // service shouting over a free library is the wrong way round, and the bar
+  // already says what the site is for. "Custom" in the bar, where every label is
+  // one word; the footer and the phone menu have room for the full name. The
+  // sitemap takes it at 0.5 with the changelog, a page with a query of its own
+  // ("custom icon set") that no other page here answers.
+  {
+    href: "/custom",
+    label: "Custom icons",
+    barLabel: "Custom",
+    priority: 0.5,
+  },
   // Both demos moved under one bar menu. Four links across the bar made the two
   // that are the same kind of thing look like two more places to go, and the
   // labels could not say what either page was: "Mobile" and "Dashboard" name a
@@ -655,12 +674,6 @@ export const SITE_LINKS: readonly SiteLink[] = [
   // pages at 0.6 for the same reason: a drawing is what someone came for, and
   // this is the page you read once you already have the set.
   { href: "/changelog", label: "Changelog", priority: 0.5 },
-  // The paid offer, drawn to order on the set's grid. A footer row and not a
-  // bar link: findable by anyone looking for it, and in the way of nobody who
-  // came for the free icons. The sitemap takes it at 0.5 with the changelog, a
-  // page with a real query of its own ("custom icon set") that no other page
-  // here answers.
-  { href: "/custom", label: "Custom icons", priority: 0.5, bar: false },
   /*
     The legal pages, last and lowest.
 
