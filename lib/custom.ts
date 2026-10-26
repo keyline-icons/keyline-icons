@@ -187,16 +187,17 @@ export const CUSTOM_FAQ: FaqEntry[] = [
  * the sentence: it is Overflow's to change, and a figure typed here would
  * outlive it.
  *
- * `live` is off until that page is: it answered 404 when this one went out,
- * and a link from a sales page to a missing page is worse than no link. Turn
- * it on once `curl -I https://www.overflow.design/custom/` says 200. A check
- * at build would not do, because overflow.design challenges datacenter
- * traffic and Vercel's builders are datacenter traffic.
+ * `live` switches the line off without deleting it. It was off at launch,
+ * while Overflow's page still answered 404, and came on the same day once it
+ * answered 200 and linked back here. Turn it off again if that page ever goes:
+ * a link from a sales page to a missing page is worse than no link. A check at
+ * build would not do, because overflow.design challenges datacenter traffic
+ * and Vercel's builders are datacenter traffic.
  */
 export const CUSTOM_SEE_ALSO = {
   href: "https://www.overflow.design/custom/",
   label: "custom isometric scenes on Overflow",
-  live: false,
+  live: true,
 }
 
 /**
