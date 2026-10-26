@@ -28,7 +28,7 @@ import {
 } from "@/lib/custom"
 import { loadIcons } from "@/lib/icons"
 import { pageMetadata } from "@/lib/seo"
-import { SET_X_URL } from "@/lib/site-chrome"
+import { MAKER_PROJECTS, SET_X_URL } from "@/lib/site-chrome"
 import makerFace from "@/public/featured/avatars/zafarlab.jpg"
 
 /**
@@ -94,6 +94,9 @@ export default async function Page() {
     ? `: ${CASE_STUDY.app.name} as it ships, ${CASE_STUDY.app.license}`
     : ": the app's own icons, credited here with its licence"
 
+  // The address the footer's maker row already links, not a second copy of it.
+  const preline = MAKER_PROJECTS.find((project) => project.id === "preline")
+    ?.href
   const [closeIcon] = CUSTOM_CLOSE_ICON_NAMES
   const closeArt = art(closeIcon)
 
@@ -284,8 +287,17 @@ export default async function Page() {
                 Zafar Ismatullaev
                 <span className="sr-only">{" (opens in a new tab)"}</span>
               </a>
-              , head designer at Preline UI and the designer of all {total}{" "}
-              Keyline icons.
+              , head designer at{" "}
+              <a
+                href={preline}
+                target="_blank"
+                rel="noopener"
+                className="underline underline-offset-2 transition-colors hover:text-foreground"
+              >
+                Preline UI
+                <span className="sr-only">{" (opens in a new tab)"}</span>
+              </a>{" "}
+              and the designer of all {total} Keyline icons.
             </span>
           </p>
         </section>
