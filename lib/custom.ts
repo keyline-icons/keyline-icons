@@ -57,13 +57,14 @@ export const CUSTOM_OFFERS = [
     summary: "3 icons",
     description:
       "Three icons from your product, drawn on the grid, so you judge the fit on real drawings before committing to a set.",
-    // A non-breaking hyphen: balanced onto two lines, the plain one split
-    // "30-" from "icon" at the end of the first.
-    note: "Credited toward the 30\u2011icon set if you go ahead.",
     includes: [
       "3 icons from your product",
       "Back within 3 days",
       "SVG and a Figma file",
+      // A checklist row like Overflow's, not a bold line of its own: as a
+      // line it pushed this card's list below the set card's. The hyphen is
+      // non-breaking, so a narrow card never ends a line on "30-".
+      "Credited toward the 30\u2011icon set if you go ahead",
     ],
   },
   {
@@ -73,7 +74,6 @@ export const CUSTOM_OFFERS = [
     summary: "30 icons in 7 days",
     description:
       "The icons your product needs, drawn as one system and delivered within a week.",
-    note: null,
     includes: [
       "30 icons, sizes and states included",
       "Delivered in 7 days",
@@ -186,10 +186,17 @@ export const CUSTOM_FAQ: FaqEntry[] = [
  * bare host and the unslashed path both answer with a redirect. No price in
  * the sentence: it is Overflow's to change, and a figure typed here would
  * outlive it.
+ *
+ * `live` is off until that page is: it answered 404 when this one went out,
+ * and a link from a sales page to a missing page is worse than no link. Turn
+ * it on once `curl -I https://www.overflow.design/custom/` says 200. A check
+ * at build would not do, because overflow.design challenges datacenter
+ * traffic and Vercel's builders are datacenter traffic.
  */
 export const CUSTOM_SEE_ALSO = {
   href: "https://www.overflow.design/custom/",
   label: "custom isometric scenes on Overflow",
+  live: false,
 }
 
 /**
@@ -199,8 +206,8 @@ export const CUSTOM_SEE_ALSO = {
  * Empty until the art is supplied. Drop twelve SVGs into
  * `public/custom/case-study/before/` and twelve into `.../after/`, list their
  * paths here in matching order, and fill in the app. While either list is
- * empty the section renders as placeholders in development and not at all in
- * production, so an unfinished case study never reaches the live page.
+ * empty the section does not render at all, so an unfinished case study never
+ * reaches the page.
  *
  * `license` is the app's own, named under the "before" row: the drawings are
  * someone else's work shown for comparison, and the credit is what makes that

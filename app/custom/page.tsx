@@ -81,12 +81,11 @@ export default async function Page() {
   )
 
   /*
-    Shown once both rows have art. Until then, placeholders in development so
-    the layout can be judged, and nothing in production, where an empty frame
-    reads as a page left unfinished.
+    Shown once both rows have art, and not at all before: no placeholders, in
+    development either (Zafar, 26 Oct 2026: "hide the Twelve icons, one system
+    section for now"). An empty frame reads as a page left unfinished.
   */
   const caseReady = CASE_STUDY.before.length > 0 && CASE_STUDY.after.length > 0
-  const caseDraft = !caseReady && process.env.NODE_ENV !== "production"
   const [before, after] = caseReady
     ? await Promise.all([readArt(CASE_STUDY.before), readArt(CASE_STUDY.after)])
     : [[], []]
@@ -242,16 +241,9 @@ export default async function Page() {
                     </span>
                   </p>
                 </div>
-                <div className="flex flex-col gap-2">
-                  <p className="text-base text-balance text-muted-foreground">
-                    {offer.description}
-                  </p>
-                  {offer.note && (
-                    <p className="text-base font-medium text-balance">
-                      {offer.note}
-                    </p>
-                  )}
-                </div>
+                <p className="text-base text-balance text-muted-foreground">
+                  {offer.description}
+                </p>
                 <ul className="mt-auto flex flex-col gap-2 border-t pt-6 text-sm">
                   {offer.includes.map((item) => (
                     <li key={item} className="flex items-start gap-2">
@@ -302,7 +294,7 @@ export default async function Page() {
           </p>
         </section>
 
-        {(caseReady || caseDraft) && (
+        {caseReady && (
           <section
             id="case-study"
             className={`${CONTAINER} scroll-mt-15 py-16 lg:scroll-mt-19 lg:py-24`}
@@ -355,13 +347,6 @@ export default async function Page() {
                 </figure>
               ))}
             </div>
-            {caseDraft && (
-              <p className="mt-6 text-center text-sm text-muted-foreground">
-                Placeholder, shown in development only. Fill{" "}
-                <code>CASE_STUDY</code> in <code>lib/custom.ts</code> to
-                publish it.
-              </p>
-            )}
           </section>
         )}
 
@@ -399,19 +384,21 @@ export default async function Page() {
           <SectionHead title="FAQ" />
           <Faq items={CUSTOM_FAQ} className="mx-auto mt-10 max-w-5xl" />
           {/* Under the list, as on `/`: an answer cannot carry a link. */}
-          <p className="mx-auto mt-10 max-w-5xl text-base text-muted-foreground">
-            Need custom work beyond icons? See also{" "}
-            <a
-              href={CUSTOM_SEE_ALSO.href}
-              target="_blank"
-              rel="noopener"
-              className="underline underline-offset-2 transition-colors hover:text-foreground"
-            >
-              {CUSTOM_SEE_ALSO.label}
-              <span className="sr-only">{" (opens in a new tab)"}</span>
-            </a>
-            .
-          </p>
+          {CUSTOM_SEE_ALSO.live && (
+            <p className="mx-auto mt-10 max-w-5xl text-base text-muted-foreground">
+              Need custom work beyond icons? See also{" "}
+              <a
+                href={CUSTOM_SEE_ALSO.href}
+                target="_blank"
+                rel="noopener"
+                className="underline underline-offset-2 transition-colors hover:text-foreground"
+              >
+                {CUSTOM_SEE_ALSO.label}
+                <span className="sr-only">{" (opens in a new tab)"}</span>
+              </a>
+              .
+            </p>
+          )}
         </section>
 
         {/*
