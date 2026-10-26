@@ -19,9 +19,11 @@ import type { FaqEntry } from "@/lib/faq"
  * Where the button writes, and the address the closing card prints.
  *
  * The project's own address rather than a personal one (Zafar's pick, 26 Oct
- * 2026). The domain's DNS is on Vercel and had no MX record when this was
- * written, so mail to it bounces until a forwarder is set up there: check
- * `dig MX keylineicons.com` before this page deploys.
+ * 2026). Cloudflare Email Routing forwards it to the maker's inbox, the same
+ * service overflow.design uses; the domain's DNS moved from Vercel to
+ * Cloudflare for it, because routing only works on a zone Cloudflare serves.
+ * DMARC is `p=reject`: nothing sends as keylineicons.com, so anything that
+ * claims to is refused.
  */
 export const CUSTOM_EMAIL = "hello@keylineicons.com"
 
