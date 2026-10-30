@@ -124,6 +124,13 @@ Need icons drawn for your own product? Custom sets on the same grid, as SVG, Fig
 
 Changelog
 
+2.3.0
+31 new drawings, taking the set to 1,654 names and 13,232 SVGs.
+
+* Home: the bath, the shower and a soap dispenser, a pump bottle and a spray can, the fridge, the oven, the microwave and the washing machine, an air vent and a safe
+* Transport and Maps: a sailboat, a caravan, a stroller and an electric car charger; a castle, a lighthouse, a barn and a tent
+* And more: a suitcase, a hotel's service bell, a coffee maker and its carafe, a cooking pot, a kettle grill, the cigarette and its no-smoking form, a wheelchair, a skier, a pool ladder and a capital A beside the text cursor
+
 2.2.0
 55 new drawings, taking the set to 1,623 names and 12,984 SVGs.
 
@@ -229,6 +236,18 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 2.3.0
+
+```
+31 new drawings, taking the set to 1,654 names and 13,232 SVGs: the bath, the shower and a soap dispenser, a pump bottle and a spray can, the fridge, the oven, the microwave and the washing machine, an air vent and a safe; a sailboat, a caravan, a stroller and an electric car charger; a castle, a lighthouse, a barn and a tent; a suitcase, a hotel's service bell, a coffee maker and its carafe, a cooking pot, a kettle grill, the cigarette and its no-smoking form, a wheelchair, a skier, a pool ladder and a capital A beside the text cursor.
+```
+
+**No plugin code changed this time.** The drawings reach the plugin from
+jsDelivr once they are pushed, so this republish is for the listing alone: the
+counts moved at graduation (the tagline, the style bullets, the totals and the
+curated-word count), and the Description gains the 2.3.0 entry. The category
+count stayed at 41.
 
 ### 2.2.0
 
@@ -732,6 +751,13 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+v2.3.0
+31 new drawings. The set is 1,654 names now, 1,515 component sets and 13,232 variants, up from 1,623 and 12,984. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
+
+* Home: the bath, the shower and a soap dispenser, a pump bottle and a spray can, the fridge, the oven, the microwave and the washing machine, an air vent and a safe
+* Transport and Maps: a sailboat, a caravan, a stroller and an electric car charger; a castle, a lighthouse, a barn and a tent
+* And more: a suitcase, a hotel's service bell, a coffee maker and its carafe, a cooking pot, a kettle grill, the cigarette and its no-smoking form, a wheelchair, a skier, a pool ladder and a capital A beside the text cursor
+
 v2.2.0
 55 new drawings. The set is 1,623 names now, 1,484 component sets and 12,984 variants, up from 1,568 and 12,544. One set was renamed in place, train to train-front, and no component was replaced, so instances already placed in your files keep their link.
 
@@ -768,14 +794,6 @@ v1.8.0
 * And more: a box, a SIM card, a plug pulled out of its socket, directions, the diff mark on its own and on a file, braces and brackets around an ellipsis, a badge with a prompt, a plainer robot head, a broom, a hand and a text field with sparkles, a collapse mark, a user in a dashed ring, a house with a smile, an inbox with a dot, a handbag and a basket with a search glass, and a flame with a second one burning inside it
 
 Also redrawn: the four two-arrow pairs take the long arrows' bigger head, and the hand under the coins closes into one shape. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
-
-v1.7.0
-34 new drawings, and a new category. The set is 1,366 names now, 1,239 component sets and 10,928 variants, up from 1,332 and 10,656. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
-
-* Law: a gavel, a balance standing level and tipped either way, and a signature over its line; Law opened as a category, taking the Catalog from 40 to 41
-* Health: a heart with a pulse, a stethoscope, a syringe, a capsule and an adhesive bandage
-* Text, Math and Devices: an A with an arrow up or down for text size, a spell check, a capital T for the text tool, curly braces, square brackets and a regular expression
-* And more: an arrow entering a bracket for signing in and one leaving it for signing out, a charging battery, a webcam, voicemail, a location mark and the same mark with its centre found, a spiral notebook and one with a pen, an image struck through, a telescope, a hand under two coins, a filter list, a to-do list, the dashed progress ring with a plus or an arrow up, and a single dot
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
@@ -815,7 +833,9 @@ from the plugin's and v1.5.0 and v1.4.0 from the file's on 18 Oct 2026 with the
 from the plugin's and v1.6.0 from the file's on 20 Oct 2026 with the 2.1.0
 entries (9,529 and 8,800 before, 8,147 and 7,165 after), 1.6.0 from the
 plugin's on 25 Oct 2026 with the 2.2.0 entries (9,213 before, 7,874 after; the
-file's reached 8,342 and kept its v1.7.0), and a
+file's reached 8,342 and kept its v1.7.0), v1.7.0 from the file's on 30 Oct 2026
+with the 2.3.0 entries (9,091 before, 8,033 after; the plugin's reached 8,582 and kept
+its 1.7.0), and a
 last line points at
 `keylineicons.com/changelog`, which keeps every release.
 
