@@ -30,6 +30,20 @@
       ]
     },
     {
+      "name": "fill/a-text-cursor",
+      "type": "registry:component",
+      "title": "ATextCursor",
+      "description": "ATextCursor, the fill drawing of a-text-cursor on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of a-text-cursor: https://keylineicons.com/icons/a-text-cursor",
+      "files": [
+        {
+          "path": "icons/a-text-cursor.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/a-text-cursor.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/accent-grave",
       "type": "registry:component",
       "title": "AccentGrave",
@@ -82,6 +96,20 @@
           "path": "icons/activity-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/activity-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/air-vent",
+      "type": "registry:component",
+      "title": "AirVent",
+      "description": "AirVent, the fill drawing of air-vent on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of air-vent: https://keylineicons.com/icons/air-vent",
+      "files": [
+        {
+          "path": "icons/air-vent.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/air-vent.tsx"
         }
       ]
     },
@@ -2214,6 +2242,20 @@
       ]
     },
     {
+      "name": "fill/barn",
+      "type": "registry:component",
+      "title": "Barn",
+      "description": "Barn, the fill drawing of barn on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of barn: https://keylineicons.com/icons/barn",
+      "files": [
+        {
+          "path": "icons/barn.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/barn.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/bars-progress",
       "type": "registry:component",
       "title": "BarsProgress",
@@ -2252,6 +2294,20 @@
           "path": "icons/basketball.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/basketball.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/bath",
+      "type": "registry:component",
+      "title": "Bath",
+      "description": "Bath, the fill drawing of bath on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bath: https://keylineicons.com/icons/bath",
+      "files": [
+        {
+          "path": "icons/bath.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/bath.tsx"
         }
       ]
     },
@@ -3050,6 +3106,20 @@
           "path": "icons/bottle.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/bottle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/bottle-pump",
+      "type": "registry:component",
+      "title": "BottlePump",
+      "description": "BottlePump, the fill drawing of bottle-pump on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bottle-pump: https://keylineicons.com/icons/bottle-pump",
+      "files": [
+        {
+          "path": "icons/bottle-pump.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/bottle-pump.tsx"
         }
       ]
     },
@@ -3880,6 +3950,20 @@
       ]
     },
     {
+      "name": "fill/caravan",
+      "type": "registry:component",
+      "title": "Caravan",
+      "description": "Caravan, the fill drawing of caravan on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of caravan: https://keylineicons.com/icons/caravan",
+      "files": [
+        {
+          "path": "icons/caravan.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/caravan.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/card-chip",
       "type": "registry:component",
       "title": "CardChip",
@@ -4016,6 +4100,20 @@
           "path": "icons/cast.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/cast.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/castle",
+      "type": "registry:component",
+      "title": "Castle",
+      "description": "Castle, the fill drawing of castle on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of castle: https://keylineicons.com/icons/castle",
+      "files": [
+        {
+          "path": "icons/castle.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/castle.tsx"
         }
       ]
     },
@@ -4828,6 +4926,34 @@
           "path": "icons/chevrons-up-down.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/chevrons-up-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/cigarette",
+      "type": "registry:component",
+      "title": "Cigarette",
+      "description": "Cigarette, the fill drawing of cigarette on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cigarette: https://keylineicons.com/icons/cigarette",
+      "files": [
+        {
+          "path": "icons/cigarette.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/cigarette.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/cigarette-off",
+      "type": "registry:component",
+      "title": "CigaretteOff",
+      "description": "CigaretteOff, the fill drawing of cigarette-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cigarette-off: https://keylineicons.com/icons/cigarette-off",
+      "files": [
+        {
+          "path": "icons/cigarette-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/cigarette-off.tsx"
         }
       ]
     },
@@ -7058,6 +7184,34 @@
       ]
     },
     {
+      "name": "fill/coffee-maker",
+      "type": "registry:component",
+      "title": "CoffeeMaker",
+      "description": "CoffeeMaker, the fill drawing of coffee-maker on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of coffee-maker: https://keylineicons.com/icons/coffee-maker",
+      "files": [
+        {
+          "path": "icons/coffee-maker.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/coffee-maker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/coffee-pot",
+      "type": "registry:component",
+      "title": "CoffeePot",
+      "description": "CoffeePot, the fill drawing of coffee-pot on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of coffee-pot: https://keylineicons.com/icons/coffee-pot",
+      "files": [
+        {
+          "path": "icons/coffee-pot.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/coffee-pot.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/coins",
       "type": "registry:component",
       "title": "Coins",
@@ -7156,6 +7310,20 @@
       ]
     },
     {
+      "name": "fill/concierge-bell",
+      "type": "registry:component",
+      "title": "ConciergeBell",
+      "description": "ConciergeBell, the fill drawing of concierge-bell on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of concierge-bell: https://keylineicons.com/icons/concierge-bell",
+      "files": [
+        {
+          "path": "icons/concierge-bell.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/concierge-bell.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/cone",
       "type": "registry:component",
       "title": "Cone",
@@ -7250,6 +7418,20 @@
           "path": "icons/cookie.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/cookie.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/cooking-pot",
+      "type": "registry:component",
+      "title": "CookingPot",
+      "description": "CookingPot, the fill drawing of cooking-pot on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cooking-pot: https://keylineicons.com/icons/cooking-pot",
+      "files": [
+        {
+          "path": "icons/cooking-pot.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/cooking-pot.tsx"
         }
       ]
     },
@@ -8566,6 +8748,20 @@
           "path": "icons/euro.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/euro.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/ev-charger",
+      "type": "registry:component",
+      "title": "EvCharger",
+      "description": "EvCharger, the fill drawing of ev-charger on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of ev-charger: https://keylineicons.com/icons/ev-charger",
+      "files": [
+        {
+          "path": "icons/ev-charger.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/ev-charger.tsx"
         }
       ]
     },
@@ -10894,6 +11090,20 @@
       ]
     },
     {
+      "name": "fill/grill",
+      "type": "registry:component",
+      "title": "Grill",
+      "description": "Grill, the fill drawing of grill on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of grill: https://keylineicons.com/icons/grill",
+      "files": [
+        {
+          "path": "icons/grill.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/grill.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/grip-horizontal",
       "type": "registry:component",
       "title": "GripHorizontal",
@@ -12588,6 +12798,20 @@
       ]
     },
     {
+      "name": "fill/lighthouse",
+      "type": "registry:component",
+      "title": "Lighthouse",
+      "description": "Lighthouse, the fill drawing of lighthouse on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of lighthouse: https://keylineicons.com/icons/lighthouse",
+      "files": [
+        {
+          "path": "icons/lighthouse.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/lighthouse.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/link",
       "type": "registry:component",
       "title": "Link",
@@ -13032,6 +13256,20 @@
           "path": "icons/log-out.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/log-out.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/luggage",
+      "type": "registry:component",
+      "title": "Luggage",
+      "description": "Luggage, the fill drawing of luggage on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of luggage: https://keylineicons.com/icons/luggage",
+      "files": [
+        {
+          "path": "icons/luggage.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/luggage.tsx"
         }
       ]
     },
@@ -13816,6 +14054,20 @@
           "path": "icons/mic-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/mic-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/microwave",
+      "type": "registry:component",
+      "title": "Microwave",
+      "description": "Microwave, the fill drawing of microwave on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of microwave: https://keylineicons.com/icons/microwave",
+      "files": [
+        {
+          "path": "icons/microwave.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/microwave.tsx"
         }
       ]
     },
@@ -14656,6 +14908,20 @@
           "path": "icons/option.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/option.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/oven",
+      "type": "registry:component",
+      "title": "Oven",
+      "description": "Oven, the fill drawing of oven on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of oven: https://keylineicons.com/icons/oven",
+      "files": [
+        {
+          "path": "icons/oven.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/oven.tsx"
         }
       ]
     },
@@ -16466,6 +16732,20 @@
       ]
     },
     {
+      "name": "fill/refrigerator",
+      "type": "registry:component",
+      "title": "Refrigerator",
+      "description": "Refrigerator, the fill drawing of refrigerator on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of refrigerator: https://keylineicons.com/icons/refrigerator",
+      "files": [
+        {
+          "path": "icons/refrigerator.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/refrigerator.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/regex",
       "type": "registry:component",
       "title": "Regex",
@@ -16714,6 +16994,20 @@
           "path": "icons/router.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/router.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/sailboat",
+      "type": "registry:component",
+      "title": "Sailboat",
+      "description": "Sailboat, the fill drawing of sailboat on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of sailboat: https://keylineicons.com/icons/sailboat",
+      "files": [
+        {
+          "path": "icons/sailboat.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/sailboat.tsx"
         }
       ]
     },
@@ -17838,6 +18132,20 @@
       ]
     },
     {
+      "name": "fill/shower-head",
+      "type": "registry:component",
+      "title": "ShowerHead",
+      "description": "ShowerHead, the fill drawing of shower-head on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of shower-head: https://keylineicons.com/icons/shower-head",
+      "files": [
+        {
+          "path": "icons/shower-head.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/shower-head.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/shredder",
       "type": "registry:component",
       "title": "Shredder",
@@ -17988,6 +18296,20 @@
           "path": "icons/siren.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/siren.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/ski",
+      "type": "registry:component",
+      "title": "Ski",
+      "description": "Ski, the fill drawing of ski on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of ski: https://keylineicons.com/icons/ski",
+      "files": [
+        {
+          "path": "icons/ski.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/ski.tsx"
         }
       ]
     },
@@ -18398,6 +18720,20 @@
       ]
     },
     {
+      "name": "fill/soap-dispenser-droplet",
+      "type": "registry:component",
+      "title": "SoapDispenserDroplet",
+      "description": "SoapDispenserDroplet, the fill drawing of soap-dispenser-droplet on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of soap-dispenser-droplet: https://keylineicons.com/icons/soap-dispenser-droplet",
+      "files": [
+        {
+          "path": "icons/soap-dispenser-droplet.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/soap-dispenser-droplet.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/soccer-ball",
       "type": "registry:component",
       "title": "SoccerBall",
@@ -18520,6 +18856,20 @@
           "path": "icons/split.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/split.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/spray-can",
+      "type": "registry:component",
+      "title": "SprayCan",
+      "description": "SprayCan, the fill drawing of spray-can on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of spray-can: https://keylineicons.com/icons/spray-can",
+      "files": [
+        {
+          "path": "icons/spray-can.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/spray-can.tsx"
         }
       ]
     },
@@ -19966,6 +20316,20 @@
       ]
     },
     {
+      "name": "fill/stroller",
+      "type": "registry:component",
+      "title": "Stroller",
+      "description": "Stroller, the fill drawing of stroller on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of stroller: https://keylineicons.com/icons/stroller",
+      "files": [
+        {
+          "path": "icons/stroller.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/stroller.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/subtitles",
       "type": "registry:component",
       "title": "Subtitles",
@@ -20886,6 +21250,20 @@
           "path": "icons/tennis-ball.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/tennis-ball.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/tent",
+      "type": "registry:component",
+      "title": "Tent",
+      "description": "Tent, the fill drawing of tent on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of tent: https://keylineicons.com/icons/tent",
+      "files": [
+        {
+          "path": "icons/tent.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/tent.tsx"
         }
       ]
     },
@@ -22122,6 +22500,20 @@
       ]
     },
     {
+      "name": "fill/vault",
+      "type": "registry:component",
+      "title": "Vault",
+      "description": "Vault, the fill drawing of vault on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of vault: https://keylineicons.com/icons/vault",
+      "files": [
+        {
+          "path": "icons/vault.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/vault.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/vector-polygon",
       "type": "registry:component",
       "title": "VectorPolygon",
@@ -22388,6 +22780,20 @@
       ]
     },
     {
+      "name": "fill/washing-machine",
+      "type": "registry:component",
+      "title": "WashingMachine",
+      "description": "WashingMachine, the fill drawing of washing-machine on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of washing-machine: https://keylineicons.com/icons/washing-machine",
+      "files": [
+        {
+          "path": "icons/washing-machine.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/washing-machine.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/watch",
       "type": "registry:component",
       "title": "Watch",
@@ -22426,6 +22832,20 @@
           "path": "icons/waves-2.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/waves-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/waves-ladder",
+      "type": "registry:component",
+      "title": "WavesLadder",
+      "description": "WavesLadder, the fill drawing of waves-ladder on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of waves-ladder: https://keylineicons.com/icons/waves-ladder",
+      "files": [
+        {
+          "path": "icons/waves-ladder.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/waves-ladder.tsx"
         }
       ]
     },
@@ -22482,6 +22902,20 @@
           "path": "icons/weight-tilde.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/weight-tilde.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/wheelchair",
+      "type": "registry:component",
+      "title": "Wheelchair",
+      "description": "Wheelchair, the fill drawing of wheelchair on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of wheelchair: https://keylineicons.com/icons/wheelchair",
+      "files": [
+        {
+          "path": "icons/wheelchair.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/wheelchair.tsx"
         }
       ]
     },

@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Lighthouse({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M6.1421 21.0001L7.8344 10.0001L7 10.0001C6.4477 10.0001 6 9.5524 6 9.0001C6 8.4478 6.4477 8.0001 7 8.0001L8.9881 8.0001C8.9921 8 8.996 8 9 8L15 8C15.004 8 15.0079 8 15.0119 8.0001L17 8.0001C17.5523 8.0001 18 8.4478 18 9.0001C18 9.5524 17.5523 10.0001 17 10.0001L16.1656 10.0001L17.8579 21.0001L20 21.0001C20.5523 21.0001 21 21.4478 21 22.0001C21 22.5524 20.5523 23.0001 20 23.0001L4 23.0001C3.4477 23.0001 3 22.5524 3 22.0001C3 21.4478 3.4477 21.0001 4 21.0001L6.1421 21.0001Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M8 9L8 5C8 4.7636 8.0837 4.5349 8.2363 4.3544L10.4726 1.7089C10.8526 1.2594 11.4114 1.0001 12 1.0001C12.5886 1.0001 13.1474 1.2594 13.5274 1.7089L15.7637 4.3544C15.9163 4.5349 16 4.7636 16 5L16 9C16 9.5523 15.5523 10 15 10L9 10C8.4477 10 8 9.5523 8 9ZM7.5267 12L16.4733 12L16.781 14L7.219 14L7.5267 12ZM6.8344 16.5L17.1656 16.5L17.4733 18.5L6.5267 18.5L6.8344 16.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M22 3L20 4M20 14L22 15M21 9L22 9M2 3L4 4M4 14L2 15M3 9L2 9" fill="none"/>
+    </svg>
+  )
+}

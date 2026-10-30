@@ -2070,14 +2070,6 @@
       ]
     },
     {
-      "match": "^lock$",
-      "terms": [
-        "vault",
-        "safe",
-        "secure storage"
-      ]
-    },
-    {
       "match": "^(package|archive)$",
       "terms": [
         "warehouse",

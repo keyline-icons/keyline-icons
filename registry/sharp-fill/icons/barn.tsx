@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Barn({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M7 23L2 23C1.4477 23 1 22.5523 1 22L1 10C1 9.7729 1.0773 9.5526 1.2191 9.3753L5.2191 4.3753C5.3095 4.2623 5.4234 4.1703 5.5528 4.1056L11.5528 1.1056C11.6916 1.0361 11.8448 1 12 1C12.1552 1 12.3084 1.0361 12.4472 1.1056L18.4472 4.1056C18.5766 4.1703 18.6905 4.2623 18.7809 4.3753L22.7809 9.3753C22.9227 9.5526 23 9.7729 23 10L23 22C23 22.5523 22.5523 23 22 23L15.6666 23L7 16.5001L7 23ZM8.3334 15.0001L17 21.5001L17 16.0001C17 15.4478 16.5523 15.0001 16 15.0001L8.3334 15.0001ZM10 7C9.4477 7 9 7.4477 9 8L9 12C9 12.5523 9.4477 13 10 13L14 13C14.5523 13 15 12.5523 15 12L15 8C15 7.4477 14.5523 7 14 7L10 7Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

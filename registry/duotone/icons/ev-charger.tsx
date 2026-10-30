@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function EvCharger({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M14 23L2 23C1.4477 23 1 22.5523 1 22L1 5C1 2.7908 2.7908 1 5 1L11 1C13.2092 1 15 2.7908 15 5L15 21L22 21C22.5523 21 23 21.4477 23 22C23 22.5523 22.5523 23 22 23L14 23Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M9 8L6 12L10 12L7 16M14 17L18 17C19.1046 17 20 16.1046 20 15L20 10M22 6L22 4M18 6L18 4" fill="none"/>
+      <path d="M18 5L22 5C22.5523 5 23 5.4477 23 6L23 8.5C23 9.8807 21.8807 11 20.5 11L19.5 11C18.1193 11 17 9.8807 17 8.5L17 6C17 5.4477 17.4477 5 18 5Z" fill="currentColor" stroke="none"/>
+    </svg>
+  )
+}

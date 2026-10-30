@@ -30,6 +30,20 @@
       ]
     },
     {
+      "name": "two-tone/a-text-cursor",
+      "type": "registry:component",
+      "title": "ATextCursor",
+      "description": "ATextCursor, the two-tone drawing of a-text-cursor on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of a-text-cursor: https://keylineicons.com/icons/a-text-cursor",
+      "files": [
+        {
+          "path": "icons/a-text-cursor.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/a-text-cursor.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/accent-grave",
       "type": "registry:component",
       "title": "AccentGrave",
@@ -82,6 +96,20 @@
           "path": "icons/activity-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/activity-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/air-vent",
+      "type": "registry:component",
+      "title": "AirVent",
+      "description": "AirVent, the two-tone drawing of air-vent on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of air-vent: https://keylineicons.com/icons/air-vent",
+      "files": [
+        {
+          "path": "icons/air-vent.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/air-vent.tsx"
         }
       ]
     },
@@ -2214,6 +2242,20 @@
       ]
     },
     {
+      "name": "two-tone/barn",
+      "type": "registry:component",
+      "title": "Barn",
+      "description": "Barn, the two-tone drawing of barn on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of barn: https://keylineicons.com/icons/barn",
+      "files": [
+        {
+          "path": "icons/barn.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/barn.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/bars-progress",
       "type": "registry:component",
       "title": "BarsProgress",
@@ -2252,6 +2294,20 @@
           "path": "icons/basketball.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/basketball.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/bath",
+      "type": "registry:component",
+      "title": "Bath",
+      "description": "Bath, the two-tone drawing of bath on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bath: https://keylineicons.com/icons/bath",
+      "files": [
+        {
+          "path": "icons/bath.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/bath.tsx"
         }
       ]
     },
@@ -3050,6 +3106,20 @@
           "path": "icons/bottle.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/bottle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/bottle-pump",
+      "type": "registry:component",
+      "title": "BottlePump",
+      "description": "BottlePump, the two-tone drawing of bottle-pump on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bottle-pump: https://keylineicons.com/icons/bottle-pump",
+      "files": [
+        {
+          "path": "icons/bottle-pump.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/bottle-pump.tsx"
         }
       ]
     },
@@ -3880,6 +3950,20 @@
       ]
     },
     {
+      "name": "two-tone/caravan",
+      "type": "registry:component",
+      "title": "Caravan",
+      "description": "Caravan, the two-tone drawing of caravan on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of caravan: https://keylineicons.com/icons/caravan",
+      "files": [
+        {
+          "path": "icons/caravan.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/caravan.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/card-chip",
       "type": "registry:component",
       "title": "CardChip",
@@ -4016,6 +4100,20 @@
           "path": "icons/cast.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/cast.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/castle",
+      "type": "registry:component",
+      "title": "Castle",
+      "description": "Castle, the two-tone drawing of castle on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of castle: https://keylineicons.com/icons/castle",
+      "files": [
+        {
+          "path": "icons/castle.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/castle.tsx"
         }
       ]
     },
@@ -4828,6 +4926,34 @@
           "path": "icons/chevrons-up-down.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/chevrons-up-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/cigarette",
+      "type": "registry:component",
+      "title": "Cigarette",
+      "description": "Cigarette, the two-tone drawing of cigarette on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cigarette: https://keylineicons.com/icons/cigarette",
+      "files": [
+        {
+          "path": "icons/cigarette.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/cigarette.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/cigarette-off",
+      "type": "registry:component",
+      "title": "CigaretteOff",
+      "description": "CigaretteOff, the two-tone drawing of cigarette-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cigarette-off: https://keylineicons.com/icons/cigarette-off",
+      "files": [
+        {
+          "path": "icons/cigarette-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/cigarette-off.tsx"
         }
       ]
     },
@@ -7058,6 +7184,34 @@
       ]
     },
     {
+      "name": "two-tone/coffee-maker",
+      "type": "registry:component",
+      "title": "CoffeeMaker",
+      "description": "CoffeeMaker, the two-tone drawing of coffee-maker on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of coffee-maker: https://keylineicons.com/icons/coffee-maker",
+      "files": [
+        {
+          "path": "icons/coffee-maker.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/coffee-maker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/coffee-pot",
+      "type": "registry:component",
+      "title": "CoffeePot",
+      "description": "CoffeePot, the two-tone drawing of coffee-pot on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of coffee-pot: https://keylineicons.com/icons/coffee-pot",
+      "files": [
+        {
+          "path": "icons/coffee-pot.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/coffee-pot.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/coins",
       "type": "registry:component",
       "title": "Coins",
@@ -7156,6 +7310,20 @@
       ]
     },
     {
+      "name": "two-tone/concierge-bell",
+      "type": "registry:component",
+      "title": "ConciergeBell",
+      "description": "ConciergeBell, the two-tone drawing of concierge-bell on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of concierge-bell: https://keylineicons.com/icons/concierge-bell",
+      "files": [
+        {
+          "path": "icons/concierge-bell.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/concierge-bell.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/cone",
       "type": "registry:component",
       "title": "Cone",
@@ -7250,6 +7418,20 @@
           "path": "icons/cookie.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/cookie.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/cooking-pot",
+      "type": "registry:component",
+      "title": "CookingPot",
+      "description": "CookingPot, the two-tone drawing of cooking-pot on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cooking-pot: https://keylineicons.com/icons/cooking-pot",
+      "files": [
+        {
+          "path": "icons/cooking-pot.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/cooking-pot.tsx"
         }
       ]
     },
@@ -8566,6 +8748,20 @@
           "path": "icons/euro.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/euro.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/ev-charger",
+      "type": "registry:component",
+      "title": "EvCharger",
+      "description": "EvCharger, the two-tone drawing of ev-charger on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of ev-charger: https://keylineicons.com/icons/ev-charger",
+      "files": [
+        {
+          "path": "icons/ev-charger.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/ev-charger.tsx"
         }
       ]
     },
@@ -10894,6 +11090,20 @@
       ]
     },
     {
+      "name": "two-tone/grill",
+      "type": "registry:component",
+      "title": "Grill",
+      "description": "Grill, the two-tone drawing of grill on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of grill: https://keylineicons.com/icons/grill",
+      "files": [
+        {
+          "path": "icons/grill.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/grill.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/grip-horizontal",
       "type": "registry:component",
       "title": "GripHorizontal",
@@ -12588,6 +12798,20 @@
       ]
     },
     {
+      "name": "two-tone/lighthouse",
+      "type": "registry:component",
+      "title": "Lighthouse",
+      "description": "Lighthouse, the two-tone drawing of lighthouse on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of lighthouse: https://keylineicons.com/icons/lighthouse",
+      "files": [
+        {
+          "path": "icons/lighthouse.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/lighthouse.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/link",
       "type": "registry:component",
       "title": "Link",
@@ -13032,6 +13256,20 @@
           "path": "icons/log-out.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/log-out.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/luggage",
+      "type": "registry:component",
+      "title": "Luggage",
+      "description": "Luggage, the two-tone drawing of luggage on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of luggage: https://keylineicons.com/icons/luggage",
+      "files": [
+        {
+          "path": "icons/luggage.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/luggage.tsx"
         }
       ]
     },
@@ -13816,6 +14054,20 @@
           "path": "icons/mic-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/mic-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/microwave",
+      "type": "registry:component",
+      "title": "Microwave",
+      "description": "Microwave, the two-tone drawing of microwave on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of microwave: https://keylineicons.com/icons/microwave",
+      "files": [
+        {
+          "path": "icons/microwave.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/microwave.tsx"
         }
       ]
     },
@@ -14656,6 +14908,20 @@
           "path": "icons/option.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/option.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/oven",
+      "type": "registry:component",
+      "title": "Oven",
+      "description": "Oven, the two-tone drawing of oven on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of oven: https://keylineicons.com/icons/oven",
+      "files": [
+        {
+          "path": "icons/oven.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/oven.tsx"
         }
       ]
     },
@@ -16466,6 +16732,20 @@
       ]
     },
     {
+      "name": "two-tone/refrigerator",
+      "type": "registry:component",
+      "title": "Refrigerator",
+      "description": "Refrigerator, the two-tone drawing of refrigerator on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of refrigerator: https://keylineicons.com/icons/refrigerator",
+      "files": [
+        {
+          "path": "icons/refrigerator.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/refrigerator.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/regex",
       "type": "registry:component",
       "title": "Regex",
@@ -16714,6 +16994,20 @@
           "path": "icons/router.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/router.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/sailboat",
+      "type": "registry:component",
+      "title": "Sailboat",
+      "description": "Sailboat, the two-tone drawing of sailboat on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of sailboat: https://keylineicons.com/icons/sailboat",
+      "files": [
+        {
+          "path": "icons/sailboat.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/sailboat.tsx"
         }
       ]
     },
@@ -17838,6 +18132,20 @@
       ]
     },
     {
+      "name": "two-tone/shower-head",
+      "type": "registry:component",
+      "title": "ShowerHead",
+      "description": "ShowerHead, the two-tone drawing of shower-head on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of shower-head: https://keylineicons.com/icons/shower-head",
+      "files": [
+        {
+          "path": "icons/shower-head.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/shower-head.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/shredder",
       "type": "registry:component",
       "title": "Shredder",
@@ -17988,6 +18296,20 @@
           "path": "icons/siren.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/siren.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/ski",
+      "type": "registry:component",
+      "title": "Ski",
+      "description": "Ski, the two-tone drawing of ski on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of ski: https://keylineicons.com/icons/ski",
+      "files": [
+        {
+          "path": "icons/ski.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/ski.tsx"
         }
       ]
     },
@@ -18398,6 +18720,20 @@
       ]
     },
     {
+      "name": "two-tone/soap-dispenser-droplet",
+      "type": "registry:component",
+      "title": "SoapDispenserDroplet",
+      "description": "SoapDispenserDroplet, the two-tone drawing of soap-dispenser-droplet on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of soap-dispenser-droplet: https://keylineicons.com/icons/soap-dispenser-droplet",
+      "files": [
+        {
+          "path": "icons/soap-dispenser-droplet.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/soap-dispenser-droplet.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/soccer-ball",
       "type": "registry:component",
       "title": "SoccerBall",
@@ -18520,6 +18856,20 @@
           "path": "icons/split.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/split.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/spray-can",
+      "type": "registry:component",
+      "title": "SprayCan",
+      "description": "SprayCan, the two-tone drawing of spray-can on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of spray-can: https://keylineicons.com/icons/spray-can",
+      "files": [
+        {
+          "path": "icons/spray-can.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/spray-can.tsx"
         }
       ]
     },
@@ -19966,6 +20316,20 @@
       ]
     },
     {
+      "name": "two-tone/stroller",
+      "type": "registry:component",
+      "title": "Stroller",
+      "description": "Stroller, the two-tone drawing of stroller on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of stroller: https://keylineicons.com/icons/stroller",
+      "files": [
+        {
+          "path": "icons/stroller.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/stroller.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/subtitles",
       "type": "registry:component",
       "title": "Subtitles",
@@ -20886,6 +21250,20 @@
           "path": "icons/tennis-ball.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/tennis-ball.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/tent",
+      "type": "registry:component",
+      "title": "Tent",
+      "description": "Tent, the two-tone drawing of tent on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of tent: https://keylineicons.com/icons/tent",
+      "files": [
+        {
+          "path": "icons/tent.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/tent.tsx"
         }
       ]
     },
@@ -22122,6 +22500,20 @@
       ]
     },
     {
+      "name": "two-tone/vault",
+      "type": "registry:component",
+      "title": "Vault",
+      "description": "Vault, the two-tone drawing of vault on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of vault: https://keylineicons.com/icons/vault",
+      "files": [
+        {
+          "path": "icons/vault.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/vault.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/vector-polygon",
       "type": "registry:component",
       "title": "VectorPolygon",
@@ -22388,6 +22780,20 @@
       ]
     },
     {
+      "name": "two-tone/washing-machine",
+      "type": "registry:component",
+      "title": "WashingMachine",
+      "description": "WashingMachine, the two-tone drawing of washing-machine on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of washing-machine: https://keylineicons.com/icons/washing-machine",
+      "files": [
+        {
+          "path": "icons/washing-machine.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/washing-machine.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/watch",
       "type": "registry:component",
       "title": "Watch",
@@ -22426,6 +22832,20 @@
           "path": "icons/waves-2.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/waves-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/waves-ladder",
+      "type": "registry:component",
+      "title": "WavesLadder",
+      "description": "WavesLadder, the two-tone drawing of waves-ladder on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of waves-ladder: https://keylineicons.com/icons/waves-ladder",
+      "files": [
+        {
+          "path": "icons/waves-ladder.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/waves-ladder.tsx"
         }
       ]
     },
@@ -22482,6 +22902,20 @@
           "path": "icons/weight-tilde.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/weight-tilde.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-tone/wheelchair",
+      "type": "registry:component",
+      "title": "Wheelchair",
+      "description": "Wheelchair, the two-tone drawing of wheelchair on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of wheelchair: https://keylineicons.com/icons/wheelchair",
+      "files": [
+        {
+          "path": "icons/wheelchair.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/wheelchair.tsx"
         }
       ]
     },

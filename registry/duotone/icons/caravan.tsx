@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Caravan({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M20 15L20 16C20 17.6569 18.6569 19 17 19L4 19C2.3431 19 1 17.6569 1 16L1 6C1 4.3431 2.3431 3 4 3L15 3C17.7614 3 20 5.2386 20 8L20 13L22 13C22.5523 13 23 13.4477 23 14C23 14.5523 22.5523 15 22 15L20 15Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M3 7L4.5 7C5.8807 7 7 8.1193 7 9.5L7 10.5C7 11.8807 5.8807 13 4.5 13L3 13L3 7ZM9 13.1L9 9C9 7.8954 9.8954 7 11 7L14 7C15.1046 7 16 7.8954 16 9L16 17L12.9 17C12.4979 15.0365 10.9635 13.5021 9 13.1Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M10 18C10 19.1046 9.1046 20 8 20C6.8954 20 6 19.1046 6 18C6 16.8954 6.8954 16 8 16C9.1046 16 10 16.8954 10 18Z" fill="none"/>
+    </svg>
+  )
+}

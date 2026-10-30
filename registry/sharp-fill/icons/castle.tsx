@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Castle({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M8 22L2 22C1.4477 22 1 21.5523 1 21L1 7L3 7L3 9L5 9L5 2L7 2L7 4L11 4L11 2L13 2L13 4L17 4L17 2L19 2L19 9L21 9L21 7L23 7L23 21C23 21.5523 22.5523 22 22 22L16 22L16 16.5001C16 16.0544 15.8495 15.6516 15.665 15.3246C15.4737 14.9951 15.2374 14.6939 14.963 14.4295C14.6919 14.1649 14.395 13.928 14.0767 13.7225C13.7656 13.5191 13.4335 13.3497 13.0862 13.2173C12.7532 13.0929 12.3781 13.0001 12 13.0001C11.622 13.0001 11.2469 13.0929 10.9139 13.2173C10.5666 13.3497 10.2345 13.5191 9.9234 13.7225C9.6051 13.928 9.3082 14.1649 9.0371 14.4295C8.7627 14.6939 8.5264 14.9951 8.335 15.3246C8.1505 15.6516 8 16.0544 8 16.5001L8 22Z" fill="currentColor"/>
+    </svg>
+  )
+}

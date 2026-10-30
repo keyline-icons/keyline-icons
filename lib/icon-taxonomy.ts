@@ -207,9 +207,9 @@ export const CATEGORIES = [
     // `briefcase` carries a lookahead since 25 Oct 2026 (2.2.0): `briefcase-medical` is the first-aid
     // kit, filed in Health.
     match:
-      /^(shopping-|handbag|briefcase(?!-medical)|receipt|tag|package|box$|truck|gift|coupon|(badge-)?percent|store|shirt$|paper-bag$|container$|glasses$|sunglasses$|weight(-tilde)?$)/,
+      /^(shopping-|handbag|briefcase(?!-medical)|receipt|tag|package|box$|truck|gift|coupon|(badge-)?percent|store|shirt$|paper-bag$|container$|glasses$|sunglasses$|weight(-tilde)?$|luggage$|concierge-bell$)/,
     blurb:
-      "Carts, bags, a paper bag, receipts, shipping and its container, the weights a parcel is sold by, the shopfront, a shirt, the tags and the discount marks.",
+      "Carts, bags and luggage, a paper bag, receipts, shipping and its container, the weights a parcel is sold by, the shopfront and the bell on its counter, a shirt, the tags and the discount marks.",
   },
   {
     // `flag` and `traffic-light` are both road furniture: a marker you plant
@@ -228,8 +228,8 @@ export const CATEGORIES = [
     // Joined on 25 Oct 2026 (2.2.0): the cone and the barrier that close a road, beside its lights; the
     // factory beside the buildings; the crosshair beside the locate marks it is drawn like; the footprints,
     // a trail someone walked. `route` carries a lookahead so `router` falls through to Devices.
-    match: /^(map|compass|locate(-fixed)?$|building|landmark$|route(?!r)|radar|flag(-swallowtail|-triangle-right)?$|traffic-light|traffic-cone$|construction$|milestone$|anchor(-|$)|directions$|factory$|crosshair$|footprints$)/,
-    blurb: "Pins, maps, compasses, the locate marks and the crosshair, routes, footprints, the radar, the buildings, a factory and a landmark, flags, a milestone, the lights at the junction, the cone and the barrier of road works and two anchors.",
+    match: /^(map|compass|locate(-fixed)?$|building|landmark$|route(?!r)|radar|flag(-swallowtail|-triangle-right)?$|traffic-light|traffic-cone$|construction$|milestone$|anchor(-|$)|directions$|factory$|crosshair$|footprints$|barn$|castle$|lighthouse$|tent$)/,
+    blurb: "Pins, maps, compasses, the locate marks and the crosshair, routes, footprints, the radar, the buildings, a factory, a barn, a castle and a landmark, a lighthouse, a tent, flags, a milestone, the lights at the junction, the cone and the barrier of road works and two anchors.",
   },
   // Opened 11 Sep 2026 with the seven of batch C, the first time the set has
   // drawn the inside of a building rather than its outline. The `home` icon
@@ -237,8 +237,11 @@ export const CATEGORIES = [
   // me back", where this shelf is the furniture and the fabric.
   {
     label: "Home",
-    match: /^(bed|sofa|door|brick-wall)/,
-    blurb: "Beds, seating, doors and the wall behind them.",
+    // The 2.3.0 stays batch (30 Oct 2026) moved in what a room is fitted with: the bath, the shower and the
+    // soap, the kitchen and laundry machines, an air vent and the safe. `microwave` must match here before
+    // Media's `mic` prefix takes it, and the pump bottle before Food & Drink's `bottle`: soap, not a drink.
+    match: /^(bed|sofa|door|brick-wall|bath$|shower-head$|soap-dispenser|bottle-pump$|spray-can$|washing-machine$|refrigerator$|microwave$|oven$|air-vent$|vault$)/,
+    blurb: "Beds, seating, doors and the wall behind them, the bath, the shower and the soap, a pump bottle and a spray can, the fridge, the oven, the microwave and the washing machine, an air vent and a safe.",
   },
   {
     // Ahead of Layout, whose `list` prefix would otherwise claim `list-music`.
@@ -333,8 +336,8 @@ export const CATEGORIES = [
     // the stack they redraw.
     label: "Text",
     match:
-      /^(bold|italic|underline|strikethrough|heading|pilcrow|indent|letter-|line-height|text-|type$|quote|language|slash$|align-(?:left|center|right|justify)(?:-2)?$|case-(sensitive|upper)$|a-arrow-(?:up|down)$|spell-check$|type-outline$|whole-word$|input(-|$)|compact$|ampersand$|accent-grave$|colon$|semicolon$|comma$|hyphen$|pipe$|tilde$)/,
-    blurb: "The quotation marks and the punctuation, the formatting marks, the case marks with the text-size arrows and the spell check, the slash, the alignment stack and what sets a paragraph.",
+      /^(bold|italic|underline|strikethrough|heading|pilcrow|indent|letter-|line-height|text-|type$|quote|language|slash$|align-(?:left|center|right|justify)(?:-2)?$|case-(sensitive|upper)$|a-(?:arrow-(?:up|down)|text-cursor)$|spell-check$|type-outline$|whole-word$|input(-|$)|compact$|ampersand$|accent-grave$|colon$|semicolon$|comma$|hyphen$|pipe$|tilde$)/,
+    blurb: "The quotation marks and the punctuation, the formatting marks, the case marks with the text-size arrows, the letter at the cursor and the spell check, the slash, the alignment stack and what sets a paragraph.",
   },
   {
     label: "Layout",
@@ -357,8 +360,8 @@ export const CATEGORIES = [
   {
     label: "Users",
     // `scan-user` joined on 20 Oct 2026 (2.1.0): scan-face's frame round a user, beside it.
-    match: /^(user|scan-(?:face|user)|contacts$|id-(?:card|badge)$|accessibility$|fingerprint-pattern$|hat-glasses$)/,
-    blurb: "People, accounts, contacts, the ID card, a fingerprint, the incognito hat, the accessibility figure and the signs that badge them.",
+    match: /^(user|scan-(?:face|user)|contacts$|id-(?:card|badge)$|accessibility$|wheelchair$|fingerprint-pattern$|hat-glasses$)/,
+    blurb: "People, accounts, contacts, the ID card, a fingerprint, the incognito hat, the accessibility figure, the wheelchair and the signs that badge them.",
   },
   // Opened 14 Sep 2026 with the six faces of 1.0.0. NOT Users: `user` is an
   // account, a silhouette standing for whoever signs in, and these are drawn
@@ -473,8 +476,8 @@ export const CATEGORIES = [
     label: "Health",
     // Joined on 25 Oct 2026 (2.2.0): the skull and the bone with its fracture, beside the brain and
     // the lungs, and the first-aid kit.
-    match: /^(brain$|lungs|ear(-|$)|heart-pulse$|pill$|bandage$|syringe$|stethoscope$|thermometer$|skull$|bone(-fractured)?$|briefcase-medical$)/,
-    blurb: "The brain, the lungs, the skull, a bone whole and broken, the ear and what it hears, the heart's pulse, a pill, a plaster, a syringe, the stethoscope, the clinical thermometer and the first-aid kit.",
+    match: /^(brain$|lungs|ear(-|$)|heart-pulse$|pill$|bandage$|syringe$|stethoscope$|thermometer$|skull$|bone(-fractured)?$|briefcase-medical$|cigarette(-off)?$)/,
+    blurb: "The brain, the lungs, the skull, a bone whole and broken, the ear and what it hears, the heart's pulse, a pill, a plaster, a syringe, the stethoscope, the clinical thermometer, the first-aid kit and the cigarette, with its off state.",
   },
   {
     // `crown` is what a winner gets, so it sits with the trophy rather than
@@ -487,8 +490,8 @@ export const CATEGORIES = [
     // `target` joined on 1 Oct 2026 (1.5.0): the archer's and the darts player's
     // board, a goal hit, beside the trophies. Anchored, so it takes its own name.
     // `chess-rook` and `dumbbell` joined on 25 Oct 2026 (2.2.0): a board game's piece and the gym's weight.
-    match: /^(trophy|award|podium|medal|crown|flag-chequered|american-football|baseball|basketball|cricket|golf|hockey|soccer|tennis|target$|chess-|dumbbell$)/,
-    blurb: "Trophies, awards, crowns and the places on the podium, the balls of five games, a cricket bat, hockey sticks, a golf hole, a target, a chess rook and a dumbbell.",
+    match: /^(trophy|award|podium|medal|crown|flag-chequered|american-football|baseball|basketball|cricket|golf|hockey|soccer|tennis|target$|chess-|dumbbell$|ski$|waves-ladder$)/,
+    blurb: "Trophies, awards, crowns and the places on the podium, the balls of five games, a cricket bat, hockey sticks, a golf hole, a target, a chess rook, a dumbbell, a skier and the pool's ladder.",
   },
   {
     // The four of them are the objects, not the act of eating: a mug, a cake, a
@@ -497,8 +500,10 @@ export const CATEGORIES = [
     label: "Food & Drink",
     // `cookie`, `hamburger` and `pizza` joined on 25 Oct 2026 (2.2.0). `hamburger` stays a search word
     // for `menu` too, where it means the three bars.
-    match: /^(coffee|cake|soup|bottle|cookie$|hamburger$|pizza$)/,
-    blurb: "The mug, the cake, the bowl, the bottle, a cookie, a burger and a slice of pizza.",
+    // `cooking-pot` and `grill` joined with the 2.3.0 stays batch: what the food is cooked in, beside the bowl it
+    // is served in. The coffee maker and its pot came in on the `coffee` prefix.
+    match: /^(coffee|cake|soup|bottle|cookie$|hamburger$|pizza$|cooking-pot$|grill$)/,
+    blurb: "The mug, the coffee maker and its pot, the cake, the bowl, a cooking pot, a grill, the bottle, a cookie, a burger and a slice of pizza.",
   },
   {
     // Ahead of Tools, which would otherwise be the shelf a brush and a roller
@@ -595,8 +600,10 @@ export const CATEGORIES = [
     label: "Transport",
     // `bus` and `tram` joined on 25 Oct 2026 (2.2.0) with the taxi and the off state of every vehicle
     // that can carry one; `truck-off` stays with `truck` in Commerce.
-    match: /^(plane|ship|train|tram|bus|bike|rocket|car)(-|$)/,
-    blurb: "The vehicles: plane and its two states, ship, train, tram, bus, bike, car, taxi and the rocket, with their off states.",
+    // The 2.3.0 stays batch added a caravan, a sailboat and a stroller, each a vehicle, and the charger an
+    // electric car plugs into, as the car's own fuel. `car` is anchored on (-|$), so `caravan` needs its own.
+    match: /^(plane|ship|train|tram|bus|bike|rocket|car|caravan|sailboat|stroller|ev-charger)(-|$)/,
+    blurb: "The vehicles: plane and its two states, ship and a sailboat, train, tram, bus, bike, car, taxi, a caravan, a stroller and the rocket, with their off states, and the charger an electric car plugs into.",
   },
   {
     // The living and falling half of the outdoors, and `wind-turbine` with it:

@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Bath({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2.988 10.0001C2.992 10 2.996 10 3 10L21 10C21.004 10 21.008 10 21.012 10.0001L22 10.0001C22.5523 10.0001 23 10.4478 23 11.0001C23 11.5524 22.5523 12.0001 22 12.0001L22 15C22 17.7614 19.7614 20 17 20L7 20C4.2386 20 2 17.7614 2 15L2 12.0001C1.4477 12.0001 1 11.5523 1 11.0001C1 10.4478 1.4477 10.0001 2 10.0001L2.988 10.0001Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M3 11L3 6C3 4.3431 4.3431 3 6 3C7.0463 3 8.0169 3.5451 8.5615 4.4384M7.5 5.5L10 3M8 19L7 21M16 19L17 21" fill="none"/>
+    </svg>
+  )
+}

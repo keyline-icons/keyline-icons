@@ -307,6 +307,14 @@ const SIZE_KNOWN = new Set([
   // landscape building, 22 by 20, that the classifier takes for a square. rocket-off is rocket's 22
   // under the slash, and the slash's corners are what make the pair read as a square.
   'alarm-clock-x', 'octagon-minus', 'skull', 'factory', 'rocket-off',
+  // 2.3.0, his stays drawings, which read as squares only because a thin part reaches a corner. The
+  // microwave's body is the house's 22 x 18 rectangle with its feet below, and the sharp half's
+  // square corners sit within the classifier's reach of the box corners (the table ops' reason). The
+  // charger's post is 12 by 20; its plug's prongs and the ground's end put ink in the right-hand
+  // corners. The lighthouse's tower is 10 wide; its beams fill the corners, and each keeps the house
+  // 2 off the gallery only at 22. The coffee maker is an open frame, head and stand, round his carafe,
+  // which leaves no unit to give back without redrawing the carafe.
+  'microwave', 'ev-charger', 'lighthouse', 'coffee-maker',
 ]);
 /**
  * Drawings of a real product, which keep the product's proportions and radii
@@ -505,6 +513,10 @@ const GAP_TOL = 0.02;
  */
 const CORNER_RADII = [0.5, 1, 1.5, 2, 3, 4, 5];
 const RADIUS_TOL = 0.05;
+/** Corners a style derives from the stroke drawing's painted contour rather than draws; see the RADIUS rule. */
+const DERIVED_RADII = {
+  caravan: [2.5], cigarette: [2.5], 'cigarette-off': [2.5], 'ev-charger': [2.5], vault: [2.5], 'coffee-pot': [4.58],
+};
 
 /**
  * Dot sizes, in painted diameter. The radius ladder's counterpart for circles.
@@ -1161,6 +1173,12 @@ async function main() {
           // unit, which lands the low corners on 2.5 — the level solids' number
           // and the level solids' reason. (2026-09-09, his redrawn skyline.)
           if (style !== 'stroke' && name === 'buildings' && Math.abs(radius - 2.5) <= RADIUS_TOL)
+            continue;
+          // The 2.3.0 stays drawings take their duotone and fill bodies off the same painted contour,
+          // so their r=1.5 corners (the caravan's window, the cigarette's tip, the charger's plug, the
+          // vault's door) land on 2.5, and the coffee pot's foot, his own 3.58 bend, on 4.58.
+          // Buildings' reason. (2026-10-30, the graduation check.)
+          if (style !== 'stroke' && DERIVED_RADII[name]?.some((r) => Math.abs(radius - r) <= RADIUS_TOL))
             continue;
           const near = CORNER_RADII.reduce((a, b) => (Math.abs(b - radius) < Math.abs(a - radius) ? b : a));
           if (Math.abs(near - radius) > RADIUS_TOL) offLadder.add(radius.toFixed(2));
