@@ -7672,7 +7672,335 @@ const RELEASE_2_2_0: BlogPost = {
   ],
 }
 
+export const BLOG_V230_THUMBNAIL_ICON_NAMES = [
+  "bath",
+  "washing-machine",
+  "castle",
+  "sailboat",
+  "coffee-maker",
+  "luggage",
+  "refrigerator",
+  "tent",
+  "concierge-bell",
+  "caravan",
+  "shower-head",
+  "lighthouse",
+  "oven",
+  "ski",
+  "grill",
+  "microwave",
+  "ev-charger",
+  "vault",
+  "stroller",
+  "cooking-pot",
+  "soap-dispenser-droplet",
+  "barn",
+  "wheelchair",
+  "waves-ladder",
+  "air-vent",
+  "coffee-pot",
+  "cigarette",
+  "bottle-pump",
+  "a-text-cursor",
+  "cigarette-off",
+  "spray-can",
+] as const
+
+export const BLOG_V230_HERO_ICON_NAMES = [
+  "bath",
+  "washing-machine",
+  "coffee-maker",
+  "castle",
+  "sailboat",
+  "luggage",
+  "tent",
+  "concierge-bell",
+] as const
+
+export const BLOG_V230_AMENITY_ICON_NAMES = [
+  "bath",
+  "shower-head",
+  "bottle-pump",
+  "soap-dispenser-droplet",
+  "refrigerator",
+  "oven",
+  "microwave",
+  "cooking-pot",
+  "coffee-maker",
+  "coffee-pot",
+  "washing-machine",
+  "spray-can",
+  "air-vent",
+  "wifi",
+  "tv",
+  "vault",
+  "waves-ladder",
+  "grill",
+  "ev-charger",
+  "car",
+  "cigarette",
+  "cigarette-off",
+  "paw-print",
+  "wheelchair",
+  "concierge-bell",
+] as const
+
+export const BLOG_V230_BOX_ICON_NAMES = [
+  "refrigerator",
+  "oven",
+  "microwave",
+  "washing-machine",
+  "vault",
+] as const
+
+export const BLOG_V230_TRIP_ICON_NAMES = [
+  "luggage",
+  "caravan",
+  "sailboat",
+  "stroller",
+  "tent",
+  "barn",
+  "castle",
+  "lighthouse",
+  "ski",
+  "a-text-cursor",
+] as const
+
+const RELEASE_2_3_0: BlogPost = {
+  /* The subject leads, then "free", "React", "shadcn/ui" and "Figma". With
+     the `v2.3.0: ` prefix the earlier order put "hotel amenities" past the
+     60 or so characters a search result shows, behind words the five posts
+     before it open with too. Kitchens and travel are in the description. The
+     slug names the drawings, not the version. React goes before shadcn/ui
+     so the card does not break the line at the slash. */
+  slug: "hotel-amenities-kitchen-and-travel-icons",
+  version: "2.3.0",
+  title: "31 free hotel amenity icons for React, shadcn/ui and Figma",
+  description:
+    "1,654 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
+    "the bath and shower, kitchen and laundry machines, a safe, a caravan, a " +
+    "tent and a castle.",
+  standfirst: "Drawn off the amenity lists of two booking sites, one gap at a time.",
+  date: "2026-10-30",
+  updated: "2026-10-30",
+  readingMinutes: 4,
+  thumbnail: BLOG_V230_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "hotel amenities icons",
+    "amenities icons",
+    "bath icon",
+    "shower icon",
+    "soap dispenser icon",
+    "fridge icon",
+    "oven icon",
+    "microwave icon",
+    "washing machine icon",
+    "air conditioning icon",
+    "safe icon",
+    "swimming pool icon",
+    "luggage icon",
+    "caravan icon",
+    "sailboat icon",
+    "stroller icon",
+    "ev charger icon",
+    "castle icon",
+    "lighthouse icon",
+    "tent icon",
+    "no smoking icon",
+    "wheelchair icon",
+    "free svg icons",
+    "shadcn/ui icons",
+    "figma icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "A booking site shows what a place offers as a row of small icons, " +
+        "and the row runs long: the bath and the shower, the kitchen, the " +
+        "washer, air conditioning, a safe, whether you can smoke. Until now " +
+        "this set could draw the wifi and the parking and stopped well short " +
+        "of the bathroom. This update brings 31 new icons. Most fill in the " +
+        "rest of that row, and the others are for getting there and what to " +
+        "see: a suitcase, a caravan, a tent, a castle.",
+    },
+    {
+      kind: "p",
+      text:
+        "That takes the set to 1,654 icons. Each comes in stroke, two-tone, " +
+        "duotone and fill, with rounded or sharp corners: 13,232 SVGs in all.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V230_HERO_ICON_NAMES,
+        caption: "Eight of the thirty-one in all four styles.",
+      },
+    },
+
+    { kind: "h2", text: "The whole amenities row", id: "amenities" },
+    {
+      kind: "p",
+      text:
+        "Here's the row the way a listing groups it, with the icon for each, " +
+        "the new ones and the ones the set already had side by side. A whole " +
+        "amenities section now comes from one set.",
+    },
+    {
+      kind: "list",
+      items: [
+        "Bathroom: `bath`, `shower-head`, `bottle-pump` for the shampoo and " +
+          "`soap-dispenser-droplet` for hand soap.",
+        "Kitchen: `refrigerator`, `oven`, `microwave`, `cooking-pot`, and " +
+          "`coffee-maker`, whose carafe also comes on its own as `coffee-pot`.",
+        "Laundry and cleaning: `washing-machine` and `spray-can`.",
+        "Comfort: `air-vent` for air conditioning, with `wifi` and `tv`.",
+        "Safety: `vault` for the safe in the wardrobe, beside " +
+          "`fire-extinguisher`, `briefcase-medical` for the first aid kit, " +
+          "and `cctv`.",
+        "Outside: `waves-ladder` for the pool, `grill` for the barbecue, " +
+          "`ev-charger`, and `car` for parking.",
+        "House rules: `cigarette` and `cigarette-off`, drawn at the same " +
+          "size so one can replace the other without the row shifting, and " +
+          "`paw-print` for pets.",
+        "Access and service: `wheelchair` for a step-free entrance, " +
+          "`concierge-bell` for the front desk and `luggage` for bag storage.",
+      ],
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V230_AMENITY_ICON_NAMES,
+        caption:
+          "Twenty-one new icons and four that were already here, in the " +
+          "order a listing reads.",
+      },
+    },
+
+    { kind: "h2", text: "A safe used to be a padlock", id: "search" },
+    {
+      kind: "p",
+      text:
+        "Until this update, searching this site for a safe found `lock`, a " +
+        "padlock, because that was the closest thing the set had. Searching " +
+        "for a castle found the chess rook. Both were fair guesses, and both " +
+        "were wrong on a listing: a padlock says the door locks, not that " +
+        "there's a safe in the wardrobe.",
+    },
+    {
+      kind: "p",
+      text:
+        "Now each word finds its own drawing, and `chess-rook` is just a " +
+        "chess piece again. The new names follow the most widely used open " +
+        "icon set, so the safe is `vault`, air conditioning is `air-vent`, " +
+        "the pool is `waves-ladder` and the suitcase is `luggage`. Code " +
+        "moving over from that set keeps its icon names, and search here " +
+        "still answers to the everyday word.",
+    },
+
+    { kind: "h2", text: "Five boxes, four sizes", id: "boxes" },
+    {
+      kind: "p",
+      text:
+        "Five of the new icons are rounded boxes: the fridge, the oven, the " +
+        "microwave, the washing machine and the safe. At 16 pixels the small " +
+        "details are the first thing to go, so the outline has to do most of " +
+        "the work of telling them apart.",
+    },
+    {
+      kind: "p",
+      text:
+        "The set already has a size for each kind of box, measured off the " +
+        "boxes it had drawn before. At the full 24 pixels, a square box is " +
+        "20 across, a tall one is 18 by 22, a narrow tall one 16 by 22, and " +
+        "a wide one 22 by 18. These five use four of those sizes: the fridge " +
+        "is the narrow one, the oven and the washing machine are tall, the " +
+        "microwave is wide and stands on two feet, and the safe is the only " +
+        "true square.",
+    },
+    {
+      kind: "note",
+      text:
+        "A box that's only a little off square doesn't read as a new shape. " +
+        "It reads as a square drawn too big.",
+    },
+    {
+      kind: "p",
+      text:
+        "That rule keeps the washing machine at 18 wide rather than a nearly " +
+        "square 20, which costs it a button: the panel along the top has room " +
+        "for one button and the dial, not two. Inside, each box keeps one detail of its own: the fridge's two " +
+        "doors, the oven's row of knobs, the microwave's window pushed to " +
+        "one side by its buttons, the washing machine's drum and the safe's " +
+        "door on its hinges. In duotone that detail is black on a grey body, " +
+        "and in fill it's cut out of the solid, so the five stay apart in " +
+        "every style.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V230_BOX_ICON_NAMES,
+        caption: "From the narrow fridge to the square safe, stroke to fill.",
+      },
+    },
+
+    { kind: "h2", text: "Getting there, and somewhere to go", id: "trip" },
+    {
+      kind: "p",
+      text:
+        "`luggage`, `caravan`, `sailboat` and `stroller` join the plane, the " +
+        "bus, the taxi and the bike the set already had. For the stay " +
+        "itself there's a `tent`, a `barn`, a `castle` and a `lighthouse`, " +
+        "whether the listing is one or sits near one, and `ski` for a resort.",
+    },
+    {
+      kind: "p",
+      text:
+        "One new icon has nothing to do with travel. `a-text-cursor` puts a " +
+        "capital A beside the text cursor, for a text field or a tool that " +
+        "adds text.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V230_TRIP_ICON_NAMES,
+        caption:
+          "Four ways to get there, four places to stay or visit, the slopes, " +
+          "and a letter at the cursor.",
+      },
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text:
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui " +
+        "registry, the CLI, the MCP server, and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
+  RELEASE_2_3_0,
   RELEASE_2_2_0,
   RELEASE_2_1_0,
   RELEASE_2_0_0,
