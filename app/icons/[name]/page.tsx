@@ -483,7 +483,7 @@ export default async function Page({
           */}
           <Section
             title="FAQ"
-            description={`Answered from ${icon.name}'s own facts: its shelf, the weights it was drawn in, its siblings and its dates.`}
+            description={`Answered from ${icon.name}'s own facts: its shelf, the styles it was drawn in, its siblings and its dates.`}
           >
             <Faq items={faq} />
 

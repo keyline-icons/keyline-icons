@@ -158,7 +158,7 @@ export function homeFaq({
       question: `What is the difference between the rounded and sharp icons?`,
       answer:
         `Only the corners and the stroke caps. All ${total.toLocaleString("en-US")} drawings are cut both ways, in every ` +
-        `weight they carry, so the two are one set with a switch on it rather than two sets: same ` +
+        `style they carry, so the two are one set with a switch on it rather than two sets: same ` +
         `names, same 24×24 grid, same coverage in stroke, two-tone, duotone and fill. Rounded takes a radius ` +
         `off one ladder at every corner and ends each stroke round; sharp takes every corner to a ` +
         `true point and squares every cap. The ink reaches exactly as far either way, so nothing in ` +

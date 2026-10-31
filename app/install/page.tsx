@@ -511,8 +511,8 @@ import { Folder } from "@keyline-icons/react-native/duotone"
               </a>{" "}
               as <code>{ICONIFY_PREFIX}</code>, all {published.toLocaleString()}{" "}
               drawings, which is how every framework without a package here gets
-              it. Iconify re-imports from the repository, so it carries whatever
-              the last release drew.
+              it. Iconify updates after it re-imports a release from the
+              repository, so it can lag behind the latest one.
             </p>
             <Code>{`npm i @iconify/vue      # Vue 3
 npm i @iconify/svelte   # Svelte 5`}</Code>
@@ -531,7 +531,7 @@ import Icon from "@iconify/svelte"    // default
 <Icon icon="${ICONIFY_PREFIX}:bell-sharp-two-tone" />`}</Code>
             <p>
               Names carry the style rather than the path doing it, which is
-              Iconify&apos;s convention for a set with weights and not a choice
+              Iconify&apos;s convention for a set with styles and not a choice
               made here: stroke is the bare name, and everything else is a
               suffix on it. <code>-two-tone</code>, <code>-duotone</code>,{" "}
               <code>-fill</code>, <code>-sharp</code>,{" "}

@@ -473,7 +473,7 @@ export default async function Page() {
                 },
                 {
                   name: weightGlyph,
-                  lead: `${STYLES.length} weights`,
+                  lead: `${STYLES.length} styles`,
                   // The file count, kept as the clause it always was. Dropping
                   // its tile is not the same as dropping the fact, and it reads
                   // as a consequence here rather than as a score.
@@ -546,7 +546,7 @@ export default async function Page() {
               what shows them; the sentence says they exist before anyone has
               touched it.
             */
-            lead="Stroke is the drawing; the other two are derived from it, and every one of them is cut both rounded and sharp. A family stays recognisable whichever weight a surface calls for."
+            lead="Stroke is the drawing; the other three are derived from it, and every one of them is cut both rounded and sharp. A family stays recognisable whichever style a surface calls for."
           />
 
           {/*
@@ -647,7 +647,7 @@ export default async function Page() {
               lead that lists the evidence for the sentence before it is a lead
               doing the section's job for it.
             */
-            lead={`All ${total.toLocaleString("en-US")} drawings are cut both ways, in every weight they carry, so this is a switch over the set rather than a second set beside it.`}
+            lead={`All ${total.toLocaleString("en-US")} drawings are cut both ways, in every style they carry, so this is a switch over the set rather than a second set beside it.`}
           />
 
           <div className="mt-10 lg:mt-12">

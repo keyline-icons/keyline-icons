@@ -563,8 +563,8 @@ export function MobileShowcase({
             </div>
 
             <p className="mt-6 border-t pt-4 text-xs leading-relaxed text-muted-foreground">
-              Not every glyph has a duotone or fill drawing yet. Those fall back
-              to stroke instead of disappearing, so a style switch can never
+              Not every glyph has a duotone or fill drawing. Those fall back to
+              stroke instead of disappearing, so a style switch can never
               leave a hole in the UI. Corners are not like that: every drawing
               is cut both ways, so nothing falls back when you square them.
             </p>

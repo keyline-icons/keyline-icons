@@ -113,7 +113,7 @@ Browse the set the way the site files it, shelf by shelf, with every shelf a cli
 
 Click an icon, or drag it to exactly where it should go, at 16, 20, 24 or 32. In a design file it arrives as a square frame, which is what makes a row of icons line up. In FigJam it arrives as a group, so FigJam's colour control reaches the drawing instead of painting a box around it. Double-click into one and every path takes its own colour, which is how a gift gets a red box and a yellow bow, and how duotone keeps both of its tones.
 
-Every drawing sits on one 24 × 24 grid with a shared keyline, so icons of different weights still read as one family at the same size.
+Every drawing sits on one 24 × 24 grid with a shared keyline, so icons of different styles still read as one family at the same size.
 
 MIT licensed. The set, the site and this plugin are all open source.
 

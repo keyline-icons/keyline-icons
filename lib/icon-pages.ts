@@ -356,7 +356,7 @@ export function iconFaq(icon: BrowserIcon, all: BrowserIcon[]): IconQuestion[] {
           ? `All four: stroke, two-tone, duotone and fill. They are drawn from the same geometry, so swapping style never moves anything.`
           : `${listOf(styles.map((style, at) => (at === 0 ? `${style[0].toUpperCase()}${style.slice(1)}` : style)))}. ` +
             `There ${missing.length > 1 ? "are" : "is"} no ${norListOf(missing)} ` +
-            `drawing${missing.length > 1 ? "s" : ""} of this one: a filled weight needs an enclosed area, ` +
+            `drawing${missing.length > 1 ? "s" : ""} of this one: a filled style needs an enclosed area, ` +
             `either in the glyph itself or from a square or circle container.`,
     },
     containerQuestion(icon, family),
@@ -396,7 +396,7 @@ export function iconFaq(icon: BrowserIcon, all: BrowserIcon[]): IconQuestion[] {
     {
       question: `How do I import ${name} in React?`,
       answer:
-        `<${componentName(name)} /> is the component, and the weight decides the module: ` +
+        `<${componentName(name)} /> is the component, and the style decides the module: ` +
         `${listOf(styles.map((style) => `${style} from "${importPath(style)}"`))}. ` +
         `It takes the usual SVG props plus a size, so <${componentName(name)} size={16} /> ` +
         `and className="size-4" both work, and there is no provider or theme to set up.`,
