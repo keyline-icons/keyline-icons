@@ -8026,7 +8026,333 @@ const RELEASE_2_3_0: BlogPost = {
   ],
 }
 
+/* The card's six first, then the icons shadcn/ui's own components import,
+   which is the set a swap has to cover before anything else. */
+export const BLOG_SWAP_THUMBNAIL_ICON_NAMES = [
+  "bell",
+  "house",
+  "inbox",
+  "calendar",
+  "search",
+  "settings",
+  "check",
+  "x",
+  "chevron-down",
+  "chevron-up",
+  "chevron-left",
+  "chevron-right",
+  "circle",
+  "more-horizontal",
+  "minus",
+  "grip-vertical",
+  "panel-left",
+  "loader-circle",
+  "circle-check",
+  "info",
+  "octagon-x",
+  "triangle-alert",
+  "arrow-left",
+  "arrow-right",
+  "user",
+  "plus",
+  "menu",
+  "bin",
+  "bin-2",
+  "credit-card",
+  "mail",
+  "star",
+  "heart",
+  "copy",
+  "eye",
+  "log-out",
+  "sun",
+  "moon",
+] as const
+
+export const BLOG_SWAP_STYLES_ICON_NAMES = [
+  "bell",
+  "calendar",
+  "house",
+  "inbox",
+  "settings",
+  "credit-card",
+] as const
+
+const LUCIDE_ALTERNATIVES: BlogPost = {
+  /* Not a release post, so no `version`: the title carries the search a
+     reader types, and the post answers it before it argues anything. Every
+     claim about another set comes from its own README or site, dated in the
+     text; every claim about shadcn/ui from its component source. */
+  slug: "lucide-alternatives-shadcn-ui",
+  title: "Lucide alternatives for shadcn/ui, and what breaks when you swap",
+  description:
+    "Tabler, Phosphor, Heroicons and Keyline compared for shadcn/ui, with the " +
+    "import swap and the two sizing rules that override icons in Button and " +
+    "Sidebar.",
+  standfirst:
+    "Checked against shadcn's component source and each set's own README, October 2026.",
+  date: "2026-10-31",
+  updated: "2026-10-31",
+  readingMinutes: 4,
+  thumbnail: BLOG_SWAP_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "lucide alternative",
+    "lucide alternative shadcn/ui",
+    "replace lucide-react",
+    "shadcn/ui icons",
+    "shadcn icon library",
+    "filled icons for shadcn/ui",
+    "tabler icons",
+    "phosphor icons",
+    "heroicons",
+    "free svg icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "If you want off Lucide in a shadcn/ui project, pick a set drawn on the " +
+        "same 24×24 grid with a 2px stroke. Tabler Icons and Keyline Icons both " +
+        "are, so your components keep their spacing and the change is mostly an " +
+        "import path. Pick Phosphor for several weights of one drawing, and " +
+        "Heroicons for the Tailwind look, if a smaller set will do.",
+    },
+    {
+      kind: "p",
+      text:
+        "Keyline is this site's own set, so its weak spots are listed here like " +
+        "everyone else's.",
+    },
+
+    { kind: "h2", text: "Four sets that fit", id: "compared" },
+    {
+      kind: "table",
+      head: ["Set", "Grid and stroke", "Styles", "Icons", "React package"],
+      rows: [
+        ["Lucide", "24×24, 2px", "Outline", "2,015", "`lucide-react`"],
+        [
+          "Tabler Icons",
+          "24×24, 2px",
+          "Outline, and filled for 1,054",
+          "6,257",
+          "`@tabler/icons-react`",
+        ],
+        [
+          "Phosphor",
+          "Its own grid",
+          "Six weights, from thin to duotone",
+          "1,200+",
+          "`@phosphor-icons/react`",
+        ],
+        [
+          "Heroicons",
+          "24 outline and solid, 20 and 16 solid",
+          "Outline, solid",
+          "316",
+          "`@heroicons/react`",
+        ],
+        [
+          "Keyline Icons",
+          "24×24, 2px",
+          "Stroke, two-tone, duotone and fill, each rounded and sharp",
+          "1,654",
+          "`@keyline-icons/react`",
+        ],
+      ],
+    },
+    {
+      kind: "p",
+      text:
+        "Counts are from each project's site or README in October 2026. All " +
+        "five are free for commercial use: Lucide under ISC, the rest under MIT.",
+    },
+    {
+      kind: "list",
+      items: [
+        "Tabler matches the geometry and is by far the biggest. Only 1,054 of " +
+          "its icons have a filled version, so check yours before counting on " +
+          "filled active states. The stroke prop is `stroke`, not " +
+          "`strokeWidth`, and names are prefixed: `IconBell`.",
+        "Phosphor is the one for weights, picked with a `weight` prop. Install " +
+          "`@phosphor-icons/react`, not the old `phosphor-react`, and import " +
+          "from `@phosphor-icons/react/ssr` in Server Components. It draws " +
+          "rounder than the rest.",
+        "Heroicons draws its 16 and 20 pixel solid sets at those sizes rather " +
+          "than scaling them down, which is its best feature. The set is small " +
+          "and closed to new icon requests.",
+        "Keyline has every icon in four styles, each with rounded or sharp " +
+          "corners: eight versions of every name, none missing. It's young, out " +
+          "of beta since September 2026, and a quarter the size of Tabler, so " +
+          "check coverage first if your product spans niche areas.",
+      ],
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_SWAP_STYLES_ICON_NAMES,
+        caption: "Six of Keyline's icons in its four styles. Each also comes with sharp corners.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "People usually leave Lucide for one of three reasons: no filled style " +
+        "to mark a selected item, a product that looks like every other shadcn " +
+        "app, or an icon it doesn't have. Borrowing that one icon from another " +
+        "set is how two stroke weights end up on one screen.",
+    },
+    {
+      kind: "note",
+      text: "If none of the three is yours, stay. Lucide is good.",
+    },
+
+    { kind: "h2", text: "The swap is an import path", id: "swap" },
+    {
+      kind: "p",
+      text:
+        "shadcn copies its components into your repo, so the imports to change " +
+        "live in your own files, `components/ui/` included.",
+    },
+    {
+      kind: "code",
+      code:
+        `grep -rn --exclude-dir=node_modules 'from "lucide-react"' .\n` +
+        `npm i @keyline-icons/react`,
+    },
+    {
+      kind: "code",
+      code:
+        `- import { Check, Menu } from "lucide-react"\n` +
+        `+ import { Check, Menu } from "@keyline-icons/react"`,
+    },
+    {
+      kind: "p",
+      text:
+        "Every icon shadcn's components import has the same name in Keyline, " +
+        "`CheckIcon` as well as `Check`, with one exception: `Loader2Icon`, the " +
+        "spinner, is `LoaderCircleIcon`. In your own code, the rename you'll " +
+        "meet most is the bin: `Trash` and `Trash2` are `Bin` and `Bin2`. " +
+        "There's no `absoluteStrokeWidth`; the stroke scales with the icon.",
+    },
+    {
+      kind: "p",
+      text:
+        "To own the files instead of adding a dependency, the shadcn CLI copies " +
+        "single icons in as components that import nothing: " +
+        "`npx shadcn add @keyline/bell`.",
+    },
+
+    { kind: "h2", text: "shadcn sizes your icons, not you", id: "sizing" },
+    {
+      kind: "p",
+      text:
+        "This is what catches people after a swap, whichever set they pick. " +
+        "shadcn's components size the SVGs inside them with Tailwind classes, " +
+        "and Button and Sidebar use different rules.",
+    },
+    {
+      kind: "p",
+      text:
+        "Button uses `[&_svg:not([class*='size-'])]:size-4`. Every SVG inside " +
+        "is 16px unless it carries a `size-*` class of its own:",
+    },
+    {
+      kind: "code",
+      code:
+        `<Button>\n` +
+        `  <Plus />                     {/* 16px: the button sized it */}\n` +
+        `  <Plus size={32} />           {/* still 16px: the class beats the attribute */}\n` +
+        `  <Plus className="size-6" />  {/* 24px: the button steps aside */}\n` +
+        `</Button>`,
+    },
+    {
+      kind: "image",
+      src: "/blog/lucide-alternatives-shadcn-ui/button-sizing.png",
+      width: 1000,
+      height: 209,
+      alt:
+        "Three buttons with a Keyline plus icon: 16px by default, still 16px " +
+        "with size 32, and 24px with a size-6 class",
+      caption:
+        "Rendered in Chromium with Button's own selector. The width that " +
+        "`size={32}` writes loses to the class, and a `size-6` class opts out.",
+    },
+    {
+      kind: "p",
+      text:
+        "Sidebar menu buttons use `[&>svg]:size-4` instead, with no way out " +
+        "for your own class. To change icon size there, edit the class in " +
+        "`components/ui/sidebar.tsx`. If an icon won't resize after a swap, " +
+        "it's one of these two rules, not the new set.",
+    },
+
+    { kind: "h2", text: "A selected item needs a second drawing", id: "active" },
+    {
+      kind: "p",
+      text:
+        "A selected nav item reads best as the same icon in a heavier style. " +
+        "That only works when the heavy version is the same drawing, and Lucide " +
+        "has no filled style, so its selected item can only change the " +
+        "background. In Keyline each style is its own import:",
+    },
+    {
+      kind: "code",
+      code:
+        `import { House } from "@keyline-icons/react"\n` +
+        `import { House as HouseFill } from "@keyline-icons/react/fill"\n` +
+        `\n` +
+        `function NavIcon({ active }: { active: boolean }) {\n` +
+        `  const Icon = active ? HouseFill : House\n` +
+        `  return <Icon />\n` +
+        `}`,
+    },
+    {
+      kind: "image",
+      src: "/blog/lucide-alternatives-shadcn-ui/sidebar-before-after.png",
+      width: 1000,
+      height: 439,
+      alt:
+        "Two shadcn sidebars: with Lucide the active Home item only gets a " +
+        "background, with Keyline its house switches to the filled drawing",
+      caption:
+        "The same sidebar on `lucide-react` and on `@keyline-icons/react`. " +
+        "Only the second can switch Home to its fill drawing. Lucide icons " +
+        "© Lucide Icons and Contributors, ISC licence.",
+    },
+    {
+      kind: "p",
+      text:
+        "Phosphor does the same with one prop, " +
+        '`weight={active ? "fill" : "regular"}`, and Tabler with `IconBell` ' +
+        "and `IconBellFilled`, where a filled version exists.",
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/install#lucide",
+      label: "Switch from Lucide",
+      text: "Every name and prop that differs, and the shadcn registry setup.",
+    },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/custom",
+      label: "Custom icons",
+      text: "A family no set covers, drawn on the same grid as the free ones.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
+  LUCIDE_ALTERNATIVES,
   RELEASE_2_3_0,
   RELEASE_2_2_0,
   RELEASE_2_1_0,
