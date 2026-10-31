@@ -150,6 +150,33 @@ export type BlogBlock =
   | { kind: "note"; text: string }
   | { kind: "link"; href: string; label: string; text: string }
   | { kind: "figure"; figure: BlogFigure }
+  /** A snippet, set as `/install` sets one. Copied by eye, so it scrolls. */
+  | { kind: "code"; code: string }
+  /**
+   * A comparison a sentence would bury. Cells read the same backtick grammar
+   * as a paragraph. Kept to five columns or so: a phone scrolls it sideways,
+   * and past that a reader loses which row they are on.
+   */
+  | {
+      kind: "table"
+      head: readonly string[]
+      rows: readonly (readonly string[])[]
+    }
+  /**
+   * A picture that cannot come from `icons/`: another set's drawings, or a
+   * component rendered with one of ours inside it. Never a drawing of this
+   * set on its own, which a `figure` draws live from the files. `src` is a
+   * path under `public/` and the size is the 1x size, so the page reserves
+   * its space before it loads.
+   */
+  | {
+      kind: "image"
+      src: string
+      width: number
+      height: number
+      alt: string
+      caption: string
+    }
 
 export type BlogPost = {
   /**

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react"
+import Image from "next/image"
 import Link from "next/link"
 
 import type { BlogBlock, BlogFigure, BlogPost, DiagnosticRef } from "@/lib/blog"
@@ -13,6 +14,7 @@ import {
   type Redraw,
   type StyleArt,
 } from "@/lib/icons"
+import { CodeBlock } from "@/components/code-block"
 import { Glyph } from "@/components/glyph"
 import { ArrowRight } from "@/components/icons"
 import { prose } from "@/components/prose"
@@ -661,6 +663,71 @@ export async function BlogBody({ post }: { post: BlogPost }) {
             )
           case "figure":
             return figure(block.figure, key)
+          case "code":
+            return <CodeBlock key={key}>{block.code}</CodeBlock>
+          case "table":
+            return (
+              /*
+                Scrolls inside its own box on a phone rather than squeezing
+                five columns into 343px, where a package name wraps into two
+                lines and stops being something you can copy.
+              */
+              <div key={key} className="my-3 overflow-x-auto">
+                <table className="w-full min-w-xl border-collapse text-left text-sm leading-snug">
+                  <thead>
+                    <tr className="border-b">
+                      {block.head.map((cell) => (
+                        <th
+                          key={cell}
+                          scope="col"
+                          className="py-2 pr-4 font-medium text-foreground"
+                        >
+                          {cell}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="text-muted-foreground">
+                    {block.rows.map((row) => (
+                      <tr key={row[0]} className="border-b align-top">
+                        {row.map((cell, j) =>
+                          j === 0 ? (
+                            <th
+                              key={j}
+                              scope="row"
+                              className="py-2 pr-4 font-medium text-foreground"
+                            >
+                              {prose(cell)}
+                            </th>
+                          ) : (
+                            <td
+                              key={j}
+                              className="py-2 pr-4 [&_code]:whitespace-nowrap"
+                            >
+                              {prose(cell)}
+                            </td>
+                          )
+                        )}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )
+          case "image":
+            return (
+              <figure key={key} className="my-8">
+                <Image
+                  src={block.src}
+                  alt={block.alt}
+                  width={block.width}
+                  height={block.height}
+                  sizes="(min-width: 1024px) 720px, 100vw"
+                  className="h-auto w-full rounded-lg border"
+                />
+                <Caption>{prose(block.caption)}</Caption>
+              </figure>
+            )
         }
       })}
     </div>
