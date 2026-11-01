@@ -124,6 +124,16 @@ Need icons drawn for your own product? Custom sets on the same grid, as SVG, Fig
 
 Changelog
 
+2.5.0
+38 new drawings, taking the set to 1,692 names and 13,536 SVGs.
+
+* Home: a couch, a desk and an office desk with drawers, a roller blind, a radiator, a round mirror on a stand, a minibar fridge, a hot tub, a sun lounger and a table under a parasol
+* Food and Weather: a croissant beside a cup of coffee, a can of soda, a spoon and a fork; the sun rising and setting over the sea
+* Off states: the keyboard, the mouse, the server, the earbuds, the repeat and refresh arrows, the flashlight, the wrench, the flag, the locate mark, the bookmark, the oven, the washing machine, the cooking pot, the charging post and the flame, each struck through
+* And more: a bus seen from the front, a tower between lower wings, a pencil across a set square, two bookmarks stacked, a briefcase with an arrow down, and a house and a square with sparkles
+
+Also redrawn: 47 drawings, most of them in duotone, where ten buildings now draw the door as a solid shape that stops short of the ground. Search for transport or transportation now finds every vehicle.
+
 2.3.0
 31 new drawings, taking the set to 1,654 names and 13,232 SVGs.
 
@@ -236,6 +246,18 @@ without a plugin update or a review cycle. A republish is only required when the
 plugin's own code changes, or when the listing copy goes stale, which it does
 every time the counts move. jsDelivr serves the repository, so the drawings have
 to be **pushed** before any of this is true for anyone but you.
+
+### 2.5.0
+
+```
+38 new drawings, taking the set to 1,692 names and 13,536 SVGs: a couch, a desk and an office desk, a roller blind, a radiator, a round mirror, a minibar fridge, a hot tub, a sun lounger and a table under a parasol; a croissant and coffee, a can of soda, a spoon and a fork; the sun rising and setting over the sea; a bus from the front, a tower between lower wings, a pencil across a set square and two bookmarks; and sixteen off states, from the keyboard and the mouse to the oven and the washing machine. 47 drawings were redrawn, most of them in duotone, and transport now finds every vehicle.
+```
+
+**No plugin code changed this time.** The drawings reach the plugin from
+jsDelivr once they are pushed, so this republish is for the listing alone: the
+counts moved at graduation (the tagline, the style bullets, the totals and the
+curated-word count), and the Description gains the 2.5.0 entry. The category
+count stayed at 41.
 
 ### 2.3.0
 
