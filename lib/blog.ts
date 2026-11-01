@@ -619,18 +619,63 @@ export const BLOG_V090_RENAMED_ICON_NAMES = ["hand-heart"] as const
 
 /** All thirty-three of v0.8.0, most recognisable first, then release order. */
 export const BLOG_V080_THUMBNAIL_ICON_NAMES = [
-  "printer", "coffee", "bed", "key", "palette", "film",
-  "keyboard", "calculator", "usb", "usb-drive", "file-code", "file-zip",
-  "folder-search", "eraser", "tape", "bed-single", "bed-double", "sofa",
-  "door", "door-open", "brick-wall", "mars", "venus", "cake", "soup",
-  "bottle", "paintbrush", "paint-roller", "easel", "key-round",
-  "key-square", "coins", "broom",
+  "printer",
+  "keyboard",
+  "palette",
+  "paintbrush",
+  "calculator",
+  "easel",
+  "coffee",
+  "bed",
+  "key",
+  "usb",
+  "usb-drive",
+  "file-code",
+  "file-zip",
+  "folder-search",
+  "eraser",
+  "tape",
+  "bed-single",
+  "bed-double",
+  "sofa",
+  "door",
+  "door-open",
+  "brick-wall",
+  "mars",
+  "venus",
+  "cake",
+  "soup",
+  "bottle",
+  "paint-roller",
+  "key-round",
+  "key-square",
+  "coins",
+  "film",
+  "broom",
 ] as const
 
 /** The ten that sit on a desk, and the shelves they landed on. */
 export const BLOG_V080_DESK_ICON_NAMES = [
-  "printer", "keyboard", "calculator", "usb", "usb-drive",
-  "file-code", "file-zip", "folder-search", "eraser", "tape",
+  "printer",
+  "keyboard",
+  "calculator",
+  "usb",
+  "usb-drive",
+  "eraser",
+  "tape",
+  "file-code",
+  "file-zip",
+  "folder-search",
+  "paintbrush",
+  "paint-roller",
+  "palette",
+  "easel",
+  "coffee",
+  "bed-double",
+  "sofa",
+  "door-open",
+  "key",
+  "broom",
 ] as const
 
 /** The Home shelf. */
@@ -662,90 +707,60 @@ export const BLOG_V080_REDRAWN_ICON_NAMES = [
  * bubble first, its eight companions, then the five singles.
  */
 export const BLOG_V070_THUMBNAIL_ICON_NAMES = [
-  "message-square",
-  "message-square-plus",
-  "message-square-minus",
-  "message-square-check",
-  "message-square-x",
-  "message-square-lines",
-  "message-square-dot",
-  "message-square-off",
-  "messages-square",
-  "qr-code",
-  "scan",
-  "scissors",
-  "hourglass",
-  "scan-line",
-  "scan-text",
-  "scan-barcode",
-  "scan-qr-code",
-  "scan-search",
-  "scan-eye",
-  "search-slash",
-  "slash",
-  "scissors-horizontal",
   "chart-column",
-  "chart-bar",
-  "chart-gantt",
+  "chart-pie",
+  "message-square",
+  "face-smile",
+  "chart-candlestick",
+  "qr-code",
   "chart-line",
-  "chart-spline",
-  "chart-line-increasing",
-  "chart-line-decreasing",
+  "chart-gantt",
+  "badge-check",
+  "thumbs-up",
+  "message-square-plus",
+  "scan-barcode",
   "chart-area",
   "chart-scatter",
-  "chart-candlestick",
-  "chart-pie",
-  "chart-column-big",
-  "chart-column-stacked",
-  "chart-bar-big",
-  "chart-bar-stacked",
-  "chart-network",
-  "chart-diagram",
-  "chart-pyramid",
   "chart-waterfall",
-  "chart-no-axes-combined",
-  "chart-scatter-3d",
   "chart-tree-map",
-  "chart-scatter-bubble",
-  "chart-line-down",
-  "chart-line-up",
-  "diagram-successor",
-  "diagram-predecessor",
-  "diagram-project",
-  "diagram-subtask",
-  "bars-progress",
-  "face-smile",
-  "face-smile-plus",
-  "face-frown",
-  "face-neutral",
-  "face-expressionless",
   "face-laugh",
-  "face-angry",
-  "thumbs-up",
-  "thumbs-down",
+  "messages-square",
+  "scan-qr-code",
+  "chart-bar",
+  "chart-spline",
+  "chart-network",
+  "chart-pyramid",
+  "face-frown",
   "badge",
-  "badge-check",
-  "badge-x",
-  "badge-plus",
-  "badge-minus",
-  "badge-alert",
-  "badge-info",
-  "badge-question",
+  "chart-line-increasing",
+  "message-square-check",
+  "scissors",
+  "hourglass",
+  "chart-bar-stacked",
+  "chart-column-stacked",
+  "chart-scatter-bubble",
+  "face-neutral",
+  "thumbs-down",
+  "message-square-dot",
+  "scan-text",
+  "diagram-project",
+  "chart-line-up",
   "badge-percent",
-  "badge-dollar-sign",
+  "message-square-off",
 ] as const
 
 /** The faces and the two thumbs, on the Emoji shelf. */
 export const BLOG_V070_EMOJI_ICON_NAMES = [
-  "face-smile",
-  "face-smile-plus",
+  "face-angry",
   "face-frown",
   "face-neutral",
-  "face-expressionless",
+  "face-smile",
   "face-laugh",
-  "face-angry",
+  "face-expressionless",
+  "face-smile-plus",
   "thumbs-up",
   "thumbs-down",
+  "badge-check",
 ] as const
 
 /** The badge and its nine signs. */
@@ -764,15 +779,16 @@ export const BLOG_V070_BADGE_ICON_NAMES = [
 
 /** The nine that are one family. */
 export const BLOG_V070_BUBBLE_ICON_NAMES = [
+  "message",
+  "message-dot",
+  "message-off",
+  "messages",
+  "message-plus",
   "message-square",
-  "message-square-plus",
-  "message-square-minus",
-  "message-square-check",
-  "message-square-x",
-  "message-square-lines",
   "message-square-dot",
   "message-square-off",
   "messages-square",
+  "message-square-plus",
 ] as const
 
 /** The same option in the two bodies, round then square, four times over. */
@@ -830,16 +846,26 @@ export const BLOG_V070_AXIS_CHART_ICON_NAMES = [
 
 /** The ten charts, in the order the Charts band files them. */
 export const BLOG_V070_CHART_ICON_NAMES = [
-  "chart-diagram",
-  "chart-pyramid",
-  "chart-waterfall",
-  "chart-no-axes-combined",
-  "chart-scatter-3d",
-  "chart-tree-map",
+  "chart-column",
+  "chart-bar",
+  "chart-column-stacked",
+  "chart-bar-stacked",
+  "chart-line",
+  "chart-spline",
+  "chart-area",
+  "chart-line-increasing",
+  "chart-line-decreasing",
+  "chart-scatter",
   "chart-scatter-bubble",
-  "chart-line-down",
-  "chart-line-up",
-  "bars-progress",
+  "chart-scatter-3d",
+  "chart-candlestick",
+  "chart-waterfall",
+  "chart-pie",
+  "chart-pyramid",
+  "chart-tree-map",
+  "chart-gantt",
+  "chart-network",
+  "chart-diagram",
 ] as const
 
 /** The four diagrams, a shelf of their own. */
@@ -855,17 +881,35 @@ export const BLOG_V070_DIAGRAM_ICON_NAMES = [
  * card reads as a family rather than as six separate arrivals.
  */
 export const BLOG_V060_THUMBNAIL_ICON_NAMES = [
-  "flame",
-  "store",
-  "buildings",
-  "cpu",
-  "graduation-cap",
-  "book",
+  "dollar-sign",
+  "euro",
   "book-open",
+  "store",
+  "circle-pound-sterling",
+  "flame",
+  "japanese-yen",
+  "indian-rupee",
+  "swiss-franc",
+  "bitcoin",
+  "pound-sterling",
+  "wallet",
+  "credit-card-check",
+  "circle-dollar-sign",
+  "circle-euro",
+  "circle-japanese-yen",
+  "circle-indian-rupee",
+  "circle-swiss-franc",
+  "book",
   "book-plus",
   "book-minus",
   "book-check",
   "book-x",
+  "buildings",
+  "cpu",
+  "graduation-cap",
+  "credit-card-plus",
+  "credit-card-minus",
+  "credit-card-x",
 ] as const
 
 /** The four that are one object each, as opposed to the book's six. */
@@ -889,19 +933,21 @@ export const BLOG_V060_CIRCLED_ICON_NAMES = [
 ] as const
 
 export const BLOG_V060_MONEY_ICON_NAMES = [
-  "wallet",
-  "credit-card",
-  "credit-card-plus",
-  "credit-card-minus",
-  "credit-card-check",
-  "credit-card-x",
   "dollar-sign",
   "euro",
   "pound-sterling",
   "japanese-yen",
   "indian-rupee",
+  "circle-dollar-sign",
+  "circle-euro",
+  "circle-pound-sterling",
+  "circle-japanese-yen",
+  "circle-indian-rupee",
   "swiss-franc",
+  "circle-swiss-franc",
   "bitcoin",
+  "wallet",
+  "credit-card-check",
 ] as const
 
 /** The seven currency marks on their own, so the shared cap is visible. */
@@ -926,29 +972,29 @@ export const BLOG_V060_BOOK_ICON_NAMES = [
 ] as const
 
 export const BLOG_V050_THUMBNAIL_ICON_NAMES = [
-  "link",
-  "link-2",
-  "unlink",
-  "bell-ring",
-  "sparkles",
-  "zap",
-  "link-2-off",
+  "bold",
+  "italic",
+  "underline",
+  "align-left",
   "quote",
+  "list-ordered",
+  "strikethrough",
+  "align-center",
+  "align-right",
+  "align-justify",
   "quote-end",
   "quote-single",
   "quote-single-end",
   "text-quote",
-  "bold",
-  "italic",
-  "underline",
-  "strikethrough",
-  "align-left",
-  "align-center",
-  "align-right",
-  "align-justify",
   "language",
   "list",
-  "list-ordered",
+  "link",
+  "link-2",
+  "unlink",
+  "link-2-off",
+  "bell-ring",
+  "sparkles",
+  "zap",
   "layers",
   "phone",
   "phone-off",
@@ -1030,136 +1076,104 @@ export const BLOG_V050_REDRAWN_ICON_NAMES = [
 ] as const
 
 const BATCH_0_3_1: BlogPost = {
+  /* The parcel leads because an order screen is the search this post can
+     win; the duplicate is the story, so it is a heading, not the title. 43
+     is the count off the tag, where the first draft said 44. */
   slug: "44-new-icons-and-a-duplicate-that-shipped-seven-times",
-  /* It shipped as 0.4.0, not the 0.3.1 the branches were named for: forty-four
-     new names bump the second number, and the third is for a release that adds
-     none. The tag exists, so every surface prints `v0.4.0` and the title takes
-     the prefix. */
   version: "0.4.0",
   title:
-    "44 free package, cloud and search icons for React, shadcn/ui and " +
-    "Figma",
+    "43 free package, cloud and search icons for React, shadcn/ui and Figma",
   description:
-    "Free, MIT-licensed SVG icons: a parcel with nine signs, ten search " +
-    "icons, a cloud with its signs, an umbrella, a parasol, a crown and a " +
-    "traffic light.",
+    "Free, MIT-licensed SVG icons: a parcel in nine states for orders, ten " +
+    "search icons, a cloud and an app tile with their symbols, and a fixed " +
+    "git-merge.",
   standfirst:
-    "Everything that landed in v0.4.0, and what each of it was actually for. " +
-    "Free SVG icons for shadcn/ui, drawn on one 24×24 grid.",
+    "Also new: a crown, a chequered flag, a traffic light, a bug, a " +
+    "briefcase and an umbrella that turns into a parasol.",
   headline: "A merge that was a branch all along",
   date: "2026-09-06",
-  /* Revised on the 7th, against what the tag actually shipped: the batch went
-     out as 0.4.0 rather than the 0.3.1 its branches were named for, two of the
-     drawings named here were dropped before the tag, and the redraw count is
-     the release's own rather than the one this post was drafted with. */
-  updated: "2026-09-07",
-  readingMinutes: 7,
+  updated: "2026-11-01",
+  readingMinutes: 4,
   thumbnail: BLOG_BATCH_THUMBNAIL_ICON_NAMES,
   keywords: [
-    "icon set update",
+    "package icons",
+    "parcel icon",
+    "delivery icons",
+    "order status icons",
+    "search icons",
+    "zoom icons",
+    "cloud icons",
+    "app icons",
+    "git merge icon",
+    "git branch icon",
+    "bell icon",
     "free svg icons",
     "shadcn/ui icons",
-    "package icons",
-    "search icons",
-    "cloud icons",
-    "icon redraw",
-    "sharp icons",
+    "react icons",
+    "figma icons",
   ],
   body: [
     {
       kind: "p",
       text:
-        "v0.4.0 added forty-four drawings and redrew three hundred and " +
-        "fifteen. The changelog will tell you that much on its own, off the " +
-        "commit dates, without anyone having to write it down. What it cannot " +
-        "tell you is why any of it happened, and that turns out to be the more " +
-        "interesting half. So here it is: the families, and the faults.",
+        "An order page shows the same parcel over and over: packed, " +
+        "shipped, delivered, sent back. Until this update the set had the " +
+        "box and nothing to put on it.",
     },
     {
       kind: "p",
       text:
-        "Two things about that redraw count before anything else, because it " +
-        "is the number that looks wrong. The overwhelming majority of it is " +
-        "one change applied across the set: how a sharp stroke ends, which is " +
-        "its own story and not this one. What this post covers is the " +
-        "forty-four new drawings, and the handful of redraws that were faults " +
-        "rather than a treatment: seven bells, a database, a credit card and " +
-        "the duplicate below.",
-    },
-
-    {
-      kind: "h2",
-      text: "Four families, not forty-four decisions",
-      id: "families",
-    },
-    {
-      kind: "p",
-      text:
-        "Most of a batch this size is not forty-four separate calls. It is four " +
-        "or five, applied consistently. The parcel is the clearest example, " +
-        "and it is the one where the set answered the question for me.",
-    },
-    {
-      kind: "p",
-      text:
-        "Which modifiers a base is allowed to take is not a matter of taste " +
-        "here, it is something you can read off the drawings that already " +
-        "ship. Six bases carry the four arrows: calendar, clock, file, folder, " +
-        "image and smartphone. Every one of them holds content that moves in " +
-        "and out. A parcel is the thing that moves. Its absence from that list " +
-        "was a gap rather than a decision, so it got the arrows, plus the plus, " +
-        "minus, check, x and alert that every container base carries.",
+        "This update adds 43 icons and takes the set to 629. Nine of them " +
+        "are the parcel with something on it, ten put a symbol on a search " +
+        "glass, and the cloud and the app tile get theirs. Alongside them, " +
+        "315 drawings that had already shipped were redrawn, nearly all of " +
+        "them in sharp corners.",
     },
     {
       kind: "figure",
       figure: {
         kind: "grid",
         names: BLOG_PACKAGE_ICON_NAMES,
-        caption:
-          "The parcel base and its nine modifiers. Nine of these ten are new.",
+        caption: "The parcel and its nine. Only `package` was here before.",
       },
     },
+
+    { kind: "h2", text: "Every state of an order, from one box", id: "orders" },
     {
       kind: "p",
       text:
-        "The same test, applied the other way, is why the app tile did not get " +
-        "arrows. No base outside those six carries one, a tile is not a " +
-        "container of moving things, and its verbs are install, remove and " +
-        "approve, which plus, minus and check already say. It got the dot " +
-        "instead, which is what a notification looks like everywhere else in " +
-        "the set.",
+        "Each state of a delivery is the same box with one change, so a " +
+        "list of orders reads at a glance:",
     },
     {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_APP_ICON_NAMES,
-        caption:
-          "The app tile's five. No arrows, on purpose: download already " +
-          "exists as its own word.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "Search got ten, five on each glass. The construction came out of the " +
-        "existing search icon rather than being invented for the batch: the " +
-        "plate is the lens disc, the fill is that disc solid with the handle " +
-        "still stroked, and the sharp treatment pushes the handle a unit along " +
-        "its own diagonal.",
+      kind: "list",
+      items: [
+        "Packed or delivered: `package-check`.",
+        "Added to an order, or taken out: `package-plus` and `package-minus`.",
+        "Cancelled: `package-x`. Delayed or damaged: `package-alert`.",
+        "Received, sent, returned and forwarded: `package-arrow-down`, " +
+          "`package-arrow-up`, `package-arrow-left` and " +
+          "`package-arrow-right`.",
+      ],
     },
     {
       kind: "p",
       text:
-        "One of the five would not cooperate. The signs are sized so that each " +
-        "one's furthest point lands on a path radius of 3, which is forced " +
-        "rather than chosen: the glass's inner ink edge is at 6, the gap the " +
-        "set keeps between elements takes 2, and the sign's own ink takes 1. " +
-        "The plus and the minus already sat exactly there. The list did not " +
-        "fit at any size that also cleared the 2-unit gap between its bars, so " +
-        "it is redrawn on a pitch of 4, which caps the bars at a radius of " +
-        "2.236. Both glasses take the same signs, sized for the smaller of the " +
-        "two, because two sizes of check would read as two different checks.",
+        "Only things that hold something on the move get arrows. Before " +
+        "this update that was six: the calendar, the clock, the file, the " +
+        "folder, the picture and the phone. A parcel is the thing that " +
+        "moves, so it joined them. The app tile did not. Installing, " +
+        "removing and approving an app are plus, minus and check, and a " +
+        "download has an icon of its own. So `app-dot` got a dot for a " +
+        "notification instead.",
+    },
+    {
+      kind: "p",
+      text:
+        "Search takes the same symbols on both of its glasses: plus and " +
+        "minus to zoom, a check, an x and a list. They are one size on " +
+        "both, the size the smaller glass can hold, because two sizes of " +
+        "check read as two different checks.",
     },
     {
       kind: "figure",
@@ -1167,48 +1181,9 @@ const BATCH_0_3_1: BlogPost = {
         kind: "grid",
         names: BLOG_SEARCH_ICON_NAMES,
         caption:
-          "Ten new search icons. The top row is the angled glass, the bottom " +
-          "row the round one.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "The cloud took the same five signs on the same reasoning, and the " +
-        "umbrella turned into three drawings out of one: the canopy with its " +
-        "hem, the canopy with a slash across it, and a parasol, which is the " +
-        "umbrella with a pole where the hook should be. There was a fourth, " +
-        "the same canopy closed and stood upright, and I dropped it before " +
-        "the tag.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_CLOUD_ICON_NAMES,
-        caption: "Five for the cloud.",
-      },
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_UMBRELLA_ICON_NAMES,
-        caption:
-          "One canopy, three icons. The parasol differs by its pole and by " +
-          "nothing else.",
-      },
-    },
-    {
-      kind: "p",
-      text: "And then the ones that belong to nothing, which is the rest of it.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_SINGLES_ICON_NAMES,
-        caption: "Twelve singles, which belong to no family and to each other.",
+          "The angled glass on top, the round one below. The cloud takes " +
+          "four of the same: `cloud-plus`, `cloud-check`, `cloud-x` and " +
+          "`cloud-alert`.",
       },
     },
 
@@ -1219,28 +1194,19 @@ const BATCH_0_3_1: BlogPost = {
     },
     {
       kind: "p",
-      text: "This is the one worth reading if you maintain an icon set of your own.",
+      text:
+        "For a month, `git-merge` and `git-branch` were one drawing. Not " +
+        "alike: the same lines in every style, identical to the pixel at " +
+        "any size. Both were drawn on 8 August, the copy was found on 4 " +
+        "September, and by then it had gone out in all seven releases the " +
+        "set had made.",
     },
     {
       kind: "p",
       text:
-        "While checking something unrelated, git-merge and git-branch turned " +
-        "out to be the same drawing. Not similar. The same. Byte-identical in " +
-        "fill, and in the other four variants identical but for the winding " +
-        "direction of the circles, which is a difference no renderer can show " +
-        "you on a stroke or on non-overlapping fills. Put side by side at any " +
-        "size, they were pixel-identical.",
-    },
-    {
-      kind: "p",
-      text:
-        "I drew both on 8 August and found the fault on 4 September, by which " +
-        "point it had gone out in every release the set has ever cut: " +
-        "v0.1.0 through v0.3.0, seven of them, on npm, in the Figma library " +
-        "and in the plugin. Nobody reported it, and I would not expect anyone " +
-        "to have. You reach for git-merge, you get a picture of some lines " +
-        "joining, and it looks like a merge because you were already thinking " +
-        "about merging.",
+        "Nobody reported it, and nobody would have. You reach for a merge " +
+        "icon, you get some lines that join, and it looks like a merge " +
+        "because merging is what you were thinking about.",
     },
     {
       kind: "figure",
@@ -1248,87 +1214,77 @@ const BATCH_0_3_1: BlogPost = {
         kind: "diagnostic",
         panels: [
           {
-            title: "git-merge as it shipped, laid over git-branch",
+            title: "`git-merge` as it shipped, laid over `git-branch`",
             a: { name: "git-merge", take: "before" },
             b: { name: "git-branch", take: "current" },
             verdict: {
-              text: "Nothing to see. That is the finding.",
+              text: "No colour anywhere: one drawing, twice",
               tone: "bad",
             },
           },
           {
-            title: "git-merge as it ships now, laid over git-branch",
+            title: "`git-merge` now, laid over `git-branch`",
             a: { name: "git-merge", take: "current" },
             b: { name: "git-branch", take: "current" },
-            verdict: { text: "Two drawings", tone: "good" },
+            verdict: {
+              text: "Two different drawings",
+              tone: "good",
+            },
           },
         ],
         caption:
-          "Each panel is one drawing painted on top of the other. Anywhere " +
-          "the two disagree, one of them keeps its colour. The left panel " +
-          "has no colour in it anywhere, which is what a duplicate looks " +
-          "like: every mark either drawing makes, the other makes too.",
+          "Each panel paints one icon over the other, and wherever the two " +
+          "differ, colour shows. The left panel has none, which is what a " +
+          "duplicate looks like.",
         legend: {
-          a: "git-merge only",
-          b: "git-branch only",
-          both: "ink the two share",
+          a: "only in git-merge",
+          b: "only in git-branch",
+          both: "in both",
         },
       },
     },
     {
       kind: "note",
       text:
-        "A duplicate that renders identically is invisible to every check that " +
-        "looks at the picture. It is only visible to one that looks at the path.",
+        "A duplicate passes every check that looks at the picture. Only a " +
+        "check that compares the files finds it.",
     },
     {
       kind: "p",
       text:
-        "Which of the two was wrong is answerable from the drawing itself. The " +
-        "shared picture has its junction at the top node, one arm carrying on " +
-        "down the trunk and the other running out to a leaf: one line becoming " +
-        "two, flowing down. That is a branch. So git-branch keeps it, and " +
-        "git-merge is the one that had been copied.",
-    },
-    {
-      kind: "p",
-      text:
-        "It is now that drawing mirrored about the horizontal centre line, so " +
-        "the trunk keeps its node at the bottom, the branch node moves to the " +
-        "top right, and both arms converge into the bottom node: two strands " +
-        "into one, going down. Closing the gap in git-pull-request was the " +
-        "other candidate and was rejected, because that gap is this family's " +
-        "spelling of a proposed rejoin, and a merge drawn four units of line " +
-        "away from it trades one collision for another.",
+        "The shared drawing was a branch: one line splitting into two on " +
+        "the way down. So `git-branch` kept it, and `git-merge` became its " +
+        "mirror, two lines joining into one.",
     },
     {
       kind: "figure",
       figure: {
         kind: "grid",
         names: BLOG_GIT_ICON_NAMES,
-        caption:
-          "The two, as they now ship. One line becoming two, and two becoming one.",
+        caption: "One line becoming two, and two becoming one.",
       },
     },
 
-    { kind: "h2", text: "Grey where there should be none", id: "plates" },
     {
-      kind: "p",
-      text:
-        "The duotone style paints a grey plate behind the black outline. The " +
-        "plate is supposed to be the outline's own offset, one unit inside the " +
-        "stroke, all the way around. On every bell in the set, it was not: each " +
-        "plate's flank had been sampled by hand rather than offset, and along " +
-        "about two thirds of its length it ran outside the ink.",
+      kind: "h2",
+      text: "The bells painted grey outside their outline",
+      id: "plates",
     },
     {
       kind: "p",
       text:
-        "I found it by recolouring the plate in Figma, which is the only way " +
-        "anyone was ever going to. The worst of it was 0.10 of a grid " +
-        "unit, on the plain bell in sharp. The grid is 24 units across and the " +
-        "icon is 24 pixels across, so that is a tenth of a pixel. Which is why " +
-        "it shipped, and why it kept shipping.",
+        "In two-tone, a bell is a black outline over a grey fill, and the " +
+        "grey is meant to stop just inside the line. On all seven bells it " +
+        "didn't. Along two thirds of each side the grey ran past the " +
+        "outline, by a tenth of a pixel at most.",
+    },
+    {
+      kind: "p",
+      text:
+        "That is far too small to see on a screen, which is how it shipped " +
+        "seven times. It showed only when the grey was recoloured red in " +
+        "Figma. Each side of the grey is now the outline itself, moved " +
+        "inward, where it used to be traced by hand.",
     },
     {
       kind: "figure",
@@ -1336,99 +1292,69 @@ const BATCH_0_3_1: BlogPost = {
         kind: "diagnostic",
         panels: [
           {
-            title: "The whole bell, old plate over new",
+            title: "The whole bell, old grey laid over new",
             a: { name: "bell", take: "before" },
             b: { name: "bell", take: "after" },
             verdict: {
-              text: "Barely a hairline, and this is fifteen times icon size",
+              text: "A hairline, at fifteen times the size",
               tone: "good",
             },
           },
           {
-            title: "Three units of its left flank, same two plates",
+            title: "Three pixels of its left side",
             a: { name: "bell", take: "before" },
             b: { name: "bell", take: "after" },
             viewBox: "3.2 11 3 3",
-            verdict: { text: "0.054 of a unit outside the ink", tone: "bad" },
+            verdict: {
+              text: "Grey outside the line",
+              tone: "bad",
+            },
           },
         ],
         caption:
-          "The same two drawings in both panels, one painted over the other. " +
-          "The rose down the edge of the second panel is the whole fault: " +
-          "plate the old drawing put outside the outline it was meant to sit " +
-          "one unit inside. The first panel is the whole bell at roughly " +
-          "fifteen times the size it ships at, where that same rose is barely " +
-          "a hairline; at 24px it is 0.054 of a pixel, which is how it " +
-          "survived fourteen files and seven releases. There is no emerald in " +
-          "either panel, and that is a finding too: the correction never added " +
-          "plate anywhere, it only ever pulled it back.",
+          "The colour down the edge of the second panel is the whole " +
+          "fault: grey the old bell painted outside its outline. None of " +
+          "the second colour shows anywhere, so the fix only ever took " +
+          "grey away.",
         legend: {
-          a: "plate as it shipped",
-          b: "plate as it is now",
-          both: "ink that did not move",
+          a: "grey as it shipped",
+          b: "grey as it is now",
+          both: "outline that did not move",
         },
       },
     },
     {
       kind: "p",
       text:
-        "I rebuilt twenty-one such runs across fourteen files as real " +
-        "offsets: endpoints and end tangents held, handle lengths solved from " +
-        "the midpoint, each piece split until every sample sits at exactly one " +
-        "unit from the stroke. Worst error is now 0.0026, down from 0.10. Five " +
-        "of the runs are the rounded sign bells, which leave the notch at the " +
-        "point one unit above the stroke's cut and turn onto the offset along " +
-        "the cap's own circle; that turn was 0.0145 loose and is now the arc it " +
-        "was always meant to be.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "pairs",
-        names: BLOG_BELL_ICON_NAMES,
-        caption:
-          "The seven bells, before and after. At this size the fix is invisible, " +
-          "which was the whole problem.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "A handful of the other redraws are the same shape of fault, found the " +
-        "same way: sharp caps standing outside the ink on the music notes, the " +
-        "map pins and the message dot; the clock rings sitting off their own " +
-        "circle; the database cylinder's plate offset the way the bells' now " +
-        "are. The remaining three hundred are the sharp end cut, one rule " +
-        "applied to every drawing at once, and they are a post of their own. " +
-        "What both have in common is the lesson: a treatment applied across " +
-        "three thousand files finds you every drawing that was only " +
-        "approximately right.",
+        "Most of the other redraws are one change to sharp corners. A " +
+        "sharp line ends square, and on a slanted line the square end " +
+        "reached about 0.4 of a pixel further than the round end of the " +
+        "same line. So switching an icon from rounded to sharp made every " +
+        "chevron, arrowhead and slash a little longer. Now both end inside " +
+        "the same box, and switching changes the shape of the ends and " +
+        "nothing else.",
     },
 
     { kind: "h2", text: "Getting it", id: "getting-it" },
     {
-      kind: "p",
-      text:
-        "All of it shipped in v0.4.0, in stroke, duotone and fill, rounded or " +
-        "sharp, free under the MIT licence.",
-    },
-    {
       kind: "link",
       href: "/icons",
-      label: "Browse the set",
-      text: "every drawing, filterable by style, corner treatment and category.",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
     },
     {
       kind: "link",
       href: "/install",
-      label: "Install it",
-      text: "the React package, the CLI, the shadcn registry and the plain SVGs.",
+      label: "Install",
+      text:
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui registry, " +
+        "the CLI, the MCP server, and the Figma plugin.",
     },
     {
       kind: "link",
       href: "/changelog",
       label: "Read the changelog",
-      text: "the same events without the commentary, generated off the commits.",
+      text: "What every release added, with the drawings in it.",
     },
   ],
 }
@@ -1440,79 +1366,138 @@ const BATCH_0_3_1: BlogPost = {
  * reorder the page the day two posts share one, and there is nothing to gain
  * from deriving an order that is already visible here.
  */
+export const BLOG_V050_TOOLBAR_ICON_NAMES = [
+  "bold",
+  "italic",
+  "underline",
+  "strikethrough",
+  "language",
+  "align-left",
+  "align-center",
+  "align-right",
+  "align-justify",
+  "text-quote",
+  "quote",
+  "quote-end",
+  "quote-single",
+  "quote-single-end",
+  "unlink",
+  "list",
+  "list-ordered",
+  "link",
+  "link-2",
+  "link-2-off",
+] as const
+
 const BATCH_0_5_0: BlogPost = {
-  /* Named for the story, never for a version: a batch is usually untagged when
-     the post goes up, and a URL announcing a number is a URL that has to be
-     corrected. */
+  /* An editor's toolbar is the search this post can win. The seven
+     currency marks the first draft covered shipped in 0.6.0, by the tags,
+     so they moved to that post. */
   slug: "35-new-icons-and-two-names-the-wrong-way-round",
   version: "0.5.0",
   title: "35 free text formatting icons for React, shadcn/ui and Figma",
   description:
     "Free, MIT-licensed SVG icons for a text editor: bold, italic, " +
-    "underline, alignment and quotation marks, plus links, sliders and " +
-    "seven currency signs.",
+    "underline, alignment and quotation marks, plus links, sparkles, a " +
+    "lightning bolt and send.",
   standfirst:
-    "Everything that landed in v0.5.0, and what each of it was actually for. " +
-    "Free SVG icons for shadcn/ui, drawn on one 24×24 grid.",
+    "Also new: a ringing bell, sparkles, a lightning bolt and its off " +
+    "state, a paper plane at two angles and the sun at two brightnesses.",
   headline: "Two names the wrong way round",
   date: "2026-09-08",
-  updated: "2026-09-08",
-  readingMinutes: 5,
+  updated: "2026-11-01",
+  readingMinutes: 3,
   thumbnail: BLOG_V050_THUMBNAIL_ICON_NAMES,
   keywords: [
-    "icon set update",
+    "text formatting icons",
+    "text editor icons",
+    "toolbar icons",
+    "bold icon",
+    "italic icon",
+    "underline icon",
+    "strikethrough icon",
+    "align icons",
+    "quote icon",
+    "quotation mark icon",
+    "list icon",
+    "link icon",
+    "unlink icon",
+    "slider icon",
     "free svg icons",
     "shadcn/ui icons",
-    "text formatting icons",
-    "quotation mark icons",
-    "link icons",
-    "slider icons",
-    "icon redraw",
+    "react icons",
+    "figma icons",
   ],
   body: [
     {
       kind: "p",
       text:
-        "Thirty-five new drawings and seven redrawn, which takes the set to " +
-        "663 names.",
+        "A rich text editor's toolbar is one row of small marks: bold, " +
+        "italic, underline, alignment, quotes, lists, a link. This update " +
+        "draws that row and gives it a category of its own, Text.",
     },
     {
       kind: "p",
       text:
-        "Most of a batch this size is four or five decisions applied " +
-        "consistently rather than forty separate ones, and this one is no " +
-        "exception. Fourteen of the thirty-five are formatting marks that " +
-        "arrived with a shelf of their own. Two of the seven redraws are a " +
-        "pair of names that had been on each other's drawings since the " +
-        "beginning. And the sliders gave up four units of rail each, so the " +
-        "knob has air without a knockout.",
+        "That is 35 new icons, which takes the set to 663, and seven " +
+        "redraws. Two of the redraws trade names, so `link` draws " +
+        "something different from this update on.",
     },
 
+    { kind: "h2", text: "An editor toolbar, from one set", id: "toolbar" },
     {
-      kind: "h2",
-      text: "Two names on the wrong drawings",
-      id: "the-swap",
+      kind: "p",
+      text: "Every button in a typical editor toolbar now has its icon:",
+    },
+    {
+      kind: "list",
+      items: [
+        "Inline styles: `bold`, `italic`, `underline`, `strikethrough`.",
+        "Alignment: `align-left`, `align-center`, `align-right`, " +
+          "`align-justify`.",
+        "Quotes: `quote` and `quote-end` for double marks, `quote-single` " +
+          "and `quote-single-end` for single, and `text-quote` for a block " +
+          "quote.",
+        "Lists: `list` and `list-ordered`.",
+        "Links: `link`, and `unlink` to remove one. `language` opens a " +
+          "translate menu.",
+      ],
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V050_TOOLBAR_ICON_NAMES,
+        caption:
+          "`link` is the only name here that was in the set before, and it " +
+          "draws something else now.",
+      },
     },
     {
       kind: "p",
       text:
-        "This set follows the naming of the most widely used open icon set, and " +
-        "that is a decision worth being " +
-        "boring about: somebody arriving with an import list should not have " +
-        "to learn a second vocabulary to use a second icon set. That set calls " +
-        "the interlocked diagonal chain `link`, and the horizontal one with " +
-        "the bar through it `link-2`. This set had them the other way round, " +
-        "and " +
-        "had done from the start.",
+        "Letters are rare in this set, because the small holes inside a " +
+        "letter fill in at 16 pixels. The toolbar's letters are drawn too " +
+        "big for that: the B in `bold` stands the full height of the icon, " +
+        "and even its smaller bowl is 8 pixels tall.",
+    },
+
+    { kind: "h2", text: "link and link-2 traded drawings", id: "swap" },
+    {
+      kind: "p",
+      text:
+        "The most widely used open icon set calls the slanted chain `link` " +
+        "and the level one `link-2`. This set had them the other way round " +
+        "from the start. Code that moves from that set keeps its names, so " +
+        "the names have to mean the same drawings, and the two swapped.",
     },
     {
       kind: "p",
       text:
-        "So they swapped bodies. `link` is the diagonal chain now and " +
-        "`link-2` is the horizontal one. The component sets in Figma kept " +
-        "their ids " +
-        "through it, so every instance in the catalogue stayed linked to the " +
-        "thing it was already pointing at, and only the geometry inside moved.",
+        "If your app imports `Link`, it draws the slanted chain now. " +
+        "`LinkOff` is gone: the level chain with a slash through it is " +
+        "`Link2Off`, because it is the off state of `link-2`. Searching " +
+        "the site for link-off still finds it.",
     },
     {
       kind: "figure",
@@ -1520,121 +1505,55 @@ const BATCH_0_5_0: BlogPost = {
         kind: "diagnostic",
         panels: [
           {
-            title: "`link` as it shipped, laid over `link-2` as it ships now",
+            title: "`link` as it shipped, laid over today's `link-2`",
             a: { name: "link", take: "before" },
             b: { name: "link-2", take: "current" },
             verdict: {
-              text: "Nothing to see. That is the finding.",
+              text: "No colour: the same drawing",
               tone: "bad",
             },
           },
           {
-            title: "`link` as it ships now, laid over `link-2`",
+            title: "`link` now, laid over `link-2`",
             a: { name: "link", take: "current" },
             b: { name: "link-2", take: "current" },
-            verdict: { text: "Two drawings", tone: "good" },
+            verdict: {
+              text: "Two drawings",
+              tone: "good",
+            },
           },
         ],
         caption:
-          "Each panel is one drawing painted on top of the other. Where the " +
-          "two disagree, one of them keeps its colour. The left panel has no " +
-          "colour anywhere, because the drawing that used to answer to " +
-          "`link` is the drawing that answers to `link-2` now: a swap, " +
-          "stated as " +
-          "plainly as it can be. The right panel is the same comparison after " +
-          "it, and there is nothing subtle about that one.",
+          "Each panel paints one icon over the other, and colour shows " +
+          "only where they differ. The drawing that used to answer to " +
+          "`link` answers to `link-2` now.",
         legend: {
-          a: "`link` only",
-          b: "`link-2` only",
-          both: "ink the two share",
+          a: "only in link",
+          b: "only in link-2",
+          both: "in both",
         },
       },
     },
-    {
-      kind: "p",
-      text:
-        "`link-off` came with them. It draws the horizontal chain with a " +
-        "slash through it, which makes it the negated form of `link-2` " +
-        "rather than of `link`, so it is `link-2-off` now. That is the one " +
-        "change here that will break a build: `LinkOff` leaves the React " +
-        "exports and `Link2Off` replaces it. The old name is kept as a " +
-        "search alias, so looking for `link-off` on the site still lands on " +
-        "the drawing.",
-    },
-    {
-      kind: "note",
-      text:
-        "A rename reads to every check in this repository as one name added " +
-        "and one quietly absent. Nothing counts what left.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_LINK_ICON_NAMES,
-        caption:
-          "The chain after the swap: `link`, `link-2`, `link-2-off` and " +
-          "`unlink`. `unlink` is new, and it is the diagonal chain come " +
-          "apart rather than " +
-          "the horizontal one, which is that set's reading of that name too.",
-      },
-    },
 
     {
       kind: "h2",
-      text: "The formatting marks got a shelf",
-      id: "text-shelf",
-    },
-    {
-      kind: "p",
-      text:
-        "Fourteen names, and a category that did not exist before this " +
-        "release: `bold`, `italic`, `underline` and `strikethrough`, the " +
-        "four-way alignment stack, the double and single quotation marks in " +
-        "both hands, and `language`.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_TEXT_SHELF_ICON_NAMES,
-        caption:
-          "The Text shelf. The set otherwise draws no letters, and the eight " +
-          "sort icons that carried an A and a Z were drawn and dropped for " +
-          "it: a counter closes into a blob at 24px. These survive because a " +
-          "B and a U at this size are bowls and a bar rather than letterforms " +
-          "with a typographic proportion to hold.",
-      },
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V050_SINGLES_ICON_NAMES,
-        caption:
-          "The rest of what is new. `bell-ring` is the bell with two waves " +
-          "concentric with its own dome, which is what makes the clearance " +
-          "one number instead of a curve-to-curve solve: the dome paints out " +
-          "to 6, so a wave whose centre line sits at 9 paints in to 8, and " +
-          "the gap is exactly the two units the guide asks for. The two " +
-          "planes are one construction with two sets of numbers, so the flat " +
-          "one cannot drift away from the diagonal.",
-      },
-    },
-
-    {
-      kind: "h2",
-      text: "The sliders broke their rails",
+      text: "The sliders break their rails at each knob",
       id: "sliders",
     },
     {
       kind: "p",
       text:
-        "`sliders-horizontal` and `sliders-vertical` used to draw three " +
-        "unbroken rails with a tick crossing each. They break at the knob " +
-        "now, which " +
-        "gives it air without a knockout the stroke style is not allowed to " +
-        "have.",
+        "`sliders-horizontal` and `sliders-vertical` used to run three " +
+        "unbroken rails with a knob across each. Each knob now stands in a " +
+        "gap in its rail, 2 pixels clear on either side, the space the set " +
+        "keeps between any two parts.",
+    },
+    {
+      kind: "p",
+      text:
+        "The gap is always on the longer side of the rail, where there is " +
+        "room for it. And the vertical icon is the horizontal one turned " +
+        "on its side, so the pair can't drift apart.",
     },
     {
       kind: "figure",
@@ -1642,322 +1561,146 @@ const BATCH_0_5_0: BlogPost = {
         kind: "diagnostic",
         panels: [
           {
-            title: "`sliders-horizontal`, old rails over new",
+            title: "`sliders-horizontal`, old over new",
             a: { name: "sliders-horizontal", take: "before" },
             b: { name: "sliders-horizontal", take: "after" },
-            verdict: { text: "Three breaks and one knob moved", tone: "good" },
+            verdict: {
+              text: "Three gaps, and one knob moved",
+              tone: "good",
+            },
           },
           {
-            title: "Seven units of the top rail, same two drawings",
+            title: "Seven pixels of the top rail",
             a: { name: "sliders-horizontal", take: "before" },
             b: { name: "sliders-horizontal", take: "after" },
             viewBox: "11 2 7 6",
-            verdict: { text: "Four units of rail, gone", tone: "good" },
+            verdict: {
+              text: "Rail that is gone",
+              tone: "good",
+            },
           },
         ],
         caption:
-          "The rose is rail the old drawing painted and the new one does " +
-          "not. The emerald in the first panel is the middle knob, which " +
-          "moved two units along its rail to sit where the break leaves it " +
-          "room. The cut lands on the knob's position minus four: the knob's " +
-          "own ink reaches one unit, the guide asks for two, and the rail's " +
-          "cap adds the last one.",
+          "The first colour is rail the old drawing had and the new one " +
+          "doesn't. The middle knob moved 2 pixels along its rail to sit " +
+          "where the gap leaves room.",
         legend: {
-          a: "rail as it was",
+          a: "as it shipped",
           b: "as it is now",
-          both: "ink that did not move",
+          both: "lines that did not move",
         },
       },
     },
     {
       kind: "p",
       text:
-        "Which side breaks is not a choice made per row. It is the longer " +
-        "side every time, so the gap lands where there is room for it, and " +
-        "the vertical is the horizontal transposed exactly. That last part is " +
-        "not tidiness: a pair drawn twice drifts apart one member at a time, " +
-        "and the only reliable defence is for there to be one drawing.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "pairs",
-        names: BLOG_V050_REDRAWN_ICON_NAMES,
-        caption:
-          "All seven redraws, before beside after. At 24px most of these are " +
-          "honestly hard to tell apart, which is the argument for the " +
-          "superimposed figures above: the `pen` family is the same drawing " +
-          "scaled 10/9 with its band moved from the nib to the cap, and " +
-          "`clock` is now exactly `clock-3`, both names kept.",
-      },
+        "The other redraws are smaller. The pen family is a little larger, " +
+        "with its band moved from the nib to the cap, and `clock` now " +
+        "draws the same as `clock-3`.",
     },
 
-    {
-      kind: "h2",
-      text: "Seven currencies, and what a letterform owes",
-      id: "currencies",
-    },
-    {
-      kind: "p",
-      text:
-        "The second half of the batch is money: a wallet, the four signs on " +
-        "the payment card, and seven currency marks. The marks are the " +
-        "interesting ones, because they are letterforms rather than objects " +
-        "and the set already had three, in `bold`, `italic` and `underline`. " +
-        "Those sit on a cap that paints 20 tall, and so do these: one height " +
-        "for the family, so a price field can put a euro next to a pound and " +
-        "have them agree.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V060_CURRENCY_ICON_NAMES,
-        caption:
-          "One cap for all seven. The dollar and the bitcoin carry it on the " +
-          "BAR and let the letter sit inside, which is what type does and why " +
-          "the dollar's S is shorter than the euro's bowl rather than the two " +
-          "being drawn to one height.",
-      },
-    },
-    {
-      kind: "note",
-      text:
-        "None of the seven ships a filled style, and none is missing one: " +
-        "what closes in a euro or a bitcoin is a counter, and a counter is " +
-        "white by definition.",
-    },
-    {
-      kind: "p",
-      text:
-        "That is a rule this set writes down rather than judges each time. A " +
-        "fill needs a region to fill, so the obligation comes from the " +
-        "geometry: an open glyph with no container owes a stroke and nothing " +
-        "else. Filled, a bitcoin is a blob with two dots in it. The B is " +
-        "drawn as two open runs sharing its stem for exactly that reason, " +
-        "which is also how the set already draws `bold`.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V060_MONEY_ICON_NAMES,
-        caption:
-          "The wallet is the card's own envelope with a pocket cut into its " +
-          "right side, and the pocket is open to the wall rather than a " +
-          "closed rectangle beside it: closed, it leaves a one-unit sliver " +
-          "that shuts at 16 pixels. A clasp bead was drawn and dropped, " +
-          "because the pocket's interior is 5 by 4 and a bead is 3 across.",
-      },
-    },
-
-    {
-      kind: "h2",
-      text: "Getting it",
-      id: "getting-it",
-    },
+    { kind: "h2", text: "Getting it", id: "getting-it" },
     {
       kind: "link",
       href: "/icons",
-      label: "Browse the set",
-      text: "All 663 drawings, in three styles and two corner treatments.",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
     },
     {
       kind: "link",
       href: "/install",
       label: "Install",
       text:
-        "The React package, the CLI, the shadcn registry, the MCP server and " +
-        "the Figma plugin.",
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui registry, " +
+        "the CLI, the MCP server, and the Figma plugin.",
     },
     {
       kind: "link",
       href: "/changelog",
-      label: "Changelog",
-      text:
-        "What moved, generated off git, with every redraw shown before and " +
-        "after.",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
     },
   ],
 }
 
 const BATCH_0_7_0: BlogPost = {
+  /* Charts lead: a dashboard's chart switcher is the search this post can
+     win. 73 is the count off the tag, where the first draft said 71. */
   slug: "the-message-family-in-a-second-body",
   version: "0.7.0",
-  title: "71 free chart, chat and emoji icons for React, shadcn/ui and Figma",
+  title: "73 free chart, chat and emoji icons for React, shadcn/ui and Figma",
   description:
     "Free, MIT-licensed SVG icons: 26 charts from bar to candlestick, " +
     "square chat bubbles, QR and barcode scanners, seven faces and badges " +
     "with nine signs.",
   standfirst:
-    "Everything that landed in v0.7.0: the square bubble, the scan family, " +
-    "twenty-six charts, four diagrams, the faces and the badges. Free SVG icons for shadcn/ui, drawn on one " +
-    "24\u00d724 grid.",
-  headline: "The message bubble gets a square body",
+    "Also new: a QR code, a scanner frame that reads barcodes, QR codes " +
+    "and text, scissors and an hourglass.",
+  headline: "Swap the bubble and nothing moves",
   date: "2026-09-10",
-  updated: "2026-09-10",
+  updated: "2026-11-01",
   readingMinutes: 4,
   thumbnail: BLOG_V070_THUMBNAIL_ICON_NAMES,
   keywords: [
-    "icon set update",
+    "chart icons",
+    "chart type icons",
+    "bar chart icon",
+    "line chart icon",
+    "pie chart icon",
+    "candlestick chart icon",
+    "gantt chart icon",
+    "chat icons",
+    "chat bubble icon",
+    "message square icon",
+    "emoji icons",
+    "rating icons",
+    "thumbs up icon",
+    "badge icons",
+    "verified badge icon",
+    "qr code icon",
+    "scan icons",
     "free svg icons",
     "shadcn/ui icons",
-    "message square icon",
-    "chat icons",
-    "qr code icon",
-    "scissors icon",
-    "hourglass icon",
-    "chart icons",
-    "diagram icons",
-    "scan icons",
-    "emoji icons",
-    "badge icons",
+    "react icons",
+    "figma icons",
   ],
   body: [
     {
       kind: "p",
       text:
-        "Seventy-one new drawings, which takes the set to 765 names.",
+        "A dashboard that lets people switch chart types needs an icon for " +
+        "each one, and a chat needs a bubble that matches the corners of " +
+        "everything around it. This update brings both: twenty-six charts, " +
+        "and the message family drawn again as a square.",
     },
     {
       kind: "p",
       text:
-        "Three singles that had been waiting: a QR code, scissors in both " +
-        "bodies and an hourglass. A scan frame with six things to read " +
-        "inside it. Twenty-six charts, four diagrams, seven faces, two " +
-        "thumbs and a badge with nine signs. And the message family drawn " +
-        "again on a square body, which took the most care: the point is " +
-        "that you can swap one bubble for the other and nothing else on the " +
-        "screen moves.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V070_THUMBNAIL_ICON_NAMES,
-        caption:
-          "All seventy-one, in the order the changelog lists them.",
-      },
+        "That is 73 new icons, taking the set to 765. Alongside the charts " +
+        "and the bubbles are four diagrams, seven faces, a thumbs up and " +
+        "down, and a badge with nine symbols.",
     },
 
-    {
-      kind: "h2",
-      text: "Four singles",
-      id: "the-singles",
-    },
+    { kind: "h2", text: "A chart icon for every chart type", id: "charts" },
     {
       kind: "p",
-      text:
-        "The QR code is three finder squares and a corner of data, with no " +
-        "centre dots: the wells are too small to hold one and keep two " +
-        "units of air.",
+      text: "Each option in a chart picker now has its own icon:",
     },
     {
-      kind: "p",
-      text:
-        "`scan` is `scan-face` with the face taken out. The corner brackets " +
-        "were already the frame.",
-    },
-    {
-      kind: "p",
-      text:
-        "The scissors are two rings two apart, each sending a blade to the " +
-        "opposite top corner. The rising blade runs unbroken; the other " +
-        "passes underneath and is cut the way a slash cuts a drawing.",
-    },
-    {
-      kind: "p",
-      text:
-        "The hourglass plate is one outline, because two would overlap at " +
-        "the waist and the design file turns an overlap into a hole. The " +
-        "filled style opens the top bulb and leaves the bottom solid. The " +
-        "sand has run down.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V070_SINGLES_ICON_NAMES,
-        caption:
-          "The four singles. Three sit in a 20 square, the hourglass stands " +
-          "taller at 18 by 22.",
-      },
-    },
-
-    {
-      kind: "h2",
-      text: "A frame with six things to read",
-      id: "the-scan-family",
-    },
-    {
-      kind: "p",
-      text:
-        "The family is that frame with something inside it: a line, a line " +
-        "of text, a barcode, a QR code, a magnifier and an eye. The first " +
-        "QR code had a bar down its right and one along its bottom, and at " +
-        "16px both read as more frame, so it is squares and dots now.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V070_SCAN_ICON_NAMES,
-        caption:
-          "The scan frame and what it reads, then the slash on its own and " +
-          "through a search.",
-      },
-    },
-
-    {
-      kind: "h2",
-      text: "Sixteen charts on one axis",
-      id: "the-axis-charts",
-    },
-    {
-      kind: "p",
-      text:
-        "Fifteen of the sixteen hang off the same axis, one bent line that " +
-        "fixes the plot at sixteen units square. The columns sit on a " +
-        "five-unit pitch, and the same three readings, sorted, are what an " +
-        "increasing and a decreasing chart are.",
-    },
-    {
-      kind: "p",
-      text:
-        "The pie is pulled apart, each slice slid straight out from the " +
-        "centre by an amount worked out from its own angle. That is the " +
-        "only way to get exactly two units of white into every cut; sliding " +
-        "them all by the same amount leaves the wide cuts at nearly three.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V070_AXIS_CHART_ICON_NAMES,
-        caption:
-          "The sixteen. Every one but the pie shares the elbow and the plot.",
-      },
-    },
-
-    {
-      kind: "h2",
-      text: "Ten more charts and four diagrams",
-      id: "charts-and-diagrams",
-    },
-    {
-      kind: "p",
-      text:
-        "Nine of these hang off the same axis. The waterfall runs four " +
-        "bars: standing, floating, falling, standing to the total. The " +
-        "scatter with a third axis puts its origin at a true corner, " +
-        "because three lines meeting cannot take the rounded turn.",
-    },
-    {
-      kind: "p",
-      text:
-        "The pyramid is `triangle-alert`'s triangle cut into three layers, " +
-        "and `chart-line-up` and `chart-line-down` are `chart-line` rising " +
-        "and falling into `trending-up`'s bracket.",
+      kind: "list",
+      items: [
+        "Bars and columns: `chart-column` and `chart-bar`, and stacked, " +
+          "`chart-column-stacked` and `chart-bar-stacked`.",
+        "Lines: `chart-line`, `chart-spline` for a smooth curve, " +
+          "`chart-area`, and `chart-line-increasing` and " +
+          "`chart-line-decreasing` for a trend.",
+        "Points: `chart-scatter`, `chart-scatter-bubble` and " +
+          "`chart-scatter-3d`.",
+        "Money: `chart-candlestick` and `chart-waterfall`.",
+        "Parts of a whole: `chart-pie`, `chart-pyramid` and `chart-tree-map`.",
+        "Plans and links: `chart-gantt` for a timeline and `chart-network` " +
+          "for connected points.",
+      ],
     },
     {
       kind: "figure",
@@ -1965,54 +1708,72 @@ const BATCH_0_7_0: BlogPost = {
         kind: "grid",
         names: BLOG_V070_CHART_ICON_NAMES,
         caption:
-          "The ten charts. Every axis chart shares one elbow and one plot.",
+          "Twenty of the twenty-six. Every chart with an axis uses the " +
+          "same bent line, so the plots line up in a menu.",
       },
     },
     {
       kind: "p",
       text:
-        "The four diagrams are boxes on wires, on a shelf of their own, " +
-        "because a diagram says how things relate where a chart says how " +
-        "much.",
+        "The pie is pulled apart so that every cut shows the same 2 pixels " +
+        "of white. For that, each slice slides out by its own distance, " +
+        "worked out from its angle. Slid out all the same distance, the " +
+        "wide cuts open to nearly 3 pixels.",
+    },
+
+    { kind: "h2", text: "Swap the bubble and nothing moves", id: "bubbles" },
+    {
+      kind: "p",
+      text:
+        "The round `message` is an oval with a tail. The new " +
+        "`message-square` is a rounded box whose left side runs on down " +
+        "into the tail. Both take the same 20 by 20 pixels, so a list that " +
+        "mixes them, or an app that switches from one to the other, " +
+        "doesn't shift.",
     },
     {
       kind: "p",
       text:
-        "Every box takes the same corner radius, and the first cut did not: " +
-        "a wide box came out rounder than a narrow one, a pill next to a " +
-        "squared neighbour. The standard's table is right about a shape on " +
-        "its own and wrong about a family drawn side by side.",
+        "Every symbol sits where the round bubble puts it: plus, minus, " +
+        "check and x in the middle, a dot at the top right for something " +
+        "unread, and the slash from corner to corner for a muted chat.",
     },
     {
       kind: "figure",
       figure: {
         kind: "grid",
-        names: BLOG_V070_DIAGRAM_ICON_NAMES,
+        names: BLOG_V070_BUBBLE_ICON_NAMES,
         caption:
-          "The four diagrams. One radius on every box.",
+          "The round bubble on top, the square one under it, option for " +
+          "option. The bottom row is new.",
       },
     },
+    {
+      kind: "p",
+      text:
+        "In `messages-square` two bubbles overlap, and in fill only the " +
+        "front one is solid, with the one behind cut round it. Fill both " +
+        "and you get two shapes stacked. Fill one and you get a reply in " +
+        "front of a message, which is what a conversation looks like.",
+    },
 
+    { kind: "h2", text: "Five faces make a rating scale", id: "faces" },
     {
-      kind: "h2",
-      text: "Seven faces, two thumbs and a badge",
-      id: "faces-and-badges",
+      kind: "p",
+      text:
+        "A feedback form that asks how something went can now run from " +
+        "`face-angry` through `face-frown`, `face-neutral` and " +
+        "`face-smile` to `face-laugh`. All seven faces are one face with a " +
+        "different mouth and brows, so a row of them reads as a scale and " +
+        "not as five drawings.",
     },
     {
       kind: "p",
       text:
-        "The faces are `scan-face`'s face, which the set already owned. A " +
-        "frown is the mouth turned over, a neutral mouth is a flat line, " +
-        "flat eyes are dashes, and the angry brows slant in. The first cut " +
-        "had nudged the eyes up a row and landed on another set's " +
-        "coordinates, so the family went back to the face it already had.",
-    },
-    {
-      kind: "p",
-      text:
-        "`face-smile-plus` is stroke only, because the notch for a " +
-        "top-right sign covers the right eye. The thumbs' filled style " +
-        "opens the cuff as a panel.",
+        "For reactions there are `thumbs-up`, `thumbs-down` and " +
+        "`face-smile-plus` to add one. The badge is a ring of eight bumps " +
+        "carrying the circle's symbols, so `badge-check` marks a verified " +
+        "account the way `circle-check` marks a done task.",
     },
     {
       kind: "figure",
@@ -2020,367 +1781,229 @@ const BATCH_0_7_0: BlogPost = {
         kind: "grid",
         names: BLOG_V070_EMOJI_ICON_NAMES,
         caption:
-          "The Emoji shelf. One face, seven expressions, and the two thumbs.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "The badge is eight bumps around a ring, and it carries the " +
-        "circle's signs exactly as the circle draws them. The space inside " +
-        "is a hair wider than the circle's, which is why the dollar is the " +
-        "one currency mark that fits. The first ring turned out to be " +
-        "another set's badge to the number, and was drawn again.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V070_BADGE_ICON_NAMES,
-        caption:
-          "The badge and its nine signs. Seven are the circle's own; the " +
-          "percent and the dollar are the two that fit.",
+          "The rating scale, then the expressionless face, the reaction " +
+          "button, the thumbs and the verified badge.",
       },
     },
 
-    {
-      kind: "h2",
-      text: "One vocabulary, two bodies",
-      id: "one-vocabulary",
-    },
-    {
-      kind: "p",
-      text:
-        "The round `message` is an oval with a tail pulled out of its lower " +
-        "left. The square one is a rounded box whose left side keeps going " +
-        "and comes back to the bottom edge at an angle. That is the whole " +
-        "tail. Both take up the same 20 by 20 space, so a row that mixes " +
-        "them does not jump.",
-    },
-    {
-      kind: "p",
-      text:
-        "Every mark sits where the round bubble already puts it: the signs " +
-        "in the middle of the body at full size, the badge in the same ring " +
-        "at the top right, the slash corner to corner, cutting into the " +
-        "body on one side and standing clear on the other.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V070_PAIR_ICON_NAMES,
-        caption:
-          "Each pair is one option in the two bodies. Inside the square the " +
-          "sign has two units of air above and below, which is what set the " +
-          "body's height.",
-      },
-    },
-
-    {
-      kind: "h2",
-      text: "The one behind is cut, the one in front is filled",
-      id: "the-pair",
-    },
-    {
-      kind: "p",
-      text:
-        "`messages-square` is the round `messages` built the same way: the " +
-        "bigger bubble behind, the reply in front with its tail turned the " +
-        "other way. Only the front one gets the grey plate and the solid. " +
-        "Fill both and you get two shapes stacked. Fill one and you get one " +
-        "thing in front of another, which is what a conversation looks " +
-        "like.",
-    },
-
-    {
-      kind: "h2",
-      text: "Getting it",
-      id: "getting-it",
-    },
+    { kind: "h2", text: "Getting it", id: "getting-it" },
     {
       kind: "link",
       href: "/icons",
-      label: "Browse the set",
-      text:
-        "All 765, in three styles and two corner treatments, with copy and " +
-        "download on every drawing.",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
     },
     {
       kind: "link",
       href: "/install",
       label: "Install",
       text:
-        "The shadcn registry, the React package, the CLI, the MCP server " +
-        "and the Figma plugin.",
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui registry, " +
+        "the CLI, the MCP server, and the Figma plugin.",
     },
     {
       kind: "link",
       href: "/changelog",
-      label: "Changelog",
-      text:
-        "What moved, generated off git, with every redraw shown before and " +
-        "after.",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
     },
   ],
 }
 
+export const BLOG_V060_OBJECT_ICON_NAMES = [
+  "book",
+  "book-open",
+  "book-plus",
+  "book-minus",
+  "book-check",
+  "store",
+  "buildings",
+  "flame",
+  "graduation-cap",
+  "cpu",
+] as const
+
 const BATCH_0_6_0: BlogPost = {
-  /* Named for the story rather than the number, for the reason the type says:
-     a batch is untagged while the post is written. */
+  /* Currency leads: thirteen of the 29 are money marks, and they shipped
+     here, not in 0.5.0, whose post first covered them. 29 is the count off
+     the tag. */
   slug: "23-new-icons-and-a-shopfront-that-took-three-passes",
   version: "0.6.0",
-  title:
-    "23 free book, store and currency icons for React, shadcn/ui and Figma",
+  title: "29 free currency and book icons for React, shadcn/ui and Figma",
   description:
-    "Free, MIT-licensed SVG icons: an open book and its signs, a " +
-    "shopfront, a flame, a graduation cap and six currency signs in " +
-    "circles.",
+    "Free, MIT-licensed SVG icons: dollar, euro, pound, yen, rupee, franc " +
+    "and bitcoin, most in a circle too, a wallet, an open book, a " +
+    "shopfront and a flame.",
   standfirst:
-    "Everything that landed in v0.6.0, and what each of it was actually for. " +
-    "Free SVG icons for shadcn/ui, drawn on one 24\u00d724 grid.",
-  headline: "A shopfront that took three passes",
+    "The circled euro is centred on its bowl, not its box: its open ends " +
+    "reach further right than the bowl reaches left.",
+  headline: "The rule the currencies break",
   date: "2026-09-09",
-  updated: "2026-09-09",
-  readingMinutes: 7,
+  updated: "2026-11-01",
+  readingMinutes: 3,
   thumbnail: BLOG_V060_THUMBNAIL_ICON_NAMES,
   keywords: [
-    "icon set update",
+    "currency icons",
+    "money icons",
+    "dollar icon",
+    "euro icon",
+    "pound icon",
+    "yen icon",
+    "rupee icon",
+    "franc icon",
+    "bitcoin icon",
+    "wallet icon",
+    "credit card icon",
+    "payment icons",
+    "book icon",
+    "store icon",
+    "shop icon",
+    "flame icon",
     "free svg icons",
     "shadcn/ui icons",
-    "book icons",
-    "store icon",
-    "currency icons",
-    "flame icon",
-    "cpu icon",
+    "react icons",
+    "figma icons",
   ],
   body: [
     {
       kind: "p",
       text:
-        "Twenty-three new drawings under twenty-nine names, which takes the " +
-        "set to 692. Six of the twenty-nine are currency marks a second " +
-        "time, boxed in a ring.",
+        "A price field, a checkout and a currency picker all need the mark " +
+        "for the money: a dollar, a euro, a pound, a yen. Until this " +
+        "update the set had none of them.",
     },
     {
       kind: "p",
       text:
-        "Most of them were drawn by hand before anything was fitted to the " +
-        "grid, and that order is the point: the drawing decides what the " +
-        "object is, the fitting decides where its edges land. The ones worth " +
-        "writing about are the ones that came back.",
+        "This update adds 29 icons and takes the set to 692. Thirteen are " +
+        "currency marks, seven plain and six of them again inside a " +
+        "circle. The rest are a wallet and four symbols for a payment " +
+        "card, a book and its family, a shopfront, a flame, a processor " +
+        "and a graduation cap.",
+    },
+
+    { kind: "h2", text: "Seven currencies on one height", id: "money" },
+    {
+      kind: "p",
+      text:
+        "The marks share one height, the height of the capital letters in " +
+        "`bold` and `italic`, so a euro next to a pound in a list of " +
+        "prices lines up. Where to find each:",
+    },
+    {
+      kind: "list",
+      items: [
+        "Prices: `dollar-sign`, `euro`, `pound-sterling`, `japanese-yen`, " +
+          "`indian-rupee`, `swiss-franc` and `bitcoin`.",
+        "A currency picker or a balance badge: the same marks in a circle, " +
+          "`circle-dollar-sign` to `circle-swiss-franc`.",
+        "Paying: `wallet`, `credit-card-plus` to add a card, " +
+          "`credit-card-minus` or `credit-card-x` to remove one, and " +
+          "`credit-card-check` for a payment that went through.",
+      ],
     },
     {
       kind: "figure",
       figure: {
         kind: "grid",
-        names: BLOG_V060_THUMBNAIL_ICON_NAMES,
-        caption:
-          "The first half: five objects and the book family. Four of these " +
-          "were redrawn after being seen on the grid, which is normal. A " +
-          "drawing at 24 pixels is not the same thing as the drawing.",
+        names: BLOG_V060_MONEY_ICON_NAMES,
+        caption: "Every mark plain and in a circle, except `bitcoin`.",
       },
     },
 
     {
       kind: "h2",
-      text: "The shop, three times",
-      id: "the-store",
+      text: "A circle leaves a letter less room than the rule asks",
+      id: "circle",
     },
     {
       kind: "p",
       text:
-        "The awning is the whole icon, and it took three goes. Drawn as a " +
-        "flat strip it reads as a house with a stripe across it, so the wavy " +
-        "edge went back on. The wave alone was not enough either: it read as " +
-        "lace. What fixed it is three short ribs standing on the low points " +
-        "of the wave, which is what a real awning has. Four panels read as " +
-        "an awning. One wavy band does not.",
+        "The set keeps 2 pixels between any two parts of a drawing, so the " +
+        "eye can tell them apart. Inside a ring, 2 pixels on every side " +
+        "leaves a letter about half the space there is, and a half-size " +
+        "euro looks like a mistake.",
     },
     {
       kind: "p",
       text:
-        "Then the door. It had been cut through the line the shop stands on, " +
-        "which turns the front into an archway you can see through. A door " +
-        "stands on the floor. That is one number in the drawing, and it is " +
-        "the difference between a shopfront and a gate.",
-    },
-    {
-      kind: "p",
-      text:
-        "The filled version nearly shipped broken, and only looking at it " +
-        "caught that. A fill is built out of solid shapes, here the awning " +
-        "and the building, and the two overlap where the awning dips below " +
-        "the top of the walls. Overlapping shapes can be painted two ways. " +
-        "Browsers merge them, so the files in the set were right. The design " +
-        "file does the opposite and turns an overlap into a hole, so in " +
-        "Figma a white band cut straight across the awning.",
+        "So the currency marks clear their ring by 1 pixel, and the " +
+        "exception is a rule of its own. A ring isn't a second thing to " +
+        "tell apart from the letter. It's the frame the letter sits in. " +
+        "The set's other circled icons keep the full 2, because what they " +
+        "hold is a slash, a chevron or three dots, with no holes inside to " +
+        "keep open.",
     },
     {
       kind: "note",
       text:
-        "Every check passed. Both sides held the same shape, only the rule " +
-        "that fills it differed, and nothing compared that.",
+        "A bitcoin with a cramped B in a ring is worse than no circled " +
+        "bitcoin, so there isn't one.",
     },
     {
       kind: "p",
       text:
-        "The fix is the shape rather than the setting. The awning and the " +
-        "walls are traced as one outline now, with no overlap left to turn " +
-        "into a hole, so it paints the same either way. Nothing downstream " +
-        "has to agree about which rule it uses.",
+        "Its four short strokes stand out above and below the letter, " +
+        "right where a ring has the least room. Every way of fitting them " +
+        "shrinks the B until the holes in it are 1 pixel wide.",
     },
 
+    { kind: "h2", text: "Each object is one detail", id: "objects" },
     {
-      kind: "h2",
-      text: "The book has three corners and a roll",
-      id: "the-book",
+      kind: "p",
+      text:
+        "At 24 pixels an object is recognised by one detail, and drawing " +
+        "that detail wrong turns it into something else.",
     },
     {
       kind: "p",
       text:
-        "The first book was rejected on sight, and it took a minute to say " +
-        "why. It did not look like a book. One feature was missing: a closed " +
-        "book seen from the front does not have four corners. It has three " +
-        "and a roll, because the cover wraps around the spine instead of " +
-        "turning. Drawn as a corner, what you get is a card with a line on it.",
+        "A closed book seen from the front has three corners and a roll, " +
+        "because the cover wraps round the spine. Drawn with a fourth " +
+        "corner it reads as a card with a line on it. A shop is its " +
+        "awning, and the awning is a wave with three short ribs standing " +
+        "on its low points: without the ribs the wave reads as lace. A " +
+        "flame's inner tongue is an arch, not a point, because at 16 " +
+        "pixels a point closes up and leaves a comma.",
     },
     {
       kind: "figure",
       figure: {
         kind: "grid",
-        names: BLOG_V060_BOOK_ICON_NAMES,
+        names: BLOG_V060_OBJECT_ICON_NAMES,
         caption:
-          "The roll is a half circle of radius 2 on the spine and it sets " +
-          "everything else: the page block's depth is the roll's inner " +
-          "edge, and the crease stands two roll-radii in. The foot has a " +
-          "notch scooped into the front edge, half a unit deep over three, " +
-          "which is the cover's board sitting proud of the pages.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "The crease was shortened afterwards. Run the full height of the " +
-        "cover it reads as a second spine rather than as the fold a " +
-        "hardback has. On the sharp treatment the foot is squared as well: " +
-        "a lone three-unit curve at the bottom of a drawing whose every " +
-        "other corner is square reads as something left behind, not as a " +
-        "treatment.",
-    },
-
-    {
-      kind: "h2",
-      text: "The flame is an arch, not a point",
-      id: "the-flame",
-    },
-    {
-      kind: "p",
-      text:
-        "A flame is a bowl with a tongue curling inside it, and the tongue " +
-        "is the part that goes wrong. Drawn as a point, at 16 pixels the " +
-        "bowl closes over it and what is left is a comma. As an arch it " +
-        "reads at every size, and the difference is one arc.",
-    },
-    {
-      kind: "p",
-      text:
-        "The outer edge has a matching rule. A single sweep from tip to " +
-        "bowl can only make a teardrop. What makes a lick is the tip " +
-        "dropping straight down first and swinging out afterwards, so it is " +
-        "two arcs. Both are radius 10 turned through the angle whose sine " +
-        "is three fifths, because that pair carries the flank exactly four " +
-        "across and twelve down and leaves nothing to round.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V060_SINGLES_ICON_NAMES,
-        caption:
-          "The five singles. The skyline is one silhouette rather than two " +
-          "overlapping blocks, so the party wall is a real edge and not a " +
-          "seam, and its low block comes up high enough to be a building " +
-          "rather than a shed. The processor puts its pins on the package " +
-          "rather than through it.",
+          "The book and four of its family, then the shop, the skyline, " +
+          "the flame, the graduation cap and the processor.",
       },
     },
 
-    {
-      kind: "h2",
-      text: "The rule the currencies were allowed to break",
-      id: "the-circled-currencies",
-    },
-    {
-      kind: "p",
-      text:
-        "The seven currency marks arrive with circled halves, and the first " +
-        "pass at those looked broken. Nothing was wrong with it. It followed " +
-        "the set's own rule, two units of daylight between elements. Against " +
-        "a ring, two leaves the letter at about half the well, and that " +
-        "reads as a mistake rather than as spacing.",
-    },
-    {
-      kind: "p",
-      text:
-        "So the currencies clear the ring by one, and the exception is " +
-        "written down. Two exists so a reader can tell two things apart. A " +
-        "container is not a second thing, it is the frame the drawing sits " +
-        "in. The eighteen circled icons already in the set are not an " +
-        "argument against that, and it is worth saying why: their glyphs are " +
-        "marks. A slash, a chevron, three dots. A mark has no counters to " +
-        "hold open and can afford the two. A letter cannot.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V060_CIRCLED_ICON_NAMES,
-        caption:
-          "Six of the seven. The euro and the yen were drawn again after " +
-          "being seen in the ring: the circled euro is centred on its bowl " +
-          "rather than on its box, because its two open ends reach further " +
-          "right than the bowl reaches left and a box counts them at full " +
-          "weight.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "Bitcoin has no circled half and is not going to be forced into " +
-        "one. Its four stubs stand outside the letter at both ends, on the " +
-        "part of the ring with no room, and every way of solving that " +
-        "shrinks the B until its bowls carry one unit of white instead of " +
-        "two. A blob with a bad B in it is worse than no icon.",
-    },
-
-    {
-      kind: "h2",
-      text: "Getting it",
-      id: "getting-it",
-    },
+    { kind: "h2", text: "Getting it", id: "getting-it" },
     {
       kind: "link",
       href: "/icons",
-      label: "Browse the set",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
       text:
-        "All 692, in three styles and two corner treatments, with copy and " +
-        "download on every drawing.",
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui registry, " +
+        "the CLI, the MCP server, and the Figma plugin.",
     },
     {
       kind: "link",
       href: "/changelog",
-      label: "Changelog",
-      text:
-        "What moved, generated off git, with every redraw shown before and " +
-        "after.",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
     },
   ],
 }
 
 const BATCH_0_8_0: BlogPost = {
-  /* Named for the story, as every slug here is. The story is that nobody chose
-     this batch: the search box did. */
+  /* Office and art lead: they are the words people typed most. The empty
+     searches are the story, so they are the first heading, not the title. */
   slug: "the-search-box-chose-this-one",
   version: "0.8.0",
   title: "33 free office and art supply icons for React, shadcn/ui and Figma",
@@ -2389,188 +2012,148 @@ const BATCH_0_8_0: BlogPost = {
     "empty: a printer, a keyboard, a calculator, a paintbrush, a palette, " +
     "beds and keys.",
   standfirst:
-    "Everything that landed in v0.8.0: a printer, a keyboard, furniture, " +
-    "food, art tools and three keys, every one of them a word somebody typed " +
-    "and got nothing back for. Free SVG icons for shadcn/ui, drawn on one " +
-    "24\u00d724 grid.",
+    "Also new: the Mars and Venus symbols, a brick wall, a roll of film " +
+    "and a broom.",
   headline: "Drawn because people searched for them",
   date: "2026-09-11",
-  updated: "2026-09-11",
-  readingMinutes: 5,
+  updated: "2026-11-01",
+  readingMinutes: 4,
   thumbnail: BLOG_V080_THUMBNAIL_ICON_NAMES,
   keywords: [
-    "icon set update",
-    "free svg icons",
-    "shadcn/ui icons",
+    "office icons",
+    "office supply icons",
+    "art supply icons",
     "printer icon",
     "keyboard icon",
     "calculator icon",
-    "furniture icons",
-    "door icon",
-    "food icons",
-    "key icon",
+    "usb icon",
+    "eraser icon",
+    "paintbrush icon",
     "palette icon",
+    "easel icon",
+    "coffee icon",
+    "bed icon",
+    "sofa icon",
+    "door icon",
+    "open door icon",
+    "key icon",
+    "phone icon",
+    "free svg icons",
+    "shadcn/ui icons",
+    "react icons",
+    "figma icons",
   ],
   body: [
     {
       kind: "p",
-      text: "Thirty-three new drawings, which takes the set to 798 names.",
+      text:
+        "Every search on this site that comes back empty is recorded, with " +
+        "the word that was typed. A month of them is a list of what people " +
+        "wanted and couldn't find, and this update is the top of that " +
+        "list, drawn.",
     },
     {
       kind: "p",
       text:
-        "None of them were chosen. The site records every search that comes " +
-        "back empty, along with the word that was typed, and a month of that " +
-        "is a list of what people wanted and could not find. This release is " +
-        "the top of that list, drawn.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V080_THUMBNAIL_ICON_NAMES,
-        caption: "All thirty-three, in the order the changelog lists them.",
-      },
+        "That is 33 new icons, taking the set to 798, and twelve redraws: " +
+        "the phone turned over, and the calendar a pixel taller.",
     },
 
-    { kind: "h2", text: "The list was already written", id: "the-list" },
     {
-      kind: "p",
-      text:
-        "A month of empty searches came to 744 of them over 451 different " +
-        "words. Six in ten were for drawings the set already had under a name " +
-        "nobody guesses: money for the wallet, reload for refresh, school for " +
-        "the mortarboard. Those are not missing drawings, they are missing " +
-        "words, and they were fixed as words.",
-    },
-    {
-      kind: "note",
-      text: "Nothing in this release was drawn because it rounded out a shelf.",
-    },
-
-    { kind: "h2", text: "Ten for the desk", id: "desk" },
-    {
-      kind: "p",
-      text:
-        "The printer, the keyboard and the calculator were the three most " +
-        "asked-for objects the set did not have, and all three are the same " +
-        "problem: a panel with rows of small detail inside it. Keys, buttons " +
-        "and a paper tray all turn into texture at 16px, so each is drawn " +
-        "with as few marks as the object survives being reduced to.",
+      kind: "h2",
+      text: "Six in ten empty searches were the wrong word",
+      id: "words",
     },
     {
       kind: "p",
       text:
-        "`file-code` and `file-zip` join the file family and `folder-search` " +
-        "the folders, all three built from the body those families already " +
-        "use rather than drawn again. The eraser and the roll of tape open a " +
-        "Stationery shelf with two names on it. A shelf of two is fine; a " +
-        "drawing sits where it belongs whatever the count.",
+        "The month came to 744 empty searches over 451 different words. " +
+        "Six in ten asked for a drawing the set already had, under a name " +
+        "nobody guesses: money for the wallet, reload for refresh, school " +
+        "for the graduation cap. Those got search words, not new drawings.",
+    },
+    {
+      kind: "p",
+      text:
+        "The rest asked for things the set didn't have, and each of these " +
+        "finds its icon now:",
+    },
+    {
+      kind: "list",
+      items: [
+        "Office: `printer`, `keyboard`, `calculator`, `usb`, `usb-drive`, " +
+          "`eraser` and `tape`.",
+        "Files: `file-code`, `file-zip` and `folder-search`.",
+        "Art: `paintbrush`, `paint-roller`, `palette` and `easel`. Colour " +
+          "and theme find the palette too.",
+        "Food and drink: `coffee`, `cake`, `soup` and `bottle`.",
+        "Home: `bed`, `bed-single`, `bed-double`, `sofa`, `door` and " +
+          "`door-open`.",
+        "Keys: `key`, `key-round` and `key-square`, three keys with " +
+          "different heads.",
+      ],
     },
     {
       kind: "figure",
       figure: {
         kind: "grid",
         names: BLOG_V080_DESK_ICON_NAMES,
-        caption:
-          "Five for Devices, three for Files, and two that opened Stationery.",
+        caption: "Twenty of the 33.",
       },
+    },
+    {
+      kind: "p",
+      text:
+        "The printer, the keyboard and the calculator were the objects " +
+        "asked for most, and they share a problem: a panel full of small " +
+        "parts. Keys and buttons turn into texture at 16 pixels, so each " +
+        "is drawn with as few as it can lose and still be itself.",
     },
 
-    { kind: "h2", text: "Five shelves opened", id: "shelves" },
+    { kind: "h2", text: "An open door is drawn in perspective", id: "doors" },
     {
       kind: "p",
       text:
-        "The set went from 26 categories to 31. Home took the beds, the sofa, " +
-        "both doors and the wall. Gender took the Mars and Venus marks. Food " +
-        "& Drink took the coffee, the cake, the soup and the bottle. Art took " +
-        "the brush, the roller, the palette and the easel. Stationery took " +
-        "the eraser and the tape.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V080_HOME_ICON_NAMES,
-        caption: "Home: three beds, a sofa, both doors and a wall.",
-      },
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V080_TABLE_ICON_NAMES,
-        caption: "Food & Drink, which people searched for eight times in a month.",
-      },
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V080_ART_ICON_NAMES,
-        caption: "Art. The palette answers colour and theme as well as paint.",
-      },
+        "`door-open` keeps the frame of `door` exactly. Only the door " +
+        "itself changes, and it isn't the closed one swung round. It's " +
+        "drawn in perspective, its near edge 19 pixels tall and the edge " +
+        "on the hinge 16.",
     },
     {
       kind: "p",
       text:
-        "The three keys are three different keys rather than one key in three " +
-        "containers, which is why they are `key`, `key-round` and " +
-        "`key-square` and not `square-key`. A container wraps a drawing; " +
-        "these have different bows.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V080_KEY_ICON_NAMES,
-        caption: "Three bows, one shaft.",
-      },
-    },
-
-    { kind: "h2", text: "A door that opens toward you", id: "doors" },
-    {
-      kind: "p",
-      text:
-        "`door-open` keeps `door`'s frame exactly: the same jamb at 18, the " +
-        "same head, the same threshold at 21, with the threshold cut where " +
-        "the swung leaf crosses it. What it does not keep is the leaf.",
-    },
-    {
-      kind: "p",
-      text:
-        "The leaf is not the closed one rotated, it is drawn in perspective. " +
-        "Its near edge stands 19 units tall and its far edge, the one on the " +
-        "hinge, only 16, and the handle travels with it. Drawn flat the two " +
-        "icons read as one picture with a line moved. Drawn this way the " +
-        "second one reads as open at 16px, which is the size that decides it.",
+        "Drawn flat, the two icons read as one picture with a line moved. " +
+        "In perspective, the second reads as open even at 16 pixels.",
     },
     {
       kind: "figure",
       figure: {
         kind: "grid",
         names: BLOG_V080_DOOR_ICON_NAMES,
-        caption: "One frame, two leaves. Only the leaf and the handle move.",
+        caption: "One frame, two doors.",
       },
     },
 
-    { kind: "h2", text: "The phone turns over, and the slash goes with it", id: "phone" },
     {
-      kind: "p",
-      text:
-        "The phone had its earpiece at the bottom left, and a receiver reads " +
-        "earpiece first at the top left everywhere else. Turning it over is a " +
-        "mirror about the centre line, so nothing about the handset changes. " +
-        "It is the same drawing lying the other way, coordinate for " +
-        "coordinate.",
+      kind: "h2",
+      text: "The phone turned over, and its slash with it",
+      id: "phone",
     },
     {
       kind: "p",
       text:
-        "What that breaks is `phone-off`. A negation slash in this set always " +
-        "runs from the top left corner to the bottom right, because a slash " +
-        "should cut against the thing it cancels rather than lie along it. " +
-        "The turned handset lies along exactly that line.",
+        "The handset had its earpiece at the bottom left, and the phones " +
+        "people know hold it at the top left. So the drawing is now its " +
+        "own mirror image, line for line. If your app shows `phone`, it " +
+        "faces the other way from this update on.",
+    },
+    {
+      kind: "p",
+      text:
+        "That broke `phone-off`. The set's slash runs from top left to " +
+        "bottom right, to cut across what it cancels, and the turned " +
+        "handset lies along that line. So on the phone, the slash runs the " +
+        "other way.",
     },
     {
       kind: "figure",
@@ -2578,16 +2161,18 @@ const BATCH_0_8_0: BlogPost = {
         kind: "diagnostic",
         panels: [
           {
-            title: "The phone as it shipped, laid over the phone as it ships now",
+            title: "The phone as it shipped, laid over the phone now",
             a: { name: "phone", take: "before" },
             b: { name: "phone", take: "after" },
-            verdict: { text: "The same drawing, lying the other way", tone: "good" },
+            verdict: {
+              text: "The same drawing, lying the other way",
+              tone: "good",
+            },
           },
         ],
         caption:
-          "A mirror has no shared ink except where the two cross, which is " +
-          "what makes this an X rather than a sliver. Nothing was nudged to " +
-          "line up.",
+          "Mirror images share lines only where they cross, which is why " +
+          "this is an X. Nothing was nudged to line up.",
         legend: {
           a: "only the old phone",
           b: "only the new one",
@@ -2598,57 +2183,31 @@ const BATCH_0_8_0: BlogPost = {
     {
       kind: "p",
       text:
-        "So the slash turns instead, and that is the whole exception. It " +
-        "costs nothing, because a mirror keeps every distance: the cuts, the " +
-        "standoffs and the muted plate all land where they already were, " +
-        "handed over. `bluetooth` is the drawing that has no way out of this, " +
-        "and the difference is that both of its diagonals are taken.",
-    },
-
-    { kind: "h2", text: "And the calendar is a unit taller", id: "calendar" },
-    {
-      kind: "p",
-      text:
-        "The calendar's body grew by one unit at the top. Its two posts used " +
-        "to stand three units above the edge and one inside it; they cross it " +
-        "symmetrically now, two and two. The header rule did not move, the " +
-        "posts did not move, and the ink box is the same 20 by 20, because " +
-        "the posts already set it. Ten compounds follow the base.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "pairs",
-        names: BLOG_V080_REDRAWN_ICON_NAMES,
-        caption:
-          "All twelve redrawn, before against after. At this size the " +
-          "calendar's unit is a hairline and the phone's is the whole " +
-          "drawing, which is the honest difference between the two changes.",
-      },
+        "The calendar grew a pixel at the top, so its two rings cross the " +
+        "top edge evenly, and the ten calendar icons with a symbol on them " +
+        "follow it.",
     },
 
     { kind: "h2", text: "Getting it", id: "getting-it" },
     {
       kind: "link",
       href: "/icons",
-      label: "Browse the set",
-      text: "All 798 drawings, in three styles and two corner treatments.",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
     },
     {
       kind: "link",
       href: "/install",
       label: "Install",
       text:
-        "The React package, the CLI, the shadcn registry, the MCP server and " +
-        "the Figma plugin.",
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui registry, " +
+        "the CLI, the MCP server, and the Figma plugin.",
     },
     {
       kind: "link",
       href: "/changelog",
-      label: "Changelog",
-      text:
-        "What moved, generated off git, with every redraw shown before and " +
-        "after.",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
     },
   ],
 }
@@ -7235,8 +6794,7 @@ const RELEASE_2_1_0: BlogPost = {
   slug: "monitor-greek-letter-and-3d-shape-icons",
   version: "2.1.0",
   title:
-    "61 free Greek letter and 3D shape icons for React, shadcn/ui and " +
-    "Figma",
+    "61 free Greek letter and 3D shape icons for React, shadcn/ui and Figma",
   description:
     "Free, MIT-licensed SVG icons: sigma, pi, lambda and omega, a cube, a " +
     "cylinder, a cone and a pyramid, a monitor with its signs, pennants " +
@@ -7561,8 +7119,7 @@ const RELEASE_2_2_0: BlogPost = {
   slug: "transport-road-works-food-and-music-icons",
   version: "2.2.0",
   title:
-    "55 free transport and construction icons for React, shadcn/ui and " +
-    "Figma",
+    "55 free transport and construction icons for React, shadcn/ui and Figma",
   description:
     "Free, MIT-licensed SVG icons: buses, trams and taxis, an off state " +
     "for every vehicle, traffic cones and road works, burgers, pizza and a " +
