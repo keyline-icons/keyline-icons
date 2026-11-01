@@ -319,39 +319,20 @@ export const isReleased = (version?: string) =>
  * The post's title as every surface prints it: the `h1`, the `<title>`, the
  * card headline, the index entry and the breadcrumb.
  *
- * **The version goes in front once, and only once the tag exists.** A post
- * about a release wants to be findable by that release, which is why
- * "Tailwind CSS v4.3: ..." is the shape every good release post uses. What it
- * must not do is name a version that has not been cut. This repository has
- * shipped that bug twice from the other direction, announcing work under a tag
- * it was not in, and the changelog's answer is to head untagged work
- * "Unreleased" until the tag lands.
+ * **No version in front.** Release titles carried "v2.1.0: " until 1 Nov
+ * 2026, on the model of "Tailwind CSS v4.3: ...". That shape suits a project
+ * whose readers search for its versions, and nobody searches for this set's.
+ * A search result shows about 60 characters, so the prefix spent 8 of them on
+ * every post and pushed the subject, the only words a search matches, past
+ * the cut: "v2.1.0: 61 free shadcn/ui, React and Figma icons for monitor...".
+ * The version still prints where a reader looks for it, above the date and on
+ * the card, through `postVersionLabel`, which keeps the "Unreleased" guard.
  *
- * So the headline graduates on its own. Write the version on the post the day
- * the branch is opened; the title stays bare until that version appears in
- * `lib/icon-history.json`, and the next build after the tag adds the prefix
- * everywhere at once. Nobody has to remember to come back and edit it.
- *
- * The post below is what that looks like from both sides. It was drafted
- * carrying `version: "0.3.1"`, the number its branches were named for, and
- * printed "Unreleased" for as long as no such tag existed. The batch then
- * shipped as **0.4.0**, because forty-four new names bump the second number
- * and the third is for a release that adds none. The field was corrected, the
- * tag exists, and the prefix appeared on its own.
- *
- * **The prefix is the bare version, not "Keyline Icons v0.4.0".** The root
- * layout's title template already appends the set name, so spelling it out
- * here renders "Keyline Icons v0.4.0: ... · Keyline Icons" in the tab and on
- * every card. That was written the long way first and caught by rendering a
- * released version rather than by reading the code, which is the only way this
- * class of mistake ever surfaces.
- *
- * One function rather than a string on the post, because five surfaces print
- * this and a second spelling on any of them is a title that disagrees with the
- * page it is on, which is the one thing Google rewrites.
+ * One function rather than `post.title` at each call site, because five
+ * surfaces print this and a second spelling on any of them is a title that
+ * disagrees with the page it is on, which is the one thing Google rewrites.
  */
-export const postHeadline = (post: BlogPost) =>
-  isReleased(post.version) ? `v${post.version}: ${post.title}` : post.title
+export const postHeadline = (post: BlogPost) => post.title
 
 /**
  * What the meta column prints above the date: the version, or the fact that
@@ -1055,11 +1036,13 @@ const BATCH_0_3_1: BlogPost = {
      none. The tag exists, so every surface prints `v0.4.0` and the title takes
      the prefix. */
   version: "0.4.0",
-  title: "44 new icons, and a duplicate that shipped seven times",
+  title:
+    "44 free package, cloud and search icons for React, shadcn/ui and " +
+    "Figma",
   description:
-    "Inside Keyline Icons v0.4.0: the parcel, search, cloud and app families, " +
-    "a redrawn bell whose plate was standing outside its own outline, and the " +
-    "day git-merge turned out to be git-branch under a second name.",
+    "Free, MIT-licensed SVG icons: a parcel with nine signs, ten search " +
+    "icons, a cloud with its signs, an umbrella, a parasol, a crown and a " +
+    "traffic light.",
   standfirst:
     "Everything that landed in v0.4.0, and what each of it was actually for. " +
     "Free SVG icons for shadcn/ui, drawn on one 24×24 grid.",
@@ -1463,11 +1446,11 @@ const BATCH_0_5_0: BlogPost = {
      corrected. */
   slug: "35-new-icons-and-two-names-the-wrong-way-round",
   version: "0.5.0",
-  title: "35 new icons, and two names that were the wrong way round",
+  title: "35 free text formatting icons for React, shadcn/ui and Figma",
   description:
-    "Inside Keyline Icons v0.5.0: a Text shelf for the formatting marks, the " +
-    "day link and link-2 turned out to be on each other's drawings, and a " +
-    "pair of sliders that broke their rails to give the knob air.",
+    "Free, MIT-licensed SVG icons for a text editor: bold, italic, " +
+    "underline, alignment and quotation marks, plus links, sliders and " +
+    "seven currency signs.",
   standfirst:
     "Everything that landed in v0.5.0, and what each of it was actually for. " +
     "Free SVG icons for shadcn/ui, drawn on one 24×24 grid.",
@@ -1801,12 +1784,11 @@ const BATCH_0_5_0: BlogPost = {
 const BATCH_0_7_0: BlogPost = {
   slug: "the-message-family-in-a-second-body",
   version: "0.7.0",
-  title: "71 new icons, and the message family in a second body",
+  title: "71 free chart, chat and emoji icons for React, shadcn/ui and Figma",
   description:
-    "Inside Keyline Icons v0.7.0: the message family drawn again on a square " +
-    "body, option for option, a scan frame with six things to read, " +
-    "twenty-six charts, four diagrams, seven faces and a badge with nine " +
-    "signs.",
+    "Free, MIT-licensed SVG icons: 26 charts from bar to candlestick, " +
+    "square chat bubbles, QR and barcode scanners, seven faces and badges " +
+    "with nine signs.",
   standfirst:
     "Everything that landed in v0.7.0: the square bubble, the scan family, " +
     "twenty-six charts, four diagrams, the faces and the badges. Free SVG icons for shadcn/ui, drawn on one " +
@@ -2148,11 +2130,12 @@ const BATCH_0_6_0: BlogPost = {
      a batch is untagged while the post is written. */
   slug: "23-new-icons-and-a-shopfront-that-took-three-passes",
   version: "0.6.0",
-  title: "23 new icons, and a shopfront that took three passes",
+  title:
+    "23 free book, store and currency icons for React, shadcn/ui and Figma",
   description:
-    "Inside Keyline Icons v0.6.0: a shopfront redrawn three times, the book " +
-    "that has three corners and a roll, seven currency marks with circled " +
-    "halves, and the spacing rule those were allowed to break.",
+    "Free, MIT-licensed SVG icons: an open book and its signs, a " +
+    "shopfront, a flame, a graduation cap and six currency signs in " +
+    "circles.",
   standfirst:
     "Everything that landed in v0.6.0, and what each of it was actually for. " +
     "Free SVG icons for shadcn/ui, drawn on one 24\u00d724 grid.",
@@ -2400,11 +2383,11 @@ const BATCH_0_8_0: BlogPost = {
      this batch: the search box did. */
   slug: "the-search-box-chose-this-one",
   version: "0.8.0",
-  title: "33 new icons, chosen by the search box",
+  title: "33 free office and art supply icons for React, shadcn/ui and Figma",
   description:
-    "Inside Keyline Icons v0.8.0: thirty-three drawings taken off a month of " +
-    "empty searches, five new shelves, a door drawn in perspective, and a " +
-    "phone whose negation slash had to change diagonal.",
+    "Free, MIT-licensed SVG icons, each drawn for a search that came back " +
+    "empty: a printer, a keyboard, a calculator, a paintbrush, a palette, " +
+    "beds and keys.",
   standfirst:
     "Everything that landed in v0.8.0: a printer, a keyboard, furniture, " +
     "food, art tools and three keys, every one of them a word somebody typed " +
@@ -2676,11 +2659,11 @@ const BATCH_0_9_0: BlogPost = {
      the six shelves are what a search for these icons types. */
   slug: "transport-nature-ai-science-health-icons",
   version: "0.9.0",
-  title: "53 free shadcn/ui icons for transport, nature, AI and health",
+  title: "53 free science and nature icons for React, shadcn/ui and Figma",
   description:
-    "v0.9.0: 53 free, MIT-licensed SVG icons for React and " +
-    "shadcn/ui. Planes, trains, leaves, a bot, flasks, lungs and " +
-    "thermometers, in stroke, duotone and fill.",
+    "Free, MIT-licensed SVG icons: flasks and test tubes, leaves and " +
+    "water, birds, a bot, lungs and thermometers, and the first planes, " +
+    "ship and train.",
   standfirst:
     "Everything that landed in v0.9.0: planes, a ship and a train, water and " +
     "leaves, a bot, flasks and test tubes, lungs and ears, the temperatures, " +
@@ -3339,11 +3322,11 @@ const RELEASE_1_1_0: BlogPost = {
      names the drawings, not the version, so it survives a renumbering. */
   slug: "free-ai-icons-math-symbols-mac-keys",
   version: "1.1.0",
-  title: "React Native, 114 new drawings",
+  title: "114 free AI and sparkle icons for React, React Native and Figma",
   description:
-    "1,114 free, MIT-licensed SVG icons for React, React Native, shadcn/ui, " +
-    "Figma and Paper. 114 new drawings: an AI shelf of sparkles, twenty " +
-    "maths marks and the four Mac modifier keys.",
+    "Free, MIT-licensed SVG icons: 77 AI icons with sparkles, twenty maths " +
+    "signs and the Mac command keys, and the whole set now installs in " +
+    "React Native and Expo.",
   standfirst:
     "Sparkles on one shelf, maths marks, Mac keys, and the set now installs " +
     "in React Native, Expo included.",
@@ -3589,12 +3572,11 @@ const RELEASE_1_0_0: BlogPost = {
      size of this release, and a title without it undersold it. */
   slug: "1000-free-shadcn-ui-icons-in-four-styles",
   version: "1.0.0",
-  title:
-    "1,000 free shadcn/ui icons for React, Figma and Paper, in four styles and two corners",
+  title: "1,000 free shadcn/ui icons in stroke, two-tone, duotone and fill",
   description:
-    "1,000 free, MIT-licensed SVG icons for React, shadcn/ui, Figma and " +
-    "Paper, each in stroke, two-tone, duotone and fill, rounded and sharp: " +
-    "8,000 SVGs.",
+    "1,000 free, MIT-licensed SVG icons for React, shadcn/ui and Figma, " +
+    "each in four styles with rounded or sharp corners: 8,000 in all. " +
+    "Version 1.0, out of beta.",
   standfirst:
     "A month, fourteen releases and one style nobody planned. Version " +
     "1.0.0 takes the set out of beta, with a new colour, a new logo and " +
@@ -4223,11 +4205,11 @@ const RELEASE_1_2_0: BlogPost = {
      version, so it survives a renumbering. */
   slug: "table-database-and-quick-action-icons",
   version: "1.2.0",
-  title: "64 free shadcn/ui icons for tables, databases and quick actions",
+  title: "64 free table and database icons for React, shadcn/ui and Figma",
   description:
-    "1,178 free, MIT-licensed SVG icons for React and shadcn/ui. 64 new: " +
-    "table edits, database and server signs, a lightning bolt family and " +
-    "more progress states.",
+    "Free, MIT-licensed SVG icons: rows and columns added, merged and " +
+    "split, database and server signs, a lightning bolt family and more " +
+    "progress states.",
   standfirst:
     "A row added, two columns merged, a cache that answers at once: now " +
     "each has its own drawing.",
@@ -4603,11 +4585,11 @@ const RELEASE_1_3_0: BlogPost = {
      drawings, not the version, so it survives a renumbering. */
   slug: "sport-stock-chart-and-speed-icons",
   version: "1.3.0",
-  title: "39 free shadcn/ui icons for sport, stock charts and speed",
+  title: "39 free sports and stock chart icons for React, shadcn/ui and Figma",
   description:
-    "1,217 free, MIT-licensed SVG icons for React and shadcn/ui. New: five " +
-    "balls, stock charts, a gamepad, two anchors, a lifebuoy, push pins and " +
-    "a shooting star.",
+    "Free, MIT-licensed SVG icons: five balls, stock charts, a gamepad, " +
+    "two anchors, a lifebuoy, push pins, a shooting star and a fast " +
+    "delivery truck.",
   standfirst: "Three short lines behind a star, and it's a shooting star.",
   headline: "A star that leaves a trail",
   date: "2026-09-28",
@@ -5099,11 +5081,11 @@ const RELEASE_1_4_0: BlogPost = {
      the version, so it survives a renumbering. */
   slug: "banking-money-and-transfer-icons",
   version: "1.4.0",
-  title: "16 free shadcn/ui icons for banking, money and transfers",
+  title: "16 free banking and money icons for React, shadcn/ui and Figma",
   description:
-    "1,233 free, MIT-licensed SVG icons for React and shadcn/ui. New: a " +
-    "money bag with five signs, a bank, gold bars, a stamp, a newspaper and " +
-    "transfer arrows.",
+    "Free, MIT-licensed SVG icons for a banking app: a money bag with five " +
+    "signs, a bank, gold bars, a rubber stamp, a newspaper and arrows for " +
+    "transfers.",
   standfirst: "It all started with the menu of a banking app.",
   headline: "It all started with a banking app's menu",
   date: "2026-09-28",
@@ -5422,11 +5404,10 @@ const RELEASE_1_5_0: BlogPost = {
      the version, so it survives a renumbering. */
   slug: "bot-clipboard-save-and-shield-icons",
   version: "1.5.0",
-  title: "53 free shadcn/ui icons for bots, clipboards, save and shields",
+  title: "53 free bot and shield icons for React, shadcn/ui and Figma",
   description:
-    "1,286 free, MIT-licensed SVG icons for React and shadcn/ui. New: bots " +
-    "in six shapes, six shields, and clipboards and floppy disks with their " +
-    "signs.",
+    "Free, MIT-licensed SVG icons: chatbots in six shapes, six security " +
+    "shields, and clipboards and floppy disks with their signs.",
   standfirst: "A list of 182 icons, and nineteen still to draw.",
   headline: "Filling in what shadcn/create was missing",
   date: "2026-10-01",
@@ -5792,12 +5773,11 @@ const RELEASE_1_6_0: BlogPost = {
      slug names the drawings, not the version. */
   slug: "house-user-and-settings-icons",
   version: "1.6.0",
-  title:
-    "47 free shadcn/ui, React and Figma icons for houses, users, settings and arrows",
+  title: "47 free home, user and settings icons for React, shadcn/ui and Figma",
   description:
-    "1,332 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
-    "a second house with twelve variations, a person with nine symbols, and " +
-    "a cog for files, folders, databases and the globe.",
+    "Free, MIT-licensed SVG icons: a second house with twelve variations, " +
+    "a person with nine symbols, and a cog for files, folders, databases " +
+    "and the globe.",
   standfirst: "Home has company.",
   headline: "Home has company",
   date: "2026-10-04",
@@ -6126,11 +6106,11 @@ const RELEASE_1_7_0: BlogPost = {
      version. */
   slug: "law-health-and-text-editing-icons",
   version: "1.7.0",
-  title: "34 free shadcn/ui, React and Figma icons for law, health and text editing",
+  title: "34 free law and medical icons for React, shadcn/ui and Figma",
   description:
-    "1,366 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
-    "a gavel and balances, a stethoscope and syringe, text size arrows, a " +
-    "spell check and a webcam.",
+    "Free, MIT-licensed SVG icons: a gavel, the scales of justice, a " +
+    "stethoscope, a syringe and a first-aid kit, text size arrows and a " +
+    "spell check.",
   standfirst: "Order in court.",
   headline: "The law gets a category of its own",
   date: "2026-10-05",
@@ -6475,11 +6455,10 @@ const RELEASE_1_8_0: BlogPost = {
      drawings, not the version. */
   slug: "long-arrows-aspect-ratios-and-input-icons",
   version: "1.8.0",
-  title: "69 free shadcn/ui, React and Figma icons for arrows, aspect ratios and inputs",
+  title: "69 free arrow and aspect ratio icons for React, shadcn/ui and Figma",
   description:
-    "1,435 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
-    "long arrows, undo and redo, aspect ratios, text inputs, a bento grid " +
-    "and a webhook.",
+    "Free, MIT-licensed SVG icons: long arrows, swaps, undo and redo, " +
+    "frames from 1:1 to 21:9, text fields, a bento grid and a webhook.",
   standfirst: "Longer arrows, and frames from 1:1 to 21:9.",
   headline: "Longer arrows, and frames up to 21:9",
   date: "2026-10-11",
@@ -6895,11 +6874,10 @@ const RELEASE_2_0_0: BlogPost = {
      the drawings, not the version. */
   slug: "brackets-tally-marks-and-shape-icons",
   version: "2.0.0",
-  title: "72 free shadcn/ui, React and Figma icons for brackets, tallies, shapes and arrows",
+  title: "72 free bracket and tally mark icons for React, shadcn/ui and Figma",
   description:
-    "1,507 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
-    "brackets and punctuation, tally marks, chevron levels, plain shapes and " +
-    "u-turn arrows.",
+    "Free, MIT-licensed SVG icons: brackets, braces and punctuation, tally " +
+    "marks, chevron levels, plain shapes and u-turn arrows.",
   standfirst: "Small pieces, the kind you only notice when they're missing.",
   headline: "The pieces you only notice when they're missing",
   date: "2026-10-18",
@@ -7256,10 +7234,12 @@ const RELEASE_2_1_0: BlogPost = {
      slug names the drawings, not the version. */
   slug: "monitor-greek-letter-and-3d-shape-icons",
   version: "2.1.0",
-  title: "61 free shadcn/ui, React and Figma icons for monitors, Greek letters, 3D shapes and flags",
+  title:
+    "61 free Greek letter and 3D shape icons for React, shadcn/ui and " +
+    "Figma",
   description:
-    "1,568 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
-    "a monitor with its signs, Greek letters and math, 3D shapes, pennants " +
+    "Free, MIT-licensed SVG icons: sigma, pi, lambda and omega, a cube, a " +
+    "cylinder, a cone and a pyramid, a monitor with its signs, pennants " +
     "and waves.",
   standfirst: "A screen that says what it's doing, and the letters a formula is written in.",
   headline: "Screens that say what they're doing",
@@ -7580,11 +7560,13 @@ const RELEASE_2_2_0: BlogPost = {
      names the drawings, not the version. */
   slug: "transport-road-works-food-and-music-icons",
   version: "2.2.0",
-  title: "55 free shadcn/ui, React and Figma icons for transport, road works, food and music",
+  title:
+    "55 free transport and construction icons for React, shadcn/ui and " +
+    "Figma",
   description:
-    "1,623 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
-    "buses, trams and taxis with an off state for every vehicle, road works, " +
-    "food, bones and music players.",
+    "Free, MIT-licensed SVG icons: buses, trams and taxis, an off state " +
+    "for every vehicle, traffic cones and road works, burgers, pizza and a " +
+    "cassette.",
   standfirst: "Every vehicle in the set can be switched off now, and the street has its cones.",
   headline: "Every vehicle can now be switched off",
   date: "2026-10-25",

@@ -49,8 +49,8 @@ export async function generateMetadata({
 
   return pageMetadata({
     path: postHref(post.slug),
-    /* `postHeadline`, not `post.title`: it carries the version once the tag
-       exists, and this string has to be the `h1` word for word. */
+    /* `postHeadline`, not `post.title`: this string has to be the `h1` word
+       for word, and one function is how five surfaces stay that way. */
     title: postHeadline(post),
     description: post.description,
     /*
