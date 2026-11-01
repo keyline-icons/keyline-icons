@@ -151,6 +151,17 @@ export type BlogFigure =
  */
 export type BlogTableLink = { text: string; href: string; logo: string }
 
+/**
+ * A guide's picture on the index and on its social card, in place of the band
+ * of drawings an update shows. An update's picture is what shipped; a guide is
+ * about other things too, so it shows those: the projects it compares, as
+ * their own marks, over the sheet the post is built on.
+ */
+export type BlogCover = {
+  logos: readonly { name: string; src: string }[]
+  image: { src: string; width: number; height: number }
+}
+
 export type BlogBlock =
   | { kind: "p"; text: string }
   | { kind: "h2"; text: string; id: string }
@@ -222,6 +233,16 @@ export type BlogPost = {
    * Omit it for a post that is not about a release. There will be some.
    */
   version?: string
+  /**
+   * What a post that is not about a release is instead, printed where an
+   * update prints its version. Without it a guide's entry on the index had an
+   * empty slot above its date and read as one more update, which it is not:
+   * it is written to be found by a search and kept current, not read once in
+   * a series. A post carries `version` or `kind`, never both.
+   */
+  kind?: "guide"
+  /** A guide's picture; see `BlogCover`. Without one it falls back to `thumbnail`. */
+  cover?: BlogCover
   /** ISO date. Drives `datePublished`, the printed date and the sitemap. */
   date: string
   /** ISO date of the last substantive edit, or the publication date. */
@@ -334,6 +355,18 @@ export const postVersionLabel = (post: BlogPost) =>
       ? `v${post.version}`
       : "Unreleased"
     : null
+
+/**
+ * What a post is, as a section name: the label a post that is not an update
+ * prints in the version's place, and the `articleSection` of its structured
+ * data, so the page and what a crawler is told agree.
+ */
+export const postSection = (post: BlogPost) =>
+  post.kind === "guide" ? "Guides" : "Updates"
+
+/** The singular, for the label on the index, the post and the card. */
+export const postKindLabel = (post: BlogPost) =>
+  post.kind === "guide" ? "Guide" : null
 
 /*
   `BLOG_AUTHOR` was here, set to Zafar's name, and it is gone rather than
@@ -8106,6 +8139,21 @@ const LUCIDE_ALTERNATIVES: BlogPost = {
     "Sidebar.",
   standfirst:
     "Checked against shadcn's component source and each set's own README, October 2026.",
+  kind: "guide",
+  cover: {
+    logos: [
+      { name: "Lucide", src: "/blog/lucide-alternatives-shadcn-ui/logos/lucide.svg" },
+      { name: "Tabler Icons", src: "/blog/lucide-alternatives-shadcn-ui/logos/tabler.svg" },
+      { name: "Phosphor", src: "/blog/lucide-alternatives-shadcn-ui/logos/phosphor.svg" },
+      { name: "Heroicons", src: "/blog/lucide-alternatives-shadcn-ui/logos/heroicons.svg" },
+      { name: "Keyline Icons", src: "/logo/logo.svg" },
+    ],
+    image: {
+      src: "/blog/lucide-alternatives-shadcn-ui/compare-grid.png",
+      width: 1200,
+      height: 670,
+    },
+  },
   date: "2026-10-31",
   updated: "2026-10-31",
   readingMinutes: 4,

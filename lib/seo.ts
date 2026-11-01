@@ -491,6 +491,7 @@ export function blogPostJsonLd({
   datePublished,
   dateModified,
   keywords,
+  section,
 }: {
   title: string
   description: string
@@ -498,6 +499,8 @@ export function blogPostJsonLd({
   datePublished: string
   dateModified: string
   keywords: readonly string[]
+  /** "Updates" or "Guides", the same split the index labels. */
+  section: string
 }) {
   const url = absoluteUrl(path)
 
@@ -514,6 +517,7 @@ export function blogPostJsonLd({
         datePublished,
         dateModified,
         keywords: keywords.join(", "),
+        articleSection: section,
         /*
           The set, not a person. These posts are written about work Zafar did
           and decisions he made, and they are not written by him: a `Person`

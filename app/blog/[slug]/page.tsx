@@ -7,12 +7,13 @@ import {
   postDateLabel,
   postHeadline,
   postHref,
-  postVersionLabel,
+  postSection,
 } from "@/lib/blog"
 import { blogPostJsonLd, pageMetadata } from "@/lib/seo"
 import { RAIL_ASIDE, RAIL_COLUMN, RAIL_PAGE } from "@/lib/site-chrome"
 import { BlogBody } from "@/components/blog-body"
 import { PageContents } from "@/components/page-contents"
+import { PostLabel } from "@/components/post-label"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
 import {
@@ -89,7 +90,6 @@ export default async function Page({
 
   if (!post) notFound()
 
-  const version = postVersionLabel(post)
   /*
     The post's headings, for the rail. Read off the body the headings render
     from, so a heading added, renamed or given a new id moves the rail with
@@ -123,6 +123,7 @@ export default async function Page({
                 datePublished: post.date,
                 dateModified: post.updated,
                 keywords: post.keywords,
+                section: postSection(post),
               })
             ),
           }}
@@ -160,15 +161,12 @@ export default async function Page({
             </p>
             <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
               {/*
-              The version badge the index entry carries, repeated here so a
-              reader arriving from a search rather than from the index gets the
-              same fact in the same shape. "Unreleased" while no tag covers it.
+              The badge the index entry carries, repeated here so a reader
+              arriving from a search rather than from the index gets the same
+              fact in the same shape: the version ("Unreleased" while no tag
+              covers it), or that this is a guide.
             */}
-              {version && (
-                <span className="rounded-md bg-muted px-2 py-0.5 font-mono text-[11px] tracking-tight text-foreground">
-                  {version}
-                </span>
-              )}
+              <PostLabel post={post} />
               {/*
               No byline. There was one, carrying Zafar's name and linking his
               handle, and it claimed something untrue: he did the work these

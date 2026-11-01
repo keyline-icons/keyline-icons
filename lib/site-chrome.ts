@@ -93,7 +93,8 @@ export const BLOG_SEGMENT = "/blog"
 
 export const BLOG_DESCRIPTION =
   `How ${SET_TITLE} gets drawn: what shipped in each update, why a drawing ` +
-  `was redrawn, and the faults that only show up at eight times size.`
+  `was redrawn, the faults that only show up at eight times size, and guides ` +
+  `to using the set.`
 
 /** What the set is for, stated so it claims compatibility and nothing more. */
 export const SET_TAGLINE = "Built for shadcn/ui"

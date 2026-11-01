@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 import {
@@ -6,17 +7,19 @@ import {
   postDateLabel,
   postHeadline,
   postHref,
-  postVersionLabel,
+  type BlogCover,
   type BlogPost,
 } from "@/lib/blog"
 import { loadIcons, type Icon } from "@/lib/icons"
 import { blogJsonLd, pageMetadata } from "@/lib/seo"
 import { Glyph } from "@/components/glyph"
+import { PostLabel } from "@/components/post-label"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
 
 /**
- * The blog index: one card per post, newest first.
+ * The blog index: guides first, each across the full width, then the updates
+ * in a grid, newest first.
  *
  * It exists as its own route rather than as a section of `/changelog` because
  * the two answer different questions and a reader arrives wanting one of them.
@@ -26,11 +29,21 @@ import { SiteNav } from "@/components/site-nav"
  * arrangement that goes stale, or a hand-written page pretending to be a
  * complete record, which is worse.
  *
- * Each entry's picture is the post's own drawings rather than a screenshot or
- * a stock image. That is not a stylistic preference: a field drawn from
- * `icons/` at request time is one this site can guarantee is current, and an
- * exported PNG of the same drawings would be a picture of what they looked
- * like on the day somebody rasterised it.
+ * **Two kinds of post, laid out as two kinds of thing** (his call, 1 Nov
+ * 2026, after Profound's news page). An update is one in a series, read
+ * around its release and then mostly scanned past, so it is a cell in a grid
+ * where the column of versions does the work. A guide is written to be found
+ * by a search and kept current, so it stands on its own row above the series
+ * rather than sinking into it as the series grows. The chip on each
+ * (`PostLabel`) says which is which in words; the layout and the pictures say
+ * it before anything is read.
+ *
+ * An update's picture is the post's own drawings rather than a screenshot or a
+ * stock image. That is not a stylistic preference: a field drawn from `icons/`
+ * at request time is one this site can guarantee is current, and an exported
+ * PNG of the same drawings would be a picture of what they looked like on the
+ * day somebody rasterised it. A guide is about more than this set's drawings,
+ * so its picture is the projects it covers (`BlogCover`).
  */
 
 export function generateMetadata() {
@@ -41,10 +54,10 @@ export function generateMetadata() {
     /*
       "Latest updates" rather than "Blog", and the two are not
       interchangeable. The bar still says Blog, which is the word people look
-      for in a nav; the page says what it actually holds, which is one entry
-      per update to the set. A `SiteLink`'s label and a page's title are
-      allowed to differ, and the rule that must not be broken is the other
-      one: this string is the `h1` word for word.
+      for in a nav; the page says what it is mostly made of, one entry per
+      update to the set. A `SiteLink`'s label and a page's title are allowed
+      to differ, and the rule that must not be broken is the other one: this
+      string is the `h1` word for word.
     */
     title: "Latest updates",
     description: BLOG_DESCRIPTION,
@@ -54,119 +67,58 @@ export function generateMetadata() {
 }
 
 /**
- * The band's keyline, matching the figures inside a post.
+ * The keyline of an update's drawings, matching the figures inside a post.
  *
  * Its own constant rather than an import from `components/blog-body.tsx`: a
  * number shared between a page and a component is the kind of import that
  * turns into a cycle the first time either grows. The two are meant to agree,
  * and the comment on `FIGURE_STROKE` over there is the one that explains 1.5.
  */
-const BAND_STROKE = 1.5
+const PREVIEW_STROKE = 1.5
+
+/** Six to a row, three rows: the most a grid cell holds at a size worth seeing. */
+const PREVIEW_COLUMNS = 6
+const PREVIEW_ROWS = 3
 
 /**
- * The band's row geometry, in pixels, because its height has to be derived
- * from this rather than picked.
+ * An update's picture: the drawings it shipped, on the muted surface every
+ * picture on this site sits on.
  *
- * A drawing is `size-8` and the rows are `gap-y-6`, so a row occupies 32 and
- * the next starts 56 below it. `bandHeight` is the height that holds exactly
- * `rows` of them with nothing over: two rows is 32 + 24 + 32, not 2 x 56,
- * because the last row has no gap under it.
+ * Whole rows only. A post with eleven names shows six rather than six and a
+ * ragged five, because a part-filled last row reads as drawings missing from
+ * the picture rather than as a picture of fewer drawings.
  *
- * Written out rather than a round number being chosen, because these have to
- * move together with the classes below. That is what a hard edge costs. See
- * the note on `Thumbnail`.
+ * The cells size the drawings rather than a fixed pixel size, up to 32px: a
+ * grid cell is 360px across on a wide screen and under 300 in the two-column
+ * band, and six fixed drawings with fixed gaps overflow the narrow one. The
+ * ink is held back to 70 per cent and comes up on hover, where the whole
+ * entry is the link: at full strength eighteen drawings compete with the
+ * title for the same attention.
+ *
+ * Decoration, so it is inert: `aria-hidden`, because the title and standfirst
+ * already say what the post is and a screen reader reading eighteen drawings
+ * before them would make the index unusable.
  */
-const GLYPH = 32
-const ROW_GAP = 24
-const bandHeight = (rows: number) => rows * GLYPH + (rows - 1) * ROW_GAP
+function UpdatePreview({ icons }: { icons: Icon[] }) {
+  const whole = Math.floor(icons.length / PREVIEW_COLUMNS) * PREVIEW_COLUMNS
+  const shown = icons.slice(
+    0,
+    Math.min(PREVIEW_COLUMNS * PREVIEW_ROWS, whole || icons.length)
+  )
 
-/**
- * The post's drawings, as a band of ink under the standfirst rather than a
- * picture in a frame.
- *
- * **Two things were tried and dropped on the way here, and both are worth
- * writing down.** The first was a row of six at 24px in a padded bar, which
- * read as a toolbar somebody had left at the top of the entry rather than as a
- * picture of anything. The second was the fix for that inside a bordered card:
- * enough drawings to fill a frame, running off its edges. The field was right;
- * the card around it was not. A rounded box with a tinted ground and a border
- * is a component, and three of them stacked down a page make an index look
- * like a settings screen.
- *
- * So the frame is gone and the field stayed. It sits on the page's own ground,
- * cropped by height alone. Nothing encloses it. The hairline above each entry
- * is the only chrome on this page, and it is the same rule `/changelog`
- * separates its releases with.
- *
- * **There was a fade over the ends and it has been dropped, which changes how
- * the height has to be chosen.** With a mask the height was free: the block
- * was centred, ran off both ends, and the gradient turned each cut into an
- * edge, so a row sliced through the middle simply faded out. With a hard edge
- * a sliced row is a row of half drawings. So the block is pinned to the top
- * and the height is `bandHeight(rows)`, which is the arithmetic that lands the
- * cut in the gap under the last visible row rather than through it. Change the
- * glyph size or the row gap and those constants change with them, or the band
- * starts slicing.
- *
- * Decoration, so it is inert: `aria-hidden`, because the entry's heading and
- * standfirst already say what the post is and a screen reader reading forty
- * drawings before them would make the index unusable.
- *
- * The drawings are 32px with tight gaps, which is a measurement against the
- * column rather than a taste: at 36px in a narrow one the field fell to three
- * a row with air around them, which reads as a scatter rather than a set.
- *
- * How many rows show is the whole of the sizing decision now. Two: enough that
- * it is a field rather than a row, few enough that an index of several entries
- * is still a list of headings rather than a wall of icons. The rest of the
- * list is cut off, which is what a band is.
- *
- * The ink is held back to 70 per cent, which is the other half of not being a
- * component: at full strength forty drawings under a heading compete with it
- * for the same attention, and the heading is what the reader came to read. It
- * comes up on hover, where the whole entry is the link.
- *
- * Left-aligned, not centred. The band sits directly under the standfirst and
- * shares its left edge, so a centred field would be the only thing in the
- * column that does not line up with the text above it.
- *
- * Check it rather than trusting the classes, and check the right thing: no
- * drawing may straddle the bottom edge. Every glyph has to be either wholly
- * inside the band or wholly outside it, at every width.
- */
-function Thumbnail({ icons }: { icons: Icon[] }) {
   return (
     <div
       aria-hidden="true"
-      /*
-        A band, at a height in pixels rather than an aspect ratio. It sits in
-        the content column under the standfirst, so its width is whatever the
-        column is and an aspect would make it taller on a wide screen for no
-        reason: what this wants is a constant slice through the field at every
-        width.
-
-        `overflow-hidden` is the crop and the only thing left of the frame.
-        There is no background and no radius: a tinted rounded rectangle here
-        is the card coming back in through the picture.
-      */
-      className="relative my-1 overflow-hidden"
-      style={{ height: bandHeight(2) }}
+      className="grid aspect-[16/10] place-items-center rounded-xl bg-muted px-6 sm:px-8"
     >
-      {/*
-        Pinned to the top and `content-start`, not centred. Centring was what
-        the mask wanted: it split the overflow evenly so both ends had
-        something to fade. With a hard edge the overflow has to be all at one
-        end, and the edge has to land in the gap between two rows rather than
-        through a drawing.
-      */}
-      <div className="absolute inset-x-0 top-0 flex flex-wrap content-start justify-start gap-x-6 gap-y-6 text-foreground/70 transition-colors group-hover:text-foreground">
-        {icons.map((icon) => (
+      <div className="grid w-full max-w-72 grid-cols-6 gap-4 text-foreground/70 transition-colors group-hover:text-foreground">
+        {shown.map((icon) => (
           <Glyph
             key={icon.name}
             art={icon.art.stroke!}
             size={24}
-            stroke={BAND_STROKE}
-            className="size-8 shrink-0"
+            stroke={PREVIEW_STROKE}
+            className="aspect-square h-auto w-full max-w-8 justify-self-center"
           />
         ))}
       </div>
@@ -174,81 +126,125 @@ function Thumbnail({ icons }: { icons: Icon[] }) {
   )
 }
 
-function Entry({ post, icons }: { post: BlogPost; icons: Icon[] }) {
-  const version = postVersionLabel(post)
-
+/**
+ * A guide's picture: the projects it covers as a row of marks, over the sheet
+ * the post is built on, cropped as it runs off the corner.
+ *
+ * The marks sit on white tiles in both themes, which is how the post's own
+ * table shows them on a dark page: they are other projects' artwork, drawn for
+ * a light ground, and recolouring them would make them not their logos. The
+ * sheet is the comparison itself, so the picture says "these five, side by
+ * side" before the title does. Its left edge is the logos' left edge, at the
+ * same inset at every width, so the two read as one column.
+ */
+function GuidePreview({ cover }: { cover: BlogCover }) {
   return (
-    /*
-      A hairline above each entry and nothing else, which is how `/changelog`
-      separates its releases.
-    */
-    <li className="border-t">
+    <div
+      aria-hidden="true"
+      className="relative aspect-[16/10] overflow-hidden rounded-xl bg-muted"
+    >
+      <div className="absolute top-5 left-5 z-10 flex gap-2 sm:top-8 sm:left-8">
+        {cover.logos.map((logo) => (
+          <span
+            key={logo.name}
+            className="grid size-9 place-items-center rounded-lg bg-white shadow-xs sm:size-12"
+          >
+            <Image
+              src={logo.src}
+              alt=""
+              width={28}
+              height={28}
+              className="size-5 sm:size-7"
+            />
+          </span>
+        ))}
+      </div>
+      <Image
+        src={cover.image.src}
+        alt=""
+        width={cover.image.width}
+        height={cover.image.height}
+        sizes="(min-width: 1024px) 640px, 100vw"
+        className="absolute top-[30%] left-5 w-[115%] max-w-none rounded-tl-lg border shadow-sm transition-transform duration-300 group-hover:-translate-y-1 sm:left-8"
+      />
+    </div>
+  )
+}
+
+/**
+ * The date, uppercase and letterspaced, which is the one place on this site
+ * that treatment is right: it makes the date read as a label on the entry
+ * rather than as the first words of it.
+ */
+function EntryMeta({ post }: { post: BlogPost }) {
+  return (
+    <div className="flex items-center gap-3">
+      <PostLabel post={post} />
+      <time
+        dateTime={post.date}
+        className="text-[11px] tracking-widest text-muted-foreground uppercase"
+      >
+        {postDateLabel(post.date)}
+      </time>
+    </div>
+  )
+}
+
+function GuideEntry({ post, icons }: { post: BlogPost; icons: Icon[] }) {
+  return (
+    <li>
       {/*
         The whole entry is the link, rather than the heading being one inside
         it. An entry with a small link in it is an entry most of which does
         nothing when clicked, which on a phone is most of the target.
-
-        **When it happened on the left, what happened on the right.** That is
-        the arrangement every changelog worth reading uses, and it is better
-        than a date tucked under the standfirst for a reason particular to this
-        page: these entries are a series, so the column of dates is itself
-        information, scannable down the page without reading a word of the
-        posts.
-
-        The meta column collapses above `sm`, where 150px of it would leave the
-        titles nowhere to go.
       */}
       <Link
         href={postHref(post.slug)}
-        className="group flex flex-col gap-3 py-10 sm:flex-row sm:gap-10"
+        className="group grid items-center gap-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:gap-8 lg:gap-12"
       >
-        <div className="flex shrink-0 flex-row items-center gap-3 sm:w-36 sm:flex-col sm:items-start sm:gap-2">
-          {/*
-            The version, or "Unreleased" while the tag does not exist. It is a
-            badge rather than a line of text because it is the entry's one
-            piece of hard metadata, and because "Unreleased" needs to read as a
-            state rather than as a word someone typed.
-          */}
-          {version && (
-            <span className="rounded-md bg-muted px-2 py-0.5 font-mono text-[11px] tracking-tight text-foreground">
-              {version}
-            </span>
-          )}
-          {/*
-            Uppercase and letterspaced, which is the one place on this site
-            that treatment is right: it makes the date read as a label on the
-            entry rather than as the first words of it.
-          */}
-          <time
-            dateTime={post.date}
-            className="text-[11px] tracking-widest text-muted-foreground uppercase"
-          >
-            {postDateLabel(post.date)}
-          </time>
-        </div>
-
-        {/* `min-w-0` because a flex child defaults to its content's width, and
-            a long unbroken title would otherwise squeeze the meta column. */}
-        <div className="flex min-w-0 flex-col gap-3">
-          <h2 className="text-xl font-semibold tracking-tight text-balance text-foreground group-hover:underline group-hover:underline-offset-4 sm:text-2xl">
+        {post.cover ? (
+          <GuidePreview cover={post.cover} />
+        ) : (
+          <UpdatePreview icons={icons} />
+        )}
+        <div className="flex flex-col gap-3">
+          <EntryMeta post={post} />
+          <h2 className="text-2xl font-semibold tracking-tight text-balance text-foreground group-hover:underline group-hover:underline-offset-4 sm:text-3xl">
             {postHeadline(post)}
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
             {post.standfirst}
           </p>
-
-          <Thumbnail icons={icons} />
-
           {/*
             Not an anchor. The whole entry is already one, and an anchor inside
             an anchor is invalid markup that browsers repair by closing the
             outer one early, which would silently cut the clickable area down
-            to the heading. It is styled as a link because it is one thing to
-            click, just not its own.
+            to the heading.
           */}
-          <span className="text-sm font-medium text-foreground underline underline-offset-4 group-hover:no-underline">
-            Read more
+          <span className="mt-1 text-sm font-medium text-foreground underline underline-offset-4 group-hover:no-underline">
+            Read the guide
           </span>
+        </div>
+      </Link>
+    </li>
+  )
+}
+
+function UpdateEntry({ post, icons }: { post: BlogPost; icons: Icon[] }) {
+  return (
+    <li>
+      <Link href={postHref(post.slug)} className="group flex flex-col gap-4">
+        <UpdatePreview icons={icons} />
+        <div className="flex flex-col gap-2">
+          <EntryMeta post={post} />
+          <h2 className="text-lg leading-snug font-semibold tracking-tight text-balance text-foreground group-hover:underline group-hover:underline-offset-4">
+            {postHeadline(post)}
+          </h2>
+          {/* Two lines at most: in a grid, a standfirst that runs on pushes
+              its neighbour's title out of line with its own. */}
+          <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+            {post.standfirst}
+          </p>
         </div>
       </Link>
     </li>
@@ -265,15 +261,17 @@ export default async function Page() {
       .map((name) => byName.get(name))
       .filter(Boolean) as Icon[],
   }))
+  const guides = entries.filter(({ post }) => post.kind === "guide")
+  const updates = entries.filter(({ post }) => post.kind !== "guide")
 
   return (
     <>
       <SiteNav />
 
-      {/* The prose measure, matching `/changelog` and `/install`: this page is
-          a heading, a sentence and a column of entries, and the icon browser's
-          full-width box would set the sentence across 1,400px. */}
-      <main className="mx-auto w-full max-w-3xl px-6 pb-16 lg:px-8">
+      {/* Wider than the prose measure `/changelog` and `/install` use, because
+          three columns of pictures need it; the heading and its sentence keep
+          their own measure inside it. */}
+      <main className="mx-auto w-full max-w-6xl px-6 pb-16 lg:px-8">
         <script
           type="application/ld+json"
           // The index and each post declare one graph between them: this node
@@ -292,7 +290,7 @@ export default async function Page() {
           }}
         />
 
-        <header className="pt-6 pb-10">
+        <header className="max-w-2xl pt-6 pb-10">
           <h1 className="text-4xl font-semibold tracking-tight">
             Latest updates
           </h1>
@@ -301,12 +299,17 @@ export default async function Page() {
           </p>
         </header>
 
-        {/* No gap: each entry carries its own vertical padding and the
-            hairline sits flush between them, so two entries share one rule
-            rather than being two boxes with a gutter. */}
-        <ul className="flex flex-col">
-          {entries.map(({ post, icons: field }) => (
-            <Entry key={post.slug} post={post} icons={field} />
+        {guides.length > 0 && (
+          <ul className="flex flex-col gap-16 border-t py-10 sm:py-12">
+            {guides.map(({ post, icons: field }) => (
+              <GuideEntry key={post.slug} post={post} icons={field} />
+            ))}
+          </ul>
+        )}
+
+        <ul className="grid gap-x-8 gap-y-12 border-t pt-10 sm:grid-cols-2 sm:pt-12 lg:grid-cols-3">
+          {updates.map(({ post, icons: field }) => (
+            <UpdateEntry key={post.slug} post={post} icons={field} />
           ))}
         </ul>
       </main>

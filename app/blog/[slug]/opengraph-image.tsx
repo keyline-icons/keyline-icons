@@ -1,3 +1,6 @@
+import { readFile } from "node:fs/promises"
+import path from "node:path"
+
 import { ImageResponse } from "next/og"
 import { notFound } from "next/navigation"
 
@@ -7,6 +10,7 @@ import {
   findPost,
   postDateLabel,
   postHeadline,
+  postKindLabel,
   postVersionLabel,
 } from "@/lib/blog"
 
@@ -84,6 +88,14 @@ export default async function Image({
 
   if (!post) notFound()
 
+  const version = postVersionLabel(post)
+  const kind = postKindLabel(post)
+  const lead = version
+    ? { text: version, color: INK }
+    : kind
+      ? { text: kind, color: PRIMARY }
+      : null
+
   const icons = await loadIcons()
   const byName = new Map(icons.map((icon) => [icon.name, icon]))
 
@@ -96,6 +108,30 @@ export default async function Image({
     a card is not the place to discover a rename, and `check-demos` fails CI on
     one long before a link gets shared.
   */
+  /*
+    A guide's card shows the projects it covers, as their own marks, where an
+    update's shows its drawings: the index lays the two out differently, and
+    a shared link should look like the entry it came from. Read off `public/`
+    at render, and any `currentColor` resolved against the file's own `color`
+    for the same reason the drawings resolve theirs.
+  */
+  const logos = post.cover
+    ? await Promise.all(
+        post.cover.logos.map(async (logo) => {
+          const file = await readFile(
+            path.join(process.cwd(), "public", logo.src),
+            "utf8"
+          )
+          const color = file.match(/\bcolor="([^"]+)"/)?.[1] ?? INK
+          const markup = file.replace(/currentColor/g, color)
+          return {
+            name: logo.name,
+            src: `data:image/svg+xml;base64,${Buffer.from(markup).toString("base64")}`,
+          }
+        })
+      )
+    : null
+
   const drawings = post.thumbnail
     .slice(0, BLOG_SOCIAL_CARD_ICONS)
     .map((name) => byName.get(name))
@@ -167,7 +203,7 @@ export default async function Image({
             card looks like the page it came from. */}
       <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          {drawings.map((drawing) => (
+          {(logos ?? drawings).map((drawing) => (
             <div
               key={drawing.name}
               style={{
@@ -200,13 +236,15 @@ export default async function Image({
           }}
         >
           {/* The version leads the line where there is one, which is what a
-                reader scanning a feed for "did the release land" is after. */}
-          {postVersionLabel(post) && (
-            <>
-              <span style={{ color: INK }}>{postVersionLabel(post)}</span>
-              <span style={{ color: HAIRLINE }}>|</span>
-            </>
-          )}
+                reader scanning a feed for "did the release land" is after. A
+                guide says so in the same place, in the colour its badge wears
+                on the site, so a shared guide never unfurls as a release.
+
+                Two siblings rather than a fragment: Satori lays a fragment's
+                children out without the row's `gap`, which printed the label
+                hard against its bar ("v2.3.0|") on every release card. */}
+          {lead && <span style={{ color: lead.color }}>{lead.text}</span>}
+          {lead && <span style={{ color: HAIRLINE }}>|</span>}
           <span>{postDateLabel(post.date)}</span>
           <span style={{ color: HAIRLINE }}>|</span>
           <span>{post.readingMinutes} min read</span>
