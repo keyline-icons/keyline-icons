@@ -18,6 +18,7 @@ import {
   ViteLogo,
   VueSvelteLogo,
 } from "@/components/brand-logos"
+import { CodeBlock as Code } from "@/components/code-block"
 import { Faq } from "@/components/faq"
 import {
   type ContentsEntry,
@@ -77,18 +78,6 @@ export const metadata = pageMetadata({
   socialDescription:
     "Add Keyline Icons to a shadcn/ui project: copy an SVG, import the components, and swap out lucide.",
 })
-
-/**
- * Code blocks scroll rather than wrap. A wrapped import line reads as two
- * lines of code, and the one thing a snippet has to be is copyable by eye.
- */
-function Code({ children }: { children: string }) {
-  return (
-    <pre className="overflow-x-auto rounded-lg bg-muted p-4 text-[13px] leading-relaxed">
-      <code>{children}</code>
-    </pre>
-  )
-}
 
 /**
  * Every section's title and mark, once, in the order the page runs.

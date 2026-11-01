@@ -1,7 +1,14 @@
 import type { ReactNode } from "react"
+import Image from "next/image"
 import Link from "next/link"
 
-import type { BlogBlock, BlogFigure, BlogPost, DiagnosticRef } from "@/lib/blog"
+import type {
+  BlogBlock,
+  BlogFigure,
+  BlogPost,
+  BlogTableLink,
+  DiagnosticRef,
+} from "@/lib/blog"
 import { iconHref } from "@/lib/icon-pages"
 import {
   loadIcons,
@@ -13,6 +20,8 @@ import {
   type Redraw,
   type StyleArt,
 } from "@/lib/icons"
+import { BlogImage } from "@/components/blog-image"
+import { CodeBlock } from "@/components/code-block"
 import { Glyph } from "@/components/glyph"
 import { ArrowRight } from "@/components/icons"
 import { prose } from "@/components/prose"
@@ -139,6 +148,43 @@ function Caption({ children }: { children: ReactNode }) {
     <figcaption className="mt-3 text-sm leading-relaxed text-muted-foreground">
       {children}
     </figcaption>
+  )
+}
+
+/**
+ * A row heading that is a project: its mark, then its name, linked home.
+ *
+ * Another project's site opens in a new tab, because the reader is midway
+ * through a comparison and the table is what they will come back to; this
+ * set's own row stays in the tab. The mark is the project's artwork for a
+ * light page, so on a dark one it gets a white tile instead of a recolour,
+ * which would no longer be their logo.
+ */
+function TableLink({ text, href, logo }: BlogTableLink) {
+  const external = !href.startsWith("/")
+  const children = (
+    <>
+      <Image
+        src={logo}
+        alt=""
+        width={20}
+        height={20}
+        className="size-5 shrink-0 dark:rounded-sm dark:bg-white dark:p-px"
+      />
+      <span className="underline-offset-4 group-hover:underline">{text}</span>
+      {external && <span className="sr-only"> (opens in a new tab)</span>}
+    </>
+  )
+  const className = "group inline-flex items-center gap-2 whitespace-nowrap"
+
+  return external ? (
+    <a href={href} target="_blank" rel="noopener" className={className}>
+      {children}
+    </a>
+  ) : (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
   )
 }
 
@@ -661,6 +707,73 @@ export async function BlogBody({ post }: { post: BlogPost }) {
             )
           case "figure":
             return figure(block.figure, key)
+          case "code":
+            return <CodeBlock key={key}>{block.code}</CodeBlock>
+          case "table":
+            return (
+              /*
+                Scrolls inside its own box on a phone rather than squeezing
+                five columns into 343px, where a package name wraps into two
+                lines and stops being something you can copy.
+              */
+              <div key={key} className="my-3 overflow-x-auto">
+                <table className="w-full min-w-xl border-collapse text-left text-sm leading-snug">
+                  <thead>
+                    <tr className="border-b">
+                      {block.head.map((cell) => (
+                        <th
+                          key={cell}
+                          scope="col"
+                          className="py-2 pr-4 font-medium text-foreground"
+                        >
+                          {cell}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="text-muted-foreground">
+                    {block.rows.map(([head, ...cells]) => (
+                      <tr
+                        key={typeof head === "string" ? head : head.text}
+                        className="border-b align-top"
+                      >
+                        <th
+                          scope="row"
+                          className="py-2 pr-4 font-medium text-foreground"
+                        >
+                          {typeof head === "string" ? (
+                            prose(head)
+                          ) : (
+                            <TableLink {...head} />
+                          )}
+                        </th>
+                        {cells.map((cell, j) => (
+                          <td
+                            key={j}
+                            className="py-2 pr-4 [&_code]:whitespace-nowrap"
+                          >
+                            {prose(cell)}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )
+          case "image":
+            return (
+              <figure key={key} className="my-8">
+                <BlogImage
+                  src={block.src}
+                  alt={block.alt}
+                  width={block.width}
+                  height={block.height}
+                  caption={prose(block.caption)}
+                />
+                <Caption>{prose(block.caption)}</Caption>
+              </figure>
+            )
         }
       })}
     </div>

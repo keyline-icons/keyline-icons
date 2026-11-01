@@ -142,6 +142,15 @@ export type BlogFigure =
       legend: { a: string; b: string; both: string }
     }
 
+/**
+ * A table row's heading when the row is a project with a home of its own: its
+ * name, linked there, with its mark beside it. Only the first cell, so a row
+ * still reads as one thing and the other cells stay plain data. `logo` is the
+ * project's own artwork under `public/`, drawn for a light page; on a dark one
+ * it sits on a small white tile rather than being recoloured.
+ */
+export type BlogTableLink = { text: string; href: string; logo: string }
+
 export type BlogBlock =
   | { kind: "p"; text: string }
   | { kind: "h2"; text: string; id: string }
@@ -150,6 +159,33 @@ export type BlogBlock =
   | { kind: "note"; text: string }
   | { kind: "link"; href: string; label: string; text: string }
   | { kind: "figure"; figure: BlogFigure }
+  /** A snippet, set as `/install` sets one. Copied by eye, so it scrolls. */
+  | { kind: "code"; code: string }
+  /**
+   * A comparison a sentence would bury. Cells read the same backtick grammar
+   * as a paragraph. Kept to five columns or so: a phone scrolls it sideways,
+   * and past that a reader loses which row they are on.
+   */
+  | {
+      kind: "table"
+      head: readonly string[]
+      rows: readonly (readonly [string | BlogTableLink, ...string[]])[]
+    }
+  /**
+   * A picture that cannot come from `icons/`: another set's drawings, or a
+   * component rendered with one of ours inside it. Never a drawing of this
+   * set on its own, which a `figure` draws live from the files. `src` is a
+   * path under `public/` and the size is the 1x size, so the page reserves
+   * its space before it loads.
+   */
+  | {
+      kind: "image"
+      src: string
+      width: number
+      height: number
+      alt: string
+      caption: string
+    }
 
 export type BlogPost = {
   /**
