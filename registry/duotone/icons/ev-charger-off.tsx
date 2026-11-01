@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function EvChargerOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M15 18L15 21L21 21L22.7071 22.7071C22.5198 22.8949 22.2653 23.0003 22 23L2 23C1.4477 23 1 22.5523 1 22L1 5C0.9986 3.9389 1.4202 2.9209 2.1716 2.1716L7.8571 7.8571L5.2 11.4C5.0701 11.5731 4.9998 11.7837 4.9998 12.0002C4.9998 12.5525 5.4477 13.0002 6 13L8 13L6.2 15.4C6.0702 15.5731 6 15.7837 6 16.0001C6 16.5523 6.4477 17.0001 7 17.0001C7.3147 17.0001 7.6111 16.8518 7.8 16.6L10.8 12.6C10.9299 12.4269 11.0002 12.2163 11.0002 11.9998C11.0002 11.4475 10.5523 10.9998 10 11L8 11L9.2857 9.2857L15 15L15 16L17 16C17.5523 16 18 16.4477 18 17C18 17.5523 17.5523 18 17 18L15 18ZM19 5L21 5L21 4C21 3.4477 21.4477 3 22 3C22.5523 3 23 3.4477 23 4L23 8.5C22.9999 9.688 22.164 10.712 21 10.95L21 14.3431C21 14.8954 20.5523 15.3431 20 15.3431C19.4477 15.3431 19 14.8954 19 14.3431L19 10.95C17.836 10.712 17.0001 9.688 17 8.5L17 4C17 3.4477 17.4477 3 18 3C18.5523 3 19 3.4477 19 4L19 5ZM7.6569 1L11 1C13.2092 1 15 2.7908 15 5L15 8.3431L14.98 8.3431C14.9802 8.8844 14.5415 9.3233 14.0002 9.3233C13.7402 9.3233 13.4908 9.22 13.3071 9.0361L13.2929 9.0503L6.9497 2.7071L6.9639 2.6929C6.78 2.5092 6.6767 2.2598 6.6767 1.9998C6.6767 1.4585 7.1156 1.0198 7.6569 1.02L7.6569 1Z" fill="currentColor" fillOpacity="0.4" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M2 2L22 22" fill="none"/>
+    </svg>
+  )
+}

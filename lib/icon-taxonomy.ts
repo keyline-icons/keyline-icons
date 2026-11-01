@@ -228,7 +228,7 @@ export const CATEGORIES = [
     // Joined on 25 Oct 2026 (2.2.0): the cone and the barrier that close a road, beside its lights; the
     // factory beside the buildings; the crosshair beside the locate marks it is drawn like; the footprints,
     // a trail someone walked. `route` carries a lookahead so `router` falls through to Devices.
-    match: /^(map|compass|locate(-fixed)?$|building|landmark$|route(?!r)|radar|flag(-swallowtail|-triangle-right)?$|traffic-light|traffic-cone$|construction$|milestone$|anchor(-|$)|directions$|factory$|crosshair$|footprints$|barn$|castle$|lighthouse$|tent$)/,
+    match: /^(map|compass|locate(-fixed|-off)?$|building|landmark$|route(?!r)|radar|flag(-swallowtail|-triangle-right|-off)?$|traffic-light|traffic-cone$|construction$|milestone$|anchor(-|$)|directions$|factory$|crosshair$|footprints$|barn$|castle$|lighthouse$|tent$)/,
     blurb: "Pins, maps, compasses, the locate marks and the crosshair, routes, footprints, the radar, the buildings, a factory, a barn, a castle and a landmark, a lighthouse, a tent, flags, a milestone, the lights at the junction, the cone and the barrier of road works and two anchors.",
   },
   // Opened 11 Sep 2026 with the seven of batch C, the first time the set has
@@ -240,8 +240,11 @@ export const CATEGORIES = [
     // The 2.3.0 stays batch (30 Oct 2026) moved in what a room is fitted with: the bath, the shower and the
     // soap, the kitchen and laundry machines, an air vent and the safe. `microwave` must match here before
     // Media's `mic` prefix takes it, and the pump bottle before Food & Drink's `bottle`: soap, not a drink.
-    match: /^(bed|sofa|door|brick-wall|bath$|shower-head$|soap-dispenser|bottle-pump$|spray-can$|washing-machine$|refrigerator$|microwave$|oven$|air-vent$|vault$)/,
-    blurb: "Beds, seating, doors and the wall behind them, the bath, the shower and the soap, a pump bottle and a spray can, the fridge, the oven, the microwave and the washing machine, an air vent and a safe.",
+    // 2.5.0 (1 Nov 2026) added the rest of a stay: a couch, the blinds, a desk and an office desk, a heater, a
+    // round mirror, the minibar fridge, a hot tub, a sun lounger and a table outside, and the machines' -off
+    // states. `sun-lounger` must match here before Weather's `sun` prefix takes it.
+    match: /^(bed|sofa|couch$|door|brick-wall|blinds$|desk(-office)?$|heater$|mirror-round$|bath$|hot-tub$|shower-head$|soap-dispenser|bottle-pump$|spray-can$|washing-machine(-off)?$|refrigerator(-mini)?$|microwave$|oven(-off)?$|air-vent$|vault$|sun-lounger$|outdoor-seating$)/,
+    blurb: "Beds, a sofa and a couch, doors and the wall behind them, blinds, a desk, a mirror, the bath, a hot tub, the shower and the soap, a pump bottle and a spray can, the fridge and the minibar, the oven, the microwave and the washing machine, a heater, an air vent, a safe, a sun lounger and a table outside.",
   },
   {
     // Ahead of Layout, whose `list` prefix would otherwise claim `list-music`.
@@ -306,7 +309,7 @@ export const CATEGORIES = [
     label: "Devices",
     // `card-sim` and `unplug` joined on 11 Oct 2026 (1.8.0): the phone's SIM, and
     // `plug` pulled from its socket. `router` joined on 25 Oct 2026 (2.2.0), beside the server.
-    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face|-user)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse$|shredder$|gamepad$|tv$|regex$|webcam$|card-sim$|unplug$|router$)/,
+    match: /^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face|-user)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse(-off)?$|shredder$|gamepad$|tv$|regex$|webcam$|card-sim$|unplug$|router$)/,
     blurb: "Phones, tablets, laptops, handsets, printers, keyboards, servers and a router, databases, terminals, code and a regular expression, processors, bugs, the app tiles, the QR code, the scan frame with what it reads, a watch, a hard drive, a cable, a headset visor, the app windows, a CCTV camera, a mouse, a webcam, a shredder, a gamepad and a television.",
   },
   {
@@ -502,8 +505,9 @@ export const CATEGORIES = [
     // for `menu` too, where it means the three bars.
     // `cooking-pot` and `grill` joined with the 2.3.0 stays batch: what the food is cooked in, beside the bowl it
     // is served in. The coffee maker and its pot came in on the `coffee` prefix.
-    match: /^(coffee|cake|soup|bottle|cookie$|hamburger$|pizza$|cooking-pot$|grill$)/,
-    blurb: "The mug, the coffee maker and its pot, the cake, the bowl, a cooking pot, a grill, the bottle, a cookie, a burger and a slice of pizza.",
+    // 2.5.0 brought breakfast, a soda can, a spoon and fork, and the cooking pot's -off state.
+    match: /^(coffee|cake|soup|bottle|cookie$|hamburger$|pizza$|cooking-pot(-off)?$|grill$|breakfast$|can-soda$|utensils$)/,
+    blurb: "The mug, the coffee maker and its pot, breakfast, the cake, the bowl, a spoon and fork, a cooking pot, a grill, the bottle, a soda can, a cookie, a burger and a slice of pizza.",
   },
   {
     // Ahead of Tools, which would otherwise be the shelf a brush and a roller
@@ -530,7 +534,7 @@ export const CATEGORIES = [
     // `drafting-compass`, `hook` and `gripper` joined on 20 Oct 2026 (2.1.0): the compass beside the
     // pencil and ruler, the crane's hook and the claw.
     // `flashlight` joined on 25 Oct 2026 (2.2.0): the torch from the same drawer.
-    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler|scissors|broom|drafting-compass$|hook$|gripper$|flashlight$)/,
+    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler|scissors|broom|drafting-compass$|hook$|gripper$|flashlight(-off)?$)/,
     blurb: "The toolbox, the broom and what comes out of them, a drafting compass, a hook, a gripper and a flashlight.",
   },
   {

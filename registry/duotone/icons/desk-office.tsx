@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function DeskOffice({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 13L4 13L4 22C4 22.5523 3.5523 23 3 23C2.4477 23 2 22.5523 2 22L2 13C2 11.8954 2.8954 11 4 11L11 11L11 8C11 7.4477 11.4477 7 12 7C12.5523 7 13 7.4477 13 8L13 11L20 11C21.1046 11 22 11.8954 22 13L22 21C22 22.1046 21.1046 23 20 23L15 23C13.8954 23 13 22.1046 13 21L13 13L12 13Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M12 9L8.5 9C7.1193 9 6 7.8807 6 6.5L6 3.5C6 2.1193 7.1193 1 8.5 1L15.5 1C16.8807 1 18 2.1193 18 3.5L18 6.5C18 7.8807 16.8807 9 15.5 9L12 9ZM13 16L22 16L22 18L13 18L13 16Z" fill="currentColor"/>
+    </svg>
+  )
+}

@@ -2216,7 +2216,6 @@
     "bookmark": [
       "bookmark-check",
       "bookmark-minus",
-      "bookmark-off",
       "bookmark-x"
     ],
     "bluetooth": [
@@ -2552,12 +2551,8 @@
     "refresh-ccw": [
       "refresh-ccw-dot"
     ],
-    "refresh-cw": [
-      "refresh-cw-off"
-    ],
     "repeat": [
-      "repeat-2",
-      "repeat-off"
+      "repeat-2"
     ],
     "rotate-ccw": [
       "rotate-ccw-clock",
@@ -2570,8 +2565,7 @@
     ],
     "server": [
       "server-cog",
-      "server-crash",
-      "server-off"
+      "server-crash"
     ],
     "signal": [
       "signal-zero"
@@ -2836,9 +2830,6 @@
     ],
     "case-upper": [
       "a-large-small"
-    ],
-    "buildings": [
-      "building-complex"
     ],
     "camera-off": [
       "video-off"

@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function OvenOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M20.8715 20.8715C20.4872 22.1357 19.3214 23 18 23L6 23C4.3431 23 3 21.6569 3 20L3 6C2.9987 5.1643 3.2079 4.3417 3.6081 3.6081L20.8715 20.8715ZM7.589 1.0167C7.7257 1.0055 7.8628 1 8 1L16 1C18.7614 1 21 3.2386 21 6L21 14.3431L20.98 14.3431C20.9802 14.8844 20.5415 15.3233 20.0002 15.3233C19.7402 15.3233 19.4908 15.22 19.3071 15.0361L19.2929 15.0503L6.9631 2.7205L6.9773 2.7063C6.7934 2.5226 6.6901 2.2732 6.6901 2.0132C6.6901 1.5028 7.0819 1.0779 7.5906 1.0366L7.589 1.0167Z" fill="currentColor" fillOpacity="0.4" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M13 6C13 6.5523 12.5523 7 12 7C11.4477 7 11 6.5523 11 6C11 5.4477 11.4477 5 12 5C12.5523 5 13 5.4477 13 6ZM17 6C17 6.5523 16.5523 7 16 7C15.4477 7 15 6.5523 15 6C15 5.4477 15.4477 5 16 5C16.5523 5 17 5.4477 17 6Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M20 20C20 21.1046 19.1046 22 18 22L6 22C4.8954 22 4 21.1046 4 20L4 6C4 5.4131 4.1264 4.8557 4.3535 4.3535M4 10L10 10M9 14L14 14M2 2L22 22" fill="none"/>
+    </svg>
+  )
+}

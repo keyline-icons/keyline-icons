@@ -14,7 +14,7 @@
  */
 
 import { readdir, readFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { inspect } from './lib/svg.mjs';
 import { outlines, minGap, box, boxFloor, roundedCorners, contains, diameter, subpaths, trimFreeEnds } from './lib/geom.mjs';
@@ -240,6 +240,18 @@ const SIZE_KNOWN = new Set([
   // 22 wide and their -off forms add the slash's height, and square-play's
   // square is 20 x 20, so the slash puts ink in all four corners of each.
   'captions-off', 'subtitles-off', 'square-play-off',
+  // 2.5.0's -off forms over 20 x 20 bases, for the same reason as table-off: the slash paints
+  // 1..23, and the sharp slash's butt corners put ink in all four corners, so the sharp half
+  // classifies as a square (ev-charger-off's bolt and plug reach them in both halves).
+  'bookmark-off', 'ev-charger-off', 'keyboard-off', 'oven-off', 'server-off', 'washing-machine-off',
+  // square-sparkles (2.5.0): square's own 20 x 20 frame with the house sparkle seated in its
+  // corner notch, the big star's tip running a unit past the frame on that side, so it paints
+  // 22 wide over a square. The star does not shrink to 20 for the rule: it is the sparkle every
+  // -sparkles compound shares.
+  'square-sparkles',
+  // bus-front and refrigerator-mini (2.5.0): his drawings, 22 wide, whose sharp halves square the
+  // mirrors and the door corners, putting ink in all four corners, so sharp reads them as squares.
+  'bus-front', 'refrigerator-mini',
   // The alarm clock's face is r=8, the largest that keeps its bells the house
   // 2 off it, and its bells end one unit outside the face as he approved them,
   // so it paints 20 x 22 and reads as a circle. Reaching 22 wide means bells of
@@ -516,6 +528,9 @@ const RADIUS_TOL = 0.05;
 /** Corners a style derives from the stroke drawing's painted contour rather than draws; see the RADIUS rule. */
 const DERIVED_RADII = {
   caravan: [2.5], cigarette: [2.5], 'cigarette-off': [2.5], 'ev-charger': [2.5], vault: [2.5], 'coffee-pot': [4.58],
+  // 2.5.0: r = 1.5 corners grown by the stroke's half (bus-front's body, desk-office's pedestal),
+  // and ev-charger-off inherits ev-charger's
+  'bus-front': [2.5], 'desk-office': [2.5], 'ev-charger-off': [2.5],
 };
 
 /**
@@ -627,8 +642,11 @@ function onlyDots(src) {
   return dots > 0 && dotSizes(src).length === dots;
 }
 
+// A prefix counts as a container only off the list lib/icons.ts reads: `square-pen` and 2.5.0's
+// `square-sparkles` wear the prefix over a base that exists and are drawings of their own.
+const NOT_CONTAINERS = new Set(JSON.parse(readFileSync(new URL('../lib/icon-not-containers.json', import.meta.url), 'utf8')).names);
 const container = (name) =>
-  name.startsWith('circle-') ? 'circle' : name.startsWith('square-') ? 'square' : 'bare';
+  NOT_CONTAINERS.has(name) ? 'bare' : name.startsWith('circle-') ? 'circle' : name.startsWith('square-') ? 'square' : 'bare';
 
 /**
  * Level indicators: glyphs whose whole job is to show a partial state.

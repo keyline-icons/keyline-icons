@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Heater({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M5 20L4 20C2.8954 20 2 19.1046 2 18L2 7C2 5.8954 2.8954 5 4 5L5 5M5 20L19 20M19 20L20 20C21.1046 20 22 19.1046 22 18L22 7C22 5.8954 21.1046 5 20 5M5 20L5 22M19 20L19 22M18 10L18 16M14 10L14 16M10 10L10 16M9 6C9 5.2131 9.3705 4.4721 10 4C10.6295 3.5279 11 2.7869 11 2M14 6C14 5.2131 14.3705 4.4721 15 4C15.6295 3.5279 16 2.7869 16 2" fill="none"/>
+      <path d="M7 10C7 10.5523 6.5523 11 6 11C5.4477 11 5 10.5523 5 10C5 9.4477 5.4477 9 6 9C6.5523 9 7 9.4477 7 10ZM7 14C7 14.5523 6.5523 15 6 15C5.4477 15 5 14.5523 5 14C5 13.4477 5.4477 13 6 13C6.5523 13 7 13.4477 7 14Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+    </svg>
+  )
+}

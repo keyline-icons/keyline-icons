@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Blinds({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M21 3.0001L21 14C21 14.5523 20.5523 15 20 15L4 15C3.4477 15 3 14.5523 3 14L3 3.0001L1 3.0001L1 1.0001L3.988 1.0001C3.992 1 3.996 1 4 1L20 1C20.004 1 20.008 1 20.012 1.0001L23 1.0001L23 3.0001L21 3.0001Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M7 6L17 6M7 10L17 10M12 14L12 18M14 20C14 21.1046 13.1046 22 12 22C10.8954 22 10 21.1046 10 20C10 18.8954 10.8954 18 12 18C13.1046 18 14 18.8954 14 20Z" fill="none"/>
+    </svg>
+  )
+}

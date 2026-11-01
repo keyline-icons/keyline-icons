@@ -2718,6 +2718,20 @@
       ]
     },
     {
+      "name": "blinds",
+      "type": "registry:component",
+      "title": "Blinds",
+      "description": "Blinds, the stroke drawing of blinds on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of blinds: https://keylineicons.com/icons/blinds",
+      "files": [
+        {
+          "path": "icons/blinds.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/blinds.tsx"
+        }
+      ]
+    },
+    {
       "name": "blocks",
       "type": "registry:component",
       "title": "Blocks",
@@ -2928,6 +2942,20 @@
       ]
     },
     {
+      "name": "bookmark-off",
+      "type": "registry:component",
+      "title": "BookmarkOff",
+      "description": "BookmarkOff, the stroke drawing of bookmark-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bookmark-off: https://keylineicons.com/icons/bookmark-off",
+      "files": [
+        {
+          "path": "icons/bookmark-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/bookmark-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "bookmark-plus",
       "type": "registry:component",
       "title": "BookmarkPlus",
@@ -2938,6 +2966,20 @@
           "path": "icons/bookmark-plus.tsx",
           "type": "registry:component",
           "target": "@components/icons/bookmark-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bookmarks",
+      "type": "registry:component",
+      "title": "Bookmarks",
+      "description": "Bookmarks, the stroke drawing of bookmarks on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bookmarks: https://keylineicons.com/icons/bookmarks",
+      "files": [
+        {
+          "path": "icons/bookmarks.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/bookmarks.tsx"
         }
       ]
     },
@@ -3376,6 +3418,20 @@
       ]
     },
     {
+      "name": "breakfast",
+      "type": "registry:component",
+      "title": "Breakfast",
+      "description": "Breakfast, the stroke drawing of breakfast on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of breakfast: https://keylineicons.com/icons/breakfast",
+      "files": [
+        {
+          "path": "icons/breakfast.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/breakfast.tsx"
+        }
+      ]
+    },
+    {
       "name": "brick-wall",
       "type": "registry:component",
       "title": "BrickWall",
@@ -3400,6 +3456,20 @@
           "path": "icons/briefcase.tsx",
           "type": "registry:component",
           "target": "@components/icons/briefcase.tsx"
+        }
+      ]
+    },
+    {
+      "name": "briefcase-arrow-down",
+      "type": "registry:component",
+      "title": "BriefcaseArrowDown",
+      "description": "BriefcaseArrowDown, the stroke drawing of briefcase-arrow-down on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of briefcase-arrow-down: https://keylineicons.com/icons/briefcase-arrow-down",
+      "files": [
+        {
+          "path": "icons/briefcase-arrow-down.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/briefcase-arrow-down.tsx"
         }
       ]
     },
@@ -3488,6 +3558,20 @@
       ]
     },
     {
+      "name": "building-complex",
+      "type": "registry:component",
+      "title": "BuildingComplex",
+      "description": "BuildingComplex, the stroke drawing of building-complex on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of building-complex: https://keylineicons.com/icons/building-complex",
+      "files": [
+        {
+          "path": "icons/building-complex.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/building-complex.tsx"
+        }
+      ]
+    },
+    {
       "name": "buildings",
       "type": "registry:component",
       "title": "Buildings",
@@ -3512,6 +3596,20 @@
           "path": "icons/bus.tsx",
           "type": "registry:component",
           "target": "@components/icons/bus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bus-front",
+      "type": "registry:component",
+      "title": "BusFront",
+      "description": "BusFront, the stroke drawing of bus-front on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bus-front: https://keylineicons.com/icons/bus-front",
+      "files": [
+        {
+          "path": "icons/bus-front.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/bus-front.tsx"
         }
       ]
     },
@@ -3806,6 +3904,20 @@
           "path": "icons/camera-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/camera-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "can-soda",
+      "type": "registry:component",
+      "title": "CanSoda",
+      "description": "CanSoda, the stroke drawing of can-soda on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of can-soda: https://keylineicons.com/icons/can-soda",
+      "files": [
+        {
+          "path": "icons/can-soda.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/can-soda.tsx"
         }
       ]
     },
@@ -7436,6 +7548,20 @@
       ]
     },
     {
+      "name": "cooking-pot-off",
+      "type": "registry:component",
+      "title": "CookingPotOff",
+      "description": "CookingPotOff, the stroke drawing of cooking-pot-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cooking-pot-off: https://keylineicons.com/icons/cooking-pot-off",
+      "files": [
+        {
+          "path": "icons/cooking-pot-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/cooking-pot-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "copy",
       "type": "registry:component",
       "title": "Copy",
@@ -7600,6 +7726,20 @@
           "path": "icons/corner-right-up.tsx",
           "type": "registry:component",
           "target": "@components/icons/corner-right-up.tsx"
+        }
+      ]
+    },
+    {
+      "name": "couch",
+      "type": "registry:component",
+      "title": "Couch",
+      "description": "Couch, the stroke drawing of couch on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of couch: https://keylineicons.com/icons/couch",
+      "files": [
+        {
+          "path": "icons/couch.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/couch.tsx"
         }
       ]
     },
@@ -8136,6 +8276,34 @@
       ]
     },
     {
+      "name": "desk",
+      "type": "registry:component",
+      "title": "Desk",
+      "description": "Desk, the stroke drawing of desk on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of desk: https://keylineicons.com/icons/desk",
+      "files": [
+        {
+          "path": "icons/desk.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/desk.tsx"
+        }
+      ]
+    },
+    {
+      "name": "desk-office",
+      "type": "registry:component",
+      "title": "DeskOffice",
+      "description": "DeskOffice, the stroke drawing of desk-office on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of desk-office: https://keylineicons.com/icons/desk-office",
+      "files": [
+        {
+          "path": "icons/desk-office.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/desk-office.tsx"
+        }
+      ]
+    },
+    {
       "name": "diagram-predecessor",
       "type": "registry:component",
       "title": "DiagramPredecessor",
@@ -8598,6 +8766,20 @@
       ]
     },
     {
+      "name": "earbuds-off",
+      "type": "registry:component",
+      "title": "EarbudsOff",
+      "description": "EarbudsOff, the stroke drawing of earbuds-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of earbuds-off: https://keylineicons.com/icons/earbuds-off",
+      "files": [
+        {
+          "path": "icons/earbuds-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/earbuds-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "earth",
       "type": "registry:component",
       "title": "Earth",
@@ -8762,6 +8944,20 @@
           "path": "icons/ev-charger.tsx",
           "type": "registry:component",
           "target": "@components/icons/ev-charger.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ev-charger-off",
+      "type": "registry:component",
+      "title": "EvChargerOff",
+      "description": "EvChargerOff, the stroke drawing of ev-charger-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of ev-charger-off: https://keylineicons.com/icons/ev-charger-off",
+      "files": [
+        {
+          "path": "icons/ev-charger-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/ev-charger-off.tsx"
         }
       ]
     },
@@ -9550,6 +9746,20 @@
       ]
     },
     {
+      "name": "flag-off",
+      "type": "registry:component",
+      "title": "FlagOff",
+      "description": "FlagOff, the stroke drawing of flag-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flag-off: https://keylineicons.com/icons/flag-off",
+      "files": [
+        {
+          "path": "icons/flag-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/flag-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "flag-swallowtail",
       "type": "registry:component",
       "title": "FlagSwallowtail",
@@ -9606,6 +9816,20 @@
       ]
     },
     {
+      "name": "flame-off",
+      "type": "registry:component",
+      "title": "FlameOff",
+      "description": "FlameOff, the stroke drawing of flame-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flame-off: https://keylineicons.com/icons/flame-off",
+      "files": [
+        {
+          "path": "icons/flame-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/flame-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "flashlight",
       "type": "registry:component",
       "title": "Flashlight",
@@ -9616,6 +9840,20 @@
           "path": "icons/flashlight.tsx",
           "type": "registry:component",
           "target": "@components/icons/flashlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "flashlight-off",
+      "type": "registry:component",
+      "title": "FlashlightOff",
+      "description": "FlashlightOff, the stroke drawing of flashlight-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flashlight-off: https://keylineicons.com/icons/flashlight-off",
+      "files": [
+        {
+          "path": "icons/flashlight-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/flashlight-off.tsx"
         }
       ]
     },
@@ -11678,6 +11916,20 @@
       ]
     },
     {
+      "name": "heater",
+      "type": "registry:component",
+      "title": "Heater",
+      "description": "Heater, the stroke drawing of heater on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of heater: https://keylineicons.com/icons/heater",
+      "files": [
+        {
+          "path": "icons/heater.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/heater.tsx"
+        }
+      ]
+    },
+    {
       "name": "hexagon",
       "type": "registry:component",
       "title": "Hexagon",
@@ -11874,6 +12126,20 @@
       ]
     },
     {
+      "name": "hot-tub",
+      "type": "registry:component",
+      "title": "HotTub",
+      "description": "HotTub, the stroke drawing of hot-tub on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of hot-tub: https://keylineicons.com/icons/hot-tub",
+      "files": [
+        {
+          "path": "icons/hot-tub.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/hot-tub.tsx"
+        }
+      ]
+    },
+    {
       "name": "hourglass",
       "type": "registry:component",
       "title": "Hourglass",
@@ -12052,6 +12318,20 @@
           "path": "icons/house-simple.tsx",
           "type": "registry:component",
           "target": "@components/icons/house-simple.tsx"
+        }
+      ]
+    },
+    {
+      "name": "house-sparkles",
+      "type": "registry:component",
+      "title": "HouseSparkles",
+      "description": "HouseSparkles, the stroke drawing of house-sparkles on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of house-sparkles: https://keylineicons.com/icons/house-sparkles",
+      "files": [
+        {
+          "path": "icons/house-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/house-sparkles.tsx"
         }
       ]
     },
@@ -12542,6 +12822,20 @@
           "path": "icons/keyboard.tsx",
           "type": "registry:component",
           "target": "@components/icons/keyboard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "keyboard-off",
+      "type": "registry:component",
+      "title": "KeyboardOff",
+      "description": "KeyboardOff, the stroke drawing of keyboard-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of keyboard-off: https://keylineicons.com/icons/keyboard-off",
+      "files": [
+        {
+          "path": "icons/keyboard-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/keyboard-off.tsx"
         }
       ]
     },
@@ -13214,6 +13508,20 @@
           "path": "icons/locate-fixed.tsx",
           "type": "registry:component",
           "target": "@components/icons/locate-fixed.tsx"
+        }
+      ]
+    },
+    {
+      "name": "locate-off",
+      "type": "registry:component",
+      "title": "LocateOff",
+      "description": "LocateOff, the stroke drawing of locate-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of locate-off: https://keylineicons.com/icons/locate-off",
+      "files": [
+        {
+          "path": "icons/locate-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/locate-off.tsx"
         }
       ]
     },
@@ -14114,6 +14422,20 @@
       ]
     },
     {
+      "name": "mirror-round",
+      "type": "registry:component",
+      "title": "MirrorRound",
+      "description": "MirrorRound, the stroke drawing of mirror-round on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mirror-round: https://keylineicons.com/icons/mirror-round",
+      "files": [
+        {
+          "path": "icons/mirror-round.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/mirror-round.tsx"
+        }
+      ]
+    },
+    {
       "name": "money-bag",
       "type": "registry:component",
       "title": "MoneyBag",
@@ -14520,6 +14842,20 @@
       ]
     },
     {
+      "name": "mouse-off",
+      "type": "registry:component",
+      "title": "MouseOff",
+      "description": "MouseOff, the stroke drawing of mouse-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mouse-off: https://keylineicons.com/icons/mouse-off",
+      "files": [
+        {
+          "path": "icons/mouse-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/mouse-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "mouse-pointer",
       "type": "registry:component",
       "title": "MousePointer",
@@ -14912,6 +15248,20 @@
       ]
     },
     {
+      "name": "outdoor-seating",
+      "type": "registry:component",
+      "title": "OutdoorSeating",
+      "description": "OutdoorSeating, the stroke drawing of outdoor-seating on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of outdoor-seating: https://keylineicons.com/icons/outdoor-seating",
+      "files": [
+        {
+          "path": "icons/outdoor-seating.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/outdoor-seating.tsx"
+        }
+      ]
+    },
+    {
       "name": "oven",
       "type": "registry:component",
       "title": "Oven",
@@ -14922,6 +15272,20 @@
           "path": "icons/oven.tsx",
           "type": "registry:component",
           "target": "@components/icons/oven.tsx"
+        }
+      ]
+    },
+    {
+      "name": "oven-off",
+      "type": "registry:component",
+      "title": "OvenOff",
+      "description": "OvenOff, the stroke drawing of oven-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of oven-off: https://keylineicons.com/icons/oven-off",
+      "files": [
+        {
+          "path": "icons/oven-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/oven-off.tsx"
         }
       ]
     },
@@ -15748,6 +16112,20 @@
           "path": "icons/pencil-ruler.tsx",
           "type": "registry:component",
           "target": "@components/icons/pencil-ruler.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pencil-ruler-2",
+      "type": "registry:component",
+      "title": "PencilRuler2",
+      "description": "PencilRuler2, the stroke drawing of pencil-ruler-2 on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of pencil-ruler-2: https://keylineicons.com/icons/pencil-ruler-2",
+      "files": [
+        {
+          "path": "icons/pencil-ruler-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/pencil-ruler-2.tsx"
         }
       ]
     },
@@ -16718,6 +17096,20 @@
       ]
     },
     {
+      "name": "refresh-cw-off",
+      "type": "registry:component",
+      "title": "RefreshCwOff",
+      "description": "RefreshCwOff, the stroke drawing of refresh-cw-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of refresh-cw-off: https://keylineicons.com/icons/refresh-cw-off",
+      "files": [
+        {
+          "path": "icons/refresh-cw-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/refresh-cw-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "refresh-cw-sparkles",
       "type": "registry:component",
       "title": "RefreshCwSparkles",
@@ -16742,6 +17134,20 @@
           "path": "icons/refrigerator.tsx",
           "type": "registry:component",
           "target": "@components/icons/refrigerator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "refrigerator-mini",
+      "type": "registry:component",
+      "title": "RefrigeratorMini",
+      "description": "RefrigeratorMini, the stroke drawing of refrigerator-mini on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of refrigerator-mini: https://keylineicons.com/icons/refrigerator-mini",
+      "files": [
+        {
+          "path": "icons/refrigerator-mini.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/refrigerator-mini.tsx"
         }
       ]
     },
@@ -16784,6 +17190,20 @@
           "path": "icons/repeat-1.tsx",
           "type": "registry:component",
           "target": "@components/icons/repeat-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "repeat-off",
+      "type": "registry:component",
+      "title": "RepeatOff",
+      "description": "RepeatOff, the stroke drawing of repeat-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of repeat-off: https://keylineicons.com/icons/repeat-off",
+      "files": [
+        {
+          "path": "icons/repeat-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/repeat-off.tsx"
         }
       ]
     },
@@ -17666,6 +18086,20 @@
           "path": "icons/server-minus.tsx",
           "type": "registry:component",
           "target": "@components/icons/server-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "server-off",
+      "type": "registry:component",
+      "title": "ServerOff",
+      "description": "ServerOff, the stroke drawing of server-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of server-off: https://keylineicons.com/icons/server-off",
+      "files": [
+        {
+          "path": "icons/server-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/server-off.tsx"
         }
       ]
     },
@@ -19966,6 +20400,20 @@
       ]
     },
     {
+      "name": "square-sparkles",
+      "type": "registry:component",
+      "title": "SquareSparkles",
+      "description": "SquareSparkles, the stroke drawing of square-sparkles on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-sparkles: https://keylineicons.com/icons/square-sparkles",
+      "files": [
+        {
+          "path": "icons/square-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/square-sparkles.tsx"
+        }
+      ]
+    },
+    {
       "name": "square-star",
       "type": "registry:component",
       "title": "SquareStar",
@@ -20400,6 +20848,20 @@
       ]
     },
     {
+      "name": "sun-lounger",
+      "type": "registry:component",
+      "title": "SunLounger",
+      "description": "SunLounger, the stroke drawing of sun-lounger on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of sun-lounger: https://keylineicons.com/icons/sun-lounger",
+      "files": [
+        {
+          "path": "icons/sun-lounger.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sun-lounger.tsx"
+        }
+      ]
+    },
+    {
       "name": "sun-medium",
       "type": "registry:component",
       "title": "SunMedium",
@@ -20442,6 +20904,20 @@
       ]
     },
     {
+      "name": "sunrise-2",
+      "type": "registry:component",
+      "title": "Sunrise2",
+      "description": "Sunrise2, the stroke drawing of sunrise-2 on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of sunrise-2: https://keylineicons.com/icons/sunrise-2",
+      "files": [
+        {
+          "path": "icons/sunrise-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sunrise-2.tsx"
+        }
+      ]
+    },
+    {
       "name": "sunset",
       "type": "registry:component",
       "title": "Sunset",
@@ -20452,6 +20928,20 @@
           "path": "icons/sunset.tsx",
           "type": "registry:component",
           "target": "@components/icons/sunset.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sunset-2",
+      "type": "registry:component",
+      "title": "Sunset2",
+      "description": "Sunset2, the stroke drawing of sunset-2 on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of sunset-2: https://keylineicons.com/icons/sunset-2",
+      "files": [
+        {
+          "path": "icons/sunset-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sunset-2.tsx"
         }
       ]
     },
@@ -22486,6 +22976,20 @@
       ]
     },
     {
+      "name": "utensils",
+      "type": "registry:component",
+      "title": "Utensils",
+      "description": "Utensils, the stroke drawing of utensils on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of utensils: https://keylineicons.com/icons/utensils",
+      "files": [
+        {
+          "path": "icons/utensils.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/utensils.tsx"
+        }
+      ]
+    },
+    {
       "name": "variable",
       "type": "registry:component",
       "title": "Variable",
@@ -22794,6 +23298,20 @@
       ]
     },
     {
+      "name": "washing-machine-off",
+      "type": "registry:component",
+      "title": "WashingMachineOff",
+      "description": "WashingMachineOff, the stroke drawing of washing-machine-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of washing-machine-off: https://keylineicons.com/icons/washing-machine-off",
+      "files": [
+        {
+          "path": "icons/washing-machine-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/washing-machine-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "watch",
       "type": "registry:component",
       "title": "Watch",
@@ -23084,6 +23602,20 @@
           "path": "icons/wrench.tsx",
           "type": "registry:component",
           "target": "@components/icons/wrench.tsx"
+        }
+      ]
+    },
+    {
+      "name": "wrench-off",
+      "type": "registry:component",
+      "title": "WrenchOff",
+      "description": "WrenchOff, the stroke drawing of wrench-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of wrench-off: https://keylineicons.com/icons/wrench-off",
+      "files": [
+        {
+          "path": "icons/wrench-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/wrench-off.tsx"
         }
       ]
     },

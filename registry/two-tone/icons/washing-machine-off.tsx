@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function WashingMachineOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M20.6465 20.6465C19.9991 22.0794 18.5724 23.0003 17 23L7 23C4.7908 23 3 21.2092 3 19L3 5C2.9992 4.4323 3.1197 3.8709 3.3535 3.3535L20.6465 20.6465ZM7.6569 1L17 1C19.2092 1 21 2.7908 21 5L21 14.3431L20.98 14.3431C20.9802 14.8844 20.5415 15.3233 20.0002 15.3233C19.7402 15.3233 19.4908 15.22 19.3071 15.0361L19.2929 15.0503L6.9497 2.7071L6.9639 2.6929C6.78 2.5092 6.6767 2.2598 6.6767 1.9998C6.6767 1.4585 7.1156 1.0198 7.6569 1.02L7.6569 1Z" fill="currentColor" fillOpacity="0.4" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M19.8715 19.8715C19.4981 21.1033 18.3538 22 17 22L7 22C5.3431 22 4 20.6569 4 19L4 5C4 4.6969 4.0449 4.4043 4.1285 4.1285M15.6465 15.6465C15.0188 17.0343 13.6222 18 12 18C9.7909 18 8 16.2091 8 14C8 12.3778 8.9657 10.9812 10.3535 10.3535M2 2L22 22" fill="none"/>
+    </svg>
+  )
+}

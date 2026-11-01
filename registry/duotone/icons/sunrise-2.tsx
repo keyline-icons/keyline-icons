@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Sunrise2({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2 15C2.9123 14.0421 4.1772 13.5 5.5 13.5C6.8228 13.5 7.5877 14.0421 8.5 15C9.4123 15.9579 10.6772 16.5 12 16.5C13.3228 16.5 14.5877 15.9579 15.5 15C16.4123 14.0421 18.1772 13.5 19.5 13.5C20.4 13.5 21.3 13.75 22 14.2M2 20.5C2.9123 19.5421 4.1772 19 5.5 19C6.8228 19 7.5877 19.5421 8.5 20.5C9.4123 21.4579 10.6772 22 12 22C13.3228 22 14.5877 21.4579 15.5 20.5C16.4123 19.5421 18.1772 19 19.5 19C20.4 19 21.3 19.25 22 19.7" fill="none" strokeOpacity="0.4"/>
+      <path d="M20.5 9.5L22 9.5M3.5 9.5L2 9.5M6.4896 5.4896L5.4289 4.4289M12 3.5L12 2M17.5104 5.4896L18.5711 4.4289" fill="none"/>
+      <path d="M6.6806 10.5967C7.3184 8.1821 9.5025 6.5 11.9999 6.5C14.5612 6.5 16.7837 8.2674 17.3603 10.763C16.7992 10.8963 16.2509 11.0788 15.7218 11.3084C15.2956 11.4929 14.8856 11.7129 14.4963 11.9661C14.071 12.2419 13.6789 12.5656 13.3276 12.931C12.9816 13.2944 12.5017 13.5 12 13.5C11.4983 13.5 11.0184 13.2944 10.6724 12.931C10.3855 12.6259 10.0818 12.3368 9.763 12.0652C9.3986 11.7555 9.0036 11.4836 8.5843 11.2537C7.9904 10.931 7.3471 10.709 6.6806 10.5967Z" fill="currentColor" stroke="none"/>
+    </svg>
+  )
+}

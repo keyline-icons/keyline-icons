@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function FlagOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M3 13.3849C3 13.3812 3 13.3776 3 13.3739L3 3L3.2929 3.2929C3.4805 3.1053 3.7349 2.9998 4.0002 2.9998C4.5525 2.9998 5.0002 3.4477 5 4.0001L5 5L12.6212 12.6212C12.7794 12.561 12.9392 12.505 13.1005 12.4534C13.1992 12.4217 13.3022 12.4056 13.4058 12.4056C13.9582 12.4056 14.4059 12.8534 14.4059 13.4057C14.4059 13.6709 14.3005 13.9253 14.1129 14.1129L14.2154 14.2154C13.6083 14.3642 13.0221 14.5883 12.4705 14.8825C11.0947 15.6162 9.5593 16.0001 8 16.0001C6.9804 16.0001 5.9675 15.8359 5 15.514L5 22.0001C5 22.5524 4.5523 23.0001 4 23.0001C3.4477 23.0001 3 22.5524 3 22.0001L3 13.3849ZM9.3411 2.8791C10.1056 2.7402 10.8438 2.4833 11.5294 2.1176C12.9053 1.3838 14.4406 1 16 1C17.3077 1 18.6014 1.27 19.8 1.7931C20.5289 2.1112 21 2.8309 21 3.6261L21 12.4861C21 13.4876 20.2593 14.3347 19.2668 14.4685L19.2642 14.4486C19.2208 14.4545 19.1772 14.4574 19.1335 14.4574C18.8737 14.4574 18.6246 14.3541 18.441 14.1701L18.4269 14.1843L8.8128 4.5701L8.8269 4.556C8.643 4.3722 8.5397 4.1228 8.5397 3.8628C8.5397 3.3891 8.8785 2.9832 9.3446 2.8986L9.3411 2.8791Z" fill="currentColor" fillOpacity="0.4" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M2 2L22 22" fill="none"/>
+    </svg>
+  )
+}

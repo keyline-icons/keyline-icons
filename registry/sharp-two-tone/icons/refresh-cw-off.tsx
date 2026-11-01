@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function RefreshCwOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M16.1361 5.1522C14.8867 4.3981 13.4551 3.9996 11.9958 3.9996C11.1285 3.9996 10.267 4.1404 9.4448 4.4165L8.4971 4.7357L7.8587 2.8403L8.8064 2.5211C9.8343 2.1756 10.9115 1.9993 11.9959 1.9993C14.3824 1.9993 16.6904 2.852 18.5036 4.4037L18.8469 2L20.8269 2.2828L20.1901 6.7413C20.1197 7.234 19.6978 7.5999 19.2001 7.5999C19.1528 7.5999 19.1055 7.5965 19.0587 7.5899L14.6 6.9531L14.8828 4.9731L16.1361 5.1522ZM21.5492 8.8672L21.7648 9.8437C21.9212 10.5528 22 11.2768 22 12.003C22 13.0877 21.824 14.1652 21.4789 15.1936L21.1597 16.1413L19.2643 15.5029L19.5835 14.5552C19.8594 13.7326 20 12.8707 20 12.003C20 11.4218 19.9369 10.8424 19.8118 10.2749L19.5962 9.2984L21.5492 8.8672Z" fill="currentColor" fillOpacity="0.4" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M3.4273 14.9172L3.2117 13.9407C3.071 13.3034 3 12.6527 3 12C3 9.5147 4.0074 7.2647 5.636 5.636" fill="none" strokeOpacity="0.4"/>
+      <path d="M18.364 18.364C16.7353 19.9926 14.4853 21 12 21C9.5169 21 7.1441 19.9741 5.4432 18.1651L4.9867 17.6796M4.1631 21.8586L4.7999 17.4001L9.2586 18.0369M1.7071 1.7071L22.2929 22.2929" fill="none"/>
+    </svg>
+  )
+}

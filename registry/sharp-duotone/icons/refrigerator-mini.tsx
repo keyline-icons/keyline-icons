@@ -1,0 +1,30 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function RefrigeratorMini({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M18 21L6 21L6 23L4 23L4 21L2 21C1.4477 21 1 20.5523 1 20L1 2C1 1.4477 1.4477 1 2 1L22 1C22.5523 1 23 1.4477 23 2L23 20C23 20.5523 22.5523 21 22 21L20 21L20 23L18 23L18 21Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M3 10L21 10" fill="none"/>
+      <path d="M13 19L13 16C13 15.4477 13.4477 15 14 15L15 15L15 13L17 13L17 15.0001L18 15.0001C18.5523 15.0001 19 15.4478 19 16.0001L19 19L17 19L17 17.0001L16 17.0001L16 17L15 17L15 19L13 19ZM5 19L5 16C5 15.4477 5.4477 15 6 15L7 15L7 13L9 13L9 15.0001L10 15.0001C10.5523 15.0001 11 15.4478 11 16.0001L11 19L9 19L9 17.0001L8 17.0001L8 17L7 17L7 19L5 19Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M7 6C7 6.5523 6.5523 7 6 7C5.4477 7 5 6.5523 5 6C5 5.4477 5.4477 5 6 5C6.5523 5 7 5.4477 7 6Z" fill="currentColor" stroke="none"/>
+    </svg>
+  )
+}

@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function RefrigeratorMini({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M18 21L6 21L6 23L4 23L4 21L2 21C1.4477 21 1 20.5523 1 20L1 2C1 1.4477 1.4477 1 2 1L22 1C22.5523 1 23 1.4477 23 2L23 20C23 20.5523 22.5523 21 22 21L20 21L20 23L18 23L18 21ZM3 9L3 11L21 11L21 9L3 9ZM13 19L15 19L15 17L16 17L16 17.0001L17 17.0001L17 19L19 19L19 16.0001C19 15.4478 18.5523 15.0001 18 15.0001L17 15.0001L17 13L15 13L15 15L14 15C13.4477 15 13 15.4477 13 16L13 19ZM5 19L7 19L7 17L8 17L8 17.0001L9 17.0001L9 19L11 19L11 16.0001C11 15.4478 10.5523 15.0001 10 15.0001L9 15.0001L9 13L7 13L7 15L6 15C5.4477 15 5 15.4477 5 16L5 19ZM7 6C7 5.4477 6.5523 5 6 5C5.4477 5 5 5.4477 5 6C5 6.5523 5.4477 7 6 7C6.5523 7 7 6.5523 7 6Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

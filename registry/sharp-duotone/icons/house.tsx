@@ -13,16 +13,12 @@ export function House({ size = 24, ...props }: IconProps) {
       width={size}
       height={size}
       fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="butt"
-      strokeLinejoin="round"
       aria-hidden="true"
       focusable="false"
       {...props}
     >
-      <path d="M11.3857 2.20711C11.7469 1.92603 12.253 1.92603 12.6142 2.20711L23 10.2891L21.7714 11.8673L21 11.2667V21.0001C20.9999 21.5523 20.5522 22.0001 20 22.0001H3.99996C3.44776 22.0001 3.00007 21.5523 2.99996 21.0001V11.2667L2.22848 11.8673L0.999962 10.2891L11.3857 2.20711Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
-      <path d="M9 22L9 18C9 16.3431 10.3431 15 12 15C13.6569 15 15 16.3431 15 18L15 22"/>
+      <path d="M11.3857 2.20711C11.7469 1.92603 12.253 1.92603 12.6142 2.20711L23 10.2891L21.7714 11.8673L21 11.2667V21.0001C20.9999 21.5523 20.5522 22.0001 20 22.0001H3.99996C3.44776 22.0001 3.00007 21.5523 2.99996 21.0001V11.2667L2.22848 11.8673L0.999962 10.2891L11.3857 2.20711Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M9 20L9 18C9 16.3431 10.3431 15 12 15C13.6569 15 15 16.3431 15 18L15 20L9 20Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
     </svg>
   )
 }

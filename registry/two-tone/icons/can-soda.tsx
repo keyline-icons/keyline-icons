@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CanSoda({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M14.8 6.4L17.4001 9.8668C17.7895 10.3861 18 11.0176 18 11.6667L18 19.1716C18 19.9672 17.6839 20.7303 17.1213 21.2929L16.2929 22.1213C15.7303 22.6839 14.9672 23 14.1716 23L9.8284 23C9.0328 23 8.2697 22.6839 7.7071 22.1213L6.8787 21.2929C6.3161 20.7303 6 19.9672 6 19.1716L6 11.6667C6 11.0176 6.2105 10.386 6.6 9.8667L9.2 6.4C9.3889 6.1482 9.6852 6 10 6L14 6C14.3148 6 14.6111 6.1482 14.8 6.4Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M14 7L16.6 10.4667C16.8596 10.8129 17 11.2339 17 11.6667L17 19.1716C17 19.702 16.7893 20.2107 16.4142 20.5858L15.5858 21.4142C15.2107 21.7893 14.702 22 14.1716 22L9.8284 22C9.298 22 8.7893 21.7893 8.4142 21.4142L7.5858 20.5858C7.2107 20.2107 7 19.702 7 19.1716L7 11.6667C7 11.2339 7.1404 10.8129 7.4 10.4667L10 7M17 7L7 7M16 2L13 7" fill="none"/>
+    </svg>
+  )
+}

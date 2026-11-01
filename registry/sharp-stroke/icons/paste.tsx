@@ -22,6 +22,7 @@ export function Paste({ size = 24, ...props }: IconProps) {
       {...props}
     >
       <path d="M5 4L2 4L2 21L9 21M13 4L16 4L16 8M5 2L13 2L13 7L5 7L5 2ZM18 11L12 11L12 22L22 22L22 15L18 11ZM18 11L18 15L22 15" fill="none"/>
+      <path d="M18 11L22 15L18 15L18 11Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
     </svg>
   )
 }

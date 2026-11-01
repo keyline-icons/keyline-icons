@@ -22,7 +22,8 @@ export function Buildings({ size = 24, ...props }: IconProps) {
       {...props}
     >
       <path d="M2 5L9 5L9 2C9 1.4477 9.4477 1 10 1L22 1C22.5523 1 23 1.4477 23 2L23 22C23 22.5523 22.5523 23 22 23L2 23C1.4477 23 1 22.5523 1 22L1 6C1 5.4477 1.4477 5 2 5Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
-      <path d="M14 5L14 9M14 11L14 15M18 5L18 9M18 11L18 15M6 9L6 13M6 15L6 19M14 23L14 18L18 18L18 23"/>
+      <path d="M14 5L14 9M14 11L14 15M18 5L18 9M18 11L18 15M6 9L6 13M6 15L6 19"/>
+      <path d="M14 21L14 18L18 18L18 21L14 21Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
     </svg>
   )
 }
