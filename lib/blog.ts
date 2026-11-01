@@ -7818,7 +7818,7 @@ const RELEASE_2_3_0: BlogPost = {
     "tent and a castle.",
   standfirst: "Drawn off the amenity lists of two booking sites, one gap at a time.",
   date: "2026-10-30",
-  updated: "2026-10-30",
+  updated: "2026-11-01",
   readingMinutes: 4,
   thumbnail: BLOG_V230_THUMBNAIL_ICON_NAMES,
   keywords: [
@@ -7853,13 +7853,13 @@ const RELEASE_2_3_0: BlogPost = {
     {
       kind: "p",
       text:
-        "A booking site shows what a place offers as a row of small icons, " +
-        "and the row runs long: the bath and the shower, the kitchen, the " +
-        "washer, air conditioning, a safe, whether you can smoke. Until now " +
-        "this set could draw the wifi and the parking and stopped well short " +
-        "of the bathroom. This update brings 31 new icons. Most fill in the " +
-        "rest of that row, and the others are for getting there and what to " +
-        "see: a suitcase, a caravan, a tent, a castle.",
+        "A booking site shows what a place offers as a row of small icons. " +
+        "The row runs long: the bath, the kitchen, the washer, air " +
+        "conditioning, a safe, whether you can smoke. Until now this set " +
+        "could draw the wifi and the parking, and stopped short of the " +
+        "bathroom. Most of the 31 new icons fill in that row. The rest are " +
+        "for getting there and what to see: a suitcase, a caravan, a tent, " +
+        "a castle.",
     },
     {
       kind: "p",
@@ -7872,7 +7872,10 @@ const RELEASE_2_3_0: BlogPost = {
       figure: {
         kind: "styles",
         names: BLOG_V230_HERO_ICON_NAMES,
-        caption: "Eight of the thirty-one in all four styles.",
+        caption:
+          "Eight of the 31 in every style. Fill has nothing to add to `ski`, " +
+          "`wheelchair`, `waves-ladder` or `a-text-cursor`, so those four keep " +
+          "their outline.",
       },
     },
 
@@ -7880,9 +7883,8 @@ const RELEASE_2_3_0: BlogPost = {
     {
       kind: "p",
       text:
-        "Here's the row the way a listing groups it, with the icon for each, " +
-        "the new ones and the ones the set already had side by side. A whole " +
-        "amenities section now comes from one set.",
+        "A listing's whole amenities section now comes from one set, new " +
+        "icons and old, in the groups a listing uses:",
     },
     {
       kind: "list",
@@ -7922,8 +7924,8 @@ const RELEASE_2_3_0: BlogPost = {
       text:
         "Until this update, searching this site for a safe found `lock`, a " +
         "padlock, because that was the closest thing the set had. Searching " +
-        "for a castle found the chess rook. Both were fair guesses, and both " +
-        "were wrong on a listing: a padlock says the door locks, not that " +
+        "for a castle found the chess rook. Both were fair guesses and both " +
+        "were wrong on a listing. A padlock says the door locks, not that " +
         "there's a safe in the wardrobe.",
     },
     {
@@ -7931,10 +7933,10 @@ const RELEASE_2_3_0: BlogPost = {
       text:
         "Now each word finds its own drawing, and `chess-rook` is just a " +
         "chess piece again. The new names follow the most widely used open " +
-        "icon set, so the safe is `vault`, air conditioning is `air-vent`, " +
-        "the pool is `waves-ladder` and the suitcase is `luggage`. Code " +
-        "moving over from that set keeps its icon names, and search here " +
-        "still answers to the everyday word.",
+        "icon set: the safe is `vault`, air conditioning `air-vent`, the pool " +
+        "`waves-ladder` and the suitcase `luggage`. Code moving over from " +
+        "that set keeps its names, and search here still answers to the " +
+        "everyday word.",
     },
 
     { kind: "h2", text: "Five boxes, four sizes", id: "boxes" },
@@ -7943,19 +7945,24 @@ const RELEASE_2_3_0: BlogPost = {
       text:
         "Five of the new icons are rounded boxes: the fridge, the oven, the " +
         "microwave, the washing machine and the safe. At 16 pixels the small " +
-        "details are the first thing to go, so the outline has to do most of " +
-        "the work of telling them apart.",
+        "details go first, so the outline does most of the work of telling " +
+        "them apart.",
     },
     {
       kind: "p",
       text:
-        "The set already has a size for each kind of box, measured off the " +
-        "boxes it had drawn before. At the full 24 pixels, a square box is " +
-        "20 across, a tall one is 18 by 22, a narrow tall one 16 by 22, and " +
-        "a wide one 22 by 18. These five use four of those sizes: the fridge " +
-        "is the narrow one, the oven and the washing machine are tall, the " +
-        "microwave is wide and stands on two feet, and the safe is the only " +
-        "true square.",
+        "The set already had a size for each kind of box, measured off the " +
+        "boxes drawn before, and these five use four of them:",
+    },
+    {
+      kind: "table",
+      head: ["Box", "At 24 pixels", "New icons"],
+      rows: [
+        ["Square", "20 by 20", "`vault`"],
+        ["Tall", "18 by 22", "`oven`, `washing-machine`"],
+        ["Narrow", "16 by 22", "`refrigerator`"],
+        ["Wide", "22 by 18, on two feet", "`microwave`"],
+      ],
     },
     {
       kind: "note",
@@ -7966,14 +7973,12 @@ const RELEASE_2_3_0: BlogPost = {
     {
       kind: "p",
       text:
-        "That rule keeps the washing machine at 18 wide rather than a nearly " +
-        "square 20, which costs it a button: the panel along the top has room " +
-        "for one button and the dial, not two. Inside, each box keeps one detail of its own: the fridge's two " +
-        "doors, the oven's row of knobs, the microwave's window pushed to " +
-        "one side by its buttons, the washing machine's drum and the safe's " +
-        "door on its hinges. In duotone that detail is black on a grey body, " +
-        "and in fill it's cut out of the solid, so the five stay apart in " +
-        "every style.",
+        "That rule keeps the washing machine 18 wide, not a nearly square " +
+        "20. It costs a button: the panel on top fits the dial and one " +
+        "button, not two. Each box keeps one detail of its own, like the " +
+        "fridge's two doors or the safe's hinged door. Duotone draws that " +
+        "detail black on a grey body and fill cuts it out of the solid, so " +
+        "the five stay apart in every style.",
     },
     {
       kind: "figure",
@@ -7988,10 +7993,10 @@ const RELEASE_2_3_0: BlogPost = {
     {
       kind: "p",
       text:
-        "`luggage`, `caravan`, `sailboat` and `stroller` join the plane, the " +
-        "bus, the taxi and the bike the set already had. For the stay " +
-        "itself there's a `tent`, a `barn`, a `castle` and a `lighthouse`, " +
-        "whether the listing is one or sits near one, and `ski` for a resort.",
+        "For the trip, `luggage`, `caravan`, `sailboat` and `stroller` join " +
+        "the plane, bus, taxi and bike the set already had. For the stay, " +
+        "`tent`, `barn`, `castle` and `lighthouse` work whether the listing " +
+        "is one or sits near one, and `ski` marks a resort.",
     },
     {
       kind: "p",
@@ -8005,9 +8010,7 @@ const RELEASE_2_3_0: BlogPost = {
       figure: {
         kind: "grid",
         names: BLOG_V230_TRIP_ICON_NAMES,
-        caption:
-          "Four ways to get there, four places to stay or visit, the slopes, " +
-          "and a letter at the cursor.",
+        caption: "All ten are new in this update.",
       },
     },
 
