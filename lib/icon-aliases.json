@@ -1266,6 +1266,15 @@
       ]
     },
     {
+      "match": "^(plane|ship|train-front|tram|bus|bike|rocket|car|caravan|sailboat|stroller|truck)(-|$)",
+      "note": "Every vehicle answers to the word for the shelf it sits on, and the trucks with them, which file in Commerce for delivery but are vehicles all the same. Until 2.5.0 `transport` found three drawings and `transportation` none (his ask, 1 Nov 2026). The Transport pattern in lib/icon-taxonomy.ts less the two drawings that are not vehicles: `ev-charger`, which a car plugs into, and `train-track`.",
+      "terms": [
+        "transport",
+        "transportation",
+        "vehicle"
+      ]
+    },
+    {
       "match": "^upload$",
       "terms": [
         "import",
