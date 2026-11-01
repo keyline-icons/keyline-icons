@@ -54,12 +54,12 @@ export const CUSTOM_OFFERS = [
     id: "test",
     name: "Style test",
     price: "$150",
-    summary: "3 icons",
+    summary: "5 icons",
     description:
-      "Three icons from your product, drawn on the grid, so you judge the fit on real drawings before committing to a set.",
+      "Five icons from your product, drawn on the grid, so you judge the fit on real drawings before committing to a set.",
     includes: [
-      "3 icons from your product",
-      "Back within 3 days",
+      "5 icons from your product",
+      "Back within 1 day",
       "SVG and a Figma file",
       // A checklist row like Overflow's, not a bold line of its own: as a
       // line it pushed this card's list below the set card's. The hyphen is
@@ -71,12 +71,12 @@ export const CUSTOM_OFFERS = [
     id: "set",
     name: "Icon set",
     price: "$1,500",
-    summary: "30 icons in 7 days",
+    summary: "30 icons in 2–3 days",
     description:
-      "The icons your product needs, drawn as one system and delivered within a week.",
+      "The icons your product needs, drawn as one system and delivered in two or three days.",
     includes: [
       "30 icons, sizes and states included",
-      "Delivered in 7 days",
+      "Delivered in 2–3 days",
       "SVG, a Figma file and a React package",
     ],
   },

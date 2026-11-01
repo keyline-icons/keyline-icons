@@ -49,7 +49,7 @@ export const metadata = pageMetadata({
   description:
     "Custom icons for software and AI products, drawn on the Keyline Icons grid " +
     "in every size and state, delivered as SVG, a Figma file and a React " +
-    "package. A 3-icon style test for $150, or 30 icons in 7 days for $1,500.",
+    "package. A 5-icon style test for $150, or 30 icons in 2–3 days for $1,500.",
   socialDescription:
     "Icons drawn for your product on the Keyline grid, delivered as SVG, Figma and React.",
 })
@@ -220,7 +220,7 @@ export default async function Page() {
         >
           <SectionHead
             title="Two fixed offers"
-            lead="Start with three icons to see the fit, or go straight to the set."
+            lead="Start with five icons to see the fit, or go straight to the set."
           />
           <ul className="mx-auto mt-10 grid max-w-3xl gap-3 md:grid-cols-2">
             {CUSTOM_OFFERS.map((offer) => (
@@ -412,7 +412,7 @@ export default async function Page() {
             {closeArt && <Glyph art={closeArt} size={28} stroke={2} />}
             <p className="text-lg leading-snug font-medium tracking-tight text-balance text-muted-foreground">
               <span className="text-foreground">See the fit first</span>
-              {`: the style test is three of your icons for ${CUSTOM_OFFERS[0].price}, drawn before any set is ordered.`}
+              {`: the style test is five of your icons for ${CUSTOM_OFFERS[0].price}, drawn before any set is ordered.`}
             </p>
             <CustomInquiry place="close" className="self-start">
               Email the brief
