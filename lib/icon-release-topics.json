@@ -1,6 +1,265 @@
 {
  "$comment": "SOURCE, NOT GENERATED. How a release reads on the changelog, shaped after Preline's (Zafar, 17 Sep 2026, pointing at preline.co/docs/changelog.html): a title, then chips (an icon and a label, like Preline's \"New Components & Improvements\" and \"Fixes and Improvements\"), each followed by its items with a bold lead (\"People:\", \"Layout:\") and the drawings the item is about. His asks on the way: \"topic > icons, topic > icons. not all topics first and then all icons after that\", \"categorize them, not just text > icons. titles, etc.\", \"redrawns deserve to be a separate topic, not within a topic and each subtitle must carry shareable link like the main titles\". So redraws are always their own chip. Per version: `title` (the release's headline, which every version has, released ones included, because the page heads each entry by it) and optionally `sections`: chips with `title`, `icon` (a drawing from this set, by name) or `logo` (a platform's own mark, for a chip about that platform, where a drawing of ours would stand in for someone else's trademark: `react`, drawn from components/brand-logos.tsx), `text`, and items in `sections` with `title`, `text`, `names` (added), `redraws` or `removed` (drawings the release took out of the set, since 1.6.0 retired `cloud-minus`: the generator reads them off the two trees, so a name listed here only places one, it never claims one). A version with no `sections` is drawn with default chips, New drawings and Redrawn, straight off git. pipeline/build-history.mjs gives every chip and item an `anchor` (v<version>-<chip>, v<version>-<chip>-<item>) that the site links, keeps only the drawings the entry carries, and appends anything no item claims in a last untitled group, reported, so a stale list never drops a drawing. Keyed by the version the work ships as, so nothing is re-keyed at the tag. Numbers go in as {names} and {files}. Anything in backticks is set as code, on the page and the Paper board both, the way a post sets an icon name. Where a version has sections they replace the note.",
  "releases": {
+  "2.5.0": {
+   "title": "Furniture inside and out, breakfast and sixteen off states",
+   "sections": [
+    {
+     "title": "New drawings",
+     "icon": "sparkles",
+     "sections": [
+      {
+       "title": "Actions",
+       "text": "The flame struck through.",
+       "names": [
+        "flame-off"
+       ]
+      },
+      {
+       "title": "AI",
+       "text": "A house with sparkles over its roof, and a square with sparkles in its corner.",
+       "names": [
+        "house-sparkles",
+        "square-sparkles"
+       ]
+      },
+      {
+       "title": "Arrows",
+       "text": "The refresh arrows struck through.",
+       "names": [
+        "refresh-cw-off"
+       ]
+      },
+      {
+       "title": "Commerce",
+       "text": "A briefcase with an arrow down into it.",
+       "names": [
+        "briefcase-arrow-down"
+       ]
+      },
+      {
+       "title": "Devices",
+       "text": "The keyboard, the server and the mouse, each struck through.",
+       "names": [
+        "keyboard-off",
+        "server-off",
+        "mouse-off"
+       ]
+      },
+      {
+       "title": "Food & Drink",
+       "text": "A croissant beside a cup of coffee, a can of soda, a spoon and a fork, and the cooking pot struck through.",
+       "names": [
+        "breakfast",
+        "can-soda",
+        "utensils",
+        "cooking-pot-off"
+       ]
+      },
+      {
+       "title": "Home",
+       "text": "A couch, a hot tub and a roller blind, a sun lounger under its parasol, a radiator, an office desk with its drawers, a round mirror on its stand, a minibar fridge, a desk with its lamp and a table under a parasol, with the washing machine and the oven struck through.",
+       "names": [
+        "couch",
+        "hot-tub",
+        "blinds",
+        "sun-lounger",
+        "heater",
+        "desk-office",
+        "mirror-round",
+        "refrigerator-mini",
+        "desk",
+        "outdoor-seating",
+        "washing-machine-off",
+        "oven-off"
+       ]
+      },
+      {
+       "title": "Maps",
+       "text": "A tower between lower wings, and the flag and the locate mark struck through.",
+       "names": [
+        "building-complex",
+        "flag-off",
+        "locate-off"
+       ]
+      },
+      {
+       "title": "Media",
+       "text": "The earbuds and the repeat arrows, struck through.",
+       "names": [
+        "earbuds-off",
+        "repeat-off"
+       ]
+      },
+      {
+       "title": "Tools",
+       "text": "A pencil across a set square, and the flashlight and the wrench struck through.",
+       "names": [
+        "pencil-ruler-2",
+        "flashlight-off",
+        "wrench-off"
+       ]
+      },
+      {
+       "title": "Transport",
+       "text": "A bus seen from the front, and the charging post struck through.",
+       "names": [
+        "bus-front",
+        "ev-charger-off"
+       ]
+      },
+      {
+       "title": "Weather",
+       "text": "The sun rising and setting over the sea.",
+       "names": [
+        "sunrise-2",
+        "sunset-2"
+       ]
+      },
+      {
+       "title": "Web",
+       "text": "Two bookmarks stacked, and the bookmark struck through.",
+       "names": [
+        "bookmarks",
+        "bookmark-off"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Redrawn",
+     "icon": "pen",
+     "text": "47 drawings that already shipped were drawn again, most of them in duotone and fill. Before and after below.",
+     "sections": [
+      {
+       "title": "Commerce",
+       "text": "The store draws its door solid in duotone, the hotel bell fills its dome apart from its base, and the speeding truck keeps its grey inside its lines.",
+       "redraws": [
+        "store",
+        "concierge-bell",
+        "truck-fast"
+       ]
+      },
+      {
+       "title": "Files",
+       "text": "The paste board closes its sharp corner fold as the rounded one does, and the image file draws its mountain solid in duotone.",
+       "redraws": [
+        "paste",
+        "file-image"
+       ]
+      },
+      {
+       "title": "Finance",
+       "text": "The money bag and its five signs tie the same knot in sharp corners as in rounded.",
+       "redraws": [
+        "money-bag",
+        "money-bag-check",
+        "money-bag-dollar-sign",
+        "money-bag-minus",
+        "money-bag-plus",
+        "money-bag-x"
+       ]
+      },
+      {
+       "title": "Food & Drink",
+       "text": "The coffee maker and its pot fill in separate pieces, and the grill keeps its grey inside its lines.",
+       "redraws": [
+        "coffee-maker",
+        "coffee-pot",
+        "grill"
+       ]
+      },
+      {
+       "title": "Home",
+       "text": "The pump bottle and the spray can fill their nozzles apart from their bodies.",
+       "redraws": [
+        "bottle-pump",
+        "spray-can"
+       ]
+      },
+      {
+       "title": "Mail",
+       "text": "The envelope fills its flap apart from its body, alone and stacked.",
+       "redraws": [
+        "mail",
+        "mails"
+       ]
+      },
+      {
+       "title": "Maps",
+       "text": "The barn, the building, the two buildings and the castle draw their doors solid in duotone.",
+       "redraws": [
+        "barn",
+        "building",
+        "buildings",
+        "castle"
+       ]
+      },
+      {
+       "title": "Media",
+       "text": "In duotone the picture draws its mountain solid across the whole image family, the film strip turns its frames and holes black on grey, and the megaphone splits its horn from its body.",
+       "redraws": [
+        "image",
+        "image-arrow-down",
+        "image-arrow-left",
+        "image-arrow-right",
+        "image-arrow-up",
+        "image-check",
+        "image-minus",
+        "image-plus",
+        "image-x",
+        "images",
+        "film",
+        "megaphone"
+       ]
+      },
+      {
+       "title": "Science",
+       "text": "The flask struck through holds its liquid as a solid in duotone, and the telescope fills its tube apart from its stand.",
+       "redraws": [
+        "flask-conical-off",
+        "telescope"
+       ]
+      },
+      {
+       "title": "Sport",
+       "text": "The dumbbell fills its weights apart from the bar.",
+       "redraws": [
+        "dumbbell"
+       ]
+      },
+      {
+       "title": "Time",
+       "text": "The fast timer keeps its grey inside its lines.",
+       "redraws": [
+        "timer-fast"
+       ]
+      },
+      {
+       "title": "Transport",
+       "text": "The rockets turn black in duotone with grey fins, and the stroller fills its hood apart from its basket.",
+       "redraws": [
+        "rocket",
+        "rocket-fast",
+        "rocket-vertical",
+        "stroller"
+       ]
+      },
+      {
+       "title": "Web",
+       "text": "The home, the house, the house with a chimney and both pairs draw their doors solid in duotone.",
+       "redraws": [
+        "home",
+        "homes",
+        "house",
+        "house-chimney",
+        "houses"
+       ]
+      }
+     ]
+    }
+   ]
+  },
   "2.3.0": {
    "title": "The bathroom, the kitchen and the laundry, and somewhere to stay",
    "sections": [
