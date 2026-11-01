@@ -563,18 +563,59 @@ export const BLOG_SOCIAL_CARD_ICONS = 6
  */
 /** All fifty-three of v0.9.0, most recognisable first, then release order. */
 export const BLOG_V090_THUMBNAIL_ICON_NAMES = [
-  "plane", "bot", "leaf", "flask-conical", "truck-check", "brain",
-  "plane-takeoff", "plane-landing", "ship", "train-front", "bike", "truck-electric",
-  "truck-plus", "truck-minus", "truck-x", "truck-arrow-up", "truck-arrow-down",
-  "truck-arrow-left", "truck-arrow-right", "tree-palm", "wind-turbine",
-  "droplet", "droplet-off", "droplets", "bird", "pig", "piggy-bank",
-  "brain-circuit", "flask-conical-off", "flask-round", "test-tube",
-  "test-tube-diagonal", "test-tubes", "lungs", "ear", "ear-listen",
-  "ear-waveform", "thermometer", "thermometer-sun", "thermometer-snowflake",
-  "temperature-empty", "temperature-quarter", "temperature-half",
-  "temperature-high", "temperature-full", "earbuds", "airpods",
-  "airpods-open", "hand-pointer", "hand-pointer-down", "hand-pointer-left",
-  "hand-pointer-right", "radar",
+  "flask-conical",
+  "leaf",
+  "thermometer",
+  "lungs",
+  "test-tubes",
+  "droplet",
+  "brain",
+  "tree-palm",
+  "wind-turbine",
+  "bird",
+  "plane",
+  "bot",
+  "truck-check",
+  "flask-round",
+  "test-tube",
+  "test-tube-diagonal",
+  "flask-conical-off",
+  "droplets",
+  "droplet-off",
+  "ear",
+  "ear-listen",
+  "ear-waveform",
+  "thermometer-sun",
+  "thermometer-snowflake",
+  "temperature-empty",
+  "temperature-quarter",
+  "temperature-half",
+  "temperature-high",
+  "temperature-full",
+  "pig",
+  "piggy-bank",
+  "brain-circuit",
+  "plane-takeoff",
+  "plane-landing",
+  "ship",
+  "train-front",
+  "bike",
+  "truck-electric",
+  "truck-plus",
+  "truck-minus",
+  "truck-x",
+  "truck-arrow-up",
+  "truck-arrow-down",
+  "truck-arrow-left",
+  "truck-arrow-right",
+  "earbuds",
+  "airpods",
+  "airpods-open",
+  "hand-pointer",
+  "hand-pointer-down",
+  "hand-pointer-left",
+  "hand-pointer-right",
+  "radar",
 ] as const
 
 /** Transport, Nature and Animals, and the money box that is not an animal. */
@@ -2212,10 +2253,32 @@ const BATCH_0_8_0: BlogPost = {
   ],
 }
 
+export const BLOG_V090_SUBJECT_ICON_NAMES = [
+  "flask-conical",
+  "flask-round",
+  "test-tube",
+  "test-tubes",
+  "flask-conical-off",
+  "leaf",
+  "tree-palm",
+  "wind-turbine",
+  "droplet",
+  "droplets",
+  "brain",
+  "lungs",
+  "ear",
+  "ear-waveform",
+  "thermometer",
+  "temperature-empty",
+  "temperature-half",
+  "temperature-full",
+  "thermometer-sun",
+  "thermometer-snowflake",
+] as const
+
 const BATCH_0_9_0: BlogPost = {
-  /* Named for what the post is found by, on his word (14 Sep 2026): the truck
-     is the story inside it, but nobody searches for a truck's free corner, and
-     the six shelves are what a search for these icons types. */
+  /* Science and nature lead: 2.2.0 owns transport, and two posts after one
+     search split it. The truck is the story, so it is a heading. */
   slug: "transport-nature-ai-science-health-icons",
   version: "0.9.0",
   title: "53 free science and nature icons for React, shadcn/ui and Figma",
@@ -2224,213 +2287,111 @@ const BATCH_0_9_0: BlogPost = {
     "water, birds, a bot, lungs and thermometers, and the first planes, " +
     "ship and train.",
   standfirst:
-    "Everything that landed in v0.9.0: planes, a ship and a train, water and " +
-    "leaves, a bot, flasks and test tubes, lungs and ears, the temperatures, " +
-    "and a truck that finally takes a sign. Free SVG icons for shadcn/ui, " +
-    "drawn on one 24×24 grid.",
-  headline: "Six new categories open at once",
+    "Also new: a plane taking off and landing, a ship, a train, a bike, " +
+    "earbuds and a hand that points four ways.",
+  headline: "A truck with one free corner",
   date: "2026-09-13",
-  updated: "2026-09-13",
-  readingMinutes: 5,
+  updated: "2026-11-01",
+  readingMinutes: 4,
   thumbnail: BLOG_V090_THUMBNAIL_ICON_NAMES,
   keywords: [
-    "icon set update",
+    "science icons",
+    "lab icons",
+    "flask icon",
+    "test tube icon",
+    "nature icons",
+    "leaf icon",
+    "water drop icon",
+    "wind turbine icon",
+    "health icons",
+    "lungs icon",
+    "brain icon",
+    "ear icon",
+    "thermometer icon",
+    "temperature icons",
+    "truck icons",
+    "delivery truck icon",
+    "plane icon",
+    "bot icon",
     "free svg icons",
     "shadcn/ui icons",
-    "transport icons",
     "react icons",
-    "plane icon",
-    "truck icons",
-    "nature icons",
-    "ai icon",
-    "bot icon",
-    "science icons",
-    "flask icon",
-    "health icons",
-    "thermometer icon",
+    "figma icons",
   ],
   body: [
     {
       kind: "p",
       text:
-        "Fifty-three new drawings, which takes the set to 851 names, and six " +
-        "new shelves to hold them.",
+        "A lab booking page, a garden app and a clinic's patient record " +
+        "all reach for things this set couldn't draw until now: a flask, a " +
+        "leaf, the lungs, a thermometer.",
     },
     {
       kind: "p",
       text:
-        "Most of the batch is subjects the set had no drawings for at all: " +
-        "things that move, things that grow, and the tools of a lab and a " +
-        "clinic. The rest fills out families the set already had: a truck " +
-        "that carries a sign, a hand that points four ways and a temperature " +
-        "at five levels.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V090_THUMBNAIL_ICON_NAMES,
-        caption: "All fifty-three.",
-      },
+        "This update adds 53 icons and takes the set to 851, in six new " +
+        "categories: Transport, Nature, Animals, AI, Science and Health. " +
+        "The truck also learned to carry a symbol, and one shipped name " +
+        "was turned round.",
     },
 
-    { kind: "h2", text: "Six shelves opened", id: "shelves" },
+    { kind: "h2", text: "A lab, a garden and a clinic", id: "subjects" },
     {
       kind: "p",
-      text:
-        "The set went from 31 categories to 37, because nothing that existed " +
-        "could take these. Transport took the plane with its takeoff and " +
-        "landing, the ship, the train and the bike. Nature took the palm, the " +
-        "leaf, the wind turbine and the droplet in all three of its states. " +
-        "Animals took the bird and the pig.",
+      text: "Where to find each, with the words a search finds them by:",
+    },
+    {
+      kind: "list",
+      items: [
+        "Science: `flask-conical`, `flask-round`, `test-tube`, " +
+          "`test-tube-diagonal` and a rack of them, `test-tubes`. " +
+          "`flask-conical-off` for its off state.",
+        "Nature: `leaf`, `tree-palm`, `wind-turbine` for clean energy, and " +
+          "water as `droplet`, `droplets` and `droplet-off`.",
+        "Health: `brain`, `lungs`, `ear` with `ear-listen` and " +
+          "`ear-waveform` for hearing, and `thermometer`.",
+        "Weather: the temperature at five levels, from `temperature-empty` " +
+          "to `temperature-full`, and `thermometer-sun` and " +
+          "`thermometer-snowflake` for hot and cold.",
+        "Animals: `bird` and `pig`. `piggy-bank` is filed with the wallet " +
+          "in Finance, because a money box isn't an animal.",
+      ],
     },
     {
       kind: "figure",
       figure: {
         kind: "grid",
-        names: BLOG_V090_TRANSPORT_ICON_NAMES,
-        caption: "Transport: a plane taking off and landing, a ship, a train and a bike.",
-      },
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V090_NATURE_ICON_NAMES,
-        caption: "Nature: a palm, a leaf, a turbine and the water.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "The piggy bank is shelved with the wallet. A shelf follows what a " +
-        "thing is, and a money box is not an animal, so `piggy-bank` is in " +
-        "Finance while `pig` is in Animals.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V090_ANIMAL_ICON_NAMES,
-        caption: "The bird, the pig, and the pig that holds coins.",
+        names: BLOG_V090_SUBJECT_ICON_NAMES,
+        caption: "Twenty of the 53.",
       },
     },
     {
       kind: "p",
       text:
-        "AI took the bot and the brain wired to a circuit. Science took the " +
-        "flasks and the test tubes, with the off state and the rack. Health " +
-        "took the brain, the lungs, the ear with what it hears, and the " +
-        "clinical thermometer.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V090_AI_ICON_NAMES,
-        caption: "AI, which is two names. A shelf of two is fine.",
-      },
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V090_SCIENCE_ICON_NAMES,
-        caption: "Science: the glassware.",
-      },
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V090_HEALTH_ICON_NAMES,
-        caption: "Health.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "The brain is drawn from above, three lobes a side. Two a side read " +
-        "as a butterfly.",
+        "The brain is drawn from above, three folds to a side. With two to " +
+        "a side it read as a butterfly.",
     },
 
-    { kind: "h2", text: "Filed with what was already there", id: "families" },
     {
-      kind: "p",
-      text:
-        "The rest of the new drawings joined shelves that existed. The five " +
-        "temperature levels and the two weather thermometers went to Weather, " +
-        "the earbuds went beside the headphones in Media, the radar beside " +
-        "the compass in Maps, and the pointing hand to the cursors.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V090_MEASURE_ICON_NAMES,
-        caption: "Empty to full, then hot and cold.",
-      },
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V090_HAND_ICON_NAMES,
-        caption: "One hand, turned to face each way.",
-      },
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V090_LISTEN_ICON_NAMES,
-        caption: "Earbuds, the case shut and open, and the radar.",
-      },
-    },
-
-    { kind: "h2", text: "A truck with one free corner", id: "truck" },
-    {
-      kind: "p",
-      text:
-        "Signs go in a corner. `file-plus`, `calendar-check` and `mail-x` all " +
-        "open their body at the bottom right and put the sign in the gap. " +
-        "The truck has no bottom right to give. A 6 unit sign there sits 2 " +
-        "units into the rear wheel, and at the top right it sits 2 units into " +
-        "the cab roof. Neither a wheel nor a roof can be opened.",
+      kind: "h2",
+      text: "The truck's symbol is one size smaller than every other",
+      id: "truck",
     },
     {
       kind: "p",
       text:
-        "The cargo box can, at its top left. It cannot hold a sign closed, " +
-        "because its walls are 10 units apart inside and a sign wants 8 plus " +
-        "2 clear on each side. So the box opens, and the question was how.",
+        "A symbol goes in a corner. A file or a calendar opens its bottom " +
+        "right corner and puts the plus or the check in the gap. The truck " +
+        "has no bottom right to give, because that's a wheel, and the top " +
+        "right is the roof of the cab.",
     },
     {
       kind: "p",
       text:
-        "The first answer tightened the box's two top corners from a radius " +
-        "of 3 to 2, which made room for the usual 6 unit sign with a straight " +
-        "cut. Laid over the truck that already shipped, the smaller corner " +
-        "read as a mistake rather than a choice, so the truck stayed as it " +
-        "is. The second answer cut into the rounded corner itself. That " +
-        "left a round end whose top reached 3.17 on the rounded drawing " +
-        "and 3 on the sharp one, so on the minus and the check the sharp " +
-        "truck painted outside its rounded twin.",
-    },
-    {
-      kind: "p",
-      text:
-        "The third answer stops the outline exactly where the corner's curve " +
-        "turns straight, at 11 across and 4 down, the one cut that leaves both " +
-        "treatments at 3. The round end of that cut reaches 10 across, and " +
-        "the sign has to stop 2 units short of it. A sign of size s ends at " +
-        "3 plus s, so s is 5.",
-    },
-    {
-      kind: "note",
-      text:
-        "Five units is a size nothing else in the set uses: lists take 4 and " +
-        "every other corner family takes 6. It is what this body allows.",
+        "So it opens at the top left of the cargo box. The space there " +
+        "holds a symbol 5 pixels wide, where every other icon in the set " +
+        "uses 6. A slightly smaller check beats a check sitting on a " +
+        "wheel.",
     },
     {
       kind: "figure",
@@ -2441,16 +2402,20 @@ const BATCH_0_9_0: BlogPost = {
             title: "`truck` laid over `truck-plus`",
             a: { name: "truck", take: "current" },
             b: { name: "truck-plus", take: "current" },
-            verdict: { text: "The truck itself does not move", tone: "good" },
+            verdict: {
+              text: "The truck itself doesn't move",
+              tone: "good",
+            },
           },
         ],
         caption:
-          "The only colour is the corner that opens and the sign inside it. " +
-          "Every one of the nine covers the same box as `truck`, to four " +
-          "decimals, in both corner treatments.",
+          "The only colour is the corner that opens and the plus inside " +
+          "it. All nine trucks with a symbol cover exactly the box `truck` " +
+          "covers, so swapping one for another in a list doesn't make it " +
+          "jump.",
         legend: {
           a: "only the truck",
-          b: "only the compound",
+          b: "only the truck with a plus",
           both: "both",
         },
       },
@@ -2461,21 +2426,23 @@ const BATCH_0_9_0: BlogPost = {
         kind: "grid",
         names: BLOG_V090_TRUCK_ICON_NAMES,
         caption:
-          "The base and its nine. The bolt is an object rather than a sign, so " +
-          "it is drawn at its size rather than shrunk off `zap`.",
+          "The truck and its nine. The bolt on `truck-electric` is part of " +
+          "the truck, so it's drawn at full size.",
       },
     },
 
-    { kind: "h2", text: "A grey sliver since August", id: "sliver" },
+    {
+      kind: "h2",
+      text: "A sliver of grey on the sharp truck, and a name turned round",
+      id: "fixes",
+    },
     {
       kind: "p",
       text:
-        "Looking this closely at the truck turned up something older. On the " +
-        "sharp duotone truck, the stroke ends square at the rear wheel from " +
-        "two directions, and the corner between those two ends is left " +
-        "unpainted. The grey shape underneath ran straight across it, so a " +
-        "sliver of grey showed past the black. It had shipped that way since " +
-        "August, and every compound copies its grey shape.",
+        "In two-tone with sharp corners, the truck's grey fill showed past " +
+        "its black outline beside the rear wheel, by a sixth of a pixel. " +
+        "It had shipped that way since August, and every truck with a " +
+        "symbol copied it. The grey now follows the wheel.",
     },
     {
       kind: "figure",
@@ -2483,7 +2450,7 @@ const BATCH_0_9_0: BlogPost = {
         kind: "diagnostic",
         panels: [
           {
-            title: "The sharp duotone truck, as it shipped and as it ships now",
+            title: "The sharp two-tone truck, before and after",
             a: { name: "truck", take: "before" },
             b: { name: "truck", take: "after" },
           },
@@ -2492,14 +2459,16 @@ const BATCH_0_9_0: BlogPost = {
             a: { name: "truck", take: "before" },
             b: { name: "truck", take: "after" },
             viewBox: "13.5 17.5 2 2",
-            verdict: { text: "0.17 of a unit of grey past the black", tone: "bad" },
+            verdict: {
+              text: "Grey past the outline",
+              tone: "bad",
+            },
           },
         ],
         caption:
-          "At its widest the sliver is 0.17 of a unit, which at 24px is a " +
-          "sixth of a pixel. The grey now follows the wheel up to the corner " +
-          "and back down. There is no second colour because the fix only took " +
-          "grey away.",
+          "The colour is grey the old truck showed past its outline. None " +
+          "of the second colour appears, because the fix only took grey " +
+          "away.",
         legend: {
           a: "only the old truck",
           b: "only the new one",
@@ -2507,47 +2476,36 @@ const BATCH_0_9_0: BlogPost = {
         },
       },
     },
-
-    { kind: "h2", text: "One name turned round", id: "rename" },
     {
       kind: "p",
       text:
-        "`heart-hand` is `hand-heart` now. The drawing is a heart held in an " +
-        "open hand, so the hand is the thing and the heart says which kind, " +
-        "which is the order every other name in the set follows. The old name " +
-        "still finds it in search. In React, `HeartHand` is `HandHeart`.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V090_RENAMED_ICON_NAMES,
-        caption: "The same drawing under the right name.",
-      },
+        "`heart-hand` is `hand-heart` now. The drawing is a heart held in " +
+        "an open hand, so the hand is the subject and the heart says which " +
+        "kind, the order every other name in the set follows. In React, " +
+        "`HeartHand` became `HandHeart`. Searching the site for heart-hand " +
+        "still finds it.",
     },
 
     { kind: "h2", text: "Getting it", id: "getting-it" },
     {
       kind: "link",
       href: "/icons",
-      label: "Browse the set",
-      text: "All 851 drawings, in three styles and two corner treatments.",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
     },
     {
       kind: "link",
       href: "/install",
       label: "Install",
       text:
-        "The React package, the CLI, the shadcn registry, the MCP server and " +
-        "the Figma plugin.",
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui registry, " +
+        "the CLI, the MCP server, and the Figma plugin.",
     },
     {
       kind: "link",
       href: "/changelog",
-      label: "Changelog",
-      text:
-        "What moved, generated off git, with every redraw shown before and " +
-        "after.",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
     },
   ],
 }
@@ -2875,117 +2833,147 @@ export const BLOG_V110_SINGLE_ICON_NAMES = [
   "wand",
 ] as const
 
+export const BLOG_V110_SPARKLE_ICON_NAMES = [
+  "search-sparkles",
+  "message-sparkles",
+  "mail-sparkles",
+  "file-sparkles",
+  "folder-sparkles",
+  "chart-line-sparkles",
+  "chart-bar-sparkles",
+  "image-sparkles",
+  "mic-sparkles",
+  "camera-sparkles",
+  "calendar-sparkles",
+  "clock-sparkles",
+  "bell-sparkles",
+  "inbox-sparkles",
+  "user-sparkles",
+  "brain-sparkles",
+  "bot-circle",
+  "cpu-sparkles",
+  "terminal-sparkles",
+  "cursor-sparkles",
+  "wallet-sparkles",
+  "credit-card-sparkles",
+  "shield-sparkles",
+  "palette-sparkles",
+  "eraser-sparkles",
+] as const
+
 const RELEASE_1_1_0: BlogPost = {
-  /* React Native first, then the count, and nothing else: the title is also
-     the breadcrumb, and every other fact is the body's to say once. The slug
-     names the drawings, not the version, so it survives a renumbering. */
+  /* AI icons lead: 76 of the 114 carry a sparkle, and "react native icons"
+     is the other search this post answers, so it rides in the title's
+     tail. */
   slug: "free-ai-icons-math-symbols-mac-keys",
   version: "1.1.0",
   title: "114 free AI and sparkle icons for React, React Native and Figma",
   description:
-    "Free, MIT-licensed SVG icons: 77 AI icons with sparkles, twenty maths " +
-    "signs and the Mac command keys, and the whole set now installs in " +
+    "Free, MIT-licensed SVG icons: 76 sparkle icons for AI features, " +
+    "twenty maths signs and the Mac keys, and the set now installs in " +
     "React Native and Expo.",
   standfirst:
-    "Sparkles on one shelf, maths marks, Mac keys, and the set now installs " +
-    "in React Native, Expo included.",
-  headline: "The set comes to React Native",
+    "Also new: six corner arrows for a reply or a forward, an eject " +
+    "button, a wand and an audio and a video file.",
+  headline: "Every sparkle is the same pair",
   date: "2026-09-23",
-  updated: "2026-09-23",
-  readingMinutes: 3,
+  updated: "2026-11-01",
+  readingMinutes: 4,
   thumbnail: BLOG_V110_THUMBNAIL_ICON_NAMES,
   keywords: [
     "ai icons",
     "sparkle icons",
+    "sparkles icon",
+    "ai search icon",
+    "magic icon",
+    "react native icons",
+    "expo icons",
+    "math icons",
+    "math symbol icons",
+    "divide icon",
+    "equal icon",
+    "command key icon",
+    "option key icon",
+    "mac keyboard icons",
     "free svg icons",
     "shadcn/ui icons",
     "react icons",
-    "react native icons",
-    "expo icons",
     "figma icons",
-    "math symbol icons",
-    "keyboard icons",
-    "command key icon",
-    "chart icons",
   ],
   body: [
     {
       kind: "p",
       text:
-        "The set is 1,114 drawings. Each one comes in stroke, two-tone, " +
-        "duotone and fill, rounded or sharp: 8,912 SVGs.",
+        "An app that adds AI features marks them with a sparkle: a search " +
+        "that understands questions, a summary of your inbox, a chart that " +
+        "explains itself. That takes the same sparkle on dozens of " +
+        "different things, all one size, so they read as one feature.",
     },
     {
       kind: "p",
       text:
-        "Seventy-six of the new ones carry a star. Twenty are maths marks. " +
-        "Four are command, option, escape and space. Then corner turns, two " +
-        "file kinds, eject, a line that goes both ways, and a plain wand.",
+        "This update adds 114 icons and takes the set to 1,114, each in " +
+        "four styles with rounded or sharp corners: 8,912 SVGs. " +
+        "Seventy-six of the new ones carry a sparkle. Twenty are maths " +
+        "signs and four are Mac keys. And the whole set now installs in " +
+        "React Native.",
     },
     {
       kind: "figure",
       figure: {
         kind: "styles",
         names: BLOG_V110_HERO_ICON_NAMES,
-        caption:
-          "Eight of the new drawings, one style to a row, in that same order.",
+        caption: "Eight of the new icons, one style to a row in that order.",
       },
     },
 
-    { kind: "h2", text: "One shelf for everything with a star", id: "ai-shelf" },
+    { kind: "h2", text: "Every sparkle is the same pair", id: "sparkles" },
     {
       kind: "p",
       text:
-        "Sparkle versions used to sit next to their plain twin. " +
-        "`mail-sparkles` lived under Mail, `folder-sparkles` under Files. " +
-        "You only found them if you already knew the name.",
+        "The sparkle icons live in one AI category now, where they used to " +
+        "sit beside their plain twins: `mail-sparkles` under Mail, " +
+        "`folder-sparkles` under Files. Searching for any object still " +
+        "finds its sparkle version. A few to start with:",
     },
     {
-      kind: "p",
-      text:
-        "They're one family now: bots, a brain on a circuit, two bare stars, " +
-        "and all the new ones. Every star is the same pair, in the " +
-        "same place relative to the thing it marks. You can still search any " +
-        "of them by the object they mark.",
+      kind: "list",
+      items: [
+        "AI search: `search-sparkles`.",
+        "A summary or a drafted reply: `message-sparkles` and `mail-sparkles`.",
+        "Insights on a report: `chart-line-sparkles` and `chart-bar-sparkles`.",
+        "Smart files and folders: `file-sparkles` and `folder-sparkles`.",
+        "An assistant: `bot-circle` and `brain-sparkles`.",
+      ],
     },
     {
       kind: "figure",
       figure: {
         kind: "grid",
-        names: BLOG_V110_AI_ICON_NAMES,
-        caption: "Thirty-six from the new shelf, which the category list calls AI.",
+        names: BLOG_V110_SPARKLE_ICON_NAMES,
+        caption: "Twenty-five of the 76.",
       },
     },
-
-    { kind: "h2", text: "One size for every star", id: "one-size" },
     {
       kind: "p",
       text:
-        "Early drafts put the stars wherever they fit. At 16px they stopped " +
-        "looking like stars. They looked like a speck in the corner.",
+        "Every one carries the same two stars, the larger 8 pixels across " +
+        "and the smaller 5, in the same place beside the object. Smaller " +
+        "stars were tried, and at 16 pixels they stopped looking like " +
+        "stars and looked like a speck of dirt.",
     },
     {
       kind: "note",
       text:
-        "A sparkle has to read as a sparkle at 16 pixels, or it's just a " +
-        "small mark next to something else.",
+        "A star never cuts into the drawing it marks. Where the pair " +
+        "couldn't fit without breaking an outline, the icon wasn't made.",
     },
     {
       kind: "p",
       text:
-        "So there's one pair now: lead star eight units, second star five, " +
-        "with clear space from each other and from the drawing. Two icons " +
-        "drop the second star to four units, because five wouldn't fit. " +
-        "Nothing gets cut: a star never breaks an outline, an axis, or a " +
-        "closed shape. If the pair couldn't sit without breaking something, " +
-        "the drawing didn't ship.",
-    },
-    {
-      kind: "p",
-      text:
-        "`pen-sparkles` shipped earlier with plus signs instead of stars. " +
-        "The pen itself never moved. Only the marks did. The star is bigger " +
-        "than the plus it replaced. That's the point.",
+        "`pen-sparkles` had shipped with two plus signs where the stars " +
+        "go. The pen didn't move. The plus signs became stars, and the " +
+        "star is the bigger of the two, which is the point.",
     },
     {
       kind: "figure",
@@ -2993,111 +2981,93 @@ const RELEASE_1_1_0: BlogPost = {
         kind: "diagnostic",
         panels: [
           {
-            title: "The whole pen, old marks over new",
+            title: "The whole pen, old marks laid over new",
             a: { name: "pen-sparkles", take: "before" },
             b: { name: "pen-sparkles", take: "after" },
             verdict: {
-              text: "Same pen in both",
+              text: "The same pen in both",
               tone: "good",
             },
           },
           {
-            title: "The top left corner, same two drawings",
+            title: "The top left corner",
             a: { name: "pen-sparkles", take: "before" },
             b: { name: "pen-sparkles", take: "after" },
             viewBox: "0 0 10 10",
-            verdict: { text: "A plus of six units, a star of eight", tone: "bad" },
+            verdict: {
+              text: "A plus 6 pixels wide, a star of 8",
+              tone: "bad",
+            },
           },
         ],
         caption:
-          "One drawing painted over the other. The rose is the plus sign as " +
-          "it shipped, the emerald is the star that replaced it, and the " +
-          "dark is the pen, identical in both.",
+          "The first colour is the plus sign as it shipped, the second the " +
+          "star that replaced it, and the dark is the pen, identical in " +
+          "both.",
         legend: {
           a: "the plus signs as they shipped",
           b: "the stars as they are now",
-          both: "ink that did not move",
+          both: "lines that did not move",
         },
       },
     },
 
-    { kind: "h2", text: "Maths marks and Mac keys", id: "math-keys" },
+    {
+      kind: "h2",
+      text: "Maths signs, and Mac keys that stay outlines",
+      id: "math",
+    },
     {
       kind: "p",
       text:
-        "The maths marks are for sums and formulas: asterisk, divide, equal (plus " +
-        "approximate and not-equal), hash, infinity, parentheses, radical, " +
-        "variable, and a barred x. Four of them also come circled and " +
-        "squared, for a toolbar that wants a button instead of a symbol.",
+        "The maths signs are for a calculator or a formula editor: " +
+        "`divide`, `equal`, `equal-not`, `equal-approximately`, " +
+        "`asterisk`, `hash`, `infinity`, `parentheses`, `radical` and " +
+        "`variable`. Four of them also come in a circle and in a square, " +
+        "for a button that wants a frame.",
     },
     {
       kind: "figure",
       figure: {
         kind: "grid",
         names: BLOG_V110_MATH_ICON_NAMES,
-        caption: "The plain marks first, the eight in a circle or a square last.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "The four modifier keys are drawn the way a Mac prints them, for " +
-        "shortcut hints and keycaps. " +
-        "Stroke only. A filled keycap stops reading as a key.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V110_KEY_ICON_NAMES,
-        caption: "The four keys, at the weight the rest of the set uses.",
-      },
-    },
-
-    { kind: "h2", text: "Corners, files and a wand", id: "the-rest" },
-    {
-      kind: "p",
-      text:
-        "Six corner turns, for a reply, a forward, a redirect, or a branch " +
-        "in a flow. Plus a big arrow with a dash over its head, and an arrow " +
-        "that runs into a line and stops.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V110_CORNER_ICON_NAMES,
-        caption: "The six turns first, the two straight arrows after.",
-      },
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V110_SINGLE_ICON_NAMES,
         caption:
-          "The five singles: `file-audio`, `file-video`, `eject`, " +
-          "`trending-up-down` and `wand`.",
+          "The plain signs first, the eight in a circle or a square last.",
       },
     },
-
-    { kind: "h2", text: "Now in React Native", id: "react-native" },
     {
       kind: "p",
       text:
-        "The whole set works in React Native and Expo, as " +
-        "`@keyline-icons/react-native`. Same drawings, same names as the " +
-        "React package. `Check` is `Check`. Styles live at `/two-tone`, " +
-        "`/duotone` and `/fill`. Sharp corners at `/sharp`. Shared code " +
-        "between web and phone only changes the package name.",
+        "The four keys, `command`, `option`, `escape` and `space`, are " +
+        "drawn as a Mac prints them, for shortcut hints. They stay " +
+        "outlines in every style, because a solid keycap symbol reads as a " +
+        "blob.",
+    },
+
+    { kind: "h2", text: "The same names in React Native", id: "native" },
+    {
+      kind: "p",
+      text:
+        "The whole set installs in React Native and Expo as " +
+        "`@keyline-icons/react-native`, with the same names as the React " +
+        "package. `Check` is `Check`, so code shared between web and phone " +
+        "changes only the package name.",
+    },
+    {
+      kind: "code",
+      code:
+        `import { Check } from "@keyline-icons/react-native"\n` +
+        `import { Bell } from "@keyline-icons/react-native/duotone"\n` +
+        `\n` +
+        `<Check size={16} color="#2563eb" />`,
     },
     {
       kind: "p",
       text:
-        "The one difference is colour. On the web an icon inherits text " +
-        "colour. A phone has nothing to inherit from, so each icon takes a " +
-        "`color` prop. The grey halves of two-tone and duotone follow it, so " +
-        "one colour still sets both tones.",
+        "The one difference is colour. On the web an icon takes the colour " +
+        "of the text around it, and a phone screen has no text colour to " +
+        "inherit, so each icon takes a `color` prop. The grey in two-tone " +
+        "and duotone follows it, so one prop still sets both tones.",
     },
 
     { kind: "h2", text: "Getting it", id: "getting-it" },
@@ -3112,8 +3082,8 @@ const RELEASE_1_1_0: BlogPost = {
       href: "/install",
       label: "Install",
       text:
-        "React, React Native, the shadcn/ui registry, the CLI, the MCP " +
-        "server, and the Figma plugin.",
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui registry, " +
+        "the CLI, the MCP server, and the Figma plugin.",
     },
     {
       kind: "link",
@@ -3124,11 +3094,28 @@ const RELEASE_1_1_0: BlogPost = {
   ],
 }
 
+export const BLOG_V100_NEW_ICON_NAMES = [
+  "panel-left-open",
+  "panel-left-close",
+  "panel-bottom-open",
+  "panel-bottom-close",
+  "table",
+  "phone-call",
+  "phone-incoming",
+  "phone-outgoing",
+  "phone-missed",
+  "phone-forwarded",
+  "boy",
+  "girl",
+  "baby-boy",
+  "baby-girl",
+  "heading-1",
+] as const
+
 const RELEASE_1_0_0: BlogPost = {
-  /* A search types the count, "free", "shadcn/ui" and the styles, so the
-     title and slug carry those; the duotone story is an h2 inside. The 8,000
-     leads on his word (18 Sep 2026): four styles in two corner shapes is the
-     size of this release, and a title without it undersold it. */
+  /* The four styles are what 1.0 is, and "duotone icons" is a search
+     people make; the count leads, as every headline of this set does, and
+     the corners and the 8,000 go in the description. */
   slug: "1000-free-shadcn-ui-icons-in-four-styles",
   version: "1.0.0",
   title: "1,000 free shadcn/ui icons in stroke, two-tone, duotone and fill",
@@ -3137,176 +3124,86 @@ const RELEASE_1_0_0: BlogPost = {
     "each in four styles with rounded or sharp corners: 8,000 in all. " +
     "Version 1.0, out of beta.",
   standfirst:
-    "A month, fourteen releases and one style nobody planned. Version " +
-    "1.0.0 takes the set out of beta, with a new colour, a new logo and " +
-    "free SVG icons for shadcn/ui, React, Figma and Paper.",
-  headline: "One month in, out of beta",
+    "The first release went out on 20 August with 503 icons. A month and " +
+    "fourteen releases later, this one is 1.0.",
+  headline: "Two-tone was an accident",
   date: "2026-09-18",
-  updated: "2026-09-18",
-  readingMinutes: 9,
+  updated: "2026-11-01",
+  readingMinutes: 5,
   thumbnail: BLOG_V100_THUMBNAIL_ICON_NAMES,
   keywords: [
-    "icon set update",
+    "free icons",
+    "duotone icons",
+    "two-tone icons",
+    "fill icons",
+    "outline icons",
+    "sharp icons",
     "free svg icons",
     "shadcn/ui icons",
     "react icons",
     "figma icons",
-    "duotone icons",
-    "two-tone icons",
-    "fill icons",
-    "people icons",
+    "sidebar icons",
     "panel icons",
-    "phone icons",
-    "tablet icons",
-    "banknote icons",
-    "rocket icon",
-    "heading icons",
+    "phone call icons",
+    "people icons",
+    "coins icon",
   ],
   body: [
     {
       kind: "p",
       text:
-        "The first release went out on 20 August. A month later, 1.0.0 has " +
-        "1,000 icons, and every one of them comes in four styles: stroke, " +
-        "two-tone, duotone and fill. " +
-        "Each style comes with rounded corners or sharp ones. A thousand " +
-        "icons, times four styles, times two kinds of corner: 8,000 in all, " +
-        "with nothing missing.",
+        "A sidebar marks the page you're on with a filled icon and leaves " +
+        "the rest as outlines. That takes two drawings of every icon, and " +
+        "from this update every icon here has four.",
     },
     {
       kind: "p",
       text:
-        "Stroke is the outline. Fill is solid. Two-tone is the outline with " +
-        "a light grey inside. Duotone drops the outline: a grey shape with " +
-        "the important part in black.",
+        "That is 1,000 icons, each in stroke, two-tone, duotone and fill, " +
+        "with rounded or sharp corners: 8,000 in all. 149 of the thousand " +
+        "are new, and 59 older ones were redrawn.",
     },
     {
       kind: "p",
       text:
-        "149 of the icons are new, from a new People category to panels on " +
-        "every side, and 59 older ones were redrawn. Two-tone came out of a " +
-        "mistake spotted by accident, and this release was rebuilt around " +
-        "it.",
+        "Stroke is the outline. Fill is solid. Two-tone is the outline " +
+        "with light grey inside. Duotone drops the outline: a grey shape " +
+        "with the part that matters in black.",
     },
     {
       kind: "figure",
       figure: {
         kind: "styles",
         names: BLOG_V100_HERO_ICON_NAMES,
-        caption:
-          "Eight of the new icons, one style to a row, in that same order.",
+        caption: "Eight of the new icons, one style to a row in that order.",
       },
-    },
-
-    { kind: "h2", text: "One month, out of beta", id: "one-month" },
-    {
-      kind: "p",
-      text:
-        "The beta started on a plain black and white site, with rounded " +
-        "corners only. Here is where things stand on 18 September.",
-    },
-    {
-      kind: "list",
-      items: [
-        "1,000 icons, up from 503.",
-        "8,000 SVG files, up from 1,286.",
-        "Four styles, up from three, and every one with rounded or sharp " +
-          "corners.",
-        "14 releases in a month, this one included.",
-        "6,676 downloads on npm, 2,092 of them in the last week alone.",
-        "86 stars on GitHub.",
-        "38 categories, from Actions to Web.",
-      ],
-    },
-    {
-      kind: "p",
-      text:
-        "The one breaking change of the month, the duotone rename further " +
-        "down, was saved for this release on purpose, so it lands once, " +
-        "with the move out of beta.",
-    },
-
-    { kind: "h2", text: "A colour and a logo", id: "look" },
-    {
-      kind: "p",
-      text:
-        "Out of beta, the site dropped its plain black and white for a " +
-        "colour of its own: Keyline blue, deep in light mode and a softer " +
-        "sky blue in dark mode. It is the only accent on an otherwise " +
-        "neutral site: the buttons, the selected controls, the logo and " +
-        "the little dots that mark new icons.",
-    },
-    {
-      kind: "p",
-      text:
-        "The blue takes its hue from non-photo blue, the pale pencil " +
-        "designers used for guide lines, because the cameras that made " +
-        "printing plates couldn't see it. A keyline comes from the same " +
-        "world: the outline that shows where something goes on the page.",
-    },
-    {
-      kind: "p",
-      text:
-        "The logo is made from the set itself: four shapes, one in each " +
-        "style. A sharp diamond in stroke, a triangle in duotone, a circle " +
-        "in two-tone and a square in fill. It's a small picture of what the " +
-        "set is.",
     },
 
     { kind: "h2", text: "Two-tone was an accident", id: "two-tone" },
     {
       kind: "p",
       text:
-        "It started with something that looked off in the design file. In " +
-        "the duotone style, `circle` had " +
-        "an outline, but `circle-x`, right next to it, didn't. The same went " +
-        "for `badge` and `badge-check`, and for `shield-plus` and " +
-        "`square-plus`.",
+        "In the design file, `circle` had an outline in duotone, and " +
+        "`circle-x`, right beside it, didn't. A check of all 765 duotone " +
+        "icons found 633 with a grey-filled outline and 132 with no " +
+        "outline at all, every one of them drawn inside a square, a circle " +
+        "or a badge. Two styles had shared one name since the first " +
+        "release.",
     },
     {
       kind: "p",
       text:
-        "So every duotone icon got checked, all 765 of them. 633 had an " +
-        "outline filled with light grey. The other 132, every icon drawn " +
-        "inside a square, a circle or a badge shape, had no outline at all: " +
-        "just a grey shape with a black symbol on top. Two different styles " +
-        "had been sharing one name.",
+        "Both looks were good, so both stayed and each got its own name. " +
+        "The outlined one is two-tone now, unchanged but for the name. " +
+        "Duotone is the one without an outline, and it went from 132 icons " +
+        "to all 1,000.",
     },
     {
       kind: "p",
       text:
-        "It wasn't a recent slip. It went all the way back to the first " +
-        "release, and new icons kept copying whichever look sat next to " +
-        "them. The automatic checks didn't catch it either, because both " +
-        "looks used two shades, and that was all the checks asked for.",
-    },
-    {
-      kind: "p",
-      text:
-        "The quick fix was to add an outline to those 132 and move on. But " +
-        "that would only have turned them into the other style, and both " +
-        "looks were good.",
-    },
-    {
-      kind: "note",
-      text:
-        "Neither look was wrong. The problem was two good styles sharing one " +
-        "name. So both stayed, each got its own name, and each was drawn for " +
-        "every icon in the set.",
-    },
-    {
-      kind: "p",
-      text:
-        "The outlined look is now called two-tone. Those icons haven't " +
-        "changed, only their name. If you use the React package and want " +
-        "that look, change `@keyline-icons/react/duotone` to " +
+        "If you import duotone icons in React and want the look you had, " +
+        "change `@keyline-icons/react/duotone` to " +
         "`@keyline-icons/react/two-tone`.",
-    },
-    {
-      kind: "p",
-      text:
-        "Duotone keeps its name for the look without an outline. It went " +
-        "from 132 icons to all 1,000 in this one release.",
     },
     {
       kind: "figure",
@@ -3314,10 +3211,9 @@ const RELEASE_1_0_0: BlogPost = {
         kind: "styles",
         names: BLOG_V100_ACCIDENT_ICON_NAMES,
         caption:
-          "The icons that gave it away, as they are now. In two-tone they all " +
-          "have an outline. In duotone, the ones with a check, an x or a plus " +
-          "on them drop it, and the plain shapes keep theirs, for a reason " +
-          "explained below.",
+          "The icons that gave it away. Two-tone, the second row, outlines " +
+          "them all. Duotone, the third, drops the outline wherever " +
+          "there's a symbol to carry the black.",
       },
     },
 
@@ -3325,39 +3221,21 @@ const RELEASE_1_0_0: BlogPost = {
     {
       kind: "list",
       items: [
-        "A small symbol is black, and whatever it sits on is grey: the check " +
-          "on `file-check`, the plus on a calendar.",
-        "On an icon with a slash through it, like `bell-off`, only the slash " +
-          "is black.",
-        "Background parts stay grey. A chart's axes are grey and its bars " +
-          "are black. A slider's track is grey and its knob is black.",
-        "On a tool, the working end is black and the handle is grey, like " +
-          "the head of `hammer`.",
-        "Small details on a black shape show through in grey, like the " +
-          "keyhole on `lock` or the pillows on `bed`.",
-        "Two grey parts never overlap. Grey on top of grey makes a darker " +
-          "grey, which looks like a mistake.",
-        "No big empty holes in the middle of a shape. They read as a third " +
-          "colour, and a duotone only has two.",
+        "A small symbol is black, and what it sits on is grey: the check " +
+          "on `file-check`.",
+        "With a slash through it, like `bell-off`, only the slash is black.",
+        "Backgrounds stay grey. A chart's axes are grey and its bars " +
+          "black, a slider's track grey and its knob black.",
+        "On a tool, the working end is black: the head of `hammer`.",
+        "Small details on a black shape show through in grey: the keyhole " +
+          "on `lock`, the pillows on `bed`.",
       ],
     },
     {
       kind: "note",
       text:
-        "And every duotone has something black in it. An icon that is all " +
-        "grey looks disabled, like a button you can't press. So a simple " +
-        "shape, a heart, a star or a circle, keeps a black outline instead.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "styles",
-        names: BLOG_V100_DUOTONE_ICON_NAMES,
-        caption:
-          "One icon for each rule. Two-tone, the second row, keeps the " +
-          "outline and fills the shape with grey. Duotone, the third row, " +
-          "drops the outline and keeps only the important part black.",
-      },
+        "Every duotone has something black in it. An all-grey icon looks " +
+        "disabled, so a plain heart, star or circle keeps a black outline.",
     },
     {
       kind: "figure",
@@ -3365,146 +3243,56 @@ const RELEASE_1_0_0: BlogPost = {
         kind: "styles",
         names: BLOG_V100_DETAIL_ICON_NAMES,
         caption:
-          "A few more: a black arrow over a grey tray, a grey keyhole on a " +
-          "black lock, grey pillows on a black bed, and the tape, kept to " +
-          "just two shades.",
+          "One icon for each rule. Compare the two-tone row with the " +
+          "duotone row under it.",
       },
     },
 
-    { kind: "h2", text: "No gaps, in any style", id: "every-style" },
+    { kind: "h2", text: "Every icon comes in every style", id: "every-style" },
     {
       kind: "p",
       text:
-        "Before this release, an icon only came in a style if that style " +
-        "added something. An exclamation mark has nothing inside to fill, so " +
-        "`alert` had no fill version, and an app that switched to fill icons " +
-        "was left with a hole where it should have been.",
+        "Before this update, an icon came in a style only if the style " +
+        "added something. An exclamation mark has nothing inside to fill, " +
+        "so `alert` had no fill, and an app that switched to fill icons " +
+        "had a hole where the alert should be.",
     },
     {
       kind: "p",
       text:
-        "Now every icon comes in every style. When a style has nothing to " +
-        "add, it simply uses the same drawing: the fill version of `x` is " +
-        "its outline, because a cross has no inside. Even the first plan for " +
-        "this release would have left 84 icons without a duotone, and it was " +
-        "dropped the next morning.",
+        "Now every icon comes in every style. Where a style has nothing to " +
+        "add, it uses the same drawing: the fill of `x` is its outline, " +
+        "because a cross has no inside.",
     },
 
-    { kind: "h2", text: "149 new icons", id: "new" },
     {
-      kind: "p",
-      text:
-        "There were no people in the set until now. This release adds a boy " +
-        "and a girl, a baby with a curl and one with a bow, and both babies " +
-        "again with a pacifier. They get a category of their own, the set's " +
-        "thirty-eighth.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V100_PEOPLE_ICON_NAMES,
-        caption: "The new People category.",
-      },
+      kind: "h2",
+      text: "The set's first people, and a sidebar on every side",
+      id: "new",
     },
     {
       kind: "p",
-      text:
-        "Panels now open, close and come dashed on all four sides, and there " +
-        "are three split layouts and a table to go with them.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V100_PANEL_ICON_NAMES,
-        caption:
-          "Left and bottom shown here, right and top are mirror images. Then " +
-          "the split layouts and the table.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "Devices got the most. The phone now has calls: a call, and " +
-        "incoming, outgoing, missed and forwarded ones. The tablet comes " +
-        "upright and sideways, with the same eight small symbols as the " +
-        "phone, a check, a plus, a minus, an x and four arrows. There's a " +
-        "laptop on its own and next to a phone, a watch, a hard drive, a " +
-        "cable, a VR headset, a CCTV camera, a mouse and a shredder.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V100_DEVICE_ICON_NAMES,
-        caption: "Sixteen of the thirty-two new device icons.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "The rest came as families. Two banknotes with a check, a minus, a " +
-        "plus and an x, and a wallet holding cards. An alarm clock with a " +
-        "check, a plus and a minus, and a stopwatch. Three rockets and a car. " +
-        "Big block arrows in four directions, long and short. And a heading " +
-        "icon with all six levels.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V100_FAMILY_ICON_NAMES,
-        caption: "A few from each family.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "Plus a handful of one-offs: snow, wind, humidity, a cloud over the " +
-        "sun, the earth, a recycle sign, a bot with a slash, a brain with a " +
-        "cog, sticky notes, a swatch book, a shield with a key, a siren, a " +
-        "gauge, a milestone, a shirt and a paper bag.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V100_SINGLES_ICON_NAMES,
-        caption: "The one-offs.",
-      },
-    },
-
-    { kind: "h2", text: "Redrawn icons", id: "redrawn" },
-    {
-      kind: "p",
-      text:
-        "59 icons that were already out got redrawn. Most of them are one " +
-        "change made across a whole family.",
+      text: "Among the 149 new icons:",
     },
     {
       kind: "list",
       items: [
-        "The pointing hand is new, in all four directions, with a closed " +
-          "hand and an open hand to go with it.",
-        "The dots on the dice are bigger, and so are the three dots of the " +
-          "more menu.",
-        "The paperclip is longer, and the play button is smaller.",
-        "The gallery frames have tighter corners.",
-        "In the fill style, the file icons' folded corners and the grid " +
-          "icons' lines no longer run into the edge.",
-        "In two-tone, charts keep their axes grey and the data black.",
+        "A sidebar that collapses: `panel-left-open` and " +
+          "`panel-left-close`, and the same on every side, solid or dashed.",
+        "Calls: `phone-call`, `phone-incoming`, `phone-outgoing`, " +
+          "`phone-missed` and `phone-forwarded`.",
+        "People, in a category of their own: `boy`, `girl`, `baby-boy` and " +
+          "`baby-girl`.",
+        "Headings for an editor: `heading-1` to `heading-6`, and " +
+          "`case-sensitive`.",
       ],
     },
     {
       kind: "figure",
       figure: {
-        kind: "pairs",
-        names: BLOG_V100_REDRAWN_ICON_NAMES,
-        caption:
-          "A few of them, old on the left and new on the right. The file, " +
-          "grid and chart changes only show in the fill and two-tone styles, " +
-          "so they aren't pictured here.",
+        kind: "grid",
+        names: BLOG_V100_NEW_ICON_NAMES,
+        caption: "Fifteen of the 149.",
       },
     },
 
@@ -3512,18 +3300,12 @@ const RELEASE_1_0_0: BlogPost = {
     {
       kind: "p",
       text:
-        "The coins icon was drawn with the same line as everything else, but " +
-        "it looked heavier. The coins were squashed flat, so the gap inside " +
-        "each one was tiny. They were stacked so close together that there " +
-        "was hardly any white between them. And the flat ends of each coin " +
-        "pinched into little blobs.",
-    },
-    {
-      kind: "p",
-      text:
-        "At small sizes a thin gap fills in, and the lines on either side of " +
-        "it look like one thick line. The coins are taller now and spaced " +
-        "further apart, so every gap matches the gaps in the rest of the set.",
+        "`coins` used the same line as every other icon and still looked " +
+        "heavier. Each coin was squashed flat, so the hole inside it was " +
+        "tiny, and the coins sat so close there was hardly any white " +
+        "between them. At small sizes a thin gap fills in, and the lines " +
+        "either side read as one thick line. The coins are taller now and " +
+        "further apart.",
     },
     {
       kind: "figure",
@@ -3531,62 +3313,21 @@ const RELEASE_1_0_0: BlogPost = {
         kind: "diagnostic",
         panels: [
           {
-            title: "`coins`, old and new, laid on top of each other",
+            title: "`coins`, old laid over new",
             a: { name: "coins", take: "before" },
             b: { name: "coins", take: "after" },
-            verdict: { text: "Even gaps now", tone: "good" },
+            verdict: {
+              text: "Even gaps now",
+              tone: "good",
+            },
           },
         ],
         caption:
-          "Where the colours split, the coins moved: the new ones are taller " +
-          "and further apart.",
+          "Where the colours split, the coins moved: the new ones are " +
+          "taller and further apart.",
         legend: {
           a: "only the old coins",
           b: "only the new ones",
-          both: "both",
-        },
-      },
-    },
-
-    { kind: "h2", text: "A sparkle a sliver too small", id: "sparkle" },
-    {
-      kind: "p",
-      text:
-        "Every icon in the set leaves the same small margin around its " +
-        "edges. The sparkle was meant to reach that margin exactly, and ever " +
-        "since it was first drawn it had fallen short by a sliver: less than " +
-        "a thirtieth of a pixel at normal size.",
-    },
-    {
-      kind: "p",
-      text:
-        "Nobody could have seen it. It's fixed anyway, because a rule that " +
-        "holds for 999 icons should hold for all 1,000.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "diagnostic",
-        panels: [
-          {
-            title: "`sparkle`, old over new",
-            a: { name: "sparkle", take: "before" },
-            b: { name: "sparkle", take: "after" },
-          },
-          {
-            title: "The top point, zoomed in",
-            a: { name: "sparkle", take: "before" },
-            b: { name: "sparkle", take: "after" },
-            viewBox: "11 1.5 2 2",
-            verdict: { text: "A sliver short", tone: "bad" },
-          },
-        ],
-        caption:
-          "Green is the sliver the new sparkle adds at its point. At normal " +
-          "size there's nothing to see.",
-        legend: {
-          a: "only the old sparkle",
-          b: "only the new one",
           both: "both",
         },
       },
@@ -3596,22 +3337,22 @@ const RELEASE_1_0_0: BlogPost = {
     {
       kind: "link",
       href: "/icons",
-      label: "Browse the set",
-      text: "All 1,000 icons, in every style and both kinds of corner.",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
     },
     {
       kind: "link",
       href: "/install",
       label: "Install",
       text:
-        "The React package, the command-line tool, the shadcn registry, the " +
-        "MCP server and the Figma plugin.",
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui registry, " +
+        "the CLI, the MCP server, and the Figma plugin.",
     },
     {
       kind: "link",
       href: "/changelog",
-      label: "Changelog",
-      text: "Every release, with each redrawn icon shown before and after.",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
     },
   ],
 }
@@ -3713,13 +3454,22 @@ export const BLOG_V120_DATA_ICON_NAMES = [
   "database-minus",
   "database-check",
   "database-x",
-  "database-arrow-up",
   "database-arrow-down",
+  "database-arrow-up",
   "database-arrow-left",
   "database-arrow-right",
-  "database-sparkles",
   "server-plus",
   "server-minus",
+  "database-sparkles",
+  "cloud-terminal",
+  "circle-progress-pause",
+  "circle-progress-stop",
+  "loader-circle",
+  "hourglass-start",
+  "hourglass-half",
+  "hourglass-end",
+  "gauge-low",
+  "gauge-high",
 ] as const
 
 export const BLOG_V120_PLUS_ICON_NAMES = [
@@ -3759,9 +3509,9 @@ export const BLOG_V120_REDRAWN_ICON_NAMES = [
 ] as const
 
 const RELEASE_1_2_0: BlogPost = {
-  /* Count, "free", "shadcn/ui" and the three families a search would type; the
-     one-frame story is an h2 inside. The slug names the drawings, not the
-     version, so it survives a renumbering. */
+  /* Tables and databases lead: a spreadsheet toolbar and a data app are
+     the searches this post can win. The bolt and the panels are in the
+     description. */
   slug: "table-database-and-quick-action-icons",
   version: "1.2.0",
   title: "64 free table and database icons for React, shadcn/ui and Figma",
@@ -3770,70 +3520,87 @@ const RELEASE_1_2_0: BlogPost = {
     "split, database and server signs, a lightning bolt family and more " +
     "progress states.",
   standfirst:
-    "A row added, two columns merged, a cache that answers at once: now " +
-    "each has its own drawing.",
+    "Also new: a plus on the heart, the bookmark, the cart, the basket and " +
+    "the house, and on wifi and the link.",
   headline: "Nineteen tables in a single frame",
   date: "2026-09-24",
-  updated: "2026-09-24",
+  updated: "2026-11-01",
   readingMinutes: 4,
   thumbnail: BLOG_V120_THUMBNAIL_ICON_NAMES,
   keywords: [
     "table icons",
     "spreadsheet icons",
+    "add row icon",
+    "merge cells icon",
     "database icons",
     "server icons",
+    "import icon",
+    "export icon",
     "lightning bolt icons",
+    "automation icon",
     "progress icons",
+    "loading icon",
     "hourglass icon",
+    "gauge icon",
     "panel icons",
+    "sidebar icons",
+    "vue icons",
+    "svelte icons",
     "free svg icons",
     "shadcn/ui icons",
     "react icons",
-    "vue icons",
-    "svelte icons",
+    "figma icons",
   ],
   body: [
     {
       kind: "p",
       text:
-        "The set is 1,178 drawings. Each one comes in stroke, two-tone, " +
-        "duotone and fill, rounded or sharp: 9,424 SVGs.",
+        "A spreadsheet toolbar adds rows, deletes columns and merges " +
+        "cells, and every button needs its own picture. Until this update " +
+        "the set had the table and nothing to do to it.",
     },
     {
       kind: "p",
       text:
-        "Sixty-four of them are new. Nineteen are tables, one for each thing " +
-        "a spreadsheet toolbar does to rows, columns and cells. Thirteen " +
-        "carry a lightning bolt. The database and the server get the signs " +
-        "a data app asks for, and waiting can now be paused, half done or " +
-        "over. The table and all twenty-seven panels were also redrawn, in " +
-        "their filled styles only.",
+        "This update adds 64 icons and takes the set to 1,178. Nineteen " +
+        "are tables, thirteen carry a lightning bolt, and the database and " +
+        "the server get the symbols a data app asks for. The table and all " +
+        "twenty-seven panels were redrawn in their filled styles.",
     },
     {
       kind: "figure",
       figure: {
         kind: "styles",
         names: BLOG_V120_HERO_ICON_NAMES,
-        caption: "Eight of the new drawings, one style to a row.",
+        caption: "Eight of the new icons, one style to a row.",
       },
     },
 
-    { kind: "h2", text: "Nineteen tables, one frame", id: "tables" },
+    { kind: "h2", text: "Nineteen tables, all one table", id: "tables" },
     {
       kind: "p",
-      text:
-        "Adding a row, deleting a column, merging two rows into one: a " +
-        "toolbar needs a picture for each, and until now the set had only " +
-        "the table itself.",
+      text: "Every edit a toolbar makes has its icon now:",
+    },
+    {
+      kind: "list",
+      items: [
+        "Rows: `table-rows-add-above` and `table-rows-add-below`, " +
+          "`table-rows-remove-above` and `table-rows-remove-below`, and " +
+          "`table-rows-merge-previous` and `table-rows-merge-next`.",
+        "Columns: the same six, from `table-columns-add-before` to " +
+          "`table-columns-merge-next`.",
+        "Cells: `table-cells-merge` and `table-cells-split`.",
+        "Kinds of table: `table-rows`, `table-cells-rows`, `table-tree` " +
+          "for nested rows, `table-pivot` and `table-off`.",
+      ],
     },
     {
       kind: "p",
       text:
-        "The first round let the table grow or shrink to make room for a " +
-        "plus sign, so a toolbar of them looked like four different tables " +
-        "side by side. Now every one is drawn on the `table` the set already " +
-        "had, at its size, and moves one pixel at most, only to centre a " +
-        "sign that hangs over an edge.",
+        "Each one is drawn on the `table` the set already had, at its " +
+        "size. The plus or the x sits on the edge it acts on, along the " +
+        "top for a row added above, down the left for a column added " +
+        "before, and a merge is an arrow crossing the line it takes away.",
     },
     {
       kind: "note",
@@ -3842,122 +3609,76 @@ const RELEASE_1_2_0: BlogPost = {
         "table in every icon.",
     },
     {
-      kind: "p",
-      text:
-        "The plus or the cross sits on the edge it acts on: along the top " +
-        "for a row added above, down the left side for a column added " +
-        "before. A merge is an arrow crossing the line it takes away. Cells " +
-        "merge and split across the middle row of a grid. After those come " +
-        "a table with a header column, a tree table, a pivot, and a table " +
-        "that's switched off.",
-    },
-    {
       kind: "figure",
       figure: {
         kind: "grid",
         names: BLOG_V120_TABLE_ICON_NAMES,
-        caption: "Rows first, then columns, then cells, then the new kinds of table.",
+        caption:
+          "Rows first, then columns, then cells, then the kinds of table.",
       },
     },
 
-    { kind: "h2", text: "A bolt for anything instant", id: "bolt" },
     {
-      kind: "p",
-      text:
-        "The bolt goes on thirteen drawings: the bell, calendar, " +
-        "clock, file, folder, house, envelope, parcel, phone, tablet, " +
-        "person, server and database. It marks whatever happens straight " +
-        "away: an automation, a trigger, express delivery, a fast cache.",
+      kind: "h2",
+      text: "A bolt for anything that happens at once",
+      id: "bolt",
     },
     {
       kind: "p",
       text:
-        "Each bolt takes the spot the plus sign already had on that " +
-        "drawing, so the plus, minus and bolt versions line up in a list. " +
-        "It sits in the middle of that spot. Pushed to its right edge, it " +
-        "looked like it was sliding off, on every one of them.",
+        "Thirteen icons carry a lightning bolt, from the bell to the " +
+        "database, for an automation, a trigger, express delivery or a " +
+        "fast cache. Each bolt takes the spot the plus sign already has on " +
+        "that icon, so the plus, minus and bolt versions line up in a " +
+        "list.",
     },
     {
       kind: "figure",
       figure: {
         kind: "grid",
         names: BLOG_V120_BOLT_ICON_NAMES,
-        caption: "All thirteen, from the bell to the database.",
+        caption: "All thirteen.",
       },
     },
 
-    { kind: "h2", text: "Signs for data, and more plus signs", id: "signs" },
+    { kind: "h2", text: "A data app, from import to loading", id: "data" },
     {
-      kind: "p",
-      text:
-        "The database now has the full run of signs a data app reaches for: " +
-        "plus, minus, check, cross, four arrows for import and export, and " +
-        "the sparkle pair. The server gets a plus and a minus.",
+      kind: "list",
+      items: [
+        "Import and export: `database-arrow-down` and `database-arrow-up`, " +
+          "with left and right for a sync.",
+        "A record added, removed, saved or failed: `database-plus`, " +
+          "`database-minus`, `database-check` and `database-x`.",
+        "Servers: `server-plus` and `server-minus`, and `cloud-terminal` " +
+          "for a shell that runs somewhere else.",
+        "A job paused or stopped: `circle-progress-pause` and " +
+          "`circle-progress-stop`, and `loader-circle` while it runs.",
+        "Time left: `hourglass-start`, `hourglass-half` and " +
+          "`hourglass-end`. Load: `gauge-low` and `gauge-high`.",
+      ],
     },
     {
       kind: "figure",
       figure: {
         kind: "grid",
         names: BLOG_V120_DATA_ICON_NAMES,
-        caption: "The database's nine, then the server's two.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "A plus also lands on the heart, the bookmark, the cart, the " +
-        "basket, the house, three grids, the dashed circle, the terminal, " +
-        "the link and wifi.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V120_PLUS_ICON_NAMES,
-        caption: "Twelve more places to add something.",
-      },
-    },
-
-    { kind: "h2", text: "Waiting, in more ways", id: "progress" },
-    {
-      kind: "p",
-      text:
-        "Progress rings now pause and stop, beside the play, check and " +
-        "cross they already had. The hourglass comes full, half run and " +
-        "emptied. The gauge reads low and high. There's a plain open ring " +
-        "for a spinner, and a cloud with a terminal prompt in it, for a " +
-        "shell that runs somewhere else.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V120_PROGRESS_ICON_NAMES,
-        caption: "Rings, hourglasses and gauges, then the cloud shell.",
+        caption: "All twenty are new.",
       },
     },
 
     {
       kind: "h2",
-      text: "Tables and panels you can tell apart when filled",
-      id: "redrawn",
+      text: "A filled left panel no longer looks like a right one",
+      id: "panels",
     },
     {
       kind: "p",
       text:
-        "The outlines of `table` and the twenty-seven panels didn't change. " +
-        "Their filled versions did. Before, the fill of `panel-left` was a " +
-        "black square with one white line down it, and `panel-right` was " +
-        "the same square with the line moved over. At 16 pixels you had to " +
-        "look twice.",
-    },
-    {
-      kind: "p",
-      text:
-        "Now the fill keeps the outline and fills only the part that " +
-        "matters: the header row of a table, the docked side of a panel. " +
-        "Duotone does the same in black over grey. Two-tone greys the rest " +
-        "and leaves the header or the docked side light.",
+        "The fill of `panel-left` used to be a black square with one white " +
+        "line down it, and `panel-right` the same square with the line " +
+        "moved over. At 16 pixels you had to look twice. Now the fill " +
+        "keeps the outline and fills only the side the panel docks to, and " +
+        "the table fills only its header row.",
     },
     {
       kind: "note",
@@ -3971,19 +3692,17 @@ const RELEASE_1_2_0: BlogPost = {
         kind: "styles",
         names: BLOG_V120_REDRAWN_ICON_NAMES,
         caption:
-          "Six of the twenty-eight as they are now, in every style. The " +
-          "stroke row is exactly as it was.",
+          "Six of the twenty-eight in every style. The stroke row is " +
+          "exactly as it was.",
       },
     },
-
-    { kind: "h2", text: "Vue, Svelte and Solid", id: "vue-svelte-solid" },
     {
       kind: "p",
       text:
-        "The install page now covers Vue, Svelte and Solid through " +
-        "unplugin-icons. It turns each icon you import into a component for " +
-        "your framework when the app builds, so only the icons you use end " +
-        "up in your bundle and nothing is fetched while it runs.",
+        "The set also reaches Vue, Svelte and Solid now, through " +
+        "unplugin-icons, which turns each icon you import into a component " +
+        "for your framework when the app builds. Only the icons you use " +
+        "end up in the bundle.",
     },
 
     { kind: "h2", text: "Getting it", id: "getting-it" },
@@ -3998,8 +3717,8 @@ const RELEASE_1_2_0: BlogPost = {
       href: "/install",
       label: "Install",
       text:
-        "React, React Native, Vue, Svelte and Solid, the shadcn/ui " +
-        "registry, the CLI, the MCP server, and the Figma plugin.",
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui registry, " +
+        "the CLI, the MCP server, and the Figma plugin.",
     },
     {
       kind: "link",
@@ -4138,10 +3857,36 @@ export const BLOG_V130_PARCEL_ICON_NAMES = [
   "package-arrow-up",
 ] as const
 
+export const BLOG_V130_FAST_ICON_NAMES = [
+  "truck",
+  "truck-fast",
+  "bike",
+  "bike-fast",
+  "rocket-fast",
+  "star",
+  "star-shooting",
+  "send",
+  "send-fast",
+  "timer-fast",
+] as const
+
+export const BLOG_V130_HELP_ICON_NAMES = [
+  "lifebuoy",
+  "pin",
+  "pin-off",
+  "anchor",
+  "anchor-2",
+  "shield-terminal",
+  "file-terminal",
+  "app-window-terminal",
+  "captions-off",
+  "square-arrow-in-down-right",
+] as const
+
 const RELEASE_1_3_0: BlogPost = {
-  /* What a search types for: the count, "free", "shadcn/ui" and the largest
-     groups; the story of the turned star is an h2 inside. The slug names the
-     drawings, not the version, so it survives a renumbering. */
+  /* Sport leads, then stock charts: both are searches a sports app or a
+     trading screen makes. Speed and the support buoy go in the
+     description. */
   slug: "sport-stock-chart-and-speed-icons",
   version: "1.3.0",
   title: "39 free sports and stock chart icons for React, shadcn/ui and Figma",
@@ -4149,299 +3894,181 @@ const RELEASE_1_3_0: BlogPost = {
     "Free, MIT-licensed SVG icons: five balls, stock charts, a gamepad, " +
     "two anchors, a lifebuoy, push pins, a shooting star and a fast " +
     "delivery truck.",
-  standfirst: "Three short lines behind a star, and it's a shooting star.",
+  standfirst:
+    "Also new: an atom, a paw print, two hearts, an alien and a leafy " +
+    "tree.",
   headline: "A star that leaves a trail",
   date: "2026-09-28",
-  updated: "2026-09-28",
-  readingMinutes: 6,
+  updated: "2026-11-01",
+  readingMinutes: 4,
   thumbnail: BLOG_V130_THUMBNAIL_ICON_NAMES,
   keywords: [
-    "sport icons",
+    "sports icons",
     "soccer ball icon",
     "basketball icon",
-    "tennis ball icon",
+    "tennis icon",
+    "baseball icon",
+    "golf icon",
+    "cricket icon",
+    "hockey icon",
     "stock chart icon",
+    "stock market icon",
     "gamepad icon",
-    "anchor icon",
-    "lifebuoy icon",
-    "support icon",
-    "push pin icon",
-    "terminal icon",
     "shooting star icon",
     "fast delivery icon",
     "express delivery icon",
-    "speed icon",
-    "paper plane icon",
-    "stopwatch icon",
-    "bike icon",
-    "parcel icons",
-    "captions off icon",
-    "play off icon",
-    "import icon",
+    "lifebuoy icon",
+    "support icon",
+    "help icon",
+    "push pin icon",
+    "anchor icon",
     "free svg icons",
     "shadcn/ui icons",
     "react icons",
+    "figma icons",
   ],
   body: [
     {
       kind: "p",
       text:
-        "The set is 1,217 drawings. Each one comes in stroke, two-tone, " +
-        "duotone and fill, rounded or sharp: 9,736 SVGs.",
+        "A sports app shows the ball for each game, and a trading screen " +
+        "shows the market going up or down. Neither had an icon here until " +
+        "now.",
     },
     {
       kind: "p",
       text:
-        "Thirty-nine of them are new. Eight are for sport: five balls, a " +
-        "cricket bat, hockey sticks and a golf hole. Two are stock charts, " +
-        "one rising and one falling, and six stand on their own: a gamepad, " +
-        "an alien, an atom, a paw print, two hearts and a tree. Nine were " +
-        "missing from the set until now: two anchors, a lifebuoy for " +
-        "support, a push pin with and without its slash, a second bin, and " +
-        "a terminal prompt in a shield, a file and an app window. Five are " +
-        "in a hurry: a shooting star, a truck, a paper plane, a bike and a " +
-        "stopwatch, each with speed lines behind it. The rest switch " +
-        "something off or bring something in: captions, subtitles and play " +
-        "with a slash across them, and an arrow entering a square from each " +
-        "corner.",
-    },
-    {
-      kind: "p",
-      text:
-        "Seventeen older drawings were redrawn as well: the parcel and its " +
-        "ten signs in duotone, three sparkle drawings with sharp corners, " +
-        "two switched-off drawings that now match what they switch off, and " +
-        "a window whose cursor grew.",
+        "This update adds 39 icons and takes the set to 1,217. Eight are " +
+        "for sport, two are stock charts, and five are things in a hurry, " +
+        "with speed lines behind them. Seventeen older drawings were " +
+        "redrawn.",
     },
     {
       kind: "figure",
       figure: {
         kind: "styles",
         names: BLOG_V130_HERO_ICON_NAMES,
-        caption: "Eight of the thirty-nine, one style to a row.",
+        caption: "Eight of the 39, one style to a row.",
       },
     },
 
-    { kind: "h2", text: "Five balls, one ring", id: "balls" },
+    { kind: "h2", text: "A ball for every game", id: "sport" },
     {
-      kind: "p",
-      text:
-        "Four of the balls are one circle, as wide as the icon allows: " +
-        "`soccer-ball`, `basketball`, `baseball` and `tennis-ball`. " +
-        "What tells them apart is inside it: the soccer ball's pentagon and " +
-        "its five seams, the basketball's cross and two side curves, the " +
-        "baseball's stitching and the tennis ball's two sweeping curves. " +
-        "`american-football` is the fifth, an oval with its laces across " +
-        "the middle.",
+      kind: "list",
+      items: [
+        "Football and American football: `soccer-ball` and " +
+          "`american-football`.",
+        "Basketball, baseball and tennis: `basketball`, `baseball` and " +
+          "`tennis-ball`.",
+        "Cricket, hockey and golf: `cricket-bat`, `hockey-sticks` and " +
+          "`golf-hole`.",
+        "Markets: `chart-stock-up` and `chart-stock-down`.",
+        "Games: `gamepad`.",
+      ],
     },
     {
       kind: "p",
       text:
-        "In duotone, each of the four keeps its ring black and everything " +
-        "inside it grey, so the round outline carries the ball and the " +
-        "seams read as detail. The soccer ball keeps its pentagon's outline " +
-        "black as well.",
-    },
-    {
-      kind: "p",
-      text:
-        "The other three for sport are `cricket-bat`, with the ball beside " +
-        "the blade, `hockey-sticks`, two sticks crossed, and `golf-hole`, " +
-        "a flag standing in the hole.",
+        "The four round balls are one circle, as wide as the icon allows, " +
+        "so a row of sports lines up, and the seams inside are what tell " +
+        "them apart. In duotone each keeps its ring black and its seams " +
+        "grey, so the outline carries the ball.",
     },
     {
       kind: "figure",
       figure: {
         kind: "styles",
         names: BLOG_V130_SPORT_ICON_NAMES,
+        caption: "All eight for sport, in every style.",
+      },
+    },
+
+    { kind: "h2", text: "Three lines behind make anything fast", id: "speed" },
+    {
+      kind: "p",
+      text:
+        "`star-shooting` is the set's star with three lines streaming " +
+        "behind it. The middle line is the longest and runs straight back, " +
+        "and the star is turned a little so that one of its points faces " +
+        "down that line.",
+    },
+    {
+      kind: "note",
+      text:
+        "The longest line points at the star's back, so the trail reads as " +
+        "something the star left behind.",
+    },
+    {
+      kind: "p",
+      text:
+        "The paper plane, the bike and the stopwatch take the same three " +
+        "lines. The truck can't: it already fills the icon's width, and " +
+        "lines behind it would shrink it until its wheels were dots. So " +
+        "`truck-fast` gives up its back wall, and the roof runs on past it " +
+        "as the top line. In fill the lines are cut out of the solid " +
+        "shape.",
+    },
+    {
+      kind: "p",
+      text:
+        "The rocket flew like this already, as `rocket-2`. A number said " +
+        "nothing about it, so it is `rocket-fast` now. The old name still " +
+        "finds it in search, and `Rocket2` still imports in React.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V130_FAST_ICON_NAMES,
         caption:
-          "All eight for sport, one style to a row. In duotone the round " +
-          "balls keep their rings black.",
+          "The truck, the bike, the star and the paper plane beside the " +
+          "drawings they grew from, with `rocket-fast` and `timer-fast`.",
+      },
+    },
+
+    { kind: "h2", text: "Support gets a lifebuoy", id: "support" },
+    {
+      kind: "p",
+      text:
+        "The set had nothing for support or help until `lifebuoy`, and " +
+        "searching support, help or life ring finds it now. With it came a " +
+        "few more that apps kept reaching for:",
+    },
+    {
+      kind: "list",
+      items: [
+        "Pinned and unpinned: `pin` and `pin-off`. The pin leans on the " +
+          "diagonal, so the slash cuts it cleanly in two.",
+        "Code and security: `shield-terminal`, `file-terminal` and " +
+          "`app-window-terminal`.",
+        "Media switched off: `captions-off`, `subtitles-off` and " +
+          "`play-off`, each the original with a slash across it.",
+        "Importing into a window: `square-arrow-in-down-right`, turned to " +
+          "come in from each corner.",
+      ],
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V130_HELP_ICON_NAMES,
+        caption: "Ten of them, with the two anchors.",
       },
     },
 
     {
       kind: "h2",
-      text: "Stock charts, a gamepad and an atom",
-      id: "singles",
+      text: "Two off icons that didn't match what they switch off",
+      id: "off",
     },
     {
       kind: "p",
       text:
-        "`chart-stock-up` and `chart-stock-down` are a line zigzagging up " +
-        "or down inside a frame, for a market that is rising or falling.",
-    },
-    {
-      kind: "p",
-      text:
-        "`gamepad` is a controller as wide as the icon allows, with a cross " +
-        "on the left and two buttons on the right. The `atom` is two orbits " +
-        "around a dot, and each breaks where it passes behind the other, so " +
-        "they take turns in front. `paw-print` is four toes over a pad, " +
-        "`hearts` is one heart in front of another, `alien` is a head with " +
-        "two eyes, and `tree-deciduous` is a round, leafy crown on a forked " +
-        "trunk.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V130_SINGLES_ICON_NAMES,
-        caption: "The two stock charts and six drawings of their own.",
-      },
-    },
-
-    { kind: "h2", text: "Anchors, a lifebuoy and a pin", id: "anchors" },
-    {
-      kind: "p",
-      text:
-        "There are two anchors. `anchor` has a round crown with its ends " +
-        "turned in, and `anchor-2` hangs two barbed hooks from its shank.",
-    },
-    {
-      kind: "p",
-      text:
-        "`lifebuoy` is a ring with four bands across the diagonals. The set " +
-        "had no drawing for support until now, so search finds the " +
-        "lifebuoy for support, help and life ring too.",
-    },
-    {
-      kind: "p",
-      text:
-        "`pin` is a push pin leaning on the diagonal, and the lean is what " +
-        "lets `pin-off` work: the slash crosses the pin square to its " +
-        "length and parts it cleanly in two. Standing upright, the same cut " +
-        "left small pieces of the pin's head behind.",
-    },
-    {
-      kind: "p",
-      text:
-        "`bin-2` is a bin with two lines down its front. And the prompt " +
-        "from `cloud-terminal` now sits in three more drawings, " +
-        "`shield-terminal`, `file-terminal` and `app-window-terminal`, " +
-        "each as large as its shape holds with the set's usual space around " +
-        "it.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V130_ANCHOR_ICON_NAMES,
-        caption:
-          "Two anchors, the lifebuoy, the pin with its slash and without, " +
-          "the bin, and three drawings with a prompt.",
-      },
-    },
-
-    { kind: "h2", text: "A star that leaves a trail", id: "star" },
-    {
-      kind: "p",
-      text:
-        "`star-shooting` is the set's `star`, as large as the corner above " +
-        "its trail allows, with three lines streaming behind it along the " +
-        "diagonal. The middle line is the longest and " +
-        "runs straight back from the star. The two beside it are shorter " +
-        "and start further forward, so the three read as one trail rather " +
-        "than a stack of dashes.",
-    },
-    {
-      kind: "p",
-      text:
-        "The star is turned a little, so that one of its points faces " +
-        "straight back down that middle line. Upright, the points and the " +
-        "lines pull different ways and the star looks pushed. Turned, the " +
-        "trail comes out of it.",
-    },
-    {
-      kind: "note",
-      text:
-        "The longest line points at the star's back, so the trail looks " +
-        "like something the star left behind.",
-    },
-    {
-      kind: "p",
-      text:
-        "The paper plane takes the same three lines in the same places. " +
-        "The rocket had flown this way on its own until now, as `rocket-2`. " +
-        "A number said nothing about what set it apart from `rocket`, and " +
-        "now there is a word for it, so it is `rocket-fast`. The old name " +
-        "still finds it in search, and `Rocket2` still imports in React.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V130_DIAGONAL_ICON_NAMES,
-        caption: "The shooting star and the paper plane, beside the rocket.",
-      },
-    },
-
-    { kind: "h2", text: "A truck that keeps its size", id: "truck" },
-    {
-      kind: "p",
-      text:
-        "A truck is as wide as the icon it sits in. Putting lines behind it " +
-        "would mean shrinking it until the wheels were dots. So " +
-        "`truck-fast` keeps the whole truck and gives up its back wall " +
-        "instead: the roof runs on past where the wall was and becomes the " +
-        "top line, and two shorter lines step in below it.",
-    },
-    {
-      kind: "p",
-      text:
-        "The bike and the stopwatch follow the same idea. The bike already " +
-        "had empty space behind the rider, so the truck's two lines go " +
-        "there at the same lengths. The stopwatch opens the left side of " +
-        "its ring, and the lines come in through the gap.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V130_ROAD_ICON_NAMES,
-        caption: "Each new drawing beside the one it grew from.",
-      },
-    },
-
-    { kind: "h2", text: "In fill, the lines are cut out", id: "fill" },
-    {
-      kind: "p",
-      text:
-        "In duotone the lines are black against the grey body. Fill has no " +
-        "grey to set them against, so there they are cut out of the solid " +
-        "shape instead. The truck and the stopwatch get white slots " +
-        "through their backs, the same way the paper plane's fold has " +
-        "always been cut out of its filled shape.",
-    },
-
-    { kind: "h2", text: "Switched off, at the same size", id: "off" },
-    {
-      kind: "p",
-      text:
-        "`captions-off`, `subtitles-off` and `play-off` are the drawings " +
-        "they switch off, with the slash across them. Nothing is shrunk to " +
-        "make room: the slash clears a gap through whatever it crosses, and " +
-        "every other line stays exactly where it was. Play is slashed in its " +
-        "square and its circle too, as `square-play-off` and " +
-        "`circle-play-off`.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V130_OFF_ICON_NAMES,
-        caption: "Each one beside the drawing it switches off.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "Held to the same rule, two of the older ones did not pass. " +
-        "`power-off` still had the narrower opening the power button was " +
-        "drawn with before it was redrawn, so its ring ran on past where " +
-        "the button's stops. And with sharp corners, `volume-off` had a " +
-        "speaker squared off from the rounded one, taller than the sharp " +
-        "speaker it switches off. Both are now their originals with the " +
+        "Held to that same rule, two older off icons failed. `power-off` " +
+        "still had the narrower opening the power button had before it was " +
+        "redrawn, so its ring ran on past where the button's stops. With " +
+        "sharp corners, `volume-off` drew a speaker taller than the sharp " +
+        "speaker it switches off. Both are now their original with the " +
         "slash across.",
     },
     {
@@ -4450,76 +4077,39 @@ const RELEASE_1_3_0: BlogPost = {
         kind: "diagnostic",
         panels: [
           {
-            title: "power-off as it shipped, under power-off now",
+            title: "`power-off` as it shipped, under `power-off` now",
             a: { name: "power-off", take: "before" },
             b: { name: "power-off", take: "after" },
-            verdict: { text: "The ring ran on", tone: "bad" },
+            verdict: {
+              text: "The ring ran on",
+              tone: "bad",
+            },
           },
           {
-            title: "volume-off with sharp corners, the same way",
+            title: "`volume-off` with sharp corners",
             a: { name: "volume-off", take: "before" },
             b: { name: "volume-off", take: "after" },
-            verdict: { text: "The speaker stood taller", tone: "bad" },
+            verdict: {
+              text: "The speaker stood taller",
+              tone: "bad",
+            },
           },
         ],
         caption:
-          "Each panel is the drawing as it shipped with the drawing as it " +
-          "ships now painted on top, so only the difference keeps a colour. " +
-          "The power button's ring gives back the stretch it had run into " +
-          "the opening, and nothing new appears in its place. The speaker " +
-          "loses its lower corner, which sat 2 pixels too low at 24px, its " +
-          "sides settle onto the sharp speaker's own, and the inner wave " +
-          "gets back about half a pixel its top end had lost.",
+          "Each panel paints the icon as it shipped under the icon now, so " +
+          "only the difference has colour.",
         legend: {
-          a: "as it shipped only",
-          b: "as it ships now only",
-          both: "ink the two share",
+          a: "as it shipped",
+          b: "as it is now",
+          both: "lines the two share",
         },
       },
     },
-
-    { kind: "h2", text: "An arrow into a square", id: "arrow-in" },
     {
       kind: "p",
       text:
-        "`square-arrow-in-down-right` is an arrow coming into a square " +
-        "through the corner the square leaves open, for importing, docking " +
-        "or pulling something into a window. It turns to come in from each " +
-        "of the four corners.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V130_ARROW_IN_ICON_NAMES,
-        caption: "The arrow into a square, from each corner.",
-      },
-    },
-
-    { kind: "h2", text: "Also redrawn", id: "redrawn" },
-    {
-      kind: "p",
-      text:
-        "The parcel and its ten signs changed in duotone only. The lid is " +
-        "now the dark part, with the tape crossing it in grey, and the " +
-        "lines that used to stop short of the edge are gone.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "styles",
-        names: BLOG_V130_PARCEL_ICON_NAMES,
-        caption: "Four of the eleven in every style. Only the duotone row changed.",
-      },
-    },
-    {
-      kind: "p",
-      text:
-        "With sharp corners, `cpu-sparkles` and `film-sparkles` now turn " +
-        "the corner where they open for their stars, like every other corner " +
-        "of their frames, and `brain-sparkles` closes its two lobes on one " +
-        "level end instead of two crossed ones. And the cursor in " +
-        "`app-window-cursor` is a third bigger.",
+        "In duotone, the parcel and its ten symbols changed too: the lid " +
+        "is now the dark part, with the tape crossing it in grey.",
     },
 
     { kind: "h2", text: "Getting it", id: "getting-it" },
@@ -4534,8 +4124,8 @@ const RELEASE_1_3_0: BlogPost = {
       href: "/install",
       label: "Install",
       text:
-        "React, React Native, Vue, Svelte and Solid, the shadcn/ui " +
-        "registry, the CLI, the MCP server, and the Figma plugin.",
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui registry, " +
+        "the CLI, the MCP server, and the Figma plugin.",
     },
     {
       kind: "link",
@@ -4634,10 +4224,32 @@ export const BLOG_V140_PAIR_ICON_NAMES = [
   "globe-search",
 ] as const
 
+export const BLOG_V140_BANK_ICON_NAMES = [
+  "landmark",
+  "money-bag",
+  "money-bag-dollar-sign",
+  "gold-bars",
+  "arrow-right-left",
+  "money-bag-check",
+  "money-bag-x",
+  "money-bag-plus",
+  "money-bag-minus",
+  "history",
+  "calendar-days",
+  "stamp",
+  "newspaper",
+  "copy-check",
+  "globe-search",
+  "wallet",
+  "credit-card",
+  "piggy-bank",
+  "coins",
+  "banknote",
+] as const
+
 const RELEASE_1_4_0: BlogPost = {
-  /* The count, "free", "shadcn/ui" and what a banking screen searches for;
-     the story of the signs is an h2 inside. The slug names the drawings, not
-     the version, so it survives a renumbering. */
+  /* Banking leads: every drawing here came off one banking app's menu, and
+     that is the search a finance screen makes. */
   slug: "banking-money-and-transfer-icons",
   version: "1.4.0",
   title: "16 free banking and money icons for React, shadcn/ui and Figma",
@@ -4645,177 +4257,125 @@ const RELEASE_1_4_0: BlogPost = {
     "Free, MIT-licensed SVG icons for a banking app: a money bag with five " +
     "signs, a bank, gold bars, a rubber stamp, a newspaper and arrows for " +
     "transfers.",
-  standfirst: "It all started with the menu of a banking app.",
-  headline: "It all started with a banking app's menu",
+  standfirst:
+    "The transfer arrows borrow their heads from the repeat icon, so the " +
+    "two sit well side by side.",
+  headline: "A money bag wears its symbol on the front",
   date: "2026-09-28",
-  updated: "2026-09-28",
+  updated: "2026-11-01",
   readingMinutes: 3,
   thumbnail: BLOG_V140_THUMBNAIL_ICON_NAMES,
   keywords: [
     "banking icons",
     "bank icon",
+    "finance icons",
+    "money icons",
     "money bag icon",
-    "money bag dollar icon",
+    "savings icon",
     "gold bars icon",
-    "gold bullion icon",
-    "rubber stamp icon",
-    "newspaper icon",
-    "history icon",
     "transfer icon",
     "swap icon",
     "sort icon",
+    "history icon",
+    "transaction history icon",
+    "rubber stamp icon",
+    "approved icon",
+    "newspaper icon",
     "calendar days icon",
     "copied icon",
-    "web search icon",
     "free svg icons",
     "shadcn/ui icons",
     "react icons",
+    "figma icons",
   ],
   body: [
     {
       kind: "p",
       text:
-        "Eleven of the icons on it weren't in the set yet. They are now, and " +
-        "the money bag brought five more along: the same bag with a dollar, " +
-        "a tick, a cross, a plus or a minus.",
+        "A banking app's menu runs through the same dozen things: " +
+        "accounts, transfers, savings, statements, history. On one such " +
+        "menu, eleven of the icons weren't in this set. They are now.",
     },
     {
       kind: "p",
       text:
-        "So there's a bank, a money bag, gold bars, a rubber stamp and a " +
-        "newspaper. There's a clock that turns back, for history, and arrows " +
-        "for transfers and for sorting. And there's a globe with a magnifying " +
-        "glass, a copy with a tick and a calendar with its days marked.",
-    },
-    {
-      kind: "p",
-      text:
-        "That makes 1,233 icons in the set. Each one comes in stroke, " +
-        "two-tone, duotone and fill, with rounded or sharp corners, so that's " +
-        "9,864 SVGs in all.",
+        "That is 16 new icons, the eleven and five more versions of the " +
+        "money bag, which takes the set to 1,233.",
     },
     {
       kind: "figure",
       figure: {
         kind: "styles",
         names: BLOG_V140_HERO_ICON_NAMES,
-        caption: "Eight of the sixteen, in all four styles.",
+        caption: "Eight of the sixteen, in every style.",
       },
     },
 
-    { kind: "h2", text: "Why the signs sit in the middle", id: "bag" },
+    { kind: "h2", text: "A banking menu, icon by icon", id: "menu" },
     {
-      kind: "p",
-      text:
-        "When an icon in the set needs a plus or a tick, it usually goes in " +
-        "the bottom right corner. A small piece of the drawing is cut away " +
-        "to make room for it. You can see it in `credit-card-plus` and " +
-        "`calendar-plus`.",
+      kind: "list",
+      items: [
+        "The bank: `landmark`, which a search for bank or ATM finds, and " +
+          "which serves a courthouse or a museum too.",
+        "Savings and balances: `money-bag`, `money-bag-dollar-sign` and " +
+          "`gold-bars`.",
+        "Money in and out: `money-bag-plus` and `money-bag-minus`, and " +
+          "`money-bag-check` and `money-bag-x` for a payment that went " +
+          "through or failed.",
+        "Transfers: `arrow-right-left`. Sorting a list of transactions: " +
+          "`arrow-up-down`.",
+        "History and statements: `history` and `calendar-days`. An " +
+          "approved document: `stamp`. News: `newspaper`.",
+        "Small helpers: `copy-check` for a copied account number, and " +
+          "`globe-search` for a web search.",
+      ],
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V140_BANK_ICON_NAMES,
+        caption:
+          "Fifteen of the new icons. The last row was already in the set.",
+      },
+    },
+
+    {
+      kind: "h2",
+      text: "A money bag wears its symbol on the front",
+      id: "bag",
     },
     {
       kind: "p",
       text:
-        "A money bag is different. A bag of money has always worn its dollar " +
-        "on the front. So here, all five signs go in the middle of the bag, " +
-        "the way `cloud-plus` keeps its plus inside the cloud.",
+        "When an icon here takes a plus or a check, it usually goes in the " +
+        "bottom right corner, with a piece of the drawing cut away to make " +
+        "room, as on `credit-card-plus` and `calendar-plus`. A money bag " +
+        "has always worn its dollar on the front, so all five symbols go " +
+        "in the middle of the bag, the way `cloud-plus` keeps its plus " +
+        "inside the cloud.",
     },
     {
       kind: "figure",
       figure: {
         kind: "grid",
         names: BLOG_V140_SIGN_ICON_NAMES,
-        caption: "Two signs in a corner, two in the middle.",
+        caption: "Two symbols in a corner, two in the middle.",
       },
     },
     {
       kind: "p",
       text:
-        "To fit them, the bag is a little fuller than it would be on its " +
-        "own, and its neck is tied a bit higher. Each sign is as big as it " +
-        "can be while still leaving some breathing room. The tick, the plus " +
-        "and the minus come out at their usual size. The cross and the " +
-        "dollar are a little smaller.",
-    },
-    {
-      kind: "p",
-      text:
-        "In fill, the bag is solid with the sign cut out of it, and the knot " +
-        "on top stays an outline.",
+        "To hold them, the bag is a little fuller than it would be on its " +
+        "own, with the neck tied higher. In fill the bag is solid with the " +
+        "symbol cut out of it, and the knot on top stays an outline.",
     },
     {
       kind: "figure",
       figure: {
         kind: "styles",
         names: BLOG_V140_BAG_ICON_NAMES,
-        caption: "The bag and its five signs, from outline to solid.",
-      },
-    },
-
-    { kind: "h2", text: "A bank, gold, a stamp and the news", id: "objects" },
-    {
-      kind: "p",
-      text:
-        "`landmark` is the classic bank building: a triangle roof over three " +
-        "columns. It works for a courthouse or a museum too, and searching " +
-        "for bank or ATM will find it.",
-    },
-    {
-      kind: "p",
-      text:
-        "`gold-bars` is a little stack of gold, two bars at the bottom and " +
-        "one on top. `stamp` is a rubber stamp sitting on the line it just " +
-        "printed.",
-    },
-    {
-      kind: "p",
-      text:
-        "`newspaper` is a folded paper with a few lines of text, and the " +
-        "pages behind it peek out on the left. In the rounded styles its " +
-        "bottom corner curls. The one exception is duotone, where the curl " +
-        "left an awkward step in the solid black, so that edge stays " +
-        "straight.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "styles",
-        names: BLOG_V140_OBJECT_ICON_NAMES,
-        caption:
-          "The bank, the gold, the stamp and the newspaper, style by style.",
-      },
-    },
-
-    { kind: "h2", text: "Arrows, history and a few more", id: "arrows" },
-    {
-      kind: "p",
-      text:
-        "`arrow-right-left` is two arrows passing each other, the usual sign " +
-        "for a transfer or a swap. `arrow-up-down` is the sorting version, " +
-        "one arrow going up and one going down. Both borrow their arrows " +
-        "from `repeat`, so they look right next to it.",
-    },
-    {
-      kind: "p",
-      text:
-        "`history` is a clock inside an arrow that turns back, the same " +
-        "arrow you know from `rotate-ccw`. `calendar-days` is a calendar " +
-        "with six days marked on it, and it drops the line under the top so " +
-        "the days have room.",
-    },
-    {
-      kind: "p",
-      text:
-        "The last two are small helpers: `copy-check` for something you've " +
-        "just copied, and `globe-search` for looking something up on the web.",
-    },
-    {
-      kind: "figure",
-      figure: {
-        kind: "grid",
-        names: BLOG_V140_PAIR_ICON_NAMES,
-        caption:
-          "The new arrows beside `repeat`, `history` beside `rotate-ccw`, " +
-          "and the last three.",
+        caption: "The bag and its five, from outline to solid.",
       },
     },
 
@@ -4831,8 +4391,8 @@ const RELEASE_1_4_0: BlogPost = {
       href: "/install",
       label: "Install",
       text:
-        "React, React Native, Vue, Svelte and Solid, the shadcn/ui " +
-        "registry, the CLI, the MCP server, and the Figma plugin.",
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui registry, " +
+        "the CLI, the MCP server, and the Figma plugin.",
     },
     {
       kind: "link",
