@@ -1,19 +1,24 @@
-import Image from "next/image"
 import Link from "next/link"
 
 import {
   BLOG_DESCRIPTION,
+  BLOG_PAGE_SIZE,
+  BLOG_UPCOMING,
   BLOG_POSTS,
+  blogPageCount,
+  blogPageHref,
   postDateLabel,
   postHeadline,
   postHref,
-  type BlogCover,
   type BlogPost,
 } from "@/lib/blog"
+import history from "@/lib/icon-history.json"
 import { loadIcons, type Icon } from "@/lib/icons"
 import { blogJsonLd, pageMetadata } from "@/lib/seo"
-import { Glyph } from "@/components/glyph"
-import { PostLabel } from "@/components/post-label"
+import { SET_TITLE } from "@/lib/site-chrome"
+import { GuidePoster, UpdatePoster } from "@/components/blog-poster"
+import { BookOpen } from "@/components/icons"
+import { Pager } from "@/components/pager"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
 
@@ -29,24 +34,61 @@ import { SiteNav } from "@/components/site-nav"
  * arrangement that goes stale, or a hand-written page pretending to be a
  * complete record, which is worse.
  *
- * **Two kinds of post, laid out as two kinds of thing** (his call, 1 Nov
- * 2026, after Profound's news page). An update is one in a series, read
- * around its release and then mostly scanned past, so it is a cell in a grid
- * where the column of versions does the work. A guide is written to be found
- * by a search and kept current, so it stands on its own row above the series
- * rather than sinking into it as the series grows. The chip on each
- * (`PostLabel`) says which is which in words; the layout and the pictures say
- * it before anything is read.
+ * **Laid out as Apple lays out its Newsroom** (his reference, 1 Nov 2026):
+ * tiles on the home page's card surface (`rounded-lg bg-muted`), the poster
+ * set into it on the page's own white, then a small-capitals label, the
+ * title and the date. A guide is the lead story, one tile across
+ * the width; the updates follow, two to a row and then three. A guide is
+ * written to be found by a search and kept current, so it stands above the
+ * series rather than sinking into it as the series grows.
  *
- * An update's picture is the post's own drawings rather than a screenshot or a
- * stock image. That is not a stylistic preference: a field drawn from `icons/`
- * at request time is one this site can guarantee is current, and an exported
- * PNG of the same drawings would be a picture of what they looked like on the
- * day somebody rasterised it. A guide is about more than this set's drawings,
- * so its picture is the projects it covers (`BlogCover`).
+ * The posters (`components/blog-poster.tsx`) are drawn live from `icons/`,
+ * never exported: an update's is the icon wall of the release posters, its
+ * new drawings in all four styles around the count, its drawings and words in a
+ * colour of its own; a guide's is the projects it compares over its own sheet.
  */
 
-export function generateMetadata() {
+/**
+ * `?page=N`, the way `/icons` reads it: two digits at most, page 2 up to the
+ * last. Page 1, `?page=1`, junk and anything past the end are all the bare
+ * `/blog`, so the first page has one address and nothing else is a page.
+ */
+function pageOf(value: string | string[] | undefined) {
+  if (typeof value !== "string" || !/^\d{1,3}$/.test(value)) return undefined
+  const page = Number(value)
+  return page >= 2 && page <= blogPageCount() ? page : undefined
+}
+
+type SearchParams = Promise<{ page?: string | string[] }>
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: SearchParams
+}) {
+  const page = pageOf((await searchParams).page)
+
+  /*
+    Pages 2 and on are their own pages, with their own canonical, and not
+    copies of `/blog`: each lists different posts. Google's advice for a
+    paged list is exactly this, the same call `/icons?page=N` makes, and
+    pointing them all at page 1 would leave the older posts linked from no
+    page it keeps. Each says which page it is in its title, so no two pages
+    share one.
+  */
+  if (page) {
+    const pages = blogPageCount()
+    return pageMetadata({
+      path: blogPageHref(page),
+      title: `Latest updates, page ${page} of ${pages}`,
+      description:
+        `Page ${page} of ${pages} of the ${SET_TITLE} blog: what shipped in ` +
+        `each update, why a drawing was redrawn, and how.`,
+      socialDescription:
+        "Notes on how the set gets drawn: what shipped, what was redrawn, and why.",
+    })
+  }
+
   return pageMetadata({
     path: "/blog",
     // Word for word the `h1`. A title that disagrees with what the page
@@ -66,192 +108,213 @@ export function generateMetadata() {
   })
 }
 
-/**
- * The keyline of an update's drawings, matching the figures inside a post.
- *
- * Its own constant rather than an import from `components/blog-body.tsx`: a
- * number shared between a page and a component is the kind of import that
- * turns into a cycle the first time either grows. The two are meant to agree,
- * and the comment on `FIGURE_STROKE` over there is the one that explains 1.5.
- */
-const PREVIEW_STROKE = 1.5
-
-/** Six to a row, three rows: the most a grid cell holds at a size worth seeing. */
-const PREVIEW_COLUMNS = 6
-const PREVIEW_ROWS = 3
+/** A release's new names and the set's total after it, off the git-built history. */
+const RELEASES = new Map(
+  (
+    history as {
+      releases: { version: string; names: string[]; count: number }[]
+    }
+  ).releases.map((r) => [r.version, r])
+)
 
 /**
- * An update's picture: the drawings it shipped, on the muted surface every
- * picture on this site sits on.
- *
- * Whole rows only. A post with eleven names shows six rather than six and a
- * ragged five, because a part-filled last row reads as drawings missing from
- * the picture rather than as a picture of fewer drawings.
- *
- * The cells size the drawings rather than a fixed pixel size, up to 32px: a
- * grid cell is 360px across on a wide screen and under 300 in the two-column
- * band, and six fixed drawings with fixed gaps overflow the narrow one. The
- * ink is held back to 70 per cent and comes up on hover, where the whole
- * entry is the link: at full strength eighteen drawings compete with the
- * title for the same attention.
- *
- * Decoration, so it is inert: `aria-hidden`, because the title and standfirst
- * already say what the post is and a screen reader reading eighteen drawings
- * before them would make the index unusable.
+ * The line above a tile's title, in Apple's small capitals: what the post is,
+ * before what it says. A guide carries the set's open book, the way Apple
+ * marks a quick read with a bolt.
  */
-function UpdatePreview({ icons }: { icons: Icon[] }) {
-  const whole = Math.floor(icons.length / PREVIEW_COLUMNS) * PREVIEW_COLUMNS
-  const shown = icons.slice(
-    0,
-    Math.min(PREVIEW_COLUMNS * PREVIEW_ROWS, whole || icons.length)
-  )
+function Eyebrow({ post }: { post: BlogPost }) {
+  const guide = post.kind === "guide"
+  const label = guide
+    ? "Guide"
+    : post.version && !RELEASES.has(post.version)
+      ? "Unreleased"
+      : "Update"
 
   return (
-    <div
-      aria-hidden="true"
-      className="grid aspect-[16/10] place-items-center rounded-xl bg-muted px-6 sm:px-8"
-    >
-      <div className="grid w-full max-w-72 grid-cols-6 gap-4 text-foreground/70 transition-colors group-hover:text-foreground">
-        {shown.map((icon) => (
-          <Glyph
-            key={icon.name}
-            art={icon.art.stroke!}
-            size={24}
-            stroke={PREVIEW_STROKE}
-            className="aspect-square h-auto w-full max-w-8 justify-self-center"
-          />
-        ))}
-      </div>
-    </div>
+    <span className="flex items-center gap-1.5 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+      {guide && <BookOpen aria-hidden="true" className="size-3.5" />}
+      {label}
+    </span>
+  )
+}
+
+const releaseOf = (post: BlogPost) =>
+  post.version ? RELEASES.get(post.version) : undefined
+
+/**
+ * The drawings the release added, in the order the post's own list puts them,
+ * which leads with the strong ones; anything the list leaves out follows. A
+ * post without a tagged release shows its list as it is.
+ */
+function drawingsOf(post: BlogPost, icons: Icon[]) {
+  const release = releaseOf(post)
+  if (!release) return icons
+  const added = new Set(release.names)
+  return [
+    ...icons.filter((icon) => added.has(icon.name)),
+    ...icons.filter((icon) => !added.has(icon.name)),
+  ]
+}
+
+function Poster({
+  post,
+  icons,
+  tone = 0,
+  className,
+}: {
+  post: BlogPost
+  icons: Icon[]
+  /** The update's place counted from the oldest, which picks its colour. */
+  tone?: number
+  className?: string
+}) {
+  if (post.cover)
+    return <GuidePoster cover={post.cover} className={className} />
+
+  const release = releaseOf(post)
+  const ordered = drawingsOf(post, icons)
+
+  return (
+    <UpdatePoster
+      icons={ordered}
+      tone={tone}
+      eyebrow={release ? `Keyline Icons v${release.version}` : "Keyline Icons"}
+      headline={
+        release ? `${release.names.length} new free icons` : "New free icons"
+      }
+      footnote={
+        release
+          ? `${release.count.toLocaleString("en")} in all, MIT licensed`
+          : undefined
+      }
+    />
   )
 }
 
 /**
- * A guide's picture: the projects it covers as a row of marks, over the sheet
- * the post is built on, cropped as it runs off the corner.
- *
- * The marks sit on white tiles in both themes, which is how the post's own
- * table shows them on a dark page: they are other projects' artwork, drawn for
- * a light ground, and recolouring them would make them not their logos. The
- * sheet is the comparison itself, so the picture says "these five, side by
- * side" before the title does. Its left edge is the logos' left edge, at the
- * same inset at every width, so the two read as one column.
+ * A guide: one tile across the width, the poster taking most of it and the
+ * text beside it, Apple's lead story. A guide is written to be found by a
+ * search and kept current, so it stands above the series rather than sinking
+ * into it as the series grows.
  */
-function GuidePreview({ cover }: { cover: BlogCover }) {
-  return (
-    <div
-      aria-hidden="true"
-      className="relative aspect-[16/10] overflow-hidden rounded-xl bg-muted"
-    >
-      <div className="absolute top-5 left-5 z-10 flex gap-2 sm:top-8 sm:left-8">
-        {cover.logos.map((logo) => (
-          <span
-            key={logo.name}
-            className="grid size-9 place-items-center rounded-lg bg-white shadow-xs sm:size-12"
-          >
-            <Image
-              src={logo.src}
-              alt=""
-              width={28}
-              height={28}
-              className="size-5 sm:size-7"
-            />
-          </span>
-        ))}
-      </div>
-      <Image
-        src={cover.image.src}
-        alt=""
-        width={cover.image.width}
-        height={cover.image.height}
-        sizes="(min-width: 1024px) 640px, 100vw"
-        className="absolute top-[30%] left-5 w-[115%] max-w-none rounded-tl-lg border shadow-sm transition-transform duration-300 group-hover:-translate-y-1 sm:left-8"
-      />
-    </div>
-  )
-}
-
-/**
- * The date, uppercase and letterspaced, which is the one place on this site
- * that treatment is right: it makes the date read as a label on the entry
- * rather than as the first words of it.
- */
-function EntryMeta({ post }: { post: BlogPost }) {
-  return (
-    <div className="flex items-center gap-3">
-      <PostLabel post={post} />
-      <time
-        dateTime={post.date}
-        className="text-[11px] tracking-widest text-muted-foreground uppercase"
-      >
-        {postDateLabel(post.date)}
-      </time>
-    </div>
-  )
-}
-
-function GuideEntry({ post, icons }: { post: BlogPost; icons: Icon[] }) {
+function FeatureTile({ post, icons }: { post: BlogPost; icons: Icon[] }) {
   return (
     <li>
-      {/*
-        The whole entry is the link, rather than the heading being one inside
-        it. An entry with a small link in it is an entry most of which does
-        nothing when clicked, which on a phone is most of the target.
-      */}
       <Link
         href={postHref(post.slug)}
-        className="group grid items-center gap-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:gap-8 lg:gap-12"
+        className="group grid overflow-hidden rounded-lg bg-muted p-2 transition-colors hover:bg-muted-hover md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]"
       >
-        {post.cover ? (
-          <GuidePreview cover={post.cover} />
-        ) : (
-          <UpdatePreview icons={icons} />
-        )}
-        <div className="flex flex-col gap-3">
-          <EntryMeta post={post} />
-          <h2 className="text-2xl font-semibold tracking-tight text-balance text-foreground group-hover:underline group-hover:underline-offset-4 sm:text-3xl">
-            {postHeadline(post)}
+        {/* `md:aspect-auto` so the poster stretches to the text's height: a
+            grid item with an aspect ratio keeps it and leaves a gap below. */}
+        <Poster
+          post={post}
+          icons={icons}
+          className="md:aspect-auto md:min-h-80"
+        />
+        <div className="flex flex-col gap-3 p-4 md:p-6">
+          <Eyebrow post={post} />
+          <h2 className="text-2xl leading-tight font-semibold tracking-tight text-balance text-foreground lg:text-3xl">
+            {post.headline ?? postHeadline(post)}
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
             {post.standfirst}
           </p>
-          {/*
-            Not an anchor. The whole entry is already one, and an anchor inside
-            an anchor is invalid markup that browsers repair by closing the
-            outer one early, which would silently cut the clickable area down
-            to the heading.
-          */}
-          <span className="mt-1 text-sm font-medium text-foreground underline underline-offset-4 group-hover:no-underline">
-            Read the guide
+          <time
+            dateTime={post.date}
+            className="mt-auto pt-4 text-sm text-muted-foreground"
+          >
+            {postDateLabel(post.date)}
+          </time>
+        </div>
+      </Link>
+    </li>
+  )
+}
+
+/**
+ * An update: the poster over the label, the title and the date, and nothing
+ * else, which is all Apple's tiles carry. The date sits on the tile's floor,
+ * so dates line up along a row whatever the titles' lengths.
+ */
+function Tile({
+  post,
+  icons,
+  tone,
+}: {
+  post: BlogPost
+  icons: Icon[]
+  tone: number
+}) {
+  const link =
+    "group flex w-full flex-col overflow-hidden rounded-lg bg-muted p-2 transition-colors hover:bg-muted-hover"
+
+  return (
+    <li className="flex">
+      {/*
+        The whole tile is the link. An entry with a small link in it is an
+        entry most of which does nothing when clicked, which on a phone is
+        most of the target.
+      */}
+      <Link href={postHref(post.slug)} className={link}>
+        <Poster post={post} icons={icons} tone={tone} />
+        <div className="flex flex-1 flex-col gap-2 px-4 pt-4 pb-4">
+          <Eyebrow post={post} />
+          <h2 className="text-xl leading-snug font-semibold tracking-tight text-balance text-foreground">
+            {post.headline ?? postHeadline(post)}
+          </h2>
+          <time
+            dateTime={post.date}
+            className="mt-auto pt-4 text-sm text-muted-foreground"
+          >
+            {postDateLabel(post.date)}
+          </time>
+        </div>
+      </Link>
+    </li>
+  )
+}
+
+/**
+ * The update that is coming, before its post exists: a tile in the next
+ * colour with empty places where its drawings will go (his ask, 1 Nov 2026:
+ * "add the third col for v2.4.0 as placeholder for now. it's coming in this
+ * update"). Not a link, because there is nothing yet to link to; it goes
+ * when `BLOG_UPCOMING` is cleared, which is when the post lands.
+ */
+function UpcomingTile({ version, tone }: { version: string; tone: number }) {
+  return (
+    <li className="flex">
+      <div className="flex w-full flex-col overflow-hidden rounded-lg bg-muted p-2">
+        <UpdatePoster
+          icons={[]}
+          tone={tone}
+          upcoming
+          eyebrow={`Keyline Icons v${version}`}
+          headline="Coming soon"
+        />
+        <div className="flex flex-1 flex-col gap-2 px-4 pt-4 pb-4">
+          <span className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+            Unreleased
+          </span>
+          <h2 className="text-xl leading-snug font-semibold tracking-tight text-balance text-foreground">
+            Version {version} is on its way
+          </h2>
+          <span className="mt-auto pt-4 text-sm text-muted-foreground">
+            Coming in the next update
           </span>
         </div>
-      </Link>
+      </div>
     </li>
   )
 }
 
-function UpdateEntry({ post, icons }: { post: BlogPost; icons: Icon[] }) {
-  return (
-    <li>
-      <Link href={postHref(post.slug)} className="group flex flex-col gap-4">
-        <UpdatePreview icons={icons} />
-        <div className="flex flex-col gap-2">
-          <EntryMeta post={post} />
-          <h2 className="text-lg leading-snug font-semibold tracking-tight text-balance text-foreground group-hover:underline group-hover:underline-offset-4">
-            {postHeadline(post)}
-          </h2>
-          {/* Two lines at most: in a grid, a standfirst that runs on pushes
-              its neighbour's title out of line with its own. */}
-          <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
-            {post.standfirst}
-          </p>
-        </div>
-      </Link>
-    </li>
-  )
-}
-
-export default async function Page() {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: SearchParams
+}) {
+  const page = pageOf((await searchParams).page) ?? 1
+  const pages = blogPageCount()
   const icons = await loadIcons()
   const byName = new Map(icons.map((icon) => [icon.name, icon]))
 
@@ -261,8 +324,18 @@ export default async function Page() {
       .map((name) => byName.get(name))
       .filter(Boolean) as Icon[],
   }))
-  const guides = entries.filter(({ post }) => post.kind === "guide")
-  const updates = entries.filter(({ post }) => post.kind !== "guide")
+  /*
+    Guides on page 1 only. Updates are cut into pages of `BLOG_PAGE_SIZE`,
+    and each keeps its colour by its place among all of them, not on its page.
+  */
+  const guides =
+    page === 1 ? entries.filter(({ post }) => post.kind === "guide") : []
+  const all = entries.filter(({ post }) => post.kind !== "guide")
+  const first = (page - 1) * BLOG_PAGE_SIZE
+  const updates = all.slice(first, first + BLOG_PAGE_SIZE)
+  const toneOf = (i: number) => all.length - 1 - (first + i)
+  /* The coming update leads page 1. */
+  const upcoming = page === 1 ? BLOG_UPCOMING : null
 
   return (
     <>
@@ -272,46 +345,82 @@ export default async function Page() {
           three columns of pictures need it; the heading and its sentence keep
           their own measure inside it. */}
       <main className="mx-auto w-full max-w-6xl px-6 pb-16 lg:px-8">
-        <script
-          type="application/ld+json"
-          // The index and each post declare one graph between them: this node
-          // names the posts by the `@id` their own pages set, rather than
-          // restating their bodies here for something else to keep in step.
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(
-              blogJsonLd({
-                posts: BLOG_POSTS.map(({ slug, title, date }) => ({
-                  slug,
-                  title,
-                  date,
-                })),
-              })
-            ),
-          }}
-        />
+        {/* The index and each post declare one graph between them: this node
+            names the posts by the `@id` their own pages set, rather than
+            restating their bodies here for something else to keep in step.
+            On page 1 only, where the blog's own `@id` lives; a later page
+            repeating it would be a second node claiming the same thing. */}
+        {page === 1 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(
+                blogJsonLd({
+                  posts: BLOG_POSTS.map(({ slug, title, date }) => ({
+                    slug,
+                    title,
+                    date,
+                  })),
+                })
+              ),
+            }}
+          />
+        )}
 
         <header className="max-w-2xl pt-6 pb-10">
+          {/* The page's place is part of the heading, so the `h1` and the
+              title still read the same on page 2 ("Latest updates, page 2
+              of 2"): the comma is there for anything reading the text,
+              the line break for the eye. */}
           <h1 className="text-4xl font-semibold tracking-tight">
             Latest updates
+            {page > 1 && (
+              <>
+                <span className="sr-only">, </span>
+                <span className="mt-2 block text-base font-normal tracking-normal text-muted-foreground first-letter:uppercase">
+                  page {page} of {pages}
+                </span>
+              </>
+            )}
           </h1>
           <p className="mt-3 text-base text-balance text-muted-foreground">
             {BLOG_DESCRIPTION}
           </p>
         </header>
 
-        {guides.length > 0 && (
-          <ul className="flex flex-col gap-16 border-t py-10 sm:py-12">
-            {guides.map(({ post, icons: field }) => (
-              <GuideEntry key={post.slug} post={post} icons={field} />
+        {/* Apple's order: the lead story across the width, then rows of
+            three, the coming update first. Three only from `xl`: at 1024 a
+            third of the column is 240px and the wall's drawings fall under
+            14px, which is why Apple's own page holds two to a row there. */}
+        <div className="flex flex-col gap-8 lg:gap-10">
+          {guides.length > 0 && (
+            <ul className="flex flex-col gap-8 lg:gap-10">
+              {guides.map(({ post, icons: field }) => (
+                <FeatureTile key={post.slug} post={post} icons={field} />
+              ))}
+            </ul>
+          )}
+          <ul className="grid gap-8 sm:grid-cols-2 lg:gap-10 xl:grid-cols-3">
+            {upcoming && (
+              <UpcomingTile version={upcoming.version} tone={all.length} />
+            )}
+            {updates.map(({ post, icons: field }, i) => (
+              <Tile
+                key={post.slug}
+                post={post}
+                icons={field}
+                tone={toneOf(i)}
+              />
             ))}
           </ul>
-        )}
+        </div>
 
-        <ul className="grid gap-x-8 gap-y-12 border-t pt-10 sm:grid-cols-2 sm:pt-12 lg:grid-cols-3">
-          {updates.map(({ post, icons: field }) => (
-            <UpdateEntry key={post.slug} post={post} icons={field} />
-          ))}
-        </ul>
+        <Pager
+          current={page}
+          total={pages}
+          hrefs={Array.from({ length: pages }, (_, i) => blogPageHref(i + 1))}
+          className="pt-12"
+        />
       </main>
 
       <SiteFooter />

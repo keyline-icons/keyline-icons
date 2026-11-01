@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next"
 
-import { BLOG_POSTS, postHref } from "@/lib/blog"
+import { BLOG_POSTS, blogPageCount, blogPageHref, postHref } from "@/lib/blog"
 import { gridPageCount, gridPageHref, iconHref } from "@/lib/icon-pages"
 import { loadIcons } from "@/lib/icons"
 import { absoluteUrl } from "@/lib/seo"
@@ -103,5 +103,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   )
 
-  return [...pages, ...gridPages, ...posts, ...icons]
+  /*
+    Pages 2 and on of the blog, on the same terms as the grid's: each
+    canonicals to itself (see `app/blog/page.tsx`) and is what links the
+    older posts from the index. Page 1 is `/blog`, already in `SITE_LINKS`.
+  */
+  const blogPages = Array.from({ length: blogPageCount() - 1 }, (_, i) => ({
+    url: absoluteUrl(blogPageHref(i + 2)),
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority: 0.5,
+  }))
+
+  return [...pages, ...gridPages, ...blogPages, ...posts, ...icons]
 }

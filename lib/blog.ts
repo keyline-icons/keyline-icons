@@ -217,6 +217,17 @@ export type BlogPost = {
    * own name and nothing else.
    */
   title: string
+  /**
+   * The line the index tile carries, in place of the title: short, in the
+   * post's own words, told the way a newsroom tells it (his reference, Apple
+   * Newsroom, 1 Nov 2026: "look how titles are done and if you look at ours,
+   * they all read same"). The title stays the search line, for the `h1`, the
+   * `<title>` and the card; twenty titles in one template read as one post
+   * repeated, so the index leads with this instead. Taken from the post's
+   * standfirst or its best heading, never a new claim. No version: the
+   * poster carries it.
+   */
+  headline?: string
   /** The search snippet. Written for a result, so it says what is inside. */
   description: string
   /** The line under the heading. Shorter, and written for a reader who clicked. */
@@ -1052,6 +1063,7 @@ const BATCH_0_3_1: BlogPost = {
   standfirst:
     "Everything that landed in v0.4.0, and what each of it was actually for. " +
     "Free SVG icons for shadcn/ui, drawn on one 24×24 grid.",
+  headline: "A merge that was a branch all along",
   date: "2026-09-06",
   /* Revised on the 7th, against what the tag actually shipped: the batch went
      out as 0.4.0 rather than the 0.3.1 its branches were named for, two of the
@@ -1459,6 +1471,7 @@ const BATCH_0_5_0: BlogPost = {
   standfirst:
     "Everything that landed in v0.5.0, and what each of it was actually for. " +
     "Free SVG icons for shadcn/ui, drawn on one 24×24 grid.",
+  headline: "Two names the wrong way round",
   date: "2026-09-08",
   updated: "2026-09-08",
   readingMinutes: 5,
@@ -1798,6 +1811,7 @@ const BATCH_0_7_0: BlogPost = {
     "Everything that landed in v0.7.0: the square bubble, the scan family, " +
     "twenty-six charts, four diagrams, the faces and the badges. Free SVG icons for shadcn/ui, drawn on one " +
     "24\u00d724 grid.",
+  headline: "The message bubble gets a square body",
   date: "2026-09-10",
   updated: "2026-09-10",
   readingMinutes: 4,
@@ -2142,6 +2156,7 @@ const BATCH_0_6_0: BlogPost = {
   standfirst:
     "Everything that landed in v0.6.0, and what each of it was actually for. " +
     "Free SVG icons for shadcn/ui, drawn on one 24\u00d724 grid.",
+  headline: "A shopfront that took three passes",
   date: "2026-09-09",
   updated: "2026-09-09",
   readingMinutes: 7,
@@ -2395,6 +2410,7 @@ const BATCH_0_8_0: BlogPost = {
     "food, art tools and three keys, every one of them a word somebody typed " +
     "and got nothing back for. Free SVG icons for shadcn/ui, drawn on one " +
     "24\u00d724 grid.",
+  headline: "Drawn because people searched for them",
   date: "2026-09-11",
   updated: "2026-09-11",
   readingMinutes: 5,
@@ -2670,6 +2686,7 @@ const BATCH_0_9_0: BlogPost = {
     "leaves, a bot, flasks and test tubes, lungs and ears, the temperatures, " +
     "and a truck that finally takes a sign. Free SVG icons for shadcn/ui, " +
     "drawn on one 24×24 grid.",
+  headline: "Six new categories open at once",
   date: "2026-09-13",
   updated: "2026-09-13",
   readingMinutes: 5,
@@ -3330,6 +3347,7 @@ const RELEASE_1_1_0: BlogPost = {
   standfirst:
     "Sparkles on one shelf, maths marks, Mac keys, and the set now installs " +
     "in React Native, Expo included.",
+  headline: "The set comes to React Native",
   date: "2026-09-23",
   updated: "2026-09-23",
   readingMinutes: 3,
@@ -3581,6 +3599,7 @@ const RELEASE_1_0_0: BlogPost = {
     "A month, fourteen releases and one style nobody planned. Version " +
     "1.0.0 takes the set out of beta, with a new colour, a new logo and " +
     "free SVG icons for shadcn/ui, React, Figma and Paper.",
+  headline: "One month in, out of beta",
   date: "2026-09-18",
   updated: "2026-09-18",
   readingMinutes: 9,
@@ -4212,6 +4231,7 @@ const RELEASE_1_2_0: BlogPost = {
   standfirst:
     "A row added, two columns merged, a cache that answers at once: now " +
     "each has its own drawing.",
+  headline: "Nineteen tables in a single frame",
   date: "2026-09-24",
   updated: "2026-09-24",
   readingMinutes: 4,
@@ -4589,6 +4609,7 @@ const RELEASE_1_3_0: BlogPost = {
     "balls, stock charts, a gamepad, two anchors, a lifebuoy, push pins and " +
     "a shooting star.",
   standfirst: "Three short lines behind a star, and it's a shooting star.",
+  headline: "A star that leaves a trail",
   date: "2026-09-28",
   updated: "2026-09-28",
   readingMinutes: 6,
@@ -5084,6 +5105,7 @@ const RELEASE_1_4_0: BlogPost = {
     "money bag with five signs, a bank, gold bars, a stamp, a newspaper and " +
     "transfer arrows.",
   standfirst: "It all started with the menu of a banking app.",
+  headline: "It all started with a banking app's menu",
   date: "2026-09-28",
   updated: "2026-09-28",
   readingMinutes: 3,
@@ -5406,6 +5428,7 @@ const RELEASE_1_5_0: BlogPost = {
     "in six shapes, six shields, and clipboards and floppy disks with their " +
     "signs.",
   standfirst: "A list of 182 icons, and nineteen still to draw.",
+  headline: "Filling in what shadcn/create was missing",
   date: "2026-10-01",
   updated: "2026-10-01",
   readingMinutes: 4,
@@ -5776,6 +5799,7 @@ const RELEASE_1_6_0: BlogPost = {
     "a second house with twelve variations, a person with nine symbols, and " +
     "a cog for files, folders, databases and the globe.",
   standfirst: "Home has company.",
+  headline: "Home has company",
   date: "2026-10-04",
   updated: "2026-10-04",
   readingMinutes: 4,
@@ -6108,6 +6132,7 @@ const RELEASE_1_7_0: BlogPost = {
     "a gavel and balances, a stethoscope and syringe, text size arrows, a " +
     "spell check and a webcam.",
   standfirst: "Order in court.",
+  headline: "The law gets a category of its own",
   date: "2026-10-05",
   updated: "2026-10-05",
   readingMinutes: 3,
@@ -6456,6 +6481,7 @@ const RELEASE_1_8_0: BlogPost = {
     "long arrows, undo and redo, aspect ratios, text inputs, a bento grid " +
     "and a webhook.",
   standfirst: "Longer arrows, and frames from 1:1 to 21:9.",
+  headline: "Longer arrows, and frames up to 21:9",
   date: "2026-10-11",
   updated: "2026-10-11",
   readingMinutes: 4,
@@ -6875,6 +6901,7 @@ const RELEASE_2_0_0: BlogPost = {
     "brackets and punctuation, tally marks, chevron levels, plain shapes and " +
     "u-turn arrows.",
   standfirst: "Small pieces, the kind you only notice when they're missing.",
+  headline: "The pieces you only notice when they're missing",
   date: "2026-10-18",
   updated: "2026-10-18",
   readingMinutes: 4,
@@ -7235,6 +7262,7 @@ const RELEASE_2_1_0: BlogPost = {
     "a monitor with its signs, Greek letters and math, 3D shapes, pennants " +
     "and waves.",
   standfirst: "A screen that says what it's doing, and the letters a formula is written in.",
+  headline: "Screens that say what they're doing",
   date: "2026-10-20",
   updated: "2026-10-20",
   readingMinutes: 4,
@@ -7558,6 +7586,7 @@ const RELEASE_2_2_0: BlogPost = {
     "buses, trams and taxis with an off state for every vehicle, road works, " +
     "food, bones and music players.",
   standfirst: "Every vehicle in the set can be switched off now, and the street has its cones.",
+  headline: "Every vehicle can now be switched off",
   date: "2026-10-25",
   updated: "2026-10-25",
   readingMinutes: 4,
@@ -7850,6 +7879,7 @@ const RELEASE_2_3_0: BlogPost = {
     "the bath and shower, kitchen and laundry machines, a safe, a caravan, a " +
     "tent and a castle.",
   standfirst: "Drawn off the amenity lists of two booking sites, one gap at a time.",
+  headline: "Hotel amenities, from the bath to the safe",
   date: "2026-10-30",
   updated: "2026-11-01",
   readingMinutes: 4,
@@ -8525,6 +8555,39 @@ export const BLOG_POSTS: readonly BlogPost[] = [
 
 export const findPost = (slug: string) =>
   BLOG_POSTS.find((post) => post.slug === slug)
+
+/**
+ * Updates per page of `/blog`: the two-across row and three rows of three, so
+ * a full page ends on a full row at three columns. It was fourteen, four rows
+ * of three, and he moved the last row (1.1.0, 1.0.0, 0.9.0) to page 2: "move
+ * these 3 to the next page", 1 Nov 2026. Guides sit above the updates on page
+ * 1 only and do not count against it: they are few, kept current, and the
+ * reason the page is visited from a search.
+ *
+ * Pages past the first are addressed and indexed the way `/icons?page=N` is:
+ * see `app/blog/page.tsx`.
+ */
+export const BLOG_PAGE_SIZE = 11
+
+/**
+ * The update being drawn now, shown first on page 1 as a placeholder until
+ * its post exists. Set to `null` in the commit that adds the post; nothing
+ * else reads it.
+ */
+export const BLOG_UPCOMING: { version: string } | null = { version: "2.4.0" }
+
+/** The updates, newest first: what the pages divide between them. */
+export const BLOG_UPDATES = BLOG_POSTS.filter((post) => post.kind !== "guide")
+
+export const blogPageCount = () =>
+  Math.max(1, Math.ceil(BLOG_UPDATES.length / BLOG_PAGE_SIZE))
+
+/**
+ * The address of one page of the blog. Page 1 is the bare `/blog`, never
+ * `?page=1`, so the first page has one address and not two.
+ */
+export const blogPageHref = (page: number) =>
+  page > 1 ? `${BLOG_SEGMENT}?page=${page}` : BLOG_SEGMENT
 
 /**
  * The date, as the site prints dates elsewhere: "6 September 2026".

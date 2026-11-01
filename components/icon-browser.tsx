@@ -13,7 +13,6 @@ import {
   Bot,
   Check,
   ChevronDown,
-  ChevronLeft,
   ChevronRight,
   Circle,
   Clock,
@@ -59,12 +58,12 @@ import {
 } from "@/components/icons"
 
 import { cn } from "@/lib/utils"
+import { Pager, plainClick } from "@/components/pager"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { XLogo } from "@/components/brand-logos"
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
@@ -234,43 +233,6 @@ const ALL_ICON = Menu
  * in step with the `lg:` on the `<aside>` — they are two halves of one switch.
  */
 const BELOW_SIDEBAR = "(max-width: 1023px)"
-
-/**
- * The page numbers to draw: always the first and last, always the neighbours of
- * the current one, and a gap for whatever is skipped. A gap is the list of pages
- * it stands for, because the ellipsis opens a menu of them: a skipped page
- * reachable only by stepping Next through its neighbours is not reachable.
- *
- * A gap of one is drawn as its number. The ellipsis takes the same room, so
- * hiding a single page saves nothing and costs the reader a click.
- */
-function pageNumbers(current: number, total: number): (number | number[])[] {
-  const wanted = new Set([1, total, current - 1, current, current + 1])
-  const out: (number | number[])[] = []
-
-  for (let n = 1; n <= total; n++) {
-    const last = out.at(-1)
-    if (wanted.has(n)) out.push(n)
-    else if (Array.isArray(last)) last.push(n)
-    else out.push([n])
-  }
-
-  return out.flatMap((entry) =>
-    Array.isArray(entry) && entry.length === 1 ? entry : [entry]
-  )
-}
-
-/**
- * A left click with no modifier held: the one a link here keeps for itself.
- * Anything else, cmd, ctrl, shift or a middle click, is left to the browser,
- * which opens the address the way a link under the pointer promises.
- */
-const plainClick = (event: React.MouseEvent) =>
-  event.button === 0 &&
-  !event.metaKey &&
-  !event.ctrlKey &&
-  !event.shiftKey &&
-  !event.altKey
 
 /**
  * Sets `key` on the address, or drops it when the value is at its neutral:
@@ -504,46 +466,6 @@ const terms = (query: string) => {
     .toLowerCase()
     .split(/[^a-z0-9]+/)
     .filter((w) => w && !(identifier && /^\d+$/.test(w)))
-}
-
-/**
- * Previous or Next: a link to the neighbouring page, or a disabled button at
- * either end of the grid, where there is no neighbour to link to.
- */
-function PagerStep({
-  href,
-  onTurn,
-  children,
-}: {
-  href: string | null
-  onTurn: () => void
-  children: React.ReactNode
-}) {
-  const className = cn(
-    buttonVariants({ variant: "ghost" }),
-    "h-9 disabled:pointer-events-none disabled:opacity-40"
-  )
-
-  if (href === null)
-    return (
-      <button type="button" disabled className={className}>
-        {children}
-      </button>
-    )
-
-  return (
-    <a
-      href={href}
-      onClick={(event) => {
-        if (!plainClick(event)) return
-        event.preventDefault()
-        onTurn()
-      }}
-      className={className}
-    >
-      {children}
-    </a>
-  )
 }
 
 export function IconBrowser({
@@ -2201,103 +2123,18 @@ export function IconBrowser({
             </div>
           )}
 
-          {pageCount > 1 && (
-            <nav
-              aria-label="Pages"
-              className="flex flex-wrap items-center justify-center gap-1 pt-2 pb-6"
-            >
-              {/*
-                Links, not buttons, for the reason the tiles are: a crawler
-                follows an `href` and never presses anything. Only the first
-                120 tiles are in the HTML of `/icons`, so these are how the
-                icon pages on pages 2 to 9 get a link from the grid at all. A
-                plain click still turns the page in place. Previous and Next
-                stay buttons at the ends, since a disabled link is not a thing.
-              */}
-              <PagerStep
-                href={currentPage > 1 ? pageHref(currentPage - 1) : null}
-                onTurn={() => goToPage(currentPage - 1)}
-              >
-                <ChevronLeft data-icon="inline-start" className="size-4" />
-                Previous
-              </PagerStep>
-
-              {pageNumbers(currentPage, pageCount).map((entry) =>
-                Array.isArray(entry) ? (
-                  <DropdownMenu key={`gap-${entry[0]}`}>
-                    {/* Opens on hover as well as on click; the click is what a
-                    touch screen and a keyboard still have. `delay` is zero
-                    because Base UI's is a rest timer, restarted by every mouse
-                    move, so its default 100 waits for the pointer to stop and
-                    reads as half a second. */}
-                    <DropdownMenuTrigger
-                      openOnHover
-                      delay={0}
-                      closeDelay={150}
-                      aria-label={`Pages ${entry[0]} to ${entry.at(-1)}`}
-                      className={cn(
-                        buttonVariants({ variant: "ghost" }),
-                        "h-9 w-9 text-muted-foreground"
-                      )}
-                    >
-                      …
-                    </DropdownMenuTrigger>
-                    {/* Upward: the pager is the foot of the grid, with the
-                    dock under it. */}
-                    <DropdownMenuContent
-                      side="top"
-                      align="center"
-                      className="w-auto max-w-80"
-                    >
-                      {entry.map((n) => (
-                        <DropdownMenuItem
-                          key={n}
-                          onClick={() => goToPage(n)}
-                          className="gap-3 py-1.5"
-                        >
-                          <span className="w-5 text-right font-medium tabular-nums">
-                            {n}
-                          </span>
-                          <span className="truncate text-muted-foreground">
-                            {pageSpan(n)}
-                          </span>
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                ) : (
-                  <a
-                    key={entry}
-                    href={pageHref(entry)}
-                    onClick={(event) => {
-                      if (!plainClick(event)) return
-                      event.preventDefault()
-                      goToPage(entry)
-                    }}
-                    aria-current={entry === currentPage ? "page" : undefined}
-                    className={cn(
-                      buttonVariants({
-                        variant: entry === currentPage ? "default" : "ghost",
-                      }),
-                      "h-9 w-9 tabular-nums"
-                    )}
-                  >
-                    {entry}
-                  </a>
-                )
-              )}
-
-              <PagerStep
-                href={
-                  currentPage < pageCount ? pageHref(currentPage + 1) : null
-                }
-                onTurn={() => goToPage(currentPage + 1)}
-              >
-                Next
-                <ChevronRight data-icon="inline-end" className="size-4" />
-              </PagerStep>
-            </nav>
-          )}
+          {/* The shared pager: links a crawler can follow, turning the page
+              in place on a plain click. Only the first 120 tiles are in the
+              HTML of `/icons`, so these are how the icon pages on later
+              pages get a link from the grid at all. */}
+          <Pager
+            current={currentPage}
+            total={pageCount}
+            hrefs={Array.from({ length: pageCount }, (_, i) => pageHref(i + 1))}
+            onTurn={goToPage}
+            describe={pageSpan}
+            className="pt-2 pb-6"
+          />
 
           {/*
             The room the dock takes. Its own height, measured, rather than a
