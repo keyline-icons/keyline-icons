@@ -8101,6 +8101,361 @@ const RELEASE_2_3_0: BlogPost = {
   ],
 }
 
+export const BLOG_V250_THUMBNAIL_ICON_NAMES = [
+  "couch",
+  "hot-tub",
+  "breakfast",
+  "desk-office",
+  "sun-lounger",
+  "bus-front",
+  "blinds",
+  "heater",
+  "refrigerator-mini",
+  "outdoor-seating",
+  "mirror-round",
+  "desk",
+  "can-soda",
+  "utensils",
+  "sunrise-2",
+  "sunset-2",
+  "building-complex",
+  "bookmarks",
+  "briefcase-arrow-down",
+  "pencil-ruler-2",
+  "house-sparkles",
+  "square-sparkles",
+  "keyboard-off",
+  "mouse-off",
+  "server-off",
+  "earbuds-off",
+  "repeat-off",
+  "flashlight-off",
+  "wrench-off",
+  "flag-off",
+  "locate-off",
+  "bookmark-off",
+  "oven-off",
+  "washing-machine-off",
+  "cooking-pot-off",
+  "ev-charger-off",
+  "refresh-cw-off",
+  "flame-off",
+] as const
+
+export const BLOG_V250_HERO_ICON_NAMES = [
+  "couch",
+  "hot-tub",
+  "desk-office",
+  "blinds",
+  "breakfast",
+  "sun-lounger",
+  "bus-front",
+  "sunrise-2",
+] as const
+
+export const BLOG_V250_ROOM_ICON_NAMES = [
+  "couch",
+  "sofa",
+  "tv",
+  "blinds",
+  "heater",
+  "desk",
+  "desk-office",
+  "wifi",
+  "bed-double",
+  "mirror-round",
+  "refrigerator-mini",
+  "can-soda",
+  "breakfast",
+  "utensils",
+  "coffee-maker",
+  "hot-tub",
+  "sun-lounger",
+  "outdoor-seating",
+  "parasol",
+  "waves-ladder",
+] as const
+
+export const BLOG_V250_OFF_ICON_NAMES = [
+  "keyboard-off",
+  "mouse-off",
+  "server-off",
+  "earbuds-off",
+  "repeat-off",
+  "flashlight-off",
+  "wrench-off",
+  "flag-off",
+  "locate-off",
+  "bookmark-off",
+] as const
+
+export const BLOG_V250_REDRAWN_ICON_NAMES = [
+  "homes",
+  "house",
+  "castle",
+  "store",
+  "mail",
+  "concierge-bell",
+  "dumbbell",
+  "image",
+  "rocket",
+] as const
+
+const RELEASE_2_5_0: BlogPost = {
+  /* Furniture leads because it is the search this post can win; the off
+     states and the redraws are half the batch but are in every set's
+     release. React before shadcn/ui so the card does not break at the
+     slash. */
+  slug: "furniture-room-and-minibar-icons",
+  version: "2.5.0",
+  title: "38 free furniture and room icons for React, shadcn/ui and Figma",
+  description:
+    "1,692 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
+    "a couch, a desk, blinds, a hot tub, a minibar fridge, breakfast and " +
+    "sixteen off states.",
+  standfirst:
+    "Also new: a bus seen from the front, a block of offices and a pencil " +
+    "across a set square.",
+  headline: "Minibar used to find nothing",
+  date: "2026-11-01",
+  updated: "2026-11-01",
+  readingMinutes: 4,
+  thumbnail: BLOG_V250_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "furniture icons",
+    "room icons",
+    "couch icon",
+    "sofa icon",
+    "desk icon",
+    "office desk icon",
+    "blinds icon",
+    "radiator icon",
+    "heater icon",
+    "hot tub icon",
+    "jacuzzi icon",
+    "sun lounger icon",
+    "patio icon",
+    "minibar icon",
+    "mini fridge icon",
+    "soda can icon",
+    "breakfast icon",
+    "cutlery icon",
+    "mirror icon",
+    "sunrise icon",
+    "sunset icon",
+    "keyboard off icon",
+    "transport icons",
+    "free svg icons",
+    "shadcn/ui icons",
+    "figma icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "A listing that took its bathroom and kitchen from this set still " +
+        "had nowhere to get the room itself: the couch, the desk, the " +
+        "blinds, the heater, the minibar. Those are drawn now, and so is " +
+        "the outside: a hot tub, a sun lounger, a table under a parasol.",
+    },
+    {
+      kind: "p",
+      text:
+        "That is 38 new icons, and the set is at 1,692, each in stroke, " +
+        "two-tone, duotone and fill with rounded or sharp corners: 13,536 " +
+        "SVGs. Sixteen of the 38 are off states. Alongside them, 47 " +
+        "drawings that already shipped were redrawn, most of them in duotone.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V250_HERO_ICON_NAMES,
+        caption:
+          "Eight of the 38 in every style. `sunrise-2` and `sunset-2` set " +
+          "the sun over waves, where the shipped `sunrise` and `sunset` " +
+          "stand it on a flat line.",
+      },
+    },
+
+    { kind: "h2", text: "Minibar used to find nothing", id: "search" },
+    {
+      kind: "p",
+      text:
+        "Until this update, searching this site for a minibar came back " +
+        "empty, and so did sunbed, jacuzzi, radiator, blinds, cutlery, " +
+        "breakfast and soda. Each word now finds its drawing, and a " +
+        "listing's rooms come from one set, new icons and old:",
+    },
+    {
+      kind: "list",
+      items: [
+        "Living room: `couch` beside the shipped `sofa`, `tv`, `blinds`, " +
+          "and `heater` for heating.",
+        "Work: `desk` with its lamp and `desk-office` with its drawers, " +
+          "beside `wifi`.",
+        "Bedroom: `bed-double` and `mirror-round`, a mirror on a stand.",
+        "Minibar and breakfast: `refrigerator-mini`, `can-soda`, " +
+          "`breakfast` for breakfast included, `utensils` and `coffee-maker`.",
+        "Outside: `hot-tub`, `sun-lounger`, `outdoor-seating` for a " +
+          "terrace, and `parasol` and `waves-ladder` by the pool.",
+      ],
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V250_ROOM_ICON_NAMES,
+        caption: "Thirteen of the twenty are new.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "Words for drawings that were already here moved too. Searching for " +
+        "transport found two of the set's vehicles, a bus and a truck, and " +
+        "transportation found none. Both now find all 47, trucks included, " +
+        "and so does vehicle, on the site, in the Figma plugin, the CLI and " +
+        "the MCP server.",
+    },
+
+    {
+      kind: "h2",
+      text: "The slash takes whole keys, never half of one",
+      id: "off",
+    },
+    {
+      kind: "p",
+      text:
+        "Sixteen of the new icons are off states: the keyboard, the mouse " +
+        "and the server, the earbuds, the flashlight, the wrench, the flag, " +
+        "the bookmark and eight more, for a device that is disconnected or " +
+        "a feature that is turned off.",
+    },
+    {
+      kind: "p",
+      text:
+        "Each is its original at the same size with a slash across it, and " +
+        "the slash never leaves half of something behind. `keyboard-off` " +
+        "keeps four of its eight keys. The four it drops are the ones the " +
+        "slash runs through. Cut in half, a key is a speck at 16 pixels, " +
+        "and a speck reads as dirt on the screen, not as part of a keyboard.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V250_OFF_ICON_NAMES,
+        caption:
+          "Ten of the sixteen. `oven-off`, `washing-machine-off` and " +
+          "`cooking-pot-off` give the kitchen and laundry from the last " +
+          "update an out of order state.",
+      },
+    },
+
+    { kind: "h2", text: "Ten doors cut through the floor", id: "doors" },
+    {
+      kind: "p",
+      text:
+        "In duotone, ten buildings drew their door wrong. Eight drew it as " +
+        "a black line, in the one style that has no lines: the house and " +
+        "the home, the house with a chimney, the store, the barn, the " +
+        "castle and both office blocks. The other two, `homes` and " +
+        "`houses`, cut the door out through the bottom edge, which split " +
+        "the front wall into two legs.",
+    },
+    {
+      kind: "p",
+      text:
+        "Every door is now a solid shape, black on a grey wall or cut out " +
+        "of a black one. And every door stops two pixels short of the " +
+        "ground, so the wall runs unbroken along the bottom.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "diagnostic",
+        panels: [
+          {
+            title: "The front house of `homes`, old over new",
+            a: { name: "homes", take: "before" },
+            b: { name: "homes", take: "after" },
+            verdict: {
+              text: "All the colour is wall the new drawing adds",
+              tone: "good",
+            },
+          },
+          {
+            title: "Ten units around the door",
+            a: { name: "homes", take: "before" },
+            b: { name: "homes", take: "after" },
+            viewBox: "9 13 10 10",
+            verdict: {
+              text: "A frame round the door and a sill under it",
+              tone: "good",
+            },
+          },
+        ],
+        caption:
+          "The old door was 6 pixels wide at 24 and open at the bottom. The " +
+          "new one is 4 wide, round at the top, and stops 2 above the " +
+          "ground. None of the first ink shows anywhere, so the new door " +
+          "sits wholly inside the old one.",
+        legend: {
+          a: "black as it shipped",
+          b: "black as it is now",
+          both: "black that did not move",
+        },
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The other 37 redraws are smaller. Fills that ran parts together " +
+        "now keep them apart: the envelope's flap from its body, the bell's " +
+        "dome from its base, the dumbbell's weights from the bar. In " +
+        "duotone the picture's mountain is solid across the ten image " +
+        "icons, and the three rockets are black with grey fins. In sharp " +
+        "corners, the money bag and its five signs tie the same knot as in " +
+        "rounded.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "pairs",
+        names: BLOG_V250_REDRAWN_ICON_NAMES,
+        caption:
+          "Each in the style that changed: duotone for the buildings, the " +
+          "picture and the rocket, fill for the envelope, the bell and the " +
+          "dumbbell.",
+      },
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text:
+        "React, React Native, Vue, Svelte and Solid, the shadcn/ui " +
+        "registry, the CLI, the MCP server, and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Read the changelog",
+      text: "What every release added, with the drawings in it.",
+    },
+  ],
+}
+
 /* The card's six first, then the icons shadcn/ui's own components import,
    which is the set a swap has to cover before anything else. */
 export const BLOG_SWAP_THUMBNAIL_ICON_NAMES = [
@@ -8532,6 +8887,7 @@ const LUCIDE_ALTERNATIVES: BlogPost = {
 
 export const BLOG_POSTS: readonly BlogPost[] = [
   LUCIDE_ALTERNATIVES,
+  RELEASE_2_5_0,
   RELEASE_2_3_0,
   RELEASE_2_2_0,
   RELEASE_2_1_0,
@@ -8574,7 +8930,7 @@ export const BLOG_PAGE_SIZE = 11
  * its post exists. Set to `null` in the commit that adds the post; nothing
  * else reads it.
  */
-export const BLOG_UPCOMING: { version: string } | null = { version: "2.4.0" }
+export const BLOG_UPCOMING: { version: string } | null = null
 
 /** The updates, newest first: what the pages divide between them. */
 export const BLOG_UPDATES = BLOG_POSTS.filter((post) => post.kind !== "guide")
