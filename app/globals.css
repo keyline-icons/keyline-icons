@@ -169,10 +169,14 @@
 
   /* A pull past the end of an inner scroller would otherwise chain out to the
      page and trigger pull-to-refresh. This page has two such scrollers now:
-     the phone stage and the browser's category rail. */
+     the phone stage and the browser's category rail.
+
+     Vertical only. Pull-to-refresh is a vertical gesture, and `none` on the x
+     axis of the root is what Chrome reads as "no history swipe", which took
+     two-finger back and forward off every page on a Mac trackpad. */
   html,
   body {
-    overscroll-behavior: none;
+    overscroll-behavior-y: none;
   }
 
   /* `manipulation` drops the ~300ms the browser spends waiting to see whether
