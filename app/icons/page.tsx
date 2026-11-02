@@ -2,7 +2,12 @@ import type { Metadata } from "next"
 import { cookies } from "next/headers"
 import Link from "next/link"
 
-import { parseSettings, SETTINGS_COOKIE } from "@/lib/browser-settings"
+import {
+  parseSettings,
+  SETTINGS_COOKIE,
+  SETTINGS_DEFAULTS,
+  SORTS,
+} from "@/lib/browser-settings"
 import { CONTAINERS } from "@/components/glyph"
 import { isNewSince, loadIcons, STYLES } from "@/lib/icons"
 import { CORNERS, type Corners } from "@/components/glyph"
@@ -41,10 +46,24 @@ function pageOf(value: string | string[] | undefined, total: number) {
 export async function generateMetadata({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string | string[] }>
+  searchParams: Promise<{
+    page?: string | string[]
+    sort?: string | string[]
+  }>
 }): Promise<Metadata> {
   const total = (await loadIcons()).length
-  const page = pageOf((await searchParams).page, total)
+  const params = await searchParams
+  /*
+    A page of another order is not the indexed page of that number. Page 3 by
+    newest holds different drawings from `/icons?page=3`, so it takes the bare
+    canonical every other query form does rather than claiming to be a copy of
+    a page it is not. The cookie is not read here: a crawler sends none, so the
+    order it is served is always name order.
+  */
+  const sorted = SORTS.some(
+    (known) => known === params.sort && known !== SETTINGS_DEFAULTS.sort
+  )
+  const page = sorted ? undefined : pageOf(params.page, total)
 
   /*
     Pages 2 and on are their own pages, with their own canonical, and not
@@ -128,6 +147,7 @@ export default async function Page({
     style?: string | string[]
     shape?: string | string[]
     corners?: string | string[]
+    sort?: string | string[]
     page?: string | string[]
   }>
 }) {
@@ -189,7 +209,7 @@ export default async function Page({
    * looking untouched.
    */
   const params = await searchParams
-  const { icon, search, style, shape, corners, page } = params
+  const { icon, search, style, shape, corners, sort, page } = params
   const named = typeof icon === "string" ? icon.trim().slice(0, 64) : ""
   const initialIcon = icons.some((known) => known.name === named)
     ? named
@@ -240,7 +260,20 @@ export default async function Page({
    * it. Reading a parameter nothing can write is half a feature.
    */
   const seeded = CORNERS.find((known) => known === corners)
-  const initialSettings = seeded ? { ...settings, corners: seeded } : settings
+
+  /*
+    `?sort=newest` the same way, one level down, and for the same reason: the
+    order persists, so a link has to be able to say it, and the browser writes
+    it back whenever it is not name order. A shared "what landed lately" link
+    opens newest-first for someone whose cookie says name, without changing
+    their cookie.
+  */
+  const seededSort = SORTS.find((known) => known === sort)
+  const initialSettings = {
+    ...settings,
+    ...(seeded && { corners: seeded }),
+    ...(seededSort && { sort: seededSort }),
+  }
 
   /*
    * Only the corner treatment the page opens in, and the other one on demand.

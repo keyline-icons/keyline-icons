@@ -81,7 +81,7 @@ export const metadata = pageMetadata({
   description:
     `How ${SET_TITLE} handles your data: no accounts, no ads and no ` +
     `cross-site tracking. Page views are counted without cookies, and the one ` +
-    `cookie the site sets remembers how you like the icons drawn.`,
+    `cookie the site sets remembers how you like the icons drawn and sorted.`,
   socialDescription:
     "No accounts, no ads, no cross-site tracking, and nothing here knows who you are.",
 })
@@ -129,7 +129,7 @@ export default async function Page() {
   const googleAnalytics = Boolean(process.env.NEXT_PUBLIC_GA_ID)
 
   return (
-    <LegalPage path={LEGAL.privacy} title="Privacy" updated="2026-10-26">
+    <LegalPage path={LEGAL.privacy} title="Privacy" updated="2026-11-02">
       <LegalSection id="scope" title="What this covers">
         <p>
           This site, at {host}, and nothing else. The set is also published on
@@ -158,9 +158,9 @@ export default async function Page() {
           </li>
           <li>
             No forms. Nothing here collects an email address, so there is no
-            list to be on and nothing to unsubscribe from. The custom icons
-            page has none either: its button opens your own mail app, and a
-            message you choose to send is read only to answer it.
+            list to be on and nothing to unsubscribe from. The custom icons page
+            has none either: its button opens your own mail app, and a message
+            you choose to send is read only to answer it.
           </li>
         </LegalList>
         <p>
@@ -225,9 +225,9 @@ export default async function Page() {
         <p>
           Every one of those events describes the set, never you: an icon name,
           a style, a filter you picked, a file format, a package manager, a
-          query typed into the icon search, or the kind of link that led to
-          the custom icons page. No identifiers, no addresses, and nothing
-          typed anywhere else on the site. The complete list is the{" "}
+          query typed into the icon search, or the kind of link that led to the
+          custom icons page. No identifiers, no addresses, and nothing typed
+          anywhere else on the site. The complete list is the{" "}
           <LegalLink href={`${SET_REPO_URL}/blob/main/lib/analytics.ts`}>
             Events type
           </LegalLink>{" "}
@@ -241,9 +241,9 @@ export default async function Page() {
         title={googleAnalytics ? "Cookies" : "The one cookie"}
       >
         <p>
-          The icon browser lets you change how the set is drawn, and remembers
-          it. That is the entire purpose of the only cookie this site sets for
-          itself
+          The icon browser lets you change how the set is drawn and sorted, and
+          remembers it. That is the entire purpose of the only cookie this site
+          sets for itself
           {googleAnalytics
             ? ", and the only one under our control. Google Analytics sets its own, which are Google's and are covered by their policy."
             : ". Nothing in the section above sets one."}

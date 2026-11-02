@@ -26,7 +26,25 @@ export type BrowserSettings = {
    * — pick fill and 153 drawings are gone — so it does not persist.
    */
   corners: Corners
+  /**
+   * The order the grid is laid out in.
+   *
+   * Persisted on the same test as corners: an order hides nothing. Every
+   * drawing is still on the grid, only in another place, so someone who left
+   * it on newest and comes back to it newest-first has their own library back
+   * rather than a narrowed one. It is a choice made once by the people who
+   * come back to see what landed, and asking them to make it on every visit
+   * is the cost a cookie exists to save.
+   */
+  sort: Sort
 }
+
+/**
+ * The grid's orders, in menu order. `name` is the shipped default because it
+ * is the only one a reader can predict a drawing's place in.
+ */
+export const SORTS = ["name", "newest"] as const
+export type Sort = (typeof SORTS)[number]
 
 /** What a first visit sees. Reset puts back only part of it: see below. */
 export const SETTINGS_DEFAULTS: BrowserSettings = {
@@ -36,6 +54,7 @@ export const SETTINGS_DEFAULTS: BrowserSettings = {
   showNames: true,
   columns: 10,
   corners: "regular",
+  sort: "name",
 }
 
 type Resettable = Pick<BrowserSettings, "size" | "stroke" | "color" | "corners">
@@ -105,14 +124,17 @@ export function parseSettings(raw: string | undefined): BrowserSettings {
       const expected = SETTINGS_DEFAULTS[key]
 
       // `color` is the one nullable, so its default types as `object`.
-      // `corners` is a union, and a `typeof` test would let any string through
-      // — including one that reaches `artOf` and draws nothing.
+      // `corners` and `sort` are unions, and a `typeof` test would let any
+      // string through: one that reaches `artOf` and draws nothing, or one
+      // no menu row can show as chosen.
       const ok =
         key === "color"
           ? value === null || typeof value === "string"
           : key === "corners"
             ? CORNERS.includes(value as Corners)
-            : typeof value === typeof expected
+            : key === "sort"
+              ? SORTS.includes(value as Sort)
+              : typeof value === typeof expected
 
       if (key in parsed && ok) Object.assign(next, { [key]: value })
     }

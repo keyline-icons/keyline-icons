@@ -4,6 +4,8 @@ import * as React from "react"
 import Link from "next/link"
 
 import {
+  AArrowDown,
+  ArrowDownWideNarrow,
   ArrowRight,
   BarChart,
   Bed,
@@ -11,6 +13,7 @@ import {
   Boy,
   Bold,
   Bot,
+  CalendarArrowDown,
   Check,
   ChevronDown,
   ChevronRight,
@@ -112,6 +115,8 @@ import {
   type BrowserSettings,
   RESET_DEFAULTS,
   SETTINGS_DEFAULTS,
+  SORTS,
+  type Sort,
   atResetDefaults,
 } from "@/lib/browser-settings"
 import { SEARCH_MIN_LENGTH, SEARCH_SETTLE_MS, track } from "@/lib/analytics"
@@ -141,6 +146,27 @@ const SHAPES = [
 
 type Shape = (typeof SHAPES)[number]["value"]
 type ShapeFilter = Shape | "all"
+
+/**
+ * The sort menu's rows, in `SORTS` order. The two glyphs are a pair on
+ * purpose: a letter and a date, each with the arrow that says which way the
+ * list runs.
+ */
+const SORT_ROWS: Record<
+  Sort,
+  {
+    label: string
+    hint: string
+    icon: React.ComponentType<{ className?: string }>
+  }
+> = {
+  name: { label: "Name", hint: "A to Z", icon: AArrowDown },
+  newest: {
+    label: "Newest",
+    hint: "Latest added first",
+    icon: CalendarArrowDown,
+  },
+}
 
 /**
  * A glyph for each category row, so the rail is also a sample of what the row
@@ -264,8 +290,12 @@ const signatureOf = (
  * something against the same narrowing, so the page resets when this changes.
  * The style is left out on purpose: see the page reset in `IconBrowser`.
  */
-const pageSignatureOf = (query: string, shape: ShapeFilter, category: string) =>
-  `${query}|${shape}|${category}`
+const pageSignatureOf = (
+  query: string,
+  shape: ShapeFilter,
+  category: string,
+  sort: Sort
+) => `${query}|${shape}|${category}|${sort}`
 
 /**
  * Grid order: by base name, then by container.
@@ -331,9 +361,46 @@ const leadOf = (icon: BrowserIcon, query: string) => {
   return Math.min(tier(icon.name), tier(icon.base))
 }
 
-/** Grid order under a search: tier by tier, then name order within each. */
-const bySearch = (query: string) => (a: BrowserIcon, b: BrowserIcon) =>
-  leadOf(a, query) - leadOf(b, query) || byName(a, b)
+/**
+ * When a drawing landed, as a number to sort on. Parsed rather than compared as
+ * text, because the stamps carry the committer's offset and two strings in
+ * different zones do not sort as the instants they name. A drawing with no
+ * history has never been committed, which makes it the newest there is.
+ */
+const addedAt = (icon: BrowserIcon) =>
+  icon.history ? Date.parse(icon.history.added) : Infinity
+
+/**
+ * Newest first, and name order inside one landing.
+ *
+ * A batch arrives in one commit, so thirty drawings share a stamp to the
+ * second, and the tie needs an order a reader can follow. Name order is the
+ * one they already know from the default grid.
+ */
+const byNewest = (a: BrowserIcon, b: BrowserIcon) =>
+  addedAt(b) - addedAt(a) || byName(a, b)
+
+const SORT_ORDER: Record<Sort, (a: BrowserIcon, b: BrowserIcon) => number> = {
+  name: byName,
+  newest: byNewest,
+}
+
+/**
+ * Grid order under a search: tier by tier, then the chosen order within each.
+ *
+ * The tiers still lead under newest. A search for `x` is asking for `x`, and
+ * the drawing it names belongs first whatever order the rest is in; below it,
+ * the newest arrow among the arrows is the answer the order was picked for.
+ *
+ * It takes the comparator rather than the `Sort` key, with name order as the
+ * default, because pipeline/check-search.mjs lifts this out as text and runs
+ * it untyped: a parameter it can call without `SORT_ORDER` keeps the check
+ * asking the same question it did, which is what a search leads with.
+ */
+const bySearch =
+  (query: string, order = byName) =>
+  (a: BrowserIcon, b: BrowserIcon) =>
+    leadOf(a, query) - leadOf(b, query) || order(a, b)
 
 /**
  * A word reduced to its singular, so a plural finds the family.
@@ -541,7 +608,7 @@ export function IconBrowser({
     URL still opens the whole set.
   */
   const [settings, update] = useBrowserSettings(initialSettings)
-  const { size, stroke, color, showNames, columns, corners } = settings
+  const { size, stroke, color, showNames, columns, corners, sort } = settings
 
   /*
     The grid's treatment, switched only once its drawings are here. The page
@@ -560,7 +627,7 @@ export function IconBrowser({
   // Starts on the seeded narrowing, or the first render would read it as a
   // change and put `?page=` back to 1 before anything had changed.
   const [lastPageSignature, setLastPageSignature] = React.useState(() =>
-    pageSignatureOf(query, initialShape, "all")
+    pageSignatureOf(query, initialShape, "all", sort)
   )
   const gridRef = React.useRef<HTMLDivElement>(null)
   /** The whole browser: rail, filter row and grid, for the category scroll. */
@@ -990,11 +1057,11 @@ export function IconBrowser({
   /**
    * The page's slice, ordered before it is cut — page 2 has to be sorted
    * against the whole result, not against whatever landed on it. With nothing
-   * typed this is name order; a search lets the drawing it names lead.
+   * typed this is the chosen order; a search lets the drawing it names lead.
    */
   const ordered = React.useMemo(
-    () => [...shown].sort(bySearch(query)),
-    [shown, query]
+    () => [...shown].sort(bySearch(query, SORT_ORDER[sort])),
+    [shown, query, sort]
   )
 
   const pageCount = Math.max(1, Math.ceil(ordered.length / GRID_PAGE_SIZE))
@@ -1013,8 +1080,12 @@ export function IconBrowser({
     drawing on it, so stroke to duotone and back lands where it started. If a
     style ever lacks drawings again, a page past its end shows its last page
     and the number comes back with a style that has it.
+
+    The order does reset it. Page 3 by name and page 3 by newest are two
+    different 120 drawings, so keeping the number would land the reader on a
+    page that has nothing to do with the one they were on.
   */
-  const pageSignature = pageSignatureOf(query, shape, category)
+  const pageSignature = pageSignatureOf(query, shape, category, sort)
   if (pageSignature !== lastPageSignature) {
     setLastPageSignature(pageSignature)
     setPage(1)
@@ -1034,15 +1105,22 @@ export function IconBrowser({
   )
 
   /**
-   * Where a page falls in the alphabet, from its first drawing to its last. The
-   * grid is in name order, so this is what tells a reader which hidden page
-   * holds the icon they are after. Bases, because that is what the sort reads:
-   * a page that opens on `circle-dollar-sign` opens at D.
+   * Where a page falls in the order, from its first drawing to its last. By
+   * name that is a stretch of the alphabet, which is what tells a reader which
+   * hidden page holds the icon they are after. Bases, because that is what the
+   * sort reads: a page that opens on `circle-dollar-sign` opens at D.
+   *
+   * By newest it is a stretch of dates instead, the labels the history file
+   * already formats, because a name says nothing about where a page sits in
+   * time. A page that starts and ends on one day says the day once.
    */
   const pageSpan = (n: number) => {
     const first = ordered[(n - 1) * GRID_PAGE_SIZE]
     const last = ordered[Math.min(n * GRID_PAGE_SIZE, ordered.length) - 1]
-    return `${first.base} to ${last.base}`
+    if (sort === "name") return `${first.base} to ${last.base}`
+    const from = first.history?.addedLabel ?? "Not committed"
+    const to = last.history?.addedLabel ?? "Not committed"
+    return from === to ? from : `${from} to ${to}`
   }
 
   /** Set by the pager so only a page turn scrolls, not every re-render. */
@@ -1225,10 +1303,11 @@ export function IconBrowser({
       carry(params, "style", style, "stroke")
       carry(params, "shape", shape, "all")
       carry(params, "corners", corners, SETTINGS_DEFAULTS.corners)
+      carry(params, "sort", sort, SETTINGS_DEFAULTS.sort)
       carry(params, "page", String(pageNumber), "1")
       return params
     },
-    [query, style, shape, corners]
+    [query, style, shape, corners, sort]
   )
 
   const pageHref = (pageNumber: number) => {
@@ -1365,6 +1444,76 @@ export function IconBrowser({
     </ul>
   )
 
+  /** The sliders' shell, so every control in the row reads as one family. */
+  const pill =
+    "flex h-9 items-center gap-1.5 rounded-lg bg-muted px-2.5 text-sm"
+
+  /**
+   * An open menu lifts its trigger out of the muted field, which is the same
+   * thing the style group does to mark the chosen style. One idiom for "this
+   * one is active", rather than a second, quieter one for menus.
+   *
+   * `aria-expanded` is the hook because Base UI sets it on the trigger, and
+   * `button.tsx` already styles off it for the same reason.
+   */
+  const raised =
+    "transition-[background-color,box-shadow] aria-expanded:bg-background aria-expanded:shadow-sm"
+
+  /*
+    The order, at the right-hand end of the row beside the count, and not in
+    the filter group beside Shape where it started. Everything on the left
+    changes how the set is drawn or narrows it; the order and the count are
+    both about the list itself, so they read as one pair. Among the filters it
+    wrapped onto the second line after Shape, read as one more filter, and
+    was found only by looking for it. Here it is also outside the drawer, so a
+    phone can reorder without opening Browse.
+
+    The glyph in front is what says "order" before the word is read. Shape has
+    none because it sits among controls that all explain themselves; this one
+    stands alone.
+
+    It persists, unlike Shape, because an order hides nothing (see
+    `BrowserSettings`).
+  */
+  const sortMenu = (
+    <DropdownMenu>
+      <DropdownMenuTrigger className={cn(pill, raised)}>
+        <ArrowDownWideNarrow className="size-4 text-muted-foreground" />
+        <span className="max-sm:sr-only">Sort</span>
+        <span className="text-muted-foreground">{SORT_ROWS[sort].label}</span>
+        <ChevronDown className="size-4 text-muted-foreground" />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-56">
+        <DropdownMenuRadioGroup
+          value={sort}
+          onValueChange={(value) => update({ sort: value as Sort })}
+        >
+          {SORTS.map((value) => {
+            const row = SORT_ROWS[value]
+            return (
+              <DropdownMenuRadioItem
+                key={value}
+                value={value}
+                closeOnClick
+                className="gap-3"
+              >
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-muted">
+                  <row.icon className="size-4 text-muted-foreground" />
+                </span>
+                <span className="flex flex-col gap-0.5">
+                  <span>{row.label}</span>
+                  <span className="text-xs text-muted-foreground">
+                    {row.hint}
+                  </span>
+                </span>
+              </DropdownMenuRadioItem>
+            )
+          })}
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+
   /**
    * The filter controls, rendered twice: inline on wide screens and inside the
    * drawer below `lg`. Only one copy is ever visible, and both drive the same
@@ -1375,21 +1524,6 @@ export function IconBrowser({
    * row in fewer lines.
    */
   const filters = (stacked: boolean) => {
-    /** The sliders' shell, so every control in the row reads as one family. */
-    const pill =
-      "flex h-9 items-center gap-1.5 rounded-lg bg-muted px-2.5 text-sm"
-
-    /**
-     * An open menu lifts its trigger out of the muted field, which is the same
-     * thing the style group does to mark the chosen style. One idiom for "this
-     * one is active", rather than a second, quieter one for menus.
-     *
-     * `aria-expanded` is the hook because Base UI sets it on the trigger, and
-     * `button.tsx` already styles off it for the same reason.
-     */
-    const raised =
-      "transition-[background-color,box-shadow] aria-expanded:bg-background aria-expanded:shadow-sm"
-
     const styleGroup = (
       <Segmented aria-label="Style">
         {STYLES.map((s) => (
@@ -1767,13 +1901,16 @@ export function IconBrowser({
               mounted, since a live region added together with its text is not
               reliably announced. The hidden word makes "34 shown" a sentence.
             */}
-            <span
-              role="status"
-              className="ml-auto h-9 shrink-0 text-sm leading-9 whitespace-nowrap text-muted-foreground tabular-nums"
-            >
-              {shown.length.toLocaleString("en-US")}{" "}
-              <span className="sr-only">icons </span>shown
-            </span>
+            <div className="ml-auto flex shrink-0 items-center gap-3">
+              <span
+                role="status"
+                className="h-9 text-sm leading-9 whitespace-nowrap text-muted-foreground tabular-nums"
+              >
+                {shown.length.toLocaleString("en-US")}{" "}
+                <span className="sr-only">icons </span>shown
+              </span>
+              {sortMenu}
+            </div>
           </div>
 
           {isNarrow && (
