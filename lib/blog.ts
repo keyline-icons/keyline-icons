@@ -217,17 +217,6 @@ export type BlogPost = {
    * own name and nothing else.
    */
   title: string
-  /**
-   * The line the index tile carries, in place of the title: short, in the
-   * post's own words, told the way a newsroom tells it (his reference, Apple
-   * Newsroom, 1 Nov 2026: "look how titles are done and if you look at ours,
-   * they all read same"). The title stays the search line, for the `h1`, the
-   * `<title>` and the card; twenty titles in one template read as one post
-   * repeated, so the index leads with this instead. Taken from the post's
-   * standfirst or its best heading, never a new claim. No version: the
-   * poster carries it.
-   */
-  headline?: string
   /** The search snippet. Written for a result, so it says what is inside. */
   description: string
   /** The line under the heading. Shorter, and written for a reader who clicked. */
@@ -317,7 +306,8 @@ export const isReleased = (version?: string) =>
 
 /**
  * The post's title as every surface prints it: the `h1`, the `<title>`, the
- * card headline, the index entry and the breadcrumb.
+ * card headline and the breadcrumb. The index tile prints it less its
+ * platform tail, through `postTileTitle`.
  *
  * **No version in front.** Release titles carried "v2.1.0: " until 1 Nov
  * 2026, on the model of "Tailwind CSS v4.3: ...". That shape suits a project
@@ -328,11 +318,27 @@ export const isReleased = (version?: string) =>
  * The version still prints where a reader looks for it, above the date and on
  * the card, through `postVersionLabel`, which keeps the "Unreleased" guard.
  *
- * One function rather than `post.title` at each call site, because five
+ * One function rather than `post.title` at each call site, because four
  * surfaces print this and a second spelling on any of them is a title that
  * disagrees with the page it is on, which is the one thing Google rewrites.
  */
 export const postHeadline = (post: BlogPost) => post.title
+
+/**
+ * The title as the index tile prints it: the whole title less the platforms
+ * it ends on, "55 free transport and construction icons".
+ *
+ * The tail is there for search, and it is the same on every update post, so
+ * on a page of tiles it is the one part that reads alike twenty times. The
+ * subject in front of it is the part that differs. Tiles carried a separate
+ * newsroom-style `headline` from 1 Nov 2026 to get away from that sameness;
+ * on 2 Nov the call was for the posts' own titles instead, with the tail
+ * cut, so a tile names exactly the post it opens. Taken from the title rather than
+ * typed beside it, so the two cannot drift. A title with no such tail (1.0.0,
+ * the guide) prints whole.
+ */
+export const postTileTitle = (post: BlogPost) =>
+  post.title.replace(/ for React(, [^,]+)* and Figma$/, "")
 
 /**
  * What the meta column prints above the date: the version, or the fact that
@@ -849,7 +855,6 @@ const BATCH_0_3_1: BlogPost = {
   standfirst:
     "One umbrella became three icons: open, switched off, and a parasol " +
     "with a pole where the hook should be.",
-  headline: "A merge that was a branch all along",
   date: "2026-09-06",
   updated: "2026-11-02",
   readingMinutes: 4,
@@ -1160,7 +1165,6 @@ const BATCH_0_5_0: BlogPost = {
   standfirst:
     "Brightness sliders get their steps: the sun comes dimmed and at half " +
     "strength too.",
-  headline: "Two names the wrong way round",
   date: "2026-09-08",
   updated: "2026-11-02",
   readingMinutes: 3,
@@ -1393,7 +1397,6 @@ const BATCH_0_7_0: BlogPost = {
   standfirst:
     "Scanning got a family of its own: one frame, holding a line, text, a " +
     "barcode, a QR code, a magnifier or an eye.",
-  headline: "Swap the bubble and nothing moves",
   date: "2026-09-10",
   updated: "2026-11-02",
   readingMinutes: 4,
@@ -1594,7 +1597,6 @@ const BATCH_0_6_0: BlogPost = {
   standfirst:
     "The circled euro is centred on its bowl, not its box: its open ends " +
     "reach further right than the bowl reaches left.",
-  headline: "The rule the currencies break",
   date: "2026-09-09",
   updated: "2026-11-02",
   readingMinutes: 3,
@@ -1771,7 +1773,6 @@ const BATCH_0_8_0: BlogPost = {
     "beds and keys.",
   standfirst:
     "Two marks, Mars and Venus, opened a category of their own: Gender.",
-  headline: "Drawn because people searched for them",
   date: "2026-09-11",
   updated: "2026-11-02",
   readingMinutes: 4,
@@ -2006,7 +2007,6 @@ const BATCH_0_9_0: BlogPost = {
   standfirst:
     "Planes take off and land from this release on, beside a ship, a train " +
     "and a bike.",
-  headline: "A truck with one free corner",
   date: "2026-09-13",
   updated: "2026-11-02",
   readingMinutes: 4,
@@ -2425,7 +2425,6 @@ const RELEASE_1_1_0: BlogPost = {
   standfirst:
     "Six corner arrows turn for a reply, a forward, a redirect or a branch " +
     "in a flow.",
-  headline: "Every sparkle is the same pair",
   date: "2026-09-23",
   updated: "2026-11-02",
   readingMinutes: 4,
@@ -2676,7 +2675,6 @@ const RELEASE_1_0_0: BlogPost = {
   standfirst:
     "The first release went out on 20 August with 503 icons. A month and " +
     "fourteen releases later, this one is 1.0.",
-  headline: "Two-tone was an accident",
   date: "2026-09-18",
   updated: "2026-11-02",
   readingMinutes: 5,
@@ -3049,7 +3047,6 @@ const RELEASE_1_2_0: BlogPost = {
   standfirst:
     "Twelve more icons take a plus, from the heart and the cart to wifi " +
     "and the link.",
-  headline: "Nineteen tables in a single frame",
   date: "2026-09-24",
   updated: "2026-11-02",
   readingMinutes: 4,
@@ -3362,7 +3359,6 @@ const RELEASE_1_3_0: BlogPost = {
   standfirst:
     "There are two anchors: one curls its ends in, the other hangs two " +
     "barbed hooks.",
-  headline: "A star that leaves a trail",
   date: "2026-09-28",
   updated: "2026-11-02",
   readingMinutes: 4,
@@ -3709,7 +3705,6 @@ const RELEASE_1_4_0: BlogPost = {
   standfirst:
     "The transfer arrows borrow their heads from the repeat icon, so the " +
     "two sit well side by side.",
-  headline: "A money bag wears its symbol on the front",
   date: "2026-09-28",
   updated: "2026-11-02",
   readingMinutes: 3,
@@ -3982,7 +3977,6 @@ const RELEASE_1_5_0: BlogPost = {
     "external link.",
   standfirst:
     "Every bot glances up and to the right: the eyes are tilted a little.",
-  headline: "Filling in what shadcn/create was missing",
   date: "2026-10-01",
   updated: "2026-11-02",
   readingMinutes: 4,
@@ -4295,7 +4289,6 @@ const RELEASE_1_6_0: BlogPost = {
   standfirst:
     "`video-2` is a video camera without its reels, and `bike-2` is the " +
     "bicycle without its rider.",
-  headline: "Home has company",
   date: "2026-10-04",
   updated: "2026-11-02",
   readingMinutes: 4,
@@ -4571,7 +4564,6 @@ const RELEASE_1_7_0: BlogPost = {
   standfirst:
     "Voicemail is drawn as two reels joined by a tape, and the set's " +
     "plainest icon arrives: `dot`, one dot.",
-  headline: "The law gets a category of its own",
   date: "2026-10-05",
   updated: "2026-11-02",
   readingMinutes: 3,
@@ -4843,7 +4835,6 @@ const RELEASE_1_8_0: BlogPost = {
   standfirst:
     "A plug pulled out of its socket is `unplug`, and the flame comes with " +
     "a second one burning inside it.",
-  headline: "Frames from 1:1 to 21:9",
   date: "2026-10-11",
   updated: "2026-11-02",
   readingMinutes: 4,
@@ -5147,7 +5138,6 @@ const RELEASE_2_0_0: BlogPost = {
   standfirst:
     "`book-open-2` is a book mid page-turn, and `library-big` has two " +
     "books standing and a third leaning on them.",
-  headline: "The pieces you only notice when they're missing",
   date: "2026-10-18",
   updated: "2026-11-02",
   readingMinutes: 4,
@@ -5433,7 +5423,6 @@ const RELEASE_2_1_0: BlogPost = {
     "and waves.",
   standfirst:
     "A train track runs off into the distance, and the sea comes in waves.",
-  headline: "Screens that say what they're doing",
   date: "2026-10-20",
   updated: "2026-11-02",
   readingMinutes: 4,
@@ -5712,7 +5701,6 @@ const RELEASE_2_2_0: BlogPost = {
     "cassette.",
   standfirst:
     "Dashed speech bubbles mark a draft, or a reply still being written.",
-  headline: "Every vehicle can now be switched off",
   date: "2026-10-25",
   updated: "2026-11-02",
   readingMinutes: 4,
@@ -5998,7 +5986,6 @@ const RELEASE_2_3_0: BlogPost = {
     "Free, MIT-licensed SVG icons for a booking site: the bath and shower, " +
     "kitchen and laundry machines, a safe, a caravan, a tent and a castle.",
   standfirst: "Drawn off the amenity lists of two booking sites, one gap at a time.",
-  headline: "Hotel amenities, from the bath to the safe",
   date: "2026-10-30",
   updated: "2026-11-02",
   readingMinutes: 4,
@@ -6334,7 +6321,6 @@ const RELEASE_2_5_0: BlogPost = {
   standfirst:
     "The bus turns to face you in this release, as the tram, the car and " +
     "the taxi already did.",
-  headline: "Minibar used to find nothing",
   date: "2026-11-01",
   updated: "2026-11-01",
   readingMinutes: 4,

@@ -8,7 +8,7 @@ import {
   blogPageCount,
   blogPageHref,
   postDateLabel,
-  postHeadline,
+  postTileTitle,
   postHref,
   type BlogPost,
 } from "@/lib/blog"
@@ -214,7 +214,7 @@ function FeatureTile({ post, icons }: { post: BlogPost; icons: Icon[] }) {
         <div className="flex flex-col gap-3 p-4 md:p-6">
           <Eyebrow post={post} />
           <h2 className="text-2xl leading-tight font-semibold tracking-tight text-balance text-foreground lg:text-3xl">
-            {post.headline ?? postHeadline(post)}
+            {postTileTitle(post)}
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
             {post.standfirst}
@@ -260,7 +260,7 @@ function Tile({
         <div className="flex flex-1 flex-col gap-2 px-4 pt-4 pb-4">
           <Eyebrow post={post} />
           <h2 className="text-xl leading-snug font-semibold tracking-tight text-balance text-foreground">
-            {post.headline ?? postHeadline(post)}
+            {postTileTitle(post)}
           </h2>
           <time
             dateTime={post.date}
