@@ -230,7 +230,7 @@ pnpm dev            # the site
 pnpm icons:build    # raw/ -> icons/
 pnpm icons:react    # icons/ -> components/icons/ and packages/react/
 pnpm icons:lint     # geometry and coverage rules
-pnpm icons:ci       # everything CI runs
+pnpm icons:ci       # the icon checks; CI also runs pnpm lint and pnpm build
 ```
 
 `pipeline/README.md` is the real documentation: what the build normalises, every
