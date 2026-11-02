@@ -162,6 +162,22 @@ export type BlogCover = {
   image: { src: string; width: number; height: number }
 }
 
+/**
+ * An update's release poster from the X file, in place of the icon wall the
+ * index draws for every other update: one image per theme, both 3:2.
+ *
+ * The 2.5.0 colour bento is the first (his ask, 2 Nov 2026: "change its ratio
+ * and use it for the latest v2.5.0 update poster in blog"). The X poster is
+ * 4:5; the blog's copy is laid out again at 3:2 beside it in Figma, section
+ * "v2.5.0 blog 3:2", with every card kept. A picture rather than live drawings
+ * because the bento's layout is the point, and it is a release's poster, of a
+ * release that does not change once tagged.
+ */
+export type BlogPoster = {
+  light: { src: string; width: number; height: number }
+  dark: { src: string; width: number; height: number }
+}
+
 export type BlogBlock =
   | { kind: "p"; text: string }
   | { kind: "h2"; text: string; id: string }
@@ -243,6 +259,8 @@ export type BlogPost = {
   kind?: "guide"
   /** A guide's picture; see `BlogCover`. Without one it falls back to `thumbnail`. */
   cover?: BlogCover
+  /** An update's own release poster; see `BlogPoster`. Without one the index draws the icon wall. */
+  poster?: BlogPoster
   /** ISO date. Drives `datePublished`, the printed date and the sitemap. */
   date: string
   /** ISO date of the last substantive edit, or the publication date. */
@@ -6325,6 +6343,18 @@ const RELEASE_2_5_0: BlogPost = {
   updated: "2026-11-01",
   readingMinutes: 4,
   thumbnail: BLOG_V250_THUMBNAIL_ICON_NAMES,
+  poster: {
+    light: {
+      src: "/blog/furniture-room-and-minibar-icons/poster-light.png",
+      width: 2160,
+      height: 1440,
+    },
+    dark: {
+      src: "/blog/furniture-room-and-minibar-icons/poster-dark.png",
+      width: 2160,
+      height: 1440,
+    },
+  },
   keywords: [
     "furniture icons",
     "room icons",

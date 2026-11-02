@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import type { BlogCover } from "@/lib/blog"
+import type { BlogCover, BlogPoster } from "@/lib/blog"
 import { STYLES, type Icon } from "@/lib/icons"
 import { cn } from "@/lib/utils"
 import { Glyph } from "@/components/glyph"
@@ -199,6 +199,49 @@ export function UpdatePoster({
                 .map((row, i) => <WallRow key={i} icons={row} />)}
         </div>
       </div>
+    </div>
+  )
+}
+
+/**
+ * An update's own release poster, the 3:2 copy of its X poster (`BlogPoster`),
+ * in the same frame as the icon wall so the tile around it does not change.
+ * Two images, one per theme, both rendered and one hidden: the poster is
+ * drawn twice in Figma, and the theme is a class on the page, not a media
+ * query `<picture>` could follow.
+ */
+export function ImagePoster({
+  poster,
+  className,
+}: {
+  poster: BlogPoster
+  className?: string
+}) {
+  const sizes = "(min-width: 1280px) 400px, (min-width: 640px) 50vw, 100vw"
+  return (
+    <div
+      aria-hidden="true"
+      className={cn(
+        "aspect-[3/2] overflow-hidden rounded-md bg-background shadow-xs",
+        className
+      )}
+    >
+      <Image
+        src={poster.light.src}
+        alt=""
+        width={poster.light.width}
+        height={poster.light.height}
+        sizes={sizes}
+        className="size-full object-cover dark:hidden"
+      />
+      <Image
+        src={poster.dark.src}
+        alt=""
+        width={poster.dark.width}
+        height={poster.dark.height}
+        sizes={sizes}
+        className="hidden size-full object-cover dark:block"
+      />
     </div>
   )
 }

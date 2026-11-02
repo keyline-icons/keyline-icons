@@ -16,7 +16,11 @@ import history from "@/lib/icon-history.json"
 import { loadIcons, type Icon } from "@/lib/icons"
 import { blogJsonLd, pageMetadata } from "@/lib/seo"
 import { SET_TITLE } from "@/lib/site-chrome"
-import { GuidePoster, UpdatePoster } from "@/components/blog-poster"
+import {
+  GuidePoster,
+  ImagePoster,
+  UpdatePoster,
+} from "@/components/blog-poster"
 import { BookOpen } from "@/components/icons"
 import { Pager } from "@/components/pager"
 import { SiteFooter } from "@/components/site-footer"
@@ -170,6 +174,8 @@ function Poster({
 }) {
   if (post.cover)
     return <GuidePoster cover={post.cover} className={className} />
+  if (post.poster)
+    return <ImagePoster poster={post.poster} className={className} />
 
   const release = releaseOf(post)
   const ordered = drawingsOf(post, icons)
