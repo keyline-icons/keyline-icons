@@ -169,25 +169,6 @@ train is train-front now, beside tram-front, and the old name still finds it.
 * Layout and Actions: a list of checks, indents in and out, a nested list and a list with a pin; the no-entry slash inside a square, both ways round, and the star and the lightning bolt in a square and a circle
 * And more: a plug with a lightning bolt, a plug in a ring, a panel with code brackets in its top edge, two boxes joined by a path, an open book with a page turning, two books standing with a third leaning on them, a pin pushed into the ground, a large frame over a strip of thumbnails, play and pause on one key, and NFC
 
-1.8.0
-69 new drawings, taking the set to 1,435 names and 11,480 SVGs.
-
-* Arrows: long arrows up, down, left and right, on the four diagonals, and with a head at each end, across, upright and on both diagonals; the four arrow pairs again with their heads at the far ends, and the exchange pair with one barb on each arrow; undo and redo, each again with a dot
-* Media: the common aspect ratios as frames, square, 4:3 and 3:4, 3:2 and 2:3, 16:9 and 9:16, and 21:9, a frame marked at two corners for the ratio itself, keyframes on a timeline, and shuffle as two straight arrows crossing
-* Text: a text field with its caret, then with a pointer, with the text cursor and with both; the text cursor on its own, three lines split by a bar, and two lines held between two corners
-* Layout and Web: a bento grid, a masonry grid, two arrows folding against a line across and upright, the flips again as a square half drawn and half dashed, and a to-do list with round boxes; two nodes linked, four nodes, and a webhook
-* And more: a box, a SIM card, a plug pulled out of its socket, directions, the diff mark on its own and on a file, braces and brackets around an ellipsis, a badge with a prompt, a plainer robot head, a broom, a hand and a text field with sparkles, a collapse mark, a user in a dashed ring, a house with a smile, an inbox with a dot, a handbag and a basket with a search glass, and a flame with a second one burning inside it
-
-Also redrawn: the four two-arrow pairs take the long arrows' bigger head, and the hand under the coins closes into one shape.
-
-1.7.0
-34 new drawings, taking the set to 1,366 names and 10,928 SVGs, and a new Law category.
-
-* Law: a gavel, a balance standing level and tipped either way, and a signature over its line
-* Health: a heart with a pulse, a stethoscope, a syringe, a capsule and an adhesive bandage
-* Text, Math and Devices: an A with an arrow up or down for text size, a spell check, a capital T for the text tool, curly braces, square brackets and a regular expression
-* And more: an arrow entering a bracket for signing in and one leaving it for signing out, a charging battery, a webcam, voicemail, a location mark and the same mark with its centre found, a spiral notebook and one with a pen, an image struck through, a telescope, a hand under two coins, a filter list, a to-do list, the dashed progress ring with a plus or an arrow up, and a single dot
-
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
 
@@ -773,6 +754,16 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+v2.5.0
+38 new drawings. The set is 1,692 names now, 1,553 component sets and 13,536 variants, up from 1,654 and 13,232. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
+
+* Home: a couch, a desk and an office desk with drawers, a roller blind, a radiator, a round mirror on a stand, a minibar fridge, a hot tub, a sun lounger and a table under a parasol
+* Food and Weather: a croissant beside a cup of coffee, a can of soda, a spoon and a fork; the sun rising and setting over the sea
+* Off states: the keyboard, the mouse, the server, the earbuds, the repeat and refresh arrows, the flashlight, the wrench, the flag, the locate mark, the bookmark, the oven, the washing machine, the cooking pot, the charging post and the flame, each struck through
+* And more: a bus seen from the front, a tower between lower wings, a pencil across a set square, two bookmarks stacked, a briefcase with an arrow down, and a house and a square with sparkles
+
+Also redrawn: 47 drawings, most of them in duotone, where ten buildings now draw the door as a solid shape that stops short of the ground. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
+
 v2.3.0
 31 new drawings. The set is 1,654 names now, 1,515 component sets and 13,232 variants, up from 1,623 and 12,984. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
 
@@ -805,17 +796,6 @@ v2.0.0
 * Arrows: u-turns that turn back at a line, in all four directions and mirrored; arrows passing through a line; and three big arrows with a bar behind, to match the one pointing up
 * Layout and Actions: a list of checks, indents in and out, a nested list and a list with a pin; the no-entry slash inside a square, both ways round, and the star and the lightning bolt in a square and a circle
 * And more: a plug with a lightning bolt, a plug in a ring, a panel with code brackets in its top edge, two boxes joined by a path, an open book with a page turning, two books standing with a third leaning on them, a pin pushed into the ground, a large frame over a strip of thumbnails, play and pause on one key, and NFC
-
-v1.8.0
-69 new drawings. The set is 1,435 names now, 1,308 component sets and 11,480 variants, up from 1,366 and 10,928. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
-
-* Arrows: long arrows up, down, left and right, on the four diagonals, and with a head at each end, across, upright and on both diagonals; the four arrow pairs again with their heads at the far ends, and the exchange pair with one barb on each arrow; undo and redo, each again with a dot
-* Media: the common aspect ratios as frames, square, 4:3 and 3:4, 3:2 and 2:3, 16:9 and 9:16, and 21:9, a frame marked at two corners for the ratio itself, keyframes on a timeline, and shuffle as two straight arrows crossing
-* Text: a text field with its caret, then with a pointer, with the text cursor and with both; the text cursor on its own, three lines split by a bar, and two lines held between two corners
-* Layout and Web: a bento grid, a masonry grid, two arrows folding against a line across and upright, the flips again as a square half drawn and half dashed, and a to-do list with round boxes; two nodes linked, four nodes, and a webhook
-* And more: a box, a SIM card, a plug pulled out of its socket, directions, the diff mark on its own and on a file, braces and brackets around an ellipsis, a badge with a prompt, a plainer robot head, a broom, a hand and a text field with sparkles, a collapse mark, a user in a dashed ring, a house with a smile, an inbox with a dot, a handbag and a basket with a search glass, and a flame with a second one burning inside it
-
-Also redrawn: the four two-arrow pairs take the long arrows' bigger head, and the hand under the coins closes into one shape. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
@@ -857,7 +837,10 @@ entries (9,529 and 8,800 before, 8,147 and 7,165 after), 1.6.0 from the
 plugin's on 25 Oct 2026 with the 2.2.0 entries (9,213 before, 7,874 after; the
 file's reached 8,342 and kept its v1.7.0), v1.7.0 from the file's on 30 Oct 2026
 with the 2.3.0 entries (9,091 before, 8,033 after; the plugin's reached 8,582 and kept
-its 1.7.0), and a
+its 1.7.0), 1.8.0 and 1.7.0 from the plugin's on 2 Nov 2026 with the 2.5.0 entry
+(9,629 before, which Figma refused at the paste, 7,224 after; the file's
+took its missing v2.5.0 entry the same day and gave up v1.8.0, 8,034
+before, 7,452 after), and a
 last line points at
 `keylineicons.com/changelog`, which keeps every release.
 
