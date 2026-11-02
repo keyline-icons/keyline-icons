@@ -1142,9 +1142,17 @@ Two things that cost time when they go wrong:
 - **The root `tsconfig.json` leaves out `packages/react` too**, for time rather
   than dependencies. Its eight generated modules were about 80% of every root
   type check, and `next build` repeated that check on each deploy. `icons:ci`
-  compiles the package on its own instead (`tsc -p packages/react`, right after
-  `build-react --check`), so a generator change that breaks the types of one
+  compiles the package on its own instead (`tsc -p packages/react`, once the
+  sync checks have passed), so a generator change that breaks the types of one
   style module still fails CI and not only `npm publish`.
+- **And it leaves out `registry/`, for the same reason.** The 13,536 standalone
+  components `build-github-registry` writes were 53 of the 65 seconds of a cold
+  root type check on 2 Nov 2026, and `next build` checked them a second time.
+  They have their own project, `tsconfig.registry.json`, which `icons:ci` and
+  `ship` run. The exclusion was meant from the start: `registry/icons` was left
+  out when the registry landed on 16 Oct 2026, and went stale the same day when
+  the files moved to one folder per style, so for two weeks every root check
+  and every build paid for them.
 
 `react` builds its `dist/` from `prepublishOnly`, so the directory is
 gitignored and never commits; a stale local build cannot ship. `npm publish

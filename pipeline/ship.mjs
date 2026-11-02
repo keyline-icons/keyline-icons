@@ -155,6 +155,10 @@ if (node("check-search.mjs").code !== 0) die("the four searches disagree")
 
 const tsc = run("npx", ["tsc", "--noEmit"])
 if (tsc.code !== 0) die("typecheck failed")
+// The registry output has its own project, so the site's no longer covers it.
+// It is what this commit just regenerated, so it is checked here as before.
+const registryTsc = run("npx", ["tsc", "-p", "tsconfig.registry.json", "--noEmit"])
+if (registryTsc.code !== 0) die("the registry output does not typecheck")
 ok("typecheck clean")
 
 /* --------------------------------------------------------------- commit */

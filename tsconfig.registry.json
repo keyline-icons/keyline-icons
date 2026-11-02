@@ -1,0 +1,9 @@
+{
+  // The registry output, type-checked on its own: 13,536 standalone components
+  // that a shadcn consumer copies into their project, so a type error in one is
+  // theirs to find. The site's tsconfig.json excludes them, because `next build`
+  // type-checks that project as well and paid for these twice.
+  "extends": "./tsconfig.json",
+  "include": ["registry/**/*.tsx"],
+  "exclude": []
+}
