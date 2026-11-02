@@ -37,8 +37,22 @@ permissions:
   contents: read
 
 jobs:
+  # One job per command, on three runners at once, so the run takes as long as
+  # the slowest of them rather than the sum. In one job they ran in a row: 157s,
+  # 212s and 100s on the release/2.5.0 push of 2 Nov 2026, 8.1 minutes of job
+  # for three commands that share nothing but the install. Each runner installs
+  # on its own, which costs about 15 seconds against the minutes it saves.
+  #
+  # A matrix rather than three jobs written out, so the setup below exists once
+  # and a fourth command is one line. `fail-fast: false` because the three
+  # answer different questions: a lint error is no reason to cancel the build
+  # that would have reported a second, unrelated failure in the same push.
   check:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        command: [icons:ci, lint, build]
     # All three actions are on v5, the first major of each that runs on Node 24;
     # every earlier one runs on Node 20 and warns on every run. None of the
     # three renamed an input between v4 and v5.
@@ -80,7 +94,7 @@ jobs:
 
       # `icons:ci` runs `next typegen` itself, and has to. `next-env.d.ts` is
       # gitignored, so it never exists on a fresh checkout, and it is the file
-      # that pulls in `next/image-types/global` — the declaration for `*.png`
+      # that pulls in `next/image-types/global`, the declaration for `*.png`
       # imports. Without it `tsc` fails with "Cannot find module
       # '@/public/mockups/figma.png'" about a file that is committed and
       # present.
@@ -89,12 +103,6 @@ jobs:
       # so the first CI run is the first honest test of a clean checkout. It
       # was, and this is what it caught. Putting the fix in the script rather
       # than in a step here keeps `pnpm icons:ci` the same check locally as on
-      # GitHub. CONTRIBUTING says CI runs it first, then `pnpm lint` and
-      # `pnpm build`, the two steps below: pass all three locally, pass here.
-      - run: pnpm icons:ci
-
-      - run: pnpm lint
-
-      # Last because it is the slowest, and because everything above narrows
-      # down which of its failures would even be worth reading.
-      - run: pnpm build
+      # GitHub. CONTRIBUTING says CI runs it, `pnpm lint` and `pnpm build`, the
+      # three commands in the matrix: pass all three locally, pass here.
+      - run: pnpm ${{ matrix.command }}

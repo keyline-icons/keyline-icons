@@ -52,8 +52,9 @@ pnpm icons:ci
 
 That runs the sync checks for `icons/`, the React modules and the Figma cover,
 then the geometry linter, the demo reference check and `tsc --noEmit` for the
-site and for `packages/react`. CI runs it first, then `pnpm lint` and
-`pnpm build`: run all three and what passes locally passes on GitHub.
+site, for `packages/react` and for the registry output. CI runs it beside
+`pnpm lint` and `pnpm build`: run all three and what passes locally passes on
+GitHub.
 
 Two checks sit outside it deliberately and are worth running by hand if you have
 touched what they cover:

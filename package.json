@@ -8,7 +8,7 @@
     "dev": "next dev --port 3002",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint --concurrency=4",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "next typegen && tsc --noEmit && tsc -p tsconfig.registry.json --noEmit && tsc -p packages/react --noEmit --declaration false",
     "icons:build": "node pipeline/build.mjs",

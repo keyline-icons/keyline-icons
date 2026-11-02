@@ -35,12 +35,14 @@ A hand-edit to any of those passes review and is destroyed by the next build.
 pnpm icons:ci
 ```
 
-The first of the three things CI runs, then `pnpm lint` and `pnpm build`; a
-change that passes this alone can still fail on either. It holds the sync
-checks, the geometry linter, the demo reference check, and `tsc` twice: once
-for the site and once for `packages/react`, which the site's own
-`tsconfig.json` leaves out so that `next build` does not type-check the
-generated package on every deploy. Three checks sit outside CI on purpose:
+One of the three things CI runs, beside `pnpm lint` and `pnpm build` on their
+own runners; a change that passes this alone can still fail on either. It holds
+the sync checks, the geometry linter, the demo reference check, and `tsc` three
+times: for the site, for `packages/react` and for `registry/`. The site's own
+`tsconfig.json` leaves the last two out so that `next build` does not
+type-check generated code on every deploy. The four slow checks run at once,
+after the sync checks, through `pipeline/parallel.mjs`. Three checks sit outside
+CI on purpose:
 `icons:figma` needs the Figma file, `brand:check` rasterises through headless
 Chrome where two versions disagree by a pixel, and `history:check` reads git.
 
