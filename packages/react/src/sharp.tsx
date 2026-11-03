@@ -8548,6 +8548,30 @@ export function MoneyBag(props: IconProps) {
   )
 }
 
+export function Monitor22k(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M2 3L22 3L22 17L2 17ZM12 17L12 21M7 21L17 21M6 8.3C6.3 7.5 7 7 8 7C9.2 7 10 7.7 10 8.7C10 9.6 9.4 10.2 8.6 10.8L6 13L10.5 13M14 6L14 14M18 7L14 10.8M15.2 9.66L18 13" fill="none" />
+    </Icon>
+  )
+}
+
+export function Monitor24k(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M2 3L22 3L22 17L2 17ZM12 17L12 21M7 21L17 21M9 14L9 7L6 11.2L10.5 11.2M14 6L14 14M18 7L14 10.8M15.2 9.66L18 13" fill="none" />
+    </Icon>
+  )
+}
+
+export function Monitor28k(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M2 3L22 3L22 17L2 17ZM12 17L12 21M7 21L17 21M8 10C9.1 10 10 9.33 10 8.5C10 7.67 9.1 7 8 7C6.9 7 6 7.67 6 8.5C6 9.33 6.9 10 8 10ZM8 10C6.9 10 6 10.67 6 11.5C6 12.33 6.9 13 8 13C9.1 13 10 12.33 10 11.5C10 10.67 9.1 10 8 10ZM14 6L14 14M18 7L14 10.8M15.2 9.66L18 13" fill="none" />
+    </Icon>
+  )
+}
+
 export function Monitor2ArrowDown(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -8596,6 +8620,14 @@ export function Monitor2Dot(props: IconProps) {
   )
 }
 
+export function Monitor2Hd(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M2 3L22 3L22 17L2 17ZM12 17L12 21M7 21L17 21M6 6L6 14M10 6L10 14M6 10L10 10M14 7L15 7C16.7 7 18 8.3 18 10C18 11.7 16.7 13 15 13L14 13Z" fill="none" />
+    </Icon>
+  )
+}
+
 export function Monitor2Minus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -8624,6 +8656,14 @@ export function Monitor2Plus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M13 3L2 3L2 17L22 17L22 12M12 17L12 21M7 21L17 21M19 2L19 10M15 6L23 6" fill="none" />
+    </Icon>
+  )
+}
+
+export function Monitor2Sd(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M2 3L22 3L22 17L2 17ZM12 17L12 21M7 21L17 21M10 8.3C9.7 7.5 8.9 7 8 7C6.9 7 6 7.6 6 8.5C6 9.5 6.9 9.8 8 10C9.1 10.2 10 10.6 10 11.5C10 12.4 9.1 13 8 13C7.1 13 6.3 12.5 6 11.7M14 7L15 7C16.7 7 18 8.3 18 10C18 11.7 16.7 13 15 13L14 13Z" fill="none" />
     </Icon>
   )
 }
@@ -15059,16 +15099,21 @@ export {
   MoneyBagPlus as MoneyBagPlusIcon,
   MoneyBagX as MoneyBagXIcon,
   MoneyBag as MoneyBagIcon,
+  Monitor22k as Monitor22kIcon,
+  Monitor24k as Monitor24kIcon,
+  Monitor28k as Monitor28kIcon,
   Monitor2ArrowDown as Monitor2ArrowDownIcon,
   Monitor2ArrowInUpRight as Monitor2ArrowInUpRightIcon,
   Monitor2ArrowUp as Monitor2ArrowUpIcon,
   Monitor2Check as Monitor2CheckIcon,
   Monitor2Cog as Monitor2CogIcon,
   Monitor2Dot as Monitor2DotIcon,
+  Monitor2Hd as Monitor2HdIcon,
   Monitor2Minus as Monitor2MinusIcon,
   Monitor2Pause as Monitor2PauseIcon,
   Monitor2Play as Monitor2PlayIcon,
   Monitor2Plus as Monitor2PlusIcon,
+  Monitor2Sd as Monitor2SdIcon,
   Monitor2Stop as Monitor2StopIcon,
   Monitor2X as Monitor2XIcon,
   Monitor2 as Monitor2Icon,

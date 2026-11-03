@@ -14548,6 +14548,48 @@
       ]
     },
     {
+      "name": "fill/monitor-2-2k",
+      "type": "registry:component",
+      "title": "Monitor22k",
+      "description": "Monitor22k, the fill drawing of monitor-2-2k on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-2k: https://keylineicons.com/icons/monitor-2-2k",
+      "files": [
+        {
+          "path": "icons/monitor-2-2k.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/monitor-2-2k.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/monitor-2-4k",
+      "type": "registry:component",
+      "title": "Monitor24k",
+      "description": "Monitor24k, the fill drawing of monitor-2-4k on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-4k: https://keylineicons.com/icons/monitor-2-4k",
+      "files": [
+        {
+          "path": "icons/monitor-2-4k.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/monitor-2-4k.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/monitor-2-8k",
+      "type": "registry:component",
+      "title": "Monitor28k",
+      "description": "Monitor28k, the fill drawing of monitor-2-8k on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-8k: https://keylineicons.com/icons/monitor-2-8k",
+      "files": [
+        {
+          "path": "icons/monitor-2-8k.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/monitor-2-8k.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/monitor-2-arrow-down",
       "type": "registry:component",
       "title": "Monitor2ArrowDown",
@@ -14632,6 +14674,20 @@
       ]
     },
     {
+      "name": "fill/monitor-2-hd",
+      "type": "registry:component",
+      "title": "Monitor2Hd",
+      "description": "Monitor2Hd, the fill drawing of monitor-2-hd on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-hd: https://keylineicons.com/icons/monitor-2-hd",
+      "files": [
+        {
+          "path": "icons/monitor-2-hd.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/monitor-2-hd.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/monitor-2-minus",
       "type": "registry:component",
       "title": "Monitor2Minus",
@@ -14684,6 +14740,20 @@
           "path": "icons/monitor-2-plus.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/monitor-2-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/monitor-2-sd",
+      "type": "registry:component",
+      "title": "Monitor2Sd",
+      "description": "Monitor2Sd, the fill drawing of monitor-2-sd on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-sd: https://keylineicons.com/icons/monitor-2-sd",
+      "files": [
+        {
+          "path": "icons/monitor-2-sd.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/monitor-2-sd.tsx"
         }
       ]
     },
