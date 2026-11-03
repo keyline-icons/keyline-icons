@@ -73,14 +73,14 @@ Keyline Icons
 ## Tagline
 
 ```
-1,692 icons, four styles, rounded or sharp corners. Searchable in Figma and FigJam.
+1,697 icons, four styles, rounded or sharp corners. Searchable in Figma and FigJam.
 ```
 
 Capped at 100 characters. The line above is 81, so there is still room. A
 shorter alternative if it ever needs one:
 
 ```
-1,692 icons in four styles, cut rounded or sharp.
+1,697 icons in four styles, cut rounded or sharp.
 ```
 
 ## Description
@@ -94,20 +94,20 @@ which only ever shows the newest entry. Someone deciding whether to install
 wants to see the set is maintained, and that is what a history says.
 
 ```
-Search 1,692 icons and drop one on the canvas. No library to publish, no file to duplicate, no plan requirement.
+Search 1,697 icons and drop one on the canvas. No library to publish, no file to duplicate, no plan requirement.
 
 Four styles
 
-* Stroke: 1,692 icons, 2px, round caps and joins
-* Two-tone: 1,692 icons, a 40% plate under the line
-* Duotone: 1,692 icons, no outline, a grey body with the detail in black
-* Fill: 1,692 icons, solid where the glyph has a region to fill
+* Stroke: 1,697 icons, 2px, round caps and joins
+* Two-tone: 1,697 icons, a 40% plate under the line
+* Duotone: 1,697 icons, no outline, a grey body with the detail in black
+* Fill: 1,697 icons, solid where the glyph has a region to fill
 
-Two corner treatments, and every drawing has both. Rounded is the keyline the set was drawn on; sharp takes every corner to a true point and ends each stroke square. Coverage is identical, so switching never costs you a drawing. 13,536 SVGs in total.
+Two corner treatments, and every drawing has both. Rounded is the keyline the set was drawn on; sharp takes every corner to a true point and ends each stroke square. Coverage is identical, so switching never costs you a drawing. 13,576 SVGs in total.
 
 67 icons also come in a square- form and 72 in a circle- form, so a container is a search away rather than a second drawing.
 
-Search knows more than the file names. 1,553 icons carry curated words, so "south" finds arrow-down, "torch" finds flashlight and "trash" finds bin. Paste a component name straight out of your code and it resolves: CheckCircle2 finds circle-check.
+Search knows more than the file names. 1,558 icons carry curated words, so "south" finds arrow-down, "torch" finds flashlight and "trash" finds bin. Paste a component name straight out of your code and it resolves: CheckCircle2 finds circle-check.
 
 Browse the set the way the site files it, shelf by shelf, with every shelf a click away from wherever you are. The icons you used last wait at the top, and the panel opens next time on the style, corners and size you left it on.
 
@@ -200,7 +200,7 @@ expectation for an icon set. `free icons` overlaps `open source`, and page four
 marks the plugin Free natively.
 
 That leaves the five that actually distinguish it: FigJam support is rare among
-icon plugins, 1,692 duotone drawings are rare among icon sets, a set that ships
+icon plugins, 1,697 duotone drawings are rare among icon sets, a set that ships
 every drawing rounded *and* sharp is rarer still, and the rest name the audience
 rather than the artefact.
 
@@ -739,13 +739,13 @@ Keyline Icons
 ### Description
 
 ```
-1,692 icons on a 24×24 grid, in four styles and two corner treatments: stroke, two-tone, duotone and fill, cut rounded or sharp. MIT licensed, free for commercial work, no attribution required.
+1,697 icons on a 24×24 grid, in four styles and two corner treatments: stroke, two-tone, duotone and fill, cut rounded or sharp. MIT licensed, free for commercial work, no attribution required.
 
-1,553 component sets, each with three variant properties, Container, Style and Corners, so you switch between regular, square and circle, between the four styles, and between rounded and sharp, without swapping components. 67 icons carry a square- form and 72 a circle-.
+1,558 component sets, each with three variant properties, Container, Style and Corners, so you switch between regular, square and circle, between the four styles, and between rounded and sharp, without swapping components. 67 icons carry a square- form and 72 a circle-.
 
-Every name comes in all four styles. Two-tone keeps the outline over a 40% plate, which is what duotone meant until 0.9.0; duotone now drops the outline and puts the part that matters in black. The four counts: stroke 1,692, two-tone 1,692, duotone 1,692, fill 1,692.
+Every name comes in all four styles. Two-tone keeps the outline over a 40% plate, which is what duotone meant until 0.9.0; duotone now drops the outline and puts the part that matters in black. The four counts: stroke 1,697, two-tone 1,697, duotone 1,697, fill 1,697.
 
-Every drawing exists in both treatments, so sharp is a switch rather than a second library: 13,536 variants over the same 1,692 names.
+Every drawing exists in both treatments, so sharp is a switch rather than a second library: 13,576 variants over the same 1,697 names.
 
 The Catalog page files every icon under one of 41 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
 
