@@ -2247,7 +2247,6 @@
     ],
     "mic": [
       "mic-audio-lines",
-      "mic-signal",
       "mic-vocal"
     ],
     "minimize": [
@@ -2282,12 +2281,14 @@
     ],
     "search": [
       "search-alert",
-      "search-code"
+      "search-code",
+      "search-exclamation-point"
     ],
     "share": [
       "share-2"
     ],
     "archive": [
+      "archive-arrow-up",
       "archive-restore"
     ],
     "arrow-down": [
@@ -2323,6 +2324,7 @@
       "chart-bar-increasing"
     ],
     "battery": [
+      "battery-exclamation-point",
       "battery-plus",
       "battery-warning"
     ],
@@ -2362,6 +2364,7 @@
     ],
     "clock": [
       "clock-alert",
+      "clock-exclamation-point",
       "clock-fading"
     ],
     "cloud": [
@@ -2483,6 +2486,7 @@
       "lock-keyhole"
     ],
     "mail": [
+      "mail-exclamation-point",
       "mail-question-mark",
       "mail-search",
       "mail-warning"
@@ -2510,6 +2514,7 @@
       "message-circle",
       "message-circle-code",
       "message-circle-dashed",
+      "message-circle-exclamation-point",
       "message-circle-heart",
       "message-circle-more",
       "message-circle-reply",
@@ -2527,6 +2532,7 @@
     "message-square": [
       "message-square-code",
       "message-square-diff",
+      "message-square-exclamation-point",
       "message-square-heart",
       "message-square-lock",
       "message-square-more",
@@ -2559,7 +2565,6 @@
       "repeat-2"
     ],
     "rotate-ccw": [
-      "rotate-ccw-clock",
       "rotate-ccw-key",
       "rotate-ccw-square"
     ],
@@ -2764,10 +2769,12 @@
       "train"
     ],
     "triangle-alert": [
-      "alert-triangle"
+      "alert-triangle",
+      "triangle-exclamation-point"
     ],
     "circle-alert": [
-      "alert-circle"
+      "alert-circle",
+      "circle-exclamation-point"
     ],
     "easel": [
       "presentation"
@@ -2916,6 +2923,57 @@
     ],
     "monitor-2-x": [
       "monitor-x"
+    ],
+    "waves": [
+      "waves-horizontal"
+    ],
+    "bold": [
+      "letter-b"
+    ],
+    "heading": [
+      "letter-h"
+    ],
+    "badge-alert": [
+      "badge-exclamation-point"
+    ],
+    "cloud-alert": [
+      "cloud-exclamation-point"
+    ],
+    "octagon-alert": [
+      "octagon-exclamation-point"
+    ],
+    "shield-alert": [
+      "shield-exclamation-point"
+    ],
+    "history": [
+      "rotate-ccw-clock"
+    ],
+    "podcast": [
+      "mic-signal"
+    ],
+    "face-frown": [
+      "face-slightly-frowning",
+      "frown"
+    ],
+    "face-laugh": [
+      "face-grinning",
+      "laugh"
+    ],
+    "face-smile-plus": [
+      "face-slightly-smiling-plus",
+      "smile-plus"
+    ],
+    "flip-horizontal": [
+      "flip-vertical-2",
+      "triangles-centerline-dashed-vertical"
+    ],
+    "flip-vertical": [
+      "flip-horizontal-2",
+      "triangles-centerline-dashed-horizontal"
+    ],
+    "music-note": [
+      "eighth-note",
+      "music-2"
     ]
   },
   "$names": "Names other sets use for a drawing here, keyed by the drawing. Matched against the whole query, never split into words: these are names, not keywords, and folding `message-square` into a keyword list makes a search for `square` return every message icon. All four searches rank one second only to the exact name, so it leads wherever the set does not draw that name itself; once the set does, the row is stale, and pipeline/check-search.mjs fails until it is deleted."
