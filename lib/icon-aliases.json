@@ -2321,7 +2321,8 @@
     ],
     "bar-chart": [
       "chart-bar-decreasing",
-      "chart-bar-increasing"
+      "chart-bar-increasing",
+      "chart-no-axes-column"
     ],
     "battery": [
       "battery-exclamation-point",
@@ -2398,7 +2399,6 @@
       "file-clock",
       "file-code-corner",
       "file-digit",
-      "file-headphone",
       "file-heart",
       "file-input",
       "file-key",
@@ -2407,7 +2407,6 @@
       "file-output",
       "file-pen",
       "file-pen-line",
-      "file-play",
       "file-question-mark",
       "file-scan",
       "file-search-corner",
@@ -2974,6 +2973,18 @@
     "music-note": [
       "eighth-note",
       "music-2"
+    ],
+    "bar-chart-2": [
+      "chart-no-axes-column-increasing"
+    ],
+    "shield-question": [
+      "shield-question-mark"
+    ],
+    "file-audio": [
+      "file-headphone"
+    ],
+    "file-video": [
+      "file-play"
     ]
   },
   "$names": "Names other sets use for a drawing here, keyed by the drawing. Matched against the whole query, never split into words: these are names, not keywords, and folding `message-square` into a keyword list makes a search for `square` return every message icon. All four searches rank one second only to the exact name, so it leads wherever the set does not draw that name itself; once the set does, the row is stale, and pipeline/check-search.mjs fails until it is deleted."
