@@ -384,18 +384,21 @@ export const CATEGORIES = [
     blurb: "The Mars and Venus marks.",
   },
   // Opened 22 Sep 2026 with the symbol batch. Ahead of Actions, whose `x`
-  // would otherwise take `x-line-top`. `plus`, `minus` and `x` stay in Actions
-  // as verbs and `percent` in Commerce as a discount; these are the marks a
-  // formula is written in. The single brackets and the tally joined on 18 Oct 2026 (2.0.0); a
+  // would otherwise take `x-line-top`. `x` stays in Actions as a verb, the mark
+  // that closes a thing, and `percent` in Commerce as a discount; these are the
+  // marks a formula is written in. `plus` and `minus` stayed in Actions as verbs
+  // until 7 Nov 2026, when the comparison signs arrived and a shelf with divide
+  // and equal but neither of them read as missing two. Search finds them either way.
+  // The single brackets and the tally joined on 18 Oct 2026 (2.0.0); a
   // single `bracket-` is spelled out, since `bracket-arrow-*` is the log-in pair in Arrows.
   {
     label: "Math",
     // The Greek letters, the function sign, the angle and the radius joined on 20 Oct 2026 (2.1.0),
     // sigma, pi and function with their square and circle forms, which have to be
     // claimed here before Shapes takes every `square-` and `circle-`.
-    match: /^(asterisk|braces|brackets|divide|equal|hash|infinity|parentheses|radical|variable|x-line-top|brace-(?:left|right)|bracket-(?:left|right)|parenthesis-(?:left|right)|tally|angle|radius|lambda|omega|phi|(?:square-|circle-)?(?:sigma|pi|function))(-|$)/,
+    match: /^(asterisk|braces|brackets|divide|equal|hash|infinity|minus|parentheses|plus|radical|variable|x-line-top|brace-(?:left|right)|bracket-(?:left|right)|parenthesis-(?:left|right)|tally|angle|radius|lambda|omega|phi|(?:square-|circle-)?(?:sigma|pi|function))(-|$)/,
     blurb:
-      "The equals and its approximate and negated forms, divide, the radical, infinity, the asterisk, the hash, the parentheses, braces and brackets in pairs and alone, the tally from one to five, the variable and the mean, sigma, pi, lambda, omega and phi, the function sign, the angle and the radius.",
+      "Plus and minus, the equals and its approximate and negated forms, divide, the radical, infinity, the asterisk, the hash, the parentheses, braces and brackets in pairs and alone, the tally from one to five, the variable and the mean, sigma, pi, lambda, omega and phi, the function sign, the angle and the radius.",
   },
   // Opened the same day: the keys a shortcut is spelled with. Caps lock, tab
   // and return are arrows and file in Arrows; eject is a transport control and
@@ -429,8 +432,8 @@ export const CATEGORIES = [
     // someone in trouble, and the mark a help or support link wears.
     // `fire-extinguisher` joined on 25 Oct 2026 (2.2.0) beside them: the safety kit on the wall.
     match:
-      /^(check|double-check|plus|minus|x|more|lock|unlock|key(?:-round|-square)?$|shield|badge|download|upload|filter|eye|star|heart(?!-pulse)|hand-heart|alert|octagon-(?!dot$)|triangle-alert|info|question|lightbulb|zap|flame|ban(?!dage)|siren$|delete$|lifebuoy$|fire-extinguisher$)/,
-    blurb: "Checks, crosses, pluses, the everyday verbs, the siren, the lifebuoy, the fire extinguisher and the marks that guard a thing.",
+      /^(check|double-check|x|more|lock|unlock|key(?:-round|-square)?$|shield|badge|download|upload|filter|eye|star|heart(?!-pulse)|hand-heart|alert|octagon-(?!dot$)|triangle-alert|info|question|lightbulb|zap|flame|ban(?!dage)|siren$|delete$|lifebuoy$|fire-extinguisher$)/,
+    blurb: "Checks, crosses, the everyday verbs, the siren, the lifebuoy, the fire extinguisher and the marks that guard a thing.",
   },
   {
     // Next to Actions rather than inside it: those are marks you read, a check
