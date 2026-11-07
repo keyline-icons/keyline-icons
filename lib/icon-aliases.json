@@ -438,13 +438,11 @@
       ]
     },
     {
-      "match": "^flower$",
+      "match": "^circles-five$",
       "terms": [
-        "nature",
-        "plant",
-        "bloom",
-        "spring",
-        "rose"
+        "flower",
+        "rings",
+        "dots"
       ]
     },
     {
@@ -2240,9 +2238,6 @@
     ],
     "chevron-up": [
       "control"
-    ],
-    "flower": [
-      "flower-2"
     ],
     "loader": [
       "loader-pinwheel"

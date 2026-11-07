@@ -5,7 +5,7 @@ type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
   size?: number | string
 }
 
-export function Flower({ size = 24, ...props }: IconProps) {
+export function CirclesFive({ size = 24, ...props }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

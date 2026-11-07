@@ -4219,6 +4219,14 @@ export function CirclesDashed(props: IconProps) {
   )
 }
 
+export function CirclesFive(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <path d="M9.6 5.2162C9.6 3.8907 10.6745 2.8162 12 2.8162C13.3255 2.8162 14.4 3.8907 14.4 5.2162C14.4 6.5417 13.3255 7.6162 12 7.6162C10.6745 7.6162 9.6 6.5417 9.6 5.2162ZM16.7329 10.3986C16.7329 9.0731 17.8074 7.9986 19.1329 7.9986C20.4584 7.9986 21.5329 9.0731 21.5329 10.3986C21.5329 11.7241 20.4584 12.7986 19.1329 12.7986C17.8074 12.7986 16.7329 11.7241 16.7329 10.3986ZM14.0084 18.7838C14.0084 17.4583 15.0829 16.3838 16.4084 16.3838C17.7339 16.3838 18.8084 17.4583 18.8084 18.7838C18.8084 20.1093 17.7339 21.1838 16.4084 21.1838C15.0829 21.1838 14.0084 20.1093 14.0084 18.7838ZM5.1916 18.7838C5.1916 17.4583 6.2661 16.3838 7.5916 16.3838C8.9171 16.3838 9.9916 17.4583 9.9916 18.7838C9.9916 20.1093 8.9171 21.1838 7.5916 21.1838C6.2661 21.1838 5.1916 20.1093 5.1916 18.7838ZM2.4671 10.3986C2.4671 9.0731 3.5416 7.9986 4.8671 7.9986C6.1926 7.9986 7.2671 9.0731 7.2671 10.3986C7.2671 11.7241 6.1926 12.7986 4.8671 12.7986C3.5416 12.7986 2.4671 11.7241 2.4671 10.3986Z" />
+    </Icon>
+  )
+}
+
 export function Circles(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
@@ -6513,14 +6521,6 @@ export function FlipVertical(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M17.7682 2.6401L12.7682 8.6401C12.5782 8.8681 12.2968 8.9999 12 8.9999C11.7032 8.9999 11.4218 8.8681 11.2318 8.6401L6.2318 2.6401C6.0819 2.4604 5.9999 2.2338 5.9999 1.9998C5.9999 1.4474 6.4477 0.9997 7.0001 0.9999L16.9999 0.9999C17.5523 0.9997 18.0001 1.4474 18.0001 1.9998C18.0001 2.2338 17.9181 2.4604 17.7682 2.6401ZM17.7682 21.3599L12.7682 15.3599C12.5782 15.1319 12.2968 15 12 15C11.7032 15 11.4218 15.1319 11.2318 15.3599L6.2318 21.3599C6.0819 21.5396 5.9999 21.7662 5.9999 22.0002C5.9999 22.5526 6.4477 23.0003 7.0001 23.0001L16.9999 23.0001C17.5523 23.0003 18.0001 22.5526 18.0001 22.0002C18.0001 21.7662 17.9181 21.5396 17.7682 21.3599Z" fill="currentColor" fillOpacity={0.4} fillRule="evenodd" clipRule="evenodd" stroke="none" />
       <path d="M23 12L19 12M17 12L13 12M11 12L7 12M5 12L1 12" fill="none" />
-    </Icon>
-  )
-}
-
-export function Flower(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M9.6 5.2162C9.6 3.8907 10.6745 2.8162 12 2.8162C13.3255 2.8162 14.4 3.8907 14.4 5.2162C14.4 6.5417 13.3255 7.6162 12 7.6162C10.6745 7.6162 9.6 6.5417 9.6 5.2162ZM16.7329 10.3986C16.7329 9.0731 17.8074 7.9986 19.1329 7.9986C20.4584 7.9986 21.5329 9.0731 21.5329 10.3986C21.5329 11.7241 20.4584 12.7986 19.1329 12.7986C17.8074 12.7986 16.7329 11.7241 16.7329 10.3986ZM14.0084 18.7838C14.0084 17.4583 15.0829 16.3838 16.4084 16.3838C17.7339 16.3838 18.8084 17.4583 18.8084 18.7838C18.8084 20.1093 17.7339 21.1838 16.4084 21.1838C15.0829 21.1838 14.0084 20.1093 14.0084 18.7838ZM5.1916 18.7838C5.1916 17.4583 6.2661 16.3838 7.5916 16.3838C8.9171 16.3838 9.9916 17.4583 9.9916 18.7838C9.9916 20.1093 8.9171 21.1838 7.5916 21.1838C6.2661 21.1838 5.1916 20.1093 5.1916 18.7838ZM2.4671 10.3986C2.4671 9.0731 3.5416 7.9986 4.8671 7.9986C6.1926 7.9986 7.2671 9.0731 7.2671 10.3986C7.2671 11.7241 6.1926 12.7986 4.8671 12.7986C3.5416 12.7986 2.4671 11.7241 2.4671 10.3986Z" />
     </Icon>
   )
 }
@@ -15492,6 +15492,18 @@ export const Train = TrainFront
  */
 export const TrainIcon = TrainFront
 
+/**
+ * @deprecated `flower` was renamed `circles-five` in 2.6.0. Import
+ * CirclesFive: this name keeps working until the next major.
+ */
+export const Flower = CirclesFive
+
+/**
+ * @deprecated `flower` was renamed `circles-five` in 2.6.0. Import
+ * CirclesFiveIcon: this name keeps working until the next major.
+ */
+export const FlowerIcon = CirclesFive
+
 export {
   AArrowDown as AArrowDownIcon,
   AArrowUp as AArrowUpIcon,
@@ -15957,6 +15969,7 @@ export {
   CircleZap as CircleZapIcon,
   Circle as CircleIcon,
   CirclesDashed as CirclesDashedIcon,
+  CirclesFive as CirclesFiveIcon,
   Circles as CirclesIcon,
   ClipboardAlert as ClipboardAlertIcon,
   ClipboardCheck as ClipboardCheckIcon,
@@ -16206,7 +16219,6 @@ export {
   Flip3Vertical as Flip3VerticalIcon,
   FlipHorizontal as FlipHorizontalIcon,
   FlipVertical as FlipVerticalIcon,
-  Flower as FlowerIcon,
   FoldHorizontal as FoldHorizontalIcon,
   FoldVertical as FoldVerticalIcon,
   FolderArrowDown as FolderArrowDownIcon,

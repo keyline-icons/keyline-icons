@@ -557,7 +557,7 @@ export const CATEGORIES = [
     label: "Shapes",
     // `cone`, `cuboid`, `cylinder` and `pyramid` joined on 20 Oct 2026 (2.1.0): the solids, beside the flat shapes.
     match:
-      /^(circle|square|triangle|shapes|dashed|dice|dot$|flower|full|half|quarter|three-quarter|hexagon|puzzle$|diamond|octagon(-dot)?$|cone$|cuboid$|cylinder$|pyramid$)/,
+      /^(circle|square|triangle|shapes|dashed|dice|dot$|full|half|quarter|three-quarter|hexagon|puzzle$|diamond|octagon(-dot)?$|cone$|cuboid$|cylinder$|pyramid$)/,
     blurb: "Squares, circles, triangles, hexagons, an octagon, a diamond, a dot and the shapes that hold one, dashes and the progress states drawn from them, and the solids: a cone, a cuboid, a cylinder and a pyramid.",
   },
   {

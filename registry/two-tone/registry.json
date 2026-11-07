@@ -6512,6 +6512,20 @@
       ]
     },
     {
+      "name": "two-tone/circles-five",
+      "type": "registry:component",
+      "title": "CirclesFive",
+      "description": "CirclesFive, the two-tone drawing of circles-five on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circles-five: https://keylineicons.com/icons/circles-five",
+      "files": [
+        {
+          "path": "icons/circles-five.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/two-tone/circles-five.tsx"
+        }
+      ]
+    },
+    {
       "name": "two-tone/clipboard",
       "type": "registry:component",
       "title": "Clipboard",
@@ -9980,20 +9994,6 @@
           "path": "icons/flip-vertical.tsx",
           "type": "registry:component",
           "target": "@components/icons/two-tone/flip-vertical.tsx"
-        }
-      ]
-    },
-    {
-      "name": "two-tone/flower",
-      "type": "registry:component",
-      "title": "Flower",
-      "description": "Flower, the two-tone drawing of flower on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of flower: https://keylineicons.com/icons/flower",
-      "files": [
-        {
-          "path": "icons/flower.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/two-tone/flower.tsx"
         }
       ]
     },
