@@ -196,42 +196,6 @@ export function Alien(props: IconProps) {
   )
 }
 
-export function AlignCenter(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M3 3H21M3 15H21" strokeOpacity={0.4} />
-      <Path d="M6 9H18M6 21H18" />
-    </Icon>
-  )
-}
-
-export function AlignJustify(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M3 3H21M3 15H21" strokeOpacity={0.4} />
-      <Path d="M3 9H21M3 21H21" />
-    </Icon>
-  )
-}
-
-export function AlignLeft2(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M8 4.5L21 4.5M8 9.5L21 9.5M8 14.5L18 14.5M8 19.5L14 19.5" fill="none" strokeOpacity={0.4} />
-      <Path d="M3 3L3 21" fill="none" />
-    </Icon>
-  )
-}
-
-export function AlignLeft(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M3 3H21M3 15H21" strokeOpacity={0.4} />
-      <Path d="M3 9H15M3 21H15" />
-    </Icon>
-  )
-}
-
 export function AlignOffsetBottom(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -264,24 +228,6 @@ export function AlignOffsetTop(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M2 4L14 4M4 12L22 12" strokeLinejoin="miter" strokeOpacity={0.4} />
       <Path d="M16 20L22 20" strokeLinejoin="miter" />
-    </Icon>
-  )
-}
-
-export function AlignRight2(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M16 4.5L3 4.5M16 9.5L3 9.5M16 14.5L6 14.5M16 19.5L10 19.5" fill="none" strokeOpacity={0.4} />
-      <Path d="M21 3L21 21" fill="none" />
-    </Icon>
-  )
-}
-
-export function AlignRight(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M3 3H21M3 15H21" strokeOpacity={0.4} />
-      <Path d="M9 9H21M9 21H21" />
     </Icon>
   )
 }
@@ -14257,6 +14203,60 @@ export function TestTubes(props: IconProps) {
   )
 }
 
+export function TextAlign2End(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M16 4.5L3 4.5M16 9.5L3 9.5M16 14.5L6 14.5M16 19.5L10 19.5" fill="none" strokeOpacity={0.4} />
+      <Path d="M21 3L21 21" fill="none" />
+    </Icon>
+  )
+}
+
+export function TextAlign2Start(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M8 4.5L21 4.5M8 9.5L21 9.5M8 14.5L18 14.5M8 19.5L14 19.5" fill="none" strokeOpacity={0.4} />
+      <Path d="M3 3L3 21" fill="none" />
+    </Icon>
+  )
+}
+
+export function TextAlignCenter(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 3H21M3 15H21" strokeOpacity={0.4} />
+      <Path d="M6 9H18M6 21H18" />
+    </Icon>
+  )
+}
+
+export function TextAlignEnd(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 3H21M3 15H21" strokeOpacity={0.4} />
+      <Path d="M9 9H21M9 21H21" />
+    </Icon>
+  )
+}
+
+export function TextAlignJustify(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 3H21M3 15H21" strokeOpacity={0.4} />
+      <Path d="M3 9H21M3 21H21" />
+    </Icon>
+  )
+}
+
+export function TextAlignStart(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 3H21M3 15H21" strokeOpacity={0.4} />
+      <Path d="M3 9H15M3 21H15" />
+    </Icon>
+  )
+}
+
 export function TextCursorInput(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -15480,6 +15480,78 @@ export const Flower = CirclesFive
  */
 export const FlowerIcon = CirclesFive
 
+/**
+ * @deprecated `align-left` was renamed `text-align-start` in 2.6.0. Import
+ * TextAlignStart: this name keeps working until the next major.
+ */
+export const AlignLeft = TextAlignStart
+
+/**
+ * @deprecated `align-left` was renamed `text-align-start` in 2.6.0. Import
+ * TextAlignStartIcon: this name keeps working until the next major.
+ */
+export const AlignLeftIcon = TextAlignStart
+
+/**
+ * @deprecated `align-center` was renamed `text-align-center` in 2.6.0. Import
+ * TextAlignCenter: this name keeps working until the next major.
+ */
+export const AlignCenter = TextAlignCenter
+
+/**
+ * @deprecated `align-center` was renamed `text-align-center` in 2.6.0. Import
+ * TextAlignCenterIcon: this name keeps working until the next major.
+ */
+export const AlignCenterIcon = TextAlignCenter
+
+/**
+ * @deprecated `align-right` was renamed `text-align-end` in 2.6.0. Import
+ * TextAlignEnd: this name keeps working until the next major.
+ */
+export const AlignRight = TextAlignEnd
+
+/**
+ * @deprecated `align-right` was renamed `text-align-end` in 2.6.0. Import
+ * TextAlignEndIcon: this name keeps working until the next major.
+ */
+export const AlignRightIcon = TextAlignEnd
+
+/**
+ * @deprecated `align-justify` was renamed `text-align-justify` in 2.6.0. Import
+ * TextAlignJustify: this name keeps working until the next major.
+ */
+export const AlignJustify = TextAlignJustify
+
+/**
+ * @deprecated `align-justify` was renamed `text-align-justify` in 2.6.0. Import
+ * TextAlignJustifyIcon: this name keeps working until the next major.
+ */
+export const AlignJustifyIcon = TextAlignJustify
+
+/**
+ * @deprecated `align-left-2` was renamed `text-align-2-start` in 2.6.0. Import
+ * TextAlign2Start: this name keeps working until the next major.
+ */
+export const AlignLeft2 = TextAlign2Start
+
+/**
+ * @deprecated `align-left-2` was renamed `text-align-2-start` in 2.6.0. Import
+ * TextAlign2StartIcon: this name keeps working until the next major.
+ */
+export const AlignLeft2Icon = TextAlign2Start
+
+/**
+ * @deprecated `align-right-2` was renamed `text-align-2-end` in 2.6.0. Import
+ * TextAlign2End: this name keeps working until the next major.
+ */
+export const AlignRight2 = TextAlign2End
+
+/**
+ * @deprecated `align-right-2` was renamed `text-align-2-end` in 2.6.0. Import
+ * TextAlign2EndIcon: this name keeps working until the next major.
+ */
+export const AlignRight2Icon = TextAlign2End
+
 export {
   AArrowDown as AArrowDownIcon,
   AArrowUp as AArrowUpIcon,
@@ -15499,16 +15571,10 @@ export {
   AlarmClock as AlarmClockIcon,
   Alert as AlertIcon,
   Alien as AlienIcon,
-  AlignCenter as AlignCenterIcon,
-  AlignJustify as AlignJustifyIcon,
-  AlignLeft2 as AlignLeft2Icon,
-  AlignLeft as AlignLeftIcon,
   AlignOffsetBottom as AlignOffsetBottomIcon,
   AlignOffsetLeft as AlignOffsetLeftIcon,
   AlignOffsetRight as AlignOffsetRightIcon,
   AlignOffsetTop as AlignOffsetTopIcon,
-  AlignRight2 as AlignRight2Icon,
-  AlignRight as AlignRightIcon,
   AmericanFootball as AmericanFootballIcon,
   Anchor2 as Anchor2Icon,
   Anchor as AnchorIcon,
@@ -17043,6 +17109,12 @@ export {
   TestTubeDiagonal as TestTubeDiagonalIcon,
   TestTube as TestTubeIcon,
   TestTubes as TestTubesIcon,
+  TextAlign2End as TextAlign2EndIcon,
+  TextAlign2Start as TextAlign2StartIcon,
+  TextAlignCenter as TextAlignCenterIcon,
+  TextAlignEnd as TextAlignEndIcon,
+  TextAlignJustify as TextAlignJustifyIcon,
+  TextAlignStart as TextAlignStartIcon,
   TextCursorInput as TextCursorInputIcon,
   TextCursor as TextCursorIcon,
   TextQuote as TextQuoteIcon,

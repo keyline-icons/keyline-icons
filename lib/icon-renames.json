@@ -7,6 +7,12 @@
     { "from": "rocket-2", "to": "rocket-fast", "version": "1.3.0" },
     { "from": "bot-2", "to": "bot-circle", "version": "1.5.0" },
     { "from": "train", "to": "train-front", "version": "2.2.0" },
-    { "from": "flower", "to": "circles-five", "version": "2.6.0" }
+    { "from": "flower", "to": "circles-five", "version": "2.6.0" },
+    { "from": "align-left", "to": "text-align-start", "version": "2.6.0" },
+    { "from": "align-center", "to": "text-align-center", "version": "2.6.0" },
+    { "from": "align-right", "to": "text-align-end", "version": "2.6.0" },
+    { "from": "align-justify", "to": "text-align-justify", "version": "2.6.0" },
+    { "from": "align-left-2", "to": "text-align-2-start", "version": "2.6.0" },
+    { "from": "align-right-2", "to": "text-align-2-end", "version": "2.6.0" }
   ]
 }

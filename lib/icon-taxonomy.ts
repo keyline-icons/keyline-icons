@@ -322,9 +322,10 @@ export const CATEGORIES = [
     blurb: "Cursors, the mouse pointer, the pointing, open and closed hands and the states they carry.",
   },
   {
-    // Ahead of Layout, which owns the `align-offset-*` family: those nudge an
-    // object, these set a paragraph. The four alignment names are spelled out
-    // rather than matched on a bare `align`, or the offsets follow them here.
+    // Ahead of Layout, which owns `align-*`: those move an object, `text-align-*`
+    // sets a paragraph, and `text-` claims it here. The bare `align-left` family
+    // took the longer name on 7 Nov 2026 (2.6.0), when the object row arrived and
+    // `align-center` beside `align-center-horizontal` stopped saying which was which.
     // `quote` and its three siblings are here rather than in Mail with the
     // speech bubbles: a quotation mark is a typographic mark, and the bubble is
     // the thing it goes inside. `language` is here for the same reason and it is
@@ -335,11 +336,11 @@ export const CATEGORIES = [
     // is compacted to. `input-sparkles` goes to AI on its sparkles.
     // The punctuation joined on 18 Oct 2026 (2.0.0) for the reason `quote` is here: the ampersand,
     // the comma, colon and semicolon, the hyphen, the pipe, the tilde and the backtick are marks a
-    // line of text is set in. align-left-2 and -right-2, the stack against a margin, sit with
+    // line of text is set in. text-align-2-start and -end, the stack against a margin, sit with
     // the stack they redraw.
     label: "Text",
     match:
-      /^(bold|italic|underline|strikethrough|heading|pilcrow|indent|letter-|line-height|text-|type$|quote|language|slash$|align-(?:left|center|right|justify)(?:-2)?$|case-(sensitive|upper)$|a-(?:arrow-(?:up|down)|text-cursor)$|spell-check$|type-outline$|whole-word$|input(-|$)|compact$|ampersand$|accent-grave$|colon$|semicolon$|comma$|hyphen$|pipe$|tilde$)/,
+      /^(bold|italic|underline|strikethrough|heading|pilcrow|indent|letter-|line-height|text-|type$|quote|language|slash$|case-(sensitive|upper)$|a-(?:arrow-(?:up|down)|text-cursor)$|spell-check$|type-outline$|whole-word$|input(-|$)|compact$|ampersand$|accent-grave$|colon$|semicolon$|comma$|hyphen$|pipe$|tilde$)/,
     blurb: "The quotation marks and the punctuation, the formatting marks, the case marks with the text-size arrows, the letter at the cursor and the spell check, the slash, the alignment stack and what sets a paragraph.",
   },
   {

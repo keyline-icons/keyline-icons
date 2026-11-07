@@ -3387,8 +3387,8 @@
       "into": "artboard",
       "width": 742,
       "icons": 46,
-      "variants": 80,
-      "bytes": 40555
+      "variants": 72,
+      "bytes": 40657
     },
     {
       "file": "text-2.html",
@@ -3400,7 +3400,7 @@
       "width": 742,
       "icons": 0,
       "variants": 72,
-      "bytes": 36637
+      "bytes": 36240
     },
     {
       "file": "text-3.html",
@@ -3411,8 +3411,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 36424
+      "variants": 56,
+      "bytes": 40743
     },
     {
       "file": "text-4.html",
@@ -3423,8 +3423,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 37468
+      "variants": 64,
+      "bytes": 40506
     },
     {
       "file": "text-5.html",
@@ -3435,8 +3435,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 38892
+      "variants": 80,
+      "bytes": 39523
     },
     {
       "file": "text-6.html",
@@ -3447,8 +3447,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 30803
+      "variants": 40,
+      "bytes": 23642
     },
     {
       "file": "time-1.html",

@@ -254,62 +254,6 @@
       ]
     },
     {
-      "name": "sharp/two-tone/align-center",
-      "type": "registry:component",
-      "title": "AlignCenter",
-      "description": "AlignCenter, the two-tone drawing of align-center on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of align-center: https://keylineicons.com/icons/align-center",
-      "files": [
-        {
-          "path": "icons/align-center.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/sharp/two-tone/align-center.tsx"
-        }
-      ]
-    },
-    {
-      "name": "sharp/two-tone/align-justify",
-      "type": "registry:component",
-      "title": "AlignJustify",
-      "description": "AlignJustify, the two-tone drawing of align-justify on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of align-justify: https://keylineicons.com/icons/align-justify",
-      "files": [
-        {
-          "path": "icons/align-justify.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/sharp/two-tone/align-justify.tsx"
-        }
-      ]
-    },
-    {
-      "name": "sharp/two-tone/align-left",
-      "type": "registry:component",
-      "title": "AlignLeft",
-      "description": "AlignLeft, the two-tone drawing of align-left on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of align-left: https://keylineicons.com/icons/align-left",
-      "files": [
-        {
-          "path": "icons/align-left.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/sharp/two-tone/align-left.tsx"
-        }
-      ]
-    },
-    {
-      "name": "sharp/two-tone/align-left-2",
-      "type": "registry:component",
-      "title": "AlignLeft2",
-      "description": "AlignLeft2, the two-tone drawing of align-left-2 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of align-left-2: https://keylineicons.com/icons/align-left-2",
-      "files": [
-        {
-          "path": "icons/align-left-2.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/sharp/two-tone/align-left-2.tsx"
-        }
-      ]
-    },
-    {
       "name": "sharp/two-tone/align-offset-bottom",
       "type": "registry:component",
       "title": "AlignOffsetBottom",
@@ -362,34 +306,6 @@
           "path": "icons/align-offset-top.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/align-offset-top.tsx"
-        }
-      ]
-    },
-    {
-      "name": "sharp/two-tone/align-right",
-      "type": "registry:component",
-      "title": "AlignRight",
-      "description": "AlignRight, the two-tone drawing of align-right on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of align-right: https://keylineicons.com/icons/align-right",
-      "files": [
-        {
-          "path": "icons/align-right.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/sharp/two-tone/align-right.tsx"
-        }
-      ]
-    },
-    {
-      "name": "sharp/two-tone/align-right-2",
-      "type": "registry:component",
-      "title": "AlignRight2",
-      "description": "AlignRight2, the two-tone drawing of align-right-2 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of align-right-2: https://keylineicons.com/icons/align-right-2",
-      "files": [
-        {
-          "path": "icons/align-right-2.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/sharp/two-tone/align-right-2.tsx"
         }
       ]
     },
@@ -21866,6 +21782,90 @@
           "path": "icons/test-tubes.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/test-tubes.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/text-align-2-end",
+      "type": "registry:component",
+      "title": "TextAlign2End",
+      "description": "TextAlign2End, the two-tone drawing of text-align-2-end on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of text-align-2-end: https://keylineicons.com/icons/text-align-2-end",
+      "files": [
+        {
+          "path": "icons/text-align-2-end.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/text-align-2-end.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/text-align-2-start",
+      "type": "registry:component",
+      "title": "TextAlign2Start",
+      "description": "TextAlign2Start, the two-tone drawing of text-align-2-start on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of text-align-2-start: https://keylineicons.com/icons/text-align-2-start",
+      "files": [
+        {
+          "path": "icons/text-align-2-start.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/text-align-2-start.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/text-align-center",
+      "type": "registry:component",
+      "title": "TextAlignCenter",
+      "description": "TextAlignCenter, the two-tone drawing of text-align-center on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of text-align-center: https://keylineicons.com/icons/text-align-center",
+      "files": [
+        {
+          "path": "icons/text-align-center.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/text-align-center.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/text-align-end",
+      "type": "registry:component",
+      "title": "TextAlignEnd",
+      "description": "TextAlignEnd, the two-tone drawing of text-align-end on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of text-align-end: https://keylineicons.com/icons/text-align-end",
+      "files": [
+        {
+          "path": "icons/text-align-end.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/text-align-end.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/text-align-justify",
+      "type": "registry:component",
+      "title": "TextAlignJustify",
+      "description": "TextAlignJustify, the two-tone drawing of text-align-justify on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of text-align-justify: https://keylineicons.com/icons/text-align-justify",
+      "files": [
+        {
+          "path": "icons/text-align-justify.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/text-align-justify.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/text-align-start",
+      "type": "registry:component",
+      "title": "TextAlignStart",
+      "description": "TextAlignStart, the two-tone drawing of text-align-start on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of text-align-start: https://keylineicons.com/icons/text-align-start",
+      "files": [
+        {
+          "path": "icons/text-align-start.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/text-align-start.tsx"
         }
       ]
     },
