@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Popcorn({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M3 9C3 7.22 4.323 5.76 6.037 5.53C6.014 5.36 6 5.18 6 5C6 2.79 7.791 1 10 1C11.419 1 12.686 1.74 13.397 2.89C13.886 2.64 14.435 2.5 15 2.5C16.811 2.5 18.3 3.88 18.48 5.64C19.936 6.06 21 7.41 21 9C21 9.46 20.907 9.91 20.736 10.33C20.747 10.34 20.758 10.35 20.768 10.36C20.958 10.59 21.036 10.89 20.983 11.18L18.983 22.18C18.897 22.65 18.483 23 18 23H6C5.517 23 5.103 22.65 5.017 22.18L3.017 11.18C2.964 10.89 3.042 10.59 3.232 10.36C3.242 10.35 3.253 10.34 3.264 10.33C3.093 9.91 3 9.46 3 9Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M5 11C4.371 10.53 4 9.79 4 9C4 7.62 5.119 6.5 6.5 6.5C6.863 6.5 7.221 6.58 7.55 6.73C7.192 6.22 7 5.62 7 5C7 3.34 8.343 2 10 2C11.482 2 12.742 3.08 12.966 4.55C13.435 3.89 14.193 3.5 15 3.5C16.381 3.5 17.5 4.62 17.5 6C17.5 6.17 17.483 6.34 17.449 6.5C17.466 6.5 17.483 6.5 17.5 6.5C18.881 6.5 20 7.62 20 9C20 9.79 19.629 10.53 19 11M9 11L10 22M15 11L14 22M4 11H20L18 22H6L4 11Z"/>
+    </svg>
+  )
+}

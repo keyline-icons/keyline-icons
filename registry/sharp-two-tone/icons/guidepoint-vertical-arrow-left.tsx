@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function GuidepointVerticalArrowLeft({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M17 1C19.209 1 21 2.79 21 5C21 6.86 19.725 8.43 18 8.87V15.13C19.725 15.57 21 17.14 21 19C21 21.21 19.209 23 17 23C14.791 23 13 21.21 13 19C13 17.14 14.275 15.57 16 15.13V8.87C14.275 8.43 13 6.86 13 5C13 2.79 14.791 1 17 1ZM9.401 6.71C9.704 6.49 10.11 6.45 10.448 6.62C10.786 6.79 11 7.13 11 7.51V16.49C11 16.86 10.786 17.21 10.448 17.38C10.11 17.55 9.704 17.51 9.401 17.29L3.401 12.8C3.149 12.61 3 12.32 3 12C3 11.68 3.149 11.39 3.401 11.2L9.401 6.71Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M17 8C18.657 8 20 6.66 20 5C20 3.34 18.657 2 17 2C15.343 2 14 3.34 14 5C14 6.66 15.343 8 17 8ZM17 8V16M17 16C15.343 16 14 17.34 14 19C14 20.66 15.343 22 17 22C18.657 22 20 20.66 20 19C20 17.34 18.657 16 17 16ZM10 7.51L4 12L10 16.49V7.51Z"/>
+    </svg>
+  )
+}

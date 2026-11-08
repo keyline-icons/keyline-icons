@@ -1,0 +1,25 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function TextAppend({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M22 20V22H14V20H22ZM4 14V17.75H8.471L7.6 16.93L8.967 15.47L11.684 18.02C11.885 18.21 12 18.47 12 18.75C12 19.03 11.885 19.29 11.684 19.48L8.994 22L7.627 20.54L8.249 19.96L8.471 19.75H3C2.448 19.75 2 19.3 2 18.75V14H4Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M22 14V16H14V14H22ZM22 8V10H2V8H22ZM22 2V4H2V2H22Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M4 14V17.75H8.471L7.6 16.93L8.967 15.47L11.684 18.02C11.885 18.21 12 18.52 12 18.8C11.975 19.03 11.86 19.31 11.684 19.48L8.994 22L7.627 20.54L8.249 19.96L8.471 19.75H3C2.448 19.75 2 19.3 2 18.75V14H4Z" fill="currentColor"/>
+    </svg>
+  )
+}

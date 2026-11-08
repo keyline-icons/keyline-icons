@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function BrainSide({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M8.5 6.97V5.97C8.5 4.33 9.843 3 11.5 3C12.474 3 13.34 3.46 13.888 4.172C14.205 4.079 14.653 3.99 15 3.99C16.933 3.99 18.5 5.541 18.5 7.455M18.5 7.455C18.5 7.95 19 11.416 16 11.416C14 11.416 13 12.745 13 14.386C13 16.026 14.343 17.356 16 17.356H17C17.5 17.404 17.5 21 21 21H22M18.5 7.455C20.433 7.455 22 9.007 22 10.92C22 11.865 21.619 12.721 21 13.346M21 13.346C20.365 13.988 19.479 14.386 18.5 14.386H17.5M21 13.346C21.333 13.73 22 15 22 17V18M4.043 6.971C4.015 6.806 4 6.637 4 6.465C4 4.825 5.343 3.495 7 3.495C7.768 3.495 8.469 3.781 9 4.251L9.034 4.281M4.043 6.971C2.824 7.649 2 8.942 2 10.425C2 12.613 3.791 14.386 6 14.386C8.209 14.386 10 12.613 10 10.425V9.425M4.043 6.971C4.049 6.967 4.056 6.964 4.062 6.96M4.043 6.971C4.228 8.039 4.99 8.913 6 9.266L6.67 9.501M8.032 13.833L8.042 13.891C8.28 15.296 9.513 16.366 11 16.366C11.842 16.366 12.603 16.022 13.148 15.469L13.192 15.424"/>
+    </svg>
+  )
+}

@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function HousePlay({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M22 10.85L20 9.15L13.2928 3.47C12.5468 2.84 11.4532 2.84 10.7072 3.47L4 9.15L2 10.85M4 9.15V19C4 20.1 4.8954 21 6 21H18C19.1046 21 20 20.1 20 19V9.15M9.5 10.9C9.5 10.19 10.2327 9.76 10.7976 10.14L15.3007 13.12C15.5664 13.29 15.5664 13.7 15.3007 13.88L10.7976 16.86C10.2327 17.24 9.5 16.81 9.5 16.1V10.9Z"/>
+    </svg>
+  )
+}

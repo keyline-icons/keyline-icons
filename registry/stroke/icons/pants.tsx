@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Pants({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M18.6025 7.06L20.9594 19.18C21.1788 20.3 20.4857 21.4 19.435 21.59L17.3228 21.97C16.4141 22.14 15.5301 21.56 15.2388 20.61L12.8881 12.99C12.6036 12.06 11.3963 12.06 11.1118 12.99L8.7612 20.61C8.4698 21.56 7.5859 22.14 6.6771 21.97L4.565 21.59C3.5143 21.4 2.8212 20.3 3.0406 19.18L5.3975 7.06L5.5945 6.05L6.2264 2.8C6.3176 2.34 6.6998 2 7.1425 2H16.8575C17.3002 2 17.6823 2.34 17.7736 2.8L18.4054 6.05L18.6025 7.06ZM5.3975 7.06H18.6025"/>
+    </svg>
+  )
+}

@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Grape({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M9.5002 12.66C8.9628 13.47 8.0436 14 7 14C5.3431 14 4 12.66 4 11C4 9.34 5.3431 8 7 8C8.0436 8 8.9628 8.53 9.5002 9.34M14.4998 9.34C15.0372 8.53 15.9564 8 17 8C18.6569 8 20 9.34 20 11C20 12.66 18.6569 14 17 14C15.9564 14 15.0372 13.47 14.4998 12.66M12 8C10.3431 8 9 9.34 9 11C9 12.66 10.3431 14 12 14C13.6569 14 15 12.66 15 11C15 9.34 13.6569 8 12 8ZM12 8V5C12 3.34 13.3431 2 15 2H16M12.0002 16.66C11.4628 17.47 10.5436 18 9.5 18C7.8431 18 6.5 16.66 6.5 15C6.5 14.64 6.5624 14.3 6.6769 13.98M17.3231 13.98C17.4376 14.3 17.5 14.64 17.5 15C17.5 16.66 16.1569 18 14.5 18C12.8431 18 11.5 16.66 11.5 15C11.5 14.64 11.5624 14.3 11.6769 13.98M14.8231 17.98C14.9376 18.3 15 18.64 15 19C15 20.66 13.6569 22 12 22C10.3431 22 9 20.66 9 19C9 18.64 9.0624 18.3 9.1769 17.98"/>
+    </svg>
+  )
+}

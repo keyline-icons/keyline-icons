@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function GuidepointVerticalArrowRight({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M7 1C9.2091 1 11 2.79 11 5C11 6.86 9.7252 8.43 8 8.87V15.13C9.7252 15.57 11 17.14 11 19C11 21.21 9.2091 23 7 23C4.7909 23 3 21.21 3 19C3 17.14 4.2748 15.57 6 15.13V8.87C4.2748 8.43 3 6.86 3 5C3 2.79 4.7909 1 7 1ZM13.7119 7.23C14.157 6.95 14.7609 6.9 15.2803 7.23C15.2926 7.23 15.3054 7.24 15.3174 7.25L20.3149 10.7C21.2272 11.31 21.2269 12.69 20.3149 13.3L15.3174 16.75C15.3054 16.76 15.2926 16.77 15.2803 16.77C14.7611 17.1 14.1569 17.05 13.7119 16.77C13.2755 16.49 13 16 13 15.45V8.55C13 8 13.2755 7.51 13.7119 7.23Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M7 8C5.3432 8 4 6.66 4 5C4 3.34 5.3432 2 7 2C8.6568 2 10 3.34 10 5C10 6.66 8.6568 8 7 8ZM7 8V16M7 16C8.6568 16 10 17.34 10 19C10 20.66 8.6568 22 7 22C5.3432 22 4 20.66 4 19C4 17.34 5.3432 16 7 16ZM14.749 8.07L19.7478 11.52C20.0841 11.73 20.0841 12.27 19.7478 12.48L14.749 15.93C14.4153 16.14 14 15.87 14 15.45V8.55C14 8.13 14.4153 7.86 14.749 8.07Z"/>
+    </svg>
+  )
+}

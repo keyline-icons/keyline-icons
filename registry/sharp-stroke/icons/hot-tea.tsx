@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function HotTea({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M16 13V10H10M16 13V19M16 13H17C18.657 13 20 14.34 20 16C20 17.66 18.657 19 17 19H16M10 10H4V22H13H16V19M10 10V14M10 14H8V18H12V14H10ZM8.5 7V6C8.5 5.21 8.871 4.47 9.5 4C10.129 3.53 10.5 2.79 10.5 2V1M13.5 7V6C13.5 5.21 13.871 4.47 14.5 4C15.129 3.53 15.5 2.79 15.5 2V1"/>
+    </svg>
+  )
+}

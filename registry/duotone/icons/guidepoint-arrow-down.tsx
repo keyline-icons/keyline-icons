@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function GuidepointArrowDown({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M5 3C7.2091 3 9 4.79 9 7C9 9.21 7.2091 11 5 11C2.7909 11 1 9.21 1 7C1 4.79 2.7909 3 5 3ZM19 3C21.2091 3 23 4.79 23 7C23 9.21 21.2091 11 19 11C16.7909 11 15 9.21 15 7C15 4.79 16.7909 3 19 3Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M15.4541 13C15.4566 13 15.4592 13 15.4619 13H15.4639L15.627 13.01L15.6523 13.02L15.8242 13.05C16.2178 13.14 16.5558 13.38 16.7686 13.72C17.0521 14.16 17.0997 14.77 16.7744 15.29C16.7702 15.29 16.7608 15.31 16.75 15.32L13.3037 20.32C13.3007 20.32 13.2965 20.33 13.292 20.33C13.2861 20.34 13.2795 20.34 13.2744 20.35C12.66 21.23 11.3121 21.21 10.7051 20.33L7.251 15.32C7.2454 15.31 7.2426 15.31 7.2275 15.29C6.902 14.77 7.0033 14.07 7.2865 13.63C7.5745 13.28 8.0701 13 8.5508 13H15.4541ZM16 6C16.5523 6 17 6.45 17 7C17 7.55 16.5523 8 16 8H8C7.4478 8 7 7.55 7 7C7 6.45 7.4478 6 8 6H16Z" fill="currentColor"/>
+    </svg>
+  )
+}

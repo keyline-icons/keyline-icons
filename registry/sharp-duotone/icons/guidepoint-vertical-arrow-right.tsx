@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function GuidepointVerticalArrowRight({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M7 15C9.209 15 11 16.79 11 19C11 21.21 9.209 23 7 23C4.791 23 3 21.21 3 19C3 16.79 4.791 15 7 15ZM7 1C9.209 1 11 2.79 11 5C11 7.21 9.209 9 7 9C4.791 9 3 7.21 3 5C3 2.79 4.791 1 7 1Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M13.552 6.62C13.89 6.45 14.296 6.48 14.599 6.71L20.599 11.2C20.85 11.39 21 11.74 21 12.06C20.968 12.33 20.819 12.63 20.599 12.8L14.599 17.29C14.334 17.48 13.922 17.51 13.613 17.41C13.276 17.24 13 16.86 13 16.49V7.51C13 7.13 13.214 6.79 13.552 6.62ZM8 8V16H6V8H8Z" fill="currentColor"/>
+    </svg>
+  )
+}

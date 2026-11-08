@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function RotateCcwSquare({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M15 10C15.552 10 16 10.45 16 11V22.04C15.944 22.54 15.514 23 15 23H4C3.486 23 3.056 22.53 3 22.03V11C3 10.45 3.448 10 4 10H15ZM14.005 1L15.371 2.46L14.527 3.25H20C20.552 3.25 21 3.7 21 4.25V10H19V5.25H14.529L15.399 6.07L14.032 7.52L11.316 4.98C11.147 4.82 11.016 4.45 10.989 4.21C11.031 4 11.168 3.66 11.316 3.52L14.005 1Z" fill="currentColor"/>
+    </svg>
+  )
+}

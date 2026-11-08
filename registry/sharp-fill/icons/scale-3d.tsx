@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Scale3d({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M11.583 2.05C11.858 1.97 12.289 1.97 12.538 2.13L15.537 4.05C15.825 4.23 16 4.55 16 4.89V7.94C16 8.27 15.834 8.59 15.559 8.77L13 10.5V12.51L16.032 14.82L18.56 13.11C18.841 13.03 19.309 13.02 19.56 13.19L22.559 15.22C22.834 15.4 23 15.72 23 16.05V19.09C23 19.43 22.825 19.75 22.539 19.93L19.539 21.86C19.252 22.04 18.833 22.04 18.528 21.9L15.463 19.94C15.175 19.76 15 19.44 15 19.1V16.55L12 14.27L9 16.55V19.09C9 19.43 8.825 19.75 8.539 19.93L5.539 21.86C5.252 22.04 4.833 22.04 4.528 21.9L1.463 19.94C1.175 19.76 1 19.44 1 19.1V16.05C1 15.72 1.166 15.4 1.441 15.22L4.559 13.11C4.84 13.03 5.309 13.02 5.559 13.19L7.965 14.82L11 12.51V10.5L8.441 8.77C8.166 8.59 8.001 8.27 8 7.94V4.89C8 4.55 8.175 4.23 8.463 4.05L11.583 2.05Z" fill="currentColor"/>
+    </svg>
+  )
+}

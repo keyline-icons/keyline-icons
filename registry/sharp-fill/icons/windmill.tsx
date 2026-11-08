@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Windmill({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M7.902 1.22C8.286 0.93 8.878 0.91 9.237 1.25L11.999 3.83L14.831 1.19C15.205 0.95 15.784 0.93 16.121 1.24L18.893 3.78C19.093 3.97 19.211 4.23 19.217 4.5C19.222 4.77 19.116 5.04 18.924 5.23L16.17 7.99L18.909 10.73C19.096 10.92 19.202 11.17 19.202 11.44C19.202 11.7 19.096 11.96 18.909 12.14L17.036 14.02L18.781 21H23V23H1V21H5.219L6.963 14.02L5.091 12.14C4.701 11.75 4.701 11.12 5.091 10.73L7.829 7.99L5.091 5.25C4.899 5.05 4.796 4.7 4.801 4.42C4.843 4.22 4.966 3.95 5.118 3.8L7.902 1.22ZM9.262 14.9C9.135 15.03 8.906 15.13 8.733 15.18L8.28 16.99H15.72L15.268 15.19C15.13 15.14 14.849 15.01 14.738 14.9L12 12.16L9.262 14.9Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Microscope({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M4.437 1L5.309 2.24L6.13 1.67C6.466 1.44 6.867 1.31 7.276 1.31L7.568 1.33C7.92 1.4 8.464 1.68 8.728 1.93L8.916 2.16L10.202 4H15.003L15.359 4.01L15.704 4.03C19.239 4.39 22 7.37 22 11L21.992 11.33C21.837 14.67 19.236 17.41 16 17.93V21H22V23H2V21H14V18H7V16H15L15.257 15.99L15.494 15.98C17.938 15.74 19.868 13.73 19.993 11.26L20 11C20 8.33 17.897 6.14 15.255 6.01L15 6H11.602L13.016 8.02C13.156 8.3 13.292 8.73 13.292 9.05L13.278 9.28C13.21 9.84 12.906 10.35 12.44 10.68L11.56 11.3L9.162 12.98C8.868 13.18 8.447 13.31 8.091 13.34C7.439 13.34 6.749 13.02 6.375 12.49L2.361 6.75C2.182 6.49 2.045 6.06 2 5.75C2 5.1 2.319 4.34 2.853 3.97L3.671 3.39L2.799 2.15L4.437 1Z" fill="currentColor"/>
+    </svg>
+  )
+}

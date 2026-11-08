@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function PhonePause({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M9 1C9.552 1 10 1.45 10 2V8C10 8.31 9.851 8.61 9.6 8.8L8.339 9.75C9.526 12.16 11.428 14.13 13.778 15.41L14.254 15.66L15.239 14.35C15.426 14.15 15.725 14 16 14H22C22.552 14 23 14.45 23 15V20C23 21.66 21.657 23 20 23C9.507 23 1 14.49 1 4C1 2.34 2.343 1 4 1H9ZM19 9H17V1H19V9ZM23 9H21V1H23V9Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M18 1V9M22 1V9M2 4C2 2.9 2.895 2 4 2H9V8L7.739 8.95C7.487 9.13 7.339 9.43 7.339 9.75C7.339 9.9 7.374 10.05 7.442 10.19C8.805 12.96 11.045 15.19 13.812 16.56C13.95 16.63 14.101 16.66 14.254 16.66C14.569 16.66 14.865 16.51 15.054 16.26L16 15H22V20C22 21.1 21.105 22 20 22C10.059 22 2 13.94 2 4Z"/>
+    </svg>
+  )
+}

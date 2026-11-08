@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ElectricKettle({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M20 22H5V20H20V22ZM12.001 2C14.135 2 15.77 3 16.976 4.54L21.091 4.93C21.418 4.96 21.709 5.15 21.869 5.44C22.029 5.73 22.039 6.08 21.894 6.37L19.539 11.15C19.802 12.67 19.947 14.3 19.988 15.97C20.016 17.1 19.1 18 18.001 18H6.96C5.901 18 4.985 17.16 4.979 16.05C4.976 15.51 4.987 14.9 5.019 14.25C3.751 13.76 2.951 12.82 2.504 11.99C2.028 11.11 2 10.14 2 9.41V5.5C2 4.95 2.448 4.5 3 4.5H7.561C8.572 3 9.955 2 12.001 2Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M8.119 5.5H3V9.41C3 10.14 3.039 10.88 3.383 11.52C3.822 12.33 4.642 13.23 6 13.5L6.067 13.51M16.428 5.49L20.996 5.93L18.5 11M11 8V14M5 21H20M18 17H6.96C6.424 17 5.982 16.58 5.979 16.04C5.955 11.61 6.898 3 12 3C16.777 3 18.815 8.93 18.988 16C19.002 16.55 18.553 17 18 17Z"/>
+    </svg>
+  )
+}

@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Hospital({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M16 2C17.6569 2 19 3.34 19 5V8.8C19 8.91 19.0897 9 19.2002 9H20C21.6569 9 23 10.34 23 12V19C23 20.66 21.6569 22 20 22H4C2.3432 22 1 20.66 1 19V12C1 10.34 2.3432 9 4 9H4.7998C4.9103 9 5 8.91 5 8.8V5C5 3.34 6.3431 2 8 2H16Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M12 15C13.1046 15 14 15.9 14 17V19.8C14 19.91 13.9103 20 13.7998 20H10.2002C10.0897 20 10 19.91 10 19.8V17C10 15.9 10.8954 15 12 15ZM12.625 6C12.9011 6 13.125 6.22 13.125 6.5V7.38C13.125 7.65 13.3489 7.88 13.625 7.88H14.5C14.7761 7.88 15 8.1 15 8.38V9.62C15 9.9 14.7761 10.12 14.5 10.12H13.625C13.3489 10.12 13.125 10.35 13.125 10.62V11.5C13.125 11.78 12.9011 12 12.625 12H11.375C11.0989 12 10.875 11.78 10.875 11.5V10.62C10.875 10.35 10.6511 10.12 10.375 10.12H9.5C9.2239 10.12 9 9.9 9 9.62V8.38C9 8.1 9.2239 7.88 9.5 7.88H10.375C10.6511 7.88 10.875 7.65 10.875 7.38V6.5C10.875 6.22 11.0989 6 11.375 6H12.625Z" fill="currentColor"/>
+    </svg>
+  )
+}

@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import type { BlogCover, BlogPoster } from "@/lib/blog"
+import type { BlogCover } from "@/lib/blog"
 import { STYLES, type Icon } from "@/lib/icons"
 import { cn } from "@/lib/utils"
 import { Glyph } from "@/components/glyph"
@@ -19,6 +19,10 @@ import { Glyph } from "@/components/glyph"
  * Drawn live from `icons/`, like every picture of this set on the site: a PNG
  * would be a picture of the drawings on the day it was exported. Sized in
  * container units, so one layout serves a 300px tile and a 560px one.
+ *
+ * Every update wears this one (8 Nov 2026: "we are sticking to one style for
+ * update posters"). 2.5.0's exported colour bento was the single exception and
+ * stood out in the row, so it went back to the wall.
  */
 
 /** Two drawings to a row, each in its four styles: the poster's eight columns. */
@@ -199,49 +203,6 @@ export function UpdatePoster({
                 .map((row, i) => <WallRow key={i} icons={row} />)}
         </div>
       </div>
-    </div>
-  )
-}
-
-/**
- * An update's own release poster, the 3:2 copy of its X poster (`BlogPoster`),
- * in the same frame as the icon wall so the tile around it does not change.
- * Two images, one per theme, both rendered and one hidden: the poster is
- * drawn twice in Figma, and the theme is a class on the page, not a media
- * query `<picture>` could follow.
- */
-export function ImagePoster({
-  poster,
-  className,
-}: {
-  poster: BlogPoster
-  className?: string
-}) {
-  const sizes = "(min-width: 1280px) 400px, (min-width: 640px) 50vw, 100vw"
-  return (
-    <div
-      aria-hidden="true"
-      className={cn(
-        "aspect-[3/2] overflow-hidden rounded-md bg-background shadow-xs",
-        className
-      )}
-    >
-      <Image
-        src={poster.light.src}
-        alt=""
-        width={poster.light.width}
-        height={poster.light.height}
-        sizes={sizes}
-        className="size-full object-cover dark:hidden"
-      />
-      <Image
-        src={poster.dark.src}
-        alt=""
-        width={poster.dark.width}
-        height={poster.dark.height}
-        sizes={sizes}
-        className="hidden size-full object-cover dark:block"
-      />
     </div>
   )
 }

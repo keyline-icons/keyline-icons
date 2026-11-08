@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Tower({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M11.613 1.03C11.868 0.98 12.332 0.99 12.556 1.14L21.528 7.15C21.894 7.39 22.056 7.85 21.929 8.27C21.816 8.64 21.422 8.92 21.051 8.98L19 8.98V21H23V23H1V21H5V8.98H3C2.615 8.98 2.233 8.69 2.066 8.35C1.941 7.93 2.08 7.39 2.445 7.15L11.613 1.03ZM12 10.98C10.343 10.98 9 12.33 9 13.99V18.05C9.055 18.55 9.485 19 10 19H14C14.552 19 14.999 18.55 15 17.99V13.99C15 12.33 13.657 10.98 12 10.98Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

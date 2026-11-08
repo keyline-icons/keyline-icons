@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function TowelRack({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M20.5098 18C20.7804 18 21 18.22 21 18.49V19C21 20.66 19.6569 22 18 22H11C9.3432 22 8 20.66 8 19V18.49C8 18.22 8.2196 18 8.4902 18H20.5098ZM16 2C18.2683 2 20.1832 3.51 20.7949 5.58L20.8584 5.82C20.8793 5.91 20.9664 6 21.06 6H22C22.552 6 23 6.45 23 7C23 7.55 22.552 8 22 8H21.2C21.09 8 21 8.09 21 8.2V15C21 15.55 20.5523 16 20 16H9C8.4477 16 8 15.55 8 15V3C8 2.45 8.4477 2 9 2H16ZM4.9062 2.38C5.1769 2.24 5.4506 2.29 5.6562 2.45C5.8619 2.61 6 2.88 6 3.19V15C6 15.28 5.8852 15.53 5.7051 15.69C5.5666 15.82 5.3015 15.88 5.1097 15.87C3.9352 15.46 3 14.31 3 13V8.2C3 8.09 2.9103 8 2.7998 8H2C1.4477 8 1 7.55 1 7C1 6.45 1.4477 6 2 6H2.7998C2.9103 6 3 5.91 3 5.8V5.5C3 4.14 3.7747 2.96 4.9062 2.38Z" fill="currentColor"/>
+    </svg>
+  )
+}

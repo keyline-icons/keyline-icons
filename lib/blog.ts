@@ -162,22 +162,6 @@ export type BlogCover = {
   image: { src: string; width: number; height: number }
 }
 
-/**
- * An update's release poster from the X file, in place of the icon wall the
- * index draws for every other update: one image per theme, both 3:2.
- *
- * The 2.5.0 colour bento is the first (his ask, 2 Nov 2026: "change its ratio
- * and use it for the latest v2.5.0 update poster in blog"). The X poster is
- * 4:5; the blog's copy is laid out again at 3:2 beside it in Figma, section
- * "v2.5.0 blog 3:2", with every card kept. A picture rather than live drawings
- * because the bento's layout is the point, and it is a release's poster, of a
- * release that does not change once tagged.
- */
-export type BlogPoster = {
-  light: { src: string; width: number; height: number }
-  dark: { src: string; width: number; height: number }
-}
-
 export type BlogBlock =
   | { kind: "p"; text: string }
   | { kind: "h2"; text: string; id: string }
@@ -259,8 +243,6 @@ export type BlogPost = {
   kind?: "guide"
   /** A guide's picture; see `BlogCover`. Without one it falls back to `thumbnail`. */
   cover?: BlogCover
-  /** An update's own release poster; see `BlogPoster`. Without one the index draws the icon wall. */
-  poster?: BlogPoster
   /** ISO date. Drives `datePublished`, the printed date and the sitemap. */
   date: string
   /** ISO date of the last substantive edit, or the publication date. */
@@ -6324,6 +6306,266 @@ export const BLOG_V250_REDRAWN_ICON_NAMES = [
   "rocket",
 ] as const
 
+/* Food, clothing and building in turn, the three the title names. The poster
+   wall takes the first eight, so the list has to reach eight or it stops short. */
+export const BLOG_V260_THUMBNAIL_ICON_NAMES = [
+  "croissant",
+  "dress",
+  "hotel",
+  "taco",
+  "sneaker",
+  "mosque",
+  "donut",
+  "pants",
+] as const
+
+export const BLOG_V260_MENU_ICON_NAMES = [
+  "banana",
+  "grape",
+  "beef",
+  "drumstick",
+  "fish",
+  "croissant",
+  "donut",
+  "popcorn",
+  "salad",
+  "taco",
+  "burger-box-hot",
+  "cup-soda",
+  "hot-tea",
+  "beer",
+  "wine",
+  "bottle-wine",
+] as const
+
+export const BLOG_V260_WARDROBE_ICON_NAMES = [
+  "dress",
+  "pants",
+  "shorts",
+  "socks",
+  "sneaker",
+  "hanger",
+  "backpack",
+  "ring-diamond",
+] as const
+
+export const BLOG_V260_PLACES_ICON_NAMES = [
+  "cabin",
+  "guesthouse",
+  "hotel",
+  "shepherds-hut",
+  "church",
+  "mosque",
+  "temple",
+  "school",
+  "hospital",
+  "tower",
+  "bridge",
+  "fountain",
+  "ferris-wheel",
+  "windmill",
+  "warehouse",
+  "parking",
+] as const
+
+export const BLOG_V260_ALIGN_ICON_NAMES = [
+  "align-start-horizontal",
+  "align-center-horizontal",
+  "align-end-horizontal",
+  "align-start-vertical",
+  "align-center-vertical",
+  "align-end-vertical",
+  "align-horizontal-distribute-center",
+  "align-vertical-distribute-center",
+  "crop",
+  "perspective",
+  "move-3d",
+  "rotate-3d",
+  "scale-3d",
+] as const
+
+export const BLOG_V260_REDRAWN_ICON_NAMES = [
+  "settings",
+  "settings-dot",
+  "images",
+  "stethoscope",
+  "wheelchair",
+] as const
+
+const RELEASE_2_6_0: BlogPost = {
+  /* Food leads because it is the widest search the batch can win; clothes and
+     buildings follow in the same title, the layout tools are for readers who
+     arrive from a design tool and find them in the body. */
+  slug: "food-clothing-and-building-icons",
+  version: "2.6.0",
+  title: "141 free food, clothing and building icons for React, shadcn/ui and Figma",
+  description:
+    "1,833 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
+    "a croissant, a taco, a dress, a sneaker, a hotel, a mosque, and align " +
+    "and distribute tools.",
+  standfirst:
+    "A delivery app, a clothes shop and a travel listing can now draw their " +
+    "own menus.",
+  date: "2026-11-08",
+  updated: "2026-11-08",
+  readingMinutes: 3,
+  thumbnail: BLOG_V260_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "food icons",
+    "drink icons",
+    "croissant icon",
+    "taco icon",
+    "donut icon",
+    "clothing icons",
+    "dress icon",
+    "sneaker icon",
+    "hanger icon",
+    "building icons",
+    "hotel icon",
+    "church icon",
+    "mosque icon",
+    "school icon",
+    "hospital icon",
+    "align icons",
+    "distribute icons",
+    "free svg icons",
+    "shadcn/ui icons",
+    "figma icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "Most of this update is things people order, wear and visit: 141 " +
+        "new drawings, each in stroke, two-tone, duotone and fill, with " +
+        "rounded and sharp corners. Ten that already shipped were drawn " +
+        "again.",
+    },
+    {
+      kind: "p",
+      text:
+        "Three kinds of product were short of words before this. A " +
+        "restaurant menu had a fork and a coffee cup. A clothes shop had a " +
+        "shirt. A map of a town had a house and an office block, and " +
+        "nothing to tell a school from a hotel.",
+    },
+
+    { kind: "h2", text: "A menu needs more than a fork", id: "menu" },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V260_MENU_ICON_NAMES,
+        caption: "Sixteen things to eat and drink.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "Fill works hardest here, where a dish is often 16 pixels wide " +
+        "next to its price. The `croissant` splits along its folds and the " +
+        "`taco` keeps a gap between shell and lettuce, so each still reads " +
+        "as what it is when it goes solid.",
+    },
+
+    { kind: "h2", text: "One wardrobe, cut the same way", id: "wardrobe" },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V260_WARDROBE_ICON_NAMES,
+        caption: "The fill cuts a waist into the dress and the trousers alike.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The `dress` has a scoop neck and the `pants` a belt line, and in " +
+        "fill both take the same white cut at the waist. Side by side in a " +
+        "category list they look like one shop's stock.",
+    },
+
+    { kind: "h2", text: "A street you can tell apart", id: "street" },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V260_PLACES_ICON_NAMES,
+        caption: "Places to stay, worship, learn and visit.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "Every one of these is a roof over a door, which is exactly why " +
+        "they are easy to confuse. The difference is carried by the part " +
+        "only that building has: the minaret, the school's flag, the " +
+        "hospital's cross, the ladder up the `shepherds-hut`.",
+    },
+
+    { kind: "h2", text: "align-left was about text all along", id: "align-names" },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V260_ALIGN_ICON_NAMES,
+        caption: "Tools for arranging objects on a canvas.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The six icons that line up paragraphs carried the names a design " +
+        "tool uses for lining up objects. Now that the objects have their " +
+        "own drawings, `align-left` is `text-align-start`, `align-center` " +
+        "is `text-align-center`, `align-right` is `text-align-end` and " +
+        "`align-justify` is `text-align-justify`, with the two `-2` " +
+        "versions following. `flower` became `circles-five`, which is what " +
+        "it shows. Old names still find the right drawing in search, the " +
+        "old pages redirect, and old imports keep working until the next " +
+        "major version.",
+    },
+
+    { kind: "h2", text: "The gear got its teeth back", id: "gear" },
+    {
+      kind: "figure",
+      figure: {
+        kind: "pairs",
+        names: BLOG_V260_REDRAWN_ICON_NAMES,
+        caption: "Before and after.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "`settings` is the icon most apps show most often, so it was worth " +
+        "drawing again from nothing. `settings-dot` follows it, with its " +
+        "padding whole on every side.",
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text: "React, shadcn/ui, the CLI, the MCP server and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Changelog",
+      text: "Every drawing in this update, shelf by shelf.",
+    },
+  ],
+}
+
 const RELEASE_2_5_0: BlogPost = {
   /* Furniture leads because it is the search this post can win; the off
      states and the redraws are half the batch but are in every set's
@@ -6343,18 +6585,6 @@ const RELEASE_2_5_0: BlogPost = {
   updated: "2026-11-01",
   readingMinutes: 4,
   thumbnail: BLOG_V250_THUMBNAIL_ICON_NAMES,
-  poster: {
-    light: {
-      src: "/blog/furniture-room-and-minibar-icons/poster-light.png",
-      width: 2160,
-      height: 1440,
-    },
-    dark: {
-      src: "/blog/furniture-room-and-minibar-icons/poster-dark.png",
-      width: 2160,
-      height: 1440,
-    },
-  },
   keywords: [
     "furniture icons",
     "room icons",
@@ -7021,6 +7251,7 @@ const LUCIDE_ALTERNATIVES: BlogPost = {
 
 export const BLOG_POSTS: readonly BlogPost[] = [
   LUCIDE_ALTERNATIVES,
+  RELEASE_2_6_0,
   RELEASE_2_5_0,
   RELEASE_2_3_0,
   RELEASE_2_2_0,

@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CarWash({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M6 15H18M6 15C4.895 15 4 15.895 4 17V20C4 21.105 4.895 22 6 22C7.105 22 8 21.105 8 20H16C16 21.105 16.895 22 18 22C19.105 22 20 21.105 20 20V17C20 15.895 19.105 15 18 15M6 15L7.698 11H16.302L18 15M6.424 14H3.5M17.575 14H20.5M9.6 3.8C9.86 4.146 10 4.567 10 5C10 6.105 9.105 7 8 7C6.895 7 6 6.105 6 5C6 4.567 6.14 4.146 6.4 3.8L7.6 2.2C7.694 2.074 7.843 2 8 2C8.157 2 8.306 2.074 8.4 2.2L9.6 3.8ZM17.6 3.8C17.86 4.146 18 4.567 18 5C18 6.105 17.105 7 16 7C14.895 7 14 6.105 14 5C14 4.567 14.14 4.146 14.4 3.8L15.6 2.2C15.694 2.074 15.843 2 16 2C16.157 2 16.306 2.074 16.4 2.2L17.6 3.8Z"/>
+    </svg>
+  )
+}

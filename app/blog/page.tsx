@@ -18,7 +18,6 @@ import { blogJsonLd, pageMetadata } from "@/lib/seo"
 import { SET_TITLE } from "@/lib/site-chrome"
 import {
   GuidePoster,
-  ImagePoster,
   UpdatePoster,
 } from "@/components/blog-poster"
 import { BookOpen } from "@/components/icons"
@@ -113,13 +112,12 @@ export async function generateMetadata({
 }
 
 /** A release's new names and the set's total after it, off the git-built history. */
-const RELEASES = new Map(
-  (
-    history as {
-      releases: { version: string; names: string[]; count: number }[]
-    }
-  ).releases.map((r) => [r.version, r])
-)
+const HISTORY = history as {
+  version: string
+  releases: { version: string; names: string[]; count: number }[]
+  unreleased: { names: string[]; count: number } | null
+}
+const RELEASES = new Map(HISTORY.releases.map((r) => [r.version, r]))
 
 /**
  * The line above a tile's title, in Apple's small capitals: what the post is,
@@ -142,8 +140,19 @@ function Eyebrow({ post }: { post: BlogPost }) {
   )
 }
 
-const releaseOf = (post: BlogPost) =>
-  post.version ? RELEASES.get(post.version) : undefined
+/**
+ * The release a poster counts. A post is written ahead of its tag, and read
+ * against tags alone its poster said "New free icons" with no version or total
+ * until the day it was cut. The work since the last tag is what that tag will
+ * hold, so a post for the version in progress counts that.
+ */
+const releaseOf = (post: BlogPost) => {
+  if (!post.version) return undefined
+  const tagged = RELEASES.get(post.version)
+  if (tagged || post.version !== HISTORY.version || !HISTORY.unreleased)
+    return tagged
+  return { version: post.version, ...HISTORY.unreleased }
+}
 
 /**
  * The drawings the release added, in the order the post's own list puts them,
@@ -174,8 +183,6 @@ function Poster({
 }) {
   if (post.cover)
     return <GuidePoster cover={post.cover} className={className} />
-  if (post.poster)
-    return <ImagePoster poster={post.poster} className={className} />
 
   const release = releaseOf(post)
   const ordered = drawingsOf(post, icons)

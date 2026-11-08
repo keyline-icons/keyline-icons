@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function AlignCenterVertical({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 1C12.5523 1 13 1.448 13 2V2.8C13 2.91 13.0897 3 13.2002 3H14C15.6569 3 17 4.343 17 6V8C17 9.657 15.6569 11 14 11H13.2002C13.0897 11 13 11.09 13 11.2V12.8C13 12.91 13.0897 13 13.2002 13H18C19.6569 13 21 14.343 21 16V18C21 19.657 19.6569 21 18 21H13.2002C13.0897 21 13 21.09 13 21.2V22C13 22.552 12.5523 23 12 23C11.4477 23 11 22.552 11 22V21.2C11 21.09 10.9103 21 10.7998 21H6C4.3432 21 3 19.657 3 18V16C3 14.343 4.3432 13 6 13H10.7998C10.9103 13 11 12.91 11 12.8V11.2C11 11.09 10.9103 11 10.7998 11H10C8.3431 11 7 9.657 7 8V6C7 4.343 8.3431 3 10 3H10.7998C10.9103 3 11 2.91 11 2.8V2C11 1.448 11.4477 1 12 1Z" fill="currentColor"/>
+    </svg>
+  )
+}

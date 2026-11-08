@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function TextAlignJustifyCharacter({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M21 20C21.5523 20 22 20.45 22 21C22 21.55 21.5523 22 21 22H3C2.4477 22 2 21.55 2 21C2 20.45 2.4477 20 3 20H21ZM21 14C21.5523 14 22 14.45 22 15C22 15.55 21.5523 16 21 16H3C2.4477 16 2 15.55 2 15C2 14.45 2.4477 14 3 14H21ZM5.1855 3.16C5.8989 1.62 8.0998 1.62 8.8135 3.16L11.9004 9.57C12.1401 10.06 11.9318 10.66 11.4346 10.9C10.9371 11.14 10.3394 10.93 10.0996 10.43L8.9268 8H5.0732L3.9004 10.43C3.6606 10.93 3.063 11.14 2.5654 10.9C2.0684 10.66 1.8599 10.06 2.0996 9.57L5.1855 3.16ZM21 8C21.5523 8 22 8.45 22 9C22 9.55 21.5523 10 21 10H15C14.4477 10 14 9.55 14 9C14 8.45 14.4477 8 15 8H21ZM21 2C21.5523 2 22 2.45 22 3C22 3.55 21.5523 4 21 4H15C14.4477 4 14 3.55 14 3C14 2.45 14.4477 2 15 2H21Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M3 10L6.0862 3.6C6.4381 2.8 7.5619 2.8 7.9138 3.6L9.554 7M9.554 7L11 10M9.554 7H4.446M15 3H21M15 9H21M3 15H21M3 21H21"/>
+    </svg>
+  )
+}

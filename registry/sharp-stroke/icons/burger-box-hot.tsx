@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function BurgerBoxHot({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M3 17L5 22H19L21 17M3 17H1M3 17L5 9H19L21 17M3 17H9M21 17H23M21 17H15M9 17V13H15V17M9 17H15M7.791 1V2C7.791 2.787 7.421 3.528 6.791 4C6.441 4.263 6.171 4.609 6 5L5.738 5.6M12.791 1V2C12.791 2.787 12.421 3.528 11.791 4C11.441 4.263 11.171 4.609 11 5L10.738 5.6M17.791 1V2C17.791 2.787 17.421 3.528 16.791 4C16.441 4.263 16.171 4.609 16 5L15.738 5.6"/>
+    </svg>
+  )
+}

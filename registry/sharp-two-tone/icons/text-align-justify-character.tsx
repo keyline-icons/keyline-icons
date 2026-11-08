@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function TextAlignJustifyCharacter({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M22 22H2V20H22V22ZM22 16H2V14H22V16ZM6.989 2C7.322 2 7.633 2.16 7.821 2.43C7.837 2.46 7.854 2.48 7.868 2.5L11.896 9.56L11.985 9.74L10.262 10.73L10.12 10.48L8.926 8H5.294L3.736 10.72L2.002 9.73L6.168 2.44C6.34 2.22 6.637 2.03 6.923 2C6.945 2 6.967 2 6.989 2Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M22 10H14V8H22V10ZM22 4H14V2H22V4Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M2.87 10.23L7 3L11.13 10.23M9.285 7H4.715M14 3H22M14 9H22M2 15H22M2 21H22"/>
+    </svg>
+  )
+}

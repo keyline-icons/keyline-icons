@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Mount({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M18.999 15.13C19.419 15.13 19.793 15.39 19.938 15.79C20.063 16.13 19.939 16.57 19.703 16.85L12.641 22.77C12.269 23.08 11.728 23.08 11.357 22.77L4.357 16.9C4.076 16.67 3.977 16.15 4.045 15.79C4.219 15.48 4.632 15.13 4.999 15.13L18.999 15.13ZM20 10.98V12.99H4V10.98H20ZM11.391 1.17C11.731 0.94 12.271 0.94 12.611 1.18L19.641 7.07C19.962 7.34 20.081 7.78 19.939 8.18C19.813 8.52 19.43 8.78 19.076 8.84L4.999 8.84C4.579 8.84 4.203 8.57 4.06 8.18C3.917 7.78 4.036 7.34 4.357 7.07L11.391 1.17Z" fill="currentColor"/>
+    </svg>
+  )
+}

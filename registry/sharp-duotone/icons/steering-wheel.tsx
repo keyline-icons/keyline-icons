@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function SteeringWheel({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M3.01 8.57C6.608 7.46 13.825 6.22 21.76 8.83L21.128 10.73C19.657 10.24 18.1 9.87 16.709 9.64L16.422 9.6L16.127 9.55L16.309 9.79C16.991 10.67 17.413 11.96 17.447 13.15L17.882 12.92C18.925 12.42 20.215 12.13 21.446 12.11V14.11C18.065 14.17 15.224 16.94 15.224 20.33V21.44H13.224V20.33C13.224 19.72 13.337 18.93 13.465 18.36C13.173 18.43 12.685 18.52 12.378 18.54L12.001 18.55C11.561 18.55 10.946 18.45 10.535 18.35C10.664 18.93 10.779 19.72 10.779 20.33V21.44H8.779V20.33C8.779 16.94 5.938 14.17 2.557 14.11V12.11C3.633 12.13 4.782 12.35 5.721 12.74L6.118 12.92L6.554 13.15C6.587 11.95 7.011 10.66 7.694 9.78L7.878 9.55L7.582 9.59C5.895 9.84 4.48 10.2 3.43 10.54L2.889 10.72L2.223 8.83L3.01 8.57Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M12 1C18.075 1 23 5.92 23 12C23 18.08 18.075 23 12 23C5.925 23 1 18.08 1 12C1 5.92 5.925 1 12 1ZM12 3C7.029 3 3 7.03 3 12C3 16.97 7.029 21 12 21C16.971 21 21 16.97 21 12C21 7.03 16.971 3 12 3Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

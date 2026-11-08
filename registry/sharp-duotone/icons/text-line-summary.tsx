@@ -1,0 +1,25 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function TextLineSummary({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M4 2V17.75H18.471L17.6 16.93L18.967 15.47L21.684 18.02C21.885 18.21 22 18.47 22 18.75C22 19.03 21.885 19.29 21.684 19.48L18.994 22L17.627 20.54L18.249 19.96L18.471 19.75H3C2.448 19.75 2 19.3 2 18.75V2H4Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M15 12V14H6V12H15ZM22 7V9H6V7H22ZM22 2V4H6V2H22Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M4 2V17.75H18.471L17.6 16.93L18.967 15.47L21.684 18.02C21.885 18.21 22 18.47 22 18.75C22 19.03 21.885 19.29 21.684 19.48L18.994 22L17.627 20.54L18.249 19.96L18.471 19.75H3C2.448 19.75 2 19.3 2 18.75V2H4Z" fill="currentColor"/>
+    </svg>
+  )
+}

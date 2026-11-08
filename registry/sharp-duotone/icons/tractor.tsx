@@ -1,0 +1,25 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Tractor({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M10 3C10.443 3 10.833 3.29 10.959 3.72L12.731 9.71L13.183 9.69C14.075 9.66 14.885 9.69 15.631 9.77L16 9.81V8C16 7.73 16.105 7.48 16.293 7.29L17.586 6L19 7.41L18 8.41V10.21L18.38 10.32L18.703 10.43C19.447 10.67 20.124 10.96 20.77 11.27C22.162 11.93 23 13.35 23 14.85V18C23 18.55 22.552 19 22 19H19.825C19.391 20.12 18.276 21 17 21C15.776 21 14.631 20.05 14.164 19H11.469L11.252 19.23C10.167 20.32 8.661 21 7 21C3.686 21 1 18.31 1 15C1 13.24 1.798 11.63 3 10.53V5H1V3H10ZM5 5V9.34C5.581 9.15 6.358 9 7 9C8.177 9 9.313 9.36 10.241 9.95L10.7 9.89L9.253 5H5Z" fill="currentColor" fillOpacity="0.4" fillRule="evenodd" clipRule="evenodd"/>
+      <path d="M7 9C10.314 9 13 11.69 13 15C13 18.31 10.314 21 7 21C3.686 21 1 18.31 1 15C1 11.69 3.686 9 7 9ZM7 12.5C5.619 12.5 4.5 13.62 4.5 15C4.5 16.38 5.619 17.5 7 17.5C8.381 17.5 9.5 16.38 9.5 15C9.5 13.62 8.381 12.5 7 12.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+      <path d="M17 15C18.657 15 20 16.34 20 18C20 19.66 18.657 21 17 21C15.343 21 14 19.66 14 18C14 16.34 15.343 15 17 15Z" fill="currentColor"/>
+    </svg>
+  )
+}

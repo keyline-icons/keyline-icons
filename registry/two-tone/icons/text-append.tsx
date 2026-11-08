@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function TextAppend({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M3 14C3.5523 14 4 14.45 4 15V17.25C4 17.47 4.2067 17.75 4.5996 17.75H8.4717L7.916 17.23C7.5133 16.85 7.4927 16.22 7.8701 15.82C8.2478 15.41 8.8813 15.39 9.2842 15.77L11.6836 18.02C11.8852 18.21 12 18.47 12 18.75C12 19.03 11.8852 19.29 11.6836 19.48L9.2842 21.73C8.8813 22.11 8.2478 22.09 7.8701 21.68C7.4927 21.28 7.5133 20.65 7.916 20.27L8.4717 19.75H4.5996C3.2256 19.75 2 18.69 2 17.25V15C2 14.45 2.4477 14 3 14Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M21 8C21.5523 8 22 8.45 22 9C22 9.55 21.5523 10 21 10H3C2.4477 10 2 9.55 2 9C2 8.45 2.4477 8 3 8H21ZM21 2C21.5523 2 22 2.45 22 3C22 3.55 21.5523 4 21 4H3C2.4477 4 2 3.55 2 3C2 2.45 2.4477 2 3 2H21ZM21 20C21.5523 20 22 20.45 22 21C22 21.55 21.5523 22 21 22H15C14.4477 22 14 21.55 14 21C14 20.45 14.4477 20 15 20H21ZM21 14C21.5523 14 22 14.45 22 15C22 15.55 21.5523 16 21 16H15C14.4477 16 14 15.55 14 15C14 14.45 14.4477 14 15 14H21Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

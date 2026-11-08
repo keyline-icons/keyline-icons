@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Socks({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M22.001 8.1V15.16C22.001 15.4 21.917 15.63 21.766 15.81L17.805 20.5C16.328 22.25 13.74 22.5 11.962 21.06C10.125 19.57 9.859 16.84 11.359 15.01L14.02 11.76V8.1H22.001Z" fill="currentColor"/>
+      <path d="M12.029 2V4H7.543V6.05H12.029V8.05H7.543V12.12C7.543 12.35 7.462 12.58 7.316 12.75L4.529 16.16C3.691 17.18 3.87 18.71 4.91 19.5C5.454 19.92 6.15 20.06 6.805 19.89L8.048 19.57L8.539 21.51L7.298 21.83C6.048 22.15 4.724 21.87 3.697 21.09C1.752 19.61 1.431 16.78 2.982 14.89L5.543 11.76V3C5.543 2.45 5.991 2 6.543 2H12.029ZM21.001 2C21.552 2 22.001 2.45 22.001 3V6.1H14.019V3C14.019 2.45 14.466 2 15.019 2H21.001Z" fill="currentColor"/>
+    </svg>
+  )
+}

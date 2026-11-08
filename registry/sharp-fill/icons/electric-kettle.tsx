@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ElectricKettle({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M20 20V22H5V20H20Z" fill="currentColor"/>
+      <path d="M12.002 2L12.393 2.01L12.75 2.04C14.505 2.25 15.919 3.2 16.974 4.54L21.091 4.93C21.417 4.96 21.709 5.15 21.869 5.44C22.029 5.73 22.039 6.08 21.894 6.37L19.537 11.15C19.796 12.66 19.948 14.32 19.988 15.97C20.014 17.03 19.093 17.89 18.089 18H6.96C5.901 18 4.985 17.16 4.979 16.05C4.977 15.78 4.98 15.49 4.986 15.19L5.019 14.25C3.797 13.75 2.942 12.8 2.504 11.99C2.191 11.41 2.072 10.79 2.026 10.23L2.012 10L2 9.41V5.5C2 4.95 2.448 4.5 3 4.5H7.563C8.569 3.08 10.021 2 12.002 2ZM10 8V14H12V8H10ZM4 6.5V9.41L4.011 9.92L4.038 10.25C4.074 10.56 4.143 10.82 4.263 11.04C4.44 11.37 4.687 11.7 5.019 11.97L5.188 12.1L5.214 11.89C5.387 10.44 5.671 8.93 6.115 7.55C6.211 7.26 6.383 6.79 6.499 6.5H4ZM18.352 6.94L18.531 7.38L18.67 7.75L18.799 8.12L18.926 7.87L19.457 6.79L18.235 6.67L18.352 6.94Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

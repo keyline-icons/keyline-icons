@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Microscope({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2 5.6C2 4.95 2.318 4.34 2.853 3.97L3.671 3.39L2.8 2.15L4.438 1L5.31 2.25L6.13 1.67C6.466 1.44 6.866 1.31 7.276 1.31C7.929 1.31 8.541 1.63 8.915 2.16L10.201 4H15C18.866 4 22 7.13 22 11C22 14.53 19.392 17.44 16 17.93V21H22V23H2V21H14V18H7V16H15C17.761 16 20 13.76 20 11C20 8.24 17.761 6 15 6H11.602L12.971 7.96C13.153 8.27 13.292 8.68 13.292 9.04C13.292 9.7 12.974 10.31 12.439 10.68L9.981 12.4L9.162 12.98C8.826 13.21 8.425 13.34 8.015 13.34C7.362 13.34 6.751 13.02 6.377 12.49L2.361 6.75C2.126 6.41 2 6.01 2 5.6Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M5.065 3.64L3.619 1.57M10.227 11.01L10.8 11.83M9.681 5H15C18.314 5 21 7.69 21 11C21 14.31 18.314 17 15 17M15 17H7M15 17V22M2 22H22M3.426 4.79L6.703 2.49C6.871 2.37 7.071 2.31 7.277 2.31C7.603 2.31 7.909 2.47 8.096 2.74L12.111 8.47C12.228 8.64 12.292 8.84 12.292 9.04C12.292 9.37 12.132 9.68 11.865 9.86L8.589 12.16C8.421 12.28 8.22 12.34 8.015 12.34C7.689 12.34 7.383 12.18 7.196 11.91L3.181 6.18C3.063 6.01 3 5.81 3 5.61C3 5.28 3.159 4.97 3.426 4.79Z"/>
+    </svg>
+  )
+}

@@ -21,8 +21,8 @@ export function AArrowDown({ size = 24, ...props }: IconProps) {
       focusable="false"
       {...props}
     >
-      <path d="M2 19L7 5L12 19M3.7857 14L10.2143 14" fill="none" strokeOpacity="0.4"/>
-      <path d="M19 9L19 19M16 16L19 19L22 16" fill="none"/>
+      <path d="M2 18.0007L3.7857 13.0007L6.0583 6.6676C6.3743 5.7827 7.6257 5.7827 7.9417 6.6676L10.2143 13.0007L12 18.0007M10.2143 13.0007H3.7857" strokeOpacity="0.4"/>
+      <path d="M19 8V18M16 15L19 18L22 15"/>
     </svg>
   )
 }

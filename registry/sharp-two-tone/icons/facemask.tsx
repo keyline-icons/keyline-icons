@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Facemask({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M11.47 5.15C11.787 4.95 12.188 4.95 12.51 5.14L16.496 7.5H22C22.552 7.5 23 7.95 23 8.5V14.5C23 15.05 22.552 15.5 22 15.5H17.526C17.123 16.23 16.609 16.89 15.994 17.43C13.715 19.45 10.563 19.51 8.229 17.62L8.006 17.43C7.392 16.89 6.878 16.23 6.475 15.5H2C1.448 15.5 1 15.05 1 14.5V8.5C1 7.95 1.448 7.5 2 7.5H7.714L11.47 5.15Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M7.091 14.5H2V8.5H8L12 6L16.222 8.5H22V14.5H16.909M6 8.5L6.513 12.44C6.734 14.13 7.508 15.66 8.669 16.68C10.643 18.43 13.357 18.43 15.331 16.68C16.493 15.66 17.266 14.13 17.487 12.44L18 8.5M12 10V15"/>
+    </svg>
+  )
+}

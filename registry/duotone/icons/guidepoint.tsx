@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Guidepoint({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M5 8C7.2091 8 9 9.79 9 12C9 14.21 7.2091 16 5 16C2.7909 16 1 14.21 1 12C1 9.79 2.7909 8 5 8ZM19 8C21.2091 8 23 9.79 23 12C23 14.21 21.2091 16 19 16C16.7909 16 15 14.21 15 12C15 9.79 16.7909 8 19 8Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M16 11C16.5523 11 17 11.45 17 12C17 12.55 16.5523 13 16 13H8C7.4477 13 7 12.55 7 12C7 11.45 7.4477 11 8 11H16Z" fill="currentColor"/>
+    </svg>
+  )
+}

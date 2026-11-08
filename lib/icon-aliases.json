@@ -2297,12 +2297,10 @@
       "arrow-down-a-z",
       "arrow-down-from-line",
       "arrow-down-to-dot",
-      "arrow-down-to-line",
       "arrow-down-z-a"
     ],
     "arrow-left": [
-      "arrow-left-from-line",
-      "arrow-left-to-line"
+      "arrow-left-from-line"
     ],
     "arrow-right": [
       "arrow-right-from-line",
@@ -2315,7 +2313,6 @@
       "arrow-up-a-z",
       "arrow-up-from-dot",
       "arrow-up-from-line",
-      "arrow-up-to-line",
       "arrow-up-z-a",
       "arrows-up-from-line"
     ],
@@ -2564,12 +2561,10 @@
       "repeat-2"
     ],
     "rotate-ccw": [
-      "rotate-ccw-key",
-      "rotate-ccw-square"
+      "rotate-ccw-key"
     ],
     "rotate-cw": [
-      "rotate-cw-fading-clock",
-      "rotate-cw-square"
+      "rotate-cw-fading-clock"
     ],
     "server": [
       "server-cog",

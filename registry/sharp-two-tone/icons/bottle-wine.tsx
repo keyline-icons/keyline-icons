@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function BottleWine({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M9 1C9.552 1 10 1.448 10 2V6.697L11.832 9.445C11.942 9.61 12 9.803 12 10V22C12 22.552 11.552 23 11 23H3C2.448 23 2 22.552 2 22V10C2 9.803 2.058 9.61 2.168 9.445L4 6.697V2C4 1.448 4.448 1 5 1H9ZM22 13C22 14.864 20.725 16.43 19 16.874V21H22V23H14V21H17V16.874C15.275 16.43 14 14.864 14 13V10C14 9.448 14.448 9 15 9H21C21.552 9 22 9.448 22 10V13Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M3 14H11M18 16C19.657 16 21 14.657 21 13V10H15V13C15 14.657 16.343 16 18 16ZM18 16V22M14 22H22M5 2H9V7L11 10V22H3V10L5 7V2Z"/>
+    </svg>
+  )
+}

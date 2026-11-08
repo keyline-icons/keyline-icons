@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ArrowLeftToLine({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12.475 3.992L13.876 5.419L8.408 10.794L8.199 11H23V13H8.199L8.408 13.206L13.876 18.581L12.475 20.007L5.054 12.713C4.863 12.525 4.754 12.268 4.754 12C4.754 11.732 4.863 11.475 5.054 11.287L12.475 3.992ZM3 4V20H1V4H3Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M12.476 3.992L13.877 5.419L8.409 10.794L8.2 11H23.001V13H8.2L8.409 13.206L13.877 18.581L12.476 20.007L5.055 12.713C4.889 12.55 4.774 12.229 4.75 11.998C4.773 11.767 4.888 11.452 5.055 11.287L12.476 3.992Z" fill="currentColor"/>
+    </svg>
+  )
+}

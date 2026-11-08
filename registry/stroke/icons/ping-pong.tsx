@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function PingPong({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M13.8489 15.49C15.3898 15.35 16.8169 14.51 18.0693 13.25C20.6436 10.68 20.6436 6.5 18.0693 3.93C15.495 1.36 11.3213 1.36 8.747 3.93C7.4946 5.18 6.6476 6.61 6.5135 8.15C6.4698 8.65 6.5019 9.17 6.6203 9.69C6.9043 10.95 6.6674 12.46 5.5201 13.61L2.2998 16.83C1.9001 17.23 1.9001 17.88 2.2998 18.28L3.7207 19.7C4.1204 20.1 4.7685 20.1 5.1682 19.7L8.3885 16.48C9.5358 15.33 10.8832 15.06 12.3079 15.38C12.8323 15.5 13.3466 15.53 13.8489 15.49ZM6.5135 8.15L13.8489 15.49M20 22C18.8954 22 18 21.1 18 20C18 18.9 18.8954 18 20 18C21.1046 18 22 18.9 22 20C22 21.1 21.1046 22 20 22Z"/>
+    </svg>
+  )
+}

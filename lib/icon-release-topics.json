@@ -2689,6 +2689,379 @@
   },
   "0.1.0": {
    "title": "The first cut of the set"
+  },
+  "2.6.0": {
+   "title": "Food, clothes, buildings and layout tools",
+   "sections": [
+    {
+     "title": "New drawings",
+     "icon": "sparkles",
+     "sections": [
+      {
+       "title": "Actions",
+       "text": "A heart with a bolt beside it.",
+       "names": [
+        "heart-zap"
+       ]
+      },
+      {
+       "title": "Animals",
+       "text": "A whole fish, and a whale’s tail rising from the waves.",
+       "names": [
+        "fish",
+        "whale-tail"
+       ]
+      },
+      {
+       "title": "Arrows",
+       "text": "Arrows that stop at a line, three handles for moving, turning and scaling in 3D, and a square turning either way.",
+       "names": [
+        "arrow-down-to-line",
+        "arrow-left-to-line",
+        "arrow-up-to-line",
+        "move-3d",
+        "rotate-3d",
+        "scale-3d",
+        "rotate-ccw-square",
+        "rotate-cw-square"
+       ]
+      },
+      {
+       "title": "Art",
+       "text": "A paint brush and a freehand scribble.",
+       "names": [
+        "brush",
+        "scribble"
+       ]
+      },
+      {
+       "title": "Charts",
+       "text": "A dashed gauge filled halfway.",
+       "names": [
+        "gauge-dashed-half"
+       ]
+      },
+      {
+       "title": "Chevrons & Carets",
+       "text": "Chevrons that stop at a line, and four chevrons pointing outwards in two sizes.",
+       "names": [
+        "chevron-down-to-line",
+        "chevron-left-to-line",
+        "chevron-right-to-line",
+        "chevron-up-to-line",
+        "chevrons-four-directions",
+        "chevrons-compact-four-directions"
+       ]
+      },
+      {
+       "title": "Commerce",
+       "text": "A dress, trousers, shorts, socks, a sneaker, a hanger and a diamond ring.",
+       "names": [
+        "dress",
+        "pants",
+        "shorts",
+        "socks",
+        "sneaker",
+        "hanger",
+        "ring-diamond"
+       ]
+      },
+      {
+       "title": "Controls",
+       "text": "Two levels of brightness and two sliders.",
+       "names": [
+        "light-max",
+        "light-min",
+        "slider",
+        "slider-horizontal"
+       ]
+      },
+      {
+       "title": "Devices",
+       "text": "A joystick, and a phone with the call on hold.",
+       "names": [
+        "joystick",
+        "phone-pause"
+       ]
+      },
+      {
+       "title": "Education",
+       "text": "A backpack.",
+       "names": [
+        "backpack"
+       ]
+      },
+      {
+       "title": "Emoji",
+       "text": "A ghost.",
+       "names": [
+        "ghost"
+       ]
+      },
+      {
+       "title": "Food & Drink",
+       "text": "Fruit, meat, bakery, street food and drinks, from a banana to a glass of wine.",
+       "names": [
+        "banana",
+        "grape",
+        "beef",
+        "drumstick",
+        "croissant",
+        "donut",
+        "popcorn",
+        "salad",
+        "taco",
+        "burger-box-hot",
+        "cup-soda",
+        "hot-tea",
+        "beer",
+        "wine",
+        "bottle-wine"
+       ]
+      },
+      {
+       "title": "Health",
+       "text": "A blood pressure cuff, a brain in profile, a cross, a face mask, a hospital and a pill bottle.",
+       "names": [
+        "blood-pressure",
+        "brain-side",
+        "cross",
+        "facemask",
+        "hospital",
+        "pill-bottle"
+       ]
+      },
+      {
+       "title": "Home",
+       "text": "Bubbles with and without a glint, an electric kettle, a towel rack and a second vault.",
+       "names": [
+        "bubbles",
+        "bubbles-sparkles",
+        "electric-kettle",
+        "towel-rack",
+        "vault-2"
+       ]
+      },
+      {
+       "title": "Keyboard",
+       "text": "The Alt key and forward delete.",
+       "names": [
+        "alt",
+        "delete-forward"
+       ]
+      },
+      {
+       "title": "Layout",
+       "text": "Align and distribute tools for both axes, a crop, guides with insert markers, mirror lines and a perspective plane.",
+       "names": [
+        "align-start-horizontal",
+        "align-center-horizontal",
+        "align-end-horizontal",
+        "align-start-vertical",
+        "align-center-vertical",
+        "align-end-vertical",
+        "align-horizontal-distribute-start",
+        "align-horizontal-distribute-center",
+        "align-horizontal-distribute-end",
+        "align-horizontal-space-around",
+        "align-vertical-distribute-start",
+        "align-vertical-distribute-center",
+        "align-vertical-distribute-end",
+        "align-vertical-space-around",
+        "crop",
+        "guidepoint",
+        "guidepoint-arrow-down",
+        "guidepoint-arrow-up",
+        "guidepoint-vertical-arrow-left",
+        "guidepoint-vertical-arrow-right",
+        "list-bullet-indent",
+        "mount",
+        "perspective",
+        "triangles-centerline-horizontal",
+        "triangles-centerline-inward-horizontal",
+        "triangles-centerline-inward-vertical",
+        "triangles-centerline-vertical"
+       ]
+      },
+      {
+       "title": "Mail",
+       "text": "A roadside mailbox.",
+       "names": [
+        "mailbox"
+       ]
+      },
+      {
+       "title": "Maps",
+       "text": "Places to stay, places to worship and places to see, from a log cabin to a ferris wheel.",
+       "names": [
+        "cabin",
+        "guesthouse",
+        "hotel",
+        "shepherds-hut",
+        "church",
+        "mosque",
+        "temple",
+        "school",
+        "tower",
+        "bridge",
+        "fountain",
+        "ferris-wheel",
+        "windmill",
+        "warehouse",
+        "parking"
+       ]
+      },
+      {
+       "title": "Math",
+       "text": "Greater and less than, with their or-equal forms, a root over an unknown and two plus-minus signs.",
+       "names": [
+        "greater-than",
+        "greater-than-equal",
+        "less-than",
+        "less-than-equal",
+        "radicand",
+        "plus-forward-slash-minus",
+        "minus-forward-slash-plus"
+       ]
+      },
+      {
+       "title": "Media",
+       "text": "An acoustic guitar, and albums for photos and for video.",
+       "names": [
+        "guitar",
+        "gallery-image",
+        "gallery-play"
+       ]
+      },
+      {
+       "title": "Nature",
+       "text": "A pine tree.",
+       "names": [
+        "tree-pine"
+       ]
+      },
+      {
+       "title": "Science",
+       "text": "A microscope.",
+       "names": [
+        "microscope"
+       ]
+      },
+      {
+       "title": "Shapes",
+       "text": "Three overlapping circles.",
+       "names": [
+        "circles-three"
+       ]
+      },
+      {
+       "title": "Sport",
+       "text": "A bowling ball and a table tennis paddle.",
+       "names": [
+        "bowling-ball",
+        "ping-pong"
+       ]
+      },
+      {
+       "title": "Text",
+       "text": "Justified lines, text added before and after, a summary and word spacing.",
+       "names": [
+        "text-align-justify-character",
+        "text-append",
+        "text-insert",
+        "text-line-summary",
+        "text-word-spacing"
+       ]
+      },
+      {
+       "title": "Time",
+       "text": "History that ends in a tick.",
+       "names": [
+        "history-check"
+       ]
+      },
+      {
+       "title": "Transport",
+       "text": "Baggage claim, a car wash, a fuel pump and a jerry can, a moped, a tractor and a steering wheel.",
+       "names": [
+        "baggage-claim",
+        "car-wash",
+        "fuel",
+        "jerry-can",
+        "moped",
+        "tractor",
+        "steering-wheel"
+       ]
+      },
+      {
+       "title": "Weather",
+       "text": "A droplet with a degree mark.",
+       "names": [
+        "droplet-degree"
+       ]
+      },
+      {
+       "title": "Web",
+       "text": "A cog, the cog with a dot, home and house with a play mark, and two more navigation arrows.",
+       "names": [
+        "cog",
+        "cog-dot",
+        "home-play",
+        "house-play",
+        "navigation-line",
+        "navigation-up-right"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Redrawn",
+     "icon": "pen",
+     "text": "Ten drawings that already shipped were drawn again in every style. Before and after below.",
+     "sections": [
+      {
+       "title": "Health",
+       "text": "The stethoscope, with its tubes and chest piece drawn again.",
+       "redraws": [
+        "stethoscope"
+       ]
+      },
+      {
+       "title": "Media",
+       "text": "The stacked images, with the mountains solid in duotone and fill.",
+       "redraws": [
+        "images"
+       ]
+      },
+      {
+       "title": "Text",
+       "text": "The arrow and cursor A, and both case marks, on one new letter.",
+       "redraws": [
+        "a-arrow-down",
+        "a-arrow-up",
+        "a-text-cursor",
+        "case-sensitive",
+        "case-upper"
+       ]
+      },
+      {
+       "title": "Users",
+       "text": "The wheelchair, drawn again.",
+       "redraws": [
+        "wheelchair"
+       ]
+      },
+      {
+       "title": "Web",
+       "text": "The settings gear and the gear with a dot.",
+       "redraws": [
+        "settings",
+        "settings-dot"
+       ]
+      }
+     ]
+    }
+   ]
   }
  }
 }

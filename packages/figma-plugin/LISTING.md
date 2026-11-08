@@ -73,14 +73,14 @@ Keyline Icons
 ## Tagline
 
 ```
-1,692 icons, four styles, rounded or sharp corners. Searchable in Figma and FigJam.
+1,833 icons, four styles, rounded or sharp corners. Searchable in Figma and FigJam.
 ```
 
 Capped at 100 characters. The line above is 81, so there is still room. A
 shorter alternative if it ever needs one:
 
 ```
-1,692 icons in four styles, cut rounded or sharp.
+1,833 icons in four styles, cut rounded or sharp.
 ```
 
 ## Description
@@ -94,20 +94,20 @@ which only ever shows the newest entry. Someone deciding whether to install
 wants to see the set is maintained, and that is what a history says.
 
 ```
-Search 1,692 icons and drop one on the canvas. No library to publish, no file to duplicate, no plan requirement.
+Search 1,833 icons and drop one on the canvas. No library to publish, no file to duplicate, no plan requirement.
 
 Four styles
 
-* Stroke: 1,692 icons, 2px, round caps and joins
-* Two-tone: 1,692 icons, a 40% plate under the line
-* Duotone: 1,692 icons, no outline, a grey body with the detail in black
-* Fill: 1,692 icons, solid where the glyph has a region to fill
+* Stroke: 1,833 icons, 2px, round caps and joins
+* Two-tone: 1,833 icons, a 40% plate under the line
+* Duotone: 1,833 icons, no outline, a grey body with the detail in black
+* Fill: 1,833 icons, solid where the glyph has a region to fill
 
-Two corner treatments, and every drawing has both. Rounded is the keyline the set was drawn on; sharp takes every corner to a true point and ends each stroke square. Coverage is identical, so switching never costs you a drawing. 13,536 SVGs in total.
+Two corner treatments, and every drawing has both. Rounded is the keyline the set was drawn on; sharp takes every corner to a true point and ends each stroke square. Coverage is identical, so switching never costs you a drawing. 14,664 SVGs in total.
 
 67 icons also come in a square- form and 72 in a circle- form, so a container is a search away rather than a second drawing.
 
-Search knows more than the file names. 1,553 icons carry curated words, so "south" finds arrow-down, "torch" finds flashlight and "trash" finds bin. Paste a component name straight out of your code and it resolves: CheckCircle2 finds circle-check.
+Search knows more than the file names. 1,694 icons carry curated words, so "south" finds arrow-down, "torch" finds flashlight and "trash" finds bin. Paste a component name straight out of your code and it resolves: CheckCircle2 finds circle-check.
 
 Browse the set the way the site files it, shelf by shelf, with every shelf a click away from wherever you are. The icons you used last wait at the top, and the panel opens next time on the style, corners and size you left it on.
 
@@ -123,6 +123,15 @@ github.com/keyline-icons/keyline-icons
 Need icons drawn for your own product? Custom sets on the same grid, as SVG, Figma and React: keylineicons.com/custom
 
 Changelog
+
+2.6.0
+141 new drawings, taking the set to 1,833 names and 14,664 SVGs.
+
+* Food and drink: a croissant, a donut, a taco, a salad, popcorn, a burger box, a banana, grapes, beef, a drumstick, a fish, beer, wine and a hot tea
+* Clothes: a dress, trousers, shorts, socks, a sneaker, a hanger, a backpack and a diamond ring
+* Places: a hotel, a guesthouse, a cabin, a shepherd’s hut, a church, a mosque, a temple, a school, a hospital, a bridge, a fountain, a ferris wheel and a windmill
+* Layout and 3D: align and distribute tools for both axes, a crop, guides, mirror lines, and handles for moving, rotating and scaling in 3D
+* Ten drawings redrawn, the settings gear among them. Seven names moved: flower is circles-five, and the six text alignment icons are text-align-*
 
 2.5.0
 38 new drawings, taking the set to 1,692 names and 13,536 SVGs.
@@ -200,7 +209,7 @@ expectation for an icon set. `free icons` overlaps `open source`, and page four
 marks the plugin Free natively.
 
 That leaves the five that actually distinguish it: FigJam support is rare among
-icon plugins, 1,692 duotone drawings are rare among icon sets, a set that ships
+icon plugins, 1,833 duotone drawings are rare among icon sets, a set that ships
 every drawing rounded *and* sharp is rarer still, and the rest name the audience
 rather than the artefact.
 
@@ -739,13 +748,13 @@ Keyline Icons
 ### Description
 
 ```
-1,692 icons on a 24×24 grid, in four styles and two corner treatments: stroke, two-tone, duotone and fill, cut rounded or sharp. MIT licensed, free for commercial work, no attribution required.
+1,833 icons on a 24×24 grid, in four styles and two corner treatments: stroke, two-tone, duotone and fill, cut rounded or sharp. MIT licensed, free for commercial work, no attribution required.
 
-1,553 component sets, each with three variant properties, Container, Style and Corners, so you switch between regular, square and circle, between the four styles, and between rounded and sharp, without swapping components. 67 icons carry a square- form and 72 a circle-.
+1,694 component sets, each with three variant properties, Container, Style and Corners, so you switch between regular, square and circle, between the four styles, and between rounded and sharp, without swapping components. 67 icons carry a square- form and 72 a circle-.
 
-Every name comes in all four styles. Two-tone keeps the outline over a 40% plate, which is what duotone meant until 0.9.0; duotone now drops the outline and puts the part that matters in black. The four counts: stroke 1,692, two-tone 1,692, duotone 1,692, fill 1,692.
+Every name comes in all four styles. Two-tone keeps the outline over a 40% plate, which is what duotone meant until 0.9.0; duotone now drops the outline and puts the part that matters in black. The four counts: stroke 1,833, two-tone 1,833, duotone 1,833, fill 1,833.
 
-Every drawing exists in both treatments, so sharp is a switch rather than a second library: 13,536 variants over the same 1,692 names.
+Every drawing exists in both treatments, so sharp is a switch rather than a second library: 14,664 variants over the same 1,833 names.
 
 The Catalog page files every icon under one of 41 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
 
@@ -754,7 +763,16 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
-v2.5.0
+v2.6.0
+141 new drawings, taking the set to 1,833 names and 14,664 SVGs.
+
+* Food and drink: a croissant, a donut, a taco, a salad, popcorn, a burger box, a banana, grapes, beef, a drumstick, a fish, beer, wine and a hot tea
+* Clothes: a dress, trousers, shorts, socks, a sneaker, a hanger, a backpack and a diamond ring
+* Places: a hotel, a guesthouse, a cabin, a shepherd’s hut, a church, a mosque, a temple, a school, a hospital, a bridge, a fountain, a ferris wheel and a windmill
+* Layout and 3D: align and distribute tools for both axes, a crop, guides, mirror lines, and handles for moving, rotating and scaling in 3D
+* Ten drawings redrawn, the settings gear among them. Seven names moved: flower is circles-five, and the six text alignment icons are text-align-*
+
+2.5.0
 38 new drawings. The set is 1,692 names now, 1,553 component sets and 13,536 variants, up from 1,654 and 13,232. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
 
 * Home: a couch, a desk and an office desk with drawers, a roller blind, a radiator, a round mirror on a stand, a minibar fridge, a hot tub, a sun lounger and a table under a parasol

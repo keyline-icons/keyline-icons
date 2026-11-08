@@ -1,0 +1,26 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Fountain({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M17 1C19.7614 1 22 3.24 22 6C22 6.55 21.5523 7 21 7C20.4477 7 20 6.55 20 6C20 4.34 18.6568 3 17 3C15.3432 3 14 4.34 14 6V17C14 17.55 13.5523 18 13 18C12.4477 18 12 17.55 12 17V10C12 8.34 10.6568 7 9 7C7.3431 7 6 8.34 6 10C6 10.55 5.5523 11 5 11C4.4477 11 4 10.55 4 10C4 7.24 6.2386 5 9 5C9.9972 5 10.9247 5.3 11.7051 5.8C11.7645 5.84 11.8401 5.84 11.9033 5.81C11.9664 5.78 12.0078 5.71 12.0127 5.64C12.195 3.05 14.3583 1 17 1ZM3 13C3.5523 13 4 13.45 4 14C4 14.55 3.5523 15 3 15C2.4477 15 2 14.55 2 14C2 13.45 2.4477 13 3 13Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M7 13C7.5523 13 8 13.45 8 14C8 14.55 7.5523 15 7 15C6.4477 15 6 14.55 6 14C6 13.45 6.4477 13 7 13ZM22 13C22.5523 13 23 13.45 23 14C23 14.55 22.5523 15 22 15C21.4477 15 21 14.55 21 14C21 13.45 21.4477 13 22 13Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M18 11.5C18.5523 11.5 19 11.95 19 12.5C19 13.05 18.5523 13.5 18 13.5C17.4477 13.5 17 13.05 17 12.5C17 11.95 17.4477 11.5 18 11.5ZM21 9C21.5523 9 22 9.45 22 10C22 10.55 21.5523 11 21 11C20.4477 11 20 10.55 20 10C20 9.45 20.4477 9 21 9Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M21 17C22.1046 17 23 17.9 23 19C23 21.21 21.2092 23 19 23H5C2.7908 23 1 21.21 1 19C1 17.9 1.8954 17 3 17H21Z" fill="currentColor"/>
+    </svg>
+  )
+}

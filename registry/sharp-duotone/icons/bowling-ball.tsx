@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function BowlingBall({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 1C18.075 1 23 5.925 23 12C23 18.075 18.075 23 12 23C5.925 23 1 18.075 1 12C1 5.925 5.925 1 12 1Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M10.5 12C11.328 12 12 12.672 12 13.5C12 14.328 11.328 15 10.5 15C9.672 15 9 14.328 9 13.5C9 12.672 9.672 12 10.5 12ZM16.5 9C17.328 9 18 9.672 18 10.5C18 11.328 17.328 12 16.5 12C15.672 12 15 11.328 15 10.5C15 9.672 15.672 9 16.5 9ZM12 6C12.828 6 13.5 6.672 13.5 7.5C13.5 8.328 12.828 9 12 9C11.172 9 10.5 8.328 10.5 7.5C10.5 6.672 11.172 6 12 6Z" fill="currentColor"/>
+    </svg>
+  )
+}

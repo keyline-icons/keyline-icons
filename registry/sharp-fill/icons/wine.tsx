@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Wine({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M18.932 8.38C19.065 8.3 19.276 8.34 19.332 8.49L19.665 9.42L19.736 9.64L19.801 9.85C20.402 12.07 19.616 14.46 17.77 15.87C16.802 16.6 15.619 17 14.406 17H12.99V21H15.951V23H8.026V21H10.987V17H9.571C8.358 17 7.178 16.6 6.211 15.87C4.429 14.51 3.657 12.15 4.142 10L6.436 9.99C7.165 9.95 8.04 9.78 8.668 9.54C9.128 9.4 9.787 9.28 10.379 9.28C10.971 9.28 11.532 9.36 11.992 9.51L12.471 9.67C13.156 9.89 13.925 10 14.693 10C16.12 10 17.677 9.56 18.573 8.74L18.932 8.38ZM15.936 1C16.216 1 16.624 1.27 16.81 1.47L18.448 6.03L17.108 7.37C16.928 7.51 16.639 7.66 16.281 7.78C15.854 7.91 15.312 8 14.693 8C14.017 8 13.383 7.89 12.892 7.7C12.139 7.42 11.257 7.28 10.379 7.28C9.61 7.28 8.841 7.39 8.157 7.6L7.678 7.77C7.217 7.92 6.656 8 6.064 8H4.825L7.137 1.56C7.312 1.25 7.674 1 8.04 1H15.936Z" fill="currentColor"/>
+    </svg>
+  )
+}

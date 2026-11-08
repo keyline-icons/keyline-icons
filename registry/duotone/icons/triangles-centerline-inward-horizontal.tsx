@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function TrianglesCenterlineInwardHorizontal({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12.0001 15C12.2118 15 12.7048 15.2 12.923 15.32L16.7862 21.05C16.7871 21.05 16.7882 21.05 16.7891 21.05C17.0881 21.5 17.0469 22.04 16.7911 22.42C16.5453 22.79 16.1298 23 15.6983 23H8.3018C7.8698 23 7.4533 22.79 7.2071 22.42C6.95 22.04 6.9105 21.5 7.213 21.05L10.958 15.5C11.2346 15.19 11.6812 15 12.0001 15ZM15.6983 1C16.1298 1 16.5454 1.21 16.7911 1.58C17.0474 1.96 17.0882 2.5 16.7872 2.95L13.0899 8.43C12.8111 8.84 12.3649 9 12.0001 9C11.7209 9 11.2683 8.8 11.0056 8.57L7.213 2.95C6.9105 2.5 6.95 1.96 7.2071 1.58C7.4533 1.21 7.8698 1 8.3018 1H15.6983Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M22 11C22.5523 11 23 11.45 23 12C23 12.55 22.5523 13 22 13H2C1.4477 13 1 12.55 1 12C1 11.45 1.4477 11 2 11H22Z" fill="currentColor"/>
+    </svg>
+  )
+}

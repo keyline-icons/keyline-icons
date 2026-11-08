@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function AlignVerticalDistributeCenter({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M15 13C16.6555 13 18 14.344 18 16H22C22.5523 16 23 16.448 23 17C23 17.552 22.5523 18 22 18H18C18 19.659 16.6553 21 15 21H9C7.3422 21 6 19.658 6 18H2C1.4477 18 1 17.552 1 17C1 16.448 1.4477 16 2 16H6C6 14.345 7.3411 13 9 13H15ZM17 3C18.6519 3 20 4.341 20 6H22C22.5523 6 23 6.448 23 7C23 7.552 22.5523 8 22 8H20C20 9.656 18.6545 11 17 11H7C5.3415 11 4 9.661 4 8H2C1.4477 8 1 7.552 1 7C1 6.448 1.4477 6 2 6H4C4 4.349 5.3375 3 7 3H17Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M7 17V16C7 14.896 7.8941 14 9 14H15C16.1032 14 17 14.897 17 16V17M7 17V18C7 19.106 7.8945 20 9 20H15C16.1037 20 17 19.106 17 18V17M7 17H2M17 17H22M19 7V8C19 9.104 18.1025 10 17 10H7C5.8934 10 5 9.108 5 8V7M19 7V6C19 4.894 18.1011 4 17 4H7C5.892 4 5 4.899 5 6V7M19 7H22M5 7H2"/>
+    </svg>
+  )
+}

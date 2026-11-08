@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function NavigationUpRight({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M19.1512 3.02C20.2962 2.82 21.303 3.93 20.9178 5.09L15.9715 19.92C15.5673 21.13 14.0224 21.35 13.2655 20.45L13.1952 20.36L13.1864 20.35L13.1805 20.34L13.124 20.25L13.119 20.24L13.1161 20.24L13.1141 20.24L13.0604 20.14C13.0596 20.13 13.0586 20.13 13.0575 20.13L10.0243 14.07C10.0146 14.05 10.0021 14.03 9.9872 14.01L9.9344 13.98L3.8739 10.95C2.6145 10.32 2.7448 8.47 4.0809 8.03L18.9002 3.09L18.9139 3.08C18.9203 3.08 18.9272 3.08 18.9334 3.08L19.0233 3.05C19.0253 3.05 19.0282 3.05 19.0301 3.05L19.0399 3.05C19.043 3.05 19.0487 3.05 19.0487 3.05L19.1429 3.02L19.1493 3.02H19.1512Z" fill="currentColor"/>
+    </svg>
+  )
+}

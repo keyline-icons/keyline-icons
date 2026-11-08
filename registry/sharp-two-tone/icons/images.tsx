@@ -21,9 +21,9 @@ export function Images({ size = 24, ...props }: IconProps) {
       focusable="false"
       {...props}
     >
-      <path d="M7 2L21 2C21.5523 2 22 2.4477 22 3L22 17C22 17.5523 21.5523 18 21 18L7 18C6.4477 18 6 17.5523 6 17L6 3C6 2.4477 6.4477 2 7 2Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
-      <path d="M3 7L3 21L17 21M7 3L21 3L21 17L7 17L7 3ZM7 14L15 10.0001L21 13"/>
-      <path d="M12 7C12 7.5523 11.5523 8 11 8C10.4477 8 10 7.5523 10 7C10 6.4477 10.4477 6 11 6C11.5523 6 12 6.4477 12 7Z" fill="currentColor" stroke="none"/>
+      <path d="M4 20H17V22H3C2.448 22 2 21.55 2 21V7H4V20ZM21 2C21.552 2 22 2.45 22 3V17C22 17.55 21.552 18 21 18H7C6.448 18 6 17.55 6 17V3C6 2.45 6.448 2 7 2H21Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M3 7V21H17M21 14.14L17.889 11.27L14.778 13.42L11.667 10.56L7 14.85M7 3H21V17H7V3Z"/>
+      <path d="M12 7C12 7.55 11.552 8 11 8C10.448 8 10 7.55 10 7C10 6.45 10.448 6 11 6C11.552 6 12 6.45 12 7Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
     </svg>
   )
 }

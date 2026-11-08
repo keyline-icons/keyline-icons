@@ -1,0 +1,25 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CirclesThree({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2.3818 11.83C2.5964 11.54 2.9169 11.45 3.2256 11.52C3.5337 11.58 3.8311 11.8 3.9961 12.12C4.662 13.41 5.631 14.52 6.8096 15.35C6.9361 15.44 7.0084 15.59 7.0039 15.74C7.0013 15.83 7 15.91 7 16C7 18.31 7.8697 20.41 9.2979 22C9.4436 22.17 9.4833 22.38 9.4346 22.56C9.3851 22.74 9.2447 22.89 9.0312 22.92C8.695 22.97 8.3504 23 8 23C4.134 23 1 19.87 1 16C1 14.44 1.5139 12.99 2.3818 11.83Z" fill="currentColor"/>
+      <path d="M16 9C19.866 9 23 12.13 23 16C23 19.87 19.866 23 16 23C12.134 23 9 19.87 9 16C9 12.13 12.134 9 16 9Z" fill="currentColor"/>
+      <path d="M12 1C15.1868 1 17.8746 3.13 18.7207 6.04C18.8184 6.38 18.6974 6.68 18.4648 6.89C18.2326 7.09 17.8887 7.19 17.542 7.13C17.041 7.05 16.5256 7 16 7C12.5138 7 9.4908 8.98 7.9961 11.88C7.8311 12.2 7.5337 12.42 7.2256 12.48C6.9169 12.55 6.5963 12.46 6.3818 12.17C5.5141 11.01 5 9.56 5 8C5 4.13 8.134 1 12 1Z" fill="currentColor"/>
+    </svg>
+  )
+}

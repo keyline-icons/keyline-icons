@@ -21,8 +21,7 @@ export function CaseUpper({ size = 24, ...props }: IconProps) {
       focusable="false"
       {...props}
     >
-      <path d="M1.9417 19.6637L7.1788 5L12.4158 19.6637M3.9645 14L10.3931 14" strokeOpacity="0.4"/>
-      <path d="M15.6146 19.7127L18.8284 9L22.0422 19.7127M16.7284 16L20.9284 16"/>
+      <path d="M1.93 18.63L7.002 6L12.074 18.63M4.19 13H9.813M15.945 18.67L19.002 10L22.059 18.67M16.886 16H21.118"/>
     </svg>
   )
 }

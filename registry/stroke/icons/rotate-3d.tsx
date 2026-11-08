@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Rotate3d({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2 12C2 17.52 6.4771 22 12 22C17.5229 22 22 17.52 22 12M2 12C2 6.48 6.4771 2 12 2C17.5229 2 22 6.48 22 12M2 12L4.3223 13.03C6.0968 13.82 7.9823 14.33 9.9123 14.55C11.2999 14.7 12.7001 14.7 14.0877 14.55C16.0177 14.33 17.9032 13.82 19.6778 13.03L22 12M10.8889 21.44L9.8449 19.62C9.0645 18.25 8.5094 16.77 8.2009 15.23C7.776 13.1 7.8306 10.9 8.3562 8.8C8.5621 7.97 8.8401 7.17 9.185 6.39L10.8889 2.56"/>
+    </svg>
+  )
+}

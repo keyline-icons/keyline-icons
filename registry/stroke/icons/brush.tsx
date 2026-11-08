@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Brush({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M7 14.945C7.2875 12.984 8.34 11.207 9.9384 9.983L18.4659 3.455C19.3354 2.789 20.5782 2.862 21.3602 3.623C22.119 4.363 22.2143 5.53 21.5848 6.377L15.1286 15.064C13.9413 16.662 12.1394 17.721 10.1355 18C9.7314 18.07 9.2101 18.029 9 18M2.4629 18.276H2.0407C2.0105 18.276 1.9908 18.31 2.0044 18.339L2.3139 18.997C2.6439 19.698 3.1791 20.267 3.8392 20.617C4.7994 21.127 5.9296 21.127 6.8899 20.617L7.252 20.425C7.6826 20.196 8.0571 19.864 8.346 19.455L8.4789 19.267C8.9236 18.636 9.0948 17.835 8.9494 17.062L8.9223 16.919C8.814 16.343 8.5063 15.828 8.0647 15.476C7.4436 14.981 6.6195 14.861 5.8987 15.168C5.2912 15.426 4.8193 15.962 4.6124 16.622C4.3045 17.603 3.4366 18.276 2.4629 18.276Z"/>
+    </svg>
+  )
+}

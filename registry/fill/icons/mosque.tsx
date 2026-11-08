@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Mosque({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M13 15C13.5523 15 14 15.45 14 16V22C14 22.55 13.5523 23 13 23H4C2.3431 23 1 21.66 1 20V16C1 15.82 1.0152 15.65 1.0449 15.48C1.0968 15.19 1.3702 15 1.6729 15H13ZM8 17C6.8954 17 6 17.9 6 19V20.8C6 20.91 6.0897 21 6.2002 21H9.7998C9.9103 21 10 20.91 10 20.8V19C10 17.9 9.1046 17 8 17Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+      <path d="M19.5 1C20.3432 1 21.096 1.53 21.382 2.32L22.882 6.5C22.96 6.71 23 6.94 23 7.17V20C23 21.66 21.657 23 20 23H17C16.4477 23 16 22.55 16 22V7.17C16.0001 6.94 16.0403 6.71 16.1182 6.5L17.6182 2.32C17.9039 1.53 18.6568 1 19.5 1ZM8 3C8.4325 3 8.8537 3.14 9.2002 3.4L11.5996 5.2C13.1102 6.33 14 8.11 14 10C14 10.76 13.8545 11.5 13.583 12.19L13.459 12.49C13.3294 12.77 12.9905 12.96 12.6849 13H3.3877C3.0304 13 2.6946 12.81 2.5459 12.49C2.1926 11.72 2 10.87 2 10C2 8.11 2.8889 6.33 4.3994 5.2L6.8524 3.36C7.1714 3.16 7.6218 3 8 3Z" fill="currentColor"/>
+    </svg>
+  )
+}

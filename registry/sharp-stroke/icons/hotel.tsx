@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Hotel({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M10 22V19C10 17.89 10.895 17 12 17C13.105 17 14 17.89 14 19V22M20 22H23M20 22V6M20 22H4M4 22H1M4 22V6M1.447 7.28L12 2L22.553 7.28"/>
+      <path d="M9 9C9 9.55 8.552 10 8 10C7.448 10 7 9.55 7 9C7 8.45 7.448 8 8 8C8.552 8 9 8.45 9 9ZM9 13C9 13.55 8.552 14 8 14C7.448 14 7 13.55 7 13C7 12.45 7.448 12 8 12C8.552 12 9 12.45 9 13ZM13 9C13 9.55 12.552 10 12 10C11.448 10 11 9.55 11 9C11 8.45 11.448 8 12 8C12.552 8 13 8.45 13 9ZM17 9C17 9.55 16.552 10 16 10C15.448 10 15 9.55 15 9C15 8.45 15.448 8 16 8C16.552 8 17 8.45 17 9Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M17 13C17 13.55 16.552 14 16 14C15.448 14 15 13.55 15 13C15 12.45 15.448 12 16 12C16.552 12 17 12.45 17 13Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+    </svg>
+  )
+}

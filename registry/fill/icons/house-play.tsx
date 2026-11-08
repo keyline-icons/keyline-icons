@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function HousePlay({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M10.0664 2.71C11.186 1.76 12.8287 1.76 13.9482 2.71L22.705 10.12C23.053 10.48 23.113 11.1 22.779 11.49C22.422 11.91 21.777 11.96 21.356 11.6C21.297 11.55 21.201 11.53 21.13 11.56C21.06 11.59 21.015 11.67 21.015 11.74V19C21.014 20.66 19.6688 22 18.0118 22H6.0038C4.3462 22 3.0022 20.66 3.0015 19V11.74C3.0015 11.66 2.9556 11.59 2.8843 11.56C2.8126 11.53 2.7161 11.55 2.657 11.6C2.2359 11.95 1.594 11.91 1.2375 11.49C0.8804 11.07 0.9317 10.44 1.3528 10.08L10.0664 2.71ZM11.1871 9.19C10.6171 8.96 9.8443 8.99 9.3862 9.28C8.8657 9.62 8.506 10.22 8.5056 10.9V16.1C8.5063 16.8 8.9415 17.44 9.4893 17.78C10.0217 18.06 10.7402 18.1 11.3574 17.7L15.8637 14.72C16.7255 14.14 16.7251 12.86 15.8637 12.29L11.1871 9.19Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

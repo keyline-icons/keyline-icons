@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ListBulletIndent({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M21 18C21.5523 18 22 18.45 22 19C22 19.55 21.5523 20 21 20H12C11.4477 20 11 19.55 11 19C11 18.45 11.4477 18 12 18H21Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M19 11C19.5523 11 20 11.45 20 12C20 12.55 19.5523 13 19 13H10C9.4477 13 9 12.55 9 12C9 11.45 9.4477 11 10 11H19ZM17 4C17.5523 4 18 4.45 18 5C18 5.55 17.5523 6 17 6H8C7.4477 6 7 5.55 7 5C7 4.45 7.4477 4 8 4H17ZM7.5 17.5C8.3284 17.5 9 18.17 9 19C9 19.83 8.3284 20.5 7.5 20.5C6.6716 20.5 6 19.83 6 19C6 18.17 6.6716 17.5 7.5 17.5ZM5.5 10.5C6.3284 10.5 7 11.17 7 12C7 12.83 6.3284 13.5 5.5 13.5C4.6716 13.5 4 12.83 4 12C4 11.17 4.6716 10.5 5.5 10.5ZM3.5 3.5C4.3284 3.5 5 4.17 5 5C5 5.83 4.3284 6.5 3.5 6.5C2.6716 6.5 2 5.83 2 5C2 4.17 2.6716 3.5 3.5 3.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}
