@@ -865,6 +865,58 @@ for (const [old, was] of Object.entries(prior.icons ?? {})) {
   }
 }
 
+/**
+ * A name dropped before any release shipped it, and drawn again later, dates
+ * from the comeback.
+ *
+ * `added` is the oldest commit under a path, and the merge above holds it
+ * there. That is right for a drawing that stayed in the set and wrong for one
+ * that left it unpublished and returned as a new drawing: `scribble` was drawn
+ * and dropped on 11 October, before 1.8.0 was cut, then drawn afresh for 2.6.0.
+ * It was one of that release's 141 new names and the only one without a New
+ * badge, because every surface read it as four weeks old on the day it first
+ * shipped.
+ *
+ * Only comebacks after 2.5.0 count. The five before it (`megaphone`,
+ * `flag-chequered`, `coins`, `rocket`, `car`) have shown their first date ever
+ * since they shipped, so they are left alone for the reason 0.x renames are. A
+ * name a release did ship is left alone too: it is a drawing returning, not a
+ * new one.
+ *
+ * Applied after the merge, which would otherwise pull the date back on every
+ * run.
+ */
+const COMEBACKS_AFTER = Date.parse(
+  releases.find((r) => r.version === "2.5.0")?.date ?? ""
+)
+const presence = new Map()
+let stamp = null
+for (const line of git(
+  "log",
+  "--diff-filter=AD",
+  "--name-status",
+  "--format=commit %cI",
+  "--",
+  "icons/stroke"
+).split("\n")) {
+  if (line.startsWith("commit ")) {
+    stamp = line.slice(7).trim()
+    continue
+  }
+  const [status, path] = line.split("\t")
+  const name = /^icons\/stroke\/(.+)\.svg$/.exec(path ?? "")?.[1]
+  if (name) presence.set(name, [...(presence.get(name) ?? []), { status, at: stamp }])
+}
+for (const [name, [last, drop]] of presence) {
+  const entry = dates.get(name)
+  if (!entry || MOVED.has(name) || last.status !== "A" || drop?.status !== "D") continue
+  const gone = Date.parse(drop.at)
+  const shipped = releases.some(
+    (r) => Date.parse(r.date) <= gone && inventory.get(r.version).has(name)
+  )
+  if (!shipped && Date.parse(last.at) > COMEBACKS_AFTER) entry.added = last.at
+}
+
 const entries = [...dates.entries()]
   .filter(([name]) => live.has(name))
   .sort(([a], [b]) => a.localeCompare(b))
