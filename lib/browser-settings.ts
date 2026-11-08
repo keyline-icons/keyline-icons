@@ -104,6 +104,24 @@ export const SETTINGS_COOKIE = "keyline-icons-browser"
 /** A year. These are preferences, not a session. */
 export const SETTINGS_MAX_AGE = 60 * 60 * 24 * 365
 
+/** On `<html>` while the icon page's controls wait for their saved values. */
+export const SETTINGS_PENDING = "data-settings-pending"
+
+/**
+ * Runs while the icon page's HTML is still being parsed, before anything paints.
+ *
+ * The page is built ahead of time, so it is drawn at the defaults and only the
+ * browser knows what this reader saved. React cannot correct that before the
+ * first paint, so for a reader whose size, stroke, colour or corners differ, the
+ * controls stay invisible until hydration has put the saved values in them.
+ * `visibility` holds their space, so nothing moves when they appear.
+ *
+ * A reader on the defaults has nothing to wait for and never sees the attribute,
+ * and neither does a crawler, which sends no cookie. The timer is for a script
+ * bundle that never arrives: the defaults are a better page than an empty box.
+ */
+export const SETTINGS_PREPAINT = `(function(){try{var m=document.cookie.match(/(?:^|; )${SETTINGS_COOKIE}=([^;]*)/);if(!m)return;var s=JSON.parse(decodeURIComponent(m[1])),d=${JSON.stringify(RESET_DEFAULTS)},h=document.documentElement;for(var k in d)if(k in s&&s[k]!==d[k]){h.setAttribute("${SETTINGS_PENDING}","");setTimeout(function(){h.removeAttribute("${SETTINGS_PENDING}")},4000);return}}catch(e){}})()`
+
 /**
  * Take only the keys the app still has, and only where the type matches, so a
  * renamed setting or a hand-edited cookie can't reach the render.

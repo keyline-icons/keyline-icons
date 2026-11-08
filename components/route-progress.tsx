@@ -171,6 +171,16 @@ function RouteProgressBar() {
       if (anchor.target && anchor.target !== "_self") return
       if (anchor.hasAttribute("download")) return
 
+      /*
+        A link only for what it gives a crawler or a modified click: a grid tile
+        opens the dock and a pager link turns the page in place. Their handlers
+        call `preventDefault` after this listener has run, so this is the only
+        point that can know no page is coming. Without it the bar started on
+        every tile, and clicking the tile already open, which changes nothing
+        in the address to end it on, left it parked at 90% until the give-up.
+      */
+      if (anchor.hasAttribute("data-in-place")) return
+
       const next = new URL(anchor.href, window.location.href)
       if (next.origin !== window.location.origin) return
 

@@ -13,12 +13,14 @@ import {
   type BrowserIcon,
   type Style,
 } from "@/components/glyph"
-import { useBrowserSettings } from "@/hooks/use-browser-settings"
+import { useStoredSettings } from "@/hooks/use-browser-settings"
 import {
   RESET_DEFAULTS,
+  SETTINGS_PENDING,
+  SETTINGS_PREPAINT,
   atResetDefaults,
-  type BrowserSettings,
 } from "@/lib/browser-settings"
+import { InlineScript } from "@/components/inline-script"
 import { Segmented, SegmentedItem } from "@/components/segmented"
 import { TickSlider } from "@/components/tick-slider"
 import { Button } from "@/components/ui/button"
@@ -74,20 +76,15 @@ const MAX_SIZE = 48
  * cookie is what "how the set is drawn" means, and a page that draws the set
  * has to read it.
  *
- * The initial value arrives as a prop rather than being read here, which is the
- * whole reason there is no flash: `hooks/use-browser-settings.ts` seeds state
- * from what the server already rendered, so the first client render matches and
- * nothing moves after paint. Reading the cookie on the client instead paints
- * the defaults and corrects them ~57ms later, which on this page is the
- * specimen changing colour and size in front of you.
+ * Read in the browser, because the page around this is built ahead of time.
+ * Reading it on the server made every one of these pages render per request:
+ * nothing could be cached near the reader or fetched ahead of the click, and a
+ * server with nothing warm took four to six seconds. Painting the defaults and
+ * correcting them after hydration would be the specimen changing colour and
+ * size in front of you, so `SETTINGS_PREPAINT` hides this island until the
+ * saved values are in it, for the readers who have any.
  */
-export function IconDetail({
-  icon,
-  initialSettings,
-}: {
-  icon: BrowserIcon
-  initialSettings: BrowserSettings
-}) {
+export function IconDetail({ icon }: { icon: BrowserIcon }) {
   /**
    * Size, stroke, colour and the corner treatment, shared with the grid through
    * the cookie.
@@ -105,8 +102,17 @@ export function IconDetail({
    * `showNames` and `columns` come along in the object and are simply not used
    * here — they describe a grid, and there is no grid on this page.
    */
-  const [settings, update] = useBrowserSettings(initialSettings)
+  const [settings, update] = useStoredSettings()
   const { size, stroke, color, corners } = settings
+
+  /*
+    Declared after the store above, whose correction React commits at the end
+    of this same flush of effects, so the island cannot show the defaults in
+    between.
+  */
+  React.useEffect(() => {
+    document.documentElement.removeAttribute(SETTINGS_PENDING)
+  }, [])
 
   const drawn = React.useMemo(
     () => STYLES.filter((style) => artOf(icon, style, corners)),
@@ -169,7 +175,12 @@ export function IconDetail({
   }, [code, icon.name, style, format])
 
   const download = React.useCallback(() => {
-    const file = snippet("svg", icon.name, style, art, { size, stroke, pm, corners })
+    const file = snippet("svg", icon.name, style, art, {
+      size,
+      stroke,
+      pm,
+      corners,
+    })
     const url = URL.createObjectURL(
       new Blob([`${file}\n`], { type: "image/svg+xml" })
     )
@@ -191,7 +202,11 @@ export function IconDetail({
     size you can take in at once.
   */
   return (
-    <div className="grid gap-4 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] xl:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] xl:gap-6">
+    <div
+      data-settings-island=""
+      className="grid gap-4 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] xl:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] xl:gap-6"
+    >
+      <InlineScript html={SETTINGS_PREPAINT} />
       <div className="flex flex-col gap-4">
         {/*
           The drawing filling its box, which is the one view the grid cannot

@@ -229,6 +229,11 @@
   initial-value: 0px;
 }
 
+/* The icon page's controls, waiting for saved values. See `SETTINGS_PREPAINT`. */
+html[data-settings-pending] [data-settings-island] {
+  visibility: hidden;
+}
+
 @layer components {
   .edge-fade {
     --fade-size: 2.5rem;

@@ -91,6 +91,7 @@ function PagerStep({
   return (
     <a
       href={href}
+      data-in-place={onTurn ? "" : undefined}
       onClick={
         onTurn &&
         ((event) => {
@@ -197,6 +198,7 @@ export function Pager({
           <a
             key={entry}
             href={href(entry)}
+            data-in-place={onTurn ? "" : undefined}
             onClick={
               onTurn &&
               ((event) => {

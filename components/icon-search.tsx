@@ -38,6 +38,13 @@ const ROLL = 260
 export type SearchSuggestion = { name: string; art: StyleArt }
 
 /**
+ * Longest query the gray letters are drawn after. The field scrolls a long
+ * query sideways and the letters sit on a layer that does not, so past what
+ * fits on a phone they would land on top of the text.
+ */
+const GHOST_MAX = 24
+
+/**
  * The library's one search field.
  *
  * It sits in the hero rather than in the browser, so it is extracted here: the
@@ -48,6 +55,7 @@ export function IconSearch({
   value,
   onValueChange,
   suggestions,
+  completion = "",
   className,
 }: {
   value: string
@@ -57,9 +65,21 @@ export function IconSearch({
    * server renders, so it is the one that has to read well cold.
    */
   suggestions: readonly SearchSuggestion[]
+  /**
+   * The letters that finish the word being typed, from whoever holds the set.
+   * The landing page passes none: its field never sees the library, and the
+   * words would cost it 190 KB of aliases it otherwise has no use for.
+   */
+  completion?: string
   className?: string
 }) {
   const ref = React.useRef<HTMLInputElement>(null)
+
+  /* The letters mean "this comes next", so only with the caret where next is. */
+  const [focused, setFocused] = React.useState(false)
+  const [atEnd, setAtEnd] = React.useState(true)
+  const ghost = focused && atEnd && value.length <= GHOST_MAX ? completion : ""
+  const accept = () => onValueChange(value + ghost)
 
   /**
    * Which suggestion the field is offering.
@@ -190,7 +210,24 @@ export function IconSearch({
         ref={ref}
         value={value}
         onChange={(e) => onValueChange(e.target.value)}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        onSelect={(e) =>
+          setAtEnd(
+            e.currentTarget.selectionStart === e.currentTarget.value.length
+          )
+        }
         onKeyDown={(event) => {
+          // Tab moves on as usual once there is nothing left to accept.
+          if (
+            ghost &&
+            (event.key === "ArrowRight" ||
+              (event.key === "Tab" && !event.shiftKey))
+          ) {
+            event.preventDefault()
+            accept()
+            return
+          }
           if (event.key === "Escape" && value) {
             // Clear first, blur only on a second press — Escape on a full field
             // should undo the search, not throw away focus with it.
@@ -208,8 +245,36 @@ export function IconSearch({
         // and says what the field is, rather than naming whichever icon the
         // wheel happens to be showing.
         aria-label="Search icons"
+        // The browser's own history list would open over the field.
+        autoComplete="off"
         className={cn("h-12 pl-11 md:text-base", value ? "pr-20" : "pr-14")}
       />
+
+      {/*
+        The rest of the word in gray, on a layer over the field: an input has
+        one colour and no way to draw a second one. What was typed is on this
+        layer too, invisible, only to push the gray letters to where the typed
+        ones end, so `left-11` plus the transparent border has to stay the
+        field's own padding and border, and `text-base` its size.
+
+        A tap takes it, since a phone has no Tab key. `preventDefault` on the
+        press keeps focus in the field.
+      */}
+      {ghost && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-20 left-11 flex items-center overflow-hidden border-l border-transparent text-base whitespace-pre"
+        >
+          <span className="invisible">{value}</span>
+          <span
+            onMouseDown={(event) => event.preventDefault()}
+            onClick={accept}
+            className="pointer-events-auto cursor-pointer text-muted-foreground"
+          >
+            {ghost}
+          </span>
+        </div>
+      )}
 
       {/*
         The placeholder, as markup rather than as an attribute, so the name can

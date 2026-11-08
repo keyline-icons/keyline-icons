@@ -1,17 +1,21 @@
-import { CORNERS } from "@/components/glyph"
-import { treatmentFile } from "@/lib/icon-treatments"
+import { CORNERS, STYLES } from "@/components/glyph"
+import { styleFile, treatmentFile } from "@/lib/icon-treatments"
 
 /**
- * The browser's copy of one corner treatment, `regular.json` or `sharp.json`.
- * See `lib/icon-treatments.ts` for why it exists.
+ * The browser's copy of one corner treatment, `regular.json` or `sharp.json`,
+ * or of one style in it, `regular.stroke.json`. See `lib/icon-treatments.ts`
+ * for why they exist.
  *
- * Both are built at deploy and nothing else is served here, so a made-up name
+ * All are built at deploy and nothing else is served here, so a made-up name
  * is a 404 from the router rather than a render.
  */
 export const dynamicParams = false
 
 export function generateStaticParams() {
-  return CORNERS.map((corners) => ({ file: `${corners}.json` }))
+  return CORNERS.flatMap((corners) => [
+    { file: `${corners}.json` },
+    ...STYLES.map((style) => ({ file: `${corners}.${style}.json` })),
+  ])
 }
 
 export async function GET(
@@ -19,10 +23,16 @@ export async function GET(
   { params }: { params: Promise<{ file: string }> }
 ) {
   const { file } = await params
-  const corners = CORNERS.find((known) => `${known}.json` === file)
-  if (!corners) return new Response(null, { status: 404 })
+  const [first, second, ...rest] = file.replace(/\.json$/, "").split(".")
+  const corners = CORNERS.find((known) => known === first)
+  const style = STYLES.find((known) => known === second)
+  if (!corners || rest.length > 0 || (second && !style)) {
+    return new Response(null, { status: 404 })
+  }
 
-  const { body } = await treatmentFile(corners)
+  const { body } = await (style
+    ? styleFile(corners, style)
+    : treatmentFile(corners))
   return new Response(body, {
     headers: {
       "Content-Type": "application/json",

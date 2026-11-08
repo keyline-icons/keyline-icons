@@ -82,6 +82,12 @@ export type IconHistory = {
   version: string | null
   /** Everyone whose commits touched it, newest first. */
   by: { name: string; email: string }[]
+  /**
+   * Only the two dates the grid sorts and labels by have arrived; the rest
+   * comes with the drawings file. See `GridIcon`. Nothing printing a version
+   * or a credit should trust this record while it is set.
+   */
+  pending?: true
 }
 
 export type BrowserIcon = IconArt & {
@@ -99,6 +105,24 @@ export type BrowserIcon = IconArt & {
    */
   isNew?: boolean
 }
+
+/**
+ * One icon as `/icons` sends it: everything for the 120 on screen, and for the
+ * rest only what the grid needs to filter, sort and count them.
+ *
+ * The drawings of 1,833 icons were 5.6 MB of a 6.4 MB page, past the 2 MB at
+ * which Google stops reading HTML, and every visit downloaded them again.
+ * `useTreatments` turns these back into `BrowserIcon`s.
+ */
+export type GridIcon = Pick<
+  BrowserIcon,
+  "name" | "base" | "container" | "isNew"
+> &
+  Partial<IconArt> & {
+    history?: IconHistory | Pick<IconHistory, "added" | "addedLabel">
+    /** Which styles it is drawn in, sent only when that is not all of them. */
+    styles?: Style[]
+  }
 
 /**
  * One drawing, in the style and corner treatment asked for.

@@ -8,11 +8,12 @@ import {
   SETTINGS_DEFAULTS,
   SORTS,
 } from "@/lib/browser-settings"
-import { CONTAINERS } from "@/components/glyph"
+import { CONTAINERS, type BrowserIcon, type GridIcon } from "@/components/glyph"
 import { isNewSince, loadIcons, STYLES } from "@/lib/icons"
 import { CORNERS, type Corners } from "@/components/glyph"
 import { gridPageCount } from "@/lib/icon-pages"
-import { treatmentHref } from "@/lib/icon-treatments"
+import { iconsOnScreen } from "@/lib/icon-search"
+import { styleHref, treatmentHref } from "@/lib/icon-treatments"
 import { searchSuggestions } from "@/lib/search-suggestions"
 import { pageMetadata } from "@/lib/seo"
 import { IconLibrary } from "@/components/icon-library"
@@ -30,6 +31,22 @@ function pageOf(value: string | string[] | undefined, total: number) {
   if (typeof value !== "string" || !/^\d{1,3}$/.test(value)) return undefined
   const page = Number(value)
   return page >= 2 && page <= gridPageCount(total) ? page : undefined
+}
+
+/** What an icon off this page needs to be filtered, sorted and counted. */
+function offScreen(icon: BrowserIcon): GridIcon {
+  const { name, base, container, isNew, history, art } = icon
+  const styles = STYLES.filter((style) => art[style])
+  return {
+    name,
+    base,
+    container,
+    ...(isNew && { isNew }),
+    ...(history && {
+      history: { added: history.added, addedLabel: history.addedLabel },
+    }),
+    ...(styles.length < STYLES.length && { styles }),
+  }
 }
 
 /**
@@ -276,34 +293,52 @@ export default async function Page({
   }
 
   /*
-   * Only the corner treatment the page opens in, and the other one on demand.
+   * The drawings on screen, in the treatment the page opens in, and a line of
+   * facts for every other icon.
    *
-   * Every icon used to arrive in all four styles in both treatments, so the
-   * rounded and sharp switch was instant and the page was 7.4 MB of HTML, of
-   * which one treatment was ever on screen. It was also never cached, since
-   * the cookie makes the page render per request. Now the grid's treatment
-   * comes with the page, plus the dock's when a link opens it on the other
-   * one, and the rest is a static file the browser fetches the first time
-   * someone switches (`lib/icon-treatments.ts`, `hooks/use-treatments.ts`).
-   * The switch prefetches on hover, so the wait is usually spent before the
-   * click.
+   * Every icon used to arrive in all four styles, so the page was 6.4 MB of
+   * HTML with 120 tiles on it: past the 2 MB at which Google stops reading, and
+   * downloaded again on every visit since the cookie makes this render per
+   * request. The rest is now a static file the browser fetches right after load
+   * (`lib/icon-treatments.ts`, `hooks/use-treatments.ts`), once for all pages.
+   *
+   * The 120 are the ones this address shows, `?page=` and `?search=` included,
+   * so every page of the grid still has its real tiles and links in the HTML.
+   * The dock's icon comes too, in its own treatment when a link asked for one.
    */
-  const carried = new Set<Corners>([
-    initialSettings.corners,
-    ...(initialIcon && initialIconCorners ? [initialIconCorners] : []),
-  ])
-  const payload = icons.map((icon) => ({
-    ...icon,
-    art: carried.has("regular") ? icon.art : {},
-    sharp: carried.has("sharp") ? icon.sharp : {},
-  }))
-  const treatments: Partial<Record<Corners, string>> = Object.fromEntries(
-    await Promise.all(
-      CORNERS.filter((known) => !carried.has(known)).map(
-        async (known) => [known, await treatmentHref(known)] as const
-      )
-    )
+  const carried = [
+    ...new Set<Corners>([
+      initialSettings.corners,
+      ...(initialIcon && initialIconCorners ? [initialIconCorners] : []),
+    ]),
+  ]
+  const shownStyle = initialStyle ?? "stroke"
+  const onScreen = new Set(
+    iconsOnScreen(icons, {
+      query: initialQuery,
+      style: shownStyle,
+      shape: initialShape ?? "all",
+      corners: initialSettings.corners,
+      sort: initialSettings.sort,
+      page: pageOf(page, icons.length) ?? 1,
+    }).map((icon) => icon.name)
   )
+  if (initialIcon) onScreen.add(initialIcon)
+
+  const payload = icons.map((icon) =>
+    onScreen.has(icon.name)
+      ? {
+          ...icon,
+          art: carried.includes("regular") ? icon.art : {},
+          sharp: carried.includes("sharp") ? icon.sharp : {},
+        }
+      : offScreen(icon)
+  )
+  const treatments = Object.fromEntries(
+    await Promise.all(
+      CORNERS.map(async (known) => [known, await treatmentHref(known)] as const)
+    )
+  ) as Record<Corners, string>
 
   return (
     <>
@@ -326,6 +361,12 @@ export default async function Page({
         <IconLibrary
           icons={payload}
           treatments={treatments}
+          carried={carried}
+          first={{
+            url: await styleHref(initialSettings.corners, shownStyle),
+            corners: initialSettings.corners,
+            style: shownStyle,
+          }}
           suggestions={searchSuggestions(icons)}
           initialSettings={initialSettings}
           initialQuery={initialQuery}

@@ -84,7 +84,7 @@ const c = (n, s) => `\x1b[${n}m${s}\x1b[0m`
 
 /** Every file carrying a copy, and what to call it in a failure. */
 const SOURCES = [
-  ["components/icon-browser.tsx", "site"],
+  ["lib/icon-search.ts", "site"],
   ["packages/mcp/src/index.mjs", "mcp"],
   ["packages/cli/src/index.mjs", "cli"],
   ["packages/figma-plugin/ui.html", "plugin"],
@@ -138,7 +138,7 @@ const STEMMED = /const stemmed[^=]*= \(hay[^)]*\) =>([^\n]+)/
  * search rule, the plugin was the one left behind.
  */
 const CONCEPT_FILES = [
-  ["components/icon-browser.tsx", "site"],
+  ["lib/icon-search.ts", "site"],
   ["packages/figma-plugin/ui.html", "plugin"],
 ]
 const CONCEPTS = /const CONCEPTS = (\/[^\n]+\/g)/
@@ -800,7 +800,7 @@ async function main() {
     ranked.push({ label: r.label, first: (query) => r.ask(search, query)[0] })
   }
 
-  const siteFile = "components/icon-browser.tsx"
+  const siteFile = "lib/icon-search.ts"
   const siteSrc = await readFile(join(ROOT, siteFile), "utf8")
   const CONTAINERS = JSON.parse(
     /export const CONTAINERS = (\[[^\]]*\])/.exec(

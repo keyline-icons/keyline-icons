@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { cookies } from "next/headers"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -40,7 +39,6 @@ import {
   relatedIcons,
   stylesOf,
 } from "@/lib/icon-pages"
-import { parseSettings, SETTINGS_COOKIE } from "@/lib/browser-settings"
 import { aliasesFor, categoryOf } from "@/lib/icon-taxonomy"
 import { paperFileForCategory } from "@/lib/paper-files"
 import { isNewSince, loadIcons, type Icon } from "@/lib/icons"
@@ -62,17 +60,13 @@ import { cn } from "@/lib/utils"
  * about an icon that does not exist — which is a soft 404, and the one failure
  * that would put this route in Google's "crawled, not indexed" bucket at scale.
  *
- * The pages render per request rather than at build, for one reason: the
- * settings cookie. Size, stroke and colour are shared with the grid, and the
- * only way a page can paint them correctly on the *first* frame is to read the
- * cookie the request carried. The alternative, reading it on the client, paints
- * the defaults and corrects them after hydration, which is the jump
- * `lib/browser-settings.ts` exists to avoid.
- *
- * That is the same trade `app/page.tsx` already makes, and it costs less than
- * it looks: `loadIcons` memoises for the life of the process, so a request is a
- * render rather than 840 file reads, and every crawler still receives complete
- * HTML.
+ * Built ahead of time, one file per icon, and nothing here may read the
+ * request. These rendered per request for the settings cookie, and that cost
+ * more than it looked: no cache near the reader, nothing for a link to fetch
+ * ahead of the click, and four to six seconds whenever no server was warm,
+ * since a new one reads all 14,664 drawings before it can draw one. The cookie
+ * is read in the browser now, by `IconDetail`, and `SETTINGS_PREPAINT` keeps
+ * that from showing as a jump.
  */
 export const dynamicParams = false
 
@@ -174,10 +168,6 @@ export default async function Page({
   const { name } = await params
   const icons = await loadIcons()
   const icon = icons.find((candidate) => candidate.name === name)
-
-  // The same read the grid does, so an icon opened from it is drawn at the size,
-  // stroke and colour you left it at rather than back at the defaults.
-  const settings = parseSettings((await cookies()).get(SETTINGS_COOKIE)?.value)
 
   if (!icon) notFound()
 
@@ -405,7 +395,7 @@ export default async function Page({
           </div>
         </header>
 
-        <IconDetail icon={icon} initialSettings={settings} />
+        <IconDetail icon={icon} />
 
         <div className="mt-16 flex flex-col gap-14">
           {aliases.length > 0 && (

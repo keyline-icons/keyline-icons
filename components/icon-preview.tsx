@@ -304,7 +304,7 @@ export function IconPreview({
 
   const code = React.useMemo(
     () =>
-      icon && art
+      icon && art?.body
         ? snippet(format, icon.name, style, art, { size, stroke, pm, corners })
         : "",
     [icon, art, format, style, size, stroke, pm, corners]
@@ -362,7 +362,7 @@ export function IconPreview({
   )
 
   const download = React.useCallback(() => {
-    if (!icon || !art) return
+    if (!icon || !art?.body) return
     const file = snippet("svg", icon.name, style, art, {
       size,
       stroke,
@@ -560,7 +560,7 @@ export function IconPreview({
                   </span>
                 )}
 
-                {icon.history && (
+                {icon.history && !icon.history.pending && (
                   <span className="flex flex-wrap items-center gap-x-2 text-xs text-muted-foreground tabular-nums">
                     {/* No version until a tag covers it. Printing the current
                         one said a drawing shipped in a release that went out

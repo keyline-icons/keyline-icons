@@ -26,6 +26,7 @@ import { SET_LICENSE, SET_TAGLINE } from "@/lib/site-chrome"
 export function SiteHero({
   total,
   suggestions,
+  completion,
   query,
   onQueryChange,
 }: {
@@ -33,6 +34,8 @@ export function SiteHero({
   total: number
   /** What the field spells out, with the drawings behind the names. */
   suggestions: readonly SearchSuggestion[]
+  /** The letters that finish the word being typed. */
+  completion: string
   query: string
   onQueryChange: (next: string) => void
 }) {
@@ -76,6 +79,7 @@ export function SiteHero({
         value={query}
         onValueChange={onQueryChange}
         suggestions={suggestions}
+        completion={completion}
         className="mx-auto mt-8 max-w-2xl text-left"
       />
     </section>

@@ -2,9 +2,10 @@
 
 import * as React from "react"
 
-import type { BrowserIcon, Container, Corners, Style } from "@/components/glyph"
+import type { Container, Corners, GridIcon, Style } from "@/components/glyph"
 import type { BrowserSettings } from "@/lib/browser-settings"
 import type { searchSuggestions } from "@/lib/search-suggestions"
+import { completionFor, searchIndex } from "@/lib/icon-search"
 import { IconBrowser } from "@/components/icon-browser"
 import { SiteHero } from "@/components/site-hero"
 import { useTreatments } from "@/hooks/use-treatments"
@@ -18,7 +19,9 @@ import { useTreatments } from "@/hooks/use-treatments"
  */
 export function IconLibrary({
   icons: initialIcons,
-  treatments: pendingTreatments,
+  treatments: treatmentUrls,
+  carried,
+  first,
   suggestions,
   initialSettings,
   initialQuery = "",
@@ -29,10 +32,14 @@ export function IconLibrary({
   initialIconCorners,
   initialPage,
 }: {
-  /** Every icon, in the corner treatments the page carried. */
-  icons: BrowserIcon[]
-  /** Where each treatment the page did not carry can be fetched. */
-  treatments: Partial<Record<Corners, string>>
+  /** Every icon, with drawings only for the ones on screen. */
+  icons: GridIcon[]
+  /** Where each treatment's whole file can be fetched. */
+  treatments: Record<Corners, string>
+  /** The treatments the page opened in. */
+  carried: Corners[]
+  /** The style on screen, on its own, which is fetched ahead of the rest. */
+  first: { url: string; corners: Corners; style: Style }
   /**
    * The names the search field offers, with their drawings. Resolved on the
    * server, which has the whole set: the icons here may be missing the
@@ -81,7 +88,18 @@ export function IconLibrary({
     The set, owned here so the grid and the dock read one copy, and a corner
     treatment fetched by either lands in both.
   */
-  const { icons, treatments } = useTreatments(initialIcons, pendingTreatments)
+  const index = React.useMemo(() => searchIndex(initialIcons), [initialIcons])
+  const completion = React.useMemo(
+    () => completionFor(index, query),
+    [index, query]
+  )
+
+  const { icons, treatments } = useTreatments(
+    initialIcons,
+    treatmentUrls,
+    carried,
+    first
+  )
 
   return (
     <>
@@ -90,6 +108,7 @@ export function IconLibrary({
       <SiteHero
         total={icons.length}
         suggestions={suggestions}
+        completion={completion}
         query={query}
         onQueryChange={setQuery}
       />
