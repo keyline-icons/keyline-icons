@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 
 import { BLOG_POSTS, blogPageCount, blogPageHref, postHref } from "@/lib/blog"
 import { gridPageCount, gridPageHref, iconHref } from "@/lib/icon-pages"
-import { loadIcons } from "@/lib/icons"
+import { loadIcons, SET_RELEASES } from "@/lib/icons"
 import { absoluteUrl } from "@/lib/seo"
 import { SITE_LINKS } from "@/lib/site-chrome"
 
@@ -115,5 +115,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.5,
   }))
 
-  return [...pages, ...gridPages, ...blogPages, ...posts, ...icons]
+  /*
+    One page per release, dated by its tag: a release does not change after it
+    is cut, so a `lastmod` of build time would be the kind crawlers ignore.
+  */
+  const releases = SET_RELEASES.map((release) => ({
+    url: absoluteUrl(`/changelog/v${release.version}`),
+    lastModified: new Date(release.date),
+    changeFrequency: "yearly" as const,
+    priority: 0.5,
+  }))
+
+  return [...pages, ...gridPages, ...blogPages, ...releases, ...posts, ...icons]
 }
