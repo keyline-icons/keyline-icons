@@ -5,6 +5,7 @@ import { toast } from "sonner"
 
 import { Check, Copy } from "@/components/icons"
 import { track } from "@/lib/analytics"
+import { noteTaken } from "@/lib/star-prompt"
 import { cn } from "@/lib/utils"
 
 /**
@@ -45,6 +46,7 @@ export function CopyName({
       setCopied(true)
       window.setTimeout(() => setCopied(false), 1600)
       track("icon_name_copy", { icon: name })
+      noteTaken()
     } catch {
       toast.error("Couldn't copy", {
         description: "Clipboard access was refused.",

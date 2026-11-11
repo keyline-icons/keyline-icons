@@ -14,12 +14,14 @@ import { CORNERS, type Corners } from "@/components/glyph"
 import { gridPageCount } from "@/lib/icon-pages"
 import { iconsOnScreen } from "@/lib/icon-search"
 import { styleHref, treatmentHref } from "@/lib/icon-treatments"
+import { repoStars } from "@/lib/github"
 import { searchSuggestions } from "@/lib/search-suggestions"
 import { pageMetadata } from "@/lib/seo"
 import { IconLibrary } from "@/components/icon-library"
 import { SET_LICENSE, SET_TAGLINE } from "@/lib/site-chrome"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
+import { StarPrompt } from "@/components/star-prompt"
 import { Toaster } from "@/components/ui/sonner"
 
 /**
@@ -409,6 +411,11 @@ export default async function Page({
           , on the same grid.
         </p>
         <Toaster />
+        {/*
+          Read again rather than handed down from the bar: `repoStars` caches
+          for an hour, so this is the bar's number without a second call.
+        */}
+        <StarPrompt stars={await repoStars()} />
       </div>
       <SiteFooter />
     </>

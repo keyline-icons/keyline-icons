@@ -151,6 +151,17 @@ export type Events = {
    * says which copy of the one button, the hero's or the closing card's.
    */
   custom_click: { place: "hero" | "close"; from: CustomSource }
+  /**
+   * The GitHub star prompt on `/icons`: it opened, its star link was
+   * followed, or it was closed any other way.
+   *
+   * `ask` is which of the three asks a browser gets this was, so the export
+   * can say whether a second or third ask still converts or only annoys. It
+   * counts asks, not readers, and nothing else about the browser goes with it.
+   * A followed link is not a star: GitHub does not say whether the button
+   * was pressed once the page opened.
+   */
+  star_prompt: { outcome: "shown" | "star" | "later"; ask: number }
 }
 
 type EventName = keyof Events

@@ -36,6 +36,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { track } from "@/lib/analytics"
+import { noteTaken } from "@/lib/star-prompt"
 import { cn } from "@/lib/utils"
 import {
   downloadName,
@@ -352,6 +353,7 @@ export function IconPreview({
           format,
           surface: "dock",
         })
+        noteTaken()
       } catch {
         toast.error("Couldn't copy", {
           description: "Clipboard access was refused.",
@@ -378,6 +380,7 @@ export function IconPreview({
     link.click()
     URL.revokeObjectURL(url)
     track("icon_download", { icon: icon.name, style, surface: "dock" })
+    noteTaken()
   }, [icon, art, style, size, stroke, pm, corners])
 
   /*

@@ -4,6 +4,7 @@ import {
   SETTINGS_DEFAULTS,
 } from "@/lib/browser-settings"
 import { loadIcons } from "@/lib/icons"
+import { STAR_PROMPT_KEY } from "@/lib/star-prompt"
 import { pageMetadata, SITE_URL } from "@/lib/seo"
 import {
   LEGAL,
@@ -129,7 +130,7 @@ export default async function Page() {
   const googleAnalytics = Boolean(process.env.NEXT_PUBLIC_GA_ID)
 
   return (
-    <LegalPage path={LEGAL.privacy} title="Privacy" updated="2026-11-02">
+    <LegalPage path={LEGAL.privacy} title="Privacy" updated="2026-11-11">
       <LegalSection id="scope" title="What this covers">
         <p>
           This site, at {host}, and nothing else. The set is also published on
@@ -198,8 +199,9 @@ export default async function Page() {
           On top of those, a handful of things you do with the set are counted:
           copying an icon&apos;s snippet or its name, downloading an SVG,
           copying an install command, sharing the set or copying its link,
-          opening the custom icons page and pressing its email button, and a
-          search that found nothing.
+          opening the custom icons page and pressing its email button, the
+          GitHub star prompt opening and how it was answered, and a search that
+          found nothing.
         </p>
         <p>
           <strong className="font-medium text-foreground">
@@ -225,9 +227,10 @@ export default async function Page() {
         <p>
           Every one of those events describes the set, never you: an icon name,
           a style, a filter you picked, a file format, a package manager, a
-          query typed into the icon search, or the kind of link that led to the
-          custom icons page. No identifiers, no addresses, and nothing typed
-          anywhere else on the site. The complete list is the{" "}
+          query typed into the icon search, the kind of link that led to the
+          custom icons page, or which of its three asks the star prompt was on.
+          No identifiers, no addresses, and nothing typed anywhere else on the
+          site. The complete list is the{" "}
           <LegalLink href={`${SET_REPO_URL}/blob/main/lib/analytics.ts`}>
             Events type
           </LegalLink>{" "}
@@ -279,6 +282,16 @@ export default async function Page() {
           browser&apos;s own local storage under{" "}
           <code className="text-foreground">theme</code>. It never reaches the
           server.
+        </p>
+        <p>
+          The icon browser may ask, at most three times and two weeks apart,
+          whether you would star the set on GitHub. What it needs to keep that
+          promise is in local storage too, under{" "}
+          <code className="text-foreground">{STAR_PROMPT_KEY}</code>: when it
+          last asked, how many times, whether you followed its star link, and
+          when you last copied or saved an icon, which is what tells it the set
+          has been useful to you. It never reaches the server either, and
+          clearing site data forgets it.
         </p>
       </LegalSection>
 
