@@ -18776,6 +18776,76 @@
       ]
     },
     {
+      "name": "sharp/fill/rotate-ccw-10s",
+      "type": "registry:component",
+      "title": "RotateCcw10s",
+      "description": "RotateCcw10s, the fill drawing of rotate-ccw-10s on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of rotate-ccw-10s: https://keylineicons.com/icons/rotate-ccw-10s",
+      "files": [
+        {
+          "path": "icons/rotate-ccw-10s.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/fill/rotate-ccw-10s.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/fill/rotate-ccw-1s",
+      "type": "registry:component",
+      "title": "RotateCcw1s",
+      "description": "RotateCcw1s, the fill drawing of rotate-ccw-1s on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of rotate-ccw-1s: https://keylineicons.com/icons/rotate-ccw-1s",
+      "files": [
+        {
+          "path": "icons/rotate-ccw-1s.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/fill/rotate-ccw-1s.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/fill/rotate-ccw-30s",
+      "type": "registry:component",
+      "title": "RotateCcw30s",
+      "description": "RotateCcw30s, the fill drawing of rotate-ccw-30s on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of rotate-ccw-30s: https://keylineicons.com/icons/rotate-ccw-30s",
+      "files": [
+        {
+          "path": "icons/rotate-ccw-30s.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/fill/rotate-ccw-30s.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/fill/rotate-ccw-5s",
+      "type": "registry:component",
+      "title": "RotateCcw5s",
+      "description": "RotateCcw5s, the fill drawing of rotate-ccw-5s on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of rotate-ccw-5s: https://keylineicons.com/icons/rotate-ccw-5s",
+      "files": [
+        {
+          "path": "icons/rotate-ccw-5s.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/fill/rotate-ccw-5s.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/fill/rotate-ccw-60s",
+      "type": "registry:component",
+      "title": "RotateCcw60s",
+      "description": "RotateCcw60s, the fill drawing of rotate-ccw-60s on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of rotate-ccw-60s: https://keylineicons.com/icons/rotate-ccw-60s",
+      "files": [
+        {
+          "path": "icons/rotate-ccw-60s.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/fill/rotate-ccw-60s.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/fill/rotate-ccw-square",
       "type": "registry:component",
       "title": "RotateCcwSquare",
@@ -18800,6 +18870,76 @@
           "path": "icons/rotate-cw.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/fill/rotate-cw.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/fill/rotate-cw-10s",
+      "type": "registry:component",
+      "title": "RotateCw10s",
+      "description": "RotateCw10s, the fill drawing of rotate-cw-10s on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of rotate-cw-10s: https://keylineicons.com/icons/rotate-cw-10s",
+      "files": [
+        {
+          "path": "icons/rotate-cw-10s.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/fill/rotate-cw-10s.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/fill/rotate-cw-1s",
+      "type": "registry:component",
+      "title": "RotateCw1s",
+      "description": "RotateCw1s, the fill drawing of rotate-cw-1s on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of rotate-cw-1s: https://keylineicons.com/icons/rotate-cw-1s",
+      "files": [
+        {
+          "path": "icons/rotate-cw-1s.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/fill/rotate-cw-1s.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/fill/rotate-cw-30s",
+      "type": "registry:component",
+      "title": "RotateCw30s",
+      "description": "RotateCw30s, the fill drawing of rotate-cw-30s on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of rotate-cw-30s: https://keylineicons.com/icons/rotate-cw-30s",
+      "files": [
+        {
+          "path": "icons/rotate-cw-30s.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/fill/rotate-cw-30s.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/fill/rotate-cw-5s",
+      "type": "registry:component",
+      "title": "RotateCw5s",
+      "description": "RotateCw5s, the fill drawing of rotate-cw-5s on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of rotate-cw-5s: https://keylineicons.com/icons/rotate-cw-5s",
+      "files": [
+        {
+          "path": "icons/rotate-cw-5s.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/fill/rotate-cw-5s.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/fill/rotate-cw-60s",
+      "type": "registry:component",
+      "title": "RotateCw60s",
+      "description": "RotateCw60s, the fill drawing of rotate-cw-60s on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of rotate-cw-60s: https://keylineicons.com/icons/rotate-cw-60s",
+      "files": [
+        {
+          "path": "icons/rotate-cw-60s.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/fill/rotate-cw-60s.tsx"
         }
       ]
     },

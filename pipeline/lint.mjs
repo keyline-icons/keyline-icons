@@ -496,6 +496,12 @@ const RING_CLEARANCE = new Set([
   // clearing the outline by the letterform's 1; held to 2 it fits at 0.5 and the
   // S closes. 28 Sep 2026.
   'money-bag-dollar-sign',
+  // The skip-by-time rotates hold a two-digit count inside rotate's own ring,
+  // whose well is 16 across. Two digits at the letterforms' 2-unit daylight
+  // need 13 of it, so held to 2 from the ring the counters close; held to the
+  // letterform's 1 they stay open at 16px. 11 Nov 2026.
+  'rotate-cw-1s', 'rotate-cw-5s', 'rotate-cw-10s', 'rotate-cw-30s', 'rotate-cw-60s',
+  'rotate-ccw-1s', 'rotate-ccw-5s', 'rotate-ccw-10s', 'rotate-ccw-30s', 'rotate-ccw-60s',
 ]);
 /**
  * The dice, whose pips are 3 across with 1.75 between pips and walls.

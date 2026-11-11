@@ -12253,6 +12253,51 @@ export function Rotate3d(props: IconProps) {
   )
 }
 
+export function RotateCcw10s(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M3.4273 9.0828L3.2117 10.0593C3.071 10.6966 3 11.3473 3 12C3 16.9706 7.0294 21 12 21C16.9706 21 21 16.9706 21 12C21 7.0294 16.9706 3 12 3C9.5169 3 7.1441 4.0259 5.4432 5.8349L4.9867 6.3204M4.1631 2.1414L4.7999 6.5999L9.2586 5.9631" strokeOpacity={0.4} />
+      <Path d="M7.25 11.1L9.25 9.5L9.25 16.5M13.25 11.25C13.25 10.2835 14.0335 9.5 15 9.5C15.9665 9.5 16.75 10.2835 16.75 11.25L16.75 13.75C16.75 14.7165 15.9665 15.5 15 15.5C14.0335 15.5 13.25 14.7165 13.25 13.75Z" />
+    </Icon>
+  )
+}
+
+export function RotateCcw1s(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M3.4273 9.0828L3.2117 10.0593C3.071 10.6966 3 11.3473 3 12C3 16.9706 7.0294 21 12 21C16.9706 21 21 16.9706 21 12C21 7.0294 16.9706 3 12 3C9.5169 3 7.1441 4.0259 5.4432 5.8349L4.9867 6.3204M4.1631 2.1414L4.7999 6.5999L9.2586 5.9631" strokeOpacity={0.4} />
+      <Path d="M11 11.1L13 9.5L13 16.5" />
+    </Icon>
+  )
+}
+
+export function RotateCcw30s(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M3.4273 9.0828L3.2117 10.0593C3.071 10.6966 3 11.3473 3 12C3 16.9706 7.0294 21 12 21C16.9706 21 21 16.9706 21 12C21 7.0294 16.9706 3 12 3C9.5169 3 7.1441 4.0259 5.4432 5.8349L4.9867 6.3204M4.1631 2.1414L4.7999 6.5999L9.2586 5.9631" strokeOpacity={0.4} />
+      <Path d="M6.8 9.5L10 9.5L8.1 12.2L8.35 12.2C9.2613 12.2 10 12.9387 10 13.85C10 14.7613 9.2613 15.5 8.35 15.5L8 15.5C7.6 15.5 7.25 15.4 6.95 15.15M14 11.25C14 10.2835 14.7835 9.5 15.75 9.5C16.7165 9.5 17.5 10.2835 17.5 11.25L17.5 13.75C17.5 14.7165 16.7165 15.5 15.75 15.5C14.7835 15.5 14 14.7165 14 13.75Z" />
+    </Icon>
+  )
+}
+
+export function RotateCcw5s(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M3.4273 9.0828L3.2117 10.0593C3.071 10.6966 3 11.3473 3 12C3 16.9706 7.0294 21 12 21C16.9706 21 21 16.9706 21 12C21 7.0294 16.9706 3 12 3C9.5169 3 7.1441 4.0259 5.4432 5.8349L4.9867 6.3204M4.1631 2.1414L4.7999 6.5999L9.2586 5.9631" strokeOpacity={0.4} />
+      <Path d="M14.25 9.5L10.55 9.5L10.25 12.2L12.1 12.2C13.0113 12.2 13.75 12.9387 13.75 13.85C13.75 14.7613 13.0113 15.5 12.1 15.5L11.75 15.5C11.35 15.5 11 15.4 10.7 15.15" />
+    </Icon>
+  )
+}
+
+export function RotateCcw60s(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M3.4273 9.0828L3.2117 10.0593C3.071 10.6966 3 11.3473 3 12C3 16.9706 7.0294 21 12 21C16.9706 21 21 16.9706 21 12C21 7.0294 16.9706 3 12 3C9.5169 3 7.1441 4.0259 5.4432 5.8349L4.9867 6.3204M4.1631 2.1414L4.7999 6.5999L9.2586 5.9631" strokeOpacity={0.4} />
+      <Path d="M9.4 9.8C9 9.6 8.65 9.5 8.25 9.5C7.15 9.5 6.5 10.5 6.5 11.7L6.5 13.75M6.5 13.75C6.5 12.7835 7.2835 12 8.25 12C9.2165 12 10 12.7835 10 13.75C10 14.7165 9.2165 15.5 8.25 15.5C7.2835 15.5 6.5 14.7165 6.5 13.75ZM14 11.25C14 10.2835 14.7835 9.5 15.75 9.5C16.7165 9.5 17.5 10.2835 17.5 11.25L17.5 13.75C17.5 14.7165 16.7165 15.5 15.75 15.5C14.7835 15.5 14 14.7165 14 13.75Z" />
+    </Icon>
+  )
+}
+
 export function RotateCcwSquare(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -12266,6 +12311,51 @@ export function RotateCcw(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <Path d="M3.4273 9.0828L3.2117 10.0593C3.071 10.6966 3 11.3473 3 12C3 16.9706 7.0294 21 12 21C16.9706 21 21 16.9706 21 12C21 7.0294 16.9706 3 12 3C9.5169 3 7.1441 4.0259 5.4432 5.8349L4.9867 6.3204M4.1631 2.1414L4.7999 6.5999L9.2586 5.9631" />
+    </Icon>
+  )
+}
+
+export function RotateCw10s(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M20.5727 9.0828L20.7883 10.0593C20.929 10.6966 21 11.3473 21 12C21 16.9706 16.9706 21 12 21C7.0294 21 3 16.9706 3 12C3 7.0294 7.0294 3 12 3C14.4831 3 16.8559 4.0259 18.5568 5.8349L19.0133 6.3204M19.8369 2.1414L19.2001 6.5999L14.7414 5.9631" strokeOpacity={0.4} />
+      <Path d="M7.25 11.1L9.25 9.5L9.25 16.5M13.25 11.25C13.25 10.2835 14.0335 9.5 15 9.5C15.9665 9.5 16.75 10.2835 16.75 11.25L16.75 13.75C16.75 14.7165 15.9665 15.5 15 15.5C14.0335 15.5 13.25 14.7165 13.25 13.75Z" />
+    </Icon>
+  )
+}
+
+export function RotateCw1s(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M20.5727 9.0828L20.7883 10.0593C20.929 10.6966 21 11.3473 21 12C21 16.9706 16.9706 21 12 21C7.0294 21 3 16.9706 3 12C3 7.0294 7.0294 3 12 3C14.4831 3 16.8559 4.0259 18.5568 5.8349L19.0133 6.3204M19.8369 2.1414L19.2001 6.5999L14.7414 5.9631" strokeOpacity={0.4} />
+      <Path d="M11 11.1L13 9.5L13 16.5" />
+    </Icon>
+  )
+}
+
+export function RotateCw30s(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M20.5727 9.0828L20.7883 10.0593C20.929 10.6966 21 11.3473 21 12C21 16.9706 16.9706 21 12 21C7.0294 21 3 16.9706 3 12C3 7.0294 7.0294 3 12 3C14.4831 3 16.8559 4.0259 18.5568 5.8349L19.0133 6.3204M19.8369 2.1414L19.2001 6.5999L14.7414 5.9631" strokeOpacity={0.4} />
+      <Path d="M6.8 9.5L10 9.5L8.1 12.2L8.35 12.2C9.2613 12.2 10 12.9387 10 13.85C10 14.7613 9.2613 15.5 8.35 15.5L8 15.5C7.6 15.5 7.25 15.4 6.95 15.15M14 11.25C14 10.2835 14.7835 9.5 15.75 9.5C16.7165 9.5 17.5 10.2835 17.5 11.25L17.5 13.75C17.5 14.7165 16.7165 15.5 15.75 15.5C14.7835 15.5 14 14.7165 14 13.75Z" />
+    </Icon>
+  )
+}
+
+export function RotateCw5s(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M20.5727 9.0828L20.7883 10.0593C20.929 10.6966 21 11.3473 21 12C21 16.9706 16.9706 21 12 21C7.0294 21 3 16.9706 3 12C3 7.0294 7.0294 3 12 3C14.4831 3 16.8559 4.0259 18.5568 5.8349L19.0133 6.3204M19.8369 2.1414L19.2001 6.5999L14.7414 5.9631" strokeOpacity={0.4} />
+      <Path d="M14.25 9.5L10.55 9.5L10.25 12.2L12.1 12.2C13.0113 12.2 13.75 12.9387 13.75 13.85C13.75 14.7613 13.0113 15.5 12.1 15.5L11.75 15.5C11.35 15.5 11 15.4 10.7 15.15" />
+    </Icon>
+  )
+}
+
+export function RotateCw60s(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
+      <Path d="M20.5727 9.0828L20.7883 10.0593C20.929 10.6966 21 11.3473 21 12C21 16.9706 16.9706 21 12 21C7.0294 21 3 16.9706 3 12C3 7.0294 7.0294 3 12 3C14.4831 3 16.8559 4.0259 18.5568 5.8349L19.0133 6.3204M19.8369 2.1414L19.2001 6.5999L14.7414 5.9631" strokeOpacity={0.4} />
+      <Path d="M9.4 9.8C9 9.6 8.65 9.5 8.25 9.5C7.15 9.5 6.5 10.5 6.5 11.7L6.5 13.75M6.5 13.75C6.5 12.7835 7.2835 12 8.25 12C9.2165 12 10 12.7835 10 13.75C10 14.7165 9.2165 15.5 8.25 15.5C7.2835 15.5 6.5 14.7165 6.5 13.75ZM14 11.25C14 10.2835 14.7835 9.5 15.75 9.5C16.7165 9.5 17.5 10.2835 17.5 11.25L17.5 13.75C17.5 14.7165 16.7165 15.5 15.75 15.5C14.7835 15.5 14 14.7165 14 13.75Z" />
     </Icon>
   )
 }
@@ -18274,8 +18364,18 @@ export {
   RocketVertical as RocketVerticalIcon,
   Rocket as RocketIcon,
   Rotate3d as Rotate3dIcon,
+  RotateCcw10s as RotateCcw10sIcon,
+  RotateCcw1s as RotateCcw1sIcon,
+  RotateCcw30s as RotateCcw30sIcon,
+  RotateCcw5s as RotateCcw5sIcon,
+  RotateCcw60s as RotateCcw60sIcon,
   RotateCcwSquare as RotateCcwSquareIcon,
   RotateCcw as RotateCcwIcon,
+  RotateCw10s as RotateCw10sIcon,
+  RotateCw1s as RotateCw1sIcon,
+  RotateCw30s as RotateCw30sIcon,
+  RotateCw5s as RotateCw5sIcon,
+  RotateCw60s as RotateCw60sIcon,
   RotateCwPlus as RotateCwPlusIcon,
   RotateCwSquare as RotateCwSquareIcon,
   RotateCw as RotateCwIcon,
