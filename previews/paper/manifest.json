@@ -4431,8 +4431,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 40525
+      "variants": 40,
+      "bytes": 26413
     },
     {
       "file": "web-14.html",
@@ -4443,8 +4443,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 34113
+      "variants": 24,
+      "bytes": 34371
     },
     {
       "file": "web-15.html",
@@ -4456,7 +4456,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 36678
+      "bytes": 36809
     },
     {
       "file": "web-16.html",
@@ -4467,8 +4467,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 20888
+      "variants": 40,
+      "bytes": 35147
     },
     {
       "file": "catalog.html",
@@ -4478,7 +4478,7 @@
       "parts": 1,
       "icons": 0,
       "variants": 18,
-      "bytes": 16579
+      "bytes": 16580
     },
     {
       "file": "changelog.html",
@@ -4500,7 +4500,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 172167
+      "bytes": 21669
     },
     {
       "file": "changelog-earlier.html",
@@ -4511,7 +4511,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 21073
+      "bytes": 22021
     }
   ]
 }
