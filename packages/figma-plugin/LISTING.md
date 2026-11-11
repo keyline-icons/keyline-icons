@@ -124,6 +124,9 @@ Need icons drawn for your own product? Custom sets on the same grid, as SVG, Fig
 
 Changelog
 
+2.6.1
+The settings gear has the ring at its centre again, in stroke and two-tone, where 2.6.0 left it out.
+
 2.6.0
 141 new drawings, taking the set to 1,833 names and 14,664 SVGs.
 
@@ -762,6 +765,9 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 
 keylineicons.com
 github.com/keyline-icons/keyline-icons
+
+v2.6.1
+The settings gear has the ring at its centre again, in stroke and two-tone, where 2.6.0 left it out. Its vectors were swapped inside the existing set, so instances already placed pick the fix up.
 
 v2.6.0
 141 new drawings, taking the set to 1,833 names and 14,664 SVGs.
