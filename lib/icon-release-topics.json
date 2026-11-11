@@ -3060,6 +3060,35 @@
        ]
       }
      ]
+    },
+    {
+     "title": "Renamed",
+     "icon": "text-cursor-input",
+     "text": "Seven drawings took new names. `align-left` is `text-align-start`, `align-center` is `text-align-center`, `align-right` is `text-align-end`, `align-justify` is `text-align-justify`, `align-left-2` is `text-align-2-start` and `align-right-2` is `text-align-2-end`, and `flower` is `circles-five`. The old names still import in React and React Native, marked deprecated, and still resolve in the CLI and the MCP server, until the next major. Change them before then."
+    }
+   ]
+  },
+  "2.6.1": {
+   "title": "The settings gear gets its hub back",
+   "sections": [
+    {
+     "title": "Redrawn",
+     "icon": "pen",
+     "text": "One drawing that already shipped was drawn again. Before and after below.",
+     "sections": [
+      {
+       "title": "Web",
+       "text": "The settings gear, with the ring at its centre that 2.6.0 left out of stroke and two-tone.",
+       "redraws": [
+        "settings"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Renamed in 2.6.0",
+     "icon": "text-cursor-input",
+     "text": "2.6.0 renamed seven drawings and its changelog did not say so. `align-left` is `text-align-start`, `align-center` is `text-align-center`, `align-right` is `text-align-end`, `align-justify` is `text-align-justify`, `align-left-2` is `text-align-2-start` and `align-right-2` is `text-align-2-end`, and `flower` is `circles-five`. The old names still import in React and React Native, marked deprecated, and still resolve in the CLI and the MCP server, until the next major. Change them before then."
     }
    ]
   }
