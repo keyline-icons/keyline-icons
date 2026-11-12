@@ -91,9 +91,10 @@ some drawings in `icons/stroke/` carry no stroke of their own — `square-half`
 and the other fraction sectors are solid by definition — and painting one on
 would outline every knockout.
 
-Styles are `stroke`, `duotone`, `fill`. One icon name lives in up to three
-style folders — the folder is the disambiguator, so `square-arrow-down` is one
-name with up to three files, matching how other sets split styles by package.
+Styles are `stroke`, `two-tone`, `duotone`, `fill`, and each has a sharp twin
+under `icons/sharp/<style>/`. Every name lives in all eight folders (the parity
+rule, below): the folder is the disambiguator, so `square-arrow-down` is one
+name with eight files, matching how other sets split styles by package.
 
 ## What `build` does
 
@@ -109,7 +110,8 @@ Figma exports carry attributes that must never ship. Each is removed for a reaso
 
 It then rewrites every concrete paint to `currentColor`, hoists
 `stroke` / `stroke-width` / `stroke-linecap` / `stroke-linejoin` onto the root,
-and preserves `fill-opacity` so duotone keeps its secondary relationship.
+and preserves `fill-opacity` and `stroke-opacity`, so two-tone and duotone keep
+their muted layer.
 
 Two details worth knowing:
 
@@ -118,9 +120,10 @@ Two details worth knowing:
   the corner radius — a real join scales with stroke width, a drawn one doesn't.
   Declaring the join is what makes a `strokeWidth` prop safe to expose.
 - **Fill-only shapes get an explicit `stroke="none"`.** Once the root carries a
-  stroke, a shape that had none would otherwise inherit one. This is the duotone
-  background plate and the filled body of any mixed fill/stroke icon.
-- **Shapes carrying both paints are split in two.** A duotone drawn in Figma as
+  stroke, a shape that had none would otherwise inherit one. This is the
+  two-tone plate, the duotone's grey body and the filled body of any mixed
+  fill/stroke icon.
+- **Shapes carrying both paints are split in two.** A two-tone drawn in Figma as
   one vector with a muted fill and a full-strength stroke ships as two paths:
   the plate, then the outline. They are different things that happen to share a
   contour, and a consumer cannot restyle or animate a tone that is not its own
@@ -146,9 +149,9 @@ points:
 | `JOIN` | error | stroked icons declare `stroke-linejoin` |
 | `LAYERS` | error | no shape carries both a fill and a stroke |
 | `PADDING` | error | at least 1 unit of clearance on every side |
-| `COVERAGE` | error | style obligations are met (below) |
+| `COVERAGE` | error | every name has a stroke drawing, and a glyph that measures fillable has all four styles (below) |
 | `SOLID` | error | the stroke style is drawn with stroke, not a filled silhouette (a drawing that is nothing but dots is exempt: a dot is filled at every size, so `more-*` has no stroke to carry) |
-| `DUOTONE` | error | two tones present, secondary at exactly 0.4 |
+| `DUOTONE` | error | two-tone and duotone: two tones present, secondary at exactly 0.4 |
 | `CONSISTENCY` | error | every style of an icon shares the stroke's bounds |
 | `OPTICAL` | warn | the drawing sits at its optical shape's size; else true extent above the floor, box within the ceiling |
 | `SPACING` | warn | 2 units of painted clearance between separate elements |
@@ -177,8 +180,8 @@ differently:
   own shaft — so per-subpath overlap just reports the drawing back at you.
 
 Two pairs are skipped either way: outlines that cross (a composite, not two
-neighbours) and a filled shape that wholly contains another (a muted duotone
-disc is a backdrop, not a neighbour). Only the tightest pair per icon is
+neighbours) and a filled shape that wholly contains another (a muted plate is
+a backdrop, not a neighbour). Only the tightest pair per icon is
 reported — an icon that crowds in one place usually crowds in several, and
 listing every pair buries the icon that needs redrawing.
 
@@ -209,7 +212,7 @@ arc's own radius (`circle-progress-quarter` at 10). Closed rings are not
 exempted, because the flats between `settings`' gear teeth are under a unit
 and are real fillet edges.
 
-**The ladder is not closed under the +1 an outline adds.** A duotone plate or a
+**The ladder is not closed under the +1 an outline adds.** A muted plate or a
 solid is the stroke drawing outlined by one unit, and outlining raises every
 corner radius by one. So a shape that is itself on the ladder can still produce
 a plate that is not: `git-connection`'s node box was a correct `1.5`, and its
@@ -217,8 +220,8 @@ plate came out at `2.5`. Pick from the radii whose successor is also on the
 ladder — `0.5`, `1`, `2`, `3`, `4` — for anything that gains a filled style.
 `1.5` and `5` are safe only on a shape that stays an outline.
 
-The level-indicator family is the standing exception (2026-08-30): its
-duotone/fill inner solids are the stroke drawing's painted contour, and the
+The level-indicator family is the standing exception (2026-08-30): its filled
+styles' inner solids are the stroke drawing's painted contour, and the
 stroke's inner square corners are a shipped `1.5`, so the solids carry `2.5`
 by arithmetic. The rule skips exactly that value on exactly those names
 (`LEVEL` and `DASHED_LEVEL`, non-stroke styles) rather than widening the
@@ -469,65 +472,70 @@ mean the glyph is genuinely pushed to one side.
 
 ## The coverage rule
 
-This is the architecture, encoded:
+Every name ships all four styles in both corners. That is the parity rule,
+settled for 1.0.0: every name owes every style, "even at the cost of
+duplicating the same icon in the same color and same shape". The Figma sets
+hold all eight variants, so `raw/` exports them and no cell of `icons/` is
+empty. What is still measured, never chosen, is which styles are *drawn* and
+which are the agreed fallback:
 
-> Duotone and solid require a fillable region. A fillable region comes from
+> A drawn filled style needs a face the stroke closes. A face comes from
 > either the glyph enclosing area, or from a square/circle container.
 
 ```
-open glyph   + no container   ->  stroke only
-open glyph   + square/circle  ->  stroke + duotone + fill
-closed glyph + no container   ->  stroke + duotone + fill
-closed glyph + square/circle  ->  stroke + duotone + fill
+open glyph   + no container   ->  stroke drawn, the other three fall back
+open glyph   + square/circle  ->  all four drawn: the container is the face
+closed glyph + no container   ->  all four drawn
+closed glyph + square/circle  ->  all four drawn
 ```
 
-That table says what an icon **owes**, not the most it may have. A duotone
-needs two tones, and a fill is only one way to get the muted one — a *stroke*
-at 0.4 works just as well, and `DUOTONE` counts `stroke-opacity` alongside
-`fill-opacity` for exactly that reason.
+An open glyph's fallbacks:
 
-So an open glyph with no fillable region can still carry a duotone whenever it
-has a secondary element worth muting, even though it owes none:
-
-- `signal-low` and `signal-medium` mute the bars above the current level
-- the 16 `*-dashed-panel` icons mute the panel and leave the arrow at full
-  strength, which suits a shape that already reads as a boundary
-
-Neither gains a fill — there is still nothing to fill. `cursor-dashed-panel`
-is the exception in that family: its glyph *is* fillable, so it takes the
-ordinary muted-plate duotone and mutes the cursor rather than the panel.
+- **Fill** is a copy of the stroke.
+- **Two-tone** and **duotone** grey one part and leave the rest at full
+  strength. A muted tone needs no face: a *stroke* at 0.4 works as well as a
+  fill, and `DUOTONE` counts `stroke-opacity` alongside `fill-opacity` for
+  exactly that reason. `signal-low` and `signal-medium` grey the bars above the
+  current level; the 16 `*-dashed-panel` icons grey the panel and leave the
+  arrow at full strength, which suits a shape that already reads as a boundary.
+  `cursor-dashed-panel` is the exception in that family: its glyph *is*
+  fillable, so its filled styles are drawn.
+- A drawing with no second part to grey (`x`, `percent`, `more-*`) ships its
+  two-tone and duotone as the stroke drawing too.
 
 Fillability is **measured, never guessed from the name**: the linter walks the
-outline's subpaths and asks whether any closed one encloses more than 8 square
-units. The threshold ignores incidental closed dots — a lock's keyhole, an
-alert's period — which are closed but are not what makes a glyph fillable.
+outline's subpaths and asks whether any closed one encloses 8 square units or
+more. The threshold ignores incidental closed dots, a lock's keyhole or an
+alert's period, which are closed but are not what makes a glyph fillable.
 
 This distinction is easy to get wrong by eye. `bar-chart` is
-`M19 15V20M12 4V20M5 9V20` — three open strokes with no interior. It *looks*
-fillable; it isn't. Outline-only is correct there, and the containered
-`square-bar-chart` is how that glyph gets its filled styles.
+`M4 9V22M12 2V22M20 16V22`: three open strokes with no interior. It *looks*
+fillable; it isn't. So its fill is its stroke, its two-tone and duotone grey
+two of the bars, and the containered `square-bar-chart` and `circle-bar-chart`
+carry the drawn filled styles. `triangle-alert`, by contrast, closes around a
+real interior, so all four of its styles are drawn.
 
-`triangle-alert`, by contrast, closes with `...L9.35439 3.54683Z` around a real
-interior. It owes a duotone and a solid, and the linter says so.
+`COVERAGE` holds the measured half: an error when a name has no stroke, the
+base every other style is drawn from, or when a glyph that measures fillable is
+missing any style. It reports nothing about an open glyph's styles, so parity
+there is held by the Figma sets rather than by the linter.
 
-### A compound inherits its base's fillability
+### A compound measures open, and its base decides
 
 Measuring the outline has one blind spot, and the modifier convention causes it.
 A compound cuts a gap in the base rather than stacking on top, so the base's
 outline stops being closed. `smartphone` is a closed rounded rect;
 `smartphone-check` is the same phone with its bottom-right corner opened for the
-tick, and no subpath closes. Measured literally it is an open-stroke glyph, and
-its perfectly good fill — a 195-unit region — looks like a mistake.
+tick, and no subpath closes. Measured literally it is an open-stroke glyph,
+although its fill paints a 195-unit region.
 
-So when a glyph measures unfillable, the linter strips one trailing segment at a
-time and asks whether that base is a real icon with a fillable outline.
-`smartphone-arrow-in-up-right` finds `smartphone`; `bar-chart-down` finds
-`bar-chart`, which is three open strokes, and stays unfillable — correctly.
-
-Two limits keep this from doing more than it should. It is suffix-only, so a
-container prefix can never grant fillability. And it only suppresses the
-warning: it never makes an icon *owe* a duotone or a fill, so no compound can be
-dragged into a `COVERAGE` error by its base.
+Read a compound's fillability off its base: `smartphone-check` draws its filled
+styles because `smartphone` does, and `bar-chart-down` falls back because
+`bar-chart` is three open strokes. Before parity the linter made that lookup
+(`inheritedFill`, suffix-only, so a container prefix could never grant it) to
+keep a compound's fill from being flagged as a fill on an open glyph. Parity
+dropped that flag, nothing calls the lookup now, and `COVERAGE` treats a
+compound that measures open as an open glyph.
 
 ### A counter is not a fillable body
 
@@ -536,27 +544,31 @@ closes. What it closes around is the counter of a letterform-derived mark, which
 is white by definition. Fill it and the @ becomes a ring with a blob in it;
 mute it and the blob reads as a highlight rather than a second tone, because
 there is no second *part* to tone against. Both were drawn and both were
-rejected on sight, so `COUNTER` excuses the two filled styles by name.
+rejected on sight, so `at`, `percent` and `heading-6` take the open glyph's
+fallback: their fill is the stroke drawing, and their two-tone and duotone
+follow the open glyph's rule above. `COUNTER` names the three; since parity each
+ships its fill, so the exemption has nothing left to excuse and stays as the
+record of the decision.
 
 Read it narrowly. It is the distinction the set already makes for `question`
 and the other marks, which simply have no closed counter to expose it; it is not
-a waiver for objects. A body that encloses a region still owes its filled
-styles, and every other rule still applies to `at`.
+a waiver for objects. A body that encloses a region still has its filled styles
+drawn, and every other rule still applies to `at`.
 
-### A dashed level indicator is complete at stroke and duotone
+### A dashed level indicator's fill is its stroke
 
 `circle-half`'s stroke variant is a *solid* wedge, not an outline, because a
 progress indicator has to show a filled portion to read as progress. So the
-three styles do not vary the glyph at all — they vary what sits behind it:
-stroke has nothing, duotone mutes a disc, fill draws the ring.
+styles do not vary the glyph at all, they vary what sits behind it: stroke has
+nothing, two-tone and duotone mute a disc, fill draws the ring.
 
 A dashed container is a stroke by definition, so it is already present and
-unmuted in the stroke variant. A fill would add nothing and land byte-for-byte
-identical, so `circle-dashed-*` and `square-dashed-*` owe only the two styles
-they can tell apart. `circle-dashed-check` arrived at the same shape.
+unmuted in the stroke variant. A fill adds nothing and lands byte-for-byte
+identical, and since parity `circle-dashed-*` and `square-dashed-*` ship it
+anyway, as that copy. `circle-dashed-check` arrived at the same shape.
 
-`DASHED_LEVEL` excuses a missing `fill` and nothing else, so one of these that
-loses its duotone still fails.
+`DASHED_LEVEL` still excuses a missing `fill` and nothing else, so one of these
+that loses its duotone fails; with the fills shipped, it no longer fires.
 
 A useful consequence: since the wedge stays solid it also stays the same size,
 and every dashed level reuses its solid sibling's path unchanged. An outlined
@@ -568,36 +580,41 @@ unit of ink outside the path — and would have had to shrink to fit.
 Recorded 8 Aug 2026. These are what the linter enforces — change the rule here
 and in `lint.mjs` together, never one alone.
 
-**Not every icon comes in all three styles.** That was the founding question and
-the answer is no. Obligation is derived from geometry, per the coverage rule
-above. Many glyphs — `smartphone`, `lock`, `cursor` — have a natural form that a
-square or circle container would fight, so they carry their filled styles
-directly and never gain a container.
+**Every icon comes in all four styles.** The founding answer was no, with
+obligation derived from geometry; the parity rule reversed it at 1.0.0, and
+geometry now decides which styles are drawn rather than which exist (the
+coverage rule above). A container is still never the route to a fill:
+`smartphone` and `lock` carry their filled styles directly and have no
+container, and `cursor` carries its own as well as shipping `circle-cursor` and
+`square-cursor`.
 
 **Containers apply only to simple glyphs.** No `square-user-check`. Wrapping an
 already-compound icon crowds the 24-unit grid: the modifier would have to shrink
-below what a 2px stroke can render legibly. Compounds carry the three styles
+below what a 2px stroke can render legibly. Compounds carry the four styles
 directly. The other set takes the same position.
 
-**Duotone secondary opacity is `0.4`.** Raised from `0.2`, where the muted layer
-was too faint on light backgrounds to read as a second tone — which is what made
-the all-muted duotones look like a disabled state. Enforced by `SECONDARY_OPACITY`
-in `lint.mjs`; a stale `0.2` export now fails the build.
+**The muted tone is `0.4`**, in two-tone and duotone alike. Raised from `0.2`,
+where the muted layer was too faint on light backgrounds to read as a second
+tone, which is what made the all-muted drawings of the time look like a disabled
+state. Enforced by `SECONDARY_OPACITY` in `lint.mjs`; a stale `0.2` export now
+fails the build.
 
-**Duotone is the outline drawing plus a muted fill behind it.** Never the solid
-at reduced opacity. At least one layer stays at full strength. `lock` was already
-the correct model; `user` and `circle` were not.
+**Two-tone is the outline drawing plus a muted fill behind it** (it was called
+duotone until 0.9.0). Never the solid at reduced opacity, and the outline stays
+at full strength. `lock` was already the correct model; `user` and `circle` were
+not. **Duotone**, from 1.0.0, has no outline: a grey body and black detail,
+decided per icon.
 
-**Modifiers sit bottom-right.** A compound is a base glyph plus a small modifier
-(`user-check`, `user-lock`), and the modifier occupies the bottom-right corner in
-every icon, at a fixed size, defined once in the Figma component so it cannot
-drift. Where it overlaps the base, cut a knockout gap equal to the stroke width
+**Modifiers sit in a fixed place.** A compound is a base glyph plus a small
+modifier (`user-check`, `user-lock`), and the modifier takes one fixed place
+per family, usually the bottom-right corner, at a fixed size, defined once in
+the Figma component so it cannot drift. Where it overlaps the base, cut a knockout gap equal to the stroke width
 rather than stacking — the solid `circle-user` already does this with
 `fill-rule="evenodd"`.
 
-> Not yet linted: the bottom-right rule is a drawing convention until the first
-> compound is drawn in all three styles. Writing the check before there is
-> anything to test it against would ship an unverified rule.
+> Not linted. The placement was left a drawing convention until compounds
+> existed in every style to test a check against; they have since 1.0.0, and
+> no check has been written yet.
 
 ## What `check-demos` checks
 
@@ -738,17 +755,17 @@ Three things about the output are decisions rather than defaults:
   surfaces are meant to be indistinguishable and only one of them gets to
   decide.
 - **A row is a name, and it draws the matrix.** The name and its badge on the
-  left, a spacer, then `Regular` and `Sharp`, each three 24px cells in stroke,
-  duotone, fill order — six cells, 6 apart within a group and 28 between the
-  groups, which is what puts an 84-wide heading exactly over its own three
-  columns. So `arrow-down`, `square-arrow-down` and `circle-arrow-down` are
-  three rows rather than one row of eighteen drawings, and the card's header
-  counts both: sets as `icons`, rows as `names`.
-- **A cell a name does not own is drawn empty.** Coverage is derived (an open
-  glyph owes no fill), so most cards have holes in them, and a row that dropped
-  the tile instead would slide its later columns left and stop the six reading
-  as a grid. Rounded and sharp cover exactly the same names, so a hole on one
-  side only is a defect the board makes visible.
+  left, a spacer, then `Regular` and `Sharp`, each four 24px cells in stroke,
+  two-tone, duotone, fill order: eight cells, 6 apart within a group and 28
+  between the groups. A heading is meant to sit exactly over its own group;
+  `GROUP_WIDTH` still counts three cells (84) from before two-tone, so today it
+  spans three of the four. So `arrow-down`, `square-arrow-down` and
+  `circle-arrow-down` are three rows rather than one row of twenty-four
+  drawings, and the card's header counts both: sets as `icons`, rows as `names`.
+- **A cell a name does not own is drawn empty**, rather than dropped, which
+  would slide the later columns left and stop the eight reading as a grid.
+  Since parity every name owns all eight, so a hole anywhere on a board is a
+  defect the board makes visible.
 - **The layer name carries the treatment.** `arrow-down stroke` for a rounded
   drawing and `arrow-down stroke sharp` for its sharp sibling. `check-paper`
   compares those strings against the file position for position, and two layers
@@ -1034,8 +1051,8 @@ same size, same ink, same ground.
 this one, or the newest tag and the working tree. Both sides come off the refs,
 never off disk for a released entry, so redrawing the same icon again does not
 rewrite what an older entry was published showing. The pair shown is the first
-of a name's **six** files that genuinely differs across the window — stroke,
-duotone and fill, rounded first and then sharp — and `updated` carries both
+of a name's **eight** files that genuinely differs across the window (stroke,
+two-tone, duotone and fill, rounded first and then sharp), and `updated` carries both
 `style` and `corners` to say which. Where nothing differs, the pair is null and
 the surfaces fall back to naming the icon. Where the window did not open with
 the drawing at all, it is an addition rather than a redraw, whatever its dates

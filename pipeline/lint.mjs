@@ -4,11 +4,12 @@
  *
  *   node pipeline/lint.mjs [--json]
  *
- * The rule that matters most is COVERAGE, which encodes the variant architecture:
- * duotone and solid require a fillable region, and a fillable region comes from
- * either the glyph enclosing area or from a square/circle container. So an icon
- * whose outline encloses area owes all three styles; an open-stroke glyph owes
- * only outline and gets its filled styles through the containered variants.
+ * The rule that matters most is COVERAGE, which encodes the variant architecture.
+ * Every name ships all four styles (the parity rule, 1.0.0); geometry decides
+ * which are drawn. A drawn filled style needs a fillable region, from either the
+ * glyph enclosing area or a square/circle container, so a glyph whose outline
+ * encloses area must carry all four, while an open-stroke glyph's fill is a copy
+ * of its stroke and its containered variants carry the drawn solids.
  *
  * That distinction is measured from the path data, never guessed by name.
  */
@@ -735,14 +736,15 @@ const OPEN_CONTAINER = /^(?:circle-|square-)navigation$/;
  *
  * In the solid family the wedge is already filled in every style — `circle-half`'s
  * stroke IS a solid wedge, not an outline — because a progress indicator has to
- * show a filled portion to read as progress. What the three styles actually vary
- * is the container: stroke has none, duotone mutes a disc behind the wedge, fill
- * draws the ring around it.
+ * show a filled portion to read as progress. What the styles actually vary is
+ * the container: stroke has none, two-tone and duotone mute a disc behind the
+ * wedge, fill draws the ring around it.
  *
  * A dashed container is a stroke by definition, so it is already present and
- * unmuted in the stroke variant. That leaves a fill nothing to add — it would be
- * a byte-for-byte copy of the stroke — so these owe only the two styles they can
- * tell apart. `circle-dashed-check` reached the same shape for the same reason.
+ * unmuted in the stroke variant. That leaves a fill nothing to add: it is a
+ * byte-for-byte copy of the stroke, which is why these were once excused it.
+ * Since parity (1.0.0) they ship that copy anyway, so this no longer fires.
+ * `circle-dashed-check` reached the same shape for the same reason.
  *
  * Narrow on purpose: it excuses a missing fill and nothing else, so a dashed
  * level that loses its duotone still fails.
@@ -842,8 +844,9 @@ const CLOSED_BY_STROKE = new Set([
  * grant this: `bar-chart-down` finds `bar-chart`, which is three open strokes,
  * and stays unfillable — correctly.
  *
- * This only suppresses the warning. It never makes an icon *owe* a duotone or
- * fill, so a compound cannot be dragged into a COVERAGE error by its base.
+ * It only ever suppressed the open-glyph fill warning, which parity (1.0.0)
+ * dropped, so nothing calls it now: COVERAGE treats a compound that measures
+ * open as an open glyph.
  */
 function inheritedFill(set, name) {
   for (let i = name.lastIndexOf('-'); i > 0; i = name.lastIndexOf('-', i - 1)) {
