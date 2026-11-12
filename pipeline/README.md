@@ -760,9 +760,8 @@ Three things about the output are decisions rather than defaults:
 - **A row is a name, and it draws the matrix.** The name and its badge on the
   left, a spacer, then `Regular` and `Sharp`, each four 24px cells in stroke,
   two-tone, duotone, fill order: eight cells, 6 apart within a group and 28
-  between the groups. A heading is meant to sit exactly over its own group;
-  `GROUP_WIDTH` still counts three cells (84) from before two-tone, so today it
-  spans three of the four. So `arrow-down`, `square-arrow-down` and
+  between the groups. A heading is exactly as wide as its own group, four cells
+  and three gaps (114), because `GROUP_WIDTH` counts `STYLES`. So `arrow-down`, `square-arrow-down` and
   `circle-arrow-down` are three rows rather than one row of twenty-four
   drawings, and the card's header counts both: sets as `icons`, rows as `names`.
 - **A cell a name does not own is drawn empty**, rather than dropped, which

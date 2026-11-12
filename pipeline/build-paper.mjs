@@ -6,14 +6,14 @@
 // section, and each sheet is one artboard's worth of markup.
 //
 // **A card is a matrix, because the set has three axes now.** Since the Corners
-// property landed in Figma, a row is one *name* and carries the same three
-// styles twice, rounded against sharp, in six 24px cells under two headings. It
-// used to be one row per *set* with every variant of it laid out in a line,
-// which worked while a drawing had one corner treatment: eighteen tiles on a
-// line cannot say which of them are the same drawing differently cornered, and
-// six cells in two labelled groups say it by position. A style a name does not
-// own is drawn as an empty cell rather than skipped, so the columns hold and
-// the gap is legible as coverage rather than as a layout accident.
+// property landed in Figma, a row is one *name* and carries the same four
+// styles twice, rounded against sharp, in eight 24px cells under two headings.
+// It used to be one row per *set* with every variant of it laid out in a line,
+// which worked while a drawing had one corner treatment: a line of tiles cannot
+// say which of them are the same drawing differently cornered, and two labelled
+// groups say it by position. A style a name does not own is drawn as an empty
+// cell rather than skipped, so the columns hold and the gap reads as a missing
+// drawing rather than as a layout accident.
 //
 // **Why HTML and not SVG.** Paper's canvas is HTML and CSS rather than a scene
 // graph, and the only write its MCP server exposes is `write_html`. So the unit
@@ -124,9 +124,9 @@ function parse(svg) {
  * axis still resolves, and sharp got a namespace of its own rather than a
  * suffix on the name, since `[element]-[modifier]` is what a name means here.
  *
- * Coverage is identical across the two by construction — 585 stroke, 480
- * duotone, 432 fill each — so a sharp file that is missing is a defect and not
- * a decision. The cell is drawn empty rather than skipped, which keeps the six
+ * Coverage is identical across the two by construction, and since parity every
+ * name has all four styles in both, so a missing file is a defect and not a
+ * decision. The cell is drawn empty rather than skipped, which keeps the eight
  * columns lined up and makes the hole visible on the board.
  */
 const dirOf = (corners, style) =>
@@ -426,15 +426,15 @@ const LABEL = `font-size:14px;font-weight:500;color:${INK};white-space:nowrap`
 const BADGE =
   `flex-shrink:0;padding:2px 7px;border-radius:999px;background:${INK};color:#ffffff;` +
   `font-size:10px;font-weight:600;letter-spacing:0.3px;line-height:16px;white-space:nowrap`
-/** A treatment's three cells, stroke then duotone then fill. */
+/** A treatment's four cells, in `STYLES` order. */
 const GROUP = "display:flex;align-items:center;gap:6px"
 /** The name and its badge, held together so the spacer pushes both. */
 const NAME = "display:flex;align-items:center;gap:6px;min-width:0"
 /**
- * A cell with nothing in it, which is how a name that owes a style keeps the
- * column it does not fill. An open glyph owes no fill, so most cards have
- * them, and a row that simply dropped the tile would slide its later columns
- * left and stop the six reading as a grid.
+ * A cell with nothing in it, which is how a name missing a style keeps the
+ * column it does not fill: a row that simply dropped the tile would slide its
+ * later columns left and stop the eight reading as a grid. Since parity no name
+ * is missing one, so an empty cell on a board is a defect made visible.
  */
 const CELL = `width:${SIZE}px;height:${SIZE}px;flex-shrink:0`
 
@@ -443,11 +443,13 @@ const CELL = `width:${SIZE}px;height:${SIZE}px;flex-shrink:0`
  *
  * Figma's `Legend` sits above the divider and its `Column header` below, a
  * treatment line over a style line, both 28 apart and both padded 10 so they
- * land on the cells rather than near them. 84 is not a chosen width: it is
- * three 24 cells and two 6 gaps, so a heading is exactly as wide as the group
- * it names.
+ * land on the cells rather than near them. The width is not chosen: it is one
+ * 24 cell per style and a 6 gap between each, so a heading is exactly as wide
+ * as the group it names. It was written as 84 while there were three styles
+ * and sat three cells wide over four once two-tone arrived, so it counts
+ * `STYLES` now rather than a number.
  */
-const GROUP_WIDTH = SIZE * 3 + 6 * 2
+const GROUP_WIDTH = SIZE * STYLES.length + 6 * (STYLES.length - 1)
 const LEGEND = `margin:0;font-size:12px;font-weight:500;color:${MUTED}`
 const COLUMNS = "display:flex;flex-direction:column;gap:3px;padding-bottom:4px"
 const HEAD_ROW = "display:flex;align-items:center;gap:28px;padding:0 10px"

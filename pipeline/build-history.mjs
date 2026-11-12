@@ -306,7 +306,7 @@ const continues = (old, twoTone, duotone) => {
  * `to` is null for the unreleased window, whose "after" is the working tree,
  * because that is what has actually been drawn and what the site renders.
  *
- * The pair is the first of the six files in `DRAWINGS` that genuinely differs
+ * The pair is the first of the eight files in `DRAWINGS` that genuinely differs
  * across the window, and `corners` with `style` say which one it is. A drawing
  * can be committed without changing — a rename, a reformat, a change confined
  * to one style — and printing two identical tiles under "before" and "after"
@@ -402,7 +402,7 @@ const changedBetween = once((from, to) =>
       "--name-only",
       /*
        * Modifications only, which is what makes it safe to nominate from all
-       * six folders.
+       * eight folders.
        *
        * An added file is not a redraw and has no "before" to put beside the
        * "after". v0.3.0 *added* a sharp drawing for every name in the set, so
