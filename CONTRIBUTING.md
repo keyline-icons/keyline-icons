@@ -75,11 +75,12 @@ and which rule it came from.
 
 The parts that catch people out:
 
-- **Which styles an icon owes is not a choice.** Duotone and fill need a
-  fillable region, which comes from the glyph's own enclosed area or from a
-  square/circle container. `bar-chart` is three open strokes with no interior,
-  so it is stroke-only and correct. Fillability is measured off the outline, not
-  guessed from the name.
+- **Every name ships all four styles, but which ones are drawn is not a
+  choice.** A filled style needs a face the stroke closes, from the glyph's own
+  enclosed area or from a square or circle container. `bar-chart` is three open
+  strokes with no interior, so its fill is its stroke and its two-tone and
+  duotone grey two of the bars: correct, not a gap. Fillability is measured off
+  the outline, not guessed from the name.
 - **Draw it in Figma and export**, rather than writing path data by hand.
   `raw/README.md` covers the export layout, and the variant properties in the
   filename are what the build reads.

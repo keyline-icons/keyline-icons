@@ -6,8 +6,9 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Keyline Icons
 
-A 24×24 icon set in three styles and two corner treatments, its build pipeline,
-the site that browses it, and its packages. 476 icons, 2,994 SVGs, MIT.
+A 24×24 icon set in four styles (stroke, two-tone, duotone, fill) and two
+corner treatments, its build pipeline, the site that browses it, and its
+packages. MIT.
 
 ## The one rule
 
@@ -17,13 +18,14 @@ truth is `raw/`, which holds Figma exports, and everything downstream is built
 from it:
 
 ```
-raw/<name>/*.svg  ->  icons/<style>/<name>.svg  ->  components/icons/index.tsx
-                                                ->  packages/react/src/*.tsx
-                                                ->  packages/react-native/src/*.tsx
-                                                ->  packages/{mcp,cli,figma-plugin}/icons.json
-                                                ->  registry.json, registry/
-                                                ->  previews/{figma-cover,social-preview}.svg
-                                                ->  previews/paper/*.html
+raw/<name>/*.svg  ->  icons/[sharp/]<style>/<name>.svg  ->  components/icons/index.tsx
+                                                        ->  packages/react/src/*.tsx
+                                                        ->  packages/react-native/src/*.tsx
+                                                        ->  packages/{mcp,cli,figma-plugin}/icons.json
+                                                        ->  registry.json, registry/
+                                                        ->  previews/{figma,plugin}-cover.{svg,png}
+                                                        ->  previews/social-preview.{svg,png}
+                                                        ->  previews/paper/*.html
 ```
 
 A hand-edit to any of those passes review and is destroyed by the next build.
@@ -48,8 +50,8 @@ Chrome where two versions disagree by a pixel, and `history:check` reads git.
 
 **Name the branch after the update it ships in.** `release/0.1.5`, not
 `grips-and-search`. The releases are numbered and the branches were not, which
-left a list — `design-file-links`, `dot-size-system`, `fix-changelog-copy`,
-`media-batch` — with nothing to sort or search by once the work had landed and
+left a list (`design-file-links`, `dot-size-system`, `fix-changelog-copy`,
+`media-batch`) with nothing to sort or search by once the work had landed and
 the name had stopped meaning anything. The number is prefixed and drops the `v`
 on purpose: tags carry it, so a branch called `v0.1.5` goes ambiguous against
 the tag `v0.1.5` the day it is cut. Two branches for one release qualify after
@@ -97,9 +99,11 @@ reader can open. Everything a contributor needs is in the table above.
 
 ## Traps that have already cost time
 
-- **Which styles an icon owes is measured, not chosen.** Duotone and fill need
-  a fillable region, from the glyph's enclosed area or a square/circle
-  container. `bar-chart` is three open strokes and is correctly stroke-only.
+- **Every name ships all four styles, but which ones are drawn is measured,
+  not chosen.** A filled style needs a face the stroke closes, from the
+  glyph's enclosed area or a square or circle container. `bar-chart` is three
+  open strokes, so its fill is its stroke and its two-tone and duotone grey two
+  of the bars: correct, not a gap to draw.
 - **`tsc` needs `next typegen` first on a clean checkout.** `next-env.d.ts` is
   gitignored and is what declares `*.png` imports, so a fresh clone fails with
   "Cannot find module '@/public/mockups/figma.png'" about a committed file.
