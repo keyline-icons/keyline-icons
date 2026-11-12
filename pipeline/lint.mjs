@@ -4,21 +4,19 @@
  *
  *   node pipeline/lint.mjs [--json]
  *
- * The rule that matters most is COVERAGE, which encodes the variant architecture.
- * Every name ships all four styles (the parity rule, 1.0.0); geometry decides
- * which are drawn. A drawn filled style needs a fillable region, from either the
- * glyph enclosing area or a square/circle container, so a glyph whose outline
- * encloses area must carry all four, while an open-stroke glyph's fill is a copy
- * of its stroke and its containered variants carry the drawn solids.
- *
- * That distinction is measured from the path data, never guessed by name.
+ * The rule that matters most is COVERAGE, which encodes the variant architecture:
+ * every name ships all four styles in both corner treatments (the parity rule,
+ * 1.0.0), so a missing style or treatment is an error whatever the glyph's
+ * shape. Which styles are drawn and which copy the stroke is decided by geometry,
+ * measured from the path data and never guessed by name (pipeline/README.md,
+ * *The coverage rule*), and is not checked here.
  */
 
 import { readdir, readFile } from 'node:fs/promises';
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { inspect } from './lib/svg.mjs';
-import { outlines, minGap, box, boxFloor, roundedCorners, contains, diameter, subpaths, trimFreeEnds } from './lib/geom.mjs';
+import { minGap, box, boxFloor, roundedCorners, contains, diameter, subpaths, trimFreeEnds } from './lib/geom.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const ICONS = join(ROOT, 'icons');
@@ -732,129 +730,20 @@ const CHEVRON = /^chevrons?-(?:up|down|left|right)(?:-(?:down|right|up))?(?:-[1-
 const OPEN_CONTAINER = /^(?:circle-|square-)navigation$/;
 
 /**
- * Dashed level indicators are complete at stroke and duotone.
+ * The dashed level indicators, the level family drawn on a dashed container.
  *
- * In the solid family the wedge is already filled in every style — `circle-half`'s
- * stroke IS a solid wedge, not an outline — because a progress indicator has to
+ * In the solid family the wedge is already filled in every style (`circle-half`'s
+ * stroke IS a solid wedge, not an outline) because a progress indicator has to
  * show a filled portion to read as progress. What the styles actually vary is
  * the container: stroke has none, two-tone and duotone mute a disc behind the
- * wedge, fill draws the ring around it.
+ * wedge, fill draws the ring around it. A dashed container is a stroke by
+ * definition, so their fill adds nothing and ships as a copy of the stroke.
  *
- * A dashed container is a stroke by definition, so it is already present and
- * unmuted in the stroke variant. That leaves a fill nothing to add: it is a
- * byte-for-byte copy of the stroke, which is why these were once excused it.
- * Since parity (1.0.0) they ship that copy anyway, so this no longer fires.
- * `circle-dashed-check` reached the same shape for the same reason.
- *
- * Narrow on purpose: it excuses a missing fill and nothing else, so a dashed
- * level that loses its duotone still fails.
+ * Read with `LEVEL` by RADIUS: their filled styles' inner solids carry 2.5 by
+ * the same arithmetic. They used to be excused a missing fill as well; since
+ * parity COVERAGE asks them for every style like any other name.
  */
 const DASHED_LEVEL = /^(?:circle|square)-dashed-(?:full|half|quarter|three-quarter)$/;
-
-/**
- * A closed shape that is a counter rather than a body.
- *
- * `at`'s bowl encloses 50 square units, so `enclosesArea` is right that it is
- * closed. What it encloses is the counter of a letterform-derived mark, which
- * is white by definition. Filled, the @ becomes a ring with a blob in it;
- * muted, the blob reads as a highlight rather than as a second tone, since
- * there is no second *part* to tone against. Both were drawn and both were
- * rejected on sight.
- *
- * This is the same distinction the set already makes for `question` and the
- * other marks, which simply have no closed counter to expose it. Do not read it
- * as a waiver for objects: a body that encloses a region still owes its filled
- * styles, and everything else here still applies to `at`.
- *
- * `percent` joined on 27 Aug 2026 for the same reason rather than a new one:
- * its two rings are the counters the sign is read by, and a percent with them
- * filled is two beads on a slash — which is the mark `coupon` carries at a
- * sixth of the size, not this glyph. Where a percent does want a solid, the
- * container supplies it and the sign is knocked out of the disc, exactly as
- * `circle-check` does with its mark.
- *
- * `heading-6` joined on 14 Sep 2026: the numeral's bowl is a closed ring, and it is
- * a counter like `at`'s. The heading family is letterforms, stroke only like
- * `bold`, and a 6 with its bowl filled is a blot beside an open H.
- */
-const COUNTER = new Set(['at', 'percent', 'heading-6']);
-
-/**
- * Drawings whose fillable region is closed by another of the icon's own
- * strokes rather than by a closed subpath.
- *
- * `flag` is one continuous run — up the pole, along the top wave, down the tip,
- * back along the bottom — so the pole IS the flag's left edge and the region it
- * encloses never appears as a closed subpath. Spelling that edge a second time
- * to close the outline would paint it twice, which is the thing the single run
- * was drawn to avoid. `podium` reaches the same place from the other side: it
- * closes its stairs along their own foot, under the ground bar, and so needs no
- * entry here. Add a name only when the closing edge is genuinely painted by
- * another part of the same drawing.
- *
- * `flag-chequered` is the same drawing with a grid on it, and it joined the list
- * on 5 Sep 2026 when it was rebuilt on that banner. It had not needed an entry
- * before because it was built on an older flag whose outline was a closed
- * subpath and whose pole was drawn separately — which is exactly how the two
- * came to be different sizes.
- */
-// `app-*` is the same measurement problem `inheritedFill` fixes for every other
-// corner-sign family, with nowhere to inherit from: the tile they are drawn on
-// is `square`, and a bare `app` would be the first drawing this set ships under
-// two names, and there are none today in either corner style. The form is plainly
-// closed and its fill paints a solid tile, so the measurement is what is wrong.
-// `buildings` joins them for the same reason `flag` did: its outline is one
-// open stroke that runs the ground line twice, once for the low block and once
-// for the tower's own bottom-left corner, so the pair's region is closed by the
-// drawing without any subpath closing.
-//
-// The `book` family closes the same way and for a nicer reason. A book's spine
-// is drawn as a ROLL — a half turn at the foot of the left edge — and that arc
-// passes exactly through the point the outline starts at, so the cover is shut
-// with nothing drawn twice and no `Z`. Opening the path is what buys the roll;
-// a closed subpath would have to repeat the corner it replaces.
-//
-// `plane` and `ship` joined on 12 Sep 2026, both from Zafar's own drawings, and
-// both close the way `podium` does: along a line another stroke already covers.
-// The plane is four open runs meeting at two hubs on the fuselage, so its
-// silhouette is shut by the fuselage itself and no subpath closes; the ship's
-// hull is a deck and two sides whose ends die ON the waterline, which is the
-// stroke that closes it. Both fills paint a region of well over a hundred
-// square units, so the measurement is what is wrong rather than the drawing.
-// `plane-takeoff` and `plane-landing` carry the same plane and join with it.
-const CLOSED_BY_STROKE = new Set([
-  'flag', 'flag-chequered', 'buildings', 'plane', 'ship',
-  'plane-takeoff', 'plane-landing',
-  'book', 'book-plus', 'book-minus', 'book-check', 'book-x',
-  'app-check', 'app-minus', 'app-plus', 'app-x',
-]);
-
-/**
- * A compound's fillability comes from its base.
- *
- * `smartphone` is a closed rounded rect, so it is fillable. `smartphone-check`
- * is that same phone with its bottom-right corner opened for the tick — the
- * modifier convention is to cut a gap rather than stack — so no subpath closes
- * and `enclosesArea` measures it as an open glyph. The form is plainly still
- * closed, and its fill paints a 195-unit region, so the measurement is what is
- * wrong, not the drawing.
- *
- * Strips one trailing segment at a time and asks whether that base is a real
- * icon with a fillable outline. Suffix-only, so a container prefix can never
- * grant this: `bar-chart-down` finds `bar-chart`, which is three open strokes,
- * and stays unfillable — correctly.
- *
- * It only ever suppressed the open-glyph fill warning, which parity (1.0.0)
- * dropped, so nothing calls it now: COVERAGE treats a compound that measures
- * open as an open glyph.
- */
-function inheritedFill(set, name) {
-  for (let i = name.lastIndexOf('-'); i > 0; i = name.lastIndexOf('-', i - 1)) {
-    const base = name.slice(0, i);
-    if (set.has(base) && set.get(base).fillable) return base;
-  }
-  return null;
-}
 
 const findings = [];
 const add = (sev, rule, icon, msg) => findings.push({ sev, rule, icon, msg });
@@ -1230,11 +1119,10 @@ async function main() {
           '2.67 where a box caps the bead, or 4 for the bare ellipsis');
 
       if (!set.has(key))
-        set.set(key, { corners, name, styles: new Set(), fillable: null, dims: {}, solid: false });
+        set.set(key, { corners, name, styles: new Set(), dims: {}, solid: false });
       set.get(key).styles.add(style);
       set.get(key).dims[style] = [g.width, g.height];
       if (style === 'stroke') {
-        set.get(key).fillable = g.fillable;
         // A drawing with no stroke anywhere is a solid silhouette. It has no
         // outline to fill, so there is nothing to derive a second or third
         // style from — and it reads as a heavy block beside its neighbours.
@@ -1248,9 +1136,21 @@ async function main() {
   }
   }
 
-  // Coverage — the architecture rule.
+  // Coverage, the architecture rule. Every name ships all four styles in both
+  // corner treatments: the parity rule (1.0.0), "even at the cost of
+  // duplicating the same icon in the same color and same shape". A missing
+  // style used to be an error only where the outline measured fillable, which
+  // let an open glyph lose its fill, or a name its whole sharp half, with
+  // nothing said. Which styles are drawn and which copy the stroke is a drawing
+  // decision (pipeline/README.md, *The coverage rule*); that every one exists
+  // is checked here.
+  const namesIn = { regular: new Set(), sharp: new Set() };
+  for (const info of set.values()) namesIn[info.corners].add(info.name);
   for (const [key, info] of [...set].sort()) {
-    const { name } = info;
+    const { name, corners } = info;
+    const other = corners === 'sharp' ? 'regular' : 'sharp';
+    if (!namesIn[other].has(name))
+      add('error', 'COVERAGE', key, `no ${other} drawing; every name ships both corner treatments`);
     if (!info.styles.has('stroke')) { add('error', 'COVERAGE', key, 'no stroke style — stroke is the base of every icon'); continue; }
     const missing = STYLES.filter((s) => !info.styles.has(s));
     // The stroke style has to be drawn with stroke. A filled silhouette has no
@@ -1263,24 +1163,11 @@ async function main() {
       add('error', 'SOLID', key,
         'stroke style is a filled silhouette with no stroke — draw it as an outline, or let a container carry the solid');
 
-    if (info.solid && missing.length) {
-      // Already reported above; no second complaint about the styles it lacks.
-    } else if (DASHED_LEVEL.test(name) && missing.length === 1 && missing[0] === 'fill') {
-      // The dashed ring is already unmuted in the stroke; a fill would repeat it.
-    } else if (COUNTER.has(name)) {
-      // The enclosed region is the mark's counter, not a fillable body.
-    } else if (info.fillable && missing.length)
-      add('error', 'COVERAGE', key, `outline encloses a fillable region but ${missing.join(' and ')} ${missing.length > 1 ? 'are' : 'is'} missing`);
-    // An open-stroke glyph has no interior, so it cannot carry a solid — that
-    // comes from a container. It CAN carry a duotone by muting one stroke
-    // against another, which is only meaningful when the glyph has separable
-    // parts (double-check greys one tick). That is a drawing judgement, so a
-    // duotone here is accepted rather than required.
-    // An open-stroke glyph has no interior to fill, and until 1.0.0 a fill on
-    // one was worth flagging. The parity rule settled it the other way: every
-    // name owes every style, "even at the cost of duplicating the same icon in
-    // the same color and same shape", so an open glyph's fill is a copy of its
-    // stroke by design and there is nothing here to report.
+    // A solid is already reported above; no second complaint about the styles
+    // it lacks.
+    if (missing.length && !info.solid)
+      add('error', 'COVERAGE', key,
+        `${missing.join(' and ')} ${missing.length > 1 ? 'are' : 'is'} missing; every name ships all four styles, and an open glyph's fill is a copy of its stroke`);
 
     // Every style of an icon must occupy the same visual bounds. A solid is the
     // outline filled to its stroke's OUTER edge, so it matches the outline exactly

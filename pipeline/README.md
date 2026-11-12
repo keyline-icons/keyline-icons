@@ -149,7 +149,7 @@ points:
 | `JOIN` | error | stroked icons declare `stroke-linejoin` |
 | `LAYERS` | error | no shape carries both a fill and a stroke |
 | `PADDING` | error | at least 1 unit of clearance on every side |
-| `COVERAGE` | error | every name has a stroke drawing, and a glyph that measures fillable has all four styles (below) |
+| `COVERAGE` | error | every name has all four styles in both corner treatments (below) |
 | `SOLID` | error | the stroke style is drawn with stroke, not a filled silhouette (a drawing that is nothing but dots is exempt: a dot is filled at every size, so `more-*` has no stroke to carry) |
 | `DUOTONE` | error | two-tone and duotone: two tones present, secondary at exactly 0.4 |
 | `CONSISTENCY` | error | every style of an icon shares the stroke's bounds |
@@ -503,10 +503,15 @@ An open glyph's fallbacks:
 - A drawing with no second part to grey (`x`, `percent`, `more-*`) ships its
   two-tone and duotone as the stroke drawing too.
 
-Fillability is **measured, never guessed from the name**: the linter walks the
-outline's subpaths and asks whether any closed one encloses 8 square units or
-more. The threshold ignores incidental closed dots, a lock's keyhole or an
-alert's period, which are closed but are not what makes a glyph fillable.
+Fillability is **measured, never guessed from the name**: `enclosesArea` in
+`lib/geom.mjs` asks whether any closed subpath of the outline encloses 8 square
+units or more. The threshold ignores incidental closed dots, a lock's keyhole or
+an alert's period, which are closed but are not what makes a glyph fillable. It
+misses a face closed by another of the drawing's own strokes rather than by a
+closed subpath: `flag`'s pole is its left edge, `plane`'s silhouette is shut by
+its fuselage, a `book`'s spine rolls through its own starting point, and
+`buildings` runs its ground line twice. Those are closed, and their filled
+styles are drawn.
 
 This distinction is easy to get wrong by eye. `bar-chart` is
 `M4 9V22M12 2V22M20 16V22`: three open strokes with no interior. It *looks*
@@ -515,10 +520,10 @@ two of the bars, and the containered `square-bar-chart` and `circle-bar-chart`
 carry the drawn filled styles. `triangle-alert`, by contrast, closes around a
 real interior, so all four of its styles are drawn.
 
-`COVERAGE` holds the measured half: an error when a name has no stroke, the
-base every other style is drawn from, or when a glyph that measures fillable is
-missing any style. It reports nothing about an open glyph's styles, so parity
-there is held by the Figma sets rather than by the linter.
+`COVERAGE` enforces the parity half: an error when a name is missing any style,
+or a whole corner treatment, whatever its shape. Which styles are drawn and
+which are copies is the drawing's half, and is not linted: read it off the
+measure above.
 
 ### A compound measures open, and its base decides
 
@@ -529,13 +534,11 @@ outline stops being closed. `smartphone` is a closed rounded rect;
 tick, and no subpath closes. Measured literally it is an open-stroke glyph,
 although its fill paints a 195-unit region.
 
-Read a compound's fillability off its base: `smartphone-check` draws its filled
-styles because `smartphone` does, and `bar-chart-down` falls back because
-`bar-chart` is three open strokes. Before parity the linter made that lookup
-(`inheritedFill`, suffix-only, so a container prefix could never grant it) to
-keep a compound's fill from being flagged as a fill on an open glyph. Parity
-dropped that flag, nothing calls the lookup now, and `COVERAGE` treats a
-compound that measures open as an open glyph.
+Read a compound's fillability off its base, by suffix only, so a container
+prefix never grants it: `smartphone-check` draws its filled styles because
+`smartphone` does, and `bar-chart-down` falls back because `bar-chart` is three
+open strokes. The linter made this lookup while it still flagged a fill on an
+open glyph; parity dropped that flag, and the lookup went with it.
 
 ### A counter is not a fillable body
 
@@ -546,9 +549,9 @@ mute it and the blob reads as a highlight rather than a second tone, because
 there is no second *part* to tone against. Both were drawn and both were
 rejected on sight, so `at`, `percent` and `heading-6` take the open glyph's
 fallback: their fill is the stroke drawing, and their two-tone and duotone
-follow the open glyph's rule above. `COUNTER` names the three; since parity each
-ships its fill, so the exemption has nothing left to excuse and stays as the
-record of the decision.
+follow the open glyph's rule above. The linter used to excuse their filled
+styles by name (`COUNTER`); parity asks every name for every style, so this
+paragraph is now the record of the decision.
 
 Read it narrowly. It is the distinction the set already makes for `question`
 and the other marks, which simply have no closed counter to expose it; it is not
@@ -567,8 +570,8 @@ unmuted in the stroke variant. A fill adds nothing and lands byte-for-byte
 identical, and since parity `circle-dashed-*` and `square-dashed-*` ship it
 anyway, as that copy. `circle-dashed-check` arrived at the same shape.
 
-`DASHED_LEVEL` still excuses a missing `fill` and nothing else, so one of these
-that loses its duotone fails; with the fills shipped, it no longer fires.
+`COVERAGE` asks them for the fill like any other name; `DASHED_LEVEL` now only
+lets their filled styles' inner solids carry 2.5 (*Corner radius*, above).
 
 A useful consequence: since the wedge stays solid it also stays the same size,
 and every dashed level reuses its solid sibling's path unchanged. An outlined
