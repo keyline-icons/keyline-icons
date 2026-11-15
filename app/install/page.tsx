@@ -467,6 +467,22 @@ import { Folder } from "@keyline-icons/react-native/duotone"
               <code>color</code> prop rather than <code>currentColor</code>. It
               defaults to black, and the two-tone and duotone plates follow it.
             </p>
+            {/*
+              Metro bundles every drawing a style module exports, used or not,
+              about 1 MB for one icon (measured in a production Metro bundle,
+              15 Nov 2026). The paths below are the way round it, and a reader
+              who never learns they exist pays that megabyte without knowing.
+            */}
+            <p>
+              Metro, the bundler React Native ships with, keeps every icon a
+              style exports, so each of those imports adds about 1 MB to your
+              app however few icons you use. Expo strips them from production
+              builds from SDK 54. Anywhere else, import each icon from its own
+              path:
+            </p>
+            <Code>{`import { Check } from "@keyline-icons/react-native/icons/check"
+import { Folder } from "@keyline-icons/react-native/duotone/icons/folder"
+import { Bell } from "@keyline-icons/react-native/sharp/fill/icons/bell"`}</Code>
           </Section>
 
           {/*
