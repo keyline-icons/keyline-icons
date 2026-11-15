@@ -7249,7 +7249,274 @@ const LUCIDE_ALTERNATIVES: BlogPost = {
   ],
 }
 
+export const BLOG_RN_THUMBNAIL_ICON_NAMES = [
+  "house",
+  "search",
+  "bell",
+  "user",
+  "settings",
+  "camera",
+  "heart",
+  "map-pin",
+  "calendar",
+  "credit-card",
+  "play",
+  "shopping-bag",
+] as const
+
+export const BLOG_RN_STYLES_ICON_NAMES = [
+  "house",
+  "bell",
+  "camera",
+  "heart",
+  "map-pin",
+] as const
+
+const REACT_NATIVE_ICONS: BlogPost = {
+  /* A guide, so no `version`. Every number about another package is read off
+     its npm listing or its own docs on the day and dated in the text; the
+     bundle sizes come from a production Metro build made for this post. Like
+     the Lucide guide, it is one URL re-read each year, with the year in the
+     title and never in the slug. */
+  slug: "react-native-icons",
+  title: "React Native icons in 2026: icon fonts, SVG and bundle size",
+  description:
+    "Icon fonts against SVG components for React Native and Expo: colour, " +
+    "dark mode, and why one icon import can add a megabyte, measured with Metro.",
+  standfirst:
+    "Download counts are npm's own, for the week of 9 to 15 November 2026.",
+  kind: "guide",
+  cover: {
+    logos: [
+      { name: "Expo", src: "/blog/react-native-icons/logos/expo.svg" },
+      { name: "react-native-vector-icons", src: "/blog/react-native-icons/logos/react-native-vector-icons.svg" },
+      { name: "Lucide", src: "/blog/react-native-icons/logos/lucide.svg" },
+      { name: "Phosphor", src: "/blog/react-native-icons/logos/phosphor.svg" },
+      { name: "Tabler Icons", src: "/blog/react-native-icons/logos/tabler.svg" },
+      { name: "Keyline Icons", src: "/logo/logo.svg" },
+    ],
+    image: { src: "/blog/react-native-icons/phone.png", width: 1200, height: 670 },
+  },
+  date: "2026-11-16",
+  updated: "2026-11-16",
+  readingMinutes: 3,
+  thumbnail: BLOG_RN_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "react native icons",
+    "expo icons",
+    "react native svg icons",
+    "react-native-svg",
+    "expo vector icons alternative",
+    "react-native-vector-icons",
+    "lucide-react-native",
+    "icon library react native",
+    "metro bundle size",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "Draw the icons in a React Native or Expo app as SVG components through " +
+        "`react-native-svg`. Icon fonts, where most apps start, paint each icon " +
+        "in a single colour and can't draw until their font has loaded. Expo's " +
+        "own guide now says `@expo/vector-icons` “will be deprecated and is " +
+        "not recommended”. SVG asks for one native dependency and one habit: " +
+        "import each icon from its own path.",
+    },
+    {
+      kind: "p",
+      text:
+        "One row below is this site's own package, held to the same tests as " +
+        "the other five.",
+    },
+
+    { kind: "h2", text: "Most apps start on a font", id: "compared" },
+    {
+      kind: "table",
+      head: ["Package", "Draws with", "Styles", "Smallest import", "Weekly downloads"],
+      rows: [
+        [
+          {
+            text: "@expo/vector-icons",
+            href: "https://docs.expo.dev/guides/icons/",
+            logo: "/blog/react-native-icons/logos/expo.svg",
+          },
+          "Icon fonts",
+          "Each font's own",
+          "A font family",
+          "7,772,793",
+        ],
+        [
+          {
+            text: "react-native-vector-icons",
+            href: "https://github.com/oblador/react-native-vector-icons",
+            logo: "/blog/react-native-icons/logos/react-native-vector-icons.svg",
+          },
+          "Icon fonts",
+          "Each font's own",
+          "A font family",
+          "718,884",
+        ],
+        [
+          {
+            text: "lucide-react-native",
+            href: "https://lucide.dev",
+            logo: "/blog/react-native-icons/logos/lucide.svg",
+          },
+          "SVG",
+          "Outline",
+          "One icon",
+          "3,551,380",
+        ],
+        [
+          {
+            text: "phosphor-react-native",
+            href: "https://phosphoricons.com",
+            logo: "/blog/react-native-icons/logos/phosphor.svg",
+          },
+          "SVG",
+          "Six weights",
+          "One icon",
+          "414,037",
+        ],
+        [
+          {
+            text: "@tabler/icons-react-native",
+            href: "https://tabler.io/icons",
+            logo: "/blog/react-native-icons/logos/tabler.svg",
+          },
+          "SVG",
+          "Outline, filled for some",
+          "One icon",
+          "278,956",
+        ],
+        [
+          {
+            text: "@keyline-icons/react-native",
+            href: "/install#react-native",
+            logo: "/logo/logo.svg",
+          },
+          "SVG",
+          "Stroke, two-tone, duotone and fill, each rounded or sharp",
+          "One icon",
+          "583",
+        ],
+      ],
+    },
+    {
+      kind: "list",
+      items: [
+        "`react-native-vector-icons` is deprecated on npm in favour of one " +
+          "package per font, such as `@react-native-vector-icons/ionicons`, " +
+          "which is also where Expo's guide sends you.",
+        "`lucide-react-native` is the same drawings as `lucide-react`, so a " +
+          "web app and its phone app can match. It has no filled style for a " +
+          "selected tab.",
+        "`phosphor-react-native` draws each icon in six weights, picked with " +
+          "a `weight` prop. `@tabler/icons-react-native` has the most icons " +
+          "of the SVG sets, with a filled version for some of them.",
+        "Keyline has all eight versions of every icon and the same names as " +
+          "its web package. It's also the youngest here by a wide margin: 583 " +
+          "downloads in that week against millions.",
+      ],
+    },
+
+    { kind: "h2", text: "Nothing passes a colour down", id: "colour" },
+    {
+      kind: "p",
+      text:
+        "On the web an icon takes the colour of the text around it through " +
+        "`currentColor`. A native view has no CSS to inherit from, so " +
+        "`react-native-svg` reads `currentColor` off the icon's own `color` " +
+        "prop. Leave it out and the icon keeps its package's default, black in " +
+        "Keyline's case, which disappears the day the app gets a dark mode. " +
+        "Pass it once, in a wrapper every icon goes through:",
+    },
+    {
+      kind: "code",
+      code:
+        `import { useColorScheme } from "react-native"\n` +
+        `import { Bell } from "@keyline-icons/react-native/icons/bell"\n` +
+        `\n` +
+        `export function TabIcon() {\n` +
+        `  const dark = useColorScheme() === "dark"\n` +
+        `  return <Bell color={dark ? "#fafafa" : "#0a0a0a"} />\n` +
+        `}`,
+    },
+    {
+      kind: "p",
+      text:
+        "One `color` sets both tones in two-tone and duotone, because the grey " +
+        "part is the same colour at 40% opacity. A font glyph can't do that: a " +
+        "second tone means stacking a second glyph.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_RN_STYLES_ICON_NAMES,
+        caption:
+          "The same five drawings from the four style paths, " +
+          "`icons/bell` to `fill/icons/bell` for the bell.",
+      },
+    },
+
+    { kind: "h2", text: "One import can carry every icon", id: "bundle" },
+    {
+      kind: "p",
+      text:
+        "Metro, the bundler React Native ships with, keeps everything a module " +
+        "exports, used or not. If a package holds its icons in one module, or " +
+        "re-exports them all from one index, `import { Check }` brings every " +
+        "icon with it.",
+    },
+    {
+      kind: "code",
+      code:
+        `import { Check } from "@keyline-icons/react-native"             // 1,004 KB\n` +
+        `import { Check } from "@keyline-icons/react-native/icons/check" // 0.7 KB`,
+    },
+    {
+      kind: "p",
+      text:
+        "The root import is every stroke icon in the set, for one check mark, " +
+        "measured in a minified production bundle from Metro 0.87. Keyline's " +
+        "package only had that kind of import until this measurement. Lucide, " +
+        "Phosphor and Tabler each publish a path per icon for the same reason.",
+    },
+    {
+      kind: "p",
+      text:
+        "Expo strips unused exports from production builds from SDK 54, and " +
+        "its docs still call that very experimental. Development builds and " +
+        "plain React Native keep everything, so import from the icon's own path " +
+        "and it stops mattering which one you're on.",
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/install#react-native",
+      label: "Install in React Native",
+      text: "One command in Expo, every entry point, and the per-icon paths.",
+    },
+    {
+      kind: "link",
+      href: "/demo/mobile",
+      label: "Icons on a phone screen",
+      text: "A whole phone app drawn with the set, switchable between styles.",
+    },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
+  REACT_NATIVE_ICONS,
   LUCIDE_ALTERNATIVES,
   RELEASE_2_6_0,
   RELEASE_2_5_0,
