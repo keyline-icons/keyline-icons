@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 
 /**
  * The site's one-of-many picker: a recessed muted track, and the chosen chip
- * lifted out of it in white.
+ * set into it in white, edged with a hairline.
  *
  * It exists as a component because there are now three of these on the page —
  * the style group in the filter row, and the style and format groups in the
@@ -87,11 +87,16 @@ export function SegmentedItem({
       className={cn(
         // 2px inside the track either way, which is the difference between
         // `rounded-lg` and `rounded-md` — the curves stay concentric.
+        //
+        // Every label at full ink, chosen or not, and no hover fill: the white
+        // face and its hairline are the only mark of the choice, so there is
+        // one signal to read rather than a grey-versus-black one on top. A
+        // ring rather than a border, because a border widened every chip by
+        // 2px and pushed the stroke slider onto the filter row's second line
+        // at 1440; the ring sits inside the track's 2px of padding instead.
         "flex items-center rounded-md transition-colors",
         size === "sm" ? "h-7 px-2.5 text-xs" : "h-8 px-3 text-sm",
-        active
-          ? "bg-background shadow-sm"
-          : "text-muted-foreground hover:text-foreground",
+        active && "bg-background ring-1 ring-border",
         // A style with nothing drawn in it stays in the row rather than
         // vanishing, so the set's coverage is visible instead of implied.
         "disabled:pointer-events-none disabled:opacity-40",

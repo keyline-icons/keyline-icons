@@ -1203,20 +1203,20 @@ export function IconBrowser({
     </ul>
   )
 
-  /** The sliders' shell, so every control in the row reads as one family. */
-  const pill =
-    "flex h-9 items-center gap-1.5 rounded-lg bg-muted px-2.5 text-sm"
+  /*
+    The menus sit on the page with no field of their own. With a grey box
+    behind every control the row was ten boxes of equal weight; now only the
+    two pickers and the two sliders are filled, and Shape, Color, settings and
+    Sort read as the quieter line they are. A menu fills on hover and while
+    open, in the muted grey rather than the pickers' white, which would not
+    show against the page.
 
-  /**
-   * An open menu lifts its trigger out of the muted field, which is the same
-   * thing the style group does to mark the chosen style. One idiom for "this
-   * one is active", rather than a second, quieter one for menus.
-   *
-   * `aria-expanded` is the hook because Base UI sets it on the trigger, and
-   * `button.tsx` already styles off it for the same reason.
-   */
-  const raised =
-    "transition-[background-color,box-shadow] aria-expanded:bg-background aria-expanded:shadow-sm"
+    Label grey, value dark ("Sort by Name", "Shape All"): the value is what
+    changes and what the eye is after. It was the other way round, which put
+    the weight on the word that never changes.
+  */
+  const ghost =
+    "flex h-9 items-center gap-1.5 rounded-lg px-2.5 text-sm transition-colors hover:bg-muted aria-expanded:bg-muted"
 
   /*
     The order, at the right-hand end of the row beside the count, and not in
@@ -1236,10 +1236,10 @@ export function IconBrowser({
   */
   const sortMenu = (
     <DropdownMenu>
-      <DropdownMenuTrigger className={cn(pill, raised)}>
+      <DropdownMenuTrigger className={ghost}>
         <ArrowDownWideNarrow className="size-4 text-muted-foreground" />
-        <span className="max-sm:sr-only">Sort</span>
-        <span className="text-muted-foreground">{SORT_ROWS[sort].label}</span>
+        <span className="text-muted-foreground max-sm:sr-only">Sort by</span>
+        <span>{SORT_ROWS[sort].label}</span>
         <ChevronDown className="size-4 text-muted-foreground" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
@@ -1354,9 +1354,9 @@ export function IconBrowser({
 
     const shapeMenu = (
       <DropdownMenu>
-        <DropdownMenuTrigger className={cn(pill, raised)}>
-          Shape
-          <span className="text-muted-foreground">
+        <DropdownMenuTrigger className={ghost}>
+          <span className="text-muted-foreground">Shape</span>
+          <span>
             {shape === "all"
               ? "All"
               : SHAPES.find((s) => s.value === shape)!.label}
@@ -1420,7 +1420,7 @@ export function IconBrowser({
       <label
         title={color ?? "Icon colour"}
         className={cn(
-          pill,
+          ghost,
           "relative cursor-pointer",
           swatchOnly && "w-9 justify-center px-0"
         )}
@@ -1458,7 +1458,7 @@ export function IconBrowser({
             render={
               <DropdownMenuTrigger
                 aria-label="Grid settings"
-                className={cn(pill, raised, "w-9 justify-center px-0")}
+                className={cn(ghost, "w-9 justify-center px-0")}
               />
             }
           >
