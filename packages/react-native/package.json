@@ -29,33 +29,65 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
+    "./icons/*": {
+      "types": "./dist/icons/*.d.ts",
+      "default": "./dist/icons/*.js"
+    },
     "./two-tone": {
       "types": "./dist/two-tone.d.ts",
       "default": "./dist/two-tone.js"
+    },
+    "./two-tone/icons/*": {
+      "types": "./dist/two-tone/icons/*.d.ts",
+      "default": "./dist/two-tone/icons/*.js"
     },
     "./duotone": {
       "types": "./dist/duotone.d.ts",
       "default": "./dist/duotone.js"
     },
+    "./duotone/icons/*": {
+      "types": "./dist/duotone/icons/*.d.ts",
+      "default": "./dist/duotone/icons/*.js"
+    },
     "./fill": {
       "types": "./dist/fill.d.ts",
       "default": "./dist/fill.js"
+    },
+    "./fill/icons/*": {
+      "types": "./dist/fill/icons/*.d.ts",
+      "default": "./dist/fill/icons/*.js"
     },
     "./sharp": {
       "types": "./dist/sharp.d.ts",
       "default": "./dist/sharp.js"
     },
+    "./sharp/icons/*": {
+      "types": "./dist/sharp/icons/*.d.ts",
+      "default": "./dist/sharp/icons/*.js"
+    },
     "./sharp/two-tone": {
       "types": "./dist/sharp-two-tone.d.ts",
       "default": "./dist/sharp-two-tone.js"
+    },
+    "./sharp/two-tone/icons/*": {
+      "types": "./dist/sharp/two-tone/icons/*.d.ts",
+      "default": "./dist/sharp/two-tone/icons/*.js"
     },
     "./sharp/duotone": {
       "types": "./dist/sharp-duotone.d.ts",
       "default": "./dist/sharp-duotone.js"
     },
+    "./sharp/duotone/icons/*": {
+      "types": "./dist/sharp/duotone/icons/*.d.ts",
+      "default": "./dist/sharp/duotone/icons/*.js"
+    },
     "./sharp/fill": {
       "types": "./dist/sharp-fill.d.ts",
       "default": "./dist/sharp-fill.js"
+    },
+    "./sharp/fill/icons/*": {
+      "types": "./dist/sharp/fill/icons/*.d.ts",
+      "default": "./dist/sharp/fill/icons/*.js"
     },
     "./package.json": "./package.json"
   },

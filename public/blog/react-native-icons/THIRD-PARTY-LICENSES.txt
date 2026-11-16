@@ -1,0 +1,37 @@
+Third-party artwork in this folder.
+
+phone.png is a capture of this site's own /demo/mobile page and shows only
+Keyline Icons.
+
+logos/ holds each project's own mark, used only to name it in the comparison
+table and on this post's cover, and each remains its owner's trademark:
+expo.svg is the mark from the expo.dev header without its wordmark, filled
+black; react-native-vector-icons.svg is the React atom that heads the
+react-native-vector-icons README, drawn from react.dev's own logo;
+lucide.svg is lucide.dev/logo.light.svg; tabler.svg the mark from the
+tabler.io header without its wordmark; and phosphor.svg the phosphor-logo
+icon from @phosphor-icons/core (MIT, notice below), filled black.
+
+===== Phosphor (@phosphor-icons/core 2.1.1)
+MIT License
+
+Copyright (c) 2023 Phosphor Icons
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+

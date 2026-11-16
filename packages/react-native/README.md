@@ -67,6 +67,27 @@ code shared between a web app and a native one changes the package name and
 nothing else. That includes the `Icon`-suffixed twin every icon carries,
 `CheckIcon` for `Check`.
 
+**One path per icon, because Metro keeps everything.** Metro does not leave
+out the icons a module exports and nobody imports, so
+`import { Check } from "@keyline-icons/react-native"` bundles every stroke
+drawing, about 1 MB minified, to show one. Each drawing also has a module of its
+own, under the style it belongs to:
+
+```tsx
+import { Check } from "@keyline-icons/react-native/icons/check"
+import { Folder } from "@keyline-icons/react-native/duotone/icons/folder"
+import { Bell } from "@keyline-icons/react-native/sharp/fill/icons/bell"
+```
+
+The file is the icon's name as the site spells it, `circle-check` for
+`CircleCheck`, and exports the drawing, its `Icon` twin and a default. Measured
+in a production Metro bundle, `icons/check` adds under a kilobyte where the root
+import adds 1,004 KB. Expo strips unused icons from production builds from SDK
+54, where its docs still call that experimental; development builds and plain
+React Native keep them all. The per-icon paths are native only, because web
+bundlers already drop what nobody imports. Names renamed since 1.0 keep working
+from the style imports, not from a path of their own.
+
 **React Native 0.79 or Expo SDK 53, or newer.** The style entry points are
 package `exports`, which Metro resolves by default from those versions on. On
 an older Metro, set `resolver.unstable_enablePackageExports = true` in
