@@ -1,7 +1,7 @@
 Third-party artwork in this folder.
 
-phone.png is a capture of this site's own /demo/mobile page and shows only
-Keyline Icons.
+rn-cover.png is this post's cover, the package's style entry points drawn
+for it, and shows only Keyline Icons.
 
 logos/ holds each project's own mark, used only to name it in the comparison
 table and on this post's cover, and each remains its owner's trademark:

@@ -160,6 +160,15 @@ export type BlogTableLink = { text: string; href: string; logo: string }
 export type BlogCover = {
   logos: readonly { name: string; src: string }[]
   image: { src: string; width: number; height: number }
+  /**
+   * `true` draws the sheet straight onto the index tile: no marks above it,
+   * no frame or shadow, filling the tile and cropped to it from the centre,
+   * so a sheet drawn centred on white sits centred on every screen. Draw it
+   * with room above and below: a desktop tile is about 2:1 against the
+   * sheet's 16:9. The social card keeps the marks either way. The React
+   * Native guide's (his asks, 16 Nov 2026).
+   */
+  bare?: boolean
 }
 
 export type BlogBlock =
@@ -7548,7 +7557,8 @@ const REACT_NATIVE_ICONS: BlogPost = {
       { name: "Tabler Icons", src: "/blog/react-native-icons/logos/tabler.svg" },
       { name: "Keyline Icons", src: "/logo/logo.svg" },
     ],
-    image: { src: "/blog/react-native-icons/phone.png", width: 1200, height: 670 },
+    image: { src: "/blog/react-native-icons/rn-cover.png", width: 1200, height: 670 },
+    bare: true,
   },
   date: "2026-11-16",
   updated: "2026-11-16",

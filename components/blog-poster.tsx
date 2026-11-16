@@ -223,6 +223,7 @@ export function GuidePoster({
   cover: BlogCover
   className?: string
 }) {
+  const bare = cover.bare === true
   return (
     <div
       aria-hidden="true"
@@ -231,29 +232,36 @@ export function GuidePoster({
         className
       )}
     >
-      <div className="absolute top-5 left-5 z-10 flex gap-2 sm:top-8 sm:left-8">
-        {cover.logos.map((logo) => (
-          <span
-            key={logo.name}
-            className="grid size-9 place-items-center rounded-lg bg-white shadow-xs sm:size-12"
-          >
-            <Image
-              src={logo.src}
-              alt=""
-              width={28}
-              height={28}
-              className="size-5 sm:size-7"
-            />
-          </span>
-        ))}
-      </div>
+      {!bare && (
+        <div className="absolute top-5 left-5 z-10 flex gap-2 sm:top-8 sm:left-8">
+          {cover.logos.map((logo) => (
+            <span
+              key={logo.name}
+              className="grid size-9 place-items-center rounded-lg bg-white shadow-xs sm:size-12"
+            >
+              <Image
+                src={logo.src}
+                alt=""
+                width={28}
+                height={28}
+                className="size-5 sm:size-7"
+              />
+            </span>
+          ))}
+        </div>
+      )}
       <Image
         src={cover.image.src}
         alt=""
         width={cover.image.width}
         height={cover.image.height}
         sizes="(min-width: 1024px) 640px, 100vw"
-        className="absolute top-[30%] left-5 w-[115%] max-w-none rounded-tl-lg border shadow-sm transition-transform duration-300 group-hover:-translate-y-1 sm:left-8 md:top-[28%]"
+        className={cn(
+          "absolute max-w-none",
+          bare
+            ? "inset-0 size-full object-cover"
+            : "top-[30%] left-5 w-[115%] rounded-tl-lg border shadow-sm transition-transform duration-300 group-hover:-translate-y-1 sm:left-8 md:top-[28%]"
+        )}
       />
     </div>
   )
