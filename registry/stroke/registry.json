@@ -1346,6 +1346,20 @@
       ]
     },
     {
+      "name": "arrow-pull",
+      "type": "registry:component",
+      "title": "ArrowPull",
+      "description": "ArrowPull, the stroke drawing of arrow-pull on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of arrow-pull: https://keylineicons.com/icons/arrow-pull",
+      "files": [
+        {
+          "path": "icons/arrow-pull.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/arrow-pull.tsx"
+        }
+      ]
+    },
+    {
       "name": "arrow-right",
       "type": "registry:component",
       "title": "ArrowRight",
@@ -1454,6 +1468,20 @@
           "path": "icons/arrow-right-to-line.tsx",
           "type": "registry:component",
           "target": "@components/icons/arrow-right-to-line.tsx"
+        }
+      ]
+    },
+    {
+      "name": "arrow-swap",
+      "type": "registry:component",
+      "title": "ArrowSwap",
+      "description": "ArrowSwap, the stroke drawing of arrow-swap on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of arrow-swap: https://keylineicons.com/icons/arrow-swap",
+      "files": [
+        {
+          "path": "icons/arrow-swap.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/arrow-swap.tsx"
         }
       ]
     },
@@ -1846,6 +1874,34 @@
           "path": "icons/audio-lines.tsx",
           "type": "registry:component",
           "target": "@components/icons/audio-lines.tsx"
+        }
+      ]
+    },
+    {
+      "name": "audio-lines-low",
+      "type": "registry:component",
+      "title": "AudioLinesLow",
+      "description": "AudioLinesLow, the stroke drawing of audio-lines-low on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of audio-lines-low: https://keylineicons.com/icons/audio-lines-low",
+      "files": [
+        {
+          "path": "icons/audio-lines-low.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/audio-lines-low.tsx"
+        }
+      ]
+    },
+    {
+      "name": "audio-lines-mid",
+      "type": "registry:component",
+      "title": "AudioLinesMid",
+      "description": "AudioLinesMid, the stroke drawing of audio-lines-mid on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of audio-lines-mid: https://keylineicons.com/icons/audio-lines-mid",
+      "files": [
+        {
+          "path": "icons/audio-lines-mid.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/audio-lines-mid.tsx"
         }
       ]
     },
@@ -4356,6 +4412,20 @@
       ]
     },
     {
+      "name": "car-electric",
+      "type": "registry:component",
+      "title": "CarElectric",
+      "description": "CarElectric, the stroke drawing of car-electric on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of car-electric: https://keylineicons.com/icons/car-electric",
+      "files": [
+        {
+          "path": "icons/car-electric.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/car-electric.tsx"
+        }
+      ]
+    },
+    {
       "name": "car-front",
       "type": "registry:component",
       "title": "CarFront",
@@ -6344,6 +6414,20 @@
       ]
     },
     {
+      "name": "circle-half-striped",
+      "type": "registry:component",
+      "title": "CircleHalfStriped",
+      "description": "CircleHalfStriped, the stroke drawing of circle-half-striped on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-half-striped: https://keylineicons.com/icons/circle-half-striped",
+      "files": [
+        {
+          "path": "icons/circle-half-striped.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/circle-half-striped.tsx"
+        }
+      ]
+    },
+    {
       "name": "circle-indian-rupee",
       "type": "registry:component",
       "title": "CircleIndianRupee",
@@ -7576,6 +7660,48 @@
       ]
     },
     {
+      "name": "cloud-drizzle",
+      "type": "registry:component",
+      "title": "CloudDrizzle",
+      "description": "CloudDrizzle, the stroke drawing of cloud-drizzle on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-drizzle: https://keylineicons.com/icons/cloud-drizzle",
+      "files": [
+        {
+          "path": "icons/cloud-drizzle.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/cloud-drizzle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cloud-fog",
+      "type": "registry:component",
+      "title": "CloudFog",
+      "description": "CloudFog, the stroke drawing of cloud-fog on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-fog: https://keylineicons.com/icons/cloud-fog",
+      "files": [
+        {
+          "path": "icons/cloud-fog.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/cloud-fog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cloud-hail",
+      "type": "registry:component",
+      "title": "CloudHail",
+      "description": "CloudHail, the stroke drawing of cloud-hail on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-hail: https://keylineicons.com/icons/cloud-hail",
+      "files": [
+        {
+          "path": "icons/cloud-hail.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/cloud-hail.tsx"
+        }
+      ]
+    },
+    {
       "name": "cloud-lightning",
       "type": "registry:component",
       "title": "CloudLightning",
@@ -7590,6 +7716,20 @@
       ]
     },
     {
+      "name": "cloud-lightning-rain",
+      "type": "registry:component",
+      "title": "CloudLightningRain",
+      "description": "CloudLightningRain, the stroke drawing of cloud-lightning-rain on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-lightning-rain: https://keylineicons.com/icons/cloud-lightning-rain",
+      "files": [
+        {
+          "path": "icons/cloud-lightning-rain.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/cloud-lightning-rain.tsx"
+        }
+      ]
+    },
+    {
       "name": "cloud-moon",
       "type": "registry:component",
       "title": "CloudMoon",
@@ -7600,6 +7740,34 @@
           "path": "icons/cloud-moon.tsx",
           "type": "registry:component",
           "target": "@components/icons/cloud-moon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cloud-moon-lightning",
+      "type": "registry:component",
+      "title": "CloudMoonLightning",
+      "description": "CloudMoonLightning, the stroke drawing of cloud-moon-lightning on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-moon-lightning: https://keylineicons.com/icons/cloud-moon-lightning",
+      "files": [
+        {
+          "path": "icons/cloud-moon-lightning.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/cloud-moon-lightning.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cloud-moon-rain",
+      "type": "registry:component",
+      "title": "CloudMoonRain",
+      "description": "CloudMoonRain, the stroke drawing of cloud-moon-rain on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-moon-rain: https://keylineicons.com/icons/cloud-moon-rain",
+      "files": [
+        {
+          "path": "icons/cloud-moon-rain.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/cloud-moon-rain.tsx"
         }
       ]
     },
@@ -7660,6 +7828,48 @@
       ]
     },
     {
+      "name": "cloud-rain-heavy",
+      "type": "registry:component",
+      "title": "CloudRainHeavy",
+      "description": "CloudRainHeavy, the stroke drawing of cloud-rain-heavy on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-rain-heavy: https://keylineicons.com/icons/cloud-rain-heavy",
+      "files": [
+        {
+          "path": "icons/cloud-rain-heavy.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/cloud-rain-heavy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cloud-rain-wind",
+      "type": "registry:component",
+      "title": "CloudRainWind",
+      "description": "CloudRainWind, the stroke drawing of cloud-rain-wind on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-rain-wind: https://keylineicons.com/icons/cloud-rain-wind",
+      "files": [
+        {
+          "path": "icons/cloud-rain-wind.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/cloud-rain-wind.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cloud-rainbow",
+      "type": "registry:component",
+      "title": "CloudRainbow",
+      "description": "CloudRainbow, the stroke drawing of cloud-rainbow on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-rainbow: https://keylineicons.com/icons/cloud-rainbow",
+      "files": [
+        {
+          "path": "icons/cloud-rainbow.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/cloud-rainbow.tsx"
+        }
+      ]
+    },
+    {
       "name": "cloud-search",
       "type": "registry:component",
       "title": "CloudSearch",
@@ -7670,6 +7880,34 @@
           "path": "icons/cloud-search.tsx",
           "type": "registry:component",
           "target": "@components/icons/cloud-search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cloud-sleet",
+      "type": "registry:component",
+      "title": "CloudSleet",
+      "description": "CloudSleet, the stroke drawing of cloud-sleet on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-sleet: https://keylineicons.com/icons/cloud-sleet",
+      "files": [
+        {
+          "path": "icons/cloud-sleet.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/cloud-sleet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cloud-snow",
+      "type": "registry:component",
+      "title": "CloudSnow",
+      "description": "CloudSnow, the stroke drawing of cloud-snow on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-snow: https://keylineicons.com/icons/cloud-snow",
+      "files": [
+        {
+          "path": "icons/cloud-snow.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/cloud-snow.tsx"
         }
       ]
     },
@@ -7698,6 +7936,34 @@
           "path": "icons/cloud-sun.tsx",
           "type": "registry:component",
           "target": "@components/icons/cloud-sun.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cloud-sun-lightning",
+      "type": "registry:component",
+      "title": "CloudSunLightning",
+      "description": "CloudSunLightning, the stroke drawing of cloud-sun-lightning on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-sun-lightning: https://keylineicons.com/icons/cloud-sun-lightning",
+      "files": [
+        {
+          "path": "icons/cloud-sun-lightning.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/cloud-sun-lightning.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cloud-sun-rain",
+      "type": "registry:component",
+      "title": "CloudSunRain",
+      "description": "CloudSunRain, the stroke drawing of cloud-sun-rain on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-sun-rain: https://keylineicons.com/icons/cloud-sun-rain",
+      "files": [
+        {
+          "path": "icons/cloud-sun-rain.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/cloud-sun-rain.tsx"
         }
       ]
     },
@@ -8678,6 +8944,34 @@
           "path": "icons/cursor-window.tsx",
           "type": "registry:component",
           "target": "@components/icons/cursor-window.tsx"
+        }
+      ]
+    },
+    {
+      "name": "curtains",
+      "type": "registry:component",
+      "title": "Curtains",
+      "description": "Curtains, the stroke drawing of curtains on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of curtains: https://keylineicons.com/icons/curtains",
+      "files": [
+        {
+          "path": "icons/curtains.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/curtains.tsx"
+        }
+      ]
+    },
+    {
+      "name": "curtains-open",
+      "type": "registry:component",
+      "title": "CurtainsOpen",
+      "description": "CurtainsOpen, the stroke drawing of curtains-open on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of curtains-open: https://keylineicons.com/icons/curtains-open",
+      "files": [
+        {
+          "path": "icons/curtains-open.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/curtains-open.tsx"
         }
       ]
     },
@@ -11258,6 +11552,34 @@
       ]
     },
     {
+      "name": "garage",
+      "type": "registry:component",
+      "title": "Garage",
+      "description": "Garage, the stroke drawing of garage on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of garage: https://keylineicons.com/icons/garage",
+      "files": [
+        {
+          "path": "icons/garage.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/garage.tsx"
+        }
+      ]
+    },
+    {
+      "name": "garage-open",
+      "type": "registry:component",
+      "title": "GarageOpen",
+      "description": "GarageOpen, the stroke drawing of garage-open on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of garage-open: https://keylineicons.com/icons/garage-open",
+      "files": [
+        {
+          "path": "icons/garage-open.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/garage-open.tsx"
+        }
+      ]
+    },
+    {
       "name": "gauge",
       "type": "registry:component",
       "title": "Gauge",
@@ -12584,6 +12906,20 @@
           "path": "icons/hat-glasses.tsx",
           "type": "registry:component",
           "target": "@components/icons/hat-glasses.tsx"
+        }
+      ]
+    },
+    {
+      "name": "haze",
+      "type": "registry:component",
+      "title": "Haze",
+      "description": "Haze, the stroke drawing of haze on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of haze: https://keylineicons.com/icons/haze",
+      "files": [
+        {
+          "path": "icons/haze.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/haze.tsx"
         }
       ]
     },
@@ -13946,6 +14282,48 @@
       ]
     },
     {
+      "name": "lamp",
+      "type": "registry:component",
+      "title": "Lamp",
+      "description": "Lamp, the stroke drawing of lamp on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of lamp: https://keylineicons.com/icons/lamp",
+      "files": [
+        {
+          "path": "icons/lamp.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/lamp.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lamp-desk",
+      "type": "registry:component",
+      "title": "LampDesk",
+      "description": "LampDesk, the stroke drawing of lamp-desk on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of lamp-desk: https://keylineicons.com/icons/lamp-desk",
+      "files": [
+        {
+          "path": "icons/lamp-desk.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/lamp-desk.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lamp-floor",
+      "type": "registry:component",
+      "title": "LampFloor",
+      "description": "LampFloor, the stroke drawing of lamp-floor on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of lamp-floor: https://keylineicons.com/icons/lamp-floor",
+      "files": [
+        {
+          "path": "icons/lamp-floor.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/lamp-floor.tsx"
+        }
+      ]
+    },
+    {
       "name": "landmark",
       "type": "registry:component",
       "title": "Landmark",
@@ -14030,6 +14408,20 @@
       ]
     },
     {
+      "name": "layer-boxes",
+      "type": "registry:component",
+      "title": "LayerBoxes",
+      "description": "LayerBoxes, the stroke drawing of layer-boxes on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layer-boxes: https://keylineicons.com/icons/layer-boxes",
+      "files": [
+        {
+          "path": "icons/layer-boxes.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/layer-boxes.tsx"
+        }
+      ]
+    },
+    {
       "name": "layers",
       "type": "registry:component",
       "title": "Layers",
@@ -14040,6 +14432,76 @@
           "path": "icons/layers.tsx",
           "type": "registry:component",
           "target": "@components/icons/layers.tsx"
+        }
+      ]
+    },
+    {
+      "name": "layers-2",
+      "type": "registry:component",
+      "title": "Layers2",
+      "description": "Layers2, the stroke drawing of layers-2 on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layers-2: https://keylineicons.com/icons/layers-2",
+      "files": [
+        {
+          "path": "icons/layers-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/layers-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "layers-2-horizontal",
+      "type": "registry:component",
+      "title": "Layers2Horizontal",
+      "description": "Layers2Horizontal, the stroke drawing of layers-2-horizontal on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layers-2-horizontal: https://keylineicons.com/icons/layers-2-horizontal",
+      "files": [
+        {
+          "path": "icons/layers-2-horizontal.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/layers-2-horizontal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "layers-3",
+      "type": "registry:component",
+      "title": "Layers3",
+      "description": "Layers3, the stroke drawing of layers-3 on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layers-3: https://keylineicons.com/icons/layers-3",
+      "files": [
+        {
+          "path": "icons/layers-3.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/layers-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "layers-3-horizontal",
+      "type": "registry:component",
+      "title": "Layers3Horizontal",
+      "description": "Layers3Horizontal, the stroke drawing of layers-3-horizontal on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layers-3-horizontal: https://keylineicons.com/icons/layers-3-horizontal",
+      "files": [
+        {
+          "path": "icons/layers-3-horizontal.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/layers-3-horizontal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "layers-horizontal",
+      "type": "registry:component",
+      "title": "LayersHorizontal",
+      "description": "LayersHorizontal, the stroke drawing of layers-horizontal on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layers-horizontal: https://keylineicons.com/icons/layers-horizontal",
+      "files": [
+        {
+          "path": "icons/layers-horizontal.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/layers-horizontal.tsx"
         }
       ]
     },
@@ -15136,6 +15598,20 @@
       ]
     },
     {
+      "name": "merge",
+      "type": "registry:component",
+      "title": "Merge",
+      "description": "Merge, the stroke drawing of merge on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of merge: https://keylineicons.com/icons/merge",
+      "files": [
+        {
+          "path": "icons/merge.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/merge.tsx"
+        }
+      ]
+    },
+    {
       "name": "message",
       "type": "registry:component",
       "title": "Message",
@@ -15962,6 +16438,20 @@
       ]
     },
     {
+      "name": "moon-haze",
+      "type": "registry:component",
+      "title": "MoonHaze",
+      "description": "MoonHaze, the stroke drawing of moon-haze on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of moon-haze: https://keylineicons.com/icons/moon-haze",
+      "files": [
+        {
+          "path": "icons/moon-haze.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/moon-haze.tsx"
+        }
+      ]
+    },
+    {
       "name": "moon-star",
       "type": "registry:component",
       "title": "MoonStar",
@@ -16322,6 +16812,20 @@
           "path": "icons/music-note-off.tsx",
           "type": "registry:component",
           "target": "@components/icons/music-note-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "mustache",
+      "type": "registry:component",
+      "title": "Mustache",
+      "description": "Mustache, the stroke drawing of mustache on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mustache: https://keylineicons.com/icons/mustache",
+      "files": [
+        {
+          "path": "icons/mustache.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/mustache.tsx"
         }
       ]
     },
@@ -18272,6 +18776,20 @@
       ]
     },
     {
+      "name": "rainbow",
+      "type": "registry:component",
+      "title": "Rainbow",
+      "description": "Rainbow, the stroke drawing of rainbow on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of rainbow: https://keylineicons.com/icons/rainbow",
+      "files": [
+        {
+          "path": "icons/rainbow.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/rainbow.tsx"
+        }
+      ]
+    },
+    {
       "name": "ratio-1-1",
       "type": "registry:component",
       "title": "Ratio11",
@@ -18842,6 +19360,48 @@
           "path": "icons/route.tsx",
           "type": "registry:component",
           "target": "@components/icons/route.tsx"
+        }
+      ]
+    },
+    {
+      "name": "route-2",
+      "type": "registry:component",
+      "title": "Route2",
+      "description": "Route2, the stroke drawing of route-2 on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of route-2: https://keylineicons.com/icons/route-2",
+      "files": [
+        {
+          "path": "icons/route-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/route-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "route-3",
+      "type": "registry:component",
+      "title": "Route3",
+      "description": "Route3, the stroke drawing of route-3 on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of route-3: https://keylineicons.com/icons/route-3",
+      "files": [
+        {
+          "path": "icons/route-3.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/route-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "route-arrow-right",
+      "type": "registry:component",
+      "title": "RouteArrowRight",
+      "description": "RouteArrowRight, the stroke drawing of route-arrow-right on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of route-arrow-right: https://keylineicons.com/icons/route-arrow-right",
+      "files": [
+        {
+          "path": "icons/route-arrow-right.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/route-arrow-right.tsx"
         }
       ]
     },
@@ -20260,6 +20820,20 @@
       ]
     },
     {
+      "name": "sink",
+      "type": "registry:component",
+      "title": "Sink",
+      "description": "Sink, the stroke drawing of sink on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of sink: https://keylineicons.com/icons/sink",
+      "files": [
+        {
+          "path": "icons/sink.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sink.tsx"
+        }
+      ]
+    },
+    {
       "name": "siren",
       "type": "registry:component",
       "title": "Siren",
@@ -20886,6 +21460,20 @@
           "path": "icons/split.tsx",
           "type": "registry:component",
           "target": "@components/icons/split.tsx"
+        }
+      ]
+    },
+    {
+      "name": "split-2",
+      "type": "registry:component",
+      "title": "Split2",
+      "description": "Split2, the stroke drawing of split-2 on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of split-2: https://keylineicons.com/icons/split-2",
+      "files": [
+        {
+          "path": "icons/split-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/split-2.tsx"
         }
       ]
     },
@@ -22010,6 +22598,20 @@
       ]
     },
     {
+      "name": "square-split-bottom-right",
+      "type": "registry:component",
+      "title": "SquareSplitBottomRight",
+      "description": "SquareSplitBottomRight, the stroke drawing of square-split-bottom-right on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-split-bottom-right: https://keylineicons.com/icons/square-split-bottom-right",
+      "files": [
+        {
+          "path": "icons/square-split-bottom-right.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/square-split-bottom-right.tsx"
+        }
+      ]
+    },
+    {
       "name": "square-star",
       "type": "registry:component",
       "title": "SquareStar",
@@ -22458,6 +23060,20 @@
       ]
     },
     {
+      "name": "sun-horizon",
+      "type": "registry:component",
+      "title": "SunHorizon",
+      "description": "SunHorizon, the stroke drawing of sun-horizon on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of sun-horizon: https://keylineicons.com/icons/sun-horizon",
+      "files": [
+        {
+          "path": "icons/sun-horizon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sun-horizon.tsx"
+        }
+      ]
+    },
+    {
       "name": "sun-lounger",
       "type": "registry:component",
       "title": "SunLounger",
@@ -22482,6 +23098,20 @@
           "path": "icons/sun-medium.tsx",
           "type": "registry:component",
           "target": "@components/icons/sun-medium.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sun-rain",
+      "type": "registry:component",
+      "title": "SunRain",
+      "description": "SunRain, the stroke drawing of sun-rain on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of sun-rain: https://keylineicons.com/icons/sun-rain",
+      "files": [
+        {
+          "path": "icons/sun-rain.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sun-rain.tsx"
         }
       ]
     },
@@ -24180,6 +24810,20 @@
       ]
     },
     {
+      "name": "triangle-right-split",
+      "type": "registry:component",
+      "title": "TriangleRightSplit",
+      "description": "TriangleRightSplit, the stroke drawing of triangle-right-split on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of triangle-right-split: https://keylineicons.com/icons/triangle-right-split",
+      "files": [
+        {
+          "path": "icons/triangle-right-split.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/triangle-right-split.tsx"
+        }
+      ]
+    },
+    {
       "name": "triangles-centerline-horizontal",
       "type": "registry:component",
       "title": "TrianglesCenterlineHorizontal",
@@ -25534,6 +26178,90 @@
           "path": "icons/windmill.tsx",
           "type": "registry:component",
           "target": "@components/icons/windmill.tsx"
+        }
+      ]
+    },
+    {
+      "name": "window",
+      "type": "registry:component",
+      "title": "Window",
+      "description": "Window, the stroke drawing of window on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of window: https://keylineicons.com/icons/window",
+      "files": [
+        {
+          "path": "icons/window.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/window.tsx"
+        }
+      ]
+    },
+    {
+      "name": "window-awning",
+      "type": "registry:component",
+      "title": "WindowAwning",
+      "description": "WindowAwning, the stroke drawing of window-awning on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of window-awning: https://keylineicons.com/icons/window-awning",
+      "files": [
+        {
+          "path": "icons/window-awning.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/window-awning.tsx"
+        }
+      ]
+    },
+    {
+      "name": "window-awning-open",
+      "type": "registry:component",
+      "title": "WindowAwningOpen",
+      "description": "WindowAwningOpen, the stroke drawing of window-awning-open on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of window-awning-open: https://keylineicons.com/icons/window-awning-open",
+      "files": [
+        {
+          "path": "icons/window-awning-open.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/window-awning-open.tsx"
+        }
+      ]
+    },
+    {
+      "name": "window-horizontal",
+      "type": "registry:component",
+      "title": "WindowHorizontal",
+      "description": "WindowHorizontal, the stroke drawing of window-horizontal on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of window-horizontal: https://keylineicons.com/icons/window-horizontal",
+      "files": [
+        {
+          "path": "icons/window-horizontal.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/window-horizontal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "window-horizontal-open",
+      "type": "registry:component",
+      "title": "WindowHorizontalOpen",
+      "description": "WindowHorizontalOpen, the stroke drawing of window-horizontal-open on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of window-horizontal-open: https://keylineicons.com/icons/window-horizontal-open",
+      "files": [
+        {
+          "path": "icons/window-horizontal-open.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/window-horizontal-open.tsx"
+        }
+      ]
+    },
+    {
+      "name": "window-open",
+      "type": "registry:component",
+      "title": "WindowOpen",
+      "description": "WindowOpen, the stroke drawing of window-open on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of window-open: https://keylineicons.com/icons/window-open",
+      "files": [
+        {
+          "path": "icons/window-open.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/window-open.tsx"
         }
       ]
     },

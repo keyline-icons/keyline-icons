@@ -3091,6 +3091,128 @@
      "text": "2.6.0 renamed seven drawings and its changelog did not say so. `align-left` is `text-align-start`, `align-center` is `text-align-center`, `align-right` is `text-align-end`, `align-justify` is `text-align-justify`, `align-left-2` is `text-align-2-start` and `align-right-2` is `text-align-2-end`, and `flower` is `circles-five`. The old names still import in React and React Native, marked deprecated, and still resolve in the CLI and the MCP server, until the next major. Change them before then."
     }
    ]
+  },
+  "2.7.0": {
+   "title": "Weather, windows, lamps and layers",
+   "sections": [
+    {
+     "title": "New drawings",
+     "icon": "sparkles",
+     "sections": [
+      {
+       "title": "Arrows",
+       "text": "An arrow pulled up from a branch, two arrows swapping places, two arrows merging and a fork that heads for the corners.",
+       "names": [
+        "arrow-pull",
+        "arrow-swap",
+        "merge",
+        "split-2"
+       ]
+      },
+      {
+       "title": "Home",
+       "text": "Windows shut and open, top-hung and wide, curtains drawn and tied back, a table lamp, a desk lamp and a floor lamp, a sink, and a garage with its door down and up.",
+       "names": [
+        "window",
+        "window-open",
+        "window-awning",
+        "window-awning-open",
+        "window-horizontal",
+        "window-horizontal-open",
+        "curtains",
+        "curtains-open",
+        "lamp",
+        "lamp-desk",
+        "lamp-floor",
+        "sink",
+        "garage",
+        "garage-open"
+       ]
+      },
+      {
+       "title": "Layout",
+       "text": "Layers in twos and threes, stacked and standing side by side, and three stacked slabs.",
+       "names": [
+        "layers-2",
+        "layers-3",
+        "layers-horizontal",
+        "layers-2-horizontal",
+        "layers-3-horizontal",
+        "layer-boxes"
+       ]
+      },
+      {
+       "title": "Maps",
+       "text": "A route between two stops, one through three, and one that ends in an arrowhead.",
+       "names": [
+        "route-2",
+        "route-3",
+        "route-arrow-right"
+       ]
+      },
+      {
+       "title": "Media",
+       "text": "The low and middle levels of the audio meter, on its five bars.",
+       "names": [
+        "audio-lines-low",
+        "audio-lines-mid"
+       ]
+      },
+      {
+       "title": "People",
+       "text": "A mustache.",
+       "names": [
+        "mustache"
+       ]
+      },
+      {
+       "title": "Shapes",
+       "text": "A circle half striped, a square with its corner panelled off and a right triangle in two.",
+       "names": [
+        "circle-half-striped",
+        "square-split-bottom-right",
+        "triangle-right-split"
+       ]
+      },
+      {
+       "title": "Transport",
+       "text": "An electric car.",
+       "names": [
+        "car-electric"
+       ]
+      },
+      {
+       "title": "Weather",
+       "text": "Drizzle, heavy rain and rain on the wind, storms with rain by day and by night, sleet, hail, snow and fog, a rainbow on its own and over a cloud, haze under the sun and the moon, and the sun on the horizon and in the rain.",
+       "names": [
+        "cloud-drizzle",
+        "cloud-rain-heavy",
+        "cloud-rain-wind",
+        "cloud-lightning-rain",
+        "cloud-sun-rain",
+        "cloud-sun-lightning",
+        "cloud-moon-rain",
+        "cloud-moon-lightning",
+        "cloud-sleet",
+        "cloud-hail",
+        "cloud-snow",
+        "cloud-fog",
+        "cloud-rainbow",
+        "rainbow",
+        "haze",
+        "moon-haze",
+        "sun-horizon",
+        "sun-rain"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "React Native",
+     "icon": "package",
+     "text": "Each icon has an import path of its own now, `@keyline-icons/react-native/icons/check` and the same under each style, so an app that imports one icon carries that drawing and not the whole style."
+    }
+   ]
   }
  }
 }

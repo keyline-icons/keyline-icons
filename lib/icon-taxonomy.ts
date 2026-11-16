@@ -110,9 +110,11 @@ export const CATEGORIES = [
     // `undo` and `redo` joined on 11 Oct 2026 (1.8.0): rotate-ccw's arc opened
     // into a turn back, beside it and the u-turns. Anchored, with their -dot.
     // `split` joined on 25 Oct 2026 (2.2.0): one arrow forking into two.
-    match: /^(?:scale-3d)$|^(arrow|bracket-arrow|log-(in|out)$|expand|refresh|rotate|corner-|move(-|$)|square-arrow-in-|square-arrow-out-|(undo|redo)(-dot)?$|split$)/,
+    // `split-2` and `merge` joined on 16 Nov 2026 (2.7.0): the corner-headed fork and the two arrows
+    // joining into one, beside `split`.
+    match: /^(?:scale-3d)$|^(arrow|bracket-arrow|log-(in|out)$|expand|refresh|rotate|corner-|move(-|$)|square-arrow-in-|square-arrow-out-|(undo|redo)(-dot)?$|split(-2)?$|merge$)/,
     blurb:
-      "Direction, movement and resizing, short and long, with the brackets and the arrow into one, u-turns, corner turns, a fork and dashed panels.",
+      "Direction, movement and resizing, short and long, with the brackets and the arrow into one, u-turns, corner turns, a fork, a merge and dashed panels.",
   },
   // Split out of Arrows on 29 Aug 2026: the sharp matrix doubled every catalog
   // card's cells, and 104 rows, one per name on a card of 60 sets, stopped
@@ -243,8 +245,10 @@ export const CATEGORIES = [
     // 2.5.0 (1 Nov 2026) added the rest of a stay: a couch, the blinds, a desk and an office desk, a heater, a
     // round mirror, the minibar fridge, a hot tub, a sun lounger and a table outside, and the machines' -off
     // states. `sun-lounger` must match here before Weather's `sun` prefix takes it.
-    match: /^(?:bubbles|bubbles-sparkles|electric-kettle|towel-rack|vault-2)$|^(bed|sofa|couch$|door|brick-wall|blinds$|desk(-office)?$|heater$|mirror-round$|bath$|hot-tub$|shower-head$|soap-dispenser|bottle-pump$|spray-can$|washing-machine(-off)?$|refrigerator(-mini)?$|microwave$|oven(-off)?$|air-vent$|vault$|sun-lounger$|outdoor-seating$)/,
-    blurb: "Beds, a sofa and a couch, doors and the wall behind them, blinds, a desk, a mirror, the bath, a hot tub, the shower and the soap, a pump bottle and a spray can, the fridge and the minibar, the oven, the microwave and the washing machine, a heater, an air vent, a safe, a sun lounger and a table outside.",
+    // 2.7.0 (16 Nov 2026) drew the windows, the curtains, three lamps, a sink and the garage, open and
+    // shut: the fabric and fittings of a room, beside the doors and the blinds.
+    match: /^(?:bubbles|bubbles-sparkles|electric-kettle|towel-rack|vault-2)$|^(bed|sofa|couch$|door|brick-wall|blinds$|desk(-office)?$|heater$|mirror-round$|bath$|hot-tub$|shower-head$|soap-dispenser|bottle-pump$|spray-can$|washing-machine(-off)?$|refrigerator(-mini)?$|microwave$|oven(-off)?$|air-vent$|vault$|sun-lounger$|outdoor-seating$|window(-horizontal|-awning)?(-open)?$|curtains(-open)?$|lamp(-desk|-floor)?$|sink$|garage(-open)?$)/,
+    blurb: "Beds, a sofa and a couch, doors and the wall behind them, windows, curtains and blinds, lamps, a desk, a mirror, the bath, a hot tub, a sink, the shower and the soap, a pump bottle and a spray can, the fridge and the minibar, the oven, the microwave and the washing machine, a heater, an air vent, a safe, the garage, a sun lounger and a table outside.",
   },
   {
     // Ahead of Layout, whose `list` prefix would otherwise claim `list-music`.
@@ -358,7 +362,7 @@ export const CATEGORIES = [
     // `align-*` moves one.
     // `fold-` joined on 11 Oct 2026 (1.8.0): two arrows pressing a rule, what
     // collapses a section, beside the fullscreen corners.
-    match: /^(?:crop|guidepoint|guidepoint-arrow-down|guidepoint-arrow-up|guidepoint-vertical-arrow-left|guidepoint-vertical-arrow-right|mount|perspective|triangles-centerline-horizontal|triangles-centerline-inward-horizontal|triangles-centerline-inward-vertical|triangles-centerline-vertical)$|^(panel|layout|layers|grid|table(-|$)|list|align|menu|maximize|minimize|fullscreen|columns-|blocks(-|$)|flip-|fold-|symmetry-)/,
+    match: /^(?:crop|guidepoint|guidepoint-arrow-down|guidepoint-arrow-up|guidepoint-vertical-arrow-left|guidepoint-vertical-arrow-right|mount|perspective|triangles-centerline-horizontal|triangles-centerline-inward-horizontal|triangles-centerline-inward-vertical|triangles-centerline-vertical|layer-boxes)$|^(panel|layout|layers|grid|table(-|$)|list|align|menu|maximize|minimize|fullscreen|columns-|blocks(-|$)|flip-|fold-|symmetry-)/,
     blurb: "Panels, layers, grids, blocks, columns, tables and their row, column and cell edits, lists, alignment, the flips and the symmetry axes, the menu marks and the fullscreen corners.",
   },
   {
@@ -373,8 +377,9 @@ export const CATEGORIES = [
   // `boyfriend` or `babysitter` has to be filed on purpose.
   {
     label: "People",
-    match: /^(boy|girl|baby(-2)?-(boy|girl))$/,
-    blurb: "The boy, the girl and the babies, with a curl, a bow or a pacifier.",
+    // `mustache` joined on 16 Nov 2026 (2.7.0): hair on a face, drawn like the faces here.
+    match: /^(boy|girl|baby(-2)?-(boy|girl)|mustache)$/,
+    blurb: "The boy, the girl and the babies, with a curl, a bow or a pacifier, and a mustache.",
   },
   // Two marks, opened 11 Sep 2026. NOT Users: a Mars glyph is not a person, it
   // is the sign for one, and a shelf holds what the drawing is. Anchored on
@@ -594,8 +599,8 @@ export const CATEGORIES = [
     // `wind$` is anchored because Nature, evaluated after this, owns
     // `wind-turbine`: the turbine is a thing that stands in a field, the gust
     // is the weather that turns it.
-    match: /^(?:droplet-degree)$|^(sun|moon|cloud|umbrella|parasol|temperature|thermometer-|snowflake$|wind$|humidity$)/,
-    blurb: "Sun, moon, clouds, snow, wind, humidity, the temperatures and the states between them.",
+    match: /^(?:droplet-degree)$|^(sun|moon|cloud|umbrella|parasol|temperature|thermometer-|snowflake$|wind$|humidity$|haze$|rainbow$)/,
+    blurb: "Sun, moon, clouds, snow, wind, haze, a rainbow, humidity, the temperatures and the states between them.",
   },
   // Three shelves opened 12 Sep 2026 with the fifteen of batch D, all of which
   // had been filing under Other. Nothing existing took them: Maps is the pin

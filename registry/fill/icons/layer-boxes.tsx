@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function LayerBoxes({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M11.125 18.186C11.677 18.455 12.324 18.455 12.877 18.186L21.561 13.951C22.225 13.627 22.999 14.111 23 14.85V15.987C22.999 17.134 22.345 18.182 21.314 18.685L12.876 22.798C12.323 23.067 11.676 23.067 11.124 22.798L2.685 18.685C1.654 18.182 1 17.134 1 15.987V14.85C1 14.111 1.774 13.628 2.438 13.951L1.001 13.25L11.125 18.186Z" fill="currentColor"/>
+      <path d="M11.124 1.202C11.677 0.933 12.323 0.933 12.876 1.202L21.876 5.59C22.624 5.955 23 6.681 23 7.388V10.401C23 10.783 22.782 11.131 22.438 11.299L23 11.026L12.001 16.388L1.564 11.301C1.22 11.133 1.002 10.783 1.003 10.401L1.002 11.026L1.005 7.529C0.952 6.78 1.323 5.98 2.123 5.59L11.124 1.202ZM12.439 16.174C12.163 16.309 11.839 16.309 11.562 16.174L12.001 16.388L12.439 16.174ZM3 7.388L12 11.776L21 7.388L12 3L3 7.388Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

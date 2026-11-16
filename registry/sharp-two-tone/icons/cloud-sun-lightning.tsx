@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CloudSunLightning({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M9 18.887L8.5 18.598C7.572 18.062 7 17.072 7 16C7 14.343 8.343 13 10 13C10 10.515 12.015 8.5 14.5 8.5C16.985 8.5 19 10.515 19 13C20.657 13 22 14.343 22 16C22 17.072 21.428 18.062 20.5 18.598L20 18.887" strokeOpacity="0.4"/>
+      <path d="M3 8.5C3 9.052 2.552 9.5 2 9.5C1.448 9.5 1 9.052 1 8.5C1 7.948 1.448 7.5 2 7.5C2.552 7.5 3 7.948 3 8.5ZM4.904 3.904C4.904 4.456 4.456 4.904 3.904 4.904C3.352 4.904 2.904 4.456 2.904 3.904C2.904 3.352 3.352 2.904 3.904 2.904C4.456 2.904 4.904 3.352 4.904 3.904ZM9.5 2C9.5 2.552 9.052 3 8.5 3C7.948 3 7.5 2.552 7.5 2C7.5 1.448 7.948 1 8.5 1C9.052 1 9.5 1.448 9.5 2ZM14.096 3.904C14.096 4.456 13.649 4.904 13.096 4.904C12.544 4.904 12.096 4.456 12.096 3.904C12.096 3.352 12.544 2.904 13.096 2.904C13.649 2.904 14.096 3.352 14.096 3.904Z" fill="currentColor" stroke="none"/>
+      <path d="M6.766 10.373L6.467 9.955C6.163 9.531 6 9.022 6 8.5C6 7.119 7.119 6 8.5 6C8.817 6 9.132 6.06 9.426 6.178L10.056 6.429M15.798 17.169L13.25 20H16.25L13.716 22.253"/>
+    </svg>
+  )
+}

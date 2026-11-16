@@ -326,6 +326,11 @@ const SIZE_KNOWN = new Set([
   // 2 off the gallery only at 22. The coffee maker is an open frame, head and stand, round his carafe,
   // which leaves no unit to give back without redrawing the carafe.
   'microwave', 'ev-charger', 'lighthouse', 'coffee-maker',
+  // 2.7.0, the two lower levels of `audio-lines`: its five bars at its own 18 width, each bar cut to the
+  // level (his ask, 15 Nov 2026: "change the low and medium to 5 bars"), so the three read as one meter.
+  // Short enough to classify as horizontal, where a long side of 22 would make the low and mid levels a
+  // wider meter than the full one they step up to.
+  'audio-lines-low', 'audio-lines-mid',
 ]);
 /**
  * Drawings of a real product, which keep the product's proportions and radii

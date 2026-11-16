@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function LampDesk({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M10.694 16C11.92 16 13.024 16.747 13.48 17.886L13.879 18.886C14.667 20.856 13.216 23 11.094 23H7.002C4.88 23 3.429 20.857 4.217 18.886L4.616 17.886C5.072 16.747 6.176 16 7.403 16H10.694ZM9.745 2.262C10.671 1.337 12.171 1.337 13.096 2.262C13.178 2.344 13.329 2.406 13.521 2.379C14.77 2.204 16.624 2.136 18.316 2.616C19.268 2.885 19.834 3.63 19.968 4.463C20.096 5.259 19.834 6.104 19.269 6.74L14.477 12.13C13.823 12.866 12.892 13.218 11.993 13.047C11.068 12.872 10.337 12.17 10.094 11.156C9.817 9.998 9.57 8.608 9.469 7.245L9.435 6.663C9.428 6.495 9.364 6.357 9.275 6.268C8.299 5.292 8.299 3.709 9.275 2.733L9.745 2.262Z" fill="currentColor" stroke="none"/>
+      <path d="M10.171 3.25L8.921 2M10.481 7.3L5.692 13.036C5.469 13.321 5.432 13.717 5.595 14.062L6.989 17"/>
+    </svg>
+  )
+}

@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Layers2({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M18.2881 13.334C18.5671 13.198 18.8945 13.199 19.1728 13.338L21.8838 14.687L22.019 14.761C23.326 15.535 23.326 17.465 22.019 18.239L21.8838 18.312L12.8838 22.792C12.3268 23.069 11.6732 23.069 11.1162 22.792L2.1162 18.312C0.6284 17.571 0.6283 15.428 2.1162 14.687L4.833 13.334C5.1119 13.198 5.4387 13.2 5.7168 13.338L10.2246 15.582L10.2256 15.583C11.3435 16.139 12.6565 16.138 13.7744 15.582L18.2881 13.334Z" fill="currentColor"/>
+      <path d="M11.1162 1.208C11.6038 0.965 12.165 0.935 12.6709 1.117L12.8838 1.208L21.8838 5.687C23.372 6.428 23.372 8.572 21.8838 9.312L12.8838 13.792C12.3267 14.069 11.6733 14.069 11.1162 13.792L2.1162 9.312C0.6281 8.572 0.6281 6.428 2.1162 5.687L11.1162 1.208Z" fill="currentColor"/>
+    </svg>
+  )
+}

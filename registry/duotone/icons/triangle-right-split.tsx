@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function TriangleRightSplit({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M17.732 2.735C19.307 1.161 22 2.276 22 4.503V18C22 19.126 21.533 20.145 20.785 20.871C20.066 21.569 19.082 22 18 22H4.503C2.276 22 1.161 19.307 2.735 17.732L10.218 10.249C10.224 10.243 10.229 10.236 10.235 10.23C10.241 10.224 10.248 10.219 10.254 10.213L17.732 2.735Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M18.026 2.482C18.842 1.885 19.859 1.877 20.66 2.29C21.429 2.69 22 3.478 22 4.503V18C22 18.105 21.994 18.209 21.986 18.312C21.964 18.597 21.912 18.869 21.838 19.122L21.807 19.227C21.603 19.858 21.249 20.421 20.785 20.871C20.547 21.102 20.278 21.303 19.987 21.469L9.529 10.937L17.732 2.735C17.769 2.698 17.809 2.662 17.848 2.628L17.906 2.578L17.925 2.561C17.953 2.538 17.981 2.516 18.009 2.495L18.026 2.482Z" fill="currentColor"/>
+    </svg>
+  )
+}

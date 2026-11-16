@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CarElectric({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M14.5234 3C16.1221 3 17.5671 3.9521 18.1982 5.4209L19.3066 8H20.5C21.0522 8.0001 21.5 8.4478 21.5 9C21.5 9.5081 21.1206 9.9264 20.6299 9.9902C21.4683 10.7227 22 11.7977 22 13V18.0342C22 19.6719 20.6719 21 19.0342 21C17.7599 20.9998 16.6386 20.1875 16.2305 19H7.7695C7.3614 20.1875 6.2401 20.9998 4.9658 21C3.3281 21 2 19.6719 2 18.0342V13C2 11.7983 2.5305 10.7228 3.3682 9.9902C2.8783 9.9256 2.5 9.5075 2.5 9C2.5 8.4477 2.9477 8 3.5 8H4.6924L5.8008 5.4209C6.4318 3.9521 7.8771 3.0002 9.4756 3H14.5234Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M13 8L10 11H14L11 14"/>
+    </svg>
+  )
+}

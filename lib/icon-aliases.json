@@ -2367,15 +2367,7 @@
     ],
     "cloud": [
       "cloud-backup",
-      "cloud-cog",
-      "cloud-fog",
-      "cloud-hail",
-      "cloud-snow"
-    ],
-    "cloud-rain": [
-      "cloud-moon-rain",
-      "cloud-rain-wind",
-      "cloud-sun-rain"
+      "cloud-cog"
     ],
     "database": [
       "database-backup",

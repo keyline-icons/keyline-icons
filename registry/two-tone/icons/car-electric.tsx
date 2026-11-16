@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CarElectric({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M14.5234 3C16.1221 3 17.5671 3.9521 18.1982 5.4209L19.5635 8.5986C19.5728 8.6199 19.581 8.6419 19.5889 8.6641C19.5943 8.6794 19.5998 8.6946 19.6045 8.71L19.6055 8.7119L19.8252 9.4414C21.1153 10.1044 22 11.4473 22 13V18.0342C22 19.6719 20.6719 21 19.0342 21C17.7599 20.9998 16.6386 20.1875 16.2305 19H7.7695C7.3614 20.1875 6.2401 20.9998 4.9658 21C3.3281 21 2 19.6719 2 18.0342V13C2 11.4476 2.8841 10.1045 4.1738 9.4414L4.3945 8.7119V8.71C4.4052 8.6749 4.4178 8.64 4.4326 8.6055L5.8008 5.4209C6.4318 3.9521 7.8771 3.0002 9.4756 3H14.5234Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M5.3518 9L5 10.1707C3.8348 10.5825 3 11.6937 3 13V18.0346C3 19.12 3.88 20 4.9654 20C5.8673 20 6.6535 19.3862 6.8722 18.5113L7 18H17L17.1278 18.5113C17.3465 19.3862 18.1327 20 19.0346 20C20.12 20 21 19.12 21 18.0346V13C21 11.6937 20.1652 10.5825 19 10.1707L18.6482 9M5.3518 9L6.7199 5.8157C7.1932 4.714 8.2771 4 9.4762 4H14.5238C15.7229 4 16.8068 4.714 17.2801 5.8157L18.6482 9M5.3518 9H3.5M18.6482 9H20.5M13 8L10 11H14L11 14"/>
+    </svg>
+  )
+}
