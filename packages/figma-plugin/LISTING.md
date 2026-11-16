@@ -124,6 +124,14 @@ Need icons drawn for your own product? Custom sets on the same grid, as SVG, Fig
 
 Changelog
 
+2.7.0
+52 new drawings, taking the set to 1,885 names and 15,080 SVGs.
+
+* Weather: drizzle, heavy rain and rain on the wind, storms with rain by day and by night, sleet, hail, snow and fog, a rainbow on its own and over a cloud, haze under the sun and the moon, and the sun on the horizon and in the rain
+* Home: windows shut and open, top-hung and wide, curtains drawn and tied back, a table lamp, a desk lamp and a floor lamp, a sink, and a garage with its door down and up
+* Layout and Maps: layers in twos and threes, stacked and standing side by side, three stacked slabs, and routes between two stops, through three and out to an arrowhead
+* And more: an arrow pulled up from a branch, two arrows swapping places, two arrows merging and a fork to the corners, the low and middle levels of the audio meter, a circle half striped, a square with its corner panelled off, a right triangle in two, an electric car and a mustache
+
 2.6.1
 The settings gear has the ring at its centre again, in stroke and two-tone, where 2.6.0 left it out.
 
@@ -171,15 +179,6 @@ train is train-front now, beside tram-front, and the old name still finds it.
 * Shapes: a cone, a cuboid, a cylinder and a pyramid; a right triangle; a circle and a square struck corner to corner
 * Layout and Files: three equal columns, two flips for a solid object, two axes of symmetry, and the two by two grid with a tick and a cross; copy with a minus, a cross and a slash
 * And more: a swallowtail pennant and a triangular one, a planet with its ring, two kinds of wave, a railway track, a drafting compass, a crane hook, a gripper, vector nodes on a square and a pentagon, the arrow cursor with its tail, a user in scan marks, a card's chip, and a weight, plain and with a tilde
-
-2.0.0
-72 new drawings, taking the set to 1,507 names and 12,056 SVGs.
-
-* Math and Text: each bracket on its own, parentheses, square brackets and braces, opening and closing, and parentheses around an ellipsis and around an x; tally marks from one to five, the fifth drawn across the other four; a pipe, a colon, a semicolon, a comma, a grave accent and a tilde, and left and right alignment with a bar along the edge
-* Chevrons and Shapes: one, two and three chevrons as levels, pointing up or down; a plain triangle, diamond, hexagon and octagon, the triangle, diamond and octagon again with a dot, and the dot in a square and a circle
-* Arrows: u-turns that turn back at a line, in all four directions and mirrored; arrows passing through a line; and three big arrows with a bar behind, to match the one pointing up
-* Layout and Actions: a list of checks, indents in and out, a nested list and a list with a pin; the no-entry slash inside a square, both ways round, and the star and the lightning bolt in a square and a circle
-* And more: a plug with a lightning bolt, a plug in a ring, a panel with code brackets in its top edge, two boxes joined by a path, an open book with a page turning, two books standing with a third leaning on them, a pin pushed into the ground, a large frame over a strip of thumbnails, play and pause on one key, and NFC
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
@@ -766,6 +765,14 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+v2.7.0
+52 new drawings, taking the set to 1,885 names and 15,080 SVGs. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
+
+* Weather: drizzle, heavy rain and rain on the wind, storms with rain by day and by night, sleet, hail, snow and fog, a rainbow on its own and over a cloud, haze under the sun and the moon, and the sun on the horizon and in the rain
+* Home: windows shut and open, top-hung and wide, curtains drawn and tied back, a table lamp, a desk lamp and a floor lamp, a sink, and a garage with its door down and up
+* Layout and Maps: layers in twos and threes, stacked and standing side by side, three stacked slabs, and routes between two stops, through three and out to an arrowhead
+* And more: an arrow pulled up from a branch, two arrows swapping places, two arrows merging and a fork to the corners, the low and middle levels of the audio meter, a circle half striped, a square with its corner panelled off, a right triangle in two, an electric car and a mustache
+
 v2.6.1
 The settings gear has the ring at its centre again, in stroke and two-tone, where 2.6.0 left it out. Its vectors were swapped inside the existing set, so instances already placed pick the fix up.
 
@@ -812,15 +819,6 @@ v2.1.0
 * Layout and Files: three equal columns, two flips for a solid object, two axes of symmetry, and the two by two grid with a tick and a cross; copy with a minus, a cross and a slash
 * And more: a swallowtail pennant and a triangular one, a planet with its ring, two kinds of wave, a railway track, a drafting compass, a crane hook, a gripper, vector nodes on a square and a pentagon, the arrow cursor with its tail, a user in scan marks, a card's chip, and a weight, plain and with a tilde
 
-v2.0.0
-72 new drawings. The set is 1,507 names now, 1,374 component sets and 12,056 variants, up from 1,435 and 11,480. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link; the star, the lightning bolt and the dot gained their square and circle variants inside their existing sets.
-
-* Math and Text: each bracket on its own, parentheses, square brackets and braces, opening and closing, and parentheses around an ellipsis and around an x; tally marks from one to five, the fifth drawn across the other four; a pipe, a colon, a semicolon, a comma, a grave accent and a tilde, and left and right alignment with a bar along the edge
-* Chevrons and Shapes: one, two and three chevrons as levels, pointing up or down; a plain triangle, diamond, hexagon and octagon, the triangle, diamond and octagon again with a dot, and the dot in a square and a circle
-* Arrows: u-turns that turn back at a line, in all four directions and mirrored; arrows passing through a line; and three big arrows with a bar behind, to match the one pointing up
-* Layout and Actions: a list of checks, indents in and out, a nested list and a list with a pin; the no-entry slash inside a square, both ways round, and the star and the lightning bolt in a square and a circle
-* And more: a plug with a lightning bolt, a plug in a ring, a panel with code brackets in its top edge, two boxes joined by a path, an open book with a page turning, two books standing with a third leaning on them, a pin pushed into the ground, a large frame over a strip of thumbnails, play and pause on one key, and NFC
-
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
 
@@ -864,7 +862,9 @@ with the 2.3.0 entries (9,091 before, 8,033 after; the plugin's reached 8,582 an
 its 1.7.0), 1.8.0 and 1.7.0 from the plugin's on 2 Nov 2026 with the 2.5.0 entry
 (9,629 before, which Figma refused at the paste, 7,224 after; the file's
 took its missing v2.5.0 entry the same day and gave up v1.8.0, 8,034
-before, 7,452 after), and a
+before, 7,452 after), 2.0.0 from the plugin's and v2.0.0 from the file's on
+16 Nov 2026 with the 2.7.0 entries (9,034 and 9,471 before, 7,681 and 7,849
+after), and a
 last line points at
 `keylineicons.com/changelog`, which keeps every release.
 
