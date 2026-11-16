@@ -129,10 +129,12 @@ function wordsOf(query) {
         .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
         .replace(/([a-zA-Z])(\d)/g, "$1 $2")
     : query
-  return split
+  const words = split
     .toLowerCase()
     .split(/[^a-z0-9]+/)
     .filter((w) => w && !(identifier && /^\d+$/.test(w)))
+  const meant = words.filter((w) => !/^(icons?|svg|shadcn)$/.test(w))
+  return meant.length ? meant : words
 }
 
 /**
@@ -275,11 +277,12 @@ function search(query, style, limit, corners = "regular") {
   const q = query.toLowerCase().trim()
   const words = wordsOf(query)
   if (!words.length) return []
+  const named = foreign[q] ?? foreign[words.join("-")]
 
   return NAMES.filter(
     (n) =>
       (!style || svgFor(n, style, corners)) &&
-      (foreign[q] === n ||
+      (named === n ||
         wholeWord(n, q) ||
         answers(n, words) ||
         answers(haystackFor(n), words))
@@ -288,7 +291,7 @@ function search(query, style, limit, corners = "regular") {
       const rank =
         n === q
           ? 0
-          : foreign[q] === n
+          : named === n
             ? 1
             : n.startsWith(q + "-")
               ? 2

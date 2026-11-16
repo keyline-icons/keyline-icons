@@ -40,6 +40,18 @@ const byName = (a: BrowserIcon, b: BrowserIcon) =>
     : a.base.localeCompare(b.base)
 
 /**
+ * Another set's name for a drawing, typed whole or as words.
+ *
+ * The table is keyed by hyphenated names and a query arrives as someone typed
+ * it: `BookmarkCheck` pasted out of code, `package open` typed as two words.
+ * Both came in as empty searches between August and November 2026 while
+ * `bookmark-check` and `package-open` redirected fine, so the words are
+ * joined back into a name and asked a second time.
+ */
+const namedElsewhere = (query: string) =>
+  iconNamedElsewhere(query) ?? iconNamedElsewhere(terms(query).join("-"))
+
+/**
  * Whether the query is another set's name for this drawing.
  *
  * Matched on the drawing as well as on its base. The base alone could never
@@ -49,7 +61,7 @@ const byName = (a: BrowserIcon, b: BrowserIcon) =>
  * points at `message` brings the boxed copies along as it always did.
  */
 const namedBy = (icon: BrowserIcon, query: string) => {
-  const named = iconNamedElsewhere(query)
+  const named = namedElsewhere(query)
   return named === icon.name || named === icon.base
 }
 
@@ -79,7 +91,7 @@ const namedBy = (icon: BrowserIcon, query: string) => {
 const leadOf = (icon: BrowserIcon, query: string) => {
   const q = query.trim().toLowerCase()
   if (icon.name === q) return 0
-  if (icon.name === iconNamedElsewhere(q)) return 1
+  if (icon.name === namedElsewhere(query)) return 1
   const tier = (name: string) => {
     const i = q ? name.indexOf(q) : -1
     return i === -1 ? 5 : i === 0 ? 2 : name[i - 1] === "-" ? 3 : 4
@@ -255,10 +267,12 @@ const terms = (query: string) => {
         .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
         .replace(/([a-zA-Z])(\d)/g, "$1 $2")
     : query
-  return split
+  const words = split
     .toLowerCase()
     .split(/[^a-z0-9]+/)
     .filter((w) => w && !(identifier && /^\d+$/.test(w)))
+  const meant = words.filter((w) => !/^(icons?|svg|shadcn)$/.test(w))
+  return meant.length ? meant : words
 }
 
 /**

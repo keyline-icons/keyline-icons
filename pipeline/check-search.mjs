@@ -114,7 +114,7 @@ const HAYSTACK = /const haystackFor = \(name\) =>[^\n]*/
  * promise to keep it updated and this is meant to survive someone who does not
  * know the file exists.
  */
-const BODY = /const identifier =[\s\S]*?\.filter\(\(w\) => w && !\(identifier && \/\^\\d\+\$\/\.test\(w\)\)\)/
+const BODY = /const identifier =[\s\S]*?return meant\.length \? meant : words/
 
 /**
  * The singular rule, and the pass that applies it to a haystack.
@@ -204,7 +204,7 @@ const RANKED = [
  * The site's half: the helpers its grid filters and sorts a search with.
  * `matches` and `ordered` in the component are one call each into these.
  */
-const SITE_RANK = ["byName", "namedBy", "leadOf", "bySearch"]
+const SITE_RANK = ["byName", "terms", "namedElsewhere", "namedBy", "leadOf", "bySearch"]
 
 /**
  * One declaration out of a source file, by name: from its first line to the
@@ -368,6 +368,12 @@ const FINDS = [
   ["xlsx", "file-spreadsheet", "`excel` and `csv` were there, the extension was not"],
   ["jpg", "file-image", "the picture file"],
   ["png", "file-image", "same"],
+  // The empty searches of 16 Aug to 16 Nov 2026.
+  ["headset icon", "headset", "`icon` says what is wanted, not which drawing, and every word has to land"],
+  ["lightbulb-on.svg", "lightbulb-on", "a file name pasted whole"],
+  ["animate", "keyframes", "4 empty searches while `animation` found it"],
+  ["client", "user", "3 empty searches"],
+  ["children", "boy", "an irregular plural, which the singular rule cannot reach"],
 ]
 
 /**
@@ -473,6 +479,11 @@ const FIRST = [
  ["logout", "log-out", "same"],
  ["log in", "log-in", "the identifier split into two words"],
  ["log out", "log-out", "same"],
+ // Another set's name matched only as typed with hyphens: pasted from code or
+ // typed as words it found nothing (BookmarkCheck 3, package open 3).
+ ["BluetoothConnected", "bluetooth", "another set's name pasted from code"],
+ ["bluetooth connected", "bluetooth", "the same name typed as words"],
+ ["shadcn down chevron", "chevron-down", "`shadcn` names the library, not the drawing"],
 ]
 
 /**
@@ -762,7 +773,7 @@ async function main() {
     const q = query.toLowerCase().trim()
     return Object.keys(bundle.icons).filter(
       (n) =>
-        foreign[q] === n ||
+        (foreign[q] ?? foreign[words.join("-")]) === n ||
         n.includes(q) ||
         (words.length && answers(vocab.packages[n], words))
     )

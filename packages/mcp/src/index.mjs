@@ -92,6 +92,14 @@ const pascal = (name) =>
  * two rules above never saw it as an identifier, and `FileCodeIcon`, which
  * does have one, split into `file code icon` and missed on the last word. The
  * suffix and its digits come off before the split.
+ *
+ * Then the words that say what is wanted rather than which drawing: `icon`,
+ * `svg`, `shadcn`. Every word has to land, and none of these is in any
+ * drawing's vocabulary, so `headset icon`, `lightbulb-on.svg` and `shadcn down
+ * chevron` found nothing while `headset`, `lightbulb-on` and `down chevron`
+ * each led with the right drawing (the site's empty searches, August to
+ * November 2026). A query made of nothing else keeps them, so it still says
+ * nothing matches rather than matching everything.
  */
 function wordsOf(query) {
   const identifier =
@@ -104,10 +112,12 @@ function wordsOf(query) {
         .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
         .replace(/([a-zA-Z])(\d)/g, "$1 $2")
     : query
-  return split
+  const words = split
     .toLowerCase()
     .split(/[^a-z0-9]+/)
     .filter((w) => w && !(identifier && /^\d+$/.test(w)))
+  const meant = words.filter((w) => !/^(icons?|svg|shadcn)$/.test(w))
+  return meant.length ? meant : words
 }
 
 /**
@@ -250,6 +260,7 @@ function search(query, style, limit) {
   const q = query.toLowerCase().trim()
   const words = wordsOf(query)
   if (!words.length) return []
+  const named = foreign[q] ?? foreign[words.join("-")]
 
   const hits = []
   for (const name of NAMES) {
@@ -257,7 +268,7 @@ function search(query, style, limit) {
 
     let rank
     if (name === q) rank = 0
-    else if (foreign[q] === name) rank = 1
+    else if (named === name) rank = 1
     else if (name.startsWith(q + "-")) rank = 2
     else if (wholeWord(name, q)) rank = 3
     else if (answers(name, words)) rank = 4

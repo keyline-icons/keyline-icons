@@ -8,7 +8,9 @@
         "pulse",
         "heartbeat",
         "health",
-        "vitals"
+        "vitals",
+        "status",
+        "current status"
       ]
     },
     {
@@ -184,7 +186,8 @@
         "organization",
         "business",
         "workplace",
-        "apartment"
+        "apartment",
+        "flat"
       ]
     },
     {
@@ -297,7 +300,8 @@
         "navigate",
         "explore",
         "bearing",
-        "discover"
+        "discover",
+        "explorer"
       ]
     },
     {
@@ -999,7 +1003,9 @@
         "faq",
         "support",
         "unknown",
-        "what"
+        "what",
+        "doubt",
+        "unsure"
       ]
     },
     {
@@ -1026,7 +1032,8 @@
         "path",
         "directions",
         "journey",
-        "trip"
+        "trip",
+        "trajectory"
       ]
     },
     {
@@ -1070,7 +1077,8 @@
         "geometry",
         "objects",
         "elements",
-        "design"
+        "design",
+        "geometric"
       ]
     },
     {
@@ -1225,7 +1233,9 @@
         "decline",
         "analytics",
         "stocks",
-        "arrow"
+        "arrow",
+        "economy",
+        "economics"
       ]
     },
     {
@@ -1301,7 +1311,10 @@
         "team",
         "group",
         "contacts",
-        "contact"
+        "contact",
+        "participate",
+        "participant",
+        "gather"
       ]
     },
     {
@@ -1492,7 +1505,8 @@
         "hardware",
         "build",
         "repair",
-        "maintenance"
+        "maintenance",
+        "equipment"
       ]
     },
     {
@@ -1534,7 +1548,11 @@
         "volume",
         "settings",
         "control",
-        "level"
+        "level",
+        "customize",
+        "customise",
+        "personalize",
+        "personalise"
       ]
     },
     {
@@ -1693,7 +1711,9 @@
         "privacy",
         "guard",
         "antivirus",
-        "insurance"
+        "insurance",
+        "cyber",
+        "cybersecurity"
       ]
     },
     {
@@ -2019,7 +2039,10 @@
         "survey",
         "questionnaire",
         "checklist",
-        "poll"
+        "poll",
+        "exam",
+        "quiz",
+        "answer sheet"
       ],
       "note": "What people type for a form they fill in: 2 empty searches for survey in the first month."
     },
@@ -2031,7 +2054,8 @@
         "study",
         "course",
         "learn",
-        "training"
+        "training",
+        "tutorial"
       ],
       "note": "The words a learner types: lesson, skill and study were empty searches before the shelf existed."
     },
@@ -2050,7 +2074,9 @@
         "analytics",
         "data",
         "report",
-        "stats"
+        "stats",
+        "analyse",
+        "analyze"
       ],
       "note": "Analysis and analytics are the words for a chart someone has not named yet."
     },
@@ -2073,7 +2099,8 @@
         "hdd",
         "disk",
         "storage",
-        "hard drive"
+        "hard drive",
+        "dns"
       ]
     },
     {
@@ -2082,7 +2109,8 @@
         "warehouse",
         "inventory",
         "stock",
-        "carton"
+        "carton",
+        "supply"
       ]
     },
     {
@@ -2142,7 +2170,9 @@
         "blog",
         "article",
         "post",
-        "essay"
+        "essay",
+        "description",
+        "describe"
       ]
     },
     {
@@ -2159,7 +2189,9 @@
       "terms": [
         "memory",
         "ram",
-        "processor chip"
+        "processor chip",
+        "tech",
+        "technology"
       ]
     },
     {
@@ -2209,6 +2241,214 @@
       "terms": [
         "feedback"
       ]
+    },
+    {
+      "match": "^keyframes$",
+      "terms": [
+        "animate",
+        "animated"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: animate 4 and animated 2 found nothing while animation found this."
+    },
+    {
+      "match": "^lungs$",
+      "terms": [
+        "oxygen"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: oxygen 3."
+    },
+    {
+      "match": "^newspaper$",
+      "terms": [
+        "feed",
+        "news feed"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: feed 3, the word for a stream of posts."
+    },
+    {
+      "match": "^(user|users)$",
+      "terms": [
+        "client",
+        "customer"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: client 3. Not on the whole `^user` family, or every sign would answer it."
+    },
+    {
+      "match": "^(gavel|scale)$",
+      "terms": [
+        "regulatory",
+        "regulation",
+        "compliance",
+        "judgment",
+        "judgement"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: regulatory 3, judgment once."
+    },
+    {
+      "match": "^send",
+      "terms": [
+        "sending"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: sending 2. The singular rule folds plurals, not -ing."
+    },
+    {
+      "match": "^rotate-(cw|ccw)$",
+      "terms": [
+        "rotation",
+        "rotating"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: rotation 2."
+    },
+    {
+      "match": "^rotate-3d$",
+      "terms": [
+        "360"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: 360 2, as in a 360 view."
+    },
+    {
+      "match": "^droplet$",
+      "terms": [
+        "oil"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: oil 2."
+    },
+    {
+      "match": "^user-cog$",
+      "terms": [
+        "manager",
+        "management"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: manager 2."
+    },
+    {
+      "match": "^hand-coins$",
+      "terms": [
+        "loan",
+        "lend",
+        "lending"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: loan 2."
+    },
+    {
+      "match": "^directions$",
+      "terms": [
+        "decide",
+        "decision",
+        "choice"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: decide 3 over two exports. The signpost is the fork in the road."
+    },
+    {
+      "match": "^(flask-conical|flask-round)$",
+      "terms": [
+        "chemical",
+        "substance"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: chemical 2, chemical substance 2."
+    },
+    {
+      "match": "^tent$",
+      "terms": [
+        "camp",
+        "camping",
+        "campsite"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: camp 2."
+    },
+    {
+      "match": "^clipboard-check$",
+      "terms": [
+        "audit",
+        "inspection"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: audit 2."
+    },
+    {
+      "match": "^(book|book-open)$",
+      "terms": [
+        "catalog",
+        "catalogue",
+        "chapter"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: catalog 3, chapter once."
+    },
+    {
+      "match": "^panel-top$",
+      "terms": [
+        "hero"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: hero 4 over two exports, the page's top section."
+    },
+    {
+      "match": "^train-front$",
+      "terms": [
+        "subway",
+        "underground"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: subway once while metro found this."
+    },
+    {
+      "match": "^globe-search$",
+      "terms": [
+        "websearch"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: websearch typed as one word, which the split cannot part."
+    },
+    {
+      "match": "^app-window-2$",
+      "terms": [
+        "modal",
+        "popup"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: modal once while dialog found this."
+    },
+    {
+      "match": "^timer$",
+      "terms": [
+        "chrono",
+        "chronometer"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: chrono once while stopwatch found this."
+    },
+    {
+      "match": "^crosshair$",
+      "terms": [
+        "coordinate"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: coordinate once."
+    },
+    {
+      "match": "^image$",
+      "terms": [
+        "img"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: img 2 over two exports, the tag people know it by."
+    },
+    {
+      "match": "^(boy|girl)$",
+      "terms": [
+        "children",
+        "child"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: children 2 while kid and kids found these. The singular rule cannot reach an irregular plural."
+    },
+    {
+      "match": "^wind-turbine$",
+      "terms": [
+        "clean energy",
+        "green energy"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: clean energy 3."
+    },
+    {
+      "match": "^leaf$",
+      "terms": [
+        "environmental",
+        "environmental science",
+        "ecology"
+      ],
+      "note": "Empty searches, 16 Aug to 16 Nov 2026: environmental science 2."
     }
   ],
   "names": {
