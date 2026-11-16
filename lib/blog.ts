@@ -6308,6 +6308,259 @@ export const BLOG_V250_REDRAWN_ICON_NAMES = [
 
 /* Food, clothing and building in turn, the three the title names. The poster
    wall takes the first eight, so the list has to reach eight or it stops short. */
+export const BLOG_V270_THUMBNAIL_ICON_NAMES = [
+  "cloud-snow",
+  "window-open",
+  "lamp-desk",
+  "curtains-open",
+  "garage-open",
+  "cloud-lightning-rain",
+  "layers-3",
+  "rainbow",
+  "sink",
+  "route-arrow-right",
+  "car-electric",
+  "cloud-moon-rain",
+  "mustache",
+  "sun-horizon",
+  "window-awning-open",
+  "merge",
+  "cloud-hail",
+  "lamp",
+  "haze",
+  "arrow-swap",
+  "layer-boxes",
+  "cloud-sun-rain",
+  "window-horizontal-open",
+  "split-2",
+  "cloud-fog",
+  "lamp-floor",
+  "cloud-rainbow",
+  "route-3",
+  "cloud-drizzle",
+  "layers-2-horizontal",
+  "curtains",
+  "window",
+  "garage",
+  "cloud-sleet",
+  "moon-haze",
+  "cloud-rain-wind",
+  "sun-rain",
+  "layers-horizontal",
+  "cloud-sun-lightning",
+  "circle-half-striped",
+] as const
+
+export const BLOG_V270_WEATHER_ICON_NAMES = [
+  "cloud-drizzle",
+  "cloud-rain-heavy",
+  "cloud-rain-wind",
+  "cloud-lightning-rain",
+  "cloud-sun-rain",
+  "cloud-sun-lightning",
+  "cloud-moon-rain",
+  "cloud-moon-lightning",
+  "cloud-sleet",
+  "cloud-hail",
+  "cloud-snow",
+  "cloud-fog",
+  "cloud-rainbow",
+  "rainbow",
+  "haze",
+  "moon-haze",
+  "sun-horizon",
+  "sun-rain",
+] as const
+
+export const BLOG_V270_OPEN_SHUT_ICON_NAMES = [
+  "window",
+  "window-open",
+  "window-awning",
+  "window-awning-open",
+  "window-horizontal",
+  "window-horizontal-open",
+  "curtains",
+  "curtains-open",
+  "garage",
+  "garage-open",
+] as const
+
+export const BLOG_V270_LAYERS_ICON_NAMES = [
+  "layers-2",
+  "layers-3",
+  "layers-horizontal",
+  "layers-2-horizontal",
+  "layers-3-horizontal",
+  "layer-boxes",
+  "route-2",
+  "route-3",
+  "route-arrow-right",
+  "merge",
+  "split-2",
+  "arrow-swap",
+] as const
+
+export const BLOG_V270_LEVEL_ICON_NAMES = [
+  "audio-lines-low",
+  "audio-lines-mid",
+  "audio-lines",
+] as const
+
+const RELEASE_2_7_0: BlogPost = {
+  /* Weather leads because "weather icons" is the widest search this batch can
+     win and no other post claims it; windows follow in the same title. The
+     lamps, the sink, the layers and the routes are found in the body. */
+  slug: "weather-and-window-icons",
+  version: "2.7.0",
+  title: "52 free weather and window icons for React, shadcn/ui and Figma",
+  description:
+    "1,885 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
+    "drizzle, sleet, hail and fog, windows and curtains, three lamps, a garage " +
+    "and layers.",
+  standfirst:
+    "Weather by the kind that falls, windows that open three ways, and layers " +
+    "turned on their side.",
+  date: "2026-11-16",
+  updated: "2026-11-16",
+  readingMinutes: 3,
+  thumbnail: BLOG_V270_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "weather icons",
+    "rain icon",
+    "snow icon",
+    "storm icon",
+    "fog icon",
+    "hail icon",
+    "rainbow icon",
+    "window icons",
+    "curtain icon",
+    "lamp icon",
+    "desk lamp icon",
+    "garage icon",
+    "sink icon",
+    "smart home icons",
+    "layers icon",
+    "route icon",
+    "free svg icons",
+    "shadcn/ui icons",
+    "figma icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "Drizzle and a downpour are different forecasts, and until this " +
+        "update the set had one rain cloud for both. 52 new drawings arrive " +
+        "here, every one in all four styles and both corner shapes, and the " +
+        "set now holds 1,885 names.",
+    },
+    {
+      kind: "p",
+      text:
+        "Eighteen of them are weather. The rest belong in a house or on a " +
+        "screen: windows that open three ways, curtains, a table lamp, a desk " +
+        "lamp and a floor lamp, a sink and a garage, layers that stand on " +
+        "their side, routes between stops and a few arrows.",
+    },
+
+    { kind: "h2", text: "The cloud stays, the weather changes", id: "weather" },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V270_WEATHER_ICON_NAMES,
+        caption: "Eighteen skies, from drizzle to a rainbow.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The new clouds start from the ones already in the set, so " +
+        "`cloud-sleet` and `cloud-hail` sit beside `cloud-rain` in a week's " +
+        "forecast as one family. In duotone the cloud turns grey and what " +
+        "falls from it stays black: the rain, the bolt or the hailstones are " +
+        "what someone reads a forecast for.",
+    },
+
+    { kind: "h2", text: "Open or shut, told apart by colour", id: "open-shut" },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V270_OPEN_SHUT_ICON_NAMES,
+        caption: "Every one comes shut and open.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "A smart-home screen shows a window or a garage next to its state, " +
+        "often at 20 pixels. In duotone the glass and a closed door are " +
+        "black and an opening is white, so a row of them reads as open or " +
+        "shut by colour alone. `window-awning-open` tilts out from the top " +
+        "and `window-horizontal-open` slides one side across.",
+    },
+
+    { kind: "h2", text: "Layers that stand on their side", id: "layers" },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V270_LAYERS_ICON_NAMES,
+        caption: "Stacks, routes and arrows.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "`layers` already showed sheets piled up. `layers-horizontal` turns " +
+        "the pile on its side for a carousel or a row of versions, in twos " +
+        "and threes like the upright ones, and `layer-boxes` gives the stack " +
+        "some depth. In duotone the front sheet is grey and the ones behind " +
+        "it are black, kept 2 pixels apart so the stack never runs together.",
+    },
+
+    { kind: "h2", text: "The meter keeps its width", id: "levels" },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V270_LEVEL_ICON_NAMES,
+        caption: "Low, middle and full.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "`audio-lines-low` and `audio-lines-mid` are the five bars of " +
+        "`audio-lines`, cut down to a level. They keep its width, so a " +
+        "volume control stepping through all three changes the height of " +
+        "the bars and nothing else.",
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text: "React, shadcn/ui, the CLI, the MCP server and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Changelog",
+      text: "Every drawing in this update, shelf by shelf.",
+    },
+  ],
+}
+
 export const BLOG_V260_THUMBNAIL_ICON_NAMES = [
   "croissant",
   "dress",
@@ -7518,6 +7771,7 @@ const REACT_NATIVE_ICONS: BlogPost = {
 export const BLOG_POSTS: readonly BlogPost[] = [
   REACT_NATIVE_ICONS,
   LUCIDE_ALTERNATIVES,
+  RELEASE_2_7_0,
   RELEASE_2_6_0,
   RELEASE_2_5_0,
   RELEASE_2_3_0,
