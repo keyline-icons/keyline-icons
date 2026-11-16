@@ -16,18 +16,15 @@ import history from "@/lib/icon-history.json"
 import { loadIcons, type Icon } from "@/lib/icons"
 import { blogJsonLd, pageMetadata } from "@/lib/seo"
 import { SET_TITLE } from "@/lib/site-chrome"
-import {
-  GuidePoster,
-  UpdatePoster,
-} from "@/components/blog-poster"
+import { GuidePoster, UpdatePoster } from "@/components/blog-poster"
 import { BookOpen } from "@/components/icons"
 import { Pager } from "@/components/pager"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteNav } from "@/components/site-nav"
 
 /**
- * The blog index: guides first, each across the full width, then the updates
- * in a grid, newest first.
+ * The blog index: the newest guide across the full width, a row of the newest
+ * updates, the other guides, then the rest of the updates, newest first.
  *
  * It exists as its own route rather than as a section of `/changelog` because
  * the two answer different questions and a reader arrives wanting one of them.
@@ -212,7 +209,7 @@ function Poster({
  */
 function FeatureTile({ post, icons }: { post: BlogPost; icons: Icon[] }) {
   return (
-    <li>
+    <li className="col-span-full">
       <Link
         href={postHref(post.slug)}
         className="group grid overflow-hidden rounded-lg bg-muted p-2 transition-colors hover:bg-muted-hover md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]"
@@ -349,6 +346,28 @@ export default async function Page({
   const toneOf = (i: number) => all.length - 1 - (first + i)
   /* The coming update leads page 1. */
   const upcoming = page === 1 ? BLOG_UPCOMING : null
+  const tiles = [
+    ...(upcoming
+      ? [
+          <UpcomingTile
+            key="upcoming"
+            version={upcoming.version}
+            tone={all.length}
+          />,
+        ]
+      : []),
+    ...updates.map(({ post, icons: field }, i) => (
+      <Tile key={post.slug} post={post} icons={field} tone={toneOf(i)} />
+    )),
+  ]
+  /*
+    The newest guide leads, one row of the newest updates follows, then the
+    other guides and the rest (his ask, 16 Nov 2026, a second guide having
+    pushed the newest update two screens down). A row is three, as at `xl`.
+  */
+  const [lead, ...otherGuides] = guides
+  const firstRow = lead ? tiles.slice(0, 3) : []
+  const rest = lead ? tiles.slice(3) : tiles
 
   return (
     <>
@@ -402,31 +421,20 @@ export default async function Page({
         </header>
 
         {/* Apple's order: the lead story across the width, then rows of
-            three, the coming update first. Three only from `xl`: at 1024 a
-            third of the column is 240px and the wall's drawings fall under
-            14px, which is why Apple's own page holds two to a row there. */}
-        <div className="flex flex-col gap-8 lg:gap-10">
-          {guides.length > 0 && (
-            <ul className="flex flex-col gap-8 lg:gap-10">
-              {guides.map(({ post, icons: field }) => (
-                <FeatureTile key={post.slug} post={post} icons={field} />
-              ))}
-            </ul>
-          )}
-          <ul className="grid gap-8 sm:grid-cols-2 lg:gap-10 xl:grid-cols-3">
-            {upcoming && (
-              <UpcomingTile version={upcoming.version} tone={all.length} />
-            )}
-            {updates.map(({ post, icons: field }, i) => (
-              <Tile
-                key={post.slug}
-                post={post}
-                icons={field}
-                tone={toneOf(i)}
-              />
-            ))}
-          </ul>
-        </div>
+            three, the coming update first, with the other guides across the
+            width after the first row. Three only from `xl`: at 1024 a third
+            of the column is 240px and the wall's drawings fall under 14px,
+            which is why Apple's own page holds two to a row there. One grid,
+            so a guide after a row of three leaves no hole at two across:
+            dense flow moves the next update up beside the third. */}
+        <ul className="grid grid-flow-row-dense gap-8 sm:grid-cols-2 lg:gap-10 xl:grid-cols-3">
+          {lead && <FeatureTile post={lead.post} icons={lead.icons} />}
+          {firstRow}
+          {otherGuides.map(({ post, icons: field }) => (
+            <FeatureTile key={post.slug} post={post} icons={field} />
+          ))}
+          {rest}
+        </ul>
 
         <Pager
           current={page}
