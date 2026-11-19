@@ -1,7 +1,12 @@
 import Link from "next/link"
 
 import { BrandMark } from "@/components/brand-mark"
-import { FigmaLogo, MakerMark, XLogo } from "@/components/brand-logos"
+import {
+  FigmaLogo,
+  MakerMark,
+  MakerSoon,
+  XLogo,
+} from "@/components/brand-logos"
 import {
   LEGAL,
   MAKER_LABEL,
@@ -105,7 +110,7 @@ export function SiteFooter() {
           the row 53px on its own, which is what took the wrap from ugly to
           obvious.
         */}
-        <div className="flex flex-col gap-8 pb-10 xl:flex-row xl:items-center xl:justify-between">
+        <div className="flex flex-col gap-8 pb-6 xl:flex-row xl:items-center xl:justify-between">
           {/*
             The mark and the year as one block, so the line reads as the
             wordmark's own small print rather than as a separate band.
@@ -187,37 +192,6 @@ export function SiteFooter() {
                 >
                   {link.label}
                 </Link>
-              ))}
-            </nav>
-
-            {/*
-              The maker's other projects, as a credit under the notice rather
-              than as a third group in the row opposite. That row is measured
-              to fit beside this block at `xl`, and two more names would break
-              it onto a second line at exactly the width it was fixed for.
-
-              Under the notice is also where it reads right: who made this, and
-              what else they make, in the same small print. The label is the
-              one ink-strength word, so the line cannot be read as two more
-              legal links.
-            */}
-            <nav
-              aria-label={MAKER_LABEL}
-              className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs"
-            >
-              <span className="font-medium text-foreground">{MAKER_LABEL}</span>
-              {MAKER_PROJECTS.map((project) => (
-                <a
-                  key={project.id}
-                  href={project.href}
-                  target="_blank"
-                  rel="noopener"
-                  className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  <MakerMark project={project} className="size-3.5" />
-                  {project.name}
-                  <span className="sr-only">{" (opens in a new tab)"}</span>
-                </a>
               ))}
             </nav>
           </div>
@@ -317,6 +291,51 @@ export function SiteFooter() {
             </div>
           </nav>
         </div>
+
+        {/*
+          The maker's other projects, as a credit under everything else: who
+          made this, and what else they make, in the same small print. The
+          label is the one ink-strength word, so the line cannot be read as
+          more legal links.
+
+          A row of its own, the container's full width, rather than a line
+          under the notice. In that column it set the column's width, and a
+          third name, cilo with its "Coming soon" tag, either widened it
+          until the links opposite broke onto two lines each or wrapped onto
+          a second line of its own. Here all three sit on one line.
+        */}
+        <nav
+          aria-label={MAKER_LABEL}
+          className="flex flex-wrap items-center gap-x-4 gap-y-2 pb-10 text-xs"
+        >
+          <span className="font-medium text-foreground">{MAKER_LABEL}</span>
+          {MAKER_PROJECTS.map((project) =>
+            // Not open yet: the name holds its place, with no link.
+            project.soon ? (
+              <span
+                key={project.id}
+                aria-disabled="true"
+                className="inline-flex items-center gap-1.5 text-muted-foreground/70"
+              >
+                <MakerMark project={project} className="size-3.5" />
+                {project.name}
+                <MakerSoon />
+              </span>
+            ) : (
+              <a
+                key={project.id}
+                href={project.href}
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <MakerMark project={project} className="size-3.5" />
+                {project.name}
+                <span className="sr-only">{" (opens in a new tab)"}</span>
+              </a>
+            )
+          )}
+        </nav>
       </div>
     </footer>
   )

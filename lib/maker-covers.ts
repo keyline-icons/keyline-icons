@@ -1,5 +1,6 @@
 import type { StaticImageData } from "next/image"
 
+import cilo from "@/public/maker/cilo.png"
 import overflow from "@/public/maker/overflow.jpg"
 import preline from "@/public/maker/preline.png"
 
@@ -21,8 +22,14 @@ import preline from "@/public/maker/preline.png"
  * Here rather than beside the list in `lib/site-chrome.ts`, which imports
  * nothing so that the client bar can read it, and only the landing page shows
  * pictures. A project with no entry here gets a card without one.
+ *
+ * cilo's is the exception: it publishes no `og:image` yet, so its card is its
+ * own landing page, the hero and the top of its live cards, captured at
+ * 1200 by 630 from its dev server on 19 Nov 2026. Replace it with cilo's own
+ * card when the site ships one.
  */
 export const MAKER_COVERS: Partial<Record<string, StaticImageData>> = {
   overflow,
   preline,
+  cilo,
 }

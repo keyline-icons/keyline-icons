@@ -565,15 +565,16 @@ export function RedditLogo(props: LogoProps) {
  * The marks of the maker's other projects, for `MAKER_PROJECTS` in
  * `lib/site-chrome.ts`.
  *
- * In `currentColor`, both of them, so they sit in the bar's menu, the footer and
+ * In `currentColor`, all of them, so they sit in the bar's menu, the footer and
  * the landing page's cards in the same ink as GitHub's and X's. That is each
  * project's own rule rather than this site's: Overflow's mark is drawn in
- * `currentColor` on its own site, and Preline's turns white in its own dark
- * theme, so neither is a fixed colour the way Figma's five are.
+ * `currentColor` on its own site, Preline's turns white in its own dark theme,
+ * and cilo's has a one-ink form of its own for stamps and small sizes, so none
+ * is a fixed colour the way Figma's five are.
  *
  * The paths are each project's published mark, not redrawn: Overflow's from its
  * `lib/brand-mark.json`, Preline's the symbol half of its wordmark, cropped to
- * the square it sits in.
+ * the square it sits in, cilo's the plates of its `components/cilo-logo.tsx`.
  */
 export function OverflowLogo(props: LogoProps) {
   return (
@@ -635,11 +636,50 @@ export function PrelineLogo(props: LogoProps) {
  * The marks above, filed under each project's `id`. Partial on purpose: a
  * project added to the list before its mark is drawn renders by name alone.
  */
+/**
+ * cilo's mark in its own one-ink form: the four plates of the C (top arm, left
+ * plate, bottom arm, the panel) in `currentColor`, and no lights. That is the
+ * form cilo draws for a stamp or a row's 16px, where the panel's fifteen
+ * orange lights are sub-pixel noise. The 85 by 100 mark sits centred in a
+ * square, the frame of cilo's own favicon.
+ */
+export function CiloLogo(props: LogoProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="-7.5 0 100 100"
+      fill="currentColor"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M13.5 11.5 25 0h51.5l8 8v8H36l-9 9Z" />
+      <path d="M12.9 12.1 26.4 25.6 21 31v63.5L0 73.5V25Z" />
+      <path d="M21.6 71.5 35 85h49.5v6.5l-8 8H26.6l-5-5Z" />
+      <path d="M8 44 21 31v64L8 82Z" />
+    </svg>
+  )
+}
+
 export const MAKER_LOGOS: Partial<
   Record<string, (props: LogoProps) => React.ReactElement>
 > = {
   overflow: OverflowLogo,
   preline: PrelineLogo,
+  cilo: CiloLogo,
+}
+
+/**
+ * The tag a `soon` project wears in place of its address or arrow. Outlined
+ * rather than filled, like the New badge in the preview panel, so it reads as
+ * a note on the name rather than one more button.
+ */
+export function MakerSoon() {
+  return (
+    <span className="rounded-full border border-border px-1.5 text-[10px] leading-4 font-medium whitespace-nowrap text-muted-foreground">
+      Coming soon
+    </span>
+  )
 }
 
 /** A project's mark, or nothing if it has none yet. */

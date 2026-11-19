@@ -428,6 +428,12 @@ export type MakerProject = {
   href: string
   /** One line on what it is, for the bar's menu and the landing page's cards. */
   description: string
+  /**
+   * Listed but not open yet: every surface draws it muted, with no link and
+   * "Coming soon" where its address or arrow would be. For a project whose
+   * site is not up, so the place is held without sending anyone to an error.
+   */
+  soon?: boolean
 }
 
 export const MAKER_PROJECTS: readonly MakerProject[] = [
@@ -443,6 +449,16 @@ export const MAKER_PROJECTS: readonly MakerProject[] = [
     href: "https://preline.co",
     description:
       "Open-source Tailwind CSS components, with Pro blocks and templates",
+  },
+  {
+    id: "cilo",
+    // Lower case, as cilo writes its own name.
+    name: "cilo",
+    href: "https://cilo.sh",
+    description:
+      "Blocks, templates and themes for products where an agent does part of the work",
+    // cilo.sh answers 503 for now (19 Nov 2026); drop this when it is up.
+    soon: true,
   },
 ]
 

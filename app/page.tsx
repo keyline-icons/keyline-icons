@@ -2,7 +2,12 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 
-import { GitHubLogo, MakerMark, NpmLogo } from "@/components/brand-logos"
+import {
+  GitHubLogo,
+  MakerMark,
+  MakerSoon,
+  NpmLogo,
+} from "@/components/brand-logos"
 import { ArrowRight, ArrowUpRight } from "@/components/icons"
 import { Glyph } from "@/components/glyph"
 import { HomeSearch } from "@/components/home-search"
@@ -1088,53 +1093,82 @@ export default async function Page() {
         <section className={`${CONTAINER} pt-16 pb-8 lg:pt-24 lg:pb-12`}>
           <SectionHead title={MAKER_LABEL} />
 
-          <ul className="mx-auto mt-10 flex max-w-5xl flex-wrap justify-center gap-3">
+          {/*
+            One row of three from `lg`, the projects side by side as equals.
+            Two to a row left the third alone and centred on a row of its own,
+            which read as an afterthought. Below `lg` they stack, each capped
+            at 576 so a picture does not run the column's whole width.
+          */}
+          <ul className="mx-auto mt-10 flex max-w-6xl flex-wrap justify-center gap-3">
             {MAKER_PROJECTS.map((project) => {
               const cover = MAKER_COVERS[project.id]
+              const card = "flex h-full flex-col gap-6 rounded-lg bg-muted p-6"
+
+              const body = (
+                <>
+                  {/*
+                    Cropped to 1200 by 630, the shape `og:image` is drawn to,
+                    so a card whose site publishes another shape (Overflow's is
+                    1500 by 960) loses margin top and bottom rather than
+                    standing taller than its neighbour. Empty `alt`: the link's
+                    name is the text under it, and the picture is the
+                    project's advert for itself rather than content of this
+                    page.
+                  */}
+                  {cover && (
+                    <Image
+                      src={cover}
+                      alt=""
+                      sizes="(min-width: 1024px) 328px, (min-width: 640px) 528px, calc(100vw - 96px)"
+                      className="aspect-[1200/630] w-full rounded-md object-cover"
+                    />
+                  )}
+                  <p className="text-lg leading-snug font-medium tracking-tight text-balance text-muted-foreground">
+                    <span className="flex items-center gap-2 text-foreground">
+                      <MakerMark project={project} className="size-5" />
+                      {project.name}
+                    </span>
+                    {project.description}
+                  </p>
+                  {/* `mt-auto`, so the address lines up across cards whose
+                      descriptions run to different lengths. */}
+                  <span className="mt-auto flex items-center gap-1 text-sm text-muted-foreground">
+                    {project.soon ? (
+                      <MakerSoon />
+                    ) : (
+                      <>
+                        {makerHost(project)}
+                        <ArrowUpRight aria-hidden="true" className="size-4" />
+                      </>
+                    )}
+                  </span>
+                </>
+              )
 
               return (
                 <li
                   key={project.id}
-                  className="w-full md:w-[calc((100%-0.75rem)/2)]"
+                  className="w-full max-w-xl lg:w-[calc((100%-1.5rem)/3)] lg:max-w-none"
                 >
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener"
-                    className="flex h-full flex-col gap-6 rounded-lg bg-muted p-6 transition-colors hover:bg-muted-hover"
-                  >
-                    {/*
-                      Cropped to 1200 by 630, the shape `og:image` is drawn to,
-                      so a card whose site publishes another shape (Overflow's
-                      is 1500 by 960) loses margin top and bottom rather than
-                      standing taller than its neighbour. Empty `alt`: the
-                      link's name is the text under it, and the picture is the
-                      project's advert for itself rather than content of this
-                      page.
-                    */}
-                    {cover && (
-                      <Image
-                        src={cover}
-                        alt=""
-                        sizes="(min-width: 1088px) 458px, (min-width: 768px) 42vw, calc(100vw - 96px)"
-                        className="aspect-[1200/630] w-full rounded-md object-cover"
-                      />
-                    )}
-                    <p className="text-lg leading-snug font-medium tracking-tight text-balance text-muted-foreground">
-                      <span className="flex items-center gap-2 text-foreground">
-                        <MakerMark project={project} className="size-5" />
-                        {project.name}
-                      </span>
-                      {project.description}
-                    </p>
-                    {/* `mt-auto`, so the address lines up across cards whose
-                        descriptions run to different lengths. */}
-                    <span className="mt-auto flex items-center gap-1 text-sm text-muted-foreground">
-                      {makerHost(project)}
-                      <ArrowUpRight aria-hidden="true" className="size-4" />
-                    </span>
-                    <span className="sr-only">{" (opens in a new tab)"}</span>
-                  </a>
+                  {/*
+                    A project that is not open yet keeps its card, faded and
+                    not a link, with "Coming soon" where the address goes.
+                  */}
+                  {project.soon ? (
+                    <div aria-disabled="true" className={`${card} opacity-60`}>
+                      {body}
+                    </div>
+                  ) : (
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener"
+                      className={`${card} transition-colors hover:bg-muted-hover`}
+                    >
+                      {body}
+                      <span className="sr-only">{" (opens in a new tab)"}</span>
+                    </a>
+                  )}
                 </li>
               )
             })}
