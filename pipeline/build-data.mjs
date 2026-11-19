@@ -326,7 +326,7 @@ if (unglyphed.length) {
  */
 const renamed = Object.fromEntries(
   JSON.parse(await readFile(join(ROOT, "lib", "icon-renames.json"), "utf8"))
-    .renames.filter(({ version, to }) => Number(version.split(".")[0]) >= 1 && sorted[to])
+    .renames.filter(({ version, to, reclaimed }) => Number(version.split(".")[0]) >= 1 && sorted[to] && !reclaimed)
     .map(({ from, to }) => [from, to])
 )
 

@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Sprout({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 22L4 22C3.4477 22 3 21.5523 3 21C3 20.7836 3.0702 20.5731 3.2 20.4C5.2774 17.6301 8.5377 16 12 16C15.4623 16 18.7226 17.6301 20.8 20.4C20.9298 20.5731 21 20.7836 21 21C21 21.5523 20.5523 22 20 22ZM13.8073 6.0891C12.1366 7.7122 11.0728 9.9644 11.0004 12.4712C11.0001 12.4808 11 12.4904 11 12.5C11 13.018 11.3956 13.4503 11.9116 13.4961C12.1843 13.5203 12.4581 13.5325 12.7323 13.5325C17.7484 13.5325 21.8549 9.5429 21.9996 4.5288C21.9999 4.5192 22 4.5096 22 4.5C22 3.982 21.6044 3.5497 21.0884 3.5039C20.8157 3.4797 20.5419 3.4675 20.2677 3.4675C17.7599 3.4675 15.478 4.4659 13.8073 6.0891Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M10.1985 4.6115C8.5328 2.9944 6.2585 2 3.7593 2C3.475 2 3.191 2.0131 2.9081 2.0392C2.3936 2.0867 2 2.5183 2 3.035C2 3.0449 2.0001 3.0548 2.0004 3.0646C2.1486 8.0612 6.2419 12.035 11.2407 12.035C11.525 12.035 11.809 12.0219 12.0919 11.9958C12.6064 11.9483 13 11.5167 13 11C13 10.9901 12.9999 10.9802 12.9996 10.9704C12.9255 8.4723 11.8641 6.2285 10.1985 4.6115Z" fill="currentColor" stroke="none"/>
+      <path d="M12 17L12 11"/>
+    </svg>
+  )
+}

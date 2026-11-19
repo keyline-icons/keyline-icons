@@ -213,6 +213,8 @@ const SIZE_KNOWN = new Set([
   // The plain hexagon (2.0.0) is drawn equilateral, so its proportion is fixed: 22 tall makes it 20
   // wide, and 22 wide would stand it 25 tall, past the canvas.
   'hexagon',
+  // Six petals on an equilateral hexagon (2.8.0): the hexagon's own proportion, so 22 tall makes it 20 wide.
+  'flower',
   'bell', 'paperclip', 'wifi', 'wifi-info', 'wifi-exclamation',
   'repeat', 'repeat-1',
   'arrow-down-left', 'arrow-down-right', 'arrow-up-left', 'arrow-up-right',

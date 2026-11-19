@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function SolarPanel({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 16L5.0037 16C3.5316 16 2.3073 15.226 1.6177 14.1296C0.9281 13.0332 0.7607 11.5945 1.3984 10.2676L4.2815 4.2676C4.9475 2.8815 6.3491 2 7.8868 2L16.1132 2C17.6509 2 19.0525 2.8815 19.7186 4.2676L22.6016 10.2676C23.2393 11.5945 23.0719 13.0332 22.3823 14.1296C21.6927 15.226 20.4684 16 18.9963 16Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M5.1828 4.7007C5.6823 3.6611 6.7335 3 7.8868 3L16.1132 3C17.2665 3 18.3177 3.6611 18.8172 4.7007L21.7003 10.7007C22.6574 12.6923 21.2059 15 18.9963 15L5.0037 15C2.7941 15 1.3426 12.6923 2.2997 10.7007ZM10 3L8.0779 15M14 3L15.9221 15M3.1169 9L20.8831 9M12 15V21M8 21H16"/>
+    </svg>
+  )
+}

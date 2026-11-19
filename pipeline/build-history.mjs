@@ -58,16 +58,30 @@ const NOTES = JSON.parse(
  * Renames from 0.x are left alone. Their releases were published counting the
  * new name as new, and reading them this way now would change those counts.
  */
-const RENAMED = new Map(
-  JSON.parse(readFileSync(join(ROOT, "lib", "icon-renames.json"), "utf8"))
-    .renames.filter(({ version }) => Number(version.split(".")[0]) >= 1)
-    .map(({ from, to }) => [from, to])
-)
-const canon = (name) => {
+const RENAMES = JSON.parse(readFileSync(join(ROOT, "lib", "icon-renames.json"), "utf8"))
+  .renames.filter(({ version }) => Number(version.split(".")[0]) >= 1)
+const RENAMED = new Map(RENAMES.filter((r) => !r.reclaimed).map(({ from, to }) => [from, to]))
+/**
+ * A name taken back (`reclaimed`) means two drawings at two times: `flower` was
+ * the five rings until 2.6.0 renamed them `circles-five`, and a real flower from
+ * 2.8.0. So it reads as its rename only at an instant no later than the rename's
+ * own tag; every rename's path left the tree before its tag, and the reclaiming
+ * drawing arrives after it. A question with no instant (the prior file, written
+ * in current names) gets the name as it stands.
+ */
+const RECLAIMED = new Map(RENAMES.filter((r) => r.reclaimed).map(({ from, to, version }) => [from, { to, version }]))
+const canon = (name, at) => {
   let now = name
-  while (RENAMED.has(now)) now = RENAMED.get(now)
-  return now
+  for (;;) {
+    if (RENAMED.has(now)) { now = RENAMED.get(now); continue }
+    const r = RECLAIMED.get(now)
+    const until = r && releases.find((x) => x.version === r.version)?.date
+    if (r && at && until && Date.parse(at) <= Date.parse(until)) { now = r.to; continue }
+    return now
+  }
 }
+/** A release's date, for reading the names it was written with; none for one not yet tagged. */
+const dateOf = (version) => releases.find((r) => r.version === version)?.date
 
 /**
  * Every name a rename took somewhere, from any version.
@@ -517,7 +531,7 @@ const inventory = new Map(releases.map((r) => [r.version, held(r.tag)]))
 
 /** The same trees in current names, for every question about membership. See `canon`. */
 const known = new Map(
-  [...inventory].map(([v, names]) => [v, new Set([...names].map(canon))])
+  [...inventory].map(([v, names]) => [v, new Set([...names].map((n) => canon(n, dateOf(v))))])
 )
 
 /**
@@ -552,7 +566,7 @@ for (const line of log.split("\n")) {
 
   const path = /^icons\/(?:stroke|two-tone|duotone|fill)\/(.+)\.svg$/.exec(line)?.[1]
   if (!path || !at) continue
-  const name = canon(path)
+  const name = canon(path, at)
 
   const entry = dates.get(name)
   if (!entry) dates.set(name, { added: at, updated: at, by: new Set([who]) })
@@ -703,7 +717,7 @@ const topicsFor = (version, names, updatedNames, removedNames = []) => {
   const gone = new Set(removedNames)
   const claimed = new Set()
   const own = (list, pool) =>
-    (list ?? []).map(canon).filter((n) => pool.has(n) && !claimed.has(n) && claimed.add(n))
+    (list ?? []).map((n) => canon(n, dateOf(version))).filter((n) => pool.has(n) && !claimed.has(n) && claimed.add(n))
   /* One level of nesting is all a release needs: the `Redrawn` section holds
      its shelves. Written recursively anyway, so a second level costs nothing. */
   const section = (topic, parent) => {
@@ -749,7 +763,7 @@ const topicsFor = (version, names, updatedNames, removedNames = []) => {
 }
 
 const inFigmaOrder = (version, names) => {
-  const want = ORDER[version]?.map(canon)
+  const want = ORDER[version]?.map((n) => canon(n, dateOf(version)))
   if (!want) return names
   const have = new Set(names)
   const out = want.filter((n) => have.has(n))

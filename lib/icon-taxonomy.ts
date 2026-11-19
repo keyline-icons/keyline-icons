@@ -72,6 +72,11 @@ export const CATEGORIES = [
   // in Media beside image, the telescope in Science, coins in hand in Finance, the notebooks in Stationery, and the
   // gavel, the balances and the signature in Law, a shelf opened for them.
   //
+  // Filed 19 Nov 2026, when Zafar passed 2.8.0's search-gap batch (reviewed in Figma only, so no row was opened here):
+  // the lasso and the pipette in Art beside the magic wand and the palette, as the tools a design app puts with the paint
+  // bucket; solar and solar-panel in Nature beside the turbine, energy rather than weather; the hard hat in Tools; the
+  // party popper in Emoji as a reaction; the sticker in Stationery by the sticky notes; the teacher in Education.
+  //
   // Closed 11 Oct 2026, when Zafar passed 1.8.0: the long arrows a user asked for, the other set's `move-*` row
   // name to name, in Arrows beside `move`, with the short pairs' third and fourth drawings and undo and redo.
   // Zafar's refs batch filed with its families: flame-2 in Actions beside flame, the sparkle compounds and
@@ -92,7 +97,7 @@ export const CATEGORIES = [
   // which is why this is anchored on the two names rather than on `brain`.
   {
     label: "AI",
-    match: /(^|(?<!bubbles)-)sparkles?$|^(bot(-off|-circle|-square|-heart|-droplet|-star|-message|-cloud|-simple)?$|brain-circuit|brain-cog)/,
+    match: /(^|(?<!bubbles)-)sparkles?$|^(bot(-off|-circle|-square|-heart|-droplet|-star|-message|-cloud|-simple|-network)?$|brain-circuit|brain-cog)/,
     blurb:
       "The bots, the brain wired to a circuit and turning a cog, the sparkles and everything they mark as AI.",
   },
@@ -418,7 +423,7 @@ export const CATEGORIES = [
   // rather than verbs; a face is not a person and a thumb is not a verb.
   {
     label: "Emoji",
-    match: /^(?:ghost)$|^(face-|thumbs-|alien$)/,
+    match: /^(?:ghost|party-popper)$|^(face-|thumbs-|alien$)/,
     blurb: "Faces, an alien's among them, and the reactions that go with them.",
   },
   {
@@ -459,8 +464,8 @@ export const CATEGORIES = [
     // an achievement and belongs beside a trophy; it is a school, and that is
     // what someone types looking for it.
     label: "Education",
-    match: /^(?:backpack)$|^graduation-cap/,
-    blurb: "The mortarboard.",
+    match: /^(?:backpack|teacher)$|^graduation-cap/,
+    blurb: "The mortarboard and the teacher at the board.",
   },
   // Three shelves opened 13 Sep 2026 with the twenty-nine of batch B, whose
   // names had been filing under Other. Each files by what the drawing IS.
@@ -515,8 +520,8 @@ export const CATEGORIES = [
     // `cooking-pot` and `grill` joined with the 2.3.0 stays batch: what the food is cooked in, beside the bowl it
     // is served in. The coffee maker and its pot came in on the `coffee` prefix.
     // 2.5.0 brought breakfast, a soda can, a spoon and fork, and the cooking pot's -off state.
-    match: /^(?:banana|beef|beer|burger-box-hot|croissant|cup-soda|donut|drumstick|grape|hot-tea|popcorn|salad|taco|wine)$|^(coffee|cake|soup|bottle|cookie$|hamburger$|pizza$|cooking-pot(-off)?$|grill$|breakfast$|can-soda$|utensils$)/,
-    blurb: "The mug, the coffee maker and its pot, breakfast, the cake, the bowl, a spoon and fork, a cooking pot, a grill, the bottle, a soda can, a cookie, a burger and a slice of pizza.",
+    match: /^(?:banana|beef|beer|burger-box-hot|croissant|cup-soda|donut|drumstick|grape|hot-tea|popcorn|salad|slice|taco|wine)$|^(coffee|cake|soup|bottle|cookie$|hamburger$|pizza$|cooking-pot(-off)?$|grill$|breakfast$|can-soda$|utensils$)/,
+    blurb: "The mug, the coffee maker and its pot, breakfast, the cake, the bowl, a spoon and fork, a kitchen knife, a cooking pot, a grill, the bottle, a soda can, a cookie, a burger and a slice of pizza.",
   },
   {
     // Ahead of Tools, which would otherwise be the shelf a brush and a roller
@@ -530,8 +535,8 @@ export const CATEGORIES = [
     // its magic wand. Anchored, so `frame-*` is filed on purpose.
     label: "Art",
     // `vector-square` and `vector-polygon` joined on 20 Oct 2026 (2.1.0): the vector tool's nodes, beside the frame tool.
-    match: /^(?:brush|scribble)$|^(paint|palette|easel|swatch-book$|wand$|frame$|vector-)/,
-    blurb: "The brush, the roller, the palette, the swatch book, the easel, the magic wand, the frame tool and the vector nodes.",
+    match: /^(?:brush|scribble|lasso|pipette)$|^(paint|palette|easel|swatch-book$|wand$|frame$|vector-)/,
+    blurb: "The brush, the roller, the paint bucket, the palette, the pipette, the swatch book, the easel, the magic wand, the lasso, the frame tool and the vector nodes.",
   },
   {
     // The shelf follows what the thing is, not what the drawing is made of: a
@@ -543,8 +548,8 @@ export const CATEGORIES = [
     // `drafting-compass`, `hook` and `gripper` joined on 20 Oct 2026 (2.1.0): the compass beside the
     // pencil and ruler, the crane's hook and the claw.
     // `flashlight` joined on 25 Oct 2026 (2.2.0): the torch from the same drawer.
-    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler|scissors|broom|drafting-compass$|hook$|gripper$|flashlight(-off)?$)/,
-    blurb: "The toolbox, the broom and what comes out of them, a drafting compass, a hook, a gripper and a flashlight.",
+    match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler|scissors|broom|drafting-compass$|hook$|gripper$|flashlight(-off)?$|hard-hat$)/,
+    blurb: "The toolbox, the broom and what comes out of them, a drafting compass, a hook, a gripper, a flashlight and a hard hat.",
   },
   {
     // Opened 11 Sep 2026 for the two of batch A that no shelf could take. Tools
@@ -559,8 +564,8 @@ export const CATEGORIES = [
     label: "Stationery",
     // The rubber stamp joined on 28 Sep 2026: an office drawer's tool for marking
     // a paper approved. Anchored, so a `stamp-*` family is filed on purpose.
-    match: /^(eraser|tape|stapler|notebook|sticky-note|pin(-|$)|stamp$)/,
-    blurb: "The desk drawer: the eraser, the roll of tape, the sticky notes, the notebooks, the push pin and the rubber stamp.",
+    match: /^(eraser|tape|stapler|notebook|sticky-note|sticker$|pin(-|$)|stamp$)/,
+    blurb: "The desk drawer: the eraser, the roll of tape, the sticky notes, a sticker, the notebooks, the push pin and the rubber stamp.",
   },
   {
     label: "Shapes",
@@ -625,8 +630,8 @@ export const CATEGORIES = [
     label: "Nature",
     // `waves` and `waves-2` joined on 20 Oct 2026 (2.1.0): water on the move, beside the droplet.
     // `feather` and `mountain` joined on 25 Oct 2026 (2.2.0): two feathers and the snow-capped peak.
-    match: /^(tree|leaf|feather|droplet|wind-turbine|recycle|waves|mountain)(-|s$|$)/,
-    blurb: "Trees, leaves, feathers, water, a snow-capped mountain, the turbine and the recycling arrows, with the off and plural forms.",
+    match: /^(?:solar|solar-panel)$|^(tree|leaf|feather|flower|sprout|droplet|wind-turbine|recycle|waves|mountain)(-|s$|$)/,
+    blurb: "Trees, leaves, a flower and a sprout, feathers, water, a snow-capped mountain, the turbine, a solar panel and the sun rising over one, and the recycling arrows, with the off and plural forms.",
   },
   {
     // `pig` is anchored so it cannot reach `piggy-bank`, which is Finance's and

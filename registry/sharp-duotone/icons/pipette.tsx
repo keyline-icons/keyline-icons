@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Pipette({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M3.2101 19.3756L3.9286 15.7834C3.9673 15.5898 4.0625 15.412 4.2021 15.2724L7.007 12.4675C7.3976 12.077 8.0307 12.077 8.4212 12.4675L11.5325 15.5788C11.923 15.9693 11.923 16.6024 11.5325 16.993L8.7276 19.7979C8.588 19.9375 8.4102 20.0327 8.2166 20.0714L4.6244 20.7899L3.4142 22L2 20.5858Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M14.1134 15.3313L8.6687 9.8866C7.419 8.6369 7.419 6.6107 8.6687 5.3611C9.9184 4.1114 11.9445 4.1114 13.1942 5.3611L13.2649 5.4318L15.5984 3.0983C17.0629 1.6338 19.4372 1.6338 20.9017 3.0983C22.3662 4.5628 22.3662 6.9371 20.9017 8.4016L18.5682 10.7351L18.6389 10.8058C19.8886 12.0555 19.8886 14.0816 18.6389 15.3313C17.3893 16.581 15.3631 16.581 14.1134 15.3313Z" fill="currentColor"/>
+    </svg>
+  )
+}

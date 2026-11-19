@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function HardHat({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M1 19C1 17.3431 2.3431 16 4 16L20 16C21.6569 16 23 17.3431 23 19C23 20.6569 21.6569 22 20 22L4 22C2.3431 22 1 20.6569 1 19Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M16.5008 5.2048C19.1902 6.7609 21 9.6682 21 13C21 13.5523 20.5523 14 20 14L4 14C3.4477 14 3 13.5523 3 13C3 9.6682 4.8098 6.7609 7.4992 5.2048C7.6514 5.1168 7.8241 5.0704 8 5.0704C8.5523 5.0704 9 5.5181 9 6.0704L9 10C9 10.5523 9.4477 11 10 11C10.5523 11 11 10.5523 11 10L11 3C11 2.4477 11.4477 2 12 2C12.5523 2 13 2.4477 13 3L13 10C13 10.5523 13.4477 11 14 11C14.5523 11 15 10.5523 15 10L15 6.0704C15 5.5181 15.4477 5.0704 16 5.0704C16.1759 5.0704 16.3486 5.1168 16.5008 5.2048Z" fill="currentColor"/>
+    </svg>
+  )
+}

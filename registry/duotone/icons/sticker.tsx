@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Sticker({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M19.8284 12.7574C15.9629 12.8516 12.8516 15.9629 12.7574 19.8284Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23C12.2652 23 12.5196 22.8946 12.7071 22.7071L22.7071 12.7071C22.8946 12.5196 23 12.2652 23 12ZM19.8284 12.7574L12.7574 19.8284C12.8516 15.9629 15.9629 12.8516 19.8284 12.7574Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

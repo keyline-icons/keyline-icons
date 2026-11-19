@@ -356,6 +356,9 @@ than a square, `octagon-alert` covers ~360 units at 20 against a
 disc's ~380 at 22 and would be far too heavy at 22, `user` is pinned by
 `H = W/2 + 2`, and `settings` cannot be scaled at all: its 16 tooth fillets are
 absolute tokens, so growing the gear is a redraw rather than a resize.
+`flower` sets six petals on an equilateral hexagon, so it keeps the plain
+`hexagon`'s proportion: 22 tall makes it 20 wide, and 22 wide would stand it
+past the canvas.
 
 ### Chevrons are exempt from the optical floor
 

@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Solar({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M5.1056 13.5528C5.275 13.214 5.6212 13 6 13L18 13C18.3788 13 18.725 13.214 18.8944 13.5528L22.8944 21.5528C22.9639 21.6916 23 21.8448 23 22C23 22.5523 22.5523 23 22 23L2 23C1.4477 23 1 22.5523 1 22C1 21.8448 1.0361 21.6916 1.1056 21.5528Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M10.8471 15L13.1529 15L13.4862 17L10.5138 17ZM15.1805 15L17.382 15L18.382 17L15.5138 17ZM19.382 19L20.382 21L16.1804 21L15.8471 19ZM14.1528 21L9.8472 21L10.1805 19L13.8195 19ZM7.8196 21L3.618 21L4.618 19L8.1529 19ZM5.618 17L6.618 15L8.8195 15L8.4862 17Z" fill="currentColor" stroke="none"/>
+      <path d="M7.6933 10.5556L7.9689 10C8.7286 8.4686 10.2905 7.5 12 7.5C13.7095 7.5 15.2714 8.4686 16.0311 10L16.3067 10.5556M12 4.5L12 1M17.7175 6.2825L19.364 4.636M6.2825 6.2825L4.636 4.636M4.4689 10L1.4689 10M19.5311 10L22.5311 10"/>
+    </svg>
+  )
+}

@@ -444,7 +444,6 @@
     {
       "match": "^circles-five$",
       "terms": [
-        "flower",
         "rings",
         "dots"
       ]
@@ -2461,7 +2460,6 @@
       "audio-waveform"
     ],
     "bookmark": [
-      "bookmark-check",
       "bookmark-minus",
       "bookmark-x"
     ],
@@ -2502,7 +2500,6 @@
     ],
     "package": [
       "package-2",
-      "package-open",
       "package-search"
     ],
     "picture-in-picture": [
@@ -2571,7 +2568,6 @@
     ],
     "calendar": [
       "calendar-1",
-      "calendar-clock",
       "calendar-cog",
       "calendar-fold",
       "calendar-heart",

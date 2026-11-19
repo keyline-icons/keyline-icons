@@ -203,11 +203,12 @@ const pascal = (name) =>
  * and the JSDoc tag is what makes an editor strike it through, so the import
  * keeps working and says what to change it to. They go at the next major.
  * Renames from 0.x are left out: they were breaking by the rules of 0.x, and
- * bringing their names back now would make them look current.
+ * bringing their names back now would make them look current. A `reclaimed` name
+ * is a drawing again, under its own export, so it keeps no alias.
  */
 const ALIASES = JSON.parse(
   await readFile(join(ROOT, "lib", "icon-renames.json"), "utf8")
-).renames.filter(({ version }) => Number(version.split(".")[0]) >= 1)
+).renames.filter(({ version, reclaimed }) => Number(version.split(".")[0]) >= 1 && !reclaimed)
 
 /**
  * Every drawing again under its name plus `Icon`: `CheckIcon` beside `Check`.

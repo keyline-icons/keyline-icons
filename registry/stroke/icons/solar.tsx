@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Solar({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M5.4 14.8008C5.7777 14.2967 6.3708 14 7.0006 14L16.9994 14C17.6292 14 18.2223 14.2967 18.6 14.8008L21.5969 18.8008C22.5849 20.1194 21.644 22 19.9964 22L4.0036 22C2.356 22 1.4151 20.1194 2.4031 18.8008ZM10 14L8.002 22M14 14L15.998 22M3.003 18H20.997M7.9689 10C8.7286 8.4686 10.2905 7.5 12 7.5C13.7095 7.5 15.2714 8.4686 16.0311 10M12 3.5L12 2M18.0104 5.9896L19.0711 4.9289M5.9896 5.9896L4.9289 4.9289M3.9689 10H2.4689M20.0311 10H21.5311" fill="none"/>
+    </svg>
+  )
+}

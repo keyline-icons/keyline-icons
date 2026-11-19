@@ -82,12 +82,14 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/shadcn", destination: "/install", permanent: true },
-      ...renames.map(({ from, to }) => ({
+      // A reclaimed name (lib/icon-renames.json) is a drawing again: its page is its own.
+      ...renames.filter((r) => !("reclaimed" in r)).map(({ from, to }) => ({
         source: `/icons/${from}`,
         destination: `/icons/${to}`,
         permanent: true,
       })),
       ...renames
+        .filter((r) => !("reclaimed" in r))
         .filter(({ version }) => Number(version.split(".")[0]) >= 1)
         .map(({ from, to }) => ({
           source: `/r/:path*/${from}.json`,

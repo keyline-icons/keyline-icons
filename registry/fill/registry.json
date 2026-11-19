@@ -3250,6 +3250,20 @@
       ]
     },
     {
+      "name": "fill/bookmark-check",
+      "type": "registry:component",
+      "title": "BookmarkCheck",
+      "description": "BookmarkCheck, the fill drawing of bookmark-check on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bookmark-check: https://keylineicons.com/icons/bookmark-check",
+      "files": [
+        {
+          "path": "icons/bookmark-check.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/bookmark-check.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/bookmark-off",
       "type": "registry:component",
       "title": "BookmarkOff",
@@ -3386,6 +3400,20 @@
           "path": "icons/bot-message.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/bot-message.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/bot-network",
+      "type": "registry:component",
+      "title": "BotNetwork",
+      "description": "BotNetwork, the fill drawing of bot-network on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bot-network: https://keylineicons.com/icons/bot-network",
+      "files": [
+        {
+          "path": "icons/bot-network.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/bot-network.tsx"
         }
       ]
     },
@@ -4198,6 +4226,20 @@
           "path": "icons/calendar-check.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/calendar-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/calendar-clock",
+      "type": "registry:component",
+      "title": "CalendarClock",
+      "description": "CalendarClock, the fill drawing of calendar-clock on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of calendar-clock: https://keylineicons.com/icons/calendar-clock",
+      "files": [
+        {
+          "path": "icons/calendar-clock.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/calendar-clock.tsx"
         }
       ]
     },
@@ -11006,6 +11048,20 @@
       ]
     },
     {
+      "name": "fill/flower",
+      "type": "registry:component",
+      "title": "Flower",
+      "description": "Flower, the fill drawing of flower on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flower: https://keylineicons.com/icons/flower",
+      "files": [
+        {
+          "path": "icons/flower.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/flower.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/fold-horizontal",
       "type": "registry:component",
       "title": "FoldHorizontal",
@@ -12882,6 +12938,20 @@
       ]
     },
     {
+      "name": "fill/hard-hat",
+      "type": "registry:component",
+      "title": "HardHat",
+      "description": "HardHat, the fill drawing of hard-hat on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of hard-hat: https://keylineicons.com/icons/hard-hat",
+      "files": [
+        {
+          "path": "icons/hard-hat.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/hard-hat.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/hash",
       "type": "registry:component",
       "title": "Hash",
@@ -14404,6 +14474,20 @@
           "path": "icons/laptop-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/laptop-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/lasso",
+      "type": "registry:component",
+      "title": "Lasso",
+      "description": "Lasso, the fill drawing of lasso on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of lasso: https://keylineicons.com/icons/lasso",
+      "files": [
+        {
+          "path": "icons/lasso.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/lasso.tsx"
         }
       ]
     },
@@ -17180,6 +17264,20 @@
       ]
     },
     {
+      "name": "fill/package-open",
+      "type": "registry:component",
+      "title": "PackageOpen",
+      "description": "PackageOpen, the fill drawing of package-open on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of package-open: https://keylineicons.com/icons/package-open",
+      "files": [
+        {
+          "path": "icons/package-open.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/package-open.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/package-plus",
       "type": "registry:component",
       "title": "PackagePlus",
@@ -17218,6 +17316,20 @@
           "path": "icons/package-zap.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/package-zap.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/paint-bucket",
+      "type": "registry:component",
+      "title": "PaintBucket",
+      "description": "PaintBucket, the fill drawing of paint-bucket on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of paint-bucket: https://keylineicons.com/icons/paint-bucket",
+      "files": [
+        {
+          "path": "icons/paint-bucket.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/paint-bucket.tsx"
         }
       ]
     },
@@ -17810,6 +17922,20 @@
       ]
     },
     {
+      "name": "fill/party-popper",
+      "type": "registry:component",
+      "title": "PartyPopper",
+      "description": "PartyPopper, the fill drawing of party-popper on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of party-popper: https://keylineicons.com/icons/party-popper",
+      "files": [
+        {
+          "path": "icons/party-popper.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/party-popper.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/paste",
       "type": "registry:component",
       "title": "Paste",
@@ -18240,6 +18366,20 @@
           "path": "icons/pipe.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/pipe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/pipette",
+      "type": "registry:component",
+      "title": "Pipette",
+      "description": "Pipette, the fill drawing of pipette on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of pipette: https://keylineicons.com/icons/pipette",
+      "files": [
+        {
+          "path": "icons/pipette.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/pipette.tsx"
         }
       ]
     },
@@ -20918,6 +21058,20 @@
       ]
     },
     {
+      "name": "fill/slice",
+      "type": "registry:component",
+      "title": "Slice",
+      "description": "Slice, the fill drawing of slice on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of slice: https://keylineicons.com/icons/slice",
+      "files": [
+        {
+          "path": "icons/slice.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/slice.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/slider",
       "type": "registry:component",
       "title": "Slider",
@@ -21366,6 +21520,34 @@
       ]
     },
     {
+      "name": "fill/solar",
+      "type": "registry:component",
+      "title": "Solar",
+      "description": "Solar, the fill drawing of solar on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of solar: https://keylineicons.com/icons/solar",
+      "files": [
+        {
+          "path": "icons/solar.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/solar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/solar-panel",
+      "type": "registry:component",
+      "title": "SolarPanel",
+      "description": "SolarPanel, the fill drawing of solar-panel on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of solar-panel: https://keylineicons.com/icons/solar-panel",
+      "files": [
+        {
+          "path": "icons/solar-panel.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/solar-panel.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/soup",
       "type": "registry:component",
       "title": "Soup",
@@ -21488,6 +21670,20 @@
           "path": "icons/spray-can.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/spray-can.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/sprout",
+      "type": "registry:component",
+      "title": "Sprout",
+      "description": "Sprout, the fill drawing of sprout on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of sprout: https://keylineicons.com/icons/sprout",
+      "files": [
+        {
+          "path": "icons/sprout.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/sprout.tsx"
         }
       ]
     },
@@ -22822,6 +23018,20 @@
       ]
     },
     {
+      "name": "fill/sticker",
+      "type": "registry:component",
+      "title": "Sticker",
+      "description": "Sticker, the fill drawing of sticker on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of sticker: https://keylineicons.com/icons/sticker",
+      "files": [
+        {
+          "path": "icons/sticker.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/sticker.tsx"
+        }
+      ]
+    },
+    {
       "name": "fill/sticky-note",
       "type": "registry:component",
       "title": "StickyNote",
@@ -23896,6 +24106,20 @@
           "path": "icons/target.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/target.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fill/teacher",
+      "type": "registry:component",
+      "title": "Teacher",
+      "description": "Teacher, the fill drawing of teacher on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of teacher: https://keylineicons.com/icons/teacher",
+      "files": [
+        {
+          "path": "icons/teacher.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/fill/teacher.tsx"
         }
       ]
     },

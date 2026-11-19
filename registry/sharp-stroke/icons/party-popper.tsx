@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function PartyPopper({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M22 3C22 3.5523 21.5523 4 21 4C20.4477 4 20 3.5523 20 3C20 2.4477 20.4477 2 21 2C21.5523 2 22 2.4477 22 3ZM9 5C9 5.5523 8.5523 6 8 6C7.4477 6 7 5.5523 7 5C7 4.4477 7.4477 4 8 4C8.5523 4 9 4.4477 9 5ZM21 21C21 21.5523 20.5523 22 20 22C19.4477 22 19 21.5523 19 21C19 20.4477 19.4477 20 20 20C20.5523 20 21 20.4477 21 21Z" fill="currentColor" stroke="none"/>
+      <path d="M6.5338 11.2359L3 21L12.7641 17.4662M8.5231 15.4769C6.7657 13.7196 5.9742 11.6618 6.7553 10.8807C7.5364 10.0997 9.5941 10.8911 11.3515 12.6485C13.1089 14.4059 13.9003 16.4636 13.1193 17.2447C12.3382 18.0258 10.2804 17.2343 8.5231 15.4769ZM11.5 7C13.0123 7.2844 13.5123 6.7011 13 5.25C12.4877 3.7989 12.9877 3.2156 14.5 3.5L15.3152 3.6533M15 10.5C16.5979 11.009 17.4313 10.4256 17.5 8.75C17.5687 7.0744 18.4021 6.491 20 7L20.6965 7.2219M18 17C19.5123 17.2844 20.0123 16.7011 19.5 15.25C18.9877 13.7989 19.4877 13.2156 21 13.5L21.8152 13.6533"/>
+    </svg>
+  )
+}

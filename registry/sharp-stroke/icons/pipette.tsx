@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Pipette({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M14.8206 14.6242L9.3758 9.1794C8.5167 8.3203 8.5167 6.9273 9.3758 6.0682C10.235 5.209 11.628 5.209 12.4871 6.0682L13.2649 6.846L16.3055 3.8054C17.3794 2.7315 19.1206 2.7315 20.1946 3.8054C21.2685 4.8794 21.2685 6.6206 20.1946 7.6945L17.154 10.7351L17.9318 11.5129C18.791 12.372 18.791 13.765 17.9318 14.6242C17.0727 15.4833 15.6797 15.4833 14.8206 14.6242ZM10.5426 10.3462L4.9092 15.9795L4.1314 19.8686L8.0205 19.0908L13.6538 13.4574M4.1314 19.8686L2.7071 21.2929"/>
+    </svg>
+  )
+}
