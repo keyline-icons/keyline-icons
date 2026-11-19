@@ -10,6 +10,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useEdgeFade } from "@/hooks/use-edge-fade"
+import { NAV_HEIGHT } from "@/lib/site-chrome"
 import { cn } from "@/lib/utils"
 
 /**
@@ -129,6 +131,8 @@ export function Pager({
   describe?: (n: number) => string
   className?: string
 }) {
+  const fadeRef = useEdgeFade<HTMLDivElement>()
+
   if (total <= 1) return null
   const href = (n: number) => hrefs[n - 1]
 
@@ -168,30 +172,59 @@ export function Pager({
             >
               …
             </DropdownMenuTrigger>
-            {/* Upward: the pager is the foot of the list. */}
+            {/*
+              Upward, the pager being the foot of the list, and never flipped:
+              it caps itself at the room above (`--available-height`) and
+              scrolls inside it, stopping under the site bar.
+
+              `z-10`, under the dock's `z-20`: on `/icons` the dock rides the
+              foot of the window over the pager until it comes to rest, and a
+              menu opened then belongs behind the bar, not across it. Tiles
+              take no z-index, so the menu still opens over the grid.
+            */}
             <DropdownMenuContent
               side="top"
               align="center"
-              className="w-auto max-w-80"
+              collisionAvoidance={{ side: "none" }}
+              collisionPadding={{
+                top: NAV_HEIGHT + 8,
+                right: 8,
+                bottom: 8,
+                left: 8,
+              }}
+              positionerClassName="z-10"
+              className="flex w-auto max-w-80 flex-col overflow-hidden p-0"
             >
-              {entry.map((n) => (
-                <DropdownMenuItem
-                  key={n}
-                  {...(onTurn
-                    ? { onClick: () => onTurn(n) }
-                    : { render: <a href={href(n)} /> })}
-                  className="gap-3 py-1.5"
-                >
-                  <span className="w-5 text-right font-medium tabular-nums">
-                    {n}
-                  </span>
-                  {describe && (
-                    <span className="truncate text-muted-foreground">
-                      {describe(n)}
+              {/*
+                The rows scroll in a box of their own so that only they fade
+                at an end with more past it (`edge-fade`, as on the category
+                rail), while the menu's ground and edge stay solid. Faded on
+                the menu itself, the bottom of the box would melt into the
+                page.
+              */}
+              <div
+                ref={fadeRef}
+                className="edge-fade min-h-0 overflow-y-auto p-1"
+              >
+                {entry.map((n) => (
+                  <DropdownMenuItem
+                    key={n}
+                    {...(onTurn
+                      ? { onClick: () => onTurn(n) }
+                      : { render: <a href={href(n)} /> })}
+                    className="gap-3 py-1.5"
+                  >
+                    <span className="w-5 text-right font-medium tabular-nums">
+                      {n}
                     </span>
-                  )}
-                </DropdownMenuItem>
-              ))}
+                    {describe && (
+                      <span className="truncate text-muted-foreground">
+                        {describe(n)}
+                      </span>
+                    )}
+                  </DropdownMenuItem>
+                ))}
+              </div>
             </DropdownMenuContent>
           </DropdownMenu>
         ) : (

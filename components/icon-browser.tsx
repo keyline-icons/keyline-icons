@@ -17,6 +17,7 @@ import {
   Check,
   ChevronDown,
   ChevronRight,
+  ChevronUp,
   Circle,
   Clock,
   Coffee,
@@ -91,7 +92,12 @@ import {
   type Style,
 } from "@/components/glyph"
 import { IconPreview, useIconPreview } from "@/components/icon-preview"
-import { GRID_PAGE_SIZE, ICONS_SEGMENT, iconHref } from "@/lib/icon-pages"
+import {
+  DOCK_SAMPLES,
+  GRID_PAGE_SIZE,
+  ICONS_SEGMENT,
+  iconHref,
+} from "@/lib/icon-pages"
 import {
   aliasesFor,
   CATEGORIES,
@@ -303,8 +309,6 @@ export function IconBrowser({
   initialStyle = "stroke",
   initialShape = "all",
   initialIcon,
-  initialIconStyle,
-  initialIconCorners,
   initialPage = 1,
   query,
   onQueryChange,
@@ -330,17 +334,6 @@ export function IconBrowser({
    * rather than opening a panel with nothing in it.
    */
   initialIcon?: string
-  /**
-   * Seeded from `?icon-style=` and `?icon-corners=`: how the dock was showing
-   * that drawing.
-   *
-   * Separate keys from `?style=` and `?corners=` because they are separate
-   * facts. The panel's picks are local by design, so a link where the grid is
-   * rounded and the panel is sharp is a screen that exists and has to be
-   * reproducible.
-   */
-  initialIconStyle?: Style
-  initialIconCorners?: Corners
   /**
    * Seeded from `?page=`, and written back like `?icon=`. Each page of the
    * grid is an address a crawler can reach, which is how the icon pages past
@@ -397,18 +390,10 @@ export function IconBrowser({
   const railRef = useEdgeFade<HTMLDivElement>()
 
   /**
-   * The preview dock: which icon it is showing, and the ones shown before it.
-   *
-   * It is `fixed`, so nothing below it reserves its space — the grid is handed
-   * its measured height and pads itself by that much, otherwise the last row of
-   * icons sits under the panel and cannot be clicked.
+   * The preview panel: which icon it is showing, and the ones shown before it.
+   * It rides on the dock (see the sticky stack at the end of the browser).
    */
-  const preview = useIconPreview({
-    icon: initialIcon,
-    style: initialIconStyle,
-    corners: initialIconCorners,
-  })
-  const [dockHeight, setDockHeight] = React.useState(0)
+  const preview = useIconPreview({ icon: initialIcon })
 
   /**
    * Whether the controls belong in the drawer, decided by an actual media query
@@ -579,6 +564,34 @@ export function IconBrowser({
       y: tile.offsetTop,
     })
     setTipOpen(true)
+  }, [])
+
+  /*
+    The tooltip leaves the page once it has faded, and at once when the
+    window's width changes. Kept mounted, it held the position of the last
+    tile it sat on, and an absolutely positioned box counts toward the page's
+    height: hovered 9,200px down the phone layout and then widened to a
+    desktop, it hung 7,000px below the footer, and the page scrolled on into
+    that much blank. 150 is its `duration-150` fade. Width only, because a
+    phone fires `resize` as its address bar slides away on every scroll.
+  */
+  React.useEffect(() => {
+    if (tipOpen || !tip) return
+    const timer = window.setTimeout(() => setTip(null), 150)
+    return () => window.clearTimeout(timer)
+  }, [tipOpen, tip])
+
+  React.useEffect(() => {
+    let width = window.innerWidth
+    const onResize = () => {
+      if (window.innerWidth === width) return
+      width = window.innerWidth
+      tipWasOpen.current = false
+      setTipOpen(false)
+      setTip(null)
+    }
+    window.addEventListener("resize", onResize)
+    return () => window.removeEventListener("resize", onResize)
   }, [])
 
   /**
@@ -1083,18 +1096,14 @@ export function IconBrowser({
       carry(params, "icon", openIcon, "")
 
       /*
-        The dock's own two picks, and only where they say something the grid
-        does not: a panel showing what the grid shows needs no parameter,
-        because a freshly opened panel starts on the grid anyway. They go
-        nowhere while the dock is closed, there being no panel to describe.
+        The panel's own style and corners are gone: it draws what the dock
+        says, which `?style=` and `?corners=` already carry. A link made while
+        it had them is read once on the server (`app/icons/page.tsx`) and its
+        two keys are dropped here, so the address stops naming a pick that
+        no longer exists.
       */
-      carry(params, "icon-style", openIcon ? preview.picked : null, style)
-      carry(
-        params,
-        "icon-corners",
-        openIcon ? preview.pickedCorners : null,
-        corners
-      )
+      params.delete("icon-style")
+      params.delete("icon-corners")
 
       const search = params.toString()
       window.history.replaceState(
@@ -1115,16 +1124,7 @@ export function IconBrowser({
     }, 250)
 
     return () => window.clearTimeout(timer)
-  }, [
-    carryView,
-    currentPage,
-    pageCount,
-    openIcon,
-    style,
-    corners,
-    preview.picked,
-    preview.pickedCorners,
-  ])
+  }, [carryView, currentPage, pageCount, openIcon])
 
   /**
    * The category list: the sidebar on a wide screen, the head of the drawer on
@@ -1273,6 +1273,85 @@ export function IconBrowser({
     </DropdownMenu>
   )
 
+  /** Shape's options, in the drawer's menu and the dock's alike. */
+  const shapeOptions = (
+    <DropdownMenuRadioGroup
+      value={shape}
+      onValueChange={(value) => setShape(value as ShapeFilter)}
+    >
+      <DropdownMenuRadioItem value="all" closeOnClick className="gap-3">
+        <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-muted">
+          <Shapes className="size-4 text-muted-foreground" />
+        </span>
+        All shapes
+        <span className="ml-auto text-xs text-muted-foreground tabular-nums">
+          {matches.length.toLocaleString("en-US")}
+        </span>
+      </DropdownMenuRadioItem>
+      {SHAPES.map((s) => (
+        <DropdownMenuRadioItem
+          key={s.value}
+          value={s.value}
+          closeOnClick
+          className="gap-3"
+        >
+          <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-muted">
+            <s.icon className="size-4 text-muted-foreground" />
+          </span>
+          <span className="flex flex-col gap-0.5">
+            <span>{s.label}</span>
+            <span className="text-xs text-muted-foreground">{s.hint}</span>
+          </span>
+          <span className="ml-auto text-xs text-muted-foreground tabular-nums">
+            {perShape[s.value].toLocaleString("en-US")}
+          </span>
+        </DropdownMenuRadioItem>
+      ))}
+    </DropdownMenuRadioGroup>
+  )
+
+  /** Names and columns, in the drawer's settings menu and the dock's. */
+  const settingsPanel = (
+    <>
+      <div className="flex items-center justify-between gap-4">
+        <span className="flex flex-col gap-0.5">
+          <span className="text-sm font-medium">Icon names</span>
+          <span className="text-xs text-muted-foreground">
+            The label under each glyph
+          </span>
+        </span>
+        <PhoneToggle
+          on={showNames}
+          label="Show icon names"
+          onChange={(next) => update({ showNames: next })}
+        />
+      </div>
+
+      <DropdownMenuSeparator className="my-3" />
+
+      <div className="flex flex-col gap-2">
+        <span className="flex items-baseline justify-between">
+          <span className="text-sm font-medium">Grid columns</span>
+          <span className="text-xs text-muted-foreground tabular-nums">
+            {columns} per row
+          </span>
+        </span>
+        <TickSlider
+          value={columns}
+          onChange={(next) => update({ columns: next })}
+          min={4}
+          max={16}
+          step={1}
+          major={(v) => v % 4 === 0}
+          label="Grid columns"
+          unit=""
+          className="w-full"
+          trackClassName="flex-1"
+        />
+      </div>
+    </>
+  )
+
   /**
    * The filter controls, rendered twice: inline on wide screens and inside the
    * drawer below `lg`. Only one copy is ever visible, and both drive the same
@@ -1364,41 +1443,7 @@ export function IconBrowser({
           <ChevronDown className="size-4 text-muted-foreground" />
         </DropdownMenuTrigger>
         <DropdownMenuContent align="start" className="w-56">
-          <DropdownMenuRadioGroup
-            value={shape}
-            onValueChange={(value) => setShape(value as ShapeFilter)}
-          >
-            <DropdownMenuRadioItem value="all" closeOnClick className="gap-3">
-              <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-muted">
-                <Shapes className="size-4 text-muted-foreground" />
-              </span>
-              All shapes
-              <span className="ml-auto text-xs text-muted-foreground tabular-nums">
-                {matches.length.toLocaleString("en-US")}
-              </span>
-            </DropdownMenuRadioItem>
-            {SHAPES.map((s) => (
-              <DropdownMenuRadioItem
-                key={s.value}
-                value={s.value}
-                closeOnClick
-                className="gap-3"
-              >
-                <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-muted">
-                  <s.icon className="size-4 text-muted-foreground" />
-                </span>
-                <span className="flex flex-col gap-0.5">
-                  <span>{s.label}</span>
-                  <span className="text-xs text-muted-foreground">
-                    {s.hint}
-                  </span>
-                </span>
-                <span className="ml-auto text-xs text-muted-foreground tabular-nums">
-                  {perShape[s.value].toLocaleString("en-US")}
-                </span>
-              </DropdownMenuRadioItem>
-            ))}
-          </DropdownMenuRadioGroup>
+          {shapeOptions}
         </DropdownMenuContent>
       </DropdownMenu>
     )
@@ -1457,52 +1502,17 @@ export function IconBrowser({
           <TooltipTrigger
             render={
               <DropdownMenuTrigger
-                aria-label="Grid settings"
+                aria-label="Settings"
                 className={cn(ghost, "w-9 justify-center px-0")}
               />
             }
           >
             <Settings className="size-4 text-muted-foreground" />
           </TooltipTrigger>
-          <TooltipContent>Grid settings</TooltipContent>
+          <TooltipContent>Settings</TooltipContent>
         </Tooltip>
         <DropdownMenuContent align="end" className="w-72 p-3">
-          <div className="flex items-center justify-between gap-4">
-            <span className="flex flex-col gap-0.5">
-              <span className="text-sm font-medium">Icon names</span>
-              <span className="text-xs text-muted-foreground">
-                The label under each glyph
-              </span>
-            </span>
-            <PhoneToggle
-              on={showNames}
-              label="Show icon names"
-              onChange={(next) => update({ showNames: next })}
-            />
-          </div>
-
-          <DropdownMenuSeparator className="my-3" />
-
-          <div className="flex flex-col gap-2">
-            <span className="flex items-baseline justify-between">
-              <span className="text-sm font-medium">Grid columns</span>
-              <span className="text-xs text-muted-foreground tabular-nums">
-                {columns} per row
-              </span>
-            </span>
-            <TickSlider
-              value={columns}
-              onChange={(next) => update({ columns: next })}
-              min={4}
-              max={16}
-              step={1}
-              major={(v) => v % 4 === 0}
-              label="Grid columns"
-              unit=""
-              className="w-full"
-              trackClassName="flex-1"
-            />
-          </div>
+          {settingsPanel}
         </DropdownMenuContent>
       </DropdownMenu>
     )
@@ -1548,6 +1558,269 @@ export function IconBrowser({
     )
   }
 
+  /*
+    The floating dock, from `lg` up: the filter row taken off the top of the
+    grid and pinned to the bottom of the window, so the controls that change
+    how the set is drawn stay in reach however deep the grid goes. Below `lg`
+    the Browse drawer still holds them; a phone has no room for a bar.
+
+    Every control is one trigger that opens upward with its value showing. The
+    pickers and sliders at full width are the filter row again and would not
+    fit a bar; one word each does. Sort and the count stay at the top of the
+    grid, being about the list rather than the drawing.
+
+    Solid and edged like the preview card above it, for the same reason: a
+    frosted bar over a grid of small drawings turns them to smears.
+  */
+  const dockTrigger =
+    "flex h-9 items-center gap-1.5 rounded-xl px-2.5 text-sm whitespace-nowrap transition-colors hover:bg-muted aria-expanded:bg-muted"
+  const opensUp = <ChevronUp className="size-3.5 text-muted-foreground" />
+  /* The drawing each style is shown on: closed, so fill and duotone read as
+     what they are, and drawn in all four. */
+  const sample =
+    icons.find((icon) => icon.name === DOCK_SAMPLES.style) ?? icons[0]
+  const sampleArt = (s: Style) => {
+    const art = sample && (artOf(sample, s, corners) ?? artOf(sample, s))
+    // A blank is a drawing still on its way; nothing to show yet.
+    return art?.body ? art : undefined
+  }
+  const styleName = (s: Style) => s[0].toUpperCase() + s.slice(1)
+  const dockCorners = cornersChoice.pending ?? corners
+  /*
+    The treatments are shown on a plain square, where the corner is all there
+    is to see, drawn from the set in each treatment. A treatment not loaded
+    yet has no drawing to show; hovering the trigger fetches it, so the menu
+    has both by the time it opens.
+  */
+  const cornerSample = icons.find((icon) => icon.name === DOCK_SAMPLES.corners)
+  const cornerArt = (k: Corners) => {
+    if (!cornerSample || !treatments.has(k)) return undefined
+    const art =
+      artOf(cornerSample, style, k) ?? artOf(cornerSample, "stroke", k)
+    return art?.body ? art : undefined
+  }
+
+  const dock = (
+    <div
+      role="toolbar"
+      aria-label="Grid controls"
+      className="pointer-events-auto hidden max-w-full items-center gap-0.5 rounded-2xl border border-border/50 bg-background p-1 shadow-lg lg:flex"
+    >
+      <DropdownMenu>
+        <DropdownMenuTrigger className={dockTrigger}>
+          <span className="sr-only">Style </span>
+          {sampleArt(style) && (
+            <Glyph
+              art={sampleArt(style)!}
+              size={16}
+              stroke={stroke}
+              className="size-4"
+            />
+          )}
+          {styleName(style)}
+          {opensUp}
+        </DropdownMenuTrigger>
+        <DropdownMenuContent
+          side="top"
+          align="start"
+          sideOffset={10}
+          className="w-44"
+        >
+          <DropdownMenuRadioGroup
+            value={style}
+            onValueChange={(value) => setStyle(value as Style)}
+          >
+            {STYLES.map((s) => (
+              <DropdownMenuRadioItem
+                key={s}
+                value={s}
+                closeOnClick
+                className="gap-3"
+              >
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-muted">
+                  {sampleArt(s) && (
+                    <Glyph
+                      art={sampleArt(s)!}
+                      size={18}
+                      stroke={stroke}
+                      className="size-4.5"
+                    />
+                  )}
+                </span>
+                {styleName(s)}
+              </DropdownMenuRadioItem>
+            ))}
+          </DropdownMenuRadioGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      <DropdownMenu>
+        <DropdownMenuTrigger
+          className={dockTrigger}
+          onPointerEnter={cornersChoice.prefetch}
+          onFocus={cornersChoice.prefetch}
+        >
+          <span className="sr-only">Corners </span>
+          {cornerArt(dockCorners) && (
+            <Glyph
+              art={cornerArt(dockCorners)!}
+              size={16}
+              stroke={stroke}
+              className="size-4"
+            />
+          )}
+          {dockCorners === "regular" ? "Rounded" : "Sharp"}
+          {opensUp}
+        </DropdownMenuTrigger>
+        <DropdownMenuContent
+          side="top"
+          align="start"
+          sideOffset={10}
+          className="w-44"
+        >
+          <DropdownMenuRadioGroup
+            value={dockCorners}
+            onValueChange={(value) => cornersChoice.choose(value as Corners)}
+          >
+            {CORNERS.map((k) => (
+              <DropdownMenuRadioItem
+                key={k}
+                value={k}
+                closeOnClick
+                className="gap-3"
+              >
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-muted">
+                  {cornerArt(k) && (
+                    <Glyph
+                      art={cornerArt(k)!}
+                      size={18}
+                      stroke={stroke}
+                      className="size-4.5"
+                    />
+                  )}
+                </span>
+                {k === "regular" ? "Rounded" : "Sharp"}
+              </DropdownMenuRadioItem>
+            ))}
+          </DropdownMenuRadioGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      <DropdownMenu>
+        <DropdownMenuTrigger className={dockTrigger}>
+          <span className="text-muted-foreground">Size</span>
+          <span className="tabular-nums">{size}</span>
+          {opensUp}
+        </DropdownMenuTrigger>
+        <DropdownMenuContent
+          side="top"
+          align="center"
+          sideOffset={10}
+          className="w-auto p-3"
+        >
+          <TickSlider
+            value={size}
+            onChange={(next) => update({ size: next })}
+            min={16}
+            max={48}
+            step={1}
+            major={(v) => v % 8 === 0}
+            label="Icon size in pixels"
+          />
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      {/*
+        "Weight", not "Stroke": the style trigger beside it already says Stroke
+        whenever the grid is in that style, and two triggers reading the same
+        word did two different things.
+      */}
+      <DropdownMenu>
+        <DropdownMenuTrigger className={dockTrigger}>
+          <span className="text-muted-foreground">Weight</span>
+          <span className="tabular-nums">{stroke}</span>
+          {opensUp}
+        </DropdownMenuTrigger>
+        <DropdownMenuContent
+          side="top"
+          align="center"
+          sideOffset={10}
+          className="w-auto p-3"
+        >
+          <TickSlider
+            value={stroke}
+            onChange={(next) => update({ stroke: next })}
+            min={1}
+            max={3}
+            step={0.25}
+            major={Number.isInteger}
+            label="Stroke width in pixels"
+          />
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      <DropdownMenu>
+        <DropdownMenuTrigger className={dockTrigger}>
+          <span className="text-muted-foreground">Shape</span>
+          {shape === "all"
+            ? "All"
+            : SHAPES.find((s) => s.value === shape)!.label}
+          {opensUp}
+        </DropdownMenuTrigger>
+        <DropdownMenuContent
+          side="top"
+          align="center"
+          sideOffset={10}
+          className="w-56"
+        >
+          {shapeOptions}
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      {/* The OS picker through an invisible input, as in the drawer. */}
+      <label
+        title={color ?? "Icon colour"}
+        className={cn(dockTrigger, "relative cursor-pointer")}
+      >
+        <span
+          aria-hidden="true"
+          className="size-4 rounded-full border border-black/10"
+          style={{ background: color ?? "currentColor" }}
+        />
+        Color
+        <input
+          type="color"
+          value={color ?? "#000000"}
+          onChange={(event) => update({ color: event.currentTarget.value })}
+          aria-label="Icon colour"
+          className="absolute inset-0 cursor-pointer opacity-0"
+        />
+      </label>
+
+      <span aria-hidden="true" className="mx-1 h-5 w-px bg-border" />
+
+      <Tooltip>
+        <TooltipTrigger
+          render={
+            <button
+              type="button"
+              onClick={reset}
+              disabled={atDefaults}
+              aria-label="Reset to defaults"
+              className={cn(
+                dockTrigger,
+                "w-9 justify-center px-0 disabled:pointer-events-none disabled:opacity-40"
+              )}
+            />
+          }
+        >
+          <RotateCcw className="size-4" />
+        </TooltipTrigger>
+        <TooltipContent>Reset to defaults</TooltipContent>
+      </Tooltip>
+    </div>
+  )
+
   if (icons.length === 0) {
     return (
       <div className="rounded-lg border border-dashed p-10 text-center">
@@ -1577,34 +1850,41 @@ export function IconBrowser({
         scrollToBrowserTop()
       }}
     >
-      <div ref={sectionRef} className="flex gap-8">
-        {/*
+      {/*
+        One box round the rail, the grid, the pager and the dock, so the dock
+        is sticky across the whole browser and nowhere else: it rides the foot
+        of the window while the grid scrolls past and comes to rest under the
+        pager, where this box ends, as the bar on Overflow Design does.
+      */}
+      <div>
+        <div ref={sectionRef} className="flex gap-8">
+          {/*
           The category rail. It scrolls on its own so a long list never drags
           the grid down with it, and it is dropped entirely on narrow screens,
           where the same list heads the filter drawer. Its ends fade while
           there is more list past them, so a cut row reads as more to come.
         */}
-        <aside className="hidden w-52 shrink-0 lg:block">
-          <div
-            ref={railRef}
-            className="edge-fade sticky top-19 max-h-[calc(100dvh-5.75rem)] overflow-y-auto py-3"
-          >
-            <h2 className="px-2 pb-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">
-              Categories
-            </h2>
-            {categoryList}
-          </div>
-        </aside>
+          <aside className="hidden w-52 shrink-0 lg:block">
+            <div
+              ref={railRef}
+              className="edge-fade sticky top-19 max-h-[calc(100dvh-5.75rem)] overflow-y-auto py-3"
+            >
+              <h2 className="px-2 pb-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                Categories
+              </h2>
+              {categoryList}
+            </div>
+          </aside>
 
-        <div className="flex min-w-0 flex-1 flex-col gap-6">
-          {/*
+          <div className="flex min-w-0 flex-1 flex-col gap-6">
+            {/*
             The count keeps the filters' line. This row does not wrap — the
             filter group inside it does, so when the controls run out of room
             they fold onto a second line and the count stays pinned to the
             right of the first. Letting the row itself wrap put the count on a
             line of its own, which reads as a stray label.
           */}
-          {/*
+            {/*
             Below `lg` this row sticks under the site bar, so Browse and the
             count stay reachable however deep the grid goes, and only there:
             on a wide screen the whole filter row is one glance up, and a row
@@ -1618,8 +1898,8 @@ export function IconBrowser({
             hovered on the top visible row paints upward across this band, and
             under the row it read as the tooltip simply missing.
           */}
-          <div className="flex items-start gap-2 max-lg:sticky max-lg:top-11 max-lg:z-10 max-lg:-my-2 max-lg:bg-background max-lg:py-2">
-            {/*
+            <div className="flex items-start gap-2 max-lg:sticky max-lg:top-11 max-lg:z-10 max-lg:-my-2 max-lg:bg-background max-lg:py-2">
+              {/*
               Everything past the search folds in here below `lg`: the category
               rail as well as the filters, which is why the trigger cannot be
               called "Filters".
@@ -1631,69 +1911,89 @@ export function IconBrowser({
               so it is right before any script runs. `isNarrow` still gates the
               drawer itself, which CSS cannot safely hide (see above).
             */}
-            <DrawerTrigger
-              className={cn(
-                buttonVariants({ variant: "outline" }),
-                "relative h-9 lg:hidden"
-              )}
-            >
-              <PanelTopCloseDashed
-                data-icon="inline-start"
-                className="size-4"
-              />
-              Browse
-              {!atDefaults && (
-                <span
-                  aria-hidden="true"
-                  className="absolute -top-0.5 -right-0.5 size-2 rounded-full bg-primary"
+              <DrawerTrigger
+                className={cn(
+                  buttonVariants({ variant: "outline" }),
+                  "relative h-9 lg:hidden"
+                )}
+              >
+                <PanelTopCloseDashed
+                  data-icon="inline-start"
+                  className="size-4"
                 />
-              )}
-            </DrawerTrigger>
-            <div className="hidden min-w-0 flex-1 flex-wrap items-center gap-2 lg:flex">
-              {filters(false)}
-            </div>
-
-            {/*
+                Browse
+                {!atDefaults && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute -top-0.5 -right-0.5 size-2 rounded-full bg-primary"
+                  />
+                )}
+              </DrawerTrigger>
+              {/*
               A status region, so a search, a filter or a style change is
               heard as well as seen: without it the grid changed silently and
               a screen reader had no way to learn that nothing matched. Always
               mounted, since a live region added together with its text is not
               reliably announced. The hidden word makes "34 shown" a sentence.
+
+              At the left, opening the line the grid starts under, now that
+              the filters have gone down to the dock and left the row to the
+              count and the two menus about the list.
             */}
-            <div className="ml-auto flex shrink-0 items-center gap-3">
               <span
                 role="status"
-                className="h-9 text-sm leading-9 whitespace-nowrap text-muted-foreground tabular-nums"
+                className="h-9 shrink-0 text-sm leading-9 whitespace-nowrap text-muted-foreground tabular-nums"
               >
                 {shown.length.toLocaleString("en-US")}{" "}
                 <span className="sr-only">icons </span>shown
               </span>
-              {sortMenu}
-            </div>
-          </div>
 
-          {isNarrow && (
-            <DrawerContent>
-              <DrawerHeader>
-                <DrawerTitle>Browse</DrawerTitle>
-                <DrawerDescription>
-                  Categories, style, size, stroke, shape and colour.
-                </DrawerDescription>
-              </DrawerHeader>
-              <div className="flex flex-col gap-4 overflow-y-auto px-4 pt-4 pb-6">
-                <div className="flex flex-wrap items-center gap-2">
-                  {filters(true)}
-                </div>
-                <h3 className="px-2 pt-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">
-                  Categories
-                </h3>
-                {categoryList}
+              <div className="ml-auto flex shrink-0 items-center gap-1">
+                {sortMenu}
+                {/*
+                Names and columns shape the list, not the drawing, so from
+                `lg` up they sit with the order, the way Overflow keeps its
+                Grid menu beside Newest. Below `lg` they stay in the drawer.
+
+                Named on the button rather than in a tooltip: beside "Sort by
+                Name", a bare gear was the one control in the row that had to
+                be hovered to be read.
+              */}
+                <DropdownMenu>
+                  <DropdownMenuTrigger className={cn(ghost, "max-lg:hidden")}>
+                    <Settings className="size-4 text-muted-foreground" />
+                    <span>Settings</span>
+                    <ChevronDown className="size-4 text-muted-foreground" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-72 p-3">
+                    {settingsPanel}
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
-            </DrawerContent>
-          )}
+            </div>
 
-          {shown.length === 0 ? (
-            /*
+            {isNarrow && (
+              <DrawerContent>
+                <DrawerHeader>
+                  <DrawerTitle>Browse</DrawerTitle>
+                  <DrawerDescription>
+                    Categories, style, size, stroke, shape and colour.
+                  </DrawerDescription>
+                </DrawerHeader>
+                <div className="flex flex-col gap-4 overflow-y-auto px-4 pt-4 pb-6">
+                  <div className="flex flex-wrap items-center gap-2">
+                    {filters(true)}
+                  </div>
+                  <h3 className="px-2 pt-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                    Categories
+                  </h3>
+                  {categoryList}
+                </div>
+              </DrawerContent>
+            )}
+
+            {shown.length === 0 ? (
+              /*
               A search that finds nothing is the one moment the set's gaps are
               visible to the person who cares about them, so it asks for the
               drawing rather than apologising: the wording someone would use to
@@ -1704,165 +2004,165 @@ export function IconBrowser({
               back — Reset is a 36px ghost icon up in the filter row, which is
               not a thing you find while reading a sentence about no results.
             */
-            <div className="flex flex-col items-center px-6 py-16 text-center">
-              <p className="text-lg font-medium">
-                No icons match{query ? ` “${query}”` : " these filters"}
-              </p>
+              <div className="flex flex-col items-center px-6 py-16 text-center">
+                <p className="text-lg font-medium">
+                  No icons match{query ? ` “${query}”` : " these filters"}
+                </p>
 
-              <p className="mt-2 max-w-md text-sm text-muted-foreground">
-                {/*
+                <p className="mt-2 max-w-md text-sm text-muted-foreground">
+                  {/*
                   The suggestion takes the subtitle's place rather than adding
                   a line: it is the "try another word" advice, made specific.
                 */}
-                {/*
+                  {/*
                   Worded exactly as the plugin words it, down to the full stop.
                   Not pluralised on purpose: "1 match in another style" reads as
                   a noun and "10 match in another style" as a verb, and both
                   parse, where the conditional it replaced produced "1 matches".
                 */}
-                {/*
+                  {/*
                   In the order of how sure each one is. A filter hiding the
                   drawing is a fact about this grid; another style holding it
                   is a fact about the set; a spelling is a guess.
                 */}
-                {hiddenByFilter > 0 ? (
-                  <>
-                    {shape !== "all"
-                      ? `Nothing in ${SHAPES.find((s) => s.value === shape)!.label.toLowerCase()}. ${hiddenByFilter} match in another shape.`
-                      : `Nothing under ${category}. ${hiddenByFilter} match on another shelf.`}{" "}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setShape("all")
-                        setCategory("all")
-                      }}
-                      className="rounded-sm font-medium text-foreground underline underline-offset-4 hover:no-underline"
-                    >
-                      Show all {hiddenByFilter}
-                    </button>
-                  </>
-                ) : matchesElsewhere > 0 ? (
-                  `Nothing in ${style}. ${matchesElsewhere} match in another style.`
-                ) : suggestion ? (
-                  <>
-                    Did you mean{" "}
-                    <button
-                      type="button"
-                      onClick={() => onQueryChange(suggestion)}
-                      className="rounded-sm font-medium text-foreground underline underline-offset-4 hover:no-underline"
-                    >
-                      {suggestion}
-                    </button>
-                    ?
-                  </>
-                ) : (
-                  "Try another word for it, or ask for the drawing if the set is missing one."
-                )}
-              </p>
+                  {hiddenByFilter > 0 ? (
+                    <>
+                      {shape !== "all"
+                        ? `Nothing in ${SHAPES.find((s) => s.value === shape)!.label.toLowerCase()}. ${hiddenByFilter} match in another shape.`
+                        : `Nothing under ${category}. ${hiddenByFilter} match on another shelf.`}{" "}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setShape("all")
+                          setCategory("all")
+                        }}
+                        className="rounded-sm font-medium text-foreground underline underline-offset-4 hover:no-underline"
+                      >
+                        Show all {hiddenByFilter}
+                      </button>
+                    </>
+                  ) : matchesElsewhere > 0 ? (
+                    `Nothing in ${style}. ${matchesElsewhere} match in another style.`
+                  ) : suggestion ? (
+                    <>
+                      Did you mean{" "}
+                      <button
+                        type="button"
+                        onClick={() => onQueryChange(suggestion)}
+                        className="rounded-sm font-medium text-foreground underline underline-offset-4 hover:no-underline"
+                      >
+                        {suggestion}
+                      </button>
+                      ?
+                    </>
+                  ) : (
+                    "Try another word for it, or ask for the drawing if the set is missing one."
+                  )}
+                </p>
 
-              <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
-                {/*
+                <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+                  {/*
                   The same glyph the Reset control in the filter row wears, so
                   the two read as one action reached two ways rather than as
                   two different ones.
                 */}
-                <Button size="lg" variant="secondary" onClick={reset}>
-                  <RotateCcw className="size-4" />
-                  Clear filters
-                </Button>
+                  <Button size="lg" variant="secondary" onClick={reset}>
+                    <RotateCcw className="size-4" />
+                    Clear filters
+                  </Button>
 
-                <Button
-                  size="lg"
-                  render={
-                    <a
-                      href={SET_REQUEST_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    />
-                  }
-                  nativeButton={false}
-                >
-                  <Plus className="size-4" />
-                  Request an icon
-                </Button>
+                  <Button
+                    size="lg"
+                    render={
+                      <a
+                        href={SET_REQUEST_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      />
+                    }
+                    nativeButton={false}
+                  >
+                    <Plus className="size-4" />
+                    Request an icon
+                  </Button>
 
-                <Button
-                  size="lg"
-                  variant="ghost"
-                  render={
-                    <a
-                      href={SET_X_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    />
-                  }
-                  nativeButton={false}
-                >
-                  {/*
+                  <Button
+                    size="lg"
+                    variant="ghost"
+                    render={
+                      <a
+                        href={SET_X_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      />
+                    }
+                    nativeButton={false}
+                  >
+                    {/*
                     The mark, not the letter. "X" typed in the label is a
                     capital ex in the page's own typeface, which next to a
                     button that says "Request an icon" reads as a close button
                     rather than as the name of a place to send a message.
                   */}
-                  Message on <XLogo className="size-3.5" />
-                </Button>
-              </div>
+                    Message on <XLogo className="size-3.5" />
+                  </Button>
+                </div>
 
-              {/*
+                {/*
                 The paid offer, under the free ways to ask. A miss is the one
                 moment a reader learns the set lacks a drawing, and a team that
                 needs a dozen of them has a better answer than a dozen issues.
               */}
-              <p className="mt-6 text-sm text-muted-foreground">
-                Need a whole set drawn for your product?{" "}
-                <Link
-                  href="/custom?ref=no-results"
-                  prefetch={false}
-                  className="underline underline-offset-2 transition-colors hover:text-foreground"
-                >
-                  Custom icons
-                </Link>
-              </p>
-            </div>
-          ) : (
-            /*
+                <p className="mt-6 text-sm text-muted-foreground">
+                  Need a whole set drawn for your product?{" "}
+                  <Link
+                    href="/custom?ref=no-results"
+                    prefetch={false}
+                    className="underline underline-offset-2 transition-colors hover:text-foreground"
+                  >
+                    Custom icons
+                  </Link>
+                </p>
+              </div>
+            ) : (
+              /*
           One tooltip for the whole grid, re-anchored to whatever tile the
           pointer is on: a tooltip per tile can only blink out and back, while
           a single element that stays mounted can travel between them.
         */
-            <div
-              ref={gridRef}
-              className="relative flex flex-col gap-6"
-              onPointerOver={(event) => {
-                const tile = (event.target as HTMLElement).closest<HTMLElement>(
-                  "[data-icon-name]"
-                )
+              <div
+                ref={gridRef}
+                className="relative flex flex-col gap-6"
+                onPointerOver={(event) => {
+                  const tile = (
+                    event.target as HTMLElement
+                  ).closest<HTMLElement>("[data-icon-name]")
 
-                // Ignore the gaps between tiles — dropping the anchor there is what
-                // makes a swept pointer flicker.
-                if (tile) anchorTip(tile)
-              }}
-              onPointerLeave={() => anchorTip(null)}
-              onFocus={(event) => {
-                const tile = (event.target as HTMLElement).closest<HTMLElement>(
-                  "[data-icon-name]"
-                )
+                  // Ignore the gaps between tiles — dropping the anchor there is what
+                  // makes a swept pointer flicker.
+                  if (tile) anchorTip(tile)
+                }}
+                onPointerLeave={() => anchorTip(null)}
+                onFocus={(event) => {
+                  const tile = (
+                    event.target as HTMLElement
+                  ).closest<HTMLElement>("[data-icon-name]")
 
-                if (tile) anchorTip(tile)
-              }}
-              onBlur={(event) => {
-                if (!event.currentTarget.contains(event.relatedTarget)) {
-                  anchorTip(null)
-                }
-              }}
-            >
-              {/*
+                  if (tile) anchorTip(tile)
+                }}
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget)) {
+                    anchorTip(null)
+                  }
+                }}
+              >
+                {/*
                 One grid, in sort order. Splitting it into Regular/Square/Circle
                 blocks left ragged part-rows wherever a block ended, and with a
                 page of 120 the split landed mid-block anyway. The shape is a
                 filter, not a heading.
               */}
-              {/*
+                {/*
                 The column count is a setting on a wide screen and a fit on a
                 narrow one: ten columns across a phone would be 30px tiles.
 
@@ -1873,16 +2173,16 @@ export function IconBrowser({
                 instead: an inline `grid-template-columns` would beat the
                 `max-lg:` class, being inline style against a stylesheet rule.
               */}
-              <div
-                className="grid gap-2 max-lg:grid-cols-[repeat(auto-fill,minmax(104px,1fr))] lg:[grid-template-columns:var(--browser-columns)]"
-                style={
-                  {
-                    "--browser-columns": `repeat(${columns}, minmax(0, 1fr))`,
-                  } as React.CSSProperties
-                }
-              >
-                {paged.map((icon) => (
-                  /*
+                <div
+                  className="grid gap-2 max-lg:grid-cols-[repeat(auto-fill,minmax(104px,1fr))] lg:[grid-template-columns:var(--browser-columns)]"
+                  style={
+                    {
+                      "--browser-columns": `repeat(${columns}, minmax(0, 1fr))`,
+                    } as React.CSSProperties
+                  }
+                >
+                  {paged.map((icon) => (
+                    /*
                     A link to the icon's page that a plain click keeps in the
                     dock. As a `<button>` the tile gave a crawler nothing to
                     follow: `/icons` linked to none of the icon pages, and the
@@ -1892,59 +2192,59 @@ export function IconBrowser({
                     sitemap. A modified or middle click opens the page, which
                     is what a link under the pointer promises anyway.
                   */
-                  <a
-                    key={icon.name}
-                    href={iconHref(icon.name)}
-                    data-icon-name={icon.name}
-                    data-in-place=""
-                    /* Opens the dock. Copying moved in there with it: the panel
+                    <a
+                      key={icon.name}
+                      href={iconHref(icon.name)}
+                      data-icon-name={icon.name}
+                      data-in-place=""
+                      /* Opens the dock. Copying moved in there with it: the panel
                        offers four formats, and a click that silently put one of
                        them on the clipboard was a guess about which. */
-                    onClick={(event) => {
-                      if (!plainClick(event)) return
-                      event.preventDefault()
-                      preview.select(icon.name)
-                    }}
-                    // Space pressed a button; on a link it scrolls the page.
-                    onKeyDown={(event) => {
-                      if (event.key !== " ") return
-                      event.preventDefault()
-                      preview.select(icon.name)
-                    }}
-                    aria-label={icon.name}
-                    aria-haspopup="dialog"
-                    className={cn(
-                      "group relative flex aspect-square flex-col items-center justify-center gap-2 rounded-lg p-2 transition-colors",
-                      // The open icon stays marked while the dock is up, so the
-                      // panel and the grid agree on what is being looked at.
-                      preview.name === icon.name
-                        ? "bg-background shadow-sm ring-1 ring-border"
-                        : "bg-muted hover:bg-muted-hover"
-                    )}
-                  >
-                    {/* `currentColor` all the way down, so the picked colour
-                        reaches the glyph without touching its markup. */}
-                    <span
-                      className="flex h-12 items-center justify-center text-foreground"
-                      style={color ? { color } : undefined}
+                      onClick={(event) => {
+                        if (!plainClick(event)) return
+                        event.preventDefault()
+                        preview.select(icon.name)
+                      }}
+                      // Space pressed a button; on a link it scrolls the page.
+                      onKeyDown={(event) => {
+                        if (event.key !== " ") return
+                        event.preventDefault()
+                        preview.select(icon.name)
+                      }}
+                      aria-label={icon.name}
+                      aria-haspopup="dialog"
+                      className={cn(
+                        "group relative flex aspect-square flex-col items-center justify-center gap-2 rounded-lg p-2 transition-colors",
+                        // The open icon stays marked while the dock is up, so the
+                        // panel and the grid agree on what is being looked at.
+                        preview.name === icon.name
+                          ? "bg-background shadow-sm ring-1 ring-border"
+                          : "bg-muted hover:bg-muted-hover"
+                      )}
                     >
-                      <Glyph
-                        art={artOf(icon, style, corners)!}
-                        size={size}
-                        stroke={stroke}
-                      />
-                    </span>
-                    {/*
+                      {/* `currentColor` all the way down, so the picked colour
+                        reaches the glyph without touching its markup. */}
+                      <span
+                        className="flex h-12 items-center justify-center text-foreground"
+                        style={color ? { color } : undefined}
+                      >
+                        <Glyph
+                          art={artOf(icon, style, corners)!}
+                          size={size}
+                          stroke={stroke}
+                        />
+                      </span>
+                      {/*
                       The label is the truncated one; the tooltip carries the
                       name in full either way, so hiding these loses nothing
                       but the wall of text.
                     */}
-                    {showNames && (
-                      <span className="w-full truncate text-center text-[11px] leading-tight text-muted-foreground group-hover:text-foreground">
-                        {icon.name}
-                      </span>
-                    )}
-                    {/*
+                      {showNames && (
+                        <span className="w-full truncate text-center text-[11px] leading-tight text-muted-foreground group-hover:text-foreground">
+                          {icon.name}
+                        </span>
+                      )}
+                      {/*
                       A dot, not the word. At the tail of a release a hundred
                       tiles carry this at once, and a hundred labels reading
                       New pull harder than the drawings they sit on, which are
@@ -1961,40 +2261,40 @@ export function IconBrowser({
                       hidden and the same fact is announced by the panel and by
                       the changelog entry that lists these by name.
                     */}
-                    {icon.isNew && (
-                      <span
-                        aria-hidden="true"
-                        className="pointer-events-none absolute top-1.5 right-1.5 size-1.5 rounded-full bg-primary"
-                      />
-                    )}
-                  </a>
-                ))}
-              </div>
+                      {icon.isNew && (
+                        <span
+                          aria-hidden="true"
+                          className="pointer-events-none absolute top-1.5 right-1.5 size-1.5 rounded-full bg-primary"
+                        />
+                      )}
+                    </a>
+                  ))}
+                </div>
 
-              {tip && (
-                <div
-                  // A fresh element per open, so a re-open lands on its tile
-                  // instead of travelling there from the last one. See
-                  // `tipKey`.
-                  key={tipKey}
-                  ref={tipRef}
-                  aria-hidden="true"
-                  className={cn(
-                    // Above every tile and the sticky Browse row's z-10,
-                    // since a top-row name paints across that band; below
-                    // the site nav's z-30.
-                    "pointer-events-none absolute top-0 left-0 z-20 duration-150 ease-out",
-                    // Open, the box follows the pointer from tile to tile and
-                    // both properties animate. Closed, only the fade does: the
-                    // position is held where it stood so it fades out in place.
-                    tipOpen
-                      ? "opacity-100 transition-[translate,opacity]"
-                      : "opacity-0 transition-opacity",
-                    "motion-reduce:transition-none"
-                  )}
-                  style={{ translate: `${tip.x}px ${tip.y}px` }}
-                >
-                  {/*
+                {tip && (
+                  <div
+                    // A fresh element per open, so a re-open lands on its tile
+                    // instead of travelling there from the last one. See
+                    // `tipKey`.
+                    key={tipKey}
+                    ref={tipRef}
+                    aria-hidden="true"
+                    className={cn(
+                      // Above every tile and the sticky Browse row's z-10,
+                      // since a top-row name paints across that band; below
+                      // the site nav's z-30.
+                      "pointer-events-none absolute top-0 left-0 z-20 duration-150 ease-out",
+                      // Open, the box follows the pointer from tile to tile and
+                      // both properties animate. Closed, only the fade does: the
+                      // position is held where it stood so it fades out in place.
+                      tipOpen
+                        ? "opacity-100 transition-[translate,opacity]"
+                        : "opacity-0 transition-opacity",
+                      "motion-reduce:transition-none"
+                    )}
+                    style={{ translate: `${tip.x}px ${tip.y}px` }}
+                  >
+                    {/*
                     The pill is out of flow on purpose. In flow it hands the
                     wrapper its own width, and that box sits at the anchor
                     *before* the centring translate; the browser counts the
@@ -2002,81 +2302,103 @@ export function IconBrowser({
                     a long name on a right-edge tile widened the page even
                     with the pill painted safely inside it.
                   */}
-                  <div
-                    ref={tipPillRef}
-                    className="absolute top-0 left-0 -translate-x-1/2 -translate-y-[calc(100%+8px)] rounded-md bg-foreground px-3 py-1.5 text-xs whitespace-nowrap text-background"
-                  >
-                    {tip.name}
-                    {/* Centred on the pill's bottom edge, so half of it reads as
+                    <div
+                      ref={tipPillRef}
+                      className="absolute top-0 left-0 -translate-x-1/2 -translate-y-[calc(100%+8px)] rounded-md bg-foreground px-3 py-1.5 text-xs whitespace-nowrap text-background"
+                    >
+                      {tip.name}
+                      {/* Centred on the pill's bottom edge, so half of it reads as
                     the point aimed at the tile. The `left` transition matches
                     the pill's travel, for when the clamp above shifts it. */}
-                    <span
-                      ref={tipArrowRef}
-                      className="absolute top-full left-1/2 size-2.5 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-[2px] bg-foreground transition-[left] duration-150 ease-out motion-reduce:transition-none"
-                    />
+                      <span
+                        ref={tipArrowRef}
+                        className="absolute top-full left-1/2 size-2.5 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-[2px] bg-foreground transition-[left] duration-150 ease-out motion-reduce:transition-none"
+                      />
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          )}
+                )}
+              </div>
+            )}
+          </div>
+        </div>
 
-          {/* The shared pager: links a crawler can follow, turning the page
-              in place on a plain click. Only the first 120 tiles are in the
-              HTML of `/icons`, so these are how the icon pages on later
-              pages get a link from the grid at all. */}
-          <Pager
-            current={currentPage}
-            total={pageCount}
-            hrefs={Array.from({ length: pageCount }, (_, i) => pageHref(i + 1))}
-            onTurn={goToPage}
-            describe={pageSpan}
-            className="pt-2 pb-6"
-          />
+        {/*
+        The shared pager: links a crawler can follow, turning the page in
+        place on a plain click. Only the first 120 tiles are in the HTML of
+        `/icons`, so these are how the icon pages on later pages get a link
+        from the grid at all.
 
-          {/*
-            The room the dock takes. Its own height, measured, rather than a
-            guess: the panel is three columns on a wide screen and a stack on a
-            phone, and the last row of icons has to stay clickable in both.
-          */}
-          <div aria-hidden="true" style={{ height: dockHeight }} />
+        Under the rail and the grid rather than inside the grid's column, so
+        it is centred on the page with the dock, the panel and the line under
+        the browser. In the column it sat 120px right of all three.
+      */}
+        <Pager
+          current={currentPage}
+          total={pageCount}
+          hrefs={Array.from({ length: pageCount }, (_, i) => pageHref(i + 1))}
+          onTurn={goToPage}
+          describe={pageSpan}
+          className="pt-8"
+        />
+
+        {/*
+        The dock, with the preview panel on it. Sticky, 16px off the foot of
+        the window, so it follows the grid down and comes to rest under the
+        pager, as the bar on Overflow Design does. Resting above the pager
+        put the dock between the grid and its own page numbers, and sent the
+        pager's menu down over the footer. The pager's menu sits under the
+        dock instead (its `z-10` against this `z-20`).
+
+        The panel floats on the bar, out of the flow: `absolute` from the
+        bottom of the sticky box, so the box is the bar's height and nothing
+        else, and opening or closing the panel moves nothing on the page. In
+        the flow, its slot pushed the line under the browser and the footer
+        down 300px on every open at the bottom of the page. Like the card on
+        Overflow Design, it covers what is under it until it is closed.
+
+        Below `lg` there is no bar, but the panel rides the same sticky box,
+        now as tall as nothing: it follows the grid down at the foot of the
+        window and stops at the grid's end like the bar does. Fixed to the
+        window instead, it sat over the footer at the bottom of the page, and
+        the band above it read as the footer pushed away.
+
+        `z-20` is the old dock's rung: above the tiles, below the site bar.
+      */}
+        <div className="pointer-events-none sticky bottom-4 z-20 flex justify-center lg:mt-6">
+          <div className="absolute inset-x-0 bottom-full lg:pb-3">
+            <IconPreview
+              icons={icons}
+              name={preview.name}
+              recents={preview.recents}
+              closing={preview.closing}
+              // Grid order, so the arrow keys walk what you can see.
+              order={paged.map((icon) => icon.name)}
+              gridStyle={style}
+              gridCorners={corners}
+              size={size}
+              stroke={stroke}
+              color={color}
+              onSelect={preview.select}
+              onClose={preview.close}
+              /*
+            Both of these clear the other filter on the way out. A synonym
+            searched inside a category, or a category opened under a live
+            search, lands on the intersection of two things you did not ask for
+            together: usually an empty grid, which reads as the link being
+            broken. The category half lives in `selectCategory`; the search
+            half is stated here as well as in the render adjuster, because an
+            alias click can re-send the query it is already showing.
+          */
+              onSearch={(next) => {
+                setCategory("all")
+                onQueryChange(next)
+              }}
+              onCategory={selectCategory}
+            />
+          </div>
+          {dock}
         </div>
       </div>
-
-      <IconPreview
-        icons={icons}
-        name={preview.name}
-        recents={preview.recents}
-        closing={preview.closing}
-        // Grid order, so the arrow keys walk what you can see.
-        order={paged.map((icon) => icon.name)}
-        gridStyle={style}
-        gridCorners={corners}
-        picked={preview.picked}
-        setPicked={preview.setPicked}
-        pickedCorners={preview.pickedCorners}
-        setPickedCorners={preview.setPickedCorners}
-        treatments={treatments}
-        size={size}
-        stroke={stroke}
-        color={color}
-        onSelect={preview.select}
-        onClose={preview.close}
-        /*
-          Both of these clear the other filter on the way out. A synonym
-          searched inside a category, or a category opened under a live search,
-          lands on the intersection of two things you did not ask for together
-          — usually an empty grid, which reads as the link being broken. The
-          category half lives in `selectCategory`; the search half is stated
-          here as well as in the render adjuster, because an alias click can
-          re-send the query it is already showing.
-        */
-        onSearch={(next) => {
-          setCategory("all")
-          onQueryChange(next)
-        }}
-        onCategory={selectCategory}
-        onHeightChange={setDockHeight}
-      />
     </Drawer>
   )
 }

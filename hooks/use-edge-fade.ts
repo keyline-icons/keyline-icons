@@ -12,10 +12,13 @@ import * as React from "react"
  * `scrollHeight` does, and nothing fires for that.
  */
 export function useEdgeFade<T extends HTMLElement>() {
-  const ref = React.useRef<T>(null)
-
-  React.useEffect(() => {
-    const el = ref.current
+  /*
+    A callback ref rather than an object one, so it attaches whenever its
+    element appears, not only when the component mounts: a menu's scroller
+    exists only while the menu is open. React keeps one cleanup per element,
+    so one ref can mark several scrollers at once.
+  */
+  return React.useCallback((el: T | null) => {
     if (!el) return
     const update = () => {
       el.toggleAttribute("data-fade-top", el.scrollTop > 1)
@@ -34,6 +37,4 @@ export function useEdgeFade<T extends HTMLElement>() {
       resize.disconnect()
     }
   }, [])
-
-  return ref
 }

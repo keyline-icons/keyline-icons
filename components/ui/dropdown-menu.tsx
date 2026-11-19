@@ -27,21 +27,33 @@ function DropdownMenuContent({
   alignOffset = 0,
   side = "bottom",
   sideOffset = 4,
+  collisionAvoidance,
+  collisionPadding,
+  positionerClassName,
   className,
   ...props
-}: MenuPrimitive.Popup.Props &
-  Pick<
+}: MenuPrimitive.Popup.Props & {
+  /** Classes for the positioner, which holds the menu's z-index. */
+  positionerClassName?: string
+} & Pick<
     MenuPrimitive.Positioner.Props,
-    "align" | "alignOffset" | "side" | "sideOffset"
+    | "align"
+    | "alignOffset"
+    | "side"
+    | "sideOffset"
+    | "collisionAvoidance"
+    | "collisionPadding"
   >) {
   return (
     <MenuPrimitive.Portal>
       <MenuPrimitive.Positioner
-        className="isolate z-50 outline-none"
+        className={cn("isolate z-50 outline-none", positionerClassName)}
         align={align}
         alignOffset={alignOffset}
         side={side}
         sideOffset={sideOffset}
+        collisionAvoidance={collisionAvoidance}
+        collisionPadding={collisionPadding}
       >
         <MenuPrimitive.Popup
           data-slot="dropdown-menu-content"

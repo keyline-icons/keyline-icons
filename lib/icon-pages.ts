@@ -31,6 +31,15 @@ export const iconHref = (name: string) => `${ICONS_SEGMENT}/${name}`
  */
 export const GRID_PAGE_SIZE = 120
 
+/**
+ * The two drawings the dock shows its choices on: the star for the style, a
+ * plain square for the corners. Here for the reason the page size is: the
+ * server sends both with the page, whatever page it is, so the dock has them
+ * on first paint. Left to the rest of the set, which loads after the page,
+ * they appeared a moment late on every visit where they were not on screen.
+ */
+export const DOCK_SAMPLES = { style: "star", corners: "square" } as const
+
 /** How many pages the unfiltered grid has, for a set of `total` icons. */
 export const gridPageCount = (total: number) =>
   Math.max(1, Math.ceil(total / GRID_PAGE_SIZE))
