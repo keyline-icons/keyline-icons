@@ -128,15 +128,22 @@ export function isDone(history: StarHistory, now: number) {
 }
 
 /**
- * The next 500: 197 goes for 500, 620 for 1,000, 3,858 for 4,000.
+ * The next hundred below 1,000, then the next 250: 232 goes for 300, 960 for
+ * 1,000, 1,130 for 1,250.
  *
- * Two rules were tried first. Rounding to the count's own leading digit put
- * 197 three stars from 200, a goal met before most of the people asked have
- * come back and too small to be worth asking for (Zafar, 11 Nov 2026: "200 is
- * not enough"). ReUI's next thousand put it 803 short with a fifth of the row
- * lit, which reads as out of reach. Steps of 500 keep the goal in sight at any
- * count without it ever being a rounding error away.
+ * Steps of 500 came first and asked 232 for 500, 268 away with under half the
+ * row lit, which read as out of reach at this size (Zafar, 19 Nov 2026: every
+ * 100 until 1,000, then 250). A step is about a quarter to a half of the count
+ * either side of 1,000, so the next goal always looks like one push away.
+ *
+ * A goal less than a fifth of a step away is skipped for the one after: 297
+ * goes for 400, 985 for 1,250. Three stars short is met before most of the
+ * people asked come back, the reason rounding to the leading digit was
+ * dropped (11 Nov 2026: "200 is not enough" at 197). ReUI's next thousand was
+ * the other rule ruled out, 803 short with a fifth of the row lit.
  */
 export function starGoal(stars: number) {
-  return (Math.floor(stars / 500) + 1) * 500
+  const step = (count: number) => (count < 1000 ? 100 : 250)
+  const next = (Math.floor(stars / step(stars)) + 1) * step(stars)
+  return next - stars < step(stars) / 5 ? next + step(next) : next
 }
