@@ -957,6 +957,24 @@
       "podium-3",
       "square-alert",
       "trophy"
+    ],
+    "2.8.0": [
+      "bot-network",
+      "paint-bucket",
+      "pipette",
+      "lasso",
+      "package-open",
+      "teacher",
+      "party-popper",
+      "slice",
+      "flower",
+      "sprout",
+      "solar-panel",
+      "solar",
+      "sticker",
+      "calendar-clock",
+      "hard-hat",
+      "bookmark-check"
     ]
   }
 }

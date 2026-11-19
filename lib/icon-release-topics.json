@@ -3213,6 +3213,109 @@
      "text": "Each icon has an import path of its own now, `@keyline-icons/react-native/icons/check` and the same under each style, so an app that imports one icon carries that drawing and not the whole style."
     }
    ]
+  },
+  "2.8.0": {
+   "title": "Solar panels, plants and drawing tools",
+   "sections": [
+    {
+     "title": "New drawings",
+     "icon": "sparkles",
+     "sections": [
+      {
+       "title": "AI",
+       "text": "A bot wired to two agents below it, for work handed out to subagents.",
+       "names": [
+        "bot-network"
+       ]
+      },
+      {
+       "title": "Art",
+       "text": "A paint bucket, a pipette and a lasso: the fill, colour and selection tools of a drawing app.",
+       "names": [
+        "paint-bucket",
+        "pipette",
+        "lasso"
+       ]
+      },
+      {
+       "title": "Commerce",
+       "text": "A box with its top open and one flap hanging out.",
+       "names": [
+        "package-open"
+       ]
+      },
+      {
+       "title": "Education",
+       "text": "A teacher at a board.",
+       "names": [
+        "teacher"
+       ]
+      },
+      {
+       "title": "Emoji",
+       "text": "A party popper.",
+       "names": [
+        "party-popper"
+       ]
+      },
+      {
+       "title": "Food & Drink",
+       "text": "A kitchen knife.",
+       "names": [
+        "slice"
+       ]
+      },
+      {
+       "title": "Nature",
+       "text": "A flower and a sprout, a solar panel, and the sun rising over one.",
+       "names": [
+        "flower",
+        "sprout",
+        "solar-panel",
+        "solar"
+       ]
+      },
+      {
+       "title": "Stationery",
+       "text": "A round sticker with its edge peeling.",
+       "names": [
+        "sticker"
+       ]
+      },
+      {
+       "title": "Time",
+       "text": "A calendar with a clock in its corner.",
+       "names": [
+        "calendar-clock"
+       ]
+      },
+      {
+       "title": "Tools",
+       "text": "A hard hat.",
+       "names": [
+        "hard-hat"
+       ]
+      },
+      {
+       "title": "Web",
+       "text": "A bookmark with a tick.",
+       "names": [
+        "bookmark-check"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Search",
+     "icon": "search",
+     "text": "101 searches that found nothing now land on a drawing the set already had. A name typed without hyphens, `BookmarkCheck` or package open, is read the way it is written in the set, and icon, icons, svg and shadcn are dropped from a query when other words remain."
+    },
+    {
+     "title": "A name back",
+     "icon": "text-cursor-input",
+     "text": "`flower` names a flower again. 2.6.0 renamed the five rings `circles-five` and kept `flower` pointing at them; from this release `flower`, and `Flower` in React, is the six-petal flower above, and the rings stay `circles-five`."
+    }
+   ]
   }
  }
 }

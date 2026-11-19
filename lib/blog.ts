@@ -6317,6 +6317,228 @@ export const BLOG_V250_REDRAWN_ICON_NAMES = [
 
 /* Food, clothing and building in turn, the three the title names. The poster
    wall takes the first eight, so the list has to reach eight or it stops short. */
+export const BLOG_V280_THUMBNAIL_ICON_NAMES = [
+  "solar-panel",
+  "party-popper",
+  "paint-bucket",
+  "hard-hat",
+  "sprout",
+  "pipette",
+  "flower",
+  "package-open",
+  "lasso",
+  "slice",
+  "sticker",
+  "teacher",
+  "bot-network",
+  "calendar-clock",
+  "bookmark-check",
+  "solar",
+] as const
+
+export const BLOG_V280_SEARCHED_ICON_NAMES = [
+  "teacher",
+  "hard-hat",
+  "sticker",
+  "paint-bucket",
+  "solar-panel",
+  "solar",
+  "slice",
+  "party-popper",
+  "lasso",
+  "pipette",
+  "sprout",
+  "bot-network",
+  "package-open",
+  "bookmark-check",
+  "calendar-clock",
+] as const
+
+export const BLOG_V280_FLOWER_ICON_NAMES = [
+  "flower",
+  "sprout",
+  "circles-five",
+] as const
+
+export const BLOG_V280_SPLIT_ICON_NAMES = [
+  "hard-hat",
+  "slice",
+  "pipette",
+  "paint-bucket",
+  "package-open",
+  "sprout",
+  "party-popper",
+  "solar-panel",
+] as const
+
+const RELEASE_2_8_0: BlogPost = {
+  /* Solar leads: "solar panel icon" is the widest search the batch can win and
+     no other post claims it; the party popper and the design tools follow in
+     the same title. The rest is found in the body's list of searched words. */
+  slug: "solar-party-and-design-tool-icons",
+  version: "2.8.0",
+  title:
+    "16 free solar, party and design tool icons for React, shadcn/ui and Figma",
+  description:
+    "1,901 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
+    "a solar panel, a paint bucket, a pipette, a lasso, a hard hat and a " +
+    "party popper.",
+  standfirst:
+    "The knife, the pipette and the party popper lean the way every diagonal " +
+    "in the set does, bottom left to top right.",
+  date: "2026-11-19",
+  updated: "2026-11-19",
+  readingMinutes: 3,
+  thumbnail: BLOG_V280_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "solar panel icon",
+    "solar energy icon",
+    "renewable energy icons",
+    "party popper icon",
+    "confetti icon",
+    "paint bucket icon",
+    "eyedropper icon",
+    "color picker icon",
+    "lasso tool icon",
+    "hard hat icon",
+    "construction helmet icon",
+    "knife icon",
+    "sprout icon",
+    "flower icon",
+    "sticker icon",
+    "teacher icon",
+    "ai agents icon",
+    "free svg icons",
+    "shadcn/ui icons",
+    "figma icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "Every drawing in this update was asked for in the search on this " +
+        "site before it existed, and the search found nothing. All 16 are " +
+        "drawn now, " +
+        "each in all four styles and both corner shapes, and the set holds " +
+        "1,901 names.",
+    },
+    {
+      kind: "p",
+      text:
+        "They run from a seedling to a hard hat: a flower and a sprout, a " +
+        "solar panel and the sun rising over one, a paint bucket, a pipette " +
+        "and a lasso, a party popper, a kitchen knife, a sticker and a " +
+        "teacher at a board. Four more add a second idea to a shape the set " +
+        "already had: a bookmark with a tick, an open box, a calendar with a " +
+        "clock and a bot wired to two agents.",
+    },
+
+    { kind: "h2", text: "Each empty search now finds something", id: "searches" },
+    {
+      kind: "p",
+      text:
+        "Three months of searches that found nothing were read one query at " +
+        "a time. Most were brands, file types, typos or another word for a " +
+        "drawing the set already had, and 101 of those searches now land " +
+        "where they should. The rest asked for a subject the set had never drawn. These " +
+        "are the words people typed, and what they find now:",
+    },
+    {
+      kind: "list",
+      items: [
+        "teacher: `teacher`",
+        "engineer, helmet: `hard-hat`",
+        "sticker: `sticker`",
+        "bucket, paint bucket: `paint-bucket`",
+        "clean energy: `solar-panel` and `solar`, beside `wind-turbine`",
+        "knife: `slice`",
+        "confetti: `party-popper`",
+        "lasso, pipette: `lasso`, `pipette`",
+        "seed, sprout, flower: `sprout`, `flower`",
+        "subagent, in three spellings: `bot-network`",
+        "package open, BookmarkCheck, calendar clock: `package-open`, `bookmark-check`, `calendar-clock`",
+      ],
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V280_SEARCHED_ICON_NAMES,
+        caption:
+          "Until now `package-open` and `bookmark-check` sent the search to " +
+          "`package` and `bookmark`.",
+      },
+    },
+
+    { kind: "h2", text: "The name flower goes to a flower", id: "flower" },
+    {
+      kind: "p",
+      text:
+        "Until 2.6.0, `flower` was five rings in a circle, which read " +
+        "as a pattern more than a plant. It became `circles-five`, and the old " +
+        "name kept pointing at it. From this release the name belongs to a " +
+        "flower with six petals: in search, on its page, and as `Flower` in " +
+        "React.",
+    },
+    {
+      kind: "note",
+      text: "Code that imported `Flower` for the rings should import `CirclesFive`.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V280_FLOWER_ICON_NAMES,
+        caption: "`circles-five` keeps every search word it had except flower.",
+      },
+    },
+
+    { kind: "h2", text: "In duotone, one part steps back", id: "duotone" },
+    {
+      kind: "p",
+      text:
+        "A grey shape with black lines drawn on it reads as one grey shape at " +
+        "20 pixels. So these duotones come apart where the object does, and " +
+        "one part turns grey: the brim under the hard hat, the blade of the " +
+        "knife, the tube below the pipette's bulb, the paint inside the " +
+        "bucket, the flap of the open box, the soil and one leaf of the " +
+        "sprout. The rest " +
+        "stays black, and the grey marks the part that is different.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V280_SPLIT_ICON_NAMES,
+        caption:
+          "The fill is the same split in black, which is why the hard hat " +
+          "keeps its two slots.",
+      },
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text: "React, shadcn/ui, the CLI, the MCP server and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Changelog",
+      text: "Every drawing in this update, shelf by shelf.",
+    },
+  ],
+}
+
 export const BLOG_V270_THUMBNAIL_ICON_NAMES = [
   "cloud-snow",
   "window-open",
@@ -7781,6 +8003,7 @@ const REACT_NATIVE_ICONS: BlogPost = {
 export const BLOG_POSTS: readonly BlogPost[] = [
   REACT_NATIVE_ICONS,
   LUCIDE_ALTERNATIVES,
+  RELEASE_2_8_0,
   RELEASE_2_7_0,
   RELEASE_2_6_0,
   RELEASE_2_5_0,
