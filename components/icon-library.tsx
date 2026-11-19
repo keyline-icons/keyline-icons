@@ -28,8 +28,6 @@ export function IconLibrary({
   initialStyle,
   initialShape,
   initialIcon,
-  initialIconStyle,
-  initialIconCorners,
   initialPage,
 }: {
   /** Every icon, with drawings only for the ones on screen. */
@@ -55,9 +53,6 @@ export function IconLibrary({
   initialShape?: Container
   /** Seeded from `?icon=`, so a link can open with the dock on one drawing. */
   initialIcon?: string
-  /** Seeded from `?icon-style=` / `?icon-corners=`: how the dock shows it. */
-  initialIconStyle?: Style
-  initialIconCorners?: Corners
   /** Seeded from `?page=`, so each page of the grid has its own address. */
   initialPage?: number
 }) {
@@ -124,8 +119,6 @@ export function IconLibrary({
           initialStyle={initialStyle}
           initialShape={initialShape}
           initialIcon={initialIcon}
-          initialIconStyle={initialIconStyle}
-          initialIconCorners={initialIconCorners}
           initialPage={initialPage}
           query={query}
           onQueryChange={setQuery}

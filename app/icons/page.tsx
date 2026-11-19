@@ -11,7 +11,7 @@ import {
 import { CONTAINERS, type BrowserIcon, type GridIcon } from "@/components/glyph"
 import { isNewSince, loadIcons, STYLES } from "@/lib/icons"
 import { CORNERS, type Corners } from "@/components/glyph"
-import { gridPageCount } from "@/lib/icon-pages"
+import { DOCK_SAMPLES, gridPageCount } from "@/lib/icon-pages"
 import { iconsOnScreen } from "@/lib/icon-search"
 import { styleHref, treatmentHref } from "@/lib/icon-treatments"
 import { repoStars } from "@/lib/github"
@@ -241,23 +241,23 @@ export default async function Page({
         initialIcon
         ? ""
         : named
-  const initialStyle = STYLES.find((known) => known === style)
   const initialShape = CONTAINERS.find((known) => known === shape)
 
   /*
-   * How the dock is showing the drawing `?icon=` names.
-   *
-   * Their own keys rather than a second meaning for `?style=` and `?corners=`,
-   * because the panel's picks are deliberately local: the grid can be rounded
-   * stroke while the panel is sharp fill, and that screen has to survive being
-   * linked to. Validated against the same two lists, for the same reason.
+   * `?icon-style=` and `?icon-corners=` are how the preview panel used to say
+   * it was drawing the open icon differently from the grid. The panel has no
+   * picks of its own now, it draws what the dock sets, so a link that carries
+   * them is honoured by seeding the grid with them instead: it still opens
+   * showing that drawing the way the sender saw it. Only with `?icon=`, which
+   * is the only way they were ever written. Validated against the same lists.
    */
-  const initialIconStyle = STYLES.find(
-    (known) => known === params["icon-style"]
-  )
-  const initialIconCorners = CORNERS.find(
-    (known) => known === params["icon-corners"]
-  )
+  const panelStyle = initialIcon
+    ? STYLES.find((known) => known === params["icon-style"])
+    : undefined
+  const panelCorners = initialIcon
+    ? CORNERS.find((known) => known === params["icon-corners"])
+    : undefined
+  const initialStyle = panelStyle ?? STYLES.find((known) => known === style)
 
   /*
    * `?corners=sharp` arrives as a seed like the three above, and lands one
@@ -278,7 +278,7 @@ export default async function Page({
    * not the shipped default, so the switch produces the link that reproduces
    * it. Reading a parameter nothing can write is half a feature.
    */
-  const seeded = CORNERS.find((known) => known === corners)
+  const seeded = panelCorners ?? CORNERS.find((known) => known === corners)
 
   /*
     `?sort=newest` the same way, one level down, and for the same reason: the
@@ -306,14 +306,10 @@ export default async function Page({
    *
    * The 120 are the ones this address shows, `?page=` and `?search=` included,
    * so every page of the grid still has its real tiles and links in the HTML.
-   * The dock's icon comes too, in its own treatment when a link asked for one.
+   * The open icon comes too, in the grid's treatment, which is the only one
+   * the panel shows now.
    */
-  const carried = [
-    ...new Set<Corners>([
-      initialSettings.corners,
-      ...(initialIcon && initialIconCorners ? [initialIconCorners] : []),
-    ]),
-  ]
+  const carried = [initialSettings.corners]
   const shownStyle = initialStyle ?? "stroke"
   const onScreen = new Set(
     iconsOnScreen(icons, {
@@ -326,6 +322,10 @@ export default async function Page({
     }).map((icon) => icon.name)
   )
   if (initialIcon) onScreen.add(initialIcon)
+  // The dock draws its style and corner choices on these two; see
+  // `DOCK_SAMPLES`.
+  onScreen.add(DOCK_SAMPLES.style)
+  onScreen.add(DOCK_SAMPLES.corners)
 
   const payload = icons.map((icon) =>
     onScreen.has(icon.name)
@@ -375,8 +375,6 @@ export default async function Page({
           initialStyle={initialStyle}
           initialShape={initialShape}
           initialIcon={initialIcon}
-          initialIconStyle={initialIconStyle}
-          initialIconCorners={initialIconCorners}
           initialPage={pageOf(page, icons.length)}
         />
 

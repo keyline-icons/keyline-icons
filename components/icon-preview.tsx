@@ -19,8 +19,6 @@ import {
 import { DesignFileLinks } from "@/components/design-file-links"
 import {
   artOf,
-  CORNERS,
-  SHARP_BADGE,
   Glyph,
   STYLES,
   type BrowserIcon,
@@ -28,7 +26,6 @@ import {
   type Style,
 } from "@/components/glyph"
 import { Segmented, SegmentedItem } from "@/components/segmented"
-import { type Treatments, useTreatmentChoice } from "@/hooks/use-treatments"
 import { Button } from "@/components/ui/button"
 import {
   Tooltip,
@@ -41,7 +38,6 @@ import { cn } from "@/lib/utils"
 import {
   downloadName,
   FORMATS,
-  MISSING_STYLE,
   PACKAGE_MANAGERS,
   snippet,
   type Format,
@@ -50,15 +46,7 @@ import {
 import { iconHref } from "@/lib/icon-pages"
 import { aliasesFor, categoryOf } from "@/lib/icon-taxonomy"
 import { paperFileForCategory } from "@/lib/paper-files"
-import Image from "next/image"
 
-import {
-  avatarUrl,
-  contributorsFor,
-  initials,
-  profileUrl,
-} from "@/lib/icon-contributors"
-import { BrandMark } from "@/components/brand-mark"
 import { CopyName } from "@/components/copy-name"
 
 /** How many previewed icons stay reachable. Three fits one row beside the tile. */
@@ -99,51 +87,19 @@ const CONTAINERS = [
  * restored from a previous one is a list of icons you no longer remember
  * looking at.
  *
- * The two picks live here rather than in the panel for the reason the recents
- * do: both stick across icons, so both outlive any one drawing being shown.
- * Being here is also what lets the browser put them in the address, which it
- * cannot do with state held below it.
- *
  * `initial` is the exception to nothing being persisted, and it is not
- * persistence: `?icon=` in the address opens the panel on that drawing, and
- * `?icon-style=` / `?icon-corners=` say how it was being looked at, so a link
- * copied out of the browser arrives showing what the sender was seeing. The
+ * persistence: `?icon=` in the address opens the panel on that drawing. The
  * icon seeds the recents too, because the strip is a record of what this visit
  * has shown and the seeded icon is the first thing it showed.
+ *
+ * There are no picks of the panel's own. It had a style and a corners switch
+ * that drew one drawing differently from the grid; with the dock setting both
+ * right under it, that was two controls for one thing that could disagree.
  */
-export function useIconPreview(initial?: {
-  icon?: string
-  style?: Style
-  corners?: Corners
-}) {
+export function useIconPreview(initial?: { icon?: string }) {
   const [name, setName] = React.useState<string | null>(initial?.icon ?? null)
   const [recents, setRecents] = React.useState<string[]>(
     initial?.icon ? [initial.icon] : []
-  )
-  /**
-   * The style the panel is showing, which is the grid's until you change it.
-   *
-   * `null` means "follow the grid". Once you pick one it sticks across icons —
-   * you are comparing a weight, not one drawing — and falls back only where the
-   * icon in hand has nothing drawn in it.
-   */
-  const [picked, setPicked] = React.useState<Style | null>(
-    initial?.style ?? null
-  )
-  /**
-   * Rounded or squared, on the same terms as the style above it.
-   *
-   * Local rather than the shared setting, and that is the whole point of it:
-   * the panel is where one drawing is inspected, and flipping the treatment to
-   * compare should no more re-draw the grid underneath than flipping to duotone
-   * does. `null` follows the grid, and a pick sticks across icons, because
-   * someone comparing corners is comparing corners and not one drawing.
-   *
-   * No fallback, unlike `picked`: every drawing exists in both treatments, so
-   * there is never a treatment to fall back from.
-   */
-  const [pickedCorners, setPickedCorners] = React.useState<Corners | null>(
-    initial?.corners ?? null
   )
   /**
    * The panel is on its way out but still mounted.
@@ -199,10 +155,6 @@ export function useIconPreview(initial?: {
     closing,
     select,
     close,
-    picked,
-    setPicked,
-    pickedCorners,
-    setPickedCorners,
   }
 }
 
@@ -214,11 +166,6 @@ export function IconPreview({
   order,
   gridStyle,
   gridCorners,
-  picked,
-  setPicked,
-  pickedCorners,
-  setPickedCorners,
-  treatments,
   stroke,
   color,
   size,
@@ -226,7 +173,6 @@ export function IconPreview({
   onClose,
   onSearch,
   onCategory,
-  onHeightChange,
 }: {
   /** The whole set, so a recent icon still resolves after the filters move. */
   icons: BrowserIcon[]
@@ -236,28 +182,9 @@ export function IconPreview({
   closing: boolean
   /** The names on screen, in grid order — what the arrow keys walk. */
   order: string[]
-  /** The grid's style, which a freshly opened panel starts on. */
+  /** The dock's style and corner treatment, which the panel draws in. */
   gridStyle: Style
-  /** The grid's corner treatment, which a freshly opened panel starts on. */
   gridCorners: Corners
-  /**
-   * The panel's own two picks, held above it by `useIconPreview`.
-   *
-   * They were state in here until the address had to carry them: a pick is
-   * part of what someone is looking at, so a link that names the drawing and
-   * not the treatment reproduces the wrong screen. `null` in either means
-   * "follow the grid".
-   */
-  picked: Style | null
-  setPicked: (next: Style) => void
-  pickedCorners: Corners | null
-  setPickedCorners: (next: Corners) => void
-  /**
-   * Which corner treatments are loaded. The panel's pick can be the one the
-   * grid is not showing, and its container family and related icons draw in
-   * it too, so a pick waits for that treatment like the grid's switch does.
-   */
-  treatments: Treatments
   stroke: number
   color: string | null
   /** Only reaches the copied markup; the specimen draws its own ramp. */
@@ -267,8 +194,6 @@ export function IconPreview({
   /** Clicking an alias searches for it; clicking the category filters to it. */
   onSearch: (query: string) => void
   onCategory: (label: string) => void
-  /** The panel is fixed, so the grid has to be told how much room to leave. */
-  onHeightChange: (px: number) => void
 }) {
   const byName = React.useMemo(
     () => new Map(icons.map((icon) => [icon.name, icon])),
@@ -290,16 +215,19 @@ export function IconPreview({
    *  inside `CopyName`. */
   const [copied, setCopied] = React.useState(false)
 
-  const corners = pickedCorners ?? gridCorners
-  const cornersChoice = useTreatmentChoice(treatments, setPickedCorners)
+  const corners = gridCorners
 
+  /*
+    The dock's style, or the first one this drawing has where it lacks it:
+    an icon whose fill is its stroke still opens with something drawn.
+  */
   const style: Style = React.useMemo(() => {
     if (!icon) return gridStyle
-    for (const candidate of [picked, gridStyle, ...STYLES]) {
-      if (candidate && artOf(icon, candidate, corners)) return candidate
+    for (const candidate of [gridStyle, ...STYLES]) {
+      if (artOf(icon, candidate, corners)) return candidate
     }
     return gridStyle
-  }, [icon, picked, gridStyle, corners])
+  }, [icon, gridStyle, corners])
 
   const art = icon ? artOf(icon, style, corners) : undefined
 
@@ -309,29 +237,6 @@ export function IconPreview({
         ? snippet(format, icon.name, style, art, { size, stroke, pm, corners })
         : "",
     [icon, art, format, style, size, stroke, pm, corners]
-  )
-
-  /**
-   * The panel's height, reported up so the grid can reserve it.
-   *
-   * Measured rather than assumed: it is two columns on a wide screen and a
-   * stack on a phone, and a hardcoded number is wrong on one of them.
-   */
-  const measure = React.useCallback(
-    (node: HTMLDivElement | null) => {
-      if (!node) return () => onHeightChange(0)
-
-      const observer = new ResizeObserver(([entry]) => {
-        onHeightChange(entry.target.getBoundingClientRect().height)
-      })
-      observer.observe(node)
-
-      return () => {
-        observer.disconnect()
-        onHeightChange(0)
-      }
-    },
-    [onHeightChange]
   )
 
   /*
@@ -438,10 +343,10 @@ export function IconPreview({
         candidate.base === icon.base && candidate.container === c.value
     ),
   })).filter((c) => c.icon)
+  const hasFamily = variants.length > 1
 
   const aliases = aliasesFor(icon.base)
   const category = categoryOf(icon.base)
-  const credits = contributorsFor(icon.name, icon.history)
   const tint = color ? { color } : undefined
 
   /** Every chip and button in the panel stands 36px tall. */
@@ -449,39 +354,47 @@ export function IconPreview({
     "flex h-8 items-center gap-1.5 rounded-lg px-2 text-xs transition-colors"
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-20">
-      <div className="mx-auto w-full max-w-360 px-6 pb-4 lg:px-8">
-        {/*
+    /*
+      Not fixed itself any more: it rides the stack in `IconBrowser` that also
+      holds the floating dock, which is measured as one so the grid pads by
+      both.
+
+      Narrower than the page from `lg` up, centred over the bar: across the
+      full container the code ran 1,300px wide and the drawing sat a long way
+      from the chips that change it. Below `lg` it is the container's width,
+      as it always was.
+    */
+    <div className="mx-auto w-full px-6 lg:max-w-4xl lg:px-0">
+      {/*
           Solid, not frosted. A blurred panel over a grid of small drawings
           turns the drawings into smears and the code underneath into grey on
           grey; the point of this surface is that it is opaque and the code on
           it is readable. The border is what separates it from the page.
         */}
-        <div
-          ref={measure}
-          role="dialog"
-          aria-label={`${icon.name} preview`}
-          /* Half-strength edge: at full `--border` the outline competed with
+      <div
+        role="dialog"
+        aria-label={`${icon.name} preview`}
+        /* Half-strength edge: at full `--border` the outline competed with
              the hairline under the header and with the grid tiles behind it.
              The shadow is what separates the panel from the page; this only
              has to close it. */
-          className={cn(
-            "pointer-events-auto relative max-h-[75dvh] overflow-y-auto rounded-xl border border-border/50 bg-background shadow-lg duration-200 motion-reduce:animate-none",
-            // The exit is the entrance run backwards, at the same length. It
-            // arrives sliding up out of the page edge and leaves the same way,
-            // so the two halves read as one gesture rather than an appearance
-            // and a disappearance.
-            // `fill-mode-forwards` holds the finished state until the unmount
-            // lands. The exit keyframe animates *to* transparent with the
-            // default fill mode of `none`, so without it the panel snaps back
-            // to fully opaque for any frame between the animation ending and
-            // the timer firing — a flash at the end of every close.
-            closing
-              ? "animate-out fill-mode-forwards fade-out slide-out-to-bottom-4"
-              : "animate-in fade-in slide-in-from-bottom-4"
-          )}
-        >
-          {/*
+        className={cn(
+          "pointer-events-auto relative max-h-[75dvh] overflow-y-auto rounded-xl border border-border/50 bg-background shadow-lg duration-200 motion-reduce:animate-none",
+          // The exit is the entrance run backwards, at the same length. It
+          // arrives sliding up out of the page edge and leaves the same way,
+          // so the two halves read as one gesture rather than an appearance
+          // and a disappearance.
+          // `fill-mode-forwards` holds the finished state until the unmount
+          // lands. The exit keyframe animates *to* transparent with the
+          // default fill mode of `none`, so without it the panel snaps back
+          // to fully opaque for any frame between the animation ending and
+          // the timer firing — a flash at the end of every close.
+          closing
+            ? "animate-out fill-mode-forwards fade-out slide-out-to-bottom-4"
+            : "animate-in fade-in slide-in-from-bottom-4"
+        )}
+      >
+        {/*
             The identity strip: two blocks, not one wrapping row.
 
             What the icon *is* — name, shelf, version, dates, synonyms — reads
@@ -494,44 +407,44 @@ export function IconPreview({
             synonyms two lines below, and the two right-aligned fragments in the
             middle of a left-aligned column read as a broken layout.
           */}
-          {/* Half strength, like the panel's own edge — the two hairlines meet
+        {/* Half strength, like the panel's own edge — the two hairlines meet
               at the corners and a heavier one there reads as a seam. */}
-          <div className="flex flex-col gap-2 border-b border-border/50 px-3 py-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-            {/*
+        <div className="flex flex-col gap-2 border-b border-border/50 px-3 py-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+          {/*
               The close button is out of the flow, so whatever shares its line
               has to leave its width — that is the `pr-9` below, and it is the
               only clearance in here. Everything else runs to the header's own
               padding, which is where the button's right edge sits too, so the
               credit line ends flush with it.
             */}
-            <div className="flex min-w-0 flex-col gap-1 pr-8 sm:pr-0">
-              <div className="flex min-h-8 flex-wrap items-center gap-x-2.5 gap-y-1">
-                {/*
+          <div className="flex min-w-0 flex-col gap-1 pr-8 sm:pr-0">
+            <div className="flex min-h-8 flex-wrap items-center gap-x-2.5 gap-y-1">
+              {/*
                 The name is the thing most often wanted on its own — it is what
                 goes in an issue, a message or an import you are writing by
                 hand — so it copies itself rather than making you select it out
                 of a code block that has six other things in it.
               */}
-                <h2>
-                  {/* `text-sm`, with the rest of the dock. `text-base` here is
+              <h2>
+                {/* `text-sm`, with the rest of the dock. `text-base` here is
                       the one thing in the panel still at the old scale, and it
                       is the line most likely to wrap. */}
-                  <CopyName
-                    name={icon.name}
-                    className="font-mono text-sm font-medium"
-                    iconClassName="size-3.5"
-                  />
-                </h2>
+                <CopyName
+                  name={icon.name}
+                  className="font-mono text-sm font-medium"
+                  iconClassName="size-3.5"
+                />
+              </h2>
 
-                <button
-                  type="button"
-                  onClick={() => onCategory(category)}
-                  className="rounded-md bg-muted px-2 py-0.5 text-xs text-muted-foreground transition-colors hover:bg-muted-hover hover:text-foreground"
-                >
-                  {category}
-                </button>
+              <button
+                type="button"
+                onClick={() => onCategory(category)}
+                className="rounded-md bg-muted px-2 py-0.5 text-xs text-muted-foreground transition-colors hover:bg-muted-hover hover:text-foreground"
+              >
+                {category}
+              </button>
 
-                {/*
+              {/*
                   The word, where the grid marks the tile with a dot alone. The
                   grid shows every new drawing at once and a label on each one
                   drowns the set; here there is one icon on screen, the row
@@ -553,49 +466,49 @@ export function IconPreview({
                   the panel's own description of the icon, so it is announced
                   with the version and the date beside it.
                 */}
-                {icon.isNew && (
-                  <span className="flex items-center gap-1.5 rounded-full border border-border px-2 py-0.5 text-[10px] leading-4 font-semibold tracking-wide text-foreground">
-                    <span
-                      aria-hidden="true"
-                      className="size-1.5 shrink-0 rounded-full bg-primary"
-                    />
-                    New
-                  </span>
-                )}
+              {icon.isNew && (
+                <span className="flex items-center gap-1.5 rounded-full border border-border px-2 py-0.5 text-[10px] leading-4 font-semibold tracking-wide text-foreground">
+                  <span
+                    aria-hidden="true"
+                    className="size-1.5 shrink-0 rounded-full bg-primary"
+                  />
+                  New
+                </span>
+              )}
 
-                {icon.history && !icon.history.pending && (
-                  <span className="flex flex-wrap items-center gap-x-2 text-xs text-muted-foreground tabular-nums">
-                    {/* No version until a tag covers it. Printing the current
+              {icon.history && !icon.history.pending && (
+                <span className="flex flex-wrap items-center gap-x-2 text-xs text-muted-foreground tabular-nums">
+                  {/* No version until a tag covers it. Printing the current
                         one said a drawing shipped in a release that went out
                         without it. */}
-                    <span>
-                      {icon.history.version
-                        ? `v${icon.history.version}`
-                        : "Unreleased"}
-                    </span>
-                    <span aria-hidden="true">·</span>
-                    <span>
-                      Added{" "}
-                      <time dateTime={icon.history.added}>
-                        {icon.history.addedLabel}
-                      </time>
-                    </span>
-                    {icon.history.updated !== icon.history.added && (
-                      <>
-                        <span aria-hidden="true">·</span>
-                        <span>
-                          Updated{" "}
-                          <time dateTime={icon.history.updated}>
-                            {icon.history.updatedLabel}
-                          </time>
-                        </span>
-                      </>
-                    )}
+                  <span>
+                    {icon.history.version
+                      ? `v${icon.history.version}`
+                      : "Unreleased"}
                   </span>
-                )}
-              </div>
+                  <span aria-hidden="true">·</span>
+                  <span>
+                    Added{" "}
+                    <time dateTime={icon.history.added}>
+                      {icon.history.addedLabel}
+                    </time>
+                  </span>
+                  {icon.history.updated !== icon.history.added && (
+                    <>
+                      <span aria-hidden="true">·</span>
+                      <span>
+                        Updated{" "}
+                        <time dateTime={icon.history.updated}>
+                          {icon.history.updatedLabel}
+                        </time>
+                      </span>
+                    </>
+                  )}
+                </span>
+              )}
+            </div>
 
-              {/*
+            {/*
               The words someone would have searched instead. They are buttons
               because a synonym you can only read is trivia — clicking one runs
               the search and shows the rest of the family it belongs to.
@@ -604,115 +517,110 @@ export function IconPreview({
               is already read as "or call it this", and "ALSO" only took the
               place where the first word should be.
             */}
-              <div className="flex flex-wrap items-center gap-x-1 gap-y-1 text-xs text-muted-foreground">
-                {aliases.map((alias, at) => (
-                  <React.Fragment key={alias}>
-                    {/*
+            <div className="flex flex-wrap items-center gap-x-1 gap-y-1 text-xs text-muted-foreground">
+              {aliases.map((alias, at) => (
+                <React.Fragment key={alias}>
+                  {/*
                       A separator element rather than an `::after` on the
                       button: inside it, the slash would be part of what you
                       click and would underline with the word on hover.
                     */}
-                    {at > 0 && (
-                      /* Half strength, not `--border`: that token is a
+                  {at > 0 && (
+                    /* Half strength, not `--border`: that token is a
                          hairline colour, and a glyph painted in it at 12px is
                          invisible rather than quiet. */
-                      <span aria-hidden="true" className="opacity-50">
-                        /
-                      </span>
-                    )}
-                    <button
-                      type="button"
-                      onClick={() => onSearch(alias)}
-                      className="underline-offset-4 transition-colors hover:text-foreground hover:underline"
-                    >
-                      {alias}
-                    </button>
-                  </React.Fragment>
-                ))}
-              </div>
+                    <span aria-hidden="true" className="opacity-50">
+                      /
+                    </span>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => onSearch(alias)}
+                    className="underline-offset-4 transition-colors hover:text-foreground hover:underline"
+                  >
+                    {alias}
+                  </button>
+                </React.Fragment>
+              ))}
             </div>
+          </div>
 
-            {/*
-              Where you go next: the icons opened before this one, and whoever
-              drew this one. A column at the right of the header on a wide
-              screen, one row under the identity on a narrow one — never a
-              right-aligned fragment inside a left-aligned column.
+          {/*
+              Where you go next: the icons opened before this one, the page,
+              and out. At the right of the header on a wide screen, one row
+              under the identity on a narrow one: never a right-aligned
+              fragment inside a left-aligned column.
+
+              No credit line. Who drew it is on the icon page, one click away;
+              in the panel it was a row of faces under the close button that
+              said nothing about the drawing being looked at.
             */}
-            {/*
-              It wraps on a phone and does not on a wide screen. All of this on
-              one unwrappable row is 300px of content in 327 of panel, and what
-              ran over the edge was the contributor's face — clipped, because
+          {/*
+              It wraps on a phone and does not on a wide screen. Unwrappable,
+              whatever ran past 327px of panel was clipped, because
               `overflow-y-auto` on the panel makes the other axis `auto` too, so
               the overflow was a scrollbar nobody would find rather than a
               visible mistake.
             */}
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 sm:shrink-0 sm:flex-col sm:flex-nowrap sm:items-end sm:gap-1.5">
-              {/*
-                The recents and the close button share a line on a wide screen,
-                which is what puts the button's right edge on the same line as
-                the credit underneath it. `contents` on a phone: there the
-                button is absolute at the panel's corner, and a box holding
-                nothing else would leave a gap in this row.
-
-                The button was absolute at both sizes until it landed on top of
-                the credit — with no recents to hold the line, nothing was
-                keeping the two apart.
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 sm:shrink-0 sm:flex-col sm:flex-nowrap sm:items-end sm:gap-1.5">
+            {/*
+                The recents and the close button share a line on a wide screen.
+                `contents` on a phone: there the button is absolute at the
+                panel's corner, and a box holding nothing else would leave a
+                gap in this row.
               */}
-              <div className="contents sm:flex sm:items-center sm:gap-2">
-                {recents.length > 1 && (
-                  <div className="flex items-center gap-2">
-                    {/* Named, because three unlabelled glyphs beside the close
+            <div className="contents sm:flex sm:items-center sm:gap-2">
+              {recents.length > 1 && (
+                <div className="flex items-center gap-2">
+                  {/* Named, because three unlabelled glyphs beside the close
                       button read as three more buttons that do something to
                       the icon you are looking at. */}
-                    <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-                      Recent
-                    </span>
-                    <div className="flex items-center gap-1">
-                      {recents.map((recent) => {
-                        const entry = byName.get(recent)
-                        if (!entry) return null
-                        const recentArt =
-                          artOf(entry, style, corners) ??
-                          artOf(entry, "stroke", corners)!
+                  <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                    Recent
+                  </span>
+                  <div className="flex items-center gap-1">
+                    {recents.map((recent) => {
+                      const entry = byName.get(recent)
+                      if (!entry) return null
+                      const recentArt =
+                        artOf(entry, style, corners) ??
+                        artOf(entry, "stroke", corners)!
 
-                        return (
-                          <Tooltip key={recent}>
-                            <TooltipTrigger
-                              render={
-                                <button
-                                  type="button"
-                                  onClick={() => onSelect(recent)}
-                                  aria-label={recent}
-                                  aria-current={recent === icon.name}
-                                  className={cn(
-                                    "flex size-8 items-center justify-center rounded-lg transition-colors",
-                                    recent === icon.name
-                                      ? "bg-muted"
-                                      : "hover:bg-muted"
-                                  )}
-                                />
-                              }
-                            >
-                              <span
-                                className="flex text-foreground"
-                                style={tint}
-                              >
-                                <Glyph
-                                  art={recentArt}
-                                  size={18}
-                                  stroke={stroke}
-                                />
-                              </span>
-                            </TooltipTrigger>
-                            <TooltipContent>{recent}</TooltipContent>
-                          </Tooltip>
-                        )
-                      })}
-                    </div>
+                      return (
+                        <Tooltip key={recent}>
+                          <TooltipTrigger
+                            render={
+                              <button
+                                type="button"
+                                onClick={() => onSelect(recent)}
+                                aria-label={recent}
+                                aria-current={recent === icon.name}
+                                className={cn(
+                                  "flex size-8 items-center justify-center rounded-lg transition-colors",
+                                  recent === icon.name
+                                    ? "bg-muted"
+                                    : "hover:bg-muted"
+                                )}
+                              />
+                            }
+                          >
+                            <span className="flex text-foreground" style={tint}>
+                              <Glyph
+                                art={recentArt}
+                                size={18}
+                                stroke={stroke}
+                              />
+                            </span>
+                          </TooltipTrigger>
+                          <TooltipContent>{recent}</TooltipContent>
+                        </Tooltip>
+                      )
+                    })}
                   </div>
-                )}
+                </div>
+              )}
 
-                {/*
+              {/*
                   The dock's one link out, and the only route by which a crawler
                   reaches the icon pages from the grid: every tile is a button
                   that opens this panel, so without an `<a href>` in here the
@@ -727,85 +635,33 @@ export function IconPreview({
                   the panel. Among the name and the dates it read as another
                   fact about the icon rather than as somewhere to go.
                 */}
-                <Link
-                  href={iconHref(icon.name)}
-                  /* `whitespace-nowrap`, or a narrow row breaks it after
+              <Link
+                href={iconHref(icon.name)}
+                /* `whitespace-nowrap`, or a narrow row breaks it after
                      "Open" and the two words read as separate controls. */
-                  className="flex h-8 items-center gap-1 rounded-lg px-2 text-xs whitespace-nowrap text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                >
-                  Open page
-                  <ArrowUpRight className="size-3.5" />
-                </Link>
+                className="flex h-8 items-center gap-1 rounded-lg px-2 text-xs whitespace-nowrap text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              >
+                Open page
+                <ArrowUpRight className="size-3.5" />
+              </Link>
 
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={onClose}
-                  aria-label="Close preview"
-                  className="absolute top-2 right-3 sm:static"
-                >
-                  {/* 20px, matching the glyphs in the recents beside it. The
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={onClose}
+                aria-label="Close preview"
+                className="absolute top-2 right-3 sm:static"
+              >
+                {/* 20px, matching the glyphs in the recents beside it. The
                       button's own default is 16, which is right next to a text
                       label and too small next to a row of drawn icons. */}
-                  <X className="size-4.5" />
-                </Button>
-              </div>
-
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                <span>Contributors</span>
-                {credits.map((person) => {
-                  const avatar = avatarUrl(person)
-                  const profile = profileUrl(person)
-
-                  return (
-                    <Tooltip key={person.id}>
-                      {/*
-                        A link wherever there is a profile to point at, so the
-                        credit is worth something to the person credited.
-                      */}
-                      <TooltipTrigger
-                        render={
-                          profile ? (
-                            <a
-                              href={profile}
-                              target="_blank"
-                              rel="noreferrer"
-                              aria-label={person.name}
-                              className="flex rounded-full transition-opacity hover:opacity-80"
-                            />
-                          ) : (
-                            <span aria-label={person.name} className="flex" />
-                          )
-                        }
-                      >
-                        {person.mark === "brand" ? (
-                          <BrandMark className="size-5" />
-                        ) : avatar ? (
-                          <Image
-                            src={avatar}
-                            alt=""
-                            width={40}
-                            height={40}
-                            className="size-5 rounded-full bg-muted"
-                          />
-                        ) : (
-                          /* No handle to draw a face from — initials, so a
-                             contributor is never uncredited for want of an
-                             image. */
-                          <span className="flex size-5 items-center justify-center rounded-full bg-muted text-[9px] font-medium text-foreground">
-                            {initials(person.name)}
-                          </span>
-                        )}
-                      </TooltipTrigger>
-                      <TooltipContent>{person.name}</TooltipContent>
-                    </Tooltip>
-                  )
-                })}
-              </div>
+                <X className="size-4.5" />
+              </Button>
             </div>
           </div>
+        </div>
 
-          {/*
+        {/*
             The body is a grid, not columns of stacks.
 
             Three blocks — the square, the chips, the code — laid out as
@@ -825,7 +681,7 @@ export function IconPreview({
             alone decides the height and a long snippet scrolls inside the code
             block, which is what the scrollbar there is for.
           */}
-          {/*
+        {/*
             One gap, both axes: 8px inside 12px of padding. It was 24px between
             the columns against 12px between the rows and 16px of padding,
             which put three different spacings in one small panel and made the
@@ -836,15 +692,27 @@ export function IconPreview({
             panel's edge. What the tightening buys goes to the code block,
             which fills whatever the square leaves.
           */}
-          {/*
+        {/*
             The first track is `auto`, never a number. Pinned at 14rem against
             a 13.5rem square it left 8px of empty track on top of the gap, so
             the column read as 24px away from the controls while every other
             space in the panel was 16 — and the two numbers had to be kept in
             step by hand for every breakpoint the square has.
           */}
-          <div className="grid grid-cols-[auto_1fr] gap-2 p-3 sm:grid-rows-[auto_auto_minmax(0,1fr)]">
-            {/*
+        {/*
+          Two rows in column two where the drawing has no other containers,
+          three where it does: the family row sits on top only when there is
+          one, so a drawing without it does not open on an empty band.
+        */}
+        <div
+          className={cn(
+            "grid grid-cols-[auto_1fr] gap-2 p-3",
+            hasFamily
+              ? "sm:grid-rows-[auto_auto_minmax(0,1fr)]"
+              : "sm:grid-rows-[auto_minmax(0,1fr)]"
+          )}
+        >
+          {/*
               The drawing, once, big, filling the square.
 
               The square sets the panel's height rather than taking it. Sized
@@ -857,7 +725,7 @@ export function IconPreview({
               preference either — the three style chips sit beside it, and
               anything larger clips "Fill" off a 375px screen.
             */}
-            {/*
+          {/*
               Below `sm` it is 72 wide and takes its height from the rows it
               spans — no `h-*`, so the grid's default `align-items: stretch`
               fills the area and nothing is left empty beside it. A fixed height
@@ -868,232 +736,215 @@ export function IconPreview({
               From `sm` up it is the square that sets the panel's height,
               spanning all three rows.
             */}
-            <div className="relative row-span-2 size-18 overflow-hidden rounded-lg bg-muted sm:row-span-3 sm:size-48">
-              <span
-                className="absolute inset-0 flex items-center justify-center text-foreground"
-                style={tint}
-              >
-                {/*
+          <div
+            className={cn(
+              "relative size-18 overflow-hidden rounded-lg bg-muted sm:size-48",
+              hasFamily ? "row-span-2 sm:row-span-3" : "sm:row-span-2"
+            )}
+          >
+            {/*
+              The drawing's 24×24 grid, one square per unit, the way the frame
+              reads in Figma: you see where a stroke lands on the grid, not
+              just that it looks right.
+
+              From `sm` up only. The drawing fills the 192 square there, 8px
+              to the unit, so every line falls on a whole pixel; on a phone it
+              is 48, and 2px squares are a grey haze rather than a grid.
+
+              Edge to edge, with no margin: the square's own edge is the
+              frame. The layer covers the whole square, so every line runs
+              out to both edges and the outer cells read as cells on all four
+              sides. A tiled gradient puts a line at the start of each tile,
+              which would draw one along the top and left edges and none
+              along the bottom and right; the 1px of padding, with the
+              background clipped to the content box, drops just that one.
+              Started 8px in instead, the lines stopped short of the top and
+              left, and those sides read as a margin the others did not have.
+            */}
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 hidden sm:block"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to right, var(--border) 1px, transparent 1px), linear-gradient(to bottom, var(--border) 1px, transparent 1px)",
+                backgroundSize: "8px 8px",
+                backgroundOrigin: "border-box",
+                backgroundClip: "content-box",
+                padding: "1px 0 0 1px",
+              }}
+            />
+            <span
+              className="absolute inset-0 flex items-center justify-center text-foreground"
+              style={tint}
+            >
+              {/*
                   The drawing is sized, not stretched. `size-full` in a box that
                   is taller than it is wide painted the glyph to both side edges
                   with a column of air above and below it — the drawing has 2
                   units of padding built in and no more, so filling the width is
                   how it ends up looking cramped in a tall tile. 48 centred is
-                  the same drawing at a size it was built for; on `sm` the tile
+                  the same drawing at a size it was built for. On `sm` the tile
                   is square again and the glyph can have all of it.
                 */}
-                <Glyph
-                  art={art}
-                  size={SPECIMEN}
-                  stroke={stroke}
-                  className="size-12 sm:size-full"
-                />
-              </span>
-            </div>
-
-            {/* The two chip rows, side by side wherever they both fit, and
-                the links out to the design files pinned to the far end. */}
-            <div className="flex min-w-0 flex-wrap items-start gap-x-4 gap-y-3">
-              {/*
-                Only the styles this drawing has. A missing one stays in the row
-                and says why on hover, because "there is no fill of this" is a
-                fact about the icon and greying it out silently reads as a bug.
-              */}
-              <Segmented size="sm" aria-label="Style">
-                {STYLES.map((s) => {
-                  const item = (
-                    <SegmentedItem
-                      key={s}
-                      size="sm"
-                      active={style === s}
-                      disabled={!artOf(icon, s, corners)}
-                      onClick={() => setPicked(s)}
-                      className="capitalize"
-                    >
-                      {s}
-                    </SegmentedItem>
-                  )
-
-                  return artOf(icon, s, corners) ? (
-                    item
-                  ) : (
-                    <Tooltip key={s}>
-                      {/* A disabled button takes no pointer events, so the
-                          tooltip hangs off a wrapper rather than the chip. */}
-                      <TooltipTrigger
-                        render={<span className="flex flex-1 sm:flex-none" />}
-                      >
-                        {item}
-                      </TooltipTrigger>
-                      <TooltipContent className="max-w-64">
-                        No {s} drawing. {MISSING_STYLE}
-                      </TooltipContent>
-                    </Tooltip>
-                  )
-                })}
-              </Segmented>
-
-              {/*
-                No counts and no disabled state: every drawing exists in both,
-                which is exactly why this sits beside the style chips rather
-                than among them.
-              */}
-              <Segmented
-                size="sm"
-                aria-label="Corner treatment"
-                onPointerEnter={cornersChoice.prefetch}
-                onFocus={cornersChoice.prefetch}
-              >
-                {CORNERS.map((k) => (
-                  <SegmentedItem
-                    key={k}
-                    size="sm"
-                    active={(cornersChoice.pending ?? corners) === k}
-                    onClick={() => cornersChoice.choose(k)}
-                    badge={k === "sharp" ? SHARP_BADGE : undefined}
-                  >
-                    {k === "regular" ? "Rounded" : "Sharp"}
-                  </SegmentedItem>
-                ))}
-              </Segmented>
-
-              {/*
-                The same drawing in its other containers. No heading over them:
-                three chips that each show a glyph and name a container are
-                already saying what they are.
-              */}
-              {variants.length > 1 && (
-                <div className="flex gap-1.5">
-                  {variants.map((variant) => (
-                    <button
-                      key={variant.value}
-                      type="button"
-                      onClick={() => onSelect(variant.icon!.name)}
-                      /* The label is dropped where the room is not there; the
-                         glyph beside it says the same. */
-                      aria-label={variant.label}
-                      className={cn(
-                        chip,
-                        "justify-center px-2 sm:px-2.5",
-                        variant.icon!.name === icon.name
-                          ? "bg-muted font-medium"
-                          : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                      )}
-                    >
-                      <span className="flex size-5 items-center justify-center">
-                        <Glyph
-                          art={
-                            artOf(variant.icon!, style, corners) ??
-                            artOf(variant.icon!, "stroke", corners)!
-                          }
-                          size={18}
-                          stroke={stroke}
-                        />
-                      </span>
-                      <span className="hidden sm:inline">{variant.label}</span>
-                    </button>
-                  ))}
-                </div>
-              )}
-
-              {/*
-                Figma and Paper, as marks with the label in a tooltip, at the
-                end of the chip row rather than in the actions row below it.
-                Down there they would sit against Download and Copy, which act
-                on the snippet beside them; these two leave the site, and the
-                row they belong to is the one that describes the drawing.
-
-                `ml-auto` only from `sm` up. On a phone the chips already wrap,
-                and pushing the pair to the far edge of a wrapped row leaves it
-                stranded opposite whatever chip ended the line above it.
-              */}
-              <DesignFileLinks
-                paperUrl={paperFileForCategory(category).url}
-                className="flex items-center gap-2 sm:ml-auto"
+              <Glyph
+                art={art}
+                size={SPECIMEN}
+                stroke={stroke}
+                className="size-12 sm:size-full"
               />
-            </div>
+            </span>
+          </div>
 
-            {/*
+          {/*
+              The same drawing in its other containers, where it has them. No
+              heading over them: three chips that each show a glyph and name a
+              container are already saying what they are.
+
+              No style or corner switches in this row any more: the dock sets
+              both, and the panel draws whatever it is set to.
+            */}
+          {hasFamily && (
+            <div className="flex min-w-0 gap-1.5">
+              {variants.map((variant) => (
+                <button
+                  key={variant.value}
+                  type="button"
+                  onClick={() => onSelect(variant.icon!.name)}
+                  /* The label is dropped where the room is not there; the
+                         glyph beside it says the same. */
+                  aria-label={variant.label}
+                  className={cn(
+                    chip,
+                    "justify-center px-2 sm:px-2.5",
+                    variant.icon!.name === icon.name
+                      ? "bg-muted font-medium"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  )}
+                >
+                  <span className="flex size-5 items-center justify-center">
+                    <Glyph
+                      art={
+                        artOf(variant.icon!, style, corners) ??
+                        artOf(variant.icon!, "stroke", corners)!
+                      }
+                      size={18}
+                      stroke={stroke}
+                    />
+                  </span>
+                  <span className="hidden sm:inline">{variant.label}</span>
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/*
               Three rows in column two: what to copy, how to install it, and the
               code itself. From `sm` up the first two share one row — two items
               in the same cell, one hugging each edge — which is what keeps the
               square spanning three rows rather than four.
             */}
-            <div className="col-start-2 flex min-w-0 items-center overflow-x-auto sm:row-start-2 sm:justify-self-start sm:overflow-visible">
-              <Segmented size="sm" aria-label="Format">
-                {FORMATS.map((f) => (
-                  <SegmentedItem
-                    key={f.value}
-                    size="sm"
-                    active={format === f.value}
-                    onClick={() => setFormat(f.value)}
-                  >
-                    {f.label}
-                  </SegmentedItem>
-                ))}
-              </Segmented>
-            </div>
+          <div
+            className={cn(
+              "col-start-2 flex min-w-0 items-center overflow-x-auto sm:justify-self-start sm:overflow-visible",
+              hasFamily ? "sm:row-start-2" : "sm:row-start-1"
+            )}
+          >
+            <Segmented size="sm" variant="ghost" aria-label="Format">
+              {FORMATS.map((f) => (
+                <SegmentedItem
+                  key={f.value}
+                  size="sm"
+                  variant="ghost"
+                  active={format === f.value}
+                  onClick={() => setFormat(f.value)}
+                >
+                  {f.label}
+                </SegmentedItem>
+              ))}
+            </Segmented>
+          </div>
 
-            {/*
+          {/*
               The package managers and the two actions on one line: the switcher
               belongs with the command it rewrites, and both belong next to the
               button that copies it. Full width below `sm`, where it is a row of
               its own; hooked to the right of the formats from `sm` up.
             */}
-            <div className="col-span-2 flex min-w-0 items-center gap-2 sm:col-span-1 sm:col-start-2 sm:row-start-2 sm:justify-self-end">
-              {/*
+          {/*
+              It wraps, because on a phone the React and CLI formats put the
+              package managers, the two design files, Download and Copy on one
+              303px line, which is more than it holds.
+            */}
+          <div
+            className={cn(
+              "col-span-2 flex min-w-0 flex-wrap items-center gap-2 sm:col-span-1 sm:col-start-2 sm:justify-self-end",
+              hasFamily ? "sm:row-start-2" : "sm:row-start-1"
+            )}
+          >
+            {/*
                 Only where the snippet has a command in it. On the two formats
                 that are just markup, a package manager is a control with
                 nothing to change — and its absence costs no height here,
                 because the actions hold the row open either way.
               */}
-              {(format === "react" || format === "cli") && (
-                <Segmented size="sm" aria-label="Package manager">
-                  {PACKAGE_MANAGERS.map((m) => (
-                    <SegmentedItem
-                      key={m.value}
-                      size="sm"
-                      active={pm === m.value}
-                      onClick={() => setPm(m.value)}
-                      className="px-2.5"
-                    >
-                      {m.value}
-                    </SegmentedItem>
-                  ))}
-                </Segmented>
-              )}
-
-              <div className="ml-auto flex items-center gap-2">
-                <Tooltip>
-                  <TooltipTrigger
-                    render={
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        onClick={download}
-                        aria-label="Download SVG"
-                      />
-                    }
+            {(format === "react" || format === "cli") && (
+              <Segmented size="sm" aria-label="Package manager">
+                {PACKAGE_MANAGERS.map((m) => (
+                  <SegmentedItem
+                    key={m.value}
+                    size="sm"
+                    active={pm === m.value}
+                    onClick={() => setPm(m.value)}
+                    className="px-2.5"
                   >
-                    <Download />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    Download {downloadName(icon.name, style, corners)}
-                  </TooltipContent>
-                </Tooltip>
+                    {m.value}
+                  </SegmentedItem>
+                ))}
+              </Segmented>
+            )}
 
-                <Button onClick={() => copy(code)}>
-                  {copied ? (
-                    <Check data-icon="inline-start" />
-                  ) : (
-                    <Copy data-icon="inline-start" />
-                  )}
-                  {copied ? "Copied" : "Copy"}
-                </Button>
-              </div>
+            <div className="ml-auto flex items-center gap-2">
+              {/*
+                Figma and Paper, as marks with the label in a tooltip, with the
+                other ways of taking the drawing away: the file it lives in sits
+                beside the file you can download and the code you can copy.
+                They were at the end of the style and corner chips, where they
+                read as two more pickers.
+              */}
+              <DesignFileLinks
+                paperUrl={paperFileForCategory(category).url}
+                className="flex items-center gap-2"
+              />
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={download}
+                      aria-label="Download SVG"
+                    />
+                  }
+                >
+                  <Download />
+                </TooltipTrigger>
+                <TooltipContent>
+                  Download {downloadName(icon.name, style, corners)}
+                </TooltipContent>
+              </Tooltip>
+
+              <Button onClick={() => copy(code)}>
+                {copied ? (
+                  <Check data-icon="inline-start" />
+                ) : (
+                  <Copy data-icon="inline-start" />
+                )}
+                {copied ? "Copied" : "Copy"}
+              </Button>
             </div>
+          </div>
 
-            {/*
+          {/*
               The code is taken out of the flow on a wide screen — `absolute`
               inside this box — so that it contributes nothing to how tall its
               row wants to be. The square then decides the panel's height on its
@@ -1107,11 +958,15 @@ export function IconPreview({
               On a phone there is no square to take the height from, so the
               block stays in the flow and caps itself instead.
             */}
-            <div className="relative col-span-2 sm:col-span-1 sm:col-start-2 sm:row-start-3">
-              <pre className="h-28 overflow-auto rounded-lg bg-muted p-2.5 text-xs leading-relaxed sm:absolute sm:inset-0 sm:h-auto">
-                <code>{code}</code>
-              </pre>
-            </div>
+          <div
+            className={cn(
+              "relative col-span-2 sm:col-span-1 sm:col-start-2",
+              hasFamily ? "sm:row-start-3" : "sm:row-start-2"
+            )}
+          >
+            <pre className="h-28 overflow-auto rounded-lg bg-muted p-2.5 text-xs leading-relaxed sm:absolute sm:inset-0 sm:h-auto">
+              <code>{code}</code>
+            </pre>
           </div>
         </div>
       </div>

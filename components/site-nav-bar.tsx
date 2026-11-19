@@ -18,6 +18,7 @@ import {
   FigmaLogo,
   GitHubLogo,
   MakerMark,
+  MakerSoon,
   XLogo,
 } from "@/components/brand-logos"
 import {
@@ -343,12 +344,16 @@ export function SiteNavBar({
                           alone. No `ugc` either. These are not submitted
                           links; the maker vouches for them.
                         */
+                        // Not open yet: a disabled row, no link.
+                        disabled={project.soon}
                         render={
-                          <a
-                            href={project.href}
-                            target="_blank"
-                            rel="noopener"
-                          />
+                          project.soon ? undefined : (
+                            <a
+                              href={project.href}
+                              target="_blank"
+                              rel="noopener"
+                            />
+                          )
                         }
                         className="items-start gap-3 p-2"
                       >
@@ -359,18 +364,24 @@ export function SiteNavBar({
                         <span className="flex min-w-0 flex-col gap-0.5">
                           <span className="flex items-center gap-2 leading-none">
                             {project.name}
-                            <ArrowUpRight
-                              aria-hidden="true"
-                              className="size-3.5 text-muted-foreground"
-                            />
+                            {project.soon ? (
+                              <MakerSoon />
+                            ) : (
+                              <ArrowUpRight
+                                aria-hidden="true"
+                                className="size-3.5 text-muted-foreground"
+                              />
+                            )}
                           </span>
                           <span className="text-xs leading-snug text-muted-foreground">
                             {project.description}
                           </span>
                         </span>
-                        <span className="sr-only">
-                          {" (opens in a new tab)"}
-                        </span>
+                        {!project.soon && (
+                          <span className="sr-only">
+                            {" (opens in a new tab)"}
+                          </span>
+                        )}
                       </DropdownMenuItem>
                     ))}
                   </DropdownMenuGroup>
@@ -642,8 +653,15 @@ export function SiteNavBar({
                   {MAKER_PROJECTS.map((project) => (
                     <DropdownMenuItem
                       key={project.id}
+                      disabled={project.soon}
                       render={
-                        <a href={project.href} target="_blank" rel="noopener" />
+                        project.soon ? undefined : (
+                          <a
+                            href={project.href}
+                            target="_blank"
+                            rel="noopener"
+                          />
+                        )
                       }
                     >
                       <MakerMark
@@ -651,7 +669,13 @@ export function SiteNavBar({
                         className="size-4 text-muted-foreground"
                       />
                       {project.name}
-                      <span className="sr-only">{" (opens in a new tab)"}</span>
+                      {project.soon ? (
+                        <MakerSoon />
+                      ) : (
+                        <span className="sr-only">
+                          {" (opens in a new tab)"}
+                        </span>
+                      )}
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuGroup>

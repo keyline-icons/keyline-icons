@@ -22,11 +22,23 @@ import { cn } from "@/lib/utils"
  * and 32 is the preview dock's, where every control was dropped a step to give
  * the panel back the room it was taking from the grid.
  */
+/**
+ * `ghost` is the other look, on trial in the preview panel: no track, and the
+ * chosen chip filled grey rather than set in white, the way Overflow Design
+ * pairs one of each across a divider. The heights do not change, so a ghost
+ * group lines up with a track beside it. Pass it to both halves, like `size`.
+ */
+type SegmentedVariant = "track" | "ghost"
+
 export function Segmented({
   size = "default",
+  variant = "track",
   className,
   ...props
-}: React.ComponentProps<"div"> & { size?: "default" | "sm" }) {
+}: React.ComponentProps<"div"> & {
+  size?: "default" | "sm"
+  variant?: SegmentedVariant
+}) {
   return (
     <div
       /* A group by default, because a plain div drops the `aria-label` every
@@ -35,8 +47,10 @@ export function Segmented({
          `tablist`. */
       role="group"
       data-size={size}
+      data-variant={variant}
       className={cn(
-        "flex items-center rounded-lg bg-muted p-0.5",
+        "flex items-center rounded-lg p-0.5",
+        variant === "track" && "bg-muted",
         size === "sm" ? "h-8" : "h-9",
         className
       )}
@@ -71,6 +85,7 @@ export function Segmented({
 export function SegmentedItem({
   active,
   size = "default",
+  variant = "track",
   badge,
   className,
   children,
@@ -78,6 +93,7 @@ export function SegmentedItem({
 }: React.ComponentProps<"button"> & {
   active: boolean
   size?: "default" | "sm"
+  variant?: SegmentedVariant
   badge?: string
 }) {
   return (
@@ -96,7 +112,10 @@ export function SegmentedItem({
         // at 1440; the ring sits inside the track's 2px of padding instead.
         "flex items-center rounded-md transition-colors",
         size === "sm" ? "h-7 px-2.5 text-xs" : "h-8 px-3 text-sm",
-        active && "bg-background ring-1 ring-border",
+        variant === "track" && active && "bg-background ring-1 ring-border",
+        // With no track to sit in, the unchosen chips need a hover, or the
+        // row reads as text rather than as buttons.
+        variant === "ghost" && (active ? "bg-muted" : "hover:bg-muted/60"),
         // A style with nothing drawn in it stays in the row rather than
         // vanishing, so the set's coverage is visible instead of implied.
         "disabled:pointer-events-none disabled:opacity-40",
