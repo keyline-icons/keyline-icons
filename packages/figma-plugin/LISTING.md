@@ -124,6 +124,14 @@ Need icons drawn for your own product? Custom sets on the same grid, as SVG, Fig
 
 Changelog
 
+2.8.0
+16 new drawings, taking the set to 1,901 names and 15,208 SVGs.
+
+* Searched for, then drawn: a solar panel and the sun rising over one, a flower and a sprout, a paint bucket, a pipette and a lasso, a hard hat, a party popper, a kitchen knife, a sticker and a teacher at a board
+* On familiar shapes: a bookmark with a tick, an open box, a calendar with a clock and a bot wired to two agents
+* Search: 101 searches that used to find nothing now find their icon, BookmarkCheck and package open among them
+* flower names a flower again; the five rings stay circles-five
+
 2.7.0
 52 new drawings, taking the set to 1,885 names and 15,080 SVGs.
 
@@ -765,6 +773,12 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+v2.8.0
+16 new drawings, taking the set to 1,901 names and 15,208 SVGs. No component was replaced, so instances already placed in your files keep their link; the name flower now belongs to a new flower, and the five rings stay circles-five.
+
+* Searched for, then drawn: a solar panel and the sun rising over one, a flower and a sprout, a paint bucket, a pipette and a lasso, a hard hat, a party popper, a kitchen knife, a sticker and a teacher at a board
+* On familiar shapes: a bookmark with a tick, an open box, a calendar with a clock and a bot wired to two agents
+
 v2.7.0
 52 new drawings, taking the set to 1,885 names and 15,080 SVGs. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
 
@@ -864,7 +878,7 @@ its 1.7.0), 1.8.0 and 1.7.0 from the plugin's on 2 Nov 2026 with the 2.5.0 entry
 took its missing v2.5.0 entry the same day and gave up v1.8.0, 8,034
 before, 7,452 after), 2.0.0 from the plugin's and v2.0.0 from the file's on
 16 Nov 2026 with the 2.7.0 entries (9,034 and 9,471 before, 7,681 and 7,849
-after), and a
+after), nothing on 19 Nov 2026 for the 2.8.0 entries (8,255 and 8,417), and a
 last line points at
 `keylineicons.com/changelog`, which keeps every release.
 
