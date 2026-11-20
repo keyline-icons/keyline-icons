@@ -2523,6 +2523,15 @@
         "slashed"
       ],
       "note": "The other common word for the struck-through state: eye slash, bell slash and mic slash found nothing, swept 20 Nov 2026."
+    },
+    {
+      "match": "^bar-chart-2-down$",
+      "terms": [
+        "kanban",
+        "kanban board",
+        "board"
+      ],
+      "note": "Columns hanging from the top of a frame are a kanban board; boxed, it is the board a code editor draws for its kanban view (20 Nov 2026). The base carries it, so the bare and circled bars answer too."
     }
   ],
   "names": {
