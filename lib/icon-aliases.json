@@ -1601,7 +1601,8 @@
         "denied",
         "cancel",
         "not allowed",
-        "restricted"
+        "restricted",
+        "stop"
       ]
     },
     {
