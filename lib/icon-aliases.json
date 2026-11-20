@@ -2532,6 +2532,14 @@
         "board"
       ],
       "note": "Columns hanging from the top of a frame are a kanban board; boxed, it is the board a code editor draws for its kanban view (20 Nov 2026). The base carries it, so the bare and circled bars answer too."
+    },
+    {
+      "match": "^bandage$",
+      "terms": [
+        "bandaid",
+        "band aid"
+      ],
+      "note": "The everyday name for it, a trademark gone generic; kept on his word, 20 Nov 2026. The code editor's set calls this drawing bandaid and the search found nothing."
     }
   ],
   "names": {
