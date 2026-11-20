@@ -323,6 +323,14 @@
       ]
     },
     {
+      "match": "^cursor$",
+      "terms": [
+        "agent",
+        "agents"
+      ],
+      "note": "An agent drawn as the pointer arrow, the way some editors draw theirs. Until 20 Nov 2026 agent reached only the bots, and a separate agent drawing would have been this arrow flipped."
+    },
+    {
       "match": "^cursor-text$",
       "terms": [
         "caret",
@@ -789,7 +797,9 @@
         "desktop",
         "computer",
         "tv",
-        "workstation"
+        "workstation",
+        "vm",
+        "virtual machine"
       ]
     },
     {
@@ -1222,7 +1232,9 @@
         "delete",
         "remove",
         "trash",
-        "discard"
+        "discard",
+        "trashcan",
+        "trash can"
       ]
     },
     {
@@ -2286,7 +2298,9 @@
     {
       "match": "^send",
       "terms": [
-        "sending"
+        "sending",
+        "paperplane",
+        "paper plane"
       ],
       "note": "Empty searches, 16 Aug to 16 Nov 2026: sending 2. The singular rule folds plurals, not -ing."
     },
@@ -2448,6 +2462,67 @@
         "ecology"
       ],
       "note": "Empty searches, 16 Aug to 16 Nov 2026: environmental science 2."
+    },
+    {
+      "match": "^face-",
+      "terms": [
+        "smiley"
+      ],
+      "note": "The word a code editor's own icon set gives this drawing, swept 20 Nov 2026: it found nothing here, or the wrong drawing."
+    },
+    {
+      "match": "^dumbbell$",
+      "terms": [
+        "barbell"
+      ],
+      "note": "The word a code editor's own icon set gives this drawing, swept 20 Nov 2026: it found nothing here, or the wrong drawing."
+    },
+    {
+      "match": "^circle-dashed$",
+      "terms": [
+        "draft"
+      ],
+      "note": "The word a code editor's own icon set gives this drawing, swept 20 Nov 2026: it found nothing here, or the wrong drawing."
+    },
+    {
+      "match": "^badge-check$",
+      "terms": [
+        "verified",
+        "seal"
+      ],
+      "note": "The word a code editor's own icon set gives this drawing, swept 20 Nov 2026: it found nothing here, or the wrong drawing."
+    },
+    {
+      "match": "^corner-down-left$",
+      "terms": [
+        "return",
+        "return key"
+      ],
+      "note": "The word a code editor's own icon set gives this drawing, swept 20 Nov 2026: it found nothing here, or the wrong drawing."
+    },
+    {
+      "match": "^history$",
+      "terms": [
+        "versions",
+        "version history"
+      ],
+      "note": "The word a code editor's own icon set gives this drawing, swept 20 Nov 2026: it found nothing here, or the wrong drawing."
+    },
+    {
+      "match": "^puzzle$",
+      "terms": [
+        "piece",
+        "puzzle piece"
+      ],
+      "note": "The word a code editor's own icon set gives this drawing, swept 20 Nov 2026: it found nothing here, or the wrong drawing."
+    },
+    {
+      "match": "-off$",
+      "terms": [
+        "slash",
+        "slashed"
+      ],
+      "note": "The other common word for the struck-through state: eye slash, bell slash and mic slash found nothing, swept 20 Nov 2026."
     }
   ],
   "names": {
