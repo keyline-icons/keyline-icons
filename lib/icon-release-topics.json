@@ -3316,6 +3316,168 @@
      "text": "`flower` names a flower again. 2.6.0 renamed the five rings `circles-five` and kept `flower` pointing at them; from this release `flower`, and `Flower` in React, is the six-petal flower above, and the rings stay `circles-five`."
     }
    ]
+  },
+  "2.9.0": {
+   "title": "Bees, hats, a feed and the type marks",
+   "sections": [
+    {
+     "title": "New drawings",
+     "icon": "sparkles",
+     "sections": [
+      {
+       "title": "AI",
+       "text": "A crescent moon with sparkles, and a scan frame around a sparkle.",
+       "names": [
+        "moon-sparkles",
+        "scan-sparkle"
+       ]
+      },
+      {
+       "title": "Animals",
+       "text": "A honeybee, and a beehouse under a pitched roof.",
+       "names": [
+        "bee",
+        "beehouse"
+       ]
+      },
+      {
+       "title": "Commerce",
+       "text": "A bow tie, a baseball cap seen from the front and a brimmed hat.",
+       "names": [
+        "bow-tie",
+        "cap",
+        "hat"
+       ]
+      },
+      {
+       "title": "Devices",
+       "text": "Ones and zeros, a bug with a play arrow for a debug run, a scan frame around a check, a pair of goggles and a remote control.",
+       "names": [
+        "binary",
+        "play-bug",
+        "scan-check",
+        "rectangle-goggles",
+        "remote-control"
+       ]
+      },
+      {
+       "title": "Finance",
+       "text": "A treasure chest with a lock.",
+       "names": [
+        "treasure"
+       ]
+      },
+      {
+       "title": "Food & Drink",
+       "text": "An apple and a chef's hat.",
+       "names": [
+        "apple",
+        "chef-hat"
+       ]
+      },
+      {
+       "title": "Home",
+       "text": "A rocking chair.",
+       "names": [
+        "rocking-chair"
+       ]
+      },
+      {
+       "title": "Mail",
+       "text": "A postcard, an envelope over a scan line, speech bubbles holding code, three dots and a pen, and a hand bell.",
+       "names": [
+        "postcard",
+        "mail-scan",
+        "message-code",
+        "message-more",
+        "message-pen",
+        "hand-bell"
+       ]
+      },
+      {
+       "title": "Maps",
+       "text": "A compass struck through, and a winding route that ends in an x.",
+       "names": [
+        "compass-off",
+        "route-2-x"
+       ]
+      },
+      {
+       "title": "Media",
+       "text": "A compact disc, and a film frame and a picture, each beside a scan line.",
+       "names": [
+        "disc",
+        "film-scan",
+        "image-scan"
+       ]
+      },
+      {
+       "title": "Science",
+       "text": "A conical flask with a ban sign.",
+       "names": [
+        "flask-conical-ban"
+       ]
+      },
+      {
+       "title": "Shapes",
+       "text": "A pentagon, and two circles overlapping with a check.",
+       "names": [
+        "pentagon",
+        "circles-check"
+       ]
+      },
+      {
+       "title": "Sport",
+       "text": "A runner in full stride.",
+       "names": [
+        "sprint"
+       ]
+      },
+      {
+       "title": "Text",
+       "text": "A T in a rounded square, and the type marks for size, height, width and type turned off.",
+       "names": [
+        "square-type",
+        "type-size",
+        "type-height",
+        "type-width",
+        "type-off"
+       ]
+      },
+      {
+       "title": "Tools",
+       "text": "A section of pipe bent between two flanges.",
+       "names": [
+        "pipe-section"
+       ]
+      },
+      {
+       "title": "Weather",
+       "text": "A crescent moon with a Z, for sleep.",
+       "names": [
+        "moon-z"
+       ]
+      },
+      {
+       "title": "Web",
+       "text": "The RSS feed.",
+       "names": [
+        "rss"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Search",
+     "icon": "search",
+     "text": "Words a code editor's own icon set uses for drawings the set already had now find them: agent finds the pointer, trash can the bin, paper plane `send`, kanban the hanging bars and stop `ban`, with smiley, barbell, draft, verified and versions beside them."
+    },
+    {
+     "title": "A new name",
+     "icon": "text-cursor-input",
+     "text": "`circle-half-striped` is `shadows` now. The old name still works: `CircleHalfStriped` in React is a deprecated alias of `Shadows`, the CLI and the MCP server resolve it, and its page and registry item redirect."
+    }
+   ]
   }
  }
 }

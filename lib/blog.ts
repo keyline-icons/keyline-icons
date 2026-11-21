@@ -8000,9 +8000,262 @@ const REACT_NATIVE_ICONS: BlogPost = {
   ],
 }
 
+export const BLOG_V290_THUMBNAIL_ICON_NAMES = [
+  "rss",
+  "bee",
+  "hat",
+  "bow-tie",
+  "apple",
+  "chef-hat",
+  "treasure",
+  "rocking-chair",
+  "remote-control",
+  "cap",
+  "disc",
+  "type-size",
+  "image-scan",
+  "postcard",
+  "sprint",
+  "beehouse",
+] as const
+
+export const BLOG_V290_SEARCHED_ICON_NAMES = [
+  "cursor",
+  "face-smile",
+  "bin",
+  "send",
+  "dumbbell",
+  "circle-dashed",
+  "badge-check",
+  "corner-down-left",
+  "history",
+  "bar-chart-2-down",
+  "bandage",
+  "ban",
+] as const
+
+export const BLOG_V290_SCAN_ICON_NAMES = [
+  "image-scan",
+  "film-scan",
+  "mail-scan",
+  "scan-check",
+  "scan-sparkle",
+] as const
+
+export const BLOG_V290_TYPE_ICON_NAMES = [
+  "square-type",
+  "type-size",
+  "type-height",
+  "type-width",
+  "type-off",
+] as const
+
+export const BLOG_V290_SHADOWS_ICON_NAMES = [
+  "shadows",
+  "circle-half",
+  "square-half",
+] as const
+
+const RELEASE_2_9_0: BlogPost = {
+  /* RSS leads: "rss icon" is the widest search the batch can win and no other
+     post claims it; the bee, the hats and the type size marks follow. */
+  slug: "rss-bee-hat-and-type-size-icons",
+  version: "2.9.0",
+  title:
+    "39 free RSS, bee, hat and type size icons for React, shadcn/ui and Figma",
+  description:
+    "1,940 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
+    "the RSS feed, a bee and a beehouse, a bow tie, a cap and a hat, and the " +
+    "type size marks.",
+  standfirst:
+    "A picture, a film frame and an envelope pass the same dashed line, so " +
+    "the three scans read as one family.",
+  date: "2026-11-21",
+  updated: "2026-11-21",
+  readingMinutes: 3,
+  thumbnail: BLOG_V290_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "rss icon",
+    "rss feed icon",
+    "bee icon",
+    "beehive icon",
+    "bow tie icon",
+    "baseball cap icon",
+    "hat icon",
+    "chef hat icon",
+    "apple icon",
+    "remote control icon",
+    "rocking chair icon",
+    "treasure chest icon",
+    "font size icon",
+    "text height icon",
+    "scan icon",
+    "debug icon",
+    "free svg icons",
+    "shadcn/ui icons",
+    "figma icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "A bee, a bow tie and the RSS feed are among the 39 drawings in this " +
+        "update. Each comes stroked, two-tone, duotone and filled, with round " +
+        "corners or sharp, and the set now holds 1,940 names.",
+    },
+    {
+      kind: "p",
+      text:
+        "The rest run from the kitchen to the desk: an apple and a chef's " +
+        "hat, a cap and a brimmed hat, a rocking chair, a remote control, a " +
+        "compact disc, a treasure chest, a postcard and a hand bell, a " +
+        "pentagon, a runner in full stride and a section of pipe. Others add " +
+        "a second idea to a shape the set already had: speech bubbles " +
+        "holding code, three dots or a pen, a compass switched off, a flask " +
+        "with a ban sign, a route that ends in an x and a moon with a Z for " +
+        "sleep.",
+    },
+
+    { kind: "h2", text: "A code editor's words now find the drawings", id: "search" },
+    {
+      kind: "p",
+      text:
+        "The 818 names a code editor gives its own icons were read against " +
+        "this set. Most of what it draws is here already under other words, " +
+        "so each of its words went through the search on this site. These " +
+        "found nothing or the wrong drawing, and now land here:",
+    },
+    {
+      kind: "list",
+      items: [
+        "agent, agents: `cursor`, the pointer it draws its agent as",
+        "smiley: the faces, `face-smile` first",
+        "trash can: `bin`",
+        "paper plane: `send`",
+        "barbell: `dumbbell`",
+        "draft: `circle-dashed`",
+        "verified, seal: `badge-check`",
+        "return: `corner-down-left`",
+        "versions: `history`",
+        "kanban: `bar-chart-2-down`, columns hanging from the top",
+        "bandaid: `bandage`",
+        "stop: `ban`",
+      ],
+    },
+    {
+      kind: "p",
+      text:
+        "Where it drew something this set had never had, the drawing is new " +
+        "here instead: `rss`, `remote-control` and `rocking-chair` came off " +
+        "that list.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V290_SEARCHED_ICON_NAMES,
+        caption:
+          "The boxed and circled bars answer kanban too: a drawing in a frame " +
+          "takes its words from the bare one.",
+      },
+    },
+
+    { kind: "h2", text: "Three scans pass one dashed line", id: "scans" },
+    {
+      kind: "p",
+      text:
+        "`image-scan` began as a picture beside a dashed line, a scanner " +
+        "caught halfway across the page. The same line now runs past a film " +
+        "frame in `film-scan` and under an envelope in `mail-scan`, whose " +
+        "envelope is a little narrower and its flap a little shallower so " +
+        "the flap stays clear of the line. The picture and the film are read " +
+        "left to right, the letter top to bottom.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V290_SCAN_ICON_NAMES,
+        caption:
+          "`scan-check` and `scan-sparkle` arrived the same week and keep the " +
+          "older four-corner frame.",
+      },
+    },
+
+    { kind: "h2", text: "One T sets every type mark", id: "type" },
+    {
+      kind: "p",
+      text:
+        "`type-size`, `type-height`, `type-width`, `type-off` and " +
+        "`square-type` share one letter T, its corners rounded like every " +
+        "other corner in the set. Only what sits beside it changes: a smaller " +
+        "T for size, a double arrow standing up for height or lying down for " +
+        "width, a slash for off, and a rounded square around it for the text " +
+        "tool.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V290_TYPE_ICON_NAMES,
+        caption:
+          "`type-off` leaves a gap either side of its slash, as every off " +
+          "drawing in the set does.",
+      },
+    },
+
+    { kind: "h2", text: "circle-half-striped is shadows now", id: "shadows" },
+    {
+      kind: "p",
+      text:
+        "The circle with one half striped shipped in 2.7.0 as " +
+        "`circle-half-striped`, a name that says how it is drawn rather than " +
+        "what it is for. From this release it is `shadows`, in search, on its " +
+        "page and as `Shadows` in React. The old name keeps working: the old " +
+        "page redirects, and the CLI and the MCP server still accept it.",
+    },
+    {
+      kind: "note",
+      text:
+        "`CircleHalfStriped` stays as a deprecated alias of `Shadows` until " +
+        "the next major version.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V290_SHADOWS_ICON_NAMES,
+        caption: "Contrast, shading and halftone still find it.",
+      },
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text: "React, shadcn/ui, the CLI, the MCP server and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Changelog",
+      text: "Every drawing in this update, shelf by shelf.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
   REACT_NATIVE_ICONS,
   LUCIDE_ALTERNATIVES,
+  RELEASE_2_9_0,
   RELEASE_2_8_0,
   RELEASE_2_7_0,
   RELEASE_2_6_0,
