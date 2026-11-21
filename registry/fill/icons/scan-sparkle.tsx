@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ScanSparkle({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M3 8V6C3 4.3431 4.3431 3 6 3H8M16 3H18C19.6569 3 21 4.3431 21 6V8M21 16V18C21 19.6569 19.6569 21 18 21H16M8 21H6C4.3431 21 3 19.6569 3 18V16"/>
+      <path d="M14.2197 7.484L14.8292 8.9063C14.8801 9.0252 14.9748 9.1199 15.0939 9.1709L17.9383 10.3898C18.6444 10.6925 19 11.3587 19 12C19 12.6413 18.6444 13.3075 17.9384 13.6101L15.0937 14.8292C14.9749 14.8801 14.8801 14.9749 14.8291 15.0939L13.6102 17.9383C13.3075 18.6444 12.6413 19 12 19C11.3587 19 10.6925 18.6444 10.3899 17.9384L9.1708 15.0937C9.1199 14.9748 9.0252 14.8801 8.9061 14.8291L6.0617 13.6102C5.3555 13.3074 5 12.6412 5 12C5 11.3588 5.3555 10.6926 6.0615 10.3899L8.9063 9.1708C9.0252 9.1199 9.1199 9.0252 9.1709 8.9061L10.3898 6.0617C10.6926 5.3555 11.3588 5 12 5C12.6412 5 13.3074 5.3555 13.6101 6.0615Z" fill="currentColor" stroke="none"/>
+    </svg>
+  )
+}

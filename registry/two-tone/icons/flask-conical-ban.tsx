@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function FlaskConicalBan({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12.0507 22.21L12.0383 22.2568C11.9219 22.695 11.5252 23 11.0718 23L4.0024 23C2.9009 23 1.9829 22.4206 1.4658 21.6018C0.9487 20.783 0.8201 19.7051 1.2936 18.7105L3.8968 13.2423L6.5 7.7741L6.5 3C6.5 1.8954 7.3954 1 8.5 1L11.5 1C12.6046 1 13.5 1.8954 13.5 3L13.5001 7.7744L14.8734 10.6591C14.9373 10.7933 14.9705 10.9402 14.9705 11.0889C14.9705 11.1756 14.9592 11.2619 14.937 11.3457L14.9243 11.3936C14.855 11.6106 14.7138 11.7954 14.5287 11.92C12.4206 13.1261 11 15.3972 11 18C11 19.2979 11.3533 20.5134 11.9689 21.5554C12.0354 21.6894 12.0728 21.8403 12.0728 22C12.0728 22.072 12.0652 22.1423 12.0507 22.21Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M11.0718 22H4.0024C2.5325 22 1.5647 20.4675 2.1965 19.1403L7.4029 8.204C7.4668 8.0697 7.5 7.9228 7.5 7.7741V3C7.5 2.4477 7.9477 2 8.5 2H11.5C12.0523 2 12.5 2.4477 12.5 3V7.7741C12.5 7.9228 12.5332 8.0697 12.5971 8.204L13.9705 11.0889M6 2H14M2.7394 18H10M15.1716 15.1716L20.8284 20.8284M18 14C20.2092 14 22 15.7908 22 18C22 20.2092 20.2092 22 18 22C15.7908 22 14 20.2092 14 18C14 15.7908 15.7908 14 18 14Z"/>
+    </svg>
+  )
+}

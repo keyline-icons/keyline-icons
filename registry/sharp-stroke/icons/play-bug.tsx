@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function PlayBug({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M10 9L10 8L10 2.0024L21.9991 10L17 14.5252L16.6711 14.8229M4.3222 14.7586C5.1154 13.8833 6.2772 13.3793 7.5 13.3793C8.7228 13.3793 9.8846 13.8833 10.6778 14.7586C10.8061 15.0603 10.8611 15.3621 10.8611 15.6207L10.8611 17.7471C10.8611 19.5172 9.3486 20.9655 7.5 20.9655C5.6514 20.9655 4.1389 19.5172 4.1389 17.7471L4.1389 15.6207C4.1389 15.3621 4.1939 15.0603 4.3222 14.7586ZM4.3222 14.7586C3.3469 14.5603 2.6111 13.658 2.6111 12.5575L2.6111 12L2.6111 11M10.6778 14.7586C11.6531 14.5603 12.3889 13.658 12.3889 12.5575L12.3889 12L12.3889 11M13 23L13 22L13 21.4425C13 20.3994 12.0412 19.5443 10.7695 19.3563L10.4587 19.3103M2 23L2 21.4425C2 20.3994 2.9594 19.5443 4.2305 19.3563L4.5413 19.3103" fill="none"/>
+    </svg>
+  )
+}

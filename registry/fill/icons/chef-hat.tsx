@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ChefHat({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M9 16L6 16C5.4477 16 5 15.5523 5 15L5 12.7002C3.9788 12.3543 3.0839 11.7673 2.4002 11.0211C1.5424 10.0848 1 8.8759 1 7.5714C1 5.9783 1.677 4.5567 2.7696 3.5422C3.8597 2.53 5.3547 1.9286 7 1.9286C7.4978 1.9286 7.9487 1.9832 8.3842 2.0935C9.3537 1.3922 10.6183 1 12 1C13.3817 1 14.6463 1.3922 15.6158 2.0935C16.0513 1.9832 16.5022 1.9286 17 1.9286C18.6453 1.9286 20.1403 2.53 21.2304 3.5422C22.323 4.5567 23 5.9783 23 7.5714C23 8.8759 22.4576 10.0848 21.5998 11.0211C20.9161 11.7673 20.0212 12.3543 19 12.7002L19 15C19 15.5523 18.5523 16 18 16L12 16ZM12 23L7.5 23C6.1193 23 5 21.8807 5 20.5L5 19C5 18.4477 5.4477 18 6 18L12 18L18 18C18.5523 18 19 18.4477 19 19L19 20.5C19 21.8807 17.8807 23 16.5 23Z" fill="currentColor"/>
+    </svg>
+  )
+}

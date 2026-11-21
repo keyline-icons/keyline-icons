@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Pentagon({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M17.1428 6.0203L21.6417 9.8061C21.8675 9.9961 21.9978 10.2761 21.9978 10.5712C21.9978 10.6727 21.9823 10.7737 21.9519 10.8705L18.68 21.2996C18.5492 21.7166 18.1629 22.0003 17.7259 22.0003L6.2741 22.0003C5.8371 22.0003 5.4508 21.7166 5.32 21.2996L2.0481 10.8705C2.0177 10.7737 2.0022 10.6727 2.0022 10.5712C2.0022 10.2761 2.1325 9.9961 2.3583 9.8061L11.3561 2.2346C11.5364 2.0829 11.7644 1.9997 12 1.9997C12.2356 1.9997 12.4636 2.0829 12.6439 2.2346Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M3.0022 10.5712L6.2741 21.0003L17.7259 21.0003L20.9978 10.5712L12 2.9997Z"/>
+    </svg>
+  )
+}

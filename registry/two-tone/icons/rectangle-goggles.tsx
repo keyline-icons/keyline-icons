@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function RectangleGoggles({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 5L20 5C21.6569 5 23 6.3432 23 8L23 16C23 17.6569 21.6569 19 20 19L16.9612 19C16.0499 19 15.188 18.5857 14.6187 17.8742L11.9999 14.6009L9.3814 17.8741C8.812 18.5857 7.9501 19 7.0388 19L4 19C2.3432 19 1 17.6569 1 16L1 8C1 6.3431 2.3431 5 4 5Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M22 8V16C22 17.1046 21.1046 18 20 18H16.9612C16.3537 18 15.7791 17.7238 15.3995 17.2494L12.7809 13.9761C12.3805 13.4757 11.6195 13.4757 11.2191 13.9761L8.60049 17.2494C8.22094 17.7238 7.64632 18 7.03875 18H4C2.89543 18 2 17.1046 2 16V8C2 6.89543 2.89543 6 4 6H20C21.1046 6 22 6.89543 22 8Z"/>
+    </svg>
+  )
+}

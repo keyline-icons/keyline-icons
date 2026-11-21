@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function MailScan({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2.889 3.4857C3.6484 2.5461 4.7918 2 6 2H18C19.2082 2 20.3516 2.5461 21.111 3.4857C21.3163 3.7398 21.3846 4.0781 21.2939 4.3919C21.2032 4.7058 20.965 4.9555 20.6557 5.0608L12.3139 7.9029L12.1697 7.9651C12.0817 8.0115 11.9183 8.0115 11.8303 7.9651L11.6861 7.9029L3.3443 5.0608C3.035 4.9555 2.7968 4.7058 2.7061 4.3919C2.6154 4.0781 2.6837 3.7398 2.889 3.4857ZM2 8.1129C2 7.7903 2.1556 7.4875 2.418 7.2997C2.6803 7.112 3.0171 7.0623 3.3225 7.1663L10.978 9.7746C11.6111 10.0756 12.3889 10.0756 13.022 9.7746L20.6775 7.1663C20.9829 7.0623 21.3197 7.112 21.582 7.2997C21.8444 7.4875 22 7.7903 22 8.1129V12C22.5523 12 23 12.4477 23 13C23 13.5523 22.5523 14 22 14H2C1.4477 14 1 13.5523 1 13C1 12.4477 1.4477 12 2 12Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M3 17H10M21 17H14M20 21H18M14 21H10M6 21H4"/>
+    </svg>
+  )
+}

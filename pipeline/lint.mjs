@@ -537,6 +537,8 @@ const DERIVED_RADII = {
   // 2.5.0: r = 1.5 corners grown by the stroke's half (bus-front's body, desk-office's pedestal),
   // and ev-charger-off inherits ev-charger's
   'bus-front': [2.5], 'desk-office': [2.5], 'ev-charger-off': [2.5],
+  // 2.9.0: the same growth, chef-hat's band corners and bow-tie's knot
+  'bow-tie': [2.5], 'chef-hat': [2.5],
 };
 
 /**

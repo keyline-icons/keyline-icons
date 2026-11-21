@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function BowTie({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M1 12L1 7.5022C1 6.5427 1.5251 5.7571 2.2468 5.339C2.9684 4.9209 3.9111 4.8562 4.7435 5.3333L9.9948 8.3443C10.6166 8.7009 11 9.3627 11 10.0794L11 13.9206C11 14.6373 10.6166 15.2991 9.9949 15.6557L4.7435 18.6666C3.9111 19.1438 2.9684 19.0791 2.2468 18.661C1.5251 18.2429 1 17.4573 1 16.4978ZM23 12L23 16.4978C23 17.4573 22.4749 18.2429 21.7532 18.661C21.0316 19.0791 20.0889 19.1438 19.2565 18.6666L14.0051 15.6557C13.3834 15.2991 13 14.6373 13 13.9206L13 10.0794C13 9.3627 13.3834 8.7009 14.0052 8.3443L19.2565 5.3333C20.0889 4.8562 21.0316 4.9209 21.7532 5.339C22.4749 5.7571 23 6.5427 23 7.5022Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M15 12L15 13.5C15 14.8807 13.8807 16 12.5 16L11.5 16C10.1193 16 9 14.8807 9 13.5L9 10.5C9 9.1193 10.1193 8 11.5 8L12.5 8C13.8807 8 15 9.1193 15 10.5Z" fill="currentColor"/>
+    </svg>
+  )
+}
