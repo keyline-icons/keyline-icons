@@ -124,6 +124,14 @@ Need icons drawn for your own product? Custom sets on the same grid, as SVG, Fig
 
 Changelog
 
+2.9.0
+39 new drawings, taking the set to 1,940 names and 15,520 SVGs.
+
+* New: the RSS feed, a bee and a beehouse, a bow tie, a cap and a hat, an apple and a chef's hat, a rocking chair, a remote control, a compact disc, a treasure chest, a postcard, a hand bell, a pentagon and a runner
+* On familiar shapes: speech bubbles with code, dots and a pen, a compass turned off, a banned flask, a route ending in an x, a moon with a Z, a check in two circles, and the type size marks
+* Scans: a picture, a film frame and an envelope beside a scan line
+* circle-half-striped is now shadows; the old name still works
+
 2.8.0
 16 new drawings, taking the set to 1,901 names and 15,208 SVGs.
 
@@ -179,14 +187,6 @@ Also redrawn: 47 drawings, most of them in duotone, where ten buildings now draw
 
 train is train-front now, beside tram-front, and the old name still finds it.
 
-2.1.0
-61 new drawings, taking the set to 1,568 names and 12,544 SVGs.
-
-* Devices: a taller display on a stand, and the same display with a plus, a minus, a tick, a cross, a dot, a cog, an arrow down and an arrow to its corner, or with sharing, play, pause and stop on the screen itself; a display beside a speaker
-* Math: sigma, pi and the function sign, each also in a square and a circle; lambda, omega and phi; the angle and the radius
-* Shapes: a cone, a cuboid, a cylinder and a pyramid; a right triangle; a circle and a square struck corner to corner
-* Layout and Files: three equal columns, two flips for a solid object, two axes of symmetry, and the two by two grid with a tick and a cross; copy with a minus, a cross and a slash
-* And more: a swallowtail pennant and a triangular one, a planet with its ring, two kinds of wave, a railway track, a drafting compass, a crane hook, a gripper, vector nodes on a square and a pentagon, the arrow cursor with its tail, a user in scan marks, a card's chip, and a weight, plain and with a tilde
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
@@ -773,6 +773,13 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+v2.9.0
+39 new drawings, taking the set to 1,940 names and 15,520 SVGs. No component was replaced, so instances already placed in your files keep their link; the set circle-half-striped is renamed shadows in place.
+
+* New: the RSS feed, a bee and a beehouse, a bow tie, a cap and a hat, an apple and a chef's hat, a rocking chair, a remote control, a compact disc, a treasure chest, a postcard, a hand bell, a pentagon and a runner
+* On familiar shapes: speech bubbles with code, dots and a pen, a compass turned off, a banned flask, a route ending in an x, a moon with a Z, a check in two circles, and the type size marks
+* Scans: a picture, a film frame and an envelope beside a scan line
+
 v2.8.0
 16 new drawings, taking the set to 1,901 names and 15,208 SVGs. No component was replaced, so instances already placed in your files keep their link; the name flower now belongs to a new flower, and the five rings stay circles-five.
 
@@ -824,14 +831,6 @@ v2.2.0
 * Food, Health and Media: a burger, a slice of pizza and a cookie; a skull, a bone whole and broken, a DNA helix and a doctor's bag; a boom box, a cassette tape, a speaker and a satellite dish
 * And more: a router, two envelopes, both speech bubbles dashed, an arrow forking in two, the alarm clock with a cross, the octagon with a minus, a bolt in the scan frame, a heart with two hands, an open book with text, a fire extinguisher, a flashlight, a magnet, binoculars, a chess rook, a dumbbell, two feathers, a snow-capped mountain and a thunder cloud
 
-v2.1.0
-61 new drawings. The set is 1,568 names now, 1,429 component sets and 12,544 variants, up from 1,507 and 12,056. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
-
-* Devices: a taller display on a stand, and the same display with a plus, a minus, a tick, a cross, a dot, a cog, an arrow down and an arrow to its corner, or with sharing, play, pause and stop on the screen itself; a display beside a speaker
-* Math: sigma, pi and the function sign, each also in a square and a circle; lambda, omega and phi; the angle and the radius
-* Shapes: a cone, a cuboid, a cylinder and a pyramid; a right triangle; a circle and a square struck corner to corner
-* Layout and Files: three equal columns, two flips for a solid object, two axes of symmetry, and the two by two grid with a tick and a cross; copy with a minus, a cross and a slash
-* And more: a swallowtail pennant and a triangular one, a planet with its ring, two kinds of wave, a railway track, a drafting compass, a crane hook, a gripper, vector nodes on a square and a pentagon, the arrow cursor with its tail, a user in scan marks, a card's chip, and a weight, plain and with a tilde
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
@@ -878,7 +877,9 @@ its 1.7.0), 1.8.0 and 1.7.0 from the plugin's on 2 Nov 2026 with the 2.5.0 entry
 took its missing v2.5.0 entry the same day and gave up v1.8.0, 8,034
 before, 7,452 after), 2.0.0 from the plugin's and v2.0.0 from the file's on
 16 Nov 2026 with the 2.7.0 entries (9,034 and 9,471 before, 7,681 and 7,849
-after), nothing on 19 Nov 2026 for the 2.8.0 entries (8,255 and 8,417), and a
+after), nothing on 19 Nov 2026 for the 2.8.0 entries (8,255 and 8,417), 2.1.0 from the
+plugin's and v2.1.0 from the file's on 21 Nov 2026 with the 2.9.0 entries
+(8,252 and 8,414 before the entries, 7,816 and 7,899 after), and a
 last line points at
 `keylineicons.com/changelog`, which keeps every release.
 
