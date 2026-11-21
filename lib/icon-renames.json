@@ -13,6 +13,7 @@
     { "from": "align-right", "to": "text-align-end", "version": "2.6.0" },
     { "from": "align-justify", "to": "text-align-justify", "version": "2.6.0" },
     { "from": "align-left-2", "to": "text-align-2-start", "version": "2.6.0" },
-    { "from": "align-right-2", "to": "text-align-2-end", "version": "2.6.0" }
+    { "from": "align-right-2", "to": "text-align-2-end", "version": "2.6.0" },
+    { "from": "circle-half-striped", "to": "shadows", "version": "2.9.0" }
   ]
 }

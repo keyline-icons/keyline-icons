@@ -3881,14 +3881,6 @@ export function CircleFunction(props: IconProps) {
   )
 }
 
-export function CircleHalfStriped(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M12 2C6.477 2 2 6.4772 2 12C2 17.5228 6.477 22 12 22M12 2C15.272 2 18.176 3.5711 20.001 6M12 2V22M12 22C15.272 22 18.176 20.4289 20.001 18M20.001 6C20.874 7.1628 21.5 8.5222 21.8 10C21.931 10.6462 22 11.3151 22 12C22 12.6849 21.931 13.3538 21.8 14C21.5 15.4777 20.874 16.8372 20.001 18M20.001 18H12M21.8 14H12M21.8 10H12M20.001 6H12" />
-    </Icon>
-  )
-}
-
 export function CircleHalf(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -12225,6 +12217,14 @@ export function Settings(props: IconProps) {
   )
 }
 
+export function Shadows(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M12 2C6.477 2 2 6.4772 2 12C2 17.5228 6.477 22 12 22M12 2C15.272 2 18.176 3.5711 20.001 6M12 2V22M12 22C15.272 22 18.176 20.4289 20.001 18M20.001 6C20.874 7.1628 21.5 8.5222 21.8 10C21.931 10.6462 22 11.3151 22 12C22 12.6849 21.931 13.3538 21.8 14C21.5 15.4777 20.874 16.8372 20.001 18M20.001 18H12M21.8 14H12M21.8 10H12M20.001 6H12" />
+    </Icon>
+  )
+}
+
 export function Shapes2(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -16100,6 +16100,18 @@ export const AlignRight2 = TextAlign2End
  */
 export const AlignRight2Icon = TextAlign2End
 
+/**
+ * @deprecated `circle-half-striped` was renamed `shadows` in 2.9.0. Import
+ * Shadows: this name keeps working until the next major.
+ */
+export const CircleHalfStriped = Shadows
+
+/**
+ * @deprecated `circle-half-striped` was renamed `shadows` in 2.9.0. Import
+ * ShadowsIcon: this name keeps working until the next major.
+ */
+export const CircleHalfStripedIcon = Shadows
+
 export {
   AArrowDown as AArrowDownIcon,
   AArrowUp as AArrowUpIcon,
@@ -16567,7 +16579,6 @@ export {
   CircleEuro as CircleEuroIcon,
   CircleFull as CircleFullIcon,
   CircleFunction as CircleFunctionIcon,
-  CircleHalfStriped as CircleHalfStripedIcon,
   CircleHalf as CircleHalfIcon,
   CircleIndianRupee as CircleIndianRupeeIcon,
   CircleJapaneseYen as CircleJapaneseYenIcon,
@@ -17588,6 +17599,7 @@ export {
   Server as ServerIcon,
   SettingsDot as SettingsDotIcon,
   Settings as SettingsIcon,
+  Shadows as ShadowsIcon,
   Shapes2 as Shapes2Icon,
   Shapes as ShapesIcon,
   Share2 as Share2Icon,

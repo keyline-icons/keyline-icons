@@ -6554,20 +6554,6 @@
       ]
     },
     {
-      "name": "duotone/circle-half-striped",
-      "type": "registry:component",
-      "title": "CircleHalfStriped",
-      "description": "CircleHalfStriped, the duotone drawing of circle-half-striped on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of circle-half-striped: https://keylineicons.com/icons/circle-half-striped",
-      "files": [
-        {
-          "path": "icons/circle-half-striped.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/duotone/circle-half-striped.tsx"
-        }
-      ]
-    },
-    {
       "name": "duotone/circle-indian-rupee",
       "type": "registry:component",
       "title": "CircleIndianRupee",
@@ -20816,6 +20802,20 @@
           "path": "icons/settings-dot.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/settings-dot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/shadows",
+      "type": "registry:component",
+      "title": "Shadows",
+      "description": "Shadows, the duotone drawing of shadows on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of shadows: https://keylineicons.com/icons/shadows",
+      "files": [
+        {
+          "path": "icons/shadows.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/shadows.tsx"
         }
       ]
     },

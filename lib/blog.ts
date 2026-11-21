@@ -6579,7 +6579,7 @@ export const BLOG_V270_THUMBNAIL_ICON_NAMES = [
   "sun-rain",
   "layers-horizontal",
   "cloud-sun-lightning",
-  "circle-half-striped",
+  "shadows",
 ] as const
 
 export const BLOG_V270_WEATHER_ICON_NAMES = [

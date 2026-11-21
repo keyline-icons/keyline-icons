@@ -3736,7 +3736,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 37280
+      "bytes": 35108
     },
     {
       "file": "shapes-4.html",
@@ -3748,7 +3748,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 38459
+      "bytes": 38563
     },
     {
       "file": "shapes-5.html",
@@ -3760,7 +3760,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 37611
+      "bytes": 39198
     },
     {
       "file": "shapes-6.html",
@@ -3771,8 +3771,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 35096
+      "variants": 24,
+      "bytes": 27562
     },
     {
       "file": "shapes-7.html",
@@ -3784,7 +3784,7 @@
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 37632
+      "bytes": 37651
     },
     {
       "file": "shapes-8.html",
@@ -3796,7 +3796,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 33023
+      "bytes": 33004
     },
     {
       "file": "shapes-9.html",
@@ -3808,7 +3808,7 @@
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 31569
+      "bytes": 31588
     },
     {
       "file": "shapes-10.html",
@@ -3820,7 +3820,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 30799
+      "bytes": 30780
     },
     {
       "file": "shapes-11.html",
@@ -3832,7 +3832,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 38756
+      "bytes": 38775
     },
     {
       "file": "shapes-12.html",
@@ -3843,8 +3843,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 39654
+      "variants": 48,
+      "bytes": 36797
     },
     {
       "file": "shapes-13.html",
@@ -3856,7 +3856,7 @@
       "width": 742,
       "icons": 0,
       "variants": 64,
-      "bytes": 40242
+      "bytes": 40280
     },
     {
       "file": "shapes-14.html",
@@ -3867,8 +3867,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 21211
+      "variants": 48,
+      "bytes": 31798
     },
     {
       "file": "sport-1.html",

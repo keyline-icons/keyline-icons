@@ -5,7 +5,7 @@ type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
   size?: number | string
 }
 
-export function CircleHalfStriped({ size = 24, ...props }: IconProps) {
+export function Shadows({ size = 24, ...props }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
