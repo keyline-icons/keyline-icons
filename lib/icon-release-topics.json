@@ -3478,6 +3478,174 @@
      "text": "`circle-half-striped` is `shadows` now. The old name still works: `CircleHalfStriped` in React is a deprecated alias of `Shadows`, the CLI and the MCP server resolve it, and its page and registry item redirect."
     }
    ]
+  },
+  "3.0.0": {
+   "title": "2,013 icons in stroke, two-tone, duotone and fill, each rounded and sharp: 16,104 total",
+   "sections": [
+    {
+     "title": "New drawings",
+     "icon": "sparkles",
+     "sections": [
+      {
+       "title": "Actions",
+       "text": "For the action that cannot be undone: a lit fuse reads as danger before any label does.",
+       "names": [
+        "bomb"
+       ]
+      },
+      {
+       "title": "Commerce",
+       "text": "Enough to label a clothing shop's departments, swimwear and underwear included, and the beauty counter beside them. Each garment is drawn on its own, so it reads at the size of a filter chip.",
+       "names": [
+        "jacket",
+        "necktie",
+        "clothes-button",
+        "skirt",
+        "bikini",
+        "bra",
+        "underwear",
+        "lipstick",
+        "perfume-bottle"
+       ]
+      },
+      {
+       "title": "Finance",
+       "text": "Cash withdrawals and cash point finders get a machine of their own.",
+       "names": [
+        "atm"
+       ]
+      },
+      {
+       "title": "Food & Drink",
+       "text": "Bottles look alike at small sizes, so each new bottle of beer, champagne and soda stands beside the glass it pours into and lets the glass tell the drink. The glasses also stand alone, so a menu can label each section by what its drinks are served in.",
+       "names": [
+        "bottle-beer",
+        "bottle-soda",
+        "bottle-champagne",
+        "bottle-baby",
+        "champagne",
+        "martini",
+        "cocktail-tropical",
+        "tumbler",
+        "glass-water",
+        "wine-crack",
+        "pitcher",
+        "teapot",
+        "frying-pan",
+        "cupcake",
+        "avocado",
+        "pear"
+       ]
+      },
+      {
+       "title": "Home",
+       "text": "The three ways between floors, so a station or shopping centre map can show which way avoids the climb; the two that carry you each hold a rider. With them, the furniture and small appliances a rental listing names.",
+       "names": [
+        "bed-bunk",
+        "armchair",
+        "stairs",
+        "elevator",
+        "escalator",
+        "toaster",
+        "hair-dryer",
+        "laundry-basket"
+       ]
+      },
+      {
+       "title": "Mail",
+       "text": "Postage, for the step that prices a letter or a parcel.",
+       "names": [
+        "stamp-postage"
+       ]
+      },
+      {
+       "title": "Media",
+       "text": "Film sets, theatre tickets and music lessons each get a mark of their own.",
+       "names": [
+        "clapperboard",
+        "mask-theater",
+        "clarinet",
+        "drum"
+       ]
+      },
+      {
+       "title": "Nature",
+       "text": "Eruptions and wildfires get warnings of their own, and the garden and Saint Patrick's Day the plants they are known by.",
+       "names": [
+        "volcano",
+        "tree-pine-flame",
+        "mushroom",
+        "tulip",
+        "plant-pot",
+        "clover",
+        "shamrock"
+       ]
+      },
+      {
+       "title": "Shapes",
+       "text": "The hexagon fills in quarters and in thirds, so a three-step task and a four-step task can share one badge, and the circle gains the eighths between its quarters. In fill the share is cut out as a hole. Two dashed outlines mark a shape still to be placed.",
+       "names": [
+        "hexagon-quarter",
+        "hexagon-third",
+        "hexagon-half",
+        "hexagon-two-third",
+        "hexagon-three-quarter",
+        "hexagon-five-sixth",
+        "hexagon-full",
+        "circle-three-eighth",
+        "circle-five-eighth",
+        "circle-seven-eighth",
+        "pentagon-dashed",
+        "triangle-dashed"
+       ]
+      },
+      {
+       "title": "Sport",
+       "text": "Kit for the rink and the reef, a whistle for match time, and two card suits for game screens.",
+       "names": [
+        "ice-skate",
+        "snorkel",
+        "whistle",
+        "club",
+        "spade"
+       ]
+      },
+      {
+       "title": "Symbols",
+       "text": "A new category for marks that stand for an idea rather than a thing.",
+       "names": [
+        "peace",
+        "yin-yang"
+       ]
+      },
+      {
+       "title": "Tools",
+       "text": "For building sites, repairs and the settings that need a tool.",
+       "names": [
+        "crane",
+        "screwdriver"
+       ]
+      },
+      {
+       "title": "Transport",
+       "text": "Rescue services, city tours and the helm of anything that steers.",
+       "names": [
+        "bus-double-decker",
+        "fire-truck",
+        "helicopter",
+        "ship-wheel"
+       ]
+      },
+      {
+       "title": "Web",
+       "text": "For damage reports, disaster alerts and insurance claims.",
+       "names": [
+        "house-crack"
+       ]
+      }
+     ]
+    }
+   ]
   }
  }
 }
