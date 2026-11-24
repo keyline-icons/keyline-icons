@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function IceSkate({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M13 18L11.5 18L8 18L8 18.5L6 18.5L6 18L5.5 18C4.1193 18 3 16.8807 3 15.5L3 6C3 5.5535 3.296 5.1611 3.7253 5.0385L10 3.2457L10 2C10 1.4477 10.4477 1 11 1C11.5523 1 12 1.4477 12 2L12 4L12 9.0328C15.0214 9.2341 17.0144 10.3267 18.364 11.2762C19.4343 12.0292 20 13.2689 20 14.5135L20 15.5C20 16.8807 18.8807 18 17.5 18L15 18L15 18.5L13 18.5Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M8 18L8 21L13 21L13 18L15 18L15 21L19 21C19.1399 21 19.2707 20.9718 19.389 20.9218C19.5079 20.8715 19.6159 20.7983 19.7071 20.7071C19.7983 20.6159 19.8715 20.5079 19.9218 20.389C19.9718 20.2707 20 20.1399 20 20C20 19.4477 20.4477 19 21 19C21.5523 19 22 19.4477 22 20C22 20.4124 21.9162 20.8077 21.7638 21.168C21.6117 21.5277 21.3921 21.8506 21.1213 22.1213C20.8506 22.3921 20.5277 22.6117 20.168 22.7638C19.8077 22.9162 19.4124 23 19 23L14 23L7 23L3 23C2.4477 23 2 22.5523 2 22C2 21.4477 2.4477 21 3 21L6 21L6 18Z" fill="currentColor"/>
+    </svg>
+  )
+}

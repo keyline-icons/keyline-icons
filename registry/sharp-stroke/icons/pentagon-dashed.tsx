@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function PentagonDashed({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M6.5447 7.5903L3.0022 10.5712L4.264 14.5931M5.0123 16.9784L6.2741 21.0003L10.75 21.0003M13.25 21.0003L17.7259 21.0003L18.9877 16.9784M19.736 14.5931L20.9978 10.5712L17.4553 7.5903M15.5425 5.9806L12 2.9997L8.4575 5.9806"/>
+    </svg>
+  )
+}

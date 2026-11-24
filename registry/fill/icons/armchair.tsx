@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Armchair({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M3 10.1707L3 7C3 3.6863 5.6863 1 9 1L15 1C18.3137 1 21 3.6863 21 7L21 10.1707C22.1652 10.5825 23 11.6937 23 13L23 17C23 19.2092 21.2092 21 19 21L12 21L5 21C2.7908 21 1 19.2092 1 17L1 13C1 11.6937 1.8348 10.5825 3 10.1707ZM12 13L17 13C17 11.6938 17.8348 10.5825 19 10.1707L19 7C19 4.7909 17.2091 3 15 3L9 3C6.7909 3 5 4.7909 5 7L5 10.1707C6.1652 10.5825 7 11.6938 7 13Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M19 20V22M5 20V22"/>
+    </svg>
+  )
+}

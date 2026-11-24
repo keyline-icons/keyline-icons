@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function GlassWater({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M3.5119 12.1483L2.0127 2.1483C2.0053 2.0992 2.0016 2.0496 2.0016 2C2.0016 1.4477 2.4493 1 3.0016 1L20.9983 1C21.5506 1 21.9983 1.4477 21.9983 2C21.9983 2.0496 21.9946 2.0992 21.9872 2.1483L18.9889 22.1483C18.9156 22.6378 18.495 23 18 23L6 23C5.505 23 5.0844 22.6378 5.0111 22.1483Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M3.8829 14.6233L5.0111 22.1483C5.0844 22.6378 5.505 23 6 23L18 23C18.495 23 18.9156 22.6378 18.9889 22.1483L21.2293 7.2041C21.2367 7.155 21.2404 7.1054 21.2404 7.0558C21.2404 6.5035 20.7927 6.0558 20.2404 6.0558C20.1139 6.0558 19.9885 6.0798 19.871 6.1265C17.7421 6.9729 14.5933 6.9603 12.3714 6.0715C9.6831 4.9962 5.9929 4.9736 3.3724 6.0215C2.9927 6.1733 2.7437 6.5411 2.7437 6.95C2.7437 6.9996 2.7474 7.0492 2.7548 7.0983Z" fill="currentColor"/>
+    </svg>
+  )
+}

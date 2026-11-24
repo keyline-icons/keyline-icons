@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Underwear({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M3 5L21 5C21.5523 5 22 5.4477 22 6L22 9.2792C22 9.7096 21.7246 10.0918 21.3162 10.2279L18.0016 11.3328C16.749 11.7503 15.7831 12.7591 15.4204 14.0287L14.2072 18.2747C14.0846 18.704 13.6922 19 13.2457 19L10.7543 19C10.3078 19 9.9154 18.704 9.7928 18.2747L8.5796 14.0287C8.2169 12.7591 7.251 11.7503 5.9984 11.3328L2.6838 10.2279C2.2754 10.0918 2 9.7096 2 9.2792L2 6C2 5.4477 2.4477 5 3 5Z"/>
+    </svg>
+  )
+}

@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Martini({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M11 14.5829C10.7213 14.4613 10.4602 14.2866 10.2322 14.0586L1.5878 5.4142C0.9592 4.7856 0.8709 3.9189 1.1543 3.2346C1.4377 2.5504 2.113 2 3.002 2L12 2L20.998 2C21.887 2 22.5623 2.5504 22.8457 3.2346C23.1291 3.9189 23.0408 4.7856 22.4123 5.4142L13.7678 14.0586C13.5398 14.2866 13.2787 14.4613 13 14.5829L13 20L18 20C18.5523 20 19 20.4477 19 21C19 21.5523 18.5523 22 18 22L12 22L6 22C5.4477 22 5 21.5523 5 21C5 20.4477 5.4477 20 6 20L11 20Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M12 6L4.5878 6C4.0355 6 3.5878 6.4477 3.5878 7C3.5878 7.2652 3.6932 7.5196 3.8807 7.7071L10.2322 14.0586C11.2085 15.0349 12.7915 15.0349 13.7678 14.0586L20.1193 7.7071C20.3068 7.5196 20.4122 7.2652 20.4122 7C20.4122 6.4477 19.9645 6 19.4122 6Z" fill="currentColor"/>
+    </svg>
+  )
+}

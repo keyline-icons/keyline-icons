@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function FireTruck({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M18.5 5.0674C19.3018 5.2403 20.0086 5.7373 20.4401 6.4565L22.5725 10.0105C22.8523 10.4767 23 11.0103 23 11.554L23 17C23 18.1046 22.1046 19 21 19L16 19L3 19C1.8954 19 1 18.1046 1 17L1 11C1 9.8954 1.8954 9 3 9L9.5 9L15 9L15 7C15 6.0681 15.6374 5.285 16.5 5.063L16.5 4C16.5 3.4477 16.9477 3 17.5 3C18.0523 3 18.5 3.4477 18.5 4Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M19.5 11L17 11L17 7L17.8676 7C18.2189 7 18.5444 7.1843 18.7251 7.4855L20.8338 11Z" fill="currentColor" stroke="none"/>
+      <path d="M2 6L11 6C11.5523 6 12 6.4477 12 7L12 10M4 6L4 10M8 6L8 10M9 18C9 19.1046 8.1046 20 7 20C5.8954 20 5 19.1046 5 18C5 16.8954 5.8954 16 7 16C8.1046 16 9 16.8954 9 18ZM19 18C19 19.1046 18.1046 20 17 20C15.8954 20 15 19.1046 15 18C15 16.8954 15.8954 16 17 16C18.1046 16 19 16.8954 19 18Z"/>
+    </svg>
+  )
+}

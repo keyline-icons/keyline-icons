@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function BottleChampagne({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M4 1.9922C4.0042 1.4435 4.4503 1 5 1L7 1L9 1C9.5523 1 10 1.4477 10 2L10 3.0079C9.9958 3.5566 9.5497 4.0001 9 4.0001L5 4.0001C4.4477 4.0001 4 3.5524 4 3.0001ZM5 14L3 14C2.4477 14 2 13.5523 2 13L2 12C2 10.3816 2.8309 9.2673 3.4574 8.4528C3.79 8.0203 4.0481 7.6965 4.2391 7.359C4.3567 7.1512 4.4311 6.9666 4.469 6.7899C4.5681 6.3291 4.9754 6 5.4467 6L8.5533 6C9.0246 6 9.4319 6.3291 9.531 6.7899C9.5689 6.9666 9.6433 7.1512 9.7609 7.359C9.9519 7.6965 10.21 8.0203 10.5426 8.4528C11.1691 9.2673 12 10.3816 12 12L12 13C12 13.5523 11.5523 14 11 14L7 14ZM12 19.5L12 22C12 22.5523 11.5523 23 11 23L7 23L3 23C2.4477 23 2 22.5523 2 22L2 17C2 16.4477 2.4477 16 3 16L7 16L11 16C11.5523 16 12 16.4477 12 17ZM22 9L22 6C22 5.4477 21.5523 5 21 5L15 5C14.4477 5 14 5.4477 14 6L14 12C14 13.3894 14.5921 14.6105 15.3221 15.474C16.0056 16.2825 17.0094 17 18 17C18.9906 17 19.9944 16.2825 20.6779 15.474C21.4079 14.6105 22 13.3894 22 12Z" fill="currentColor" stroke="none"/>
+      <path d="M18 16L18 22M14 22L15 22L18 22L22 22"/>
+    </svg>
+  )
+}

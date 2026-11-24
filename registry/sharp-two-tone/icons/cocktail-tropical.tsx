@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CocktailTropical({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 1L16.208 1C16.7603 1 17.208 1.4477 17.208 2C17.208 2.0631 17.202 2.126 17.1902 2.1879C16.9005 3.7015 16.5049 5.1927 16.0059 6.6506C16.0261 6.8992 16.096 7.1056 16.1991 7.3031C16.3342 7.5621 16.5211 7.8005 16.7809 8.1253C17.0211 8.4255 17.3342 8.8121 17.5741 9.2718C17.8259 9.7545 18 10.3183 18 11C18 12.7942 17.2472 14.3038 16.1198 15.3561C15.0025 16.3989 13.5105 17 12 17C10.4895 17 8.9975 16.3989 7.8802 15.3561C6.7528 14.3038 6 12.7942 6 11C6 10.3183 6.1741 9.7545 6.4259 9.2718C6.6658 8.8121 6.9789 8.4255 7.2191 8.1253C7.4789 7.8005 7.6658 7.5621 7.8009 7.3031C7.904 7.1056 7.9739 6.8992 7.9941 6.6506C7.4951 5.1927 7.0995 3.7015 6.8098 2.1879C6.798 2.126 6.792 2.0631 6.792 2C6.792 1.4477 7.2397 1 7.792 1Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M7.792 2L16.208 2C15.9157 3.5275 15.512 5.0315 15 6.5C15 8.5 17 9 17 11C17 14 14.5 16 12 16C9.5 16 7 14 7 11C7 9 9 8.5 9 6.5C8.488 5.0315 8.0843 3.5275 7.792 2ZM9 6.5L15 6.5M12 16L12 22M7 22L8 22L16 22L17 22"/>
+    </svg>
+  )
+}

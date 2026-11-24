@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function WineCrack({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M11 17L9.5857 17C8.3713 17 7.1952 16.5962 6.2315 15.8677C4.2631 14.3691 3.4989 11.7489 4.3351 9.4225L5.7262 5.5425L7.1174 1.6625C7.2599 1.2651 7.6365 1 8.0587 1L12.5 1L15.9413 1C16.3635 1 16.7401 1.2651 16.8826 1.6625L19.6647 9.4218C20.5011 11.7489 19.737 14.3691 17.7713 15.8657C16.8049 16.5962 15.6287 17 14.4144 17L13 17L13 21L14.9571 21L15.9571 21L15.9571 23L14.9571 23L12 23L9.0429 23L8.0429 23L8.0429 21L9.0429 21L11 21Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M13.919 1L13.4417 2.3363L12.4187 5.2009L14.1644 6.7526C14.5178 7.0668 14.6029 7.5856 14.3682 7.9961L12.3683 11.4961L12.0804 12L10.3438 11.0078L10.6318 10.5039L12.2292 7.7083L10.5856 6.2474C10.2809 5.9765 10.1711 5.5477 10.3083 5.1637L11.5583 1.6637L11.7953 1L12.5 1Z" fill="currentColor"/>
+    </svg>
+  )
+}

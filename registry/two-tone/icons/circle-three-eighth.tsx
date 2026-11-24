@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CircleThreeEighth({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M12 2C17.5228 2 22 6.4772 22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2Z"/>
+      <path d="M16.9498 7.0502C18.2154 8.3159 19 10.0672 19 12C19 13.8565 18.2625 15.637 16.9497 16.9497C16.7621 17.1373 16.5078 17.2426 16.2426 17.2426C15.9774 17.2426 15.723 17.1372 15.5355 16.9497L11.2929 12.7071C11.1054 12.5196 11 12.2652 11 12L11 6C11 5.4477 11.4477 5 12 5C13.9328 5 15.6841 5.7846 16.9498 7.0502Z" fill="currentColor" stroke="none"/>
+    </svg>
+  )
+}

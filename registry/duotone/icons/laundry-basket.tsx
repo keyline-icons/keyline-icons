@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function LaundryBasket({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 12L5 12C4.6852 12 4.3888 11.8518 4.2 11.6C3.4211 10.5614 3 9.2983 3 8C3 4.6863 5.6863 2 9 2C10.0574 2 11.0915 2.2793 12 2.8038C12.9085 2.2793 13.9426 2 15 2C18.3137 2 21 4.6863 21 8C21 9.2983 20.5789 10.5614 19.8 11.6C19.6112 11.8518 19.3148 12 19 12Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M12 10L21 10C22.1047 10 23 10.8955 23 12C23 12.1468 22.9839 12.2942 22.9513 12.439L21.3268 19.6585C21.0189 21.0274 19.8031 22 18.4 22L5.6 22C4.1969 22 2.9811 21.0274 2.6732 19.6585L1.0487 12.439C1.0161 12.2942 1 12.1468 1 12C1 10.8955 1.8953 10 3 10ZM9 15C9 14.4477 8.5523 14 8 14C7.4477 14 7 14.4477 7 15L7 17C7 17.5523 7.4477 18 8 18C8.5523 18 9 17.5523 9 17ZM13 15C13 14.4477 12.5523 14 12 14C11.4477 14 11 14.4477 11 15L11 17C11 17.5523 11.4477 18 12 18C12.5523 18 13 17.5523 13 17ZM17 15C17 14.4477 16.5523 14 16 14C15.4477 14 15 14.4477 15 15L15 17C15 17.5523 15.4477 18 16 18C16.5523 18 17 17.5523 17 17Z" fill="currentColor"/>
+    </svg>
+  )
+}

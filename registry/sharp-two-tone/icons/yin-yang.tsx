@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function YinYang({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 1C18.0751 1 23 5.9249 23 12C23 18.0751 18.0751 23 12 23C8.6863 23 6 20.3137 6 17C6 13.6863 8.6863 11 12 11C14.2091 11 16 9.2091 16 7C16 4.7909 14.2091 3 12 3C11.4477 3 11 2.5523 11 2C11 1.4477 11.4477 1 12 1Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M12 2C17.5228 2 22 6.4772 22 12C22 17.5228 17.5228 22 12 22M12 2C6.4772 2 2 6.4772 2 12C2 17.5228 6.4772 22 12 22M12 2C14.7614 2 17 4.2386 17 7C17 9.7614 14.7614 12 12 12C9.2386 12 7 14.2386 7 17C7 19.7614 9.2386 22 12 22"/>
+      <path d="M12 5.5C12.8284 5.5 13.5 6.1716 13.5 7C13.5 7.8284 12.8284 8.5 12 8.5C11.1716 8.5 10.5 7.8284 10.5 7C10.5 6.1716 11.1716 5.5 12 5.5ZM12 15.5C12.8284 15.5 13.5 16.1716 13.5 17C13.5 17.8284 12.8284 18.5 12 18.5C11.1716 18.5 10.5 17.8284 10.5 17C10.5 16.1716 11.1716 15.5 12 15.5Z" fill="currentColor" stroke="none"/>
+    </svg>
+  )
+}

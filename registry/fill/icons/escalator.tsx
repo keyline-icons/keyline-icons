@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Escalator({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M9.7573 10.5858L12.8787 7.4645C13.8163 6.5269 15.088 6 16.4142 6L19 6C21.2092 6 23 7.7908 23 10C23 12.2092 21.2092 14 19 14L18.0711 14C17.8059 14 17.5516 14.1053 17.364 14.2929L11.1213 20.5355C10.1837 21.4731 8.912 22 7.5858 22L5 22C2.7908 22 1 20.2092 1 18C1 15.7908 2.7908 14 5 14L5.9289 14C6.1941 14 6.4484 13.8947 6.636 13.7071Z" fill="currentColor" stroke="none"/>
+      <path d="M4 8V11"/>
+      <path d="M5.5 3.5C5.5 4.3284 4.8284 5 4 5C3.1716 5 2.5 4.3284 2.5 3.5C2.5 2.6716 3.1716 2 4 2C4.8284 2 5.5 2.6716 5.5 3.5Z" fill="currentColor" stroke="none"/>
+    </svg>
+  )
+}

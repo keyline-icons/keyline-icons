@@ -333,6 +333,21 @@ const SIZE_KNOWN = new Set([
   // Short enough to classify as horizontal, where a long side of 22 would make the low and mid levels a
   // wider meter than the full one they step up to.
   'audio-lines-low', 'audio-lines-mid',
+  // 3.0.0: the hexagon's fractions, a quarter to the whole, cut inside the plain hexagon's own
+  // outline, so they keep its equilateral proportion: 22 tall makes them 20 wide.
+  'hexagon-quarter', 'hexagon-third', 'hexagon-half', 'hexagon-two-third', 'hexagon-three-quarter',
+  'hexagon-five-sixth', 'hexagon-full',
+  // The ship's wheel (3.0.0): six spokes 60 degrees apart through an r = 7 rim, flower's six-fold
+  // proportion, so the upright spoke's 22 makes the slanted pairs 20 wide. Stretched to 22 the slants
+  // leave 60 degrees and it stops being a wheel.
+  'ship-wheel',
+  // The elevator (3.0.0) is a landscape composition, the 12 x 18 car with the arrows' column beside it,
+  // 22 by 20, that the classifier takes for a square: factory's reason.
+  'elevator',
+  // armchair and bus-double-decker (3.0.0): drawings 22 x 22 on round corners whose sharp halves square
+  // the back's and the roof's corners, putting ink in all four corners, so sharp reads them as squares
+  // (bus-front's reason).
+  'armchair', 'bus-double-decker',
 ]);
 /**
  * Drawings of a real product, which keep the product's proportions and radii
@@ -539,6 +554,9 @@ const DERIVED_RADII = {
   'bus-front': [2.5], 'desk-office': [2.5], 'ev-charger-off': [2.5],
   // 2.9.0: the same growth, chef-hat's band corners and bow-tie's knot
   'bow-tie': [2.5], 'chef-hat': [2.5],
+  // 3.0.0: the same growth on r = 1.5 corners (the martini bowl's point, the screwdriver handle's
+  // end, the ice skate's heel and toe, the jacket's hem), and the armchair's r = 5 back grown to 6
+  martini: [2.5], screwdriver: [2.5], 'ice-skate': [2.5], jacket: [2.5], armchair: [6],
 };
 
 /**

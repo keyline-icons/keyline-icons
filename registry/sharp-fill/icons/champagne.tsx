@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Champagne({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 1L15.8089 1.0001C16.2874 1.0001 16.6989 1.3392 16.7904 1.809C16.9209 2.4792 17.0468 3.1503 17.1682 3.8223C17.1788 3.8809 17.1841 3.9404 17.1841 4C17.1841 4.5523 16.7364 5 16.1841 5L12 5L7.8159 5C7.2636 5 6.8159 4.5523 6.8159 4C6.8159 3.9404 6.8212 3.8809 6.8318 3.8223C6.9532 3.1503 7.0791 2.4792 7.2096 1.8088C7.3011 1.3391 7.7126 1 8.1912 1ZM17.558 11.7396C17.2702 12.5761 16.8481 13.3272 16.313 13.9588C15.2373 15.2289 13.7153 16 12 16C10.2847 16 8.7627 15.2289 7.687 13.9588C6.6163 12.6949 6 10.9578 5.9999 9.0006C5.9999 8.9523 6.0034 8.9041 6.0104 8.8563C6.0594 8.5202 6.1095 8.1845 6.1608 7.849C6.2353 7.3607 6.6553 7 7.1493 7L7.4663 7L12 7L16.5337 7L16.8507 7C17.3447 7 17.7647 7.3607 17.8392 7.849C17.8905 8.1844 17.9405 8.5199 17.9895 8.8556C17.9965 8.9034 18 8.9517 18 9C18 9.9798 17.846 10.9028 17.558 11.7396Z" fill="currentColor" stroke="none"/>
+      <path d="M12 15L12 22M7 22L8 22L16 22L17 22"/>
+    </svg>
+  )
+}

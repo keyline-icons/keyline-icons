@@ -800,6 +800,20 @@
       ]
     },
     {
+      "name": "sharp/armchair",
+      "type": "registry:component",
+      "title": "Armchair",
+      "description": "Armchair, the stroke drawing of armchair on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of armchair: https://keylineicons.com/icons/armchair",
+      "files": [
+        {
+          "path": "icons/armchair.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/armchair.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/arrow-big-down",
       "type": "registry:component",
       "title": "ArrowBigDown",
@@ -1864,6 +1878,20 @@
       ]
     },
     {
+      "name": "sharp/atm",
+      "type": "registry:component",
+      "title": "Atm",
+      "description": "Atm, the stroke drawing of atm on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of atm: https://keylineicons.com/icons/atm",
+      "files": [
+        {
+          "path": "icons/atm.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/atm.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/atom",
       "type": "registry:component",
       "title": "Atom",
@@ -1944,6 +1972,20 @@
           "path": "icons/audio-lines-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/audio-lines-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/avocado",
+      "type": "registry:component",
+      "title": "Avocado",
+      "description": "Avocado, the stroke drawing of avocado on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of avocado: https://keylineicons.com/icons/avocado",
+      "files": [
+        {
+          "path": "icons/avocado.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/avocado.tsx"
         }
       ]
     },
@@ -2690,6 +2732,20 @@
       ]
     },
     {
+      "name": "sharp/bed-bunk",
+      "type": "registry:component",
+      "title": "BedBunk",
+      "description": "BedBunk, the stroke drawing of bed-bunk on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bed-bunk: https://keylineicons.com/icons/bed-bunk",
+      "files": [
+        {
+          "path": "icons/bed-bunk.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/bed-bunk.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/bed-double",
       "type": "registry:component",
       "title": "BedDouble",
@@ -2984,6 +3040,20 @@
       ]
     },
     {
+      "name": "sharp/bikini",
+      "type": "registry:component",
+      "title": "Bikini",
+      "description": "Bikini, the stroke drawing of bikini on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bikini: https://keylineicons.com/icons/bikini",
+      "files": [
+        {
+          "path": "icons/bikini.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/bikini.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/bin",
       "type": "registry:component",
       "title": "Bin",
@@ -3148,6 +3218,20 @@
           "path": "icons/bold.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/bold.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/bomb",
+      "type": "registry:component",
+      "title": "Bomb",
+      "description": "Bomb, the stroke drawing of bomb on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bomb: https://keylineicons.com/icons/bomb",
+      "files": [
+        {
+          "path": "icons/bomb.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/bomb.tsx"
         }
       ]
     },
@@ -3544,6 +3628,48 @@
       ]
     },
     {
+      "name": "sharp/bottle-baby",
+      "type": "registry:component",
+      "title": "BottleBaby",
+      "description": "BottleBaby, the stroke drawing of bottle-baby on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bottle-baby: https://keylineicons.com/icons/bottle-baby",
+      "files": [
+        {
+          "path": "icons/bottle-baby.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/bottle-baby.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/bottle-beer",
+      "type": "registry:component",
+      "title": "BottleBeer",
+      "description": "BottleBeer, the stroke drawing of bottle-beer on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bottle-beer: https://keylineicons.com/icons/bottle-beer",
+      "files": [
+        {
+          "path": "icons/bottle-beer.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/bottle-beer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/bottle-champagne",
+      "type": "registry:component",
+      "title": "BottleChampagne",
+      "description": "BottleChampagne, the stroke drawing of bottle-champagne on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bottle-champagne: https://keylineicons.com/icons/bottle-champagne",
+      "files": [
+        {
+          "path": "icons/bottle-champagne.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/bottle-champagne.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/bottle-pump",
       "type": "registry:component",
       "title": "BottlePump",
@@ -3554,6 +3680,20 @@
           "path": "icons/bottle-pump.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/bottle-pump.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/bottle-soda",
+      "type": "registry:component",
+      "title": "BottleSoda",
+      "description": "BottleSoda, the stroke drawing of bottle-soda on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bottle-soda: https://keylineicons.com/icons/bottle-soda",
+      "files": [
+        {
+          "path": "icons/bottle-soda.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/bottle-soda.tsx"
         }
       ]
     },
@@ -3624,6 +3764,20 @@
           "path": "icons/boy.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/boy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/bra",
+      "type": "registry:component",
+      "title": "Bra",
+      "description": "Bra, the stroke drawing of bra on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bra: https://keylineicons.com/icons/bra",
+      "files": [
+        {
+          "path": "icons/bra.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/bra.tsx"
         }
       ]
     },
@@ -4114,6 +4268,20 @@
           "path": "icons/bus.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/bus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/bus-double-decker",
+      "type": "registry:component",
+      "title": "BusDoubleDecker",
+      "description": "BusDoubleDecker, the stroke drawing of bus-double-decker on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bus-double-decker: https://keylineicons.com/icons/bus-double-decker",
+      "files": [
+        {
+          "path": "icons/bus-double-decker.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/bus-double-decker.tsx"
         }
       ]
     },
@@ -4842,6 +5010,20 @@
           "path": "icons/cctv-off.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/cctv-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/champagne",
+      "type": "registry:component",
+      "title": "Champagne",
+      "description": "Champagne, the stroke drawing of champagne on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of champagne: https://keylineicons.com/icons/champagne",
+      "files": [
+        {
+          "path": "icons/champagne.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/champagne.tsx"
         }
       ]
     },
@@ -6512,6 +6694,20 @@
       ]
     },
     {
+      "name": "sharp/circle-five-eighth",
+      "type": "registry:component",
+      "title": "CircleFiveEighth",
+      "description": "CircleFiveEighth, the stroke drawing of circle-five-eighth on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-five-eighth: https://keylineicons.com/icons/circle-five-eighth",
+      "files": [
+        {
+          "path": "icons/circle-five-eighth.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/circle-five-eighth.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/circle-full",
       "type": "registry:component",
       "title": "CircleFull",
@@ -6974,6 +7170,20 @@
       ]
     },
     {
+      "name": "sharp/circle-seven-eighth",
+      "type": "registry:component",
+      "title": "CircleSevenEighth",
+      "description": "CircleSevenEighth, the stroke drawing of circle-seven-eighth on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-seven-eighth: https://keylineicons.com/icons/circle-seven-eighth",
+      "files": [
+        {
+          "path": "icons/circle-seven-eighth.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/circle-seven-eighth.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/circle-sigma",
       "type": "registry:component",
       "title": "CircleSigma",
@@ -7082,6 +7292,20 @@
           "path": "icons/circle-swiss-franc.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/circle-swiss-franc.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/circle-three-eighth",
+      "type": "registry:component",
+      "title": "CircleThreeEighth",
+      "description": "CircleThreeEighth, the stroke drawing of circle-three-eighth on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-three-eighth: https://keylineicons.com/icons/circle-three-eighth",
+      "files": [
+        {
+          "path": "icons/circle-three-eighth.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/circle-three-eighth.tsx"
         }
       ]
     },
@@ -7250,6 +7474,34 @@
           "path": "icons/circles-three.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/circles-three.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/clapperboard",
+      "type": "registry:component",
+      "title": "Clapperboard",
+      "description": "Clapperboard, the stroke drawing of clapperboard on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of clapperboard: https://keylineicons.com/icons/clapperboard",
+      "files": [
+        {
+          "path": "icons/clapperboard.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/clapperboard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/clarinet",
+      "type": "registry:component",
+      "title": "Clarinet",
+      "description": "Clarinet, the stroke drawing of clarinet on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of clarinet: https://keylineicons.com/icons/clarinet",
+      "files": [
+        {
+          "path": "icons/clarinet.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/clarinet.tsx"
         }
       ]
     },
@@ -7744,6 +7996,20 @@
       ]
     },
     {
+      "name": "sharp/clothes-button",
+      "type": "registry:component",
+      "title": "ClothesButton",
+      "description": "ClothesButton, the stroke drawing of clothes-button on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of clothes-button: https://keylineicons.com/icons/clothes-button",
+      "files": [
+        {
+          "path": "icons/clothes-button.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/clothes-button.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/cloud",
       "type": "registry:component",
       "title": "Cloud",
@@ -8160,6 +8426,48 @@
           "path": "icons/clouds.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/clouds.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/clover",
+      "type": "registry:component",
+      "title": "Clover",
+      "description": "Clover, the stroke drawing of clover on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of clover: https://keylineicons.com/icons/clover",
+      "files": [
+        {
+          "path": "icons/clover.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/clover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/club",
+      "type": "registry:component",
+      "title": "Club",
+      "description": "Club, the stroke drawing of club on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of club: https://keylineicons.com/icons/club",
+      "files": [
+        {
+          "path": "icons/club.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/club.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/cocktail-tropical",
+      "type": "registry:component",
+      "title": "CocktailTropical",
+      "description": "CocktailTropical, the stroke drawing of cocktail-tropical on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cocktail-tropical: https://keylineicons.com/icons/cocktail-tropical",
+      "files": [
+        {
+          "path": "icons/cocktail-tropical.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/cocktail-tropical.tsx"
         }
       ]
     },
@@ -8752,6 +9060,20 @@
       ]
     },
     {
+      "name": "sharp/crane",
+      "type": "registry:component",
+      "title": "Crane",
+      "description": "Crane, the stroke drawing of crane on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of crane: https://keylineicons.com/icons/crane",
+      "files": [
+        {
+          "path": "icons/crane.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/crane.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/credit-card",
       "type": "registry:component",
       "title": "CreditCard",
@@ -8972,6 +9294,20 @@
           "path": "icons/cup-soda.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/cup-soda.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/cupcake",
+      "type": "registry:component",
+      "title": "Cupcake",
+      "description": "Cupcake, the stroke drawing of cupcake on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cupcake: https://keylineicons.com/icons/cupcake",
+      "files": [
+        {
+          "path": "icons/cupcake.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/cupcake.tsx"
         }
       ]
     },
@@ -9816,6 +10152,20 @@
       ]
     },
     {
+      "name": "sharp/drum",
+      "type": "registry:component",
+      "title": "Drum",
+      "description": "Drum, the stroke drawing of drum on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of drum: https://keylineicons.com/icons/drum",
+      "files": [
+        {
+          "path": "icons/drum.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/drum.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/drumstick",
       "type": "registry:component",
       "title": "Drumstick",
@@ -9970,6 +10320,20 @@
       ]
     },
     {
+      "name": "sharp/elevator",
+      "type": "registry:component",
+      "title": "Elevator",
+      "description": "Elevator, the stroke drawing of elevator on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of elevator: https://keylineicons.com/icons/elevator",
+      "files": [
+        {
+          "path": "icons/elevator.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/elevator.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/equal",
       "type": "registry:component",
       "title": "Equal",
@@ -10050,6 +10414,20 @@
           "path": "icons/eraser-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/eraser-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/escalator",
+      "type": "registry:component",
+      "title": "Escalator",
+      "description": "Escalator, the stroke drawing of escalator on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of escalator: https://keylineicons.com/icons/escalator",
+      "files": [
+        {
+          "path": "icons/escalator.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/escalator.tsx"
         }
       ]
     },
@@ -10908,6 +11286,20 @@
       ]
     },
     {
+      "name": "sharp/fire-truck",
+      "type": "registry:component",
+      "title": "FireTruck",
+      "description": "FireTruck, the stroke drawing of fire-truck on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of fire-truck: https://keylineicons.com/icons/fire-truck",
+      "files": [
+        {
+          "path": "icons/fire-truck.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/fire-truck.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/fish",
       "type": "registry:component",
       "title": "Fish",
@@ -11534,6 +11926,20 @@
           "path": "icons/frame.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/frame.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/frying-pan",
+      "type": "registry:component",
+      "title": "FryingPan",
+      "description": "FryingPan, the stroke drawing of frying-pan on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of frying-pan: https://keylineicons.com/icons/frying-pan",
+      "files": [
+        {
+          "path": "icons/frying-pan.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/frying-pan.tsx"
         }
       ]
     },
@@ -12266,6 +12672,20 @@
       ]
     },
     {
+      "name": "sharp/glass-water",
+      "type": "registry:component",
+      "title": "GlassWater",
+      "description": "GlassWater, the stroke drawing of glass-water on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of glass-water: https://keylineicons.com/icons/glass-water",
+      "files": [
+        {
+          "path": "icons/glass-water.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/glass-water.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/glasses",
       "type": "registry:component",
       "title": "Glasses",
@@ -12850,6 +13270,20 @@
           "path": "icons/guitar.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/guitar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/hair-dryer",
+      "type": "registry:component",
+      "title": "HairDryer",
+      "description": "HairDryer, the stroke drawing of hair-dryer on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of hair-dryer: https://keylineicons.com/icons/hair-dryer",
+      "files": [
+        {
+          "path": "icons/hair-dryer.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/hair-dryer.tsx"
         }
       ]
     },
@@ -13484,6 +13918,20 @@
       ]
     },
     {
+      "name": "sharp/helicopter",
+      "type": "registry:component",
+      "title": "Helicopter",
+      "description": "Helicopter, the stroke drawing of helicopter on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of helicopter: https://keylineicons.com/icons/helicopter",
+      "files": [
+        {
+          "path": "icons/helicopter.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/helicopter.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/hexagon",
       "type": "registry:component",
       "title": "Hexagon",
@@ -13494,6 +13942,104 @@
           "path": "icons/hexagon.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/hexagon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/hexagon-five-sixth",
+      "type": "registry:component",
+      "title": "HexagonFiveSixth",
+      "description": "HexagonFiveSixth, the stroke drawing of hexagon-five-sixth on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of hexagon-five-sixth: https://keylineicons.com/icons/hexagon-five-sixth",
+      "files": [
+        {
+          "path": "icons/hexagon-five-sixth.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/hexagon-five-sixth.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/hexagon-full",
+      "type": "registry:component",
+      "title": "HexagonFull",
+      "description": "HexagonFull, the stroke drawing of hexagon-full on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of hexagon-full: https://keylineicons.com/icons/hexagon-full",
+      "files": [
+        {
+          "path": "icons/hexagon-full.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/hexagon-full.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/hexagon-half",
+      "type": "registry:component",
+      "title": "HexagonHalf",
+      "description": "HexagonHalf, the stroke drawing of hexagon-half on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of hexagon-half: https://keylineicons.com/icons/hexagon-half",
+      "files": [
+        {
+          "path": "icons/hexagon-half.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/hexagon-half.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/hexagon-quarter",
+      "type": "registry:component",
+      "title": "HexagonQuarter",
+      "description": "HexagonQuarter, the stroke drawing of hexagon-quarter on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of hexagon-quarter: https://keylineicons.com/icons/hexagon-quarter",
+      "files": [
+        {
+          "path": "icons/hexagon-quarter.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/hexagon-quarter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/hexagon-third",
+      "type": "registry:component",
+      "title": "HexagonThird",
+      "description": "HexagonThird, the stroke drawing of hexagon-third on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of hexagon-third: https://keylineicons.com/icons/hexagon-third",
+      "files": [
+        {
+          "path": "icons/hexagon-third.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/hexagon-third.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/hexagon-three-quarter",
+      "type": "registry:component",
+      "title": "HexagonThreeQuarter",
+      "description": "HexagonThreeQuarter, the stroke drawing of hexagon-three-quarter on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of hexagon-three-quarter: https://keylineicons.com/icons/hexagon-three-quarter",
+      "files": [
+        {
+          "path": "icons/hexagon-three-quarter.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/hexagon-three-quarter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/hexagon-two-third",
+      "type": "registry:component",
+      "title": "HexagonTwoThird",
+      "description": "HexagonTwoThird, the stroke drawing of hexagon-two-third on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of hexagon-two-third: https://keylineicons.com/icons/hexagon-two-third",
+      "files": [
+        {
+          "path": "icons/hexagon-two-third.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/hexagon-two-third.tsx"
         }
       ]
     },
@@ -13890,6 +14436,20 @@
       ]
     },
     {
+      "name": "sharp/house-crack",
+      "type": "registry:component",
+      "title": "HouseCrack",
+      "description": "HouseCrack, the stroke drawing of house-crack on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of house-crack: https://keylineicons.com/icons/house-crack",
+      "files": [
+        {
+          "path": "icons/house-crack.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/house-crack.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/house-heart",
       "type": "registry:component",
       "title": "HouseHeart",
@@ -14040,6 +14600,20 @@
           "path": "icons/humidity.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/humidity.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/ice-skate",
+      "type": "registry:component",
+      "title": "IceSkate",
+      "description": "IceSkate, the stroke drawing of ice-skate on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of ice-skate: https://keylineicons.com/icons/ice-skate",
+      "files": [
+        {
+          "path": "icons/ice-skate.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/ice-skate.tsx"
         }
       ]
     },
@@ -14408,6 +14982,20 @@
       ]
     },
     {
+      "name": "sharp/jacket",
+      "type": "registry:component",
+      "title": "Jacket",
+      "description": "Jacket, the stroke drawing of jacket on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of jacket: https://keylineicons.com/icons/jacket",
+      "files": [
+        {
+          "path": "icons/jacket.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/jacket.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/japanese-yen",
       "type": "registry:component",
       "title": "JapaneseYen",
@@ -14684,6 +15272,20 @@
           "path": "icons/lasso.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/lasso.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/laundry-basket",
+      "type": "registry:component",
+      "title": "LaundryBasket",
+      "description": "LaundryBasket, the stroke drawing of laundry-basket on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of laundry-basket: https://keylineicons.com/icons/laundry-basket",
+      "files": [
+        {
+          "path": "icons/laundry-basket.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/laundry-basket.tsx"
         }
       ]
     },
@@ -15034,6 +15636,20 @@
           "path": "icons/link-plus.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/link-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/lipstick",
+      "type": "registry:component",
+      "title": "Lipstick",
+      "description": "Lipstick, the stroke drawing of lipstick on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of lipstick: https://keylineicons.com/icons/lipstick",
+      "files": [
+        {
+          "path": "icons/lipstick.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/lipstick.tsx"
         }
       ]
     },
@@ -15818,6 +16434,34 @@
           "path": "icons/mars.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/mars.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/martini",
+      "type": "registry:component",
+      "title": "Martini",
+      "description": "Martini, the stroke drawing of martini on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of martini: https://keylineicons.com/icons/martini",
+      "files": [
+        {
+          "path": "icons/martini.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/martini.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/mask-theater",
+      "type": "registry:component",
+      "title": "MaskTheater",
+      "description": "MaskTheater, the stroke drawing of mask-theater on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mask-theater: https://keylineicons.com/icons/mask-theater",
+      "files": [
+        {
+          "path": "icons/mask-theater.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/mask-theater.tsx"
         }
       ]
     },
@@ -17152,6 +17796,20 @@
       ]
     },
     {
+      "name": "sharp/mushroom",
+      "type": "registry:component",
+      "title": "Mushroom",
+      "description": "Mushroom, the stroke drawing of mushroom on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mushroom: https://keylineicons.com/icons/mushroom",
+      "files": [
+        {
+          "path": "icons/mushroom.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/mushroom.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/music-note",
       "type": "registry:component",
       "title": "MusicNote",
@@ -17232,6 +17890,20 @@
           "path": "icons/navigation-up-right.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/navigation-up-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/necktie",
+      "type": "registry:component",
+      "title": "Necktie",
+      "description": "Necktie, the stroke drawing of necktie on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of necktie: https://keylineicons.com/icons/necktie",
+      "files": [
+        {
+          "path": "icons/necktie.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/necktie.tsx"
         }
       ]
     },
@@ -18258,6 +18930,34 @@
       ]
     },
     {
+      "name": "sharp/peace",
+      "type": "registry:component",
+      "title": "Peace",
+      "description": "Peace, the stroke drawing of peace on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of peace: https://keylineicons.com/icons/peace",
+      "files": [
+        {
+          "path": "icons/peace.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/peace.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/pear",
+      "type": "registry:component",
+      "title": "Pear",
+      "description": "Pear, the stroke drawing of pear on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of pear: https://keylineicons.com/icons/pear",
+      "files": [
+        {
+          "path": "icons/pear.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/pear.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/pen",
       "type": "registry:component",
       "title": "Pen",
@@ -18356,6 +19056,20 @@
       ]
     },
     {
+      "name": "sharp/pentagon-dashed",
+      "type": "registry:component",
+      "title": "PentagonDashed",
+      "description": "PentagonDashed, the stroke drawing of pentagon-dashed on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of pentagon-dashed: https://keylineicons.com/icons/pentagon-dashed",
+      "files": [
+        {
+          "path": "icons/pentagon-dashed.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/pentagon-dashed.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/percent",
       "type": "registry:component",
       "title": "Percent",
@@ -18366,6 +19080,20 @@
           "path": "icons/percent.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/percent.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/perfume-bottle",
+      "type": "registry:component",
+      "title": "PerfumeBottle",
+      "description": "PerfumeBottle, the stroke drawing of perfume-bottle on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of perfume-bottle: https://keylineicons.com/icons/perfume-bottle",
+      "files": [
+        {
+          "path": "icons/perfume-bottle.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/perfume-bottle.tsx"
         }
       ]
     },
@@ -18692,6 +19420,20 @@
       ]
     },
     {
+      "name": "sharp/pitcher",
+      "type": "registry:component",
+      "title": "Pitcher",
+      "description": "Pitcher, the stroke drawing of pitcher on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of pitcher: https://keylineicons.com/icons/pitcher",
+      "files": [
+        {
+          "path": "icons/pitcher.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/pitcher.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/pizza",
       "type": "registry:component",
       "title": "Pizza",
@@ -18772,6 +19514,20 @@
           "path": "icons/planet.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/planet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/plant-pot",
+      "type": "registry:component",
+      "title": "PlantPot",
+      "description": "PlantPot, the stroke drawing of plant-pot on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of plant-pot: https://keylineicons.com/icons/plant-pot",
+      "files": [
+        {
+          "path": "icons/plant-pot.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/plant-pot.tsx"
         }
       ]
     },
@@ -20386,6 +21142,20 @@
       ]
     },
     {
+      "name": "sharp/screwdriver",
+      "type": "registry:component",
+      "title": "Screwdriver",
+      "description": "Screwdriver, the stroke drawing of screwdriver on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of screwdriver: https://keylineicons.com/icons/screwdriver",
+      "files": [
+        {
+          "path": "icons/screwdriver.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/screwdriver.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/scribble",
       "type": "registry:component",
       "title": "Scribble",
@@ -20820,6 +21590,20 @@
       ]
     },
     {
+      "name": "sharp/shamrock",
+      "type": "registry:component",
+      "title": "Shamrock",
+      "description": "Shamrock, the stroke drawing of shamrock on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of shamrock: https://keylineicons.com/icons/shamrock",
+      "files": [
+        {
+          "path": "icons/shamrock.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/shamrock.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/shapes",
       "type": "registry:component",
       "title": "Shapes",
@@ -21110,6 +21894,20 @@
           "path": "icons/ship-off.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/ship-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/ship-wheel",
+      "type": "registry:component",
+      "title": "ShipWheel",
+      "description": "ShipWheel, the stroke drawing of ship-wheel on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of ship-wheel: https://keylineicons.com/icons/ship-wheel",
+      "files": [
+        {
+          "path": "icons/ship-wheel.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/ship-wheel.tsx"
         }
       ]
     },
@@ -21474,6 +22272,20 @@
           "path": "icons/skip-forward.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/skip-forward.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/skirt",
+      "type": "registry:component",
+      "title": "Skirt",
+      "description": "Skirt, the stroke drawing of skirt on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of skirt: https://keylineicons.com/icons/skirt",
+      "files": [
+        {
+          "path": "icons/skirt.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/skirt.tsx"
         }
       ]
     },
@@ -21898,6 +22710,20 @@
       ]
     },
     {
+      "name": "sharp/snorkel",
+      "type": "registry:component",
+      "title": "Snorkel",
+      "description": "Snorkel, the stroke drawing of snorkel on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of snorkel: https://keylineicons.com/icons/snorkel",
+      "files": [
+        {
+          "path": "icons/snorkel.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/snorkel.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/snowflake",
       "type": "registry:component",
       "title": "Snowflake",
@@ -22020,6 +22846,20 @@
           "path": "icons/space.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/space.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/spade",
+      "type": "registry:component",
+      "title": "Spade",
+      "description": "Spade, the stroke drawing of spade on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of spade: https://keylineicons.com/icons/spade",
+      "files": [
+        {
+          "path": "icons/spade.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/spade.tsx"
         }
       ]
     },
@@ -23410,6 +24250,20 @@
       ]
     },
     {
+      "name": "sharp/stairs",
+      "type": "registry:component",
+      "title": "Stairs",
+      "description": "Stairs, the stroke drawing of stairs on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of stairs: https://keylineicons.com/icons/stairs",
+      "files": [
+        {
+          "path": "icons/stairs.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/stairs.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/stamp",
       "type": "registry:component",
       "title": "Stamp",
@@ -23420,6 +24274,20 @@
           "path": "icons/stamp.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/stamp.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/stamp-postage",
+      "type": "registry:component",
+      "title": "StampPostage",
+      "description": "StampPostage, the stroke drawing of stamp-postage on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of stamp-postage: https://keylineicons.com/icons/stamp-postage",
+      "files": [
+        {
+          "path": "icons/stamp-postage.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/stamp-postage.tsx"
         }
       ]
     },
@@ -24600,6 +25468,20 @@
       ]
     },
     {
+      "name": "sharp/teapot",
+      "type": "registry:component",
+      "title": "Teapot",
+      "description": "Teapot, the stroke drawing of teapot on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of teapot: https://keylineicons.com/icons/teapot",
+      "files": [
+        {
+          "path": "icons/teapot.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/teapot.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/telescope",
       "type": "registry:component",
       "title": "Telescope",
@@ -25174,6 +26056,20 @@
       ]
     },
     {
+      "name": "sharp/toaster",
+      "type": "registry:component",
+      "title": "Toaster",
+      "description": "Toaster, the stroke drawing of toaster on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of toaster: https://keylineicons.com/icons/toaster",
+      "files": [
+        {
+          "path": "icons/toaster.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/toaster.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/toggle-off",
       "type": "registry:component",
       "title": "ToggleOff",
@@ -25426,6 +26322,20 @@
       ]
     },
     {
+      "name": "sharp/tree-pine-flame",
+      "type": "registry:component",
+      "title": "TreePineFlame",
+      "description": "TreePineFlame, the stroke drawing of tree-pine-flame on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of tree-pine-flame: https://keylineicons.com/icons/tree-pine-flame",
+      "files": [
+        {
+          "path": "icons/tree-pine-flame.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/tree-pine-flame.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/trending-down",
       "type": "registry:component",
       "title": "TrendingDown",
@@ -25492,6 +26402,20 @@
           "path": "icons/triangle-alert.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/triangle-alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/triangle-dashed",
+      "type": "registry:component",
+      "title": "TriangleDashed",
+      "description": "TriangleDashed, the stroke drawing of triangle-dashed on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of triangle-dashed: https://keylineicons.com/icons/triangle-dashed",
+      "files": [
+        {
+          "path": "icons/triangle-dashed.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/triangle-dashed.tsx"
         }
       ]
     },
@@ -25790,6 +26714,34 @@
       ]
     },
     {
+      "name": "sharp/tulip",
+      "type": "registry:component",
+      "title": "Tulip",
+      "description": "Tulip, the stroke drawing of tulip on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of tulip: https://keylineicons.com/icons/tulip",
+      "files": [
+        {
+          "path": "icons/tulip.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/tulip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/tumbler",
+      "type": "registry:component",
+      "title": "Tumbler",
+      "description": "Tumbler, the stroke drawing of tumbler on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of tumbler: https://keylineicons.com/icons/tumbler",
+      "files": [
+        {
+          "path": "icons/tumbler.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/tumbler.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/tv",
       "type": "registry:component",
       "title": "Tv",
@@ -25926,6 +26878,20 @@
           "path": "icons/underline.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/underline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/underwear",
+      "type": "registry:component",
+      "title": "Underwear",
+      "description": "Underwear, the stroke drawing of underwear on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of underwear: https://keylineicons.com/icons/underwear",
+      "files": [
+        {
+          "path": "icons/underwear.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/underwear.tsx"
         }
       ]
     },
@@ -26462,6 +27428,20 @@
       ]
     },
     {
+      "name": "sharp/volcano",
+      "type": "registry:component",
+      "title": "Volcano",
+      "description": "Volcano, the stroke drawing of volcano on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of volcano: https://keylineicons.com/icons/volcano",
+      "files": [
+        {
+          "path": "icons/volcano.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/volcano.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/volume",
       "type": "registry:component",
       "title": "Volume",
@@ -26798,6 +27778,20 @@
       ]
     },
     {
+      "name": "sharp/whistle",
+      "type": "registry:component",
+      "title": "Whistle",
+      "description": "Whistle, the stroke drawing of whistle on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of whistle: https://keylineicons.com/icons/whistle",
+      "files": [
+        {
+          "path": "icons/whistle.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/whistle.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/whole-word",
       "type": "registry:component",
       "title": "WholeWord",
@@ -27050,6 +28044,20 @@
       ]
     },
     {
+      "name": "sharp/wine-crack",
+      "type": "registry:component",
+      "title": "WineCrack",
+      "description": "WineCrack, the stroke drawing of wine-crack on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of wine-crack: https://keylineicons.com/icons/wine-crack",
+      "files": [
+        {
+          "path": "icons/wine-crack.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/wine-crack.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/workflow",
       "type": "registry:component",
       "title": "Workflow",
@@ -27116,6 +28124,20 @@
           "path": "icons/x-line-top.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/x-line-top.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/yin-yang",
+      "type": "registry:component",
+      "title": "YinYang",
+      "description": "YinYang, the stroke drawing of yin-yang on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of yin-yang: https://keylineicons.com/icons/yin-yang",
+      "files": [
+        {
+          "path": "icons/yin-yang.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/yin-yang.tsx"
         }
       ]
     },
