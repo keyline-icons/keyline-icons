@@ -1119,10 +1119,20 @@ care when the release was.
 
 ### Publishing the packages
 
-Separate from the tag, and needed only when a package's contents changed. The
-CLI and the MCP server each bundle their own `icons.json`, so new drawings mean
-a new version of both; React ships its components and needs one too.
+Needed only when a package's contents changed. The CLI and the MCP server each
+bundle their own `icons.json`, so new drawings mean a new version of both; React
+ships its components and needs one too.
 
+**Pushing a `v*` tag publishes them.** `.github/workflows/publish.yml` runs on
+the tag and publishes every package whose version npm does not have yet, by
+trusted publishing (OIDC), so no token is involved and nobody approves it with
+2FA. A package that kept its version is skipped, and re-running the workflow
+after a failure carries on from where it stopped. npm ends direct publishing
+with tokens that bypass 2FA in January 2027, which is why this moved off a
+laptop. The trust is set per package on npm and names the workflow file; the
+command that sets it is at the top of that file.
+
+By hand, from a machine signed in to npm, the same thing is the lines below.
 There is no npm `workspaces` field in the root manifest, only a
 `pnpm-workspace.yaml`, so `npm publish --workspace` does not work. Publish from
 each directory:

@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Pitcher({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 20.9999L8 20.9999C7.4956 20.9999 7.0702 20.6244 7.0077 20.1239L6.2577 14.124C6.2526 14.0829 6.25 14.0415 6.25 14C6.25 13.4477 6.6977 13 7.25 13L12 13L16.75 13C17.3023 13 17.75 13.4477 17.75 14C17.75 14.0415 17.7474 14.0829 17.7423 14.124L16.9923 20.124C16.9297 20.6245 16.5043 21 16 21ZM12 11L7 11L6.75 11C6.2457 11 5.8203 10.6245 5.7577 10.124L5.5544 8.4974L1.3361 4.7474C1.1226 4.5576 1.0005 4.2856 1.0005 4C1.0005 3.4477 1.4482 3 2.0005 3L10.0003 3L18 3.0009C18.5523 3.0009 18.9999 3.4486 18.9999 4.0009C18.9999 4.0423 18.9973 4.0837 18.9922 4.1249L18.2423 10.124C18.1797 10.6245 17.7543 11 17.25 11L17 11Z" fill="currentColor" stroke="none"/>
+      <path d="M17.5 8L18 8C20.2091 8 22 9.7909 22 12C22 14.2091 20.2091 16 18 16L16.5 16"/>
+    </svg>
+  )
+}

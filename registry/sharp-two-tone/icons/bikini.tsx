@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Bikini({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 11.6458C11.267 12.4762 10.1947 13 9 13C6.7908 13 5 11.2091 5 9C5 7.8618 5.4849 6.7774 6.3333 6.0185C6.5167 5.8546 6.754 5.7639 7 5.7639C7.1407 5.7639 7.2798 5.7936 7.4083 5.851L9.9083 6.9691L12 7.9045L14.0917 6.9691L16.5917 5.851C16.7202 5.7936 16.8593 5.7639 17 5.7639C17.246 5.7639 17.4833 5.8546 17.6667 6.0185C18.5151 6.7774 19 7.8618 19 9C19 11.2091 17.2092 13 15 13C13.8053 13 12.733 12.4762 12 11.6458ZM12 16L17 16C17.5523 16 18 16.4477 18 17L18 18.5C18 18.7652 17.8946 19.0196 17.7071 19.2071L14.2071 22.7071C14.0196 22.8946 13.7652 23 13.5 23L10.5 23C10.2348 23 9.9804 22.8946 9.7929 22.7071L6.2929 19.2071C6.1054 19.0196 6 18.7652 6 18.5L6 17C6 16.4477 6.4477 16 7 16Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M7 1L7 2L7 6.7639L12 9M7 6.7639C6.3637 7.333 6 8.1463 6 9C6 10.6568 7.3431 12 9 12C10.6568 12 12 10.6568 12 9C12 10.6568 13.3432 12 15 12C16.6569 12 18 10.6568 18 9C18 8.1463 17.6363 7.333 17 6.7639L12 9M17 6.7639L17 2L17 1M7 17L17 17L17 18.5L13.5 22L10.5 22L7 18.5Z"/>
+    </svg>
+  )
+}

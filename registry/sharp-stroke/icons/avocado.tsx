@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Avocado({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M18.1987 2.0004C19.211 1.9866 20.1857 2.3826 20.9016 3.0985C21.6174 3.8143 22.0135 4.7892 21.9996 5.8015C21.9355 10.4894 20.0446 14.9675 16.7293 18.2827C15.7344 19.2776 14.6263 20.1524 13.4278 20.8892C10.4703 22.7072 6.6516 22.2579 4.1968 19.8032C1.7421 17.3484 1.2928 13.5297 3.1108 10.5722C3.8476 9.3738 4.7224 8.2657 5.7172 7.2708C9.0325 3.9556 13.5106 2.0646 18.1987 2.0004ZM11.6214 16.6212C10.4498 17.7928 8.5504 17.7928 7.3788 16.6212C6.2072 15.4496 6.2072 13.5502 7.3788 12.3786C8.5504 11.207 10.4498 11.207 11.6214 12.3786C12.793 13.5502 12.793 15.4496 11.6214 16.6212Z" fill="none"/>
+    </svg>
+  )
+}

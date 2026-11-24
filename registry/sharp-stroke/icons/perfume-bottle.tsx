@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function PerfumeBottle({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M6 8L6 11.3813L5.5 11.6699C3.953 12.5631 3 14.2137 3 16C3 17.435 3.6166 18.8008 4.6928 19.75L4.9763 20L11.0237 20L11.3072 19.75C12.3834 18.8008 13 17.435 13 16C13 14.2137 12.047 12.5631 10.5 11.6699L10 11.3813L10 8M10 4L14 4C16.7614 4 19 6.2386 19 9M19 9C20.1046 9 21 10.1193 21 11.5C21 12.8807 20.1046 14 19 14C17.8954 14 17 12.8807 17 11.5C17 10.1193 17.8954 9 19 9ZM10 8L11 8L11 4L5 4L5 8Z" fill="none"/>
+    </svg>
+  )
+}

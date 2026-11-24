@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Teapot({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M18 16.5C20 16.5 18.5 11.5 22 11L22.8586 10.8773M6.2764 12.5L4 12.5C2.8954 12.5 2 13.3954 2 14.5C2 15.6046 2.8954 16.5 4 16.5L6 16.5M12 5L12 4L12 3M9 9.6528L9 9.5L9 5L12 5L15 5L15 9.5L15 9.6528" strokeOpacity="0.4"/>
+      <path d="M12 21L6 21C5.4477 21 5 20.5523 5 20L5 14C5 12.2775 5.8404 10.7602 7.1172 9.6963C8.3918 8.634 10.1214 8 12 8C13.8786 8 15.6082 8.634 16.8828 9.6963C18.1596 10.7602 19 12.2775 19 14L19 20C19 20.5523 18.5523 21 18 21Z" fill="currentColor" stroke="none"/>
+    </svg>
+  )
+}

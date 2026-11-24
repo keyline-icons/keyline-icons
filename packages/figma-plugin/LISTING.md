@@ -73,14 +73,14 @@ Keyline Icons
 ## Tagline
 
 ```
-1,940 icons, four styles, rounded or sharp corners. Searchable in Figma and FigJam.
+2,013 icons, four styles, rounded or sharp corners. Searchable in Figma and FigJam.
 ```
 
 Capped at 100 characters. The line above is 81, so there is still room. A
 shorter alternative if it ever needs one:
 
 ```
-1,940 icons in four styles, cut rounded or sharp.
+2,013 icons in four styles, cut rounded or sharp.
 ```
 
 ## Description
@@ -94,20 +94,20 @@ which only ever shows the newest entry. Someone deciding whether to install
 wants to see the set is maintained, and that is what a history says.
 
 ```
-Search 1,940 icons and drop one on the canvas. No library to publish, no file to duplicate, no plan requirement.
+Search 2,013 icons and drop one on the canvas. No library to publish, no file to duplicate, no plan requirement.
 
 Four styles
 
-* Stroke: 1,940 icons, 2px, round caps and joins
-* Two-tone: 1,940 icons, a 40% plate under the line
-* Duotone: 1,940 icons, no outline, a grey body with the detail in black
-* Fill: 1,940 icons, solid where the glyph has a region to fill
+* Stroke: 2,013 icons, 2px, round caps and joins
+* Two-tone: 2,013 icons, a 40% plate under the line
+* Duotone: 2,013 icons, no outline, a grey body with the detail in black
+* Fill: 2,013 icons, solid where the glyph has a region to fill
 
-Two corner treatments, and every drawing has both. Rounded is the keyline the set was drawn on; sharp takes every corner to a true point and ends each stroke square. Coverage is identical, so switching never costs you a drawing. 15,520 SVGs in total.
+Two corner treatments, and every drawing has both. Rounded is the keyline the set was drawn on; sharp takes every corner to a true point and ends each stroke square. Coverage is identical, so switching never costs you a drawing. 16,104 SVGs in total.
 
 67 icons also come in a square- form and 72 in a circle- form, so a container is a search away rather than a second drawing.
 
-Search knows more than the file names. 1,801 icons carry curated words, so "south" finds arrow-down, "torch" finds flashlight and "trash" finds bin. Paste a component name straight out of your code and it resolves: CheckCircle2 finds circle-check.
+Search knows more than the file names. 1,874 icons carry curated words, so "south" finds arrow-down, "torch" finds flashlight and "trash" finds bin. Paste a component name straight out of your code and it resolves: CheckCircle2 finds circle-check.
 
 Browse the set the way the site files it, shelf by shelf, with every shelf a click away from wherever you are. The icons you used last wait at the top, and the panel opens next time on the style, corners and size you left it on.
 
@@ -123,6 +123,14 @@ github.com/keyline-icons/keyline-icons
 Need icons drawn for your own product? Custom sets on the same grid, as SVG, Figma and React: keylineicons.com/custom
 
 Changelog
+
+3.0.0
+73 new drawings, taking the set to 2,013 names and 16,104 SVGs, and a Symbols category for the peace sign and the yin and yang.
+
+* Drinks: bottles of beer, soda and champagne, a baby's bottle, a champagne flute, a martini, a tropical cocktail, a tumbler, a glass of water, a cracked wine glass, a pitcher and a teapot
+* Home and clothes: a bunk bed, an armchair, stairs, an elevator and an escalator, a toaster, a hair dryer and a laundry basket; a jacket, a necktie, a coat button, a skirt, a bikini, a bra and briefs, a lipstick and a perfume bottle
+* Shapes: the hexagon in shares from a quarter to full, the circle in three, five and seven eighths, and a dashed pentagon and triangle
+* And more: a clapperboard, the theatre mask, a clarinet and a drum; a volcano, a pine on fire, a mushroom, a tulip, a potted plant, a clover and a shamrock; a double-decker bus, a fire engine, a helicopter and a ship's wheel; an ice skate, a snorkel, a whistle, the club and spade suits, a frying pan, a cupcake, an avocado, a pear, a cash machine, a postage stamp, a bomb, a tower crane, a screwdriver and a cracked house
 
 2.9.0
 39 new drawings, taking the set to 1,940 names and 15,520 SVGs.
@@ -177,17 +185,6 @@ Also redrawn: 47 drawings, most of them in duotone, where ten buildings now draw
 * Transport and Maps: a sailboat, a caravan, a stroller and an electric car charger; a castle, a lighthouse, a barn and a tent
 * And more: a suitcase, a hotel's service bell, a coffee maker and its carafe, a cooking pot, a kettle grill, the cigarette and its no-smoking form, a wheelchair, a skier, a pool ladder and a capital A beside the text cursor
 
-2.2.0
-55 new drawings, taking the set to 1,623 names and 12,984 SVGs.
-
-* Transport: a bus, a tram seen from the front, the taxi from the side and from the front, the car from the front, and every vehicle struck through: the cars and the taxi, the bus, the train, the tram, the truck, the plane, the ship, both bikes and both rockets
-* Maps: a traffic cone and a road-works barrier, a factory, a crosshair and a pair of footprints
-* Food, Health and Media: a burger, a slice of pizza and a cookie; a skull, a bone whole and broken, a DNA helix and a doctor's bag; a boom box, a cassette tape, a speaker and a satellite dish
-* And more: a router, two envelopes, both speech bubbles dashed, an arrow forking in two, the alarm clock with a cross, the octagon with a minus, a bolt in the scan frame, a heart with two hands, an open book with text, a fire extinguisher, a flashlight, a magnet, binoculars, a chess rook, a dumbbell, two feathers, a snow-capped mountain and a thunder cloud
-
-train is train-front now, beside tram-front, and the old name still finds it.
-
-
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
 
@@ -219,7 +216,7 @@ expectation for an icon set. `free icons` overlaps `open source`, and page four
 marks the plugin Free natively.
 
 That leaves the five that actually distinguish it: FigJam support is rare among
-icon plugins, 1,940 duotone drawings are rare among icon sets, a set that ships
+icon plugins, 2,013 duotone drawings are rare among icon sets, a set that ships
 every drawing rounded *and* sharp is rarer still, and the rest name the audience
 rather than the artefact.
 
@@ -758,20 +755,28 @@ Keyline Icons
 ### Description
 
 ```
-1,940 icons on a 24×24 grid, in four styles and two corner treatments: stroke, two-tone, duotone and fill, cut rounded or sharp. MIT licensed, free for commercial work, no attribution required.
+2,013 icons on a 24×24 grid, in four styles and two corner treatments: stroke, two-tone, duotone and fill, cut rounded or sharp. MIT licensed, free for commercial work, no attribution required.
 
-1,801 component sets, each with three variant properties, Container, Style and Corners, so you switch between regular, square and circle, between the four styles, and between rounded and sharp, without swapping components. 67 icons carry a square- form and 72 a circle-.
+1,874 component sets, each with three variant properties, Container, Style and Corners, so you switch between regular, square and circle, between the four styles, and between rounded and sharp, without swapping components. 67 icons carry a square- form and 72 a circle-.
 
-Every name comes in all four styles. Two-tone keeps the outline over a 40% plate, which is what duotone meant until 0.9.0; duotone now drops the outline and puts the part that matters in black. The four counts: stroke 1,940, two-tone 1,940, duotone 1,940, fill 1,940.
+Every name comes in all four styles. Two-tone keeps the outline over a 40% plate, which is what duotone meant until 0.9.0; duotone now drops the outline and puts the part that matters in black. The four counts: stroke 2,013, two-tone 2,013, duotone 2,013, fill 2,013.
 
-Every drawing exists in both treatments, so sharp is a switch rather than a second library: 15,520 variants over the same 1,940 names.
+Every drawing exists in both treatments, so sharp is a switch rather than a second library: 16,104 variants over the same 2,013 names.
 
-The Catalog page files every icon under one of 41 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
+The Catalog page files every icon under one of 42 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
 
 Also available as React and React Native components, a shadcn registry, an MCP server for agents, a CLI, and a Figma plugin that searches the set and drops an icon straight onto the canvas.
 
 keylineicons.com
 github.com/keyline-icons/keyline-icons
+
+v3.0.0
+73 new drawings, taking the set to 2,013 names and 16,104 SVGs, and a Symbols category on the Catalog page for the peace sign and the yin and yang. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
+
+* Drinks: bottles of beer, soda and champagne, a baby's bottle, a champagne flute, a martini, a tropical cocktail, a tumbler, a glass of water, a cracked wine glass, a pitcher and a teapot
+* Home and clothes: a bunk bed, an armchair, stairs, an elevator and an escalator, a toaster, a hair dryer and a laundry basket; a jacket, a necktie, a coat button, a skirt, a bikini, a bra and briefs, a lipstick and a perfume bottle
+* Shapes: the hexagon in shares from a quarter to full, the circle in three, five and seven eighths, and a dashed pentagon and triangle
+* And more: a clapperboard, the theatre mask, a clarinet and a drum; a volcano, a pine on fire, a mushroom, a tulip, a potted plant, a clover and a shamrock; a double-decker bus, a fire engine, a helicopter and a ship's wheel; an ice skate, a snorkel, a whistle, the club and spade suits, a frying pan, a cupcake, an avocado, a pear, a cash machine, a postage stamp, a bomb, a tower crane, a screwdriver and a cracked house
 
 v2.9.0
 39 new drawings, taking the set to 1,940 names and 15,520 SVGs. No component was replaced, so instances already placed in your files keep their link; the set circle-half-striped is renamed shadows in place.
@@ -823,15 +828,6 @@ v2.3.0
 * Transport and Maps: a sailboat, a caravan, a stroller and an electric car charger; a castle, a lighthouse, a barn and a tent
 * And more: a suitcase, a hotel's service bell, a coffee maker and its carafe, a cooking pot, a kettle grill, the cigarette and its no-smoking form, a wheelchair, a skier, a pool ladder and a capital A beside the text cursor
 
-v2.2.0
-55 new drawings. The set is 1,623 names now, 1,484 component sets and 12,984 variants, up from 1,568 and 12,544. One set was renamed in place, train to train-front, and no component was replaced, so instances already placed in your files keep their link.
-
-* Transport: a bus, a tram seen from the front, the taxi from the side and from the front, the car from the front, and every vehicle struck through: the cars and the taxi, the bus, the train, the tram, the truck, the plane, the ship, both bikes and both rockets
-* Maps: a traffic cone and a road-works barrier, a factory, a crosshair and a pair of footprints
-* Food, Health and Media: a burger, a slice of pizza and a cookie; a skull, a bone whole and broken, a DNA helix and a doctor's bag; a boom box, a cassette tape, a speaker and a satellite dish
-* And more: a router, two envelopes, both speech bubbles dashed, an arrow forking in two, the alarm clock with a cross, the octagon with a minus, a bolt in the scan frame, a heart with two hands, an open book with text, a fire extinguisher, a flashlight, a magnet, binoculars, a chess rook, a dumbbell, two feathers, a snow-capped mountain and a thunder cloud
-
-
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
 
@@ -879,7 +875,9 @@ before, 7,452 after), 2.0.0 from the plugin's and v2.0.0 from the file's on
 16 Nov 2026 with the 2.7.0 entries (9,034 and 9,471 before, 7,681 and 7,849
 after), nothing on 19 Nov 2026 for the 2.8.0 entries (8,255 and 8,417), 2.1.0 from the
 plugin's and v2.1.0 from the file's on 21 Nov 2026 with the 2.9.0 entries
-(8,252 and 8,414 before the entries, 7,816 and 7,899 after), and a
+(8,252 and 8,414 before the entries, 7,816 and 7,899 after), 2.2.0 from
+the plugin's and v2.2.0 from the file's on 24 Nov 2026 with the 3.0.0 entries
+(8,938 and 9,152 with them, 7,874 and 7,975 after), and a
 last line points at
 `keylineicons.com/changelog`, which keeps every release.
 

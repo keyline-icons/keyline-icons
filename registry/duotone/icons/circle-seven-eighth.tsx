@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CircleSevenEighth({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M7.0502 16.9498C5.7846 15.6841 5 13.9328 5 12C5 10.1435 5.7375 8.363 7.0503 7.0503C7.2379 6.8627 7.4922 6.7574 7.7574 6.7574C8.0226 6.7574 8.277 6.8628 8.4645 7.0503L11 9.5858L11 6C11 5.4477 11.4477 5 12 5C15.8661 5 19 8.1339 19 12C19 15.8661 15.8661 19 12 19C10.0672 19 8.3159 18.2154 7.0502 16.9498Z" fill="currentColor"/>
+    </svg>
+  )
+}

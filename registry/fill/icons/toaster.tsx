@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Toaster({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 10L19 10C21.2092 10 23 11.7908 23 14L23 17C23 19.2092 21.2092 21 19 21L5 21C2.7908 21 1 19.2092 1 17L1 14C1 11.7908 2.7908 10 5 10ZM18.5 15.5C18.5 14.6716 17.8284 14 17 14C16.1716 14 15.5 14.6716 15.5 15.5C15.5 16.3284 16.1716 17 17 17C17.8284 17 18.5 16.3284 18.5 15.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+      <path d="M9.1347 8L6.2693 8C5.717 8 5.2693 7.5523 5.2693 7C5.2693 6.824 5.3157 6.6512 5.4039 6.4989C5.9213 5.6054 6.8901 5.0008 8.0013 5.0008C8.1726 5.0008 8.3428 5.0155 8.5102 5.0443C9.2039 3.8062 10.5251 3 12 3C13.4749 3 14.7961 3.8062 15.4898 5.0443C15.6572 5.0155 15.8274 5.0008 15.9987 5.0008C17.1099 5.0008 18.0787 5.6054 18.5961 6.4989C18.6843 6.6512 18.7307 6.824 18.7307 7C18.7307 7.5523 18.283 8 17.7307 8L12 8Z" fill="currentColor"/>
+    </svg>
+  )
+}

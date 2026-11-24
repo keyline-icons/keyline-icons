@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Spade({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M18.571 7.2518C20.3849 8.9914 22 11.0563 22 13.5C22 16.5376 19.5376 19 16.5 19C16.2918 19 16.0845 18.9882 15.8791 18.9648L17.2071 20.2929C17.3946 20.4804 17.5 20.7348 17.5 21C17.5 21.5523 17.0523 22 16.5 22L7.5 22C6.9477 22 6.5 21.5523 6.5 21C6.5 20.7348 6.6054 20.4804 6.7929 20.2929L8.1209 18.9648C7.9155 18.9882 7.7082 19 7.5 19C4.4624 19 2 16.5376 2 13.5C2 11.0563 3.6151 8.9914 5.429 7.2518C6.357 6.3618 7.3958 5.5033 8.4123 4.6782C9.44 3.844 10.4382 3.0489 11.3363 2.252C11.5192 2.0897 11.7554 2 12 2C12.2446 2 12.4808 2.0897 12.6637 2.252C13.5618 3.0489 14.56 3.844 15.5877 4.6782C16.6042 5.5033 17.643 6.3618 18.571 7.2518Z" fill="currentColor"/>
+    </svg>
+  )
+}

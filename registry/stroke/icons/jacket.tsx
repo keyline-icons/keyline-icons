@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Jacket({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M17 19H21C21.5523 19 22 18.5523 22 18C22 17.9319 21.9931 17.8641 21.9793 17.7974L19.2111 4.4202C19.0788 3.7808 18.6427 3.2463 18.0429 2.9883L15.9347 2.0813C15.8099 2.0276 15.6754 2 15.5395 2C15.1337 2 14.7681 2.2452 14.6142 2.6208L12.9253 6.742C12.7714 7.1175 12.4058 7.3628 12 7.3628M17 19V20.5C17 21.3284 16.3284 22 15.5 22H12M17 19V10M12 22H8.5C7.6716 22 7 21.3284 7 20.5V19M12 22V7.3628M7 19H3C2.4477 19 2 18.5523 2 18C2 17.9319 2.007 17.8641 2.0208 17.7974L4.7889 4.4202C4.9212 3.7808 5.3573 3.2463 5.9571 2.9883L8.0653 2.0813C8.1901 2.0276 8.3246 2 8.4605 2C8.8663 2 9.2319 2.2452 9.3858 2.6208L11.0747 6.742C11.2286 7.1175 11.5942 7.3628 12 7.3628M7 19V10"/>
+    </svg>
+  )
+}

@@ -8252,9 +8252,250 @@ const RELEASE_2_9_0: BlogPost = {
   ],
 }
 
+export const BLOG_V300_THUMBNAIL_ICON_NAMES = [
+  "cocktail-tropical",
+  "bottle-champagne",
+  "helicopter",
+  "bed-bunk",
+  "mask-theater",
+  "yin-yang",
+  "volcano",
+  "hexagon-two-third",
+  "peace",
+  "jacket",
+  "escalator",
+  "clapperboard",
+  "ice-skate",
+  "teapot",
+  "fire-truck",
+  "martini",
+] as const
+
+export const BLOG_V300_SPREAD_ICON_NAMES = [
+  "stairs",
+  "elevator",
+  "escalator",
+  "bed-bunk",
+  "armchair",
+  "jacket",
+  "skirt",
+  "bikini",
+  "necktie",
+  "perfume-bottle",
+  "volcano",
+  "tree-pine-flame",
+  "fire-truck",
+  "helicopter",
+  "mask-theater",
+] as const
+
+export const BLOG_V300_DRINK_ICON_NAMES = [
+  "bottle-beer",
+  "beer",
+  "bottle-champagne",
+  "champagne",
+  "bottle-wine",
+  "wine",
+  "martini",
+  "cocktail-tropical",
+  "tumbler",
+  "glass-water",
+  "bottle-soda",
+  "can-soda",
+  "cup-soda",
+  "pitcher",
+  "bottle-baby",
+  "teapot",
+  "hot-tea",
+  "coffee",
+  "coffee-pot",
+  "coffee-maker",
+] as const
+
+export const BLOG_V300_SHARE_ICON_NAMES = [
+  "hexagon-quarter",
+  "hexagon-third",
+  "hexagon-half",
+  "hexagon-two-third",
+  "hexagon-three-quarter",
+  "hexagon-five-sixth",
+  "hexagon-full",
+] as const
+
+export const BLOG_V300_SYMBOL_ICON_NAMES = ["peace", "yin-yang"] as const
+
+const RELEASE_3_0_0: BlogPost = {
+  /* Drinks lead: "drink icons" is the widest search the batch can win and no
+     other post claims it; the peace sign and the hexagon shares follow. */
+  slug: "drink-peace-sign-and-hexagon-icons",
+  version: "3.0.0",
+  title:
+    "73 free drink, peace sign and hexagon icons for React, shadcn/ui and Figma",
+  description:
+    "2,013 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
+    "bottles with their glasses, a martini, a cocktail, the peace sign, yin " +
+    "and yang and hexagon shares.",
+  standfirst:
+    "Two of the new drawings are cracked on purpose: a wine glass for fragile " +
+    "parcels and a house for insurance claims.",
+  date: "2026-11-24",
+  updated: "2026-11-24",
+  readingMinutes: 3,
+  thumbnail: BLOG_V300_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "drink icons",
+    "cocktail icon",
+    "martini icon",
+    "champagne icon",
+    "beer bottle icon",
+    "baby bottle icon",
+    "teapot icon",
+    "peace sign icon",
+    "yin yang icon",
+    "hexagon icon",
+    "progress icon",
+    "bunk bed icon",
+    "elevator icon",
+    "escalator icon",
+    "helicopter icon",
+    "fire truck icon",
+    "theater mask icon",
+    "clapperboard icon",
+    "free svg icons",
+    "shadcn/ui icons",
+    "figma icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "Past two thousand: with 73 new drawings the set holds 2,013 names, " +
+        "each one stroked, two-tone, duotone and filled, with round corners or " +
+        "sharp, 16,104 SVGs in all. Most of the new ones answer a screen that " +
+        "had to make do before, such as a drinks menu, a floor guide, a " +
+        "clothing shop's departments or a hazard warning.",
+    },
+    {
+      kind: "p",
+      text:
+        "A building map can now show which way avoids the climb. Stairs, an " +
+        "elevator and an escalator are the three ways between floors, and the " +
+        "two that carry you each have a rider in them, so neither reads as a " +
+        "box or a ramp at the size of a map pin.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V300_SPREAD_ICON_NAMES,
+        caption:
+          "Clothes are drawn as the garment alone, so a department reads at " +
+          "the size of a filter chip.",
+      },
+    },
+
+    { kind: "h2", text: "The glass says what is in the bottle", id: "drinks" },
+    {
+      kind: "p",
+      text:
+        "Most bottles share one outline: a neck, a shoulder and a body. Drawn " +
+        "alone, beer, champagne and soda are hard to tell apart at 16 pixels. " +
+        "So each of the three new ones stands beside the glass it pours into, " +
+        "a tall glass, a flute or a cup with a straw, and the glass does the " +
+        "telling.",
+    },
+    {
+      kind: "p",
+      text:
+        "The glasses work on their own as well, which suits a menu: each " +
+        "section can be labelled by what its drinks are served in, from " +
+        "cocktails to tea, without a bottle in sight.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V300_DRINK_ICON_NAMES,
+        caption:
+          "Nine of these were here before, from the wine glass to the coffee " +
+          "maker.",
+      },
+    },
+
+    { kind: "h2", text: "The hexagon counts in thirds and quarters", id: "shares" },
+    {
+      kind: "p",
+      text:
+        "A shape that fills as work gets done only helps when its steps match " +
+        "the task. The circle and the square fill in quarters; the hexagon now " +
+        "fills in quarters and in thirds, so a three-step setup and a " +
+        "four-step checkout can wear the same badge.",
+    },
+    {
+      kind: "p",
+      text:
+        "Between its quarters, the circle now takes three, five and seven " +
+        "eighths, for a finer meter where a round one is expected. Both " +
+        "families stop at the smallest share whose outline still has room " +
+        "for white inside it at 24 pixels; anything thinner would leave too " +
+        "little white to see.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V300_SHARE_ICON_NAMES,
+        caption:
+          "In fill the share becomes the hole, as it already did in the circle.",
+      },
+    },
+
+    { kind: "h2", text: "Two marks open the Symbols category", id: "symbols" },
+    {
+      kind: "p",
+      text:
+        "Peace and balance are ideas rather than things, and their marks had " +
+        "nowhere to go. Emoji holds faces and reactions, and Maps holds the " +
+        "temple and the church as buildings, so the peace sign and the yin " +
+        "and yang open Symbols, the set's 42nd category. A category of two " +
+        "is quicker to search than the wrong one.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "styles",
+        names: BLOG_V300_SYMBOL_ICON_NAMES,
+        caption: "Search finds them by harmony, calm, balance and truce too.",
+      },
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text: "React, shadcn/ui, the CLI, the MCP server and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Changelog",
+      text: "Every drawing in this update, category by category.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
   REACT_NATIVE_ICONS,
   LUCIDE_ALTERNATIVES,
+  RELEASE_3_0_0,
   RELEASE_2_9_0,
   RELEASE_2_8_0,
   RELEASE_2_7_0,

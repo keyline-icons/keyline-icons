@@ -41,6 +41,7 @@ import {
   Palette,
   PanelLeft,
   PanelTopCloseDashed,
+  Peace,
   Plane,
   Play,
   Plus,
@@ -253,6 +254,9 @@ const CATEGORY_ICONS: Record<
   // Opened 5 Oct 2026 (1.7.0). The balance rather than the gavel: at 16px the
   // mallet is a diagonal stick, and the pans are the mark people know.
   Law: Scale,
+  // Opened 24 Nov 2026 (3.0.0). The peace sign rather than the yin and yang: at 16px its three strokes in
+  // the ring still read, where the yin and yang's two dots are specks.
+  Symbols: Peace,
   [OTHER_CATEGORY]: Circle,
 }
 

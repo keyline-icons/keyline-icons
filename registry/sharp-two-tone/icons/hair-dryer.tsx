@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function HairDryer({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M7.7782 10.8496C5.6074 10.3044 4 8.3399 4 6C4 3.2386 6.2386 1 9 1C9.0551 1 9.1101 1.0046 9.1644 1.0136L15.1644 2.0136L21.1644 3.0136C21.6466 3.094 22 3.5112 22 4L22 9C22 9.5201 21.6013 9.9534 21.083 9.9965L14.9094 10.511L12.9317 19.2214C12.8283 19.6768 12.4235 20 11.9565 20L6.9276 20C6.3753 20 5.9276 19.5523 5.9276 19C5.9276 18.9245 5.9362 18.8492 5.9531 18.7756L6.9893 14.2756Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M14.0919 9.5951L14 10L11.9565 19L6.9276 19L9 10M9 2L21 4L21 9L9 10C6.7909 10 5 8.2091 5 6C5 3.7909 6.7909 2 9 2ZM9.5 19C9.5 20.6569 8.1569 22 6.5 22L2 22"/>
+    </svg>
+  )
+}

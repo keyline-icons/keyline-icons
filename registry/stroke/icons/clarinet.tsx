@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Clarinet({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M8 14H6.1547C6.0522 14 5.9503 13.9842 5.8525 13.9533L2.6978 12.9533C1.7674 12.6583 1.7674 11.3417 2.6978 11.0467L5.8525 10.0467C5.9503 10.0158 6.0522 10 6.1547 10H8H15C18 10 19.2322 8.3536 20.2929 7.2929C20.4804 7.1054 20.7348 7 21 7C21.5523 7 22 7.4477 22 8V16C22 16.5523 21.5523 17 21 17C20.7348 17 20.4804 16.8946 20.2929 16.7071C19.2322 15.6464 18 14 15 14ZM9 10V7.5M13 10V7.5"/>
+    </svg>
+  )
+}

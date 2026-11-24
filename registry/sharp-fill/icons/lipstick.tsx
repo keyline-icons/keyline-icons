@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Lipstick({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 12L16 12C16.5523 12 17 12.4477 17 13L17 14L18 14C18.5523 14 19 14.4477 19 15L19 22C19 22.5523 18.5523 23 18 23L12 23L6 23C5.4477 23 5 22.5523 5 22L5 15C5 14.4477 5.4477 14 6 14L7 14L7 13C7 12.4477 7.4477 12 8 12ZM12.3897 2.7722L16.3896 4.464C16.7596 4.6205 17 4.9832 17 5.385L17 9C17 9.5523 16.5523 10 16 10L12 10L8 10C7.4477 10 7 9.5523 7 8.9999L7.0004 2.0014C7.0004 1.4491 7.4481 1.0014 8.0004 1.0014C8.1342 1.0014 8.2667 1.0283 8.3899 1.0804Z" fill="currentColor"/>
+    </svg>
+  )
+}
