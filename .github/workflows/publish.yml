@@ -1,0 +1,102 @@
+# Publishes the four npm packages when a release tag is pushed.
+#
+# Why from here and not from a laptop: npm ends direct publishing with tokens
+# that skip 2FA in January 2027. A token that keeps 2FA either asks for a code
+# on every publish or can only stage a version for a maintainer to approve, and
+# either way a person has to be at the keyboard for every release. Trusted
+# publishing (OIDC) needs neither: npm trusts this file, in this repository, by
+# name, and there is no token to leak, expire or renew.
+#
+# The trust is set per package on npm and names this file, so renaming it
+# breaks publishing until each package is pointed at the new name:
+#
+#   npm trust github @keyline-icons/<name> --file publish.yml \
+#     --repo keyline-icons/keyline-icons --allow-publish --allow-stage-publish
+#
+# `--allow-publish` is not the default. Trust set up after 3 Sep 2026 allows
+# only `npm stage publish` unless it is asked for, and a staged version waits
+# for a human with 2FA, which is the step this workflow exists to remove.
+name: Publish
+
+# A tag, not a branch: a version is released when it is tagged, and the tag
+# names a commit whose branch CI has already checked. `workflow_dispatch` is
+# for re-running after a failure without moving the tag.
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+# Never cancel a publish half way: two of four packages out is worse than a
+# second run that finds all four already there.
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+# `id-token: write` is what lets npm ask GitHub who is publishing. Without it
+# npm falls back to looking for a token and reports the refusal as E404.
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      # Same setup as ci.yml, in the same order, for the same reason: setup-node
+      # asks pnpm for its store path.
+      - uses: pnpm/action-setup@v5
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+
+      # Trusted publishing needs npm 11.5.1 or later and Node 22 ships 10.x.
+      # Pinned so a new npm major cannot change how a release goes out.
+      - run: npm install -g npm@11.21.3
+
+      # `react` compiles in `prepublishOnly` against the root's TypeScript and
+      # React types, so the root install has to come first.
+      - run: pnpm install --frozen-lockfile
+
+      # The manifest, the binaries' VERSION constant and the MCP server.json
+      # have to agree before anything leaves; 0.1.1 shipped with two of them
+      # apart.
+      - run: node pipeline/check-versions.mjs
+
+      # Only versions npm does not have yet. A package whose contents did not
+      # change keeps its version (pipeline/README.md, "Publishing the
+      # packages"), so a tag that bumps two packages publishes two, and a re-run
+      # after a failure picks up where the last one stopped.
+      #
+      # `npm view` on a version that does not exist prints nothing and exits 0,
+      # so the test is on its output, not its status.
+      #
+      # `react-native` installs its own devDependencies: its build needs the
+      # types of react-native and react-native-svg, which the root has no use
+      # for. It has no lockfile, the same as when it is published by hand.
+      - name: Publish new versions
+        run: |
+          set -euo pipefail
+          for dir in react react-native cli mcp; do
+            name=$(node -p "require('./packages/$dir/package.json').name")
+            version=$(node -p "require('./packages/$dir/package.json').version")
+            if [ -n "$(npm view "$name@$version" version 2>/dev/null)" ]; then
+              echo "$name@$version is already on npm."
+              continue
+            fi
+            echo "::group::$name@$version"
+            (
+              cd "packages/$dir"
+              if [ "$dir" = react-native ]; then
+                npm install --no-audit --no-fund
+              fi
+              npm publish
+            )
+            echo "::endgroup::"
+            echo "Published $name@$version" >> "$GITHUB_STEP_SUMMARY"
+          done
