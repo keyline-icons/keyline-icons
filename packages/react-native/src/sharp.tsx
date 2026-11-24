@@ -8207,7 +8207,7 @@ export function HexagonFiveSixth(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <Path d="M12 2L21 6.8809L21 17.1191L12 22L3 17.1191L3 6.8809L12 2Z" />
-      <Path d="M12 6.5504L17 9.262L17 14.738L12 17.4496L7 14.738L7 9.262L12 12Z" strokeLinejoin="miter" />
+      <Path d="M12 6.5504L17 9.262L17 14.738L12 17.4496L7 14.738L7 9.262L12 12Z" />
     </Icon>
   )
 }
@@ -8216,7 +8216,7 @@ export function HexagonFull(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <Path d="M12 2L21 6.8809L21 17.1191L12 22L3 17.1191L3 6.8809L12 2Z" />
-      <Path d="M12 6.5504L17 9.262L17 14.738L12 17.4496L7 14.738L7 9.262Z" strokeLinejoin="miter" />
+      <Path d="M12 6.5504L17 9.262L17 14.738L12 17.4496L7 14.738L7 9.262Z" />
     </Icon>
   )
 }
@@ -8225,7 +8225,7 @@ export function HexagonHalf(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <Path d="M12 2L21 6.8809L21 17.1191L12 22L3 17.1191L3 6.8809L12 2Z" />
-      <Path d="M12 6.5504L17 9.262L17 14.738L12 17.4496Z" strokeLinejoin="miter" />
+      <Path d="M12 6.5504L17 9.262L17 14.738L12 17.4496Z" />
     </Icon>
   )
 }
@@ -8234,7 +8234,7 @@ export function HexagonQuarter(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <Path d="M12 2L21 6.8809L21 17.1191L12 22L3 17.1191L3 6.8809L12 2Z" />
-      <Path d="M12 6.5504L17 9.262L17 12L12 12Z" strokeLinejoin="miter" />
+      <Path d="M12 6.5504L17 9.262L17 12L12 12Z" />
     </Icon>
   )
 }
@@ -8243,7 +8243,7 @@ export function HexagonThird(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <Path d="M12 2L21 6.8809L21 17.1191L12 22L3 17.1191L3 6.8809L12 2Z" />
-      <Path d="M12 6.5504L17 9.262L17 14.738L12 12Z" strokeLinejoin="miter" />
+      <Path d="M12 6.5504L17 9.262L17 14.738L12 12Z" />
     </Icon>
   )
 }
@@ -8252,7 +8252,7 @@ export function HexagonThreeQuarter(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <Path d="M12 2L21 6.8809L21 17.1191L12 22L3 17.1191L3 6.8809L12 2Z" />
-      <Path d="M12 6.5504L17 9.262L17 14.738L12 17.4496L7 14.738L7 12L12 12Z" strokeLinejoin="miter" />
+      <Path d="M12 6.5504L17 9.262L17 14.738L12 17.4496L7 14.738L7 12L12 12Z" />
     </Icon>
   )
 }
@@ -8261,7 +8261,7 @@ export function HexagonTwoThird(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <Path d="M12 2L21 6.8809L21 17.1191L12 22L3 17.1191L3 6.8809L12 2Z" />
-      <Path d="M12 6.5504L17 9.262L17 14.738L12 17.4496L7 14.738L12 12Z" strokeLinejoin="miter" />
+      <Path d="M12 6.5504L17 9.262L17 14.738L12 17.4496L7 14.738L12 12Z" />
     </Icon>
   )
 }

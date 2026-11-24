@@ -22,7 +22,7 @@ export function HexagonFull({ size = 24, ...props }: IconProps) {
       {...props}
     >
       <path d="M12 2L21 6.8809L21 17.1191L12 22L3 17.1191L3 6.8809L12 2Z"/>
-      <path d="M12 6.5504L17 9.262L17 14.738L12 17.4496L7 14.738L7 9.262Z" strokeLinejoin="miter"/>
+      <path d="M12 6.5504L17 9.262L17 14.738L12 17.4496L7 14.738L7 9.262Z"/>
     </svg>
   )
 }
