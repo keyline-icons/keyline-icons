@@ -124,6 +124,14 @@ Need icons drawn for your own product? Custom sets on the same grid, as SVG, Fig
 
 Changelog
 
+3.0.0
+73 new drawings, taking the set to 2,013 names and 16,104 SVGs, and a Symbols category for the peace sign and the yin and yang.
+
+* Drinks: bottles of beer, soda and champagne, a baby's bottle, a champagne flute, a martini, a tropical cocktail, a tumbler, a glass of water, a cracked wine glass, a pitcher and a teapot
+* Home and clothes: a bunk bed, an armchair, stairs, an elevator and an escalator, a toaster, a hair dryer and a laundry basket; a jacket, a necktie, a coat button, a skirt, a bikini, a bra and briefs, a lipstick and a perfume bottle
+* Shapes: the hexagon in shares from a quarter to full, the circle in three, five and seven eighths, and a dashed pentagon and triangle
+* And more: a clapperboard, the theatre mask, a clarinet and a drum; a volcano, a pine on fire, a mushroom, a tulip, a potted plant, a clover and a shamrock; a double-decker bus, a fire engine, a helicopter and a ship's wheel; an ice skate, a snorkel, a whistle, the club and spade suits, a frying pan, a cupcake, an avocado, a pear, a cash machine, a postage stamp, a bomb, a tower crane, a screwdriver and a cracked house
+
 2.9.0
 39 new drawings, taking the set to 1,940 names and 15,520 SVGs.
 
@@ -176,17 +184,6 @@ Also redrawn: 47 drawings, most of them in duotone, where ten buildings now draw
 * Home: the bath, the shower and a soap dispenser, a pump bottle and a spray can, the fridge, the oven, the microwave and the washing machine, an air vent and a safe
 * Transport and Maps: a sailboat, a caravan, a stroller and an electric car charger; a castle, a lighthouse, a barn and a tent
 * And more: a suitcase, a hotel's service bell, a coffee maker and its carafe, a cooking pot, a kettle grill, the cigarette and its no-smoking form, a wheelchair, a skier, a pool ladder and a capital A beside the text cursor
-
-2.2.0
-55 new drawings, taking the set to 1,623 names and 12,984 SVGs.
-
-* Transport: a bus, a tram seen from the front, the taxi from the side and from the front, the car from the front, and every vehicle struck through: the cars and the taxi, the bus, the train, the tram, the truck, the plane, the ship, both bikes and both rockets
-* Maps: a traffic cone and a road-works barrier, a factory, a crosshair and a pair of footprints
-* Food, Health and Media: a burger, a slice of pizza and a cookie; a skull, a bone whole and broken, a DNA helix and a doctor's bag; a boom box, a cassette tape, a speaker and a satellite dish
-* And more: a router, two envelopes, both speech bubbles dashed, an arrow forking in two, the alarm clock with a cross, the octagon with a minus, a bolt in the scan frame, a heart with two hands, an open book with text, a fire extinguisher, a flashlight, a magnet, binoculars, a chess rook, a dumbbell, two feathers, a snow-capped mountain and a thunder cloud
-
-train is train-front now, beside tram-front, and the old name still finds it.
-
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
@@ -766,12 +763,20 @@ Every name comes in all four styles. Two-tone keeps the outline over a 40% plate
 
 Every drawing exists in both treatments, so sharp is a switch rather than a second library: 16,104 variants over the same 2,013 names.
 
-The Catalog page files every icon under one of 41 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
+The Catalog page files every icon under one of 42 categories, each card laid out as a matrix so a name's rounded and sharp forms sit side by side, and the Changelog page records what landed in each version, so the file says what is in it without anyone having to count.
 
 Also available as React and React Native components, a shadcn registry, an MCP server for agents, a CLI, and a Figma plugin that searches the set and drops an icon straight onto the canvas.
 
 keylineicons.com
 github.com/keyline-icons/keyline-icons
+
+v3.0.0
+73 new drawings, taking the set to 2,013 names and 16,104 SVGs, and a Symbols category on the Catalog page for the peace sign and the yin and yang. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
+
+* Drinks: bottles of beer, soda and champagne, a baby's bottle, a champagne flute, a martini, a tropical cocktail, a tumbler, a glass of water, a cracked wine glass, a pitcher and a teapot
+* Home and clothes: a bunk bed, an armchair, stairs, an elevator and an escalator, a toaster, a hair dryer and a laundry basket; a jacket, a necktie, a coat button, a skirt, a bikini, a bra and briefs, a lipstick and a perfume bottle
+* Shapes: the hexagon in shares from a quarter to full, the circle in three, five and seven eighths, and a dashed pentagon and triangle
+* And more: a clapperboard, the theatre mask, a clarinet and a drum; a volcano, a pine on fire, a mushroom, a tulip, a potted plant, a clover and a shamrock; a double-decker bus, a fire engine, a helicopter and a ship's wheel; an ice skate, a snorkel, a whistle, the club and spade suits, a frying pan, a cupcake, an avocado, a pear, a cash machine, a postage stamp, a bomb, a tower crane, a screwdriver and a cracked house
 
 v2.9.0
 39 new drawings, taking the set to 1,940 names and 15,520 SVGs. No component was replaced, so instances already placed in your files keep their link; the set circle-half-striped is renamed shadows in place.
@@ -823,15 +828,6 @@ v2.3.0
 * Transport and Maps: a sailboat, a caravan, a stroller and an electric car charger; a castle, a lighthouse, a barn and a tent
 * And more: a suitcase, a hotel's service bell, a coffee maker and its carafe, a cooking pot, a kettle grill, the cigarette and its no-smoking form, a wheelchair, a skier, a pool ladder and a capital A beside the text cursor
 
-v2.2.0
-55 new drawings. The set is 1,623 names now, 1,484 component sets and 12,984 variants, up from 1,568 and 12,544. One set was renamed in place, train to train-front, and no component was replaced, so instances already placed in your files keep their link.
-
-* Transport: a bus, a tram seen from the front, the taxi from the side and from the front, the car from the front, and every vehicle struck through: the cars and the taxi, the bus, the train, the tram, the truck, the plane, the ship, both bikes and both rockets
-* Maps: a traffic cone and a road-works barrier, a factory, a crosshair and a pair of footprints
-* Food, Health and Media: a burger, a slice of pizza and a cookie; a skull, a bone whole and broken, a DNA helix and a doctor's bag; a boom box, a cassette tape, a speaker and a satellite dish
-* And more: a router, two envelopes, both speech bubbles dashed, an arrow forking in two, the alarm clock with a cross, the octagon with a minus, a bolt in the scan frame, a heart with two hands, an open book with text, a fire extinguisher, a flashlight, a magnet, binoculars, a chess rook, a dumbbell, two feathers, a snow-capped mountain and a thunder cloud
-
-
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
 
@@ -879,7 +875,9 @@ before, 7,452 after), 2.0.0 from the plugin's and v2.0.0 from the file's on
 16 Nov 2026 with the 2.7.0 entries (9,034 and 9,471 before, 7,681 and 7,849
 after), nothing on 19 Nov 2026 for the 2.8.0 entries (8,255 and 8,417), 2.1.0 from the
 plugin's and v2.1.0 from the file's on 21 Nov 2026 with the 2.9.0 entries
-(8,252 and 8,414 before the entries, 7,816 and 7,899 after), and a
+(8,252 and 8,414 before the entries, 7,816 and 7,899 after), 2.2.0 from
+the plugin's and v2.2.0 from the file's on 24 Nov 2026 with the 3.0.0 entries
+(8,938 and 9,152 with them, 7,874 and 7,975 after), and a
 last line points at
 `keylineicons.com/changelog`, which keeps every release.
 
