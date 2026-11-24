@@ -95,16 +95,181 @@ export function containerFamily(icon: BrowserIcon, all: BrowserIcon[]) {
 }
 
 /**
- * What to look at next: the name family first, then the rest of the shelf.
+ * What the related grid is worked out from, once per icon list.
  *
- * The family is the stronger relationship and it is not the same thing as the
- * category — `bell-x` and `bell-dot` are one family on the Mail shelf, and
- * someone who landed on one of them almost always wants the other. Sorting the
- * family to the front means the first row of the grid is the useful one even
- * where the category runs to sixty icons.
+ * Word weights are counted over drawings (bases), not names, so that the
+ * hundred-odd `circle-` and `square-` containers do not make "circle" look
+ * common to every name that genuinely starts with it.
+ */
+type RelatedIndex = {
+  bases: string[]
+  /** base -> its variants, one per container. */
+  variants: Map<string, BrowserIcon[]>
+  nameWords: Map<string, Set<string>>
+  searchWords: Map<string, Set<string>>
+  /** How rare a word is: ln(drawings / drawings using it). */
+  nameWeight: Map<string, number>
+  searchWeight: Map<string, number>
+}
+
+const relatedIndexes = new WeakMap<BrowserIcon[], RelatedIndex>()
+
+function weigh(bags: Iterable<Set<string>>, total: number) {
+  const uses = new Map<string, number>()
+  for (const bag of bags)
+    for (const word of bag) uses.set(word, (uses.get(word) ?? 0) + 1)
+  return new Map(
+    [...uses].map(([word, count]) => [word, Math.log(total / count)])
+  )
+}
+
+function relatedIndex(all: BrowserIcon[]): RelatedIndex {
+  const hit = relatedIndexes.get(all)
+  if (hit) return hit
+
+  const variants = new Map<string, BrowserIcon[]>()
+  for (const icon of all) {
+    const list = variants.get(icon.base)
+    if (list) list.push(icon)
+    else variants.set(icon.base, [icon])
+  }
+  const bases = [...variants.keys()]
+  const nameWords = new Map(
+    bases.map((base) => [base, new Set(base.split("-"))])
+  )
+  // The name's own words go in too: `cloud-upload` lists "upload" as a search
+  // term, and that should meet `upload` by its name.
+  const searchWords = new Map(
+    bases.map((base) => [
+      base,
+      new Set([
+        ...base.split("-"),
+        ...aliasesFor(base)
+          .join(" ")
+          .toLowerCase()
+          .split(/[^a-z0-9]+/)
+          .filter(Boolean),
+      ]),
+    ])
+  )
+
+  const index = {
+    bases,
+    variants,
+    nameWords,
+    searchWords,
+    nameWeight: weigh(nameWords.values(), bases.length),
+    searchWeight: weigh(searchWords.values(), bases.length),
+  }
+  relatedIndexes.set(all, index)
+  return index
+}
+
+/**
+ * How much two bags of words share, 0 to 1, rare words counting for more.
+ * Divided by both bags' size so a long name is not related to everything for
+ * having more words to match with.
+ */
+function overlap(a: Set<string>, b: Set<string>, weight: Map<string, number>) {
+  let shared = 0
+  let sizeA = 0
+  let sizeB = 0
+  for (const word of a) {
+    const w = weight.get(word) ?? 0
+    sizeA += w
+    if (b.has(word)) shared += w
+  }
+  for (const word of b) sizeB += weight.get(word) ?? 0
+  return sizeA && sizeB ? shared / Math.sqrt(sizeA * sizeB) : 0
+}
+
+/**
+ * Words that name the other half of a pair. Sharing words does not find these:
+ * `upload` and `download` share none, and `arrow-up` shares more with
+ * `arrow-up-down` and fifteen other `arrow-up-` names than with `arrow-down`,
+ * which fell off its grid. A name that is this one with a single word turned
+ * round is the drawing most people want next, so it is looked for directly.
+ */
+const OPPOSITES: Record<string, string> = Object.fromEntries(
+  (
+    [
+      ["up", "down"],
+      ["left", "right"],
+      ["top", "bottom"],
+      ["in", "out"],
+      ["upload", "download"],
+      ["lock", "unlock"],
+      ["link", "unlink"],
+      ["maximize", "minimize"],
+      ["undo", "redo"],
+      ["plus", "minus"],
+      ["check", "x"],
+      ["play", "pause"],
+      ["sun", "moon"],
+      ["horizontal", "vertical"],
+      ["increase", "decrease"],
+      ["open", "closed"],
+      ["start", "end"],
+      ["first", "last"],
+      ["min", "max"],
+      ["light", "dark"],
+      ["empty", "full"],
+      ["asc", "desc"],
+      ["big", "small"],
+    ] as const
+  ).flatMap(([a, b]) => [
+    [a, b],
+    [b, a],
+  ])
+)
+
+/** Every name that is `base` with one word swapped for its opposite. */
+function twinsOf(base: string): Set<string> {
+  const words = base.split("-")
+  const twins = new Set<string>()
+  words.forEach((word, at) => {
+    const opposite = OPPOSITES[word]
+    if (opposite)
+      twins.add(
+        [...words.slice(0, at), opposite, ...words.slice(at + 1)].join("-")
+      )
+  })
+  return twins
+}
+
+/** How much the signals below count against each other. */
+const NAME_WEIGHT = 1
+const TWIN_WEIGHT = 1
+const SEARCH_WEIGHT = 0.5
+const SHELF_WEIGHT = 0.2
+
+/**
+ * What to look at next: the drawings that share the most with this one.
  *
- * Container variants are excluded: they are the same drawing and have their own
- * row above this one.
+ * Ranked on one score, in order of how much each signal counts: the words of
+ * the name (or the name with one word turned round, `OPPOSITES`), the words
+ * people search for it by, then the shelf. Rare words count for more than
+ * common ones, so `circle-three-quarter` meets `circle-quarter`,
+ * `square-three-quarter` and `circle-dashed-three-quarter` through "quarter"
+ * and "three" before it meets `circle-pen` through "circle".
+ *
+ * A drawing from another shelf has to be at least as close as being on this
+ * one. Below that it is one stray search word, and `coffee-pot` was handed
+ * `skip-back` and `chart-area` ahead of its own kitchen.
+ *
+ * It used to take the first word of the name as the family, sort that family
+ * A to Z and cut at the limit. Where the first word is a shape that runs to
+ * forty names, the cut fell at `circle-progress-play` and the grid was forty
+ * circles in alphabetical order: `circle-quarter` was missing from
+ * `circle-three-quarter`'s page and the other way round, as were 1,181 such
+ * one-word-apart pairs on 301 pages. A name that only shared a later word,
+ * `upload` and `cloud-upload`, never met at all, and `upload` was given the
+ * Actions shelf from `alert` onwards.
+ *
+ * One tile per drawing. Container variants of this drawing have their own row
+ * above; another drawing's appear once, in this icon's container where it has
+ * one, so `circle-check` leads to `circle-x` and not to `x`, `square-x` and
+ * `circle-x` side by side. Boxed copies took 861 tiles on 293 pages before.
  *
  * This is also what makes the route indexable at all. 414 pages differing only
  * by a glyph is a doorway pattern; a page that links its family and its shelf
@@ -116,23 +281,71 @@ export function relatedIcons(
   all: BrowserIcon[],
   limit = 18
 ): BrowserIcon[] {
+  const index = relatedIndex(all)
   const category = categoryOf(icon.base)
-  const family = icon.base.split("-")[0]
-  const inFamily = (candidate: BrowserIcon) =>
-    candidate.base.split("-")[0] === family
+  const name = index.nameWords.get(icon.base)!
+  const search = index.searchWords.get(icon.base)!
+  const twins = twinsOf(icon.base)
 
-  return all
-    .filter(
-      (candidate) =>
-        candidate.base !== icon.base &&
-        (inFamily(candidate) || categoryOf(candidate.base) === category)
-    )
-    .sort((a, b) => {
-      const rank = Number(inFamily(b)) - Number(inFamily(a))
-      return rank || a.name.localeCompare(b.name)
-    })
+  const close: { base: string; score: number }[] = []
+  const shelf: string[] = []
+  for (const base of index.bases) {
+    if (base === icon.base) continue
+    const score =
+      NAME_WEIGHT *
+        overlap(name, index.nameWords.get(base)!, index.nameWeight) +
+      (twins.has(base) ? TWIN_WEIGHT : 0) +
+      SEARCH_WEIGHT *
+        overlap(search, index.searchWords.get(base)!, index.searchWeight)
+    if (categoryOf(base) === category) {
+      if (score > 0) close.push({ base, score: score + SHELF_WEIGHT })
+      else shelf.push(base)
+    } else if (score >= SHELF_WEIGHT) close.push({ base, score })
+  }
+
+  /*
+    The shelf behind them is everything sharing nothing but the shelf, which
+    ties, and A to Z on a tie gave `upload` `alert` and nine `badge-` names in a
+    row. One name per first word, round and round, shows the shelf instead of
+    its opening letter.
+  */
+  const byStem = new Map<string, string[]>()
+  for (const base of shelf.sort()) {
+    const stem = base.split("-")[0]!
+    const list = byStem.get(stem)
+    if (list) list.push(base)
+    else byStem.set(stem, [base])
+  }
+  const rounds: string[] = []
+  for (let round = 0; rounds.length < shelf.length; round++)
+    for (const list of byStem.values())
+      if (list[round]) rounds.push(list[round])
+
+  return [
+    ...close
+      .sort((a, b) => b.score - a.score || a.base.localeCompare(b.base))
+      .map(({ base }) => base),
+    ...rounds,
+  ]
     .slice(0, limit)
+    .map((base) => {
+      const variants = index.variants.get(base)!
+      return (
+        variants.find((variant) => variant.container === icon.container) ??
+        variants.find((variant) => variant.container === "regular") ??
+        variants[0]!
+      )
+    })
 }
+
+/**
+ * How the related grid is ordered, in the words the section and its FAQ
+ * answer both use: the `FAQPage` markup quotes the answer, so the two cannot
+ * be allowed to describe different orders.
+ */
+export const relatedOrder = (icon: BrowserIcon) =>
+  `Closest to ${icon.name} first: its name counts most, then what people ` +
+  `search for it by, then the rest of the ${categoryOf(icon.base)} shelf.`
 
 /**
  * The page's title, which the root layout's template turns into
@@ -379,25 +592,15 @@ export function iconFaq(icon: BrowserIcon, all: BrowserIcon[]): IconQuestion[] {
   if (related.length) {
     const shown = related.slice(0, 6).map((other) => other.name)
     const rest = related.length - shown.length
-    const stem = icon.base.split("-")[0]
-    /*
-      Whether the grid below actually opens with a name family, rather than
-      whether one could exist. `relatedIcons` sorts the family to the front and
-      falls through to the shelf, so for `upload`, which nothing else is named
-      after, the first row *is* the shelf — and an answer promising a family
-      first is describing a page that is not there, which is the one thing a
-      quoted `FAQPage` answer may not do.
-    */
-    const kin = related.filter((other) => other.base.split("-")[0] === stem)
 
+    // The section's own lead, word for word: the `FAQPage` markup quotes this
+    // answer, and an answer describing an order the grid does not have is the
+    // one thing it may not do.
     questions.push({
       question: `What other icons go with ${name}?`,
       answer:
         `${listOf(shown)}${rest > 0 ? `, and ${rest} more` : ``}, all shown below. ` +
-        (kin.length
-          ? `The ${stem} family is listed first, then the rest of the ${category} shelf, ` +
-            `so the row under this one is the useful one even where a shelf runs long.`
-          : `They are the ${category} shelf: nothing else in the set is named after ${stem}.`),
+        relatedOrder(icon),
     })
   }
 

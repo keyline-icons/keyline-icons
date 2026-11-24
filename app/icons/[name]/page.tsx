@@ -37,6 +37,7 @@ import {
   iconTitle,
   listOf,
   relatedIcons,
+  relatedOrder,
   stylesOf,
 } from "@/lib/icon-pages"
 import { aliasesFor, categoryOf } from "@/lib/icon-taxonomy"
@@ -441,10 +442,7 @@ export default async function Page({
           )}
 
           {related.length > 0 && (
-            <Section
-              title="Related icons"
-              description={`The rest of the ${icon.base.split("-")[0]} family first, then the ${category} shelf.`}
-            >
+            <Section title="Related icons" description={relatedOrder(icon)}>
               <div className="grid grid-cols-[repeat(auto-fill,minmax(116px,1fr))] gap-2">
                 {related.map((other) => (
                   <IconLink key={other.name} icon={other} />
