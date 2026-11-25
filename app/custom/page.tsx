@@ -113,15 +113,26 @@ export default async function Page() {
           first heading.
         */}
         <section className={`${CONTAINER} pt-8 lg:pt-14`}>
-          <div className="mx-auto max-w-3xl text-center">
-            {/* Word for word the `<title>`, as on every other page. */}
-            <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl">
+          {/*
+            Wider than the landing hero's `max-w-3xl`, because this title is
+            longer: at 60px it is 1,690px of text, which 768 broke into three
+            lines and the lead under it into three more. 1,024 takes it in two.
+          */}
+          <div className="mx-auto max-w-5xl text-center">
+            {/*
+              Word for word the `<title>`, as on every other page. Unbalanced
+              from `lg` up so the break falls on the comma, one clause and one
+              ink to a line; balanced, it split "product / teams" to even the
+              lengths. The first clause is 989px, so a narrower `lg` window
+              wraps it the same way balancing would have.
+            */}
+            <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl lg:text-wrap">
               Custom icon sets for product teams,{" "}
               <span className="text-muted-foreground">
                 drawn on the Keyline grid
               </span>
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base text-balance text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-5 max-w-3xl text-base text-balance text-muted-foreground sm:text-lg">
               For software and AI products that have outgrown a borrowed set.
               Drawn by the designer of all {total} Keyline icons, to the same
               standard, in every size and state your interface uses.
