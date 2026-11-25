@@ -1197,7 +1197,8 @@
         "suggestion",
         "learn",
         "light",
-        "inspiration"
+        "inspiration",
+        "light bulb"
       ]
     },
     {
@@ -2541,6 +2542,35 @@
         "band aid"
       ],
       "note": "The everyday name for it, a trademark gone generic; kept on his word, 20 Nov 2026. The code editor's set calls this drawing bandaid and the search found nothing."
+    },
+    {
+      "match": "^user-key$",
+      "terms": [
+        "passkey"
+      ],
+      "note": "A person beside a key is how a passkey is drawn, and what a code host's own icon set calls this drawing (25 Nov 2026). Until then passkey reached only the shield."
+    },
+    {
+      "match": "^workflow$",
+      "terms": [
+        "flowchart",
+        "flow chart"
+      ],
+      "note": "The word a code host's own icon set gives this drawing, swept 25 Nov 2026: flowchart found nothing, and flow chart found the waterfall chart."
+    },
+    {
+      "match": "^rotate-cw$",
+      "terms": [
+        "loop"
+      ],
+      "note": "The word a code host's own icon set gives this drawing, swept 25 Nov 2026. repeat still leads for loop; this puts the single circular arrow in the list beside it."
+    },
+    {
+      "match": "^cloud-terminal$",
+      "terms": [
+        "cloud agent"
+      ],
+      "note": "An agent drawn as a terminal in the cloud, the way a code host's own icon set draws its own, swept 25 Nov 2026. bot and cursor still lead for agent."
     }
   ],
   "names": {
@@ -2554,7 +2584,8 @@
     ],
     "bookmark": [
       "bookmark-minus",
-      "bookmark-x"
+      "bookmark-x",
+      "bookmark-filled"
     ],
     "bluetooth": [
       "bluetooth-connected",
@@ -2581,11 +2612,13 @@
       "mic-vocal"
     ],
     "minimize": [
-      "minimize-2"
+      "minimize-2",
+      "screen-normal"
     ],
     "minus": [
       "dash",
-      "hyphen"
+      "hyphen",
+      "horizontal-rule"
     ],
     "navigation": [
       "navigation-2",
@@ -2615,7 +2648,8 @@
       "search-exclamation-point"
     ],
     "share": [
-      "share-2"
+      "share-2",
+      "share-android"
     ],
     "archive": [
       "archive-arrow-up",
@@ -2703,7 +2737,6 @@
       "database-search"
     ],
     "eye": [
-      "eye-closed",
       "eye-dashed"
     ],
     "file": [
@@ -2740,10 +2773,12 @@
       "file-check-corner"
     ],
     "file-minus": [
-      "file-minus-corner"
+      "file-minus-corner",
+      "file-removed"
     ],
     "file-plus": [
-      "file-plus-corner"
+      "file-plus-corner",
+      "file-added"
     ],
     "file-x": [
       "file-x-corner"
@@ -2781,7 +2816,8 @@
     ],
     "image": [
       "image-play",
-      "image-upscale"
+      "image-upscale",
+      "file-media"
     ],
     "link-2-off": [
       "link-off"
@@ -2885,7 +2921,8 @@
       "rotate-ccw-key"
     ],
     "rotate-cw": [
-      "rotate-cw-fading-clock"
+      "rotate-cw-fading-clock",
+      "iterations"
     ],
     "server": [
       "server-cog",
@@ -3030,10 +3067,12 @@
     ],
     "circle-check": [
       "check-circle-2",
-      "circle-check-big"
+      "circle-check-big",
+      "issue-closed"
     ],
     "square-check": [
-      "square-check-big"
+      "square-check-big",
+      "checkbox"
     ],
     "circle-question": [
       "circle-help",
@@ -3075,7 +3114,8 @@
       "plus-circle"
     ],
     "grid-squares": [
-      "layout-grid"
+      "layout-grid",
+      "apps"
     ],
     "language": [
       "languages"
@@ -3099,7 +3139,8 @@
     ],
     "message-question": [
       "message-circle-question",
-      "message-circle-question-mark"
+      "message-circle-question-mark",
+      "question-bubble"
     ],
     "file-alert": [
       "file-exclamation-point",
@@ -3291,7 +3332,8 @@
       "file-play"
     ],
     "text-align-start": [
-      "align-left"
+      "align-left",
+      "unwrap"
     ],
     "text-align-center": [
       "align-center"
@@ -3310,6 +3352,132 @@
     ],
     "shadows": [
       "circle-half-striped"
+    ],
+    "accessibility": [
+      "accessibility-inset"
+    ],
+    "messages-square": [
+      "comment-discussion"
+    ],
+    "message-square-sparkles": [
+      "comment-ai"
+    ],
+    "terminal": [
+      "command-palette"
+    ],
+    "camera": [
+      "device-camera"
+    ],
+    "video-2": [
+      "device-camera-video"
+    ],
+    "monitor-2": [
+      "device-desktop"
+    ],
+    "square-plus": [
+      "diff-added"
+    ],
+    "square-slash": [
+      "diff-ignored"
+    ],
+    "square-dot": [
+      "diff-modified"
+    ],
+    "square-minus": [
+      "diff-removed"
+    ],
+    "square-arrow-right": [
+      "diff-renamed"
+    ],
+    "file-arrow-right": [
+      "file-moved",
+      "file-symlink-file"
+    ],
+    "folder-arrow-right": [
+      "file-directory-symlink",
+      "file-submodule"
+    ],
+    "vault": [
+      "fiscal-host"
+    ],
+    "grip-vertical": [
+      "grabber"
+    ],
+    "chart-column": [
+      "graph-bar-horizontal"
+    ],
+    "chart-bar": [
+      "graph-bar-vertical"
+    ],
+    "circle-dashed": [
+      "issue-draft"
+    ],
+    "circle-dot": [
+      "issue-opened"
+    ],
+    "square-asterisk": [
+      "key-asterisk"
+    ],
+    "graduation-cap": [
+      "mortar-board"
+    ],
+    "circle-minus": [
+      "no-entry"
+    ],
+    "package-arrow-left": [
+      "package-dependencies"
+    ],
+    "package-arrow-right": [
+      "package-dependents"
+    ],
+    "send-horizontal": [
+      "paper-airplane"
+    ],
+    "book": [
+      "repo"
+    ],
+    "book-x": [
+      "repo-delete",
+      "repo-deleted"
+    ],
+    "git-fork": [
+      "repo-forked"
+    ],
+    "square-caret-down": [
+      "single-select"
+    ],
+    "arrow-up-narrow-wide": [
+      "sort-asc"
+    ],
+    "arrow-down-wide-narrow": [
+      "sort-desc"
+    ],
+    "list-todo": [
+      "tasklist"
+    ],
+    "menu": [
+      "three-bars"
+    ],
+    "thumbs-down": [
+      "thumbsdown"
+    ],
+    "thumbs-up": [
+      "thumbsup"
+    ],
+    "circle-play": [
+      "triangle-circle"
+    ],
+    "scan-text": [
+      "view-files"
+    ],
+    "search-check": [
+      "codescan-checkmark"
+    ],
+    "code-panel": [
+      "code-square"
+    ],
+    "eye-off": [
+      "eye-closed"
     ]
   },
   "$names": "Names other sets use for a drawing here, keyed by the drawing. Matched against the whole query, never split into words: these are names, not keywords, and folding `message-square` into a keyword list makes a search for `square` return every message icon. All four searches rank one second only to the exact name, so it leads wherever the set does not draw that name itself; once the set does, the row is stale, and pipeline/check-search.mjs fails until it is deleted."
