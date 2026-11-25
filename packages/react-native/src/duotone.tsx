@@ -11601,8 +11601,8 @@ export function MaskTheater(props: IconProps) {
 export function MathSymbols(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M6 3L6 9M3 6L9 6M15 6L21 6M3.75 15.75L8.25 20.25M8.25 15.75L3.75 20.25M15 18L21 18" />
-      <Path d="M19 15C19 15.5523 18.5523 16 18 16C17.4477 16 17 15.5523 17 15C17 14.4477 17.4477 14 18 14C18.5523 14 19 14.4477 19 15ZM19 21C19 21.5523 18.5523 22 18 22C17.4477 22 17 21.5523 17 21C17 20.4477 17.4477 20 18 20C18.5523 20 19 20.4477 19 21Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M6 3L6 9M3 6L9 6M15 6L21 6M3 14.3333L9 20.3333M9 14.3333L3 20.3333M15 17.3333L21 17.3333" />
+      <Path d="M19.3333 14C19.3333 14.7364 18.7364 15.3333 18 15.3333C17.2636 15.3333 16.6667 14.7364 16.6667 14C16.6667 13.2636 17.2636 12.6667 18 12.6667C18.7364 12.6667 19.3333 13.2636 19.3333 14ZM19.3333 20.6667C19.3333 21.4031 18.7364 22 18 22C17.2636 22 16.6667 21.4031 16.6667 20.6667C16.6667 19.9303 17.2636 19.3334 18 19.3334C18.7364 19.3334 19.3333 19.9303 19.3333 20.6667Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
     </Icon>
   )
 }

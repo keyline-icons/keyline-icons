@@ -3544,7 +3544,7 @@
       "width": 742,
       "icons": 0,
       "variants": 72,
-      "bytes": 36894
+      "bytes": 37998
     },
     {
       "file": "math-5.html",
@@ -4744,7 +4744,7 @@
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 39516
+      "bytes": 38008
     },
     {
       "file": "tools-5.html",
@@ -5340,7 +5340,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 223017
+      "bytes": 223185
     },
     {
       "file": "changelog-earlier.html",
