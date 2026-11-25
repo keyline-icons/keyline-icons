@@ -143,6 +143,38 @@
 }
 
 /*
+  The grid's dock inverts the page: dark on the light theme, light on the dark
+  one (his ask, 25 Nov 2026), so it reads as a bar over the grid rather than one
+  more row of it. The tokens are redefined on the dock's own box, so every
+  control inside follows, hover fills and grey labels included. Its menus and
+  tooltip open in portals and keep the page's theme. `--dock-page-ink` is the
+  page's ink, which the colour swatch shows by default because that is the
+  colour the icons are drawn in; the dock's own ink is the opposite.
+*/
+.dock-inverse {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --muted-hover: oklch(0.305 0 0);
+  --accent: oklch(0.269 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --dock-page-ink: oklch(0.145 0 0);
+  color: var(--foreground);
+}
+
+.dark .dock-inverse {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --muted-hover: oklch(0.929 0 0);
+  --accent: oklch(0.97 0 0);
+  --border: oklch(0.922 0 0);
+  --dock-page-ink: oklch(0.985 0 0);
+}
+
+/*
   There was a `.chrome-panel` component class here: a translucent fill over a
   12px backdrop blur, with a 1px ring for its edge, worn by the two floating
   pieces of the site bar. The bar is now one opaque full-width surface, so the

@@ -1608,7 +1608,7 @@ export function IconBrowser({
     <div
       role="toolbar"
       aria-label="Grid controls"
-      className="pointer-events-auto hidden max-w-full items-center gap-0.5 rounded-2xl border border-border/50 bg-background p-1 shadow-lg lg:flex"
+      className="dock-inverse pointer-events-auto hidden max-w-full items-center gap-0.5 rounded-2xl border border-border/50 bg-background p-1 shadow-lg lg:flex"
     >
       <DropdownMenu>
         <DropdownMenuTrigger className={dockTrigger}>
@@ -1788,8 +1788,8 @@ export function IconBrowser({
       >
         <span
           aria-hidden="true"
-          className="size-4 rounded-full border border-black/10"
-          style={{ background: color ?? "currentColor" }}
+          className="size-4 rounded-full border border-white/25 dark:border-black/10"
+          style={{ background: color ?? "var(--dock-page-ink)" }}
         />
         Color
         <input
