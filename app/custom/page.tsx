@@ -49,7 +49,8 @@ export const metadata = pageMetadata({
   description:
     "Custom icons for software and AI products, drawn on the Keyline Icons grid " +
     "in every size and state, delivered as SVG, a Figma file and a React " +
-    "package. A 5-icon style test for $150, or 30 icons in 2–3 days for $1,500.",
+    "package. One icon for $49, credited toward the set, or 30 icons in 2–3 " +
+    "days for $1,500.",
   socialDescription:
     "Icons drawn for your product on the Keyline grid, delivered as SVG, Figma and React.",
 })
@@ -126,7 +127,7 @@ export default async function Page() {
               standard, in every size and state your interface uses.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-              <CustomInquiry place="hero">Email the brief</CustomInquiry>
+              <CustomInquiry place="hero">Start with one icon</CustomInquiry>
               <Button
                 size="lg"
                 variant="ghost"
@@ -220,7 +221,7 @@ export default async function Page() {
         >
           <SectionHead
             title="Two fixed offers"
-            lead="Start with five icons to see the fit, or go straight to the set."
+            lead="Start with one icon to see the fit, or go straight to the set."
           />
           <ul className="mx-auto mt-10 grid max-w-3xl gap-3 md:grid-cols-2">
             {CUSTOM_OFFERS.map((offer) => (
@@ -412,10 +413,10 @@ export default async function Page() {
             {closeArt && <Glyph art={closeArt} size={28} stroke={2} />}
             <p className="text-lg leading-snug font-medium tracking-tight text-balance text-muted-foreground">
               <span className="text-foreground">See the fit first</span>
-              {`: the style test is five of your icons for ${CUSTOM_OFFERS[0].price}, drawn before any set is ordered.`}
+              {`: one of your icons for ${CUSTOM_OFFERS[0].price}, drawn before any set is ordered and credited toward it.`}
             </p>
             <CustomInquiry place="close" className="self-start">
-              Email the brief
+              Start with one icon
             </CustomInquiry>
             <p className="border-t pt-6 text-sm text-muted-foreground">
               No mail app? Write to{" "}

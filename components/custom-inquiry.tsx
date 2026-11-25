@@ -23,11 +23,11 @@ export function CustomView() {
 }
 
 /**
- * The page's one button: it opens the reader's mail app on a prefilled brief.
+ * The page's one button: it opens the reader's mail app on a one-line message.
  *
  * A mailto rather than a checkout, because both offers start with a
  * conversation about which icons, and a payment taken before that is a refund
- * waiting to happen. Rendered twice, in the hero and in the closing card, and
+ * waiting to happen. The message is one line so the click is the whole effort. Rendered twice, in the hero and in the closing card, and
  * `place` keeps the two apart in the counts.
  */
 export function CustomInquiry({

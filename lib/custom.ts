@@ -30,35 +30,41 @@ export const CUSTOM_EMAIL = "hello@keylineicons.com"
 /**
  * The message the button opens, prefilled.
  *
- * Four lines with nothing after the colons, so the reader fills in a form they
- * can see rather than facing an empty message. They are the four things a
- * reply would otherwise have to ask for first.
+ * One line, so sending it is one click and a sentence. It was four blanks to
+ * fill (product link, icons, which offer, when) for the first thirty days, and
+ * those thirty days brought about 360 readers to the page and no message at
+ * all: a form in an email is still a form. Everything the four lines asked
+ * for is a reply's first question instead, asked of someone who has already
+ * written.
  */
 const SUBJECT = "Custom icons"
-const BODY = [
-  "Product link:",
-  "Icons we need:",
-  "Style test ($150) or 30-icon set ($1,500):",
-  "When we need them:",
-  "",
-].join("\n")
+const BODY = ["The icon we need, and a link to our product:", ""].join("\n")
 
 export const CUSTOM_MAILTO =
   `mailto:${CUSTOM_EMAIL}` +
   `?subject=${encodeURIComponent(SUBJECT)}` +
   `&body=${encodeURIComponent(BODY)}`
 
-/** The two fixed offers, in the order a buyer meets them. */
+/**
+ * The two fixed offers, in the order a buyer meets them.
+ *
+ * The first is one icon for $49, the set's own rate ($1,500 over 30 is $50),
+ * so starting small costs nothing extra and the whole of it counts toward the
+ * set. It replaced a five-icon style test at $150 after the first thirty days
+ * (26 Oct to 25 Nov 2026) drew no inquiries from roughly 360 readers: when
+ * people look and nobody writes, the first ask is too big, not too hidden.
+ * The $1,500 set stays as it was, as the step after.
+ */
 export const CUSTOM_OFFERS = [
   {
-    id: "test",
-    name: "Style test",
-    price: "$150",
-    summary: "5 icons",
+    id: "icon",
+    name: "Single icon",
+    price: "$49",
+    summary: "1 icon in 1 day",
     description:
-      "Five icons from your product, drawn on the grid, so you judge the fit on real drawings before committing to a set.",
+      "One icon from your product, drawn on the grid, so you judge the fit on a real drawing before committing to a set.",
     includes: [
-      "5 icons from your product",
+      "1 icon from your product",
       "Back within 1 day",
       "SVG and a Figma file",
       // A checklist row like Overflow's, not a bold line of its own: as a
@@ -136,12 +142,12 @@ export const CUSTOM_DELIVERY = [
 /** How a project runs, beside `CUSTOM_STEP_ICON_NAMES`. */
 export const CUSTOM_STEPS = [
   {
-    title: "Send the brief",
-    body: "A link to your product and the icons it needs. Screenshots of where they sit help most.",
+    title: "Send one line",
+    body: "The icon you need and a link to your product. That is enough to start; screenshots of where it sits help.",
   },
   {
     title: "Approve the direction",
-    body: "The first icons come back for your review, so the style is settled on real drawings before the rest is drawn.",
+    body: "The first icon comes back within a day, so the style is settled on a real drawing before the rest is drawn.",
   },
   {
     title: "Get the set",
@@ -174,7 +180,7 @@ export const CUSTOM_FAQ: FaqEntry[] = [
   {
     question: "What if we need more than 30?",
     answer:
-      "Say so in the brief. Larger sets are priced from the list of icons, and the style test works the same way.",
+      "Say so when you write. Larger sets are priced from the list of icons, and the first icon is credited toward them the same way.",
   },
 ]
 
