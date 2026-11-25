@@ -8492,9 +8492,367 @@ const RELEASE_3_0_0: BlogPost = {
   ],
 }
 
+export const BLOG_V310_THUMBNAIL_ICON_NAMES = [
+  "flow-terminator",
+  "gate-and",
+  "zodiac-leo",
+  "layers-arrow-up",
+  "dice-d20",
+  "squares-intersect",
+  "flow-document",
+  "gate-xor",
+  "zodiac-scorpio",
+  "swords",
+  "diamond-check",
+  "circle-dot-lock",
+  "git-merge-queue",
+  "subscript",
+  "superscript",
+  "pilcrow",
+  "ease-in",
+  "stroke-line-join-round",
+  "square-round-corner",
+  "curves",
+  "aperture",
+  "explosion",
+  "gem",
+  "scroll",
+  "tools",
+  "bolt",
+  "highlighter",
+  "person-standing",
+  "face-sunglasses",
+  "users-3",
+  "user-cursor",
+  "monitor-2-activity",
+  "chart-funnel",
+  "chart-forecast",
+  "cloud-sync",
+  "image-wrap-left",
+  "table-rows-move-up",
+  "layer-mask",
+  "group",
+  "math-symbols",
+] as const
+
+export const BLOG_V310_SPREAD_ICON_NAMES = [
+  "gem",
+  "scroll",
+  "tools",
+  "explosion",
+  "person-standing",
+  "face-sunglasses",
+  "aperture",
+  "highlighter",
+  "users-3",
+  "cloud-sync",
+  "chart-funnel",
+  "image-play",
+  "bolt",
+  "math-symbols",
+  "dice-d20",
+] as const
+
+export const BLOG_V310_FLOWCHART_ICON_NAMES = [
+  "flow-terminator",
+  "flow-document",
+  "flow-documents",
+  "flow-manual-input",
+  "flow-manual-operation",
+  "flow-delay",
+  "flow-display",
+  "flow-stored-data",
+  "flow-loop-limit",
+  "flow-off-page",
+  "flow-sort",
+  "diagram-project",
+  "diagram-subtask",
+  "diagram-predecessor",
+  "diagram-successor",
+] as const
+
+export const BLOG_V310_GATE_ICON_NAMES = [
+  "gate-and",
+  "gate-nand",
+  "gate-or",
+  "gate-nor",
+  "gate-xor",
+  "gate-xnor",
+  "gate-buffer",
+  "gate-not",
+  "gate-buffer-tri-state",
+  "wave-square",
+] as const
+
+export const BLOG_V310_DESIGN_ICON_NAMES = [
+  "layers-arrow-up",
+  "layer-arrow-up",
+  "layer-arrow-down",
+  "layers-arrow-down",
+  "layers-merge",
+  "squares-unite",
+  "squares-subtract",
+  "squares-intersect",
+  "squares-exclude",
+  "group",
+  "stroke-line-join-miter",
+  "stroke-line-join-round",
+  "stroke-line-join-bevel",
+  "square-round-corner",
+  "corner-sharp",
+] as const
+
+export const BLOG_V310_SYMBOL_ICON_NAMES = [
+  "zodiac-aries",
+  "zodiac-taurus",
+  "zodiac-gemini",
+  "zodiac-cancer",
+  "zodiac-leo",
+  "zodiac-virgo",
+  "zodiac-libra",
+  "zodiac-scorpio",
+  "zodiac-sagittarius",
+  "zodiac-capricorn",
+  "zodiac-aquarius",
+  "zodiac-pisces",
+  "peace",
+  "yin-yang",
+] as const
+
+const RELEASE_3_1_0: BlogPost = {
+  /* Flowcharts and the zodiac lead the title: both are searches no other post
+     claims, where "design tool" already belongs to 2.8.0. The logic gates and
+     the arrange menu are in the slug and the keywords. */
+  slug: "flowchart-logic-gate-and-zodiac-icons",
+  version: "3.1.0",
+  title: "156 free flowchart and zodiac icons for React, shadcn/ui and Figma",
+  description:
+    "2,169 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
+    "flowchart shapes, logic gates, the zodiac, a design app's arrange menu " +
+    "and tabletop dice.",
+  standfirst:
+    "A milestone is a diamond on every timeline, so the tracker's new " +
+    "drawings are diamonds too: done, overdue and in a row.",
+  date: "2026-11-25",
+  updated: "2026-11-25",
+  readingMinutes: 3,
+  thumbnail: BLOG_V310_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "flowchart icons",
+    "flowchart shapes",
+    "logic gate icons",
+    "zodiac icons",
+    "zodiac sign icons",
+    "horoscope icons",
+    "bring to front icon",
+    "layer icons",
+    "boolean operation icons",
+    "stroke join icons",
+    "dice icons",
+    "d20 icon",
+    "milestone icon",
+    "subscript icon",
+    "superscript icon",
+    "easing curve icons",
+    "free svg icons",
+    "shadcn/ui icons",
+    "figma icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "The set can draw a whole flowchart now, from the pill it starts on " +
+        "to the connector that carries it onto the next page. This update " +
+        "adds 156 drawings, the most since the first release, which takes " +
+        "the set to 2,169 names, each stroked, two-tone, duotone and filled, " +
+        "with round corners or sharp: 17,352 SVGs.",
+    },
+    {
+      kind: "p",
+      text:
+        "Most of them come from the tools people make things in: a diagram " +
+        "editor's palette, a design app's arrange menu, a text editor's " +
+        "toolbar, a code host's issue list and a project tracker's " +
+        "milestones. The twelve signs of the zodiac and the tabletop dice " +
+        "are here for horoscopes and game screens.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V310_SPREAD_ICON_NAMES,
+        caption:
+          "Search finds the bolt by nut and fastener too, and the aperture by " +
+          "lens and f stop.",
+      },
+    },
+
+    { kind: "h2", text: "Flowchart shapes keep the outline on the whiteboard", id: "flowcharts" },
+    {
+      kind: "p",
+      text:
+        "A flowchart icon is only useful if it matches the shape people " +
+        "already draw, so none of these were restyled. Each shape is a word " +
+        "in the diagram: the pill starts and ends it, the wavy foot is a " +
+        "printed report, the sloped top is something typed in by hand. A " +
+        "palette labelled with them needs no legend.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V310_FLOWCHART_ICON_NAMES,
+        caption:
+          "The four boxes on wires, for projects, subtasks and what comes " +
+          "before and after, were here already.",
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The logic gates follow the schematic the same way. A small circle " +
+        "on a gate's output turns it into its opposite, so that circle is the " +
+        "whole difference between AND and NAND, or OR and NOR.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V310_GATE_ICON_NAMES,
+        caption: "The square wave is the clock signal the gates switch on.",
+      },
+    },
+
+    { kind: "h2", text: "Bring forward and bring to front differ by one bar", id: "arrange" },
+    {
+      kind: "p",
+      text:
+        "A design app's arrange menu has four commands that read alike: " +
+        "forward one step, all the way to the front, back one step, all the " +
+        "way to the back. The drawings split them the way the menu means " +
+        "them. The arrow that goes all the way stops against a bar; the one " +
+        "that moves a single step has nothing to stop at.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "diagnostic",
+        panels: [
+          {
+            title: "`layers-arrow-up` laid over `layer-arrow-up`",
+            a: { name: "layers-arrow-up", take: "current" },
+            b: { name: "layer-arrow-up", take: "current" },
+            verdict: { text: "The stack is one drawing", tone: "good" },
+          },
+          {
+            title: "The top of the arrow",
+            a: { name: "layers-arrow-up", take: "current" },
+            b: { name: "layer-arrow-up", take: "current" },
+            viewBox: "14 1 10 11",
+            verdict: { text: "A bar, and the arrow stopping under it", tone: "good" },
+          },
+        ],
+        caption:
+          "Each panel paints one icon over the other, and colour shows only " +
+          "where they differ. Down and to the back mirror these.",
+        legend: {
+          a: "only in layers-arrow-up",
+          b: "only in layer-arrow-up",
+          both: "in both",
+        },
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "The same menus give the rest: the four ways two shapes combine, " +
+        "merging and grouping, the three ways a stroke turns a corner, and " +
+        "the corner radius control.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V310_DESIGN_ICON_NAMES,
+        caption:
+          "Search finds the four combinations by union, minus front, " +
+          "intersection and exclude, the words design apps use.",
+      },
+    },
+
+    { kind: "h2", text: "The zodiac is drawn as its marks, not its animals", id: "zodiac" },
+    {
+      kind: "p",
+      text:
+        "A ram drawn as a ram reads as a farm. Aries is the pair of horns " +
+        "every horoscope prints, so the twelve signs are drawn as their " +
+        "marks, and they join the peace sign and the yin and yang in " +
+        "Symbols. Each sign is found by its months as well as its name: " +
+        "march brings up Aries and Pisces.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V310_SYMBOL_ICON_NAMES,
+        caption: "The peace sign and the yin and yang were the category's first two.",
+      },
+    },
+
+    { kind: "h2", text: "A screen's whole kit, by what it is for", id: "by-use" },
+    {
+      kind: "p",
+      text:
+        "Sorted by the screen they serve, new names and old together:",
+    },
+    {
+      kind: "list",
+      items: [
+        "A code host's issue list: `circle-dot`, `circle-dot-lock`, `git-branch-check`, `git-merge-queue`, `message-square-lock`, `badge-code`",
+        "A project tracker: `diamond-check` for a milestone done, `diamond-alert` for one overdue, `diamonds`, `target-arrow` for a key result, `chart-bullet`",
+        "A text editor's toolbar: `bold`, `italic`, `subscript`, `superscript`, `pilcrow`, `text-wrap`, `image-wrap-left`, `image-inline`",
+        "An animation timeline: `keyframes`, `ease-in`, `ease-out`, `ease-linear`",
+        "A tabletop game: `dice-d4`, `dice-d8`, `dice-d10`, `dice-d12`, `dice-d20`, `sword`, `swords`",
+      ],
+    },
+    {
+      kind: "p",
+      text:
+        "Names from that code host's own icon set work as searches too, on " +
+        "the site and in the MCP server, the CLI and the Figma plugin: " +
+        "`repo` opens on `book`, `issue-opened` on `circle-dot` and " +
+        "`thumbsup` on `thumbs-up`. There are sixty-eight of them, so a " +
+        "codebase moving over can keep typing the names it knows.",
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text: "React, shadcn/ui, the CLI, the MCP server and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Changelog",
+      text: "Every drawing in this update, category by category.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
   REACT_NATIVE_ICONS,
   LUCIDE_ALTERNATIVES,
+  RELEASE_3_1_0,
   RELEASE_3_0_0,
   RELEASE_2_9_0,
   RELEASE_2_8_0,
