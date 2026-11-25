@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function SquaresIntersect({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M5 15C3.8954 15 3 14.1046 3 13L3 11.5M3 6.5L3 5C3 3.8954 3.8954 3 5 3L6.5 3M11.5 3L13 3C14.1046 3 15 3.8954 15 5M19 9C20.1046 9 21 9.8954 21 11L21 12.5M21 17.5L21 19C21 20.1046 20.1046 21 19 21L17.5 21M12.5 21L11 21C9.8954 21 9 20.1046 9 19" strokeOpacity="0.4"/>
+      <path d="M15.1213 8.8787C15.6631 9.4205 16 10.1718 16 11L16 13C16 14.6569 14.6569 16 13 16L11 16C9.3431 16 8 14.6569 8 13L8 11C8 9.3431 9.3431 8 11 8L13 8C13.8282 8 14.5795 8.3369 15.1213 8.8787Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+    </svg>
+  )
+}

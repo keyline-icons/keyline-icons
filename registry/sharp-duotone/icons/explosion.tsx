@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Explosion({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M9.096 2.0006L12.8828 8.3435L19.3293 4.972L16.3187 9.7966L21.9976 10.4729L16.2933 12.789L20.7205 16.247L15.0232 15.7367L14.774 21.9984L11.7033 16.1841L8.2472 21.4589L7.9805 15.6988L2.0018 15.6212L7.3698 12.0596L2.3693 8.9814L8.6766 8.4088Z"/>
+    </svg>
+  )
+}

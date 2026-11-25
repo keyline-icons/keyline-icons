@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function DiceD12({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M11.7035 2.045C11.8966 1.985 12.1034 1.985 12.2965 2.045L17.8746 3.7768C18.0735 3.8385 18.2481 3.9608 18.3741 4.1266L21.796 8.627C21.9284 8.8011 22 9.0137 22 9.2323L22 14.7677C22 14.9863 21.9284 15.1989 21.796 15.373L18.3741 19.8734C18.2481 20.0392 18.0735 20.1615 17.8746 20.2232L12.2965 21.955C12.1034 22.015 11.8966 22.015 11.7035 21.955L6.1254 20.2232C5.9265 20.1615 5.7519 20.0392 5.6259 19.8734L2.204 15.373C2.0716 15.1989 2 14.9863 2 14.7677L2 9.2323C2 9.0137 2.0716 8.8011 2.204 8.627L5.6259 4.1266C5.7519 3.9608 5.9265 3.8385 6.1254 3.7768ZM12 6.2L17.7728 10.2077L15.5678 16.6923L8.4322 16.6923L6.2272 10.2077ZM12 6.2L12 2M17.7728 10.2077L21.9476 8.9129M15.5678 16.6923L18.1517 20.0873M8.4322 16.6923L5.8483 20.0873M6.2272 10.2077L2.0524 8.9129"/>
+    </svg>
+  )
+}

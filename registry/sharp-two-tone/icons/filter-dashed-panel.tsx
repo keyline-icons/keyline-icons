@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function FilterDashedPanel({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M16 10L20.9991 10C21.5514 10 21.9991 10.4477 21.9991 11C21.9991 11.1974 21.9407 11.3903 21.8312 11.5546L19 15.8028L19 19.5C19 19.9169 18.7414 20.29 18.351 20.4364L14.351 21.9358C14.2388 21.9778 14.1199 21.9994 14 21.9994C13.4477 21.9994 13 21.5517 13 20.9994L13 15.8028L10.1688 11.5546C10.0593 11.3903 10.0009 11.1974 10.0009 11C10.0009 10.4477 10.4486 10 11.0009 10Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M3 7L3 3L7 3M9 3L14 3M20 8L20 3L16 3M8 20L3 20L3 16M3 9L3 14M11.0009 11L20.9991 11L18 15.5001L18 19.5L14 20.9994L14 15.5001Z"/>
+    </svg>
+  )
+}

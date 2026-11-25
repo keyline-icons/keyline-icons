@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function FlowLoopLimit({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2.5858 9.4142L6.4142 5.5858C6.7893 5.2107 7.298 5 7.8284 5L16.1716 5C16.702 5 17.2107 5.2107 17.5858 5.5858L21.4142 9.4142C21.7893 9.7893 22 10.298 22 10.8284L22 16C22 17.6569 20.6569 19 19 19L5 19C3.3431 19 2 17.6569 2 16L2 10.8284C2 10.298 2.2107 9.7893 2.5858 9.4142Z"/>
+    </svg>
+  )
+}

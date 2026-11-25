@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Highlighter({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M8.782 18.6996L6.5517 21L4.5 21C3.8975 21 3.3535 20.6395 3.1187 20.0847C2.8838 19.5299 3.0037 18.8884 3.4231 18.4559L5.7509 16.0548M5.069 15.3424L9.0341 19.4322L9.3703 19.0854C10.3511 18.0738 11.3333 17.1464 12.7204 17.1464L13.3561 17.1464L21 6.0894L18.0032 3L7.285 10.8844L7.285 11.5401C7.285 12.9708 6.386 13.9839 5.4052 14.9956Z" fill="none"/>
+    </svg>
+  )
+}

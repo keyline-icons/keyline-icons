@@ -576,6 +576,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/aperture",
+      "type": "registry:component",
+      "title": "Aperture",
+      "description": "Aperture, the two-tone drawing of aperture on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of aperture: https://keylineicons.com/icons/aperture",
+      "files": [
+        {
+          "path": "icons/aperture.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/aperture.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/app-check",
       "type": "registry:component",
       "title": "AppCheck",
@@ -2116,6 +2130,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/badge-code",
+      "type": "registry:component",
+      "title": "BadgeCode",
+      "description": "BadgeCode, the two-tone drawing of badge-code on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of badge-code: https://keylineicons.com/icons/badge-code",
+      "files": [
+        {
+          "path": "icons/badge-code.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/badge-code.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/badge-dollar-sign",
       "type": "registry:component",
       "title": "BadgeDollarSign",
@@ -2308,6 +2336,20 @@
           "path": "icons/bandage.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/bandage.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/bandage-sparkles",
+      "type": "registry:component",
+      "title": "BandageSparkles",
+      "description": "BandageSparkles, the two-tone drawing of bandage-sparkles on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bandage-sparkles: https://keylineicons.com/icons/bandage-sparkles",
+      "files": [
+        {
+          "path": "icons/bandage-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/bandage-sparkles.tsx"
         }
       ]
     },
@@ -2606,6 +2648,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/baseline-shift",
+      "type": "registry:component",
+      "title": "BaselineShift",
+      "description": "BaselineShift, the two-tone drawing of baseline-shift on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of baseline-shift: https://keylineicons.com/icons/baseline-shift",
+      "files": [
+        {
+          "path": "icons/baseline-shift.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/baseline-shift.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/basketball",
       "type": "registry:component",
       "title": "Basketball",
@@ -2826,6 +2882,20 @@
           "path": "icons/beer.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/beer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/before-and-after",
+      "type": "registry:component",
+      "title": "BeforeAndAfter",
+      "description": "BeforeAndAfter, the two-tone drawing of before-and-after on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of before-and-after: https://keylineicons.com/icons/before-and-after",
+      "files": [
+        {
+          "path": "icons/before-and-after.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/before-and-after.tsx"
         }
       ]
     },
@@ -3208,6 +3278,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/blur",
+      "type": "registry:component",
+      "title": "Blur",
+      "description": "Blur, the two-tone drawing of blur on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of blur: https://keylineicons.com/icons/blur",
+      "files": [
+        {
+          "path": "icons/blur.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/blur.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/bold",
       "type": "registry:component",
       "title": "Bold",
@@ -3218,6 +3302,20 @@
           "path": "icons/bold.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/bold.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/bolt",
+      "type": "registry:component",
+      "title": "Bolt",
+      "description": "Bolt, the two-tone drawing of bolt on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bolt: https://keylineicons.com/icons/bolt",
+      "files": [
+        {
+          "path": "icons/bolt.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/bolt.tsx"
         }
       ]
     },
@@ -3292,6 +3390,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/book-lock",
+      "type": "registry:component",
+      "title": "BookLock",
+      "description": "BookLock, the two-tone drawing of book-lock on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of book-lock: https://keylineicons.com/icons/book-lock",
+      "files": [
+        {
+          "path": "icons/book-lock.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/book-lock.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/book-minus",
       "type": "registry:component",
       "title": "BookMinus",
@@ -3330,6 +3442,20 @@
           "path": "icons/book-open-2.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/book-open-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/book-open-sparkles",
+      "type": "registry:component",
+      "title": "BookOpenSparkles",
+      "description": "BookOpenSparkles, the two-tone drawing of book-open-sparkles on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of book-open-sparkles: https://keylineicons.com/icons/book-open-sparkles",
+      "files": [
+        {
+          "path": "icons/book-open-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/book-open-sparkles.tsx"
         }
       ]
     },
@@ -3428,6 +3554,20 @@
           "path": "icons/bookmark-plus.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/bookmark-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/bookmark-x",
+      "type": "registry:component",
+      "title": "BookmarkX",
+      "description": "BookmarkX, the two-tone drawing of bookmark-x on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bookmark-x: https://keylineicons.com/icons/bookmark-x",
+      "files": [
+        {
+          "path": "icons/bookmark-x.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/bookmark-x.tsx"
         }
       ]
     },
@@ -4156,6 +4296,34 @@
           "path": "icons/brush.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/brush.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/brush-minus",
+      "type": "registry:component",
+      "title": "BrushMinus",
+      "description": "BrushMinus, the two-tone drawing of brush-minus on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of brush-minus: https://keylineicons.com/icons/brush-minus",
+      "files": [
+        {
+          "path": "icons/brush-minus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/brush-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/brush-plus",
+      "type": "registry:component",
+      "title": "BrushPlus",
+      "description": "BrushPlus, the two-tone drawing of brush-plus on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of brush-plus: https://keylineicons.com/icons/brush-plus",
+      "files": [
+        {
+          "path": "icons/brush-plus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/brush-plus.tsx"
         }
       ]
     },
@@ -5056,6 +5224,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/chart-area-stacked",
+      "type": "registry:component",
+      "title": "ChartAreaStacked",
+      "description": "ChartAreaStacked, the two-tone drawing of chart-area-stacked on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of chart-area-stacked: https://keylineicons.com/icons/chart-area-stacked",
+      "files": [
+        {
+          "path": "icons/chart-area-stacked.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/chart-area-stacked.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/chart-bar",
       "type": "registry:component",
       "title": "ChartBar",
@@ -5108,6 +5290,20 @@
           "path": "icons/chart-bar-stacked.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/chart-bar-stacked.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/chart-bullet",
+      "type": "registry:component",
+      "title": "ChartBullet",
+      "description": "ChartBullet, the two-tone drawing of chart-bullet on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of chart-bullet: https://keylineicons.com/icons/chart-bullet",
+      "files": [
+        {
+          "path": "icons/chart-bullet.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/chart-bullet.tsx"
         }
       ]
     },
@@ -5192,6 +5388,34 @@
           "path": "icons/chart-diagram.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/chart-diagram.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/chart-forecast",
+      "type": "registry:component",
+      "title": "ChartForecast",
+      "description": "ChartForecast, the two-tone drawing of chart-forecast on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of chart-forecast: https://keylineicons.com/icons/chart-forecast",
+      "files": [
+        {
+          "path": "icons/chart-forecast.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/chart-forecast.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/chart-funnel",
+      "type": "registry:component",
+      "title": "ChartFunnel",
+      "description": "ChartFunnel, the two-tone drawing of chart-funnel on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of chart-funnel: https://keylineicons.com/icons/chart-funnel",
+      "files": [
+        {
+          "path": "icons/chart-funnel.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/chart-funnel.tsx"
         }
       ]
     },
@@ -6568,6 +6792,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/circle-dashed-minus",
+      "type": "registry:component",
+      "title": "CircleDashedMinus",
+      "description": "CircleDashedMinus, the two-tone drawing of circle-dashed-minus on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-dashed-minus: https://keylineicons.com/icons/circle-dashed-minus",
+      "files": [
+        {
+          "path": "icons/circle-dashed-minus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/circle-dashed-minus.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/circle-dashed-plus",
       "type": "registry:component",
       "title": "CircleDashedPlus",
@@ -6592,6 +6830,20 @@
           "path": "icons/circle-dashed-quarter.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/circle-dashed-quarter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/circle-dashed-sparkles",
+      "type": "registry:component",
+      "title": "CircleDashedSparkles",
+      "description": "CircleDashedSparkles, the two-tone drawing of circle-dashed-sparkles on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-dashed-sparkles: https://keylineicons.com/icons/circle-dashed-sparkles",
+      "files": [
+        {
+          "path": "icons/circle-dashed-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/circle-dashed-sparkles.tsx"
         }
       ]
     },
@@ -6662,6 +6914,20 @@
           "path": "icons/circle-dot.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/circle-dot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/circle-dot-lock",
+      "type": "registry:component",
+      "title": "CircleDotLock",
+      "description": "CircleDotLock, the two-tone drawing of circle-dot-lock on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-dot-lock: https://keylineicons.com/icons/circle-dot-lock",
+      "files": [
+        {
+          "path": "icons/circle-dot-lock.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/circle-dot-lock.tsx"
         }
       ]
     },
@@ -8052,6 +8318,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/cloud-clock",
+      "type": "registry:component",
+      "title": "CloudClock",
+      "description": "CloudClock, the two-tone drawing of cloud-clock on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-clock: https://keylineicons.com/icons/cloud-clock",
+      "files": [
+        {
+          "path": "icons/cloud-clock.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/cloud-clock.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/cloud-download",
       "type": "registry:component",
       "title": "CloudDownload",
@@ -8290,6 +8570,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/cloud-signal",
+      "type": "registry:component",
+      "title": "CloudSignal",
+      "description": "CloudSignal, the two-tone drawing of cloud-signal on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-signal: https://keylineicons.com/icons/cloud-signal",
+      "files": [
+        {
+          "path": "icons/cloud-signal.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/cloud-signal.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/cloud-sleet",
       "type": "registry:component",
       "title": "CloudSleet",
@@ -8370,6 +8664,20 @@
           "path": "icons/cloud-sun-rain.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/cloud-sun-rain.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/cloud-sync",
+      "type": "registry:component",
+      "title": "CloudSync",
+      "description": "CloudSync, the two-tone drawing of cloud-sync on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-sync: https://keylineicons.com/icons/cloud-sync",
+      "files": [
+        {
+          "path": "icons/cloud-sync.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/cloud-sync.tsx"
         }
       ]
     },
@@ -8608,6 +8916,20 @@
           "path": "icons/colon.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/colon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/columns-2",
+      "type": "registry:component",
+      "title": "Columns2",
+      "description": "Columns2, the two-tone drawing of columns-2 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of columns-2: https://keylineicons.com/icons/columns-2",
+      "files": [
+        {
+          "path": "icons/columns-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/columns-2.tsx"
         }
       ]
     },
@@ -9000,6 +9322,20 @@
           "path": "icons/corner-right-up.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/corner-right-up.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/corner-sharp",
+      "type": "registry:component",
+      "title": "CornerSharp",
+      "description": "CornerSharp, the two-tone drawing of corner-sharp on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of corner-sharp: https://keylineicons.com/icons/corner-sharp",
+      "files": [
+        {
+          "path": "icons/corner-sharp.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/corner-sharp.tsx"
         }
       ]
     },
@@ -9466,6 +9802,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/curves",
+      "type": "registry:component",
+      "title": "Curves",
+      "description": "Curves, the two-tone drawing of curves on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of curves: https://keylineicons.com/icons/curves",
+      "files": [
+        {
+          "path": "icons/curves.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/curves.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/cylinder",
       "type": "registry:component",
       "title": "Cylinder",
@@ -9774,6 +10124,34 @@
       ]
     },
     {
+      "name": "sharp/two-tone/diamond-alert",
+      "type": "registry:component",
+      "title": "DiamondAlert",
+      "description": "DiamondAlert, the two-tone drawing of diamond-alert on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of diamond-alert: https://keylineicons.com/icons/diamond-alert",
+      "files": [
+        {
+          "path": "icons/diamond-alert.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/diamond-alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/diamond-check",
+      "type": "registry:component",
+      "title": "DiamondCheck",
+      "description": "DiamondCheck, the two-tone drawing of diamond-check on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of diamond-check: https://keylineicons.com/icons/diamond-check",
+      "files": [
+        {
+          "path": "icons/diamond-check.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/diamond-check.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/diamond-dot",
       "type": "registry:component",
       "title": "DiamondDot",
@@ -9784,6 +10162,20 @@
           "path": "icons/diamond-dot.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/diamond-dot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/diamonds",
+      "type": "registry:component",
+      "title": "Diamonds",
+      "description": "Diamonds, the two-tone drawing of diamonds on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of diamonds: https://keylineicons.com/icons/diamonds",
+      "files": [
+        {
+          "path": "icons/diamonds.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/diamonds.tsx"
         }
       ]
     },
@@ -9882,6 +10274,76 @@
           "path": "icons/dice-6-horizontal.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/dice-6-horizontal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/dice-d10",
+      "type": "registry:component",
+      "title": "DiceD10",
+      "description": "DiceD10, the two-tone drawing of dice-d10 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of dice-d10: https://keylineicons.com/icons/dice-d10",
+      "files": [
+        {
+          "path": "icons/dice-d10.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/dice-d10.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/dice-d12",
+      "type": "registry:component",
+      "title": "DiceD12",
+      "description": "DiceD12, the two-tone drawing of dice-d12 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of dice-d12: https://keylineicons.com/icons/dice-d12",
+      "files": [
+        {
+          "path": "icons/dice-d12.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/dice-d12.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/dice-d20",
+      "type": "registry:component",
+      "title": "DiceD20",
+      "description": "DiceD20, the two-tone drawing of dice-d20 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of dice-d20: https://keylineicons.com/icons/dice-d20",
+      "files": [
+        {
+          "path": "icons/dice-d20.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/dice-d20.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/dice-d4",
+      "type": "registry:component",
+      "title": "DiceD4",
+      "description": "DiceD4, the two-tone drawing of dice-d4 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of dice-d4: https://keylineicons.com/icons/dice-d4",
+      "files": [
+        {
+          "path": "icons/dice-d4.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/dice-d4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/dice-d8",
+      "type": "registry:component",
+      "title": "DiceD8",
+      "description": "DiceD8, the two-tone drawing of dice-d8 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of dice-d8: https://keylineicons.com/icons/dice-d8",
+      "files": [
+        {
+          "path": "icons/dice-d8.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/dice-d8.tsx"
         }
       ]
     },
@@ -10278,6 +10740,48 @@
       ]
     },
     {
+      "name": "sharp/two-tone/ease-in",
+      "type": "registry:component",
+      "title": "EaseIn",
+      "description": "EaseIn, the two-tone drawing of ease-in on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of ease-in: https://keylineicons.com/icons/ease-in",
+      "files": [
+        {
+          "path": "icons/ease-in.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/ease-in.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/ease-linear",
+      "type": "registry:component",
+      "title": "EaseLinear",
+      "description": "EaseLinear, the two-tone drawing of ease-linear on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of ease-linear: https://keylineicons.com/icons/ease-linear",
+      "files": [
+        {
+          "path": "icons/ease-linear.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/ease-linear.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/ease-out",
+      "type": "registry:component",
+      "title": "EaseOut",
+      "description": "EaseOut, the two-tone drawing of ease-out on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of ease-out: https://keylineicons.com/icons/ease-out",
+      "files": [
+        {
+          "path": "icons/ease-out.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/ease-out.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/easel",
       "type": "registry:component",
       "title": "Easel",
@@ -10288,6 +10792,20 @@
           "path": "icons/easel.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/easel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/easel-sparkles",
+      "type": "registry:component",
+      "title": "EaselSparkles",
+      "description": "EaselSparkles, the two-tone drawing of easel-sparkles on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of easel-sparkles: https://keylineicons.com/icons/easel-sparkles",
+      "files": [
+        {
+          "path": "icons/easel-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/easel-sparkles.tsx"
         }
       ]
     },
@@ -10600,6 +11118,62 @@
       ]
     },
     {
+      "name": "sharp/two-tone/expand-horizontal",
+      "type": "registry:component",
+      "title": "ExpandHorizontal",
+      "description": "ExpandHorizontal, the two-tone drawing of expand-horizontal on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of expand-horizontal: https://keylineicons.com/icons/expand-horizontal",
+      "files": [
+        {
+          "path": "icons/expand-horizontal.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/expand-horizontal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/expand-sparkles",
+      "type": "registry:component",
+      "title": "ExpandSparkles",
+      "description": "ExpandSparkles, the two-tone drawing of expand-sparkles on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of expand-sparkles: https://keylineicons.com/icons/expand-sparkles",
+      "files": [
+        {
+          "path": "icons/expand-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/expand-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/expand-vertical",
+      "type": "registry:component",
+      "title": "ExpandVertical",
+      "description": "ExpandVertical, the two-tone drawing of expand-vertical on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of expand-vertical: https://keylineicons.com/icons/expand-vertical",
+      "files": [
+        {
+          "path": "icons/expand-vertical.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/expand-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/explosion",
+      "type": "registry:component",
+      "title": "Explosion",
+      "description": "Explosion, the two-tone drawing of explosion on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of explosion: https://keylineicons.com/icons/explosion",
+      "files": [
+        {
+          "path": "icons/explosion.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/explosion.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/eye",
       "type": "registry:component",
       "title": "Eye",
@@ -10684,6 +11258,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/face-frustrated",
+      "type": "registry:component",
+      "title": "FaceFrustrated",
+      "description": "FaceFrustrated, the two-tone drawing of face-frustrated on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of face-frustrated: https://keylineicons.com/icons/face-frustrated",
+      "files": [
+        {
+          "path": "icons/face-frustrated.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/face-frustrated.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/face-laugh",
       "type": "registry:component",
       "title": "FaceLaugh",
@@ -10736,6 +11324,20 @@
           "path": "icons/face-smile-plus.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/face-smile-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/face-sunglasses",
+      "type": "registry:component",
+      "title": "FaceSunglasses",
+      "description": "FaceSunglasses, the two-tone drawing of face-sunglasses on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of face-sunglasses: https://keylineicons.com/icons/face-sunglasses",
+      "files": [
+        {
+          "path": "icons/face-sunglasses.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/face-sunglasses.tsx"
         }
       ]
     },
@@ -11258,6 +11860,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/filter-dashed-panel",
+      "type": "registry:component",
+      "title": "FilterDashedPanel",
+      "description": "FilterDashedPanel, the two-tone drawing of filter-dashed-panel on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of filter-dashed-panel: https://keylineicons.com/icons/filter-dashed-panel",
+      "files": [
+        {
+          "path": "icons/filter-dashed-panel.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/filter-dashed-panel.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/fingerprint-pattern",
       "type": "registry:component",
       "title": "FingerprintPattern",
@@ -11594,6 +12210,160 @@
       ]
     },
     {
+      "name": "sharp/two-tone/flow-delay",
+      "type": "registry:component",
+      "title": "FlowDelay",
+      "description": "FlowDelay, the two-tone drawing of flow-delay on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flow-delay: https://keylineicons.com/icons/flow-delay",
+      "files": [
+        {
+          "path": "icons/flow-delay.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/flow-delay.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/flow-display",
+      "type": "registry:component",
+      "title": "FlowDisplay",
+      "description": "FlowDisplay, the two-tone drawing of flow-display on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flow-display: https://keylineicons.com/icons/flow-display",
+      "files": [
+        {
+          "path": "icons/flow-display.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/flow-display.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/flow-document",
+      "type": "registry:component",
+      "title": "FlowDocument",
+      "description": "FlowDocument, the two-tone drawing of flow-document on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flow-document: https://keylineicons.com/icons/flow-document",
+      "files": [
+        {
+          "path": "icons/flow-document.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/flow-document.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/flow-documents",
+      "type": "registry:component",
+      "title": "FlowDocuments",
+      "description": "FlowDocuments, the two-tone drawing of flow-documents on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flow-documents: https://keylineicons.com/icons/flow-documents",
+      "files": [
+        {
+          "path": "icons/flow-documents.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/flow-documents.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/flow-loop-limit",
+      "type": "registry:component",
+      "title": "FlowLoopLimit",
+      "description": "FlowLoopLimit, the two-tone drawing of flow-loop-limit on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flow-loop-limit: https://keylineicons.com/icons/flow-loop-limit",
+      "files": [
+        {
+          "path": "icons/flow-loop-limit.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/flow-loop-limit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/flow-manual-input",
+      "type": "registry:component",
+      "title": "FlowManualInput",
+      "description": "FlowManualInput, the two-tone drawing of flow-manual-input on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flow-manual-input: https://keylineicons.com/icons/flow-manual-input",
+      "files": [
+        {
+          "path": "icons/flow-manual-input.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/flow-manual-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/flow-manual-operation",
+      "type": "registry:component",
+      "title": "FlowManualOperation",
+      "description": "FlowManualOperation, the two-tone drawing of flow-manual-operation on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flow-manual-operation: https://keylineicons.com/icons/flow-manual-operation",
+      "files": [
+        {
+          "path": "icons/flow-manual-operation.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/flow-manual-operation.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/flow-off-page",
+      "type": "registry:component",
+      "title": "FlowOffPage",
+      "description": "FlowOffPage, the two-tone drawing of flow-off-page on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flow-off-page: https://keylineicons.com/icons/flow-off-page",
+      "files": [
+        {
+          "path": "icons/flow-off-page.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/flow-off-page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/flow-sort",
+      "type": "registry:component",
+      "title": "FlowSort",
+      "description": "FlowSort, the two-tone drawing of flow-sort on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flow-sort: https://keylineicons.com/icons/flow-sort",
+      "files": [
+        {
+          "path": "icons/flow-sort.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/flow-sort.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/flow-stored-data",
+      "type": "registry:component",
+      "title": "FlowStoredData",
+      "description": "FlowStoredData, the two-tone drawing of flow-stored-data on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flow-stored-data: https://keylineicons.com/icons/flow-stored-data",
+      "files": [
+        {
+          "path": "icons/flow-stored-data.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/flow-stored-data.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/flow-terminator",
+      "type": "registry:component",
+      "title": "FlowTerminator",
+      "description": "FlowTerminator, the two-tone drawing of flow-terminator on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of flow-terminator: https://keylineicons.com/icons/flow-terminator",
+      "files": [
+        {
+          "path": "icons/flow-terminator.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/flow-terminator.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/flower",
       "type": "registry:component",
       "title": "Flower",
@@ -11604,6 +12374,20 @@
           "path": "icons/flower.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/flower.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/focus",
+      "type": "registry:component",
+      "title": "Focus",
+      "description": "Focus, the two-tone drawing of focus on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of focus: https://keylineicons.com/icons/focus",
+      "files": [
+        {
+          "path": "icons/focus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/focus.tsx"
         }
       ]
     },
@@ -12196,6 +12980,132 @@
       ]
     },
     {
+      "name": "sharp/two-tone/gate-and",
+      "type": "registry:component",
+      "title": "GateAnd",
+      "description": "GateAnd, the two-tone drawing of gate-and on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gate-and: https://keylineicons.com/icons/gate-and",
+      "files": [
+        {
+          "path": "icons/gate-and.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/gate-and.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/gate-buffer",
+      "type": "registry:component",
+      "title": "GateBuffer",
+      "description": "GateBuffer, the two-tone drawing of gate-buffer on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gate-buffer: https://keylineicons.com/icons/gate-buffer",
+      "files": [
+        {
+          "path": "icons/gate-buffer.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/gate-buffer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/gate-buffer-tri-state",
+      "type": "registry:component",
+      "title": "GateBufferTriState",
+      "description": "GateBufferTriState, the two-tone drawing of gate-buffer-tri-state on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gate-buffer-tri-state: https://keylineicons.com/icons/gate-buffer-tri-state",
+      "files": [
+        {
+          "path": "icons/gate-buffer-tri-state.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/gate-buffer-tri-state.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/gate-nand",
+      "type": "registry:component",
+      "title": "GateNand",
+      "description": "GateNand, the two-tone drawing of gate-nand on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gate-nand: https://keylineicons.com/icons/gate-nand",
+      "files": [
+        {
+          "path": "icons/gate-nand.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/gate-nand.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/gate-nor",
+      "type": "registry:component",
+      "title": "GateNor",
+      "description": "GateNor, the two-tone drawing of gate-nor on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gate-nor: https://keylineicons.com/icons/gate-nor",
+      "files": [
+        {
+          "path": "icons/gate-nor.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/gate-nor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/gate-not",
+      "type": "registry:component",
+      "title": "GateNot",
+      "description": "GateNot, the two-tone drawing of gate-not on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gate-not: https://keylineicons.com/icons/gate-not",
+      "files": [
+        {
+          "path": "icons/gate-not.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/gate-not.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/gate-or",
+      "type": "registry:component",
+      "title": "GateOr",
+      "description": "GateOr, the two-tone drawing of gate-or on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gate-or: https://keylineicons.com/icons/gate-or",
+      "files": [
+        {
+          "path": "icons/gate-or.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/gate-or.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/gate-xnor",
+      "type": "registry:component",
+      "title": "GateXnor",
+      "description": "GateXnor, the two-tone drawing of gate-xnor on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gate-xnor: https://keylineicons.com/icons/gate-xnor",
+      "files": [
+        {
+          "path": "icons/gate-xnor.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/gate-xnor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/gate-xor",
+      "type": "registry:component",
+      "title": "GateXor",
+      "description": "GateXor, the two-tone drawing of gate-xor on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gate-xor: https://keylineicons.com/icons/gate-xor",
+      "files": [
+        {
+          "path": "icons/gate-xor.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/gate-xor.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/gauge",
       "type": "registry:component",
       "title": "Gauge",
@@ -12262,6 +13172,20 @@
           "path": "icons/gavel.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/gavel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/gem",
+      "type": "registry:component",
+      "title": "Gem",
+      "description": "Gem, the two-tone drawing of gem on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gem: https://keylineicons.com/icons/gem",
+      "files": [
+        {
+          "path": "icons/gem.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/gem.tsx"
         }
       ]
     },
@@ -12346,6 +13270,20 @@
           "path": "icons/git-branch.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/git-branch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/git-branch-check",
+      "type": "registry:component",
+      "title": "GitBranchCheck",
+      "description": "GitBranchCheck, the two-tone drawing of git-branch-check on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of git-branch-check: https://keylineicons.com/icons/git-branch-check",
+      "files": [
+        {
+          "path": "icons/git-branch-check.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/git-branch-check.tsx"
         }
       ]
     },
@@ -12528,6 +13466,20 @@
           "path": "icons/git-merge-conflict.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/git-merge-conflict.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/git-merge-queue",
+      "type": "registry:component",
+      "title": "GitMergeQueue",
+      "description": "GitMergeQueue, the two-tone drawing of git-merge-queue on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of git-merge-queue: https://keylineicons.com/icons/git-merge-queue",
+      "files": [
+        {
+          "path": "icons/git-merge-queue.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/git-merge-queue.tsx"
         }
       ]
     },
@@ -13176,6 +14128,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/group",
+      "type": "registry:component",
+      "title": "Group",
+      "description": "Group, the two-tone drawing of group on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of group: https://keylineicons.com/icons/group",
+      "files": [
+        {
+          "path": "icons/group.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/group.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/guesthouse",
       "type": "registry:component",
       "title": "Guesthouse",
@@ -13270,6 +14236,20 @@
           "path": "icons/guitar.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/guitar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/gun",
+      "type": "registry:component",
+      "title": "Gun",
+      "description": "Gun, the two-tone drawing of gun on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gun: https://keylineicons.com/icons/gun",
+      "files": [
+        {
+          "path": "icons/gun.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/gun.tsx"
         }
       ]
     },
@@ -14058,6 +15038,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/highlighter",
+      "type": "registry:component",
+      "title": "Highlighter",
+      "description": "Highlighter, the two-tone drawing of highlighter on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of highlighter: https://keylineicons.com/icons/highlighter",
+      "files": [
+        {
+          "path": "icons/highlighter.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/highlighter.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/history",
       "type": "registry:component",
       "title": "History",
@@ -14660,6 +15654,34 @@
       ]
     },
     {
+      "name": "sharp/two-tone/image-align-left",
+      "type": "registry:component",
+      "title": "ImageAlignLeft",
+      "description": "ImageAlignLeft, the two-tone drawing of image-align-left on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of image-align-left: https://keylineicons.com/icons/image-align-left",
+      "files": [
+        {
+          "path": "icons/image-align-left.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/image-align-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/image-align-right",
+      "type": "registry:component",
+      "title": "ImageAlignRight",
+      "description": "ImageAlignRight, the two-tone drawing of image-align-right on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of image-align-right: https://keylineicons.com/icons/image-align-right",
+      "files": [
+        {
+          "path": "icons/image-align-right.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/image-align-right.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/image-arrow-down",
       "type": "registry:component",
       "title": "ImageArrowDown",
@@ -14730,6 +15752,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/image-inline",
+      "type": "registry:component",
+      "title": "ImageInline",
+      "description": "ImageInline, the two-tone drawing of image-inline on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of image-inline: https://keylineicons.com/icons/image-inline",
+      "files": [
+        {
+          "path": "icons/image-inline.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/image-inline.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/image-minus",
       "type": "registry:component",
       "title": "ImageMinus",
@@ -14754,6 +15790,34 @@
           "path": "icons/image-off.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/image-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/image-pen",
+      "type": "registry:component",
+      "title": "ImagePen",
+      "description": "ImagePen, the two-tone drawing of image-pen on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of image-pen: https://keylineicons.com/icons/image-pen",
+      "files": [
+        {
+          "path": "icons/image-pen.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/image-pen.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/image-play",
+      "type": "registry:component",
+      "title": "ImagePlay",
+      "description": "ImagePlay, the two-tone drawing of image-play on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of image-play: https://keylineicons.com/icons/image-play",
+      "files": [
+        {
+          "path": "icons/image-play.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/image-play.tsx"
         }
       ]
     },
@@ -14796,6 +15860,34 @@
           "path": "icons/image-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/image-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/image-wrap-left",
+      "type": "registry:component",
+      "title": "ImageWrapLeft",
+      "description": "ImageWrapLeft, the two-tone drawing of image-wrap-left on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of image-wrap-left: https://keylineicons.com/icons/image-wrap-left",
+      "files": [
+        {
+          "path": "icons/image-wrap-left.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/image-wrap-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/image-wrap-right",
+      "type": "registry:component",
+      "title": "ImageWrapRight",
+      "description": "ImageWrapRight, the two-tone drawing of image-wrap-right on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of image-wrap-right: https://keylineicons.com/icons/image-wrap-right",
+      "files": [
+        {
+          "path": "icons/image-wrap-right.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/image-wrap-right.tsx"
         }
       ]
     },
@@ -15034,6 +16126,20 @@
           "path": "icons/joystick.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/joystick.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/kerning",
+      "type": "registry:component",
+      "title": "Kerning",
+      "description": "Kerning, the two-tone drawing of kerning on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of kerning: https://keylineicons.com/icons/kerning",
+      "files": [
+        {
+          "path": "icons/kerning.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/kerning.tsx"
         }
       ]
     },
@@ -15290,6 +16396,34 @@
       ]
     },
     {
+      "name": "sharp/two-tone/layer-arrow-down",
+      "type": "registry:component",
+      "title": "LayerArrowDown",
+      "description": "LayerArrowDown, the two-tone drawing of layer-arrow-down on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layer-arrow-down: https://keylineicons.com/icons/layer-arrow-down",
+      "files": [
+        {
+          "path": "icons/layer-arrow-down.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/layer-arrow-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/layer-arrow-up",
+      "type": "registry:component",
+      "title": "LayerArrowUp",
+      "description": "LayerArrowUp, the two-tone drawing of layer-arrow-up on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layer-arrow-up: https://keylineicons.com/icons/layer-arrow-up",
+      "files": [
+        {
+          "path": "icons/layer-arrow-up.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/layer-arrow-up.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/layer-boxes",
       "type": "registry:component",
       "title": "LayerBoxes",
@@ -15300,6 +16434,34 @@
           "path": "icons/layer-boxes.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/layer-boxes.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/layer-mask",
+      "type": "registry:component",
+      "title": "LayerMask",
+      "description": "LayerMask, the two-tone drawing of layer-mask on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layer-mask: https://keylineicons.com/icons/layer-mask",
+      "files": [
+        {
+          "path": "icons/layer-mask.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/layer-mask.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/layer-mask-off",
+      "type": "registry:component",
+      "title": "LayerMaskOff",
+      "description": "LayerMaskOff, the two-tone drawing of layer-mask-off on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layer-mask-off: https://keylineicons.com/icons/layer-mask-off",
+      "files": [
+        {
+          "path": "icons/layer-mask-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/layer-mask-off.tsx"
         }
       ]
     },
@@ -15374,6 +16536,62 @@
       ]
     },
     {
+      "name": "sharp/two-tone/layers-arrow-down",
+      "type": "registry:component",
+      "title": "LayersArrowDown",
+      "description": "LayersArrowDown, the two-tone drawing of layers-arrow-down on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layers-arrow-down: https://keylineicons.com/icons/layers-arrow-down",
+      "files": [
+        {
+          "path": "icons/layers-arrow-down.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/layers-arrow-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/layers-arrow-up",
+      "type": "registry:component",
+      "title": "LayersArrowUp",
+      "description": "LayersArrowUp, the two-tone drawing of layers-arrow-up on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layers-arrow-up: https://keylineicons.com/icons/layers-arrow-up",
+      "files": [
+        {
+          "path": "icons/layers-arrow-up.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/layers-arrow-up.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/layers-check",
+      "type": "registry:component",
+      "title": "LayersCheck",
+      "description": "LayersCheck, the two-tone drawing of layers-check on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layers-check: https://keylineicons.com/icons/layers-check",
+      "files": [
+        {
+          "path": "icons/layers-check.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/layers-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/layers-dashed",
+      "type": "registry:component",
+      "title": "LayersDashed",
+      "description": "LayersDashed, the two-tone drawing of layers-dashed on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layers-dashed: https://keylineicons.com/icons/layers-dashed",
+      "files": [
+        {
+          "path": "icons/layers-dashed.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/layers-dashed.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/layers-horizontal",
       "type": "registry:component",
       "title": "LayersHorizontal",
@@ -15384,6 +16602,76 @@
           "path": "icons/layers-horizontal.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/layers-horizontal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/layers-merge",
+      "type": "registry:component",
+      "title": "LayersMerge",
+      "description": "LayersMerge, the two-tone drawing of layers-merge on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layers-merge: https://keylineicons.com/icons/layers-merge",
+      "files": [
+        {
+          "path": "icons/layers-merge.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/layers-merge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/layers-minus",
+      "type": "registry:component",
+      "title": "LayersMinus",
+      "description": "LayersMinus, the two-tone drawing of layers-minus on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layers-minus: https://keylineicons.com/icons/layers-minus",
+      "files": [
+        {
+          "path": "icons/layers-minus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/layers-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/layers-plus",
+      "type": "registry:component",
+      "title": "LayersPlus",
+      "description": "LayersPlus, the two-tone drawing of layers-plus on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layers-plus: https://keylineicons.com/icons/layers-plus",
+      "files": [
+        {
+          "path": "icons/layers-plus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/layers-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/layers-sparkles",
+      "type": "registry:component",
+      "title": "LayersSparkles",
+      "description": "LayersSparkles, the two-tone drawing of layers-sparkles on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layers-sparkles: https://keylineicons.com/icons/layers-sparkles",
+      "files": [
+        {
+          "path": "icons/layers-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/layers-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/layers-x",
+      "type": "registry:component",
+      "title": "LayersX",
+      "description": "LayersX, the two-tone drawing of layers-x on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of layers-x: https://keylineicons.com/icons/layers-x",
+      "files": [
+        {
+          "path": "icons/layers-x.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/layers-x.tsx"
         }
       ]
     },
@@ -15468,6 +16756,20 @@
           "path": "icons/less-than-equal.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/less-than-equal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/letter-spacing",
+      "type": "registry:component",
+      "title": "LetterSpacing",
+      "description": "LetterSpacing, the two-tone drawing of letter-spacing on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of letter-spacing: https://keylineicons.com/icons/letter-spacing",
+      "files": [
+        {
+          "path": "icons/letter-spacing.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/letter-spacing.tsx"
         }
       ]
     },
@@ -15748,6 +17050,20 @@
           "path": "icons/list-filter.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/list-filter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/list-filter-x",
+      "type": "registry:component",
+      "title": "ListFilterX",
+      "description": "ListFilterX, the two-tone drawing of list-filter-x on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of list-filter-x: https://keylineicons.com/icons/list-filter-x",
+      "files": [
+        {
+          "path": "icons/list-filter-x.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/list-filter-x.tsx"
         }
       ]
     },
@@ -16466,6 +17782,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/math-symbols",
+      "type": "registry:component",
+      "title": "MathSymbols",
+      "description": "MathSymbols, the two-tone drawing of math-symbols on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of math-symbols: https://keylineicons.com/icons/math-symbols",
+      "files": [
+        {
+          "path": "icons/math-symbols.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/math-symbols.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/maximize",
       "type": "registry:component",
       "title": "Maximize",
@@ -16760,6 +18090,34 @@
       ]
     },
     {
+      "name": "sharp/two-tone/message-square-alert",
+      "type": "registry:component",
+      "title": "MessageSquareAlert",
+      "description": "MessageSquareAlert, the two-tone drawing of message-square-alert on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of message-square-alert: https://keylineicons.com/icons/message-square-alert",
+      "files": [
+        {
+          "path": "icons/message-square-alert.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/message-square-alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/message-square-arrow-up-right",
+      "type": "registry:component",
+      "title": "MessageSquareArrowUpRight",
+      "description": "MessageSquareArrowUpRight, the two-tone drawing of message-square-arrow-up-right on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of message-square-arrow-up-right: https://keylineicons.com/icons/message-square-arrow-up-right",
+      "files": [
+        {
+          "path": "icons/message-square-arrow-up-right.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/message-square-arrow-up-right.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/message-square-check",
       "type": "registry:component",
       "title": "MessageSquareCheck",
@@ -16812,6 +18170,20 @@
           "path": "icons/message-square-lines.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/message-square-lines.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/message-square-lock",
+      "type": "registry:component",
+      "title": "MessageSquareLock",
+      "description": "MessageSquareLock, the two-tone drawing of message-square-lock on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of message-square-lock: https://keylineicons.com/icons/message-square-lock",
+      "files": [
+        {
+          "path": "icons/message-square-lock.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/message-square-lock.tsx"
         }
       ]
     },
@@ -17194,6 +18566,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/monitor-2-activity",
+      "type": "registry:component",
+      "title": "Monitor2Activity",
+      "description": "Monitor2Activity, the two-tone drawing of monitor-2-activity on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-activity: https://keylineicons.com/icons/monitor-2-activity",
+      "files": [
+        {
+          "path": "icons/monitor-2-activity.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/monitor-2-activity.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/monitor-2-arrow-down",
       "type": "registry:component",
       "title": "Monitor2ArrowDown",
@@ -17334,6 +18720,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/monitor-2-return",
+      "type": "registry:component",
+      "title": "Monitor2Return",
+      "description": "Monitor2Return, the two-tone drawing of monitor-2-return on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-return: https://keylineicons.com/icons/monitor-2-return",
+      "files": [
+        {
+          "path": "icons/monitor-2-return.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/monitor-2-return.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/monitor-2-stop",
       "type": "registry:component",
       "title": "Monitor2Stop",
@@ -17348,6 +18748,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/monitor-2-user",
+      "type": "registry:component",
+      "title": "Monitor2User",
+      "description": "Monitor2User, the two-tone drawing of monitor-2-user on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-user: https://keylineicons.com/icons/monitor-2-user",
+      "files": [
+        {
+          "path": "icons/monitor-2-user.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/monitor-2-user.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/monitor-2-x",
       "type": "registry:component",
       "title": "Monitor2X",
@@ -17358,6 +18772,20 @@
           "path": "icons/monitor-2-x.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/monitor-2-x.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/monitor-2-zap",
+      "type": "registry:component",
+      "title": "Monitor2Zap",
+      "description": "Monitor2Zap, the two-tone drawing of monitor-2-zap on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of monitor-2-zap: https://keylineicons.com/icons/monitor-2-zap",
+      "files": [
+        {
+          "path": "icons/monitor-2-zap.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/monitor-2-zap.tsx"
         }
       ]
     },
@@ -17624,6 +19052,20 @@
           "path": "icons/move-3d.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/move-3d.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/move-dashed-panel",
+      "type": "registry:component",
+      "title": "MoveDashedPanel",
+      "description": "MoveDashedPanel, the two-tone drawing of move-dashed-panel on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of move-dashed-panel: https://keylineicons.com/icons/move-dashed-panel",
+      "files": [
+        {
+          "path": "icons/move-dashed-panel.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/move-dashed-panel.tsx"
         }
       ]
     },
@@ -18776,6 +20218,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/parallelogram",
+      "type": "registry:component",
+      "title": "Parallelogram",
+      "description": "Parallelogram, the two-tone drawing of parallelogram on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of parallelogram: https://keylineicons.com/icons/parallelogram",
+      "files": [
+        {
+          "path": "icons/parallelogram.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/parallelogram.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/parasol",
       "type": "registry:component",
       "title": "Parasol",
@@ -19098,6 +20554,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/person-standing",
+      "type": "registry:component",
+      "title": "PersonStanding",
+      "description": "PersonStanding, the two-tone drawing of person-standing on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of person-standing: https://keylineicons.com/icons/person-standing",
+      "files": [
+        {
+          "path": "icons/person-standing.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/person-standing.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/perspective",
       "type": "registry:component",
       "title": "Perspective",
@@ -19304,6 +20774,20 @@
           "path": "icons/piggy-bank.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/piggy-bank.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/pilcrow",
+      "type": "registry:component",
+      "title": "Pilcrow",
+      "description": "Pilcrow, the two-tone drawing of pilcrow on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of pilcrow: https://keylineicons.com/icons/pilcrow",
+      "files": [
+        {
+          "path": "icons/pilcrow.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/pilcrow.tsx"
         }
       ]
     },
@@ -20228,6 +21712,20 @@
           "path": "icons/refresh-ccw.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/refresh-ccw.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/refresh-ccw-dot",
+      "type": "registry:component",
+      "title": "RefreshCcwDot",
+      "description": "RefreshCcwDot, the two-tone drawing of refresh-ccw-dot on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of refresh-ccw-dot: https://keylineicons.com/icons/refresh-ccw-dot",
+      "files": [
+        {
+          "path": "icons/refresh-ccw-dot.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/refresh-ccw-dot.tsx"
         }
       ]
     },
@@ -21170,6 +22668,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/scroll",
+      "type": "registry:component",
+      "title": "Scroll",
+      "description": "Scroll, the two-tone drawing of scroll on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of scroll: https://keylineicons.com/icons/scroll",
+      "files": [
+        {
+          "path": "icons/scroll.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/scroll.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/search",
       "type": "registry:component",
       "title": "Search",
@@ -21474,6 +22986,20 @@
           "path": "icons/send-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/send-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/separator-horizontal",
+      "type": "registry:component",
+      "title": "SeparatorHorizontal",
+      "description": "SeparatorHorizontal, the two-tone drawing of separator-horizontal on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of separator-horizontal: https://keylineicons.com/icons/separator-horizontal",
+      "files": [
+        {
+          "path": "icons/separator-horizontal.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/separator-horizontal.tsx"
         }
       ]
     },
@@ -22104,6 +23630,20 @@
           "path": "icons/shuffle-2.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/shuffle-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/shuffle-sparkles",
+      "type": "registry:component",
+      "title": "ShuffleSparkles",
+      "description": "ShuffleSparkles, the two-tone drawing of shuffle-sparkles on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of shuffle-sparkles: https://keylineicons.com/icons/shuffle-sparkles",
+      "files": [
+        {
+          "path": "icons/shuffle-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/shuffle-sparkles.tsx"
         }
       ]
     },
@@ -22916,6 +24456,20 @@
           "path": "icons/spell-check.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/spell-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/spline",
+      "type": "registry:component",
+      "title": "Spline",
+      "description": "Spline, the two-tone drawing of spline on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of spline: https://keylineicons.com/icons/spline",
+      "files": [
+        {
+          "path": "icons/spline.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/spline.tsx"
         }
       ]
     },
@@ -24040,6 +25594,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/square-round-corner",
+      "type": "registry:component",
+      "title": "SquareRoundCorner",
+      "description": "SquareRoundCorner, the two-tone drawing of square-round-corner on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-round-corner: https://keylineicons.com/icons/square-round-corner",
+      "files": [
+        {
+          "path": "icons/square-round-corner.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/square-round-corner.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/square-sigma",
       "type": "registry:component",
       "title": "SquareSigma",
@@ -24246,6 +25814,62 @@
           "path": "icons/square-zap.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/square-zap.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/squares-exclude",
+      "type": "registry:component",
+      "title": "SquaresExclude",
+      "description": "SquaresExclude, the two-tone drawing of squares-exclude on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of squares-exclude: https://keylineicons.com/icons/squares-exclude",
+      "files": [
+        {
+          "path": "icons/squares-exclude.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/squares-exclude.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/squares-intersect",
+      "type": "registry:component",
+      "title": "SquaresIntersect",
+      "description": "SquaresIntersect, the two-tone drawing of squares-intersect on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of squares-intersect: https://keylineicons.com/icons/squares-intersect",
+      "files": [
+        {
+          "path": "icons/squares-intersect.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/squares-intersect.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/squares-subtract",
+      "type": "registry:component",
+      "title": "SquaresSubtract",
+      "description": "SquaresSubtract, the two-tone drawing of squares-subtract on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of squares-subtract: https://keylineicons.com/icons/squares-subtract",
+      "files": [
+        {
+          "path": "icons/squares-subtract.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/squares-subtract.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/squares-unite",
+      "type": "registry:component",
+      "title": "SquaresUnite",
+      "description": "SquaresUnite, the two-tone drawing of squares-unite on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of squares-unite: https://keylineicons.com/icons/squares-unite",
+      "files": [
+        {
+          "path": "icons/squares-unite.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/squares-unite.tsx"
         }
       ]
     },
@@ -24530,6 +26154,48 @@
       ]
     },
     {
+      "name": "sharp/two-tone/stroke-line-join-bevel",
+      "type": "registry:component",
+      "title": "StrokeLineJoinBevel",
+      "description": "StrokeLineJoinBevel, the two-tone drawing of stroke-line-join-bevel on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of stroke-line-join-bevel: https://keylineicons.com/icons/stroke-line-join-bevel",
+      "files": [
+        {
+          "path": "icons/stroke-line-join-bevel.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/stroke-line-join-bevel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/stroke-line-join-miter",
+      "type": "registry:component",
+      "title": "StrokeLineJoinMiter",
+      "description": "StrokeLineJoinMiter, the two-tone drawing of stroke-line-join-miter on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of stroke-line-join-miter: https://keylineicons.com/icons/stroke-line-join-miter",
+      "files": [
+        {
+          "path": "icons/stroke-line-join-miter.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/stroke-line-join-miter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/stroke-line-join-round",
+      "type": "registry:component",
+      "title": "StrokeLineJoinRound",
+      "description": "StrokeLineJoinRound, the two-tone drawing of stroke-line-join-round on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of stroke-line-join-round: https://keylineicons.com/icons/stroke-line-join-round",
+      "files": [
+        {
+          "path": "icons/stroke-line-join-round.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/stroke-line-join-round.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/stroller",
       "type": "registry:component",
       "title": "Stroller",
@@ -24540,6 +26206,20 @@
           "path": "icons/stroller.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/stroller.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/subscript",
+      "type": "registry:component",
+      "title": "Subscript",
+      "description": "Subscript, the two-tone drawing of subscript on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of subscript: https://keylineicons.com/icons/subscript",
+      "files": [
+        {
+          "path": "icons/subscript.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/subscript.tsx"
         }
       ]
     },
@@ -24740,6 +26420,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/superscript",
+      "type": "registry:component",
+      "title": "Superscript",
+      "description": "Superscript, the two-tone drawing of superscript on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of superscript: https://keylineicons.com/icons/superscript",
+      "files": [
+        {
+          "path": "icons/superscript.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/superscript.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/swatch-book",
       "type": "registry:component",
       "title": "SwatchBook",
@@ -24764,6 +26458,34 @@
           "path": "icons/swiss-franc.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/swiss-franc.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/sword",
+      "type": "registry:component",
+      "title": "Sword",
+      "description": "Sword, the two-tone drawing of sword on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of sword: https://keylineicons.com/icons/sword",
+      "files": [
+        {
+          "path": "icons/sword.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/sword.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/swords",
+      "type": "registry:component",
+      "title": "Swords",
+      "description": "Swords, the two-tone drawing of swords on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of swords: https://keylineicons.com/icons/swords",
+      "files": [
+        {
+          "path": "icons/swords.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/swords.tsx"
         }
       ]
     },
@@ -24922,6 +26644,34 @@
       ]
     },
     {
+      "name": "sharp/two-tone/table-columns-move-after",
+      "type": "registry:component",
+      "title": "TableColumnsMoveAfter",
+      "description": "TableColumnsMoveAfter, the two-tone drawing of table-columns-move-after on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of table-columns-move-after: https://keylineicons.com/icons/table-columns-move-after",
+      "files": [
+        {
+          "path": "icons/table-columns-move-after.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/table-columns-move-after.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/table-columns-move-before",
+      "type": "registry:component",
+      "title": "TableColumnsMoveBefore",
+      "description": "TableColumnsMoveBefore, the two-tone drawing of table-columns-move-before on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of table-columns-move-before: https://keylineicons.com/icons/table-columns-move-before",
+      "files": [
+        {
+          "path": "icons/table-columns-move-before.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/table-columns-move-before.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/table-columns-remove-after",
       "type": "registry:component",
       "title": "TableColumnsRemoveAfter",
@@ -25044,6 +26794,34 @@
           "path": "icons/table-rows-merge-previous.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/table-rows-merge-previous.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/table-rows-move-down",
+      "type": "registry:component",
+      "title": "TableRowsMoveDown",
+      "description": "TableRowsMoveDown, the two-tone drawing of table-rows-move-down on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of table-rows-move-down: https://keylineicons.com/icons/table-rows-move-down",
+      "files": [
+        {
+          "path": "icons/table-rows-move-down.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/table-rows-move-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/table-rows-move-up",
+      "type": "registry:component",
+      "title": "TableRowsMoveUp",
+      "description": "TableRowsMoveUp, the two-tone drawing of table-rows-move-up on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of table-rows-move-up: https://keylineicons.com/icons/table-rows-move-up",
+      "files": [
+        {
+          "path": "icons/table-rows-move-up.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/table-rows-move-up.tsx"
         }
       ]
     },
@@ -25454,6 +27232,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/target-arrow",
+      "type": "registry:component",
+      "title": "TargetArrow",
+      "description": "TargetArrow, the two-tone drawing of target-arrow on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of target-arrow: https://keylineicons.com/icons/target-arrow",
+      "files": [
+        {
+          "path": "icons/target-arrow.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/target-arrow.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/teacher",
       "type": "registry:component",
       "title": "Teacher",
@@ -25646,6 +27438,20 @@
           "path": "icons/terminal-cursor.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/terminal-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/terminal-lock",
+      "type": "registry:component",
+      "title": "TerminalLock",
+      "description": "TerminalLock, the two-tone drawing of terminal-lock on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of terminal-lock: https://keylineicons.com/icons/terminal-lock",
+      "files": [
+        {
+          "path": "icons/terminal-lock.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/terminal-lock.tsx"
         }
       ]
     },
@@ -25930,6 +27736,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/text-wrap",
+      "type": "registry:component",
+      "title": "TextWrap",
+      "description": "TextWrap, the two-tone drawing of text-wrap on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of text-wrap: https://keylineicons.com/icons/text-wrap",
+      "files": [
+        {
+          "path": "icons/text-wrap.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/text-wrap.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/thermometer",
       "type": "registry:component",
       "title": "Thermometer",
@@ -26122,6 +27942,20 @@
           "path": "icons/toolbox.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/toolbox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/tools",
+      "type": "registry:component",
+      "title": "Tools",
+      "description": "Tools, the two-tone drawing of tools on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of tools: https://keylineicons.com/icons/tools",
+      "files": [
+        {
+          "path": "icons/tools.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/tools.tsx"
         }
       ]
     },
@@ -26924,6 +28758,48 @@
       ]
     },
     {
+      "name": "sharp/two-tone/unfold-horizontal",
+      "type": "registry:component",
+      "title": "UnfoldHorizontal",
+      "description": "UnfoldHorizontal, the two-tone drawing of unfold-horizontal on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of unfold-horizontal: https://keylineicons.com/icons/unfold-horizontal",
+      "files": [
+        {
+          "path": "icons/unfold-horizontal.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/unfold-horizontal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/unfold-vertical",
+      "type": "registry:component",
+      "title": "UnfoldVertical",
+      "description": "UnfoldVertical, the two-tone drawing of unfold-vertical on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of unfold-vertical: https://keylineicons.com/icons/unfold-vertical",
+      "files": [
+        {
+          "path": "icons/unfold-vertical.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/unfold-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/ungroup",
+      "type": "registry:component",
+      "title": "Ungroup",
+      "description": "Ungroup, the two-tone drawing of ungroup on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of ungroup: https://keylineicons.com/icons/ungroup",
+      "files": [
+        {
+          "path": "icons/ungroup.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/ungroup.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/unlink",
       "type": "registry:component",
       "title": "Unlink",
@@ -27022,6 +28898,48 @@
       ]
     },
     {
+      "name": "sharp/two-tone/user-alert",
+      "type": "registry:component",
+      "title": "UserAlert",
+      "description": "UserAlert, the two-tone drawing of user-alert on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of user-alert: https://keylineicons.com/icons/user-alert",
+      "files": [
+        {
+          "path": "icons/user-alert.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/user-alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/user-arrow-left",
+      "type": "registry:component",
+      "title": "UserArrowLeft",
+      "description": "UserArrowLeft, the two-tone drawing of user-arrow-left on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of user-arrow-left: https://keylineicons.com/icons/user-arrow-left",
+      "files": [
+        {
+          "path": "icons/user-arrow-left.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/user-arrow-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/user-arrow-right",
+      "type": "registry:component",
+      "title": "UserArrowRight",
+      "description": "UserArrowRight, the two-tone drawing of user-arrow-right on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of user-arrow-right: https://keylineicons.com/icons/user-arrow-right",
+      "files": [
+        {
+          "path": "icons/user-arrow-right.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/user-arrow-right.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/user-check",
       "type": "registry:component",
       "title": "UserCheck",
@@ -27046,6 +28964,20 @@
           "path": "icons/user-cog.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/user-cog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/user-cursor",
+      "type": "registry:component",
+      "title": "UserCursor",
+      "description": "UserCursor, the two-tone drawing of user-cursor on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of user-cursor: https://keylineicons.com/icons/user-cursor",
+      "files": [
+        {
+          "path": "icons/user-cursor.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/user-cursor.tsx"
         }
       ]
     },
@@ -27204,6 +29136,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/user-unlock",
+      "type": "registry:component",
+      "title": "UserUnlock",
+      "description": "UserUnlock, the two-tone drawing of user-unlock on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of user-unlock: https://keylineicons.com/icons/user-unlock",
+      "files": [
+        {
+          "path": "icons/user-unlock.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/user-unlock.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/user-voice",
       "type": "registry:component",
       "title": "UserVoice",
@@ -27256,6 +29202,20 @@
           "path": "icons/users.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/users.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/users-3",
+      "type": "registry:component",
+      "title": "Users3",
+      "description": "Users3, the two-tone drawing of users-3 on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of users-3: https://keylineicons.com/icons/users-3",
+      "files": [
+        {
+          "path": "icons/users-3.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/users-3.tsx"
         }
       ]
     },
@@ -27316,6 +29276,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/vector-distort",
+      "type": "registry:component",
+      "title": "VectorDistort",
+      "description": "VectorDistort, the two-tone drawing of vector-distort on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of vector-distort: https://keylineicons.com/icons/vector-distort",
+      "files": [
+        {
+          "path": "icons/vector-distort.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/vector-distort.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/vector-polygon",
       "type": "registry:component",
       "title": "VectorPolygon",
@@ -27326,6 +29300,20 @@
           "path": "icons/vector-polygon.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/vector-polygon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/vector-skew",
+      "type": "registry:component",
+      "title": "VectorSkew",
+      "description": "VectorSkew, the two-tone drawing of vector-skew on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of vector-skew: https://keylineicons.com/icons/vector-skew",
+      "files": [
+        {
+          "path": "icons/vector-skew.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/vector-skew.tsx"
         }
       ]
     },
@@ -27648,6 +29636,20 @@
           "path": "icons/watch.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/watch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/wave-square",
+      "type": "registry:component",
+      "title": "WaveSquare",
+      "description": "WaveSquare, the two-tone drawing of wave-square on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of wave-square: https://keylineicons.com/icons/wave-square",
+      "files": [
+        {
+          "path": "icons/wave-square.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/wave-square.tsx"
         }
       ]
     },
@@ -28100,6 +30102,20 @@
       ]
     },
     {
+      "name": "sharp/two-tone/wrench-sparkles",
+      "type": "registry:component",
+      "title": "WrenchSparkles",
+      "description": "WrenchSparkles, the two-tone drawing of wrench-sparkles on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of wrench-sparkles: https://keylineicons.com/icons/wrench-sparkles",
+      "files": [
+        {
+          "path": "icons/wrench-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/wrench-sparkles.tsx"
+        }
+      ]
+    },
+    {
       "name": "sharp/two-tone/x",
       "type": "registry:component",
       "title": "X",
@@ -28180,6 +30196,174 @@
           "path": "icons/zap-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/sharp/two-tone/zap-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/zodiac-aquarius",
+      "type": "registry:component",
+      "title": "ZodiacAquarius",
+      "description": "ZodiacAquarius, the two-tone drawing of zodiac-aquarius on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of zodiac-aquarius: https://keylineicons.com/icons/zodiac-aquarius",
+      "files": [
+        {
+          "path": "icons/zodiac-aquarius.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/zodiac-aquarius.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/zodiac-aries",
+      "type": "registry:component",
+      "title": "ZodiacAries",
+      "description": "ZodiacAries, the two-tone drawing of zodiac-aries on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of zodiac-aries: https://keylineicons.com/icons/zodiac-aries",
+      "files": [
+        {
+          "path": "icons/zodiac-aries.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/zodiac-aries.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/zodiac-cancer",
+      "type": "registry:component",
+      "title": "ZodiacCancer",
+      "description": "ZodiacCancer, the two-tone drawing of zodiac-cancer on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of zodiac-cancer: https://keylineicons.com/icons/zodiac-cancer",
+      "files": [
+        {
+          "path": "icons/zodiac-cancer.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/zodiac-cancer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/zodiac-capricorn",
+      "type": "registry:component",
+      "title": "ZodiacCapricorn",
+      "description": "ZodiacCapricorn, the two-tone drawing of zodiac-capricorn on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of zodiac-capricorn: https://keylineicons.com/icons/zodiac-capricorn",
+      "files": [
+        {
+          "path": "icons/zodiac-capricorn.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/zodiac-capricorn.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/zodiac-gemini",
+      "type": "registry:component",
+      "title": "ZodiacGemini",
+      "description": "ZodiacGemini, the two-tone drawing of zodiac-gemini on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of zodiac-gemini: https://keylineicons.com/icons/zodiac-gemini",
+      "files": [
+        {
+          "path": "icons/zodiac-gemini.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/zodiac-gemini.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/zodiac-leo",
+      "type": "registry:component",
+      "title": "ZodiacLeo",
+      "description": "ZodiacLeo, the two-tone drawing of zodiac-leo on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of zodiac-leo: https://keylineicons.com/icons/zodiac-leo",
+      "files": [
+        {
+          "path": "icons/zodiac-leo.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/zodiac-leo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/zodiac-libra",
+      "type": "registry:component",
+      "title": "ZodiacLibra",
+      "description": "ZodiacLibra, the two-tone drawing of zodiac-libra on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of zodiac-libra: https://keylineicons.com/icons/zodiac-libra",
+      "files": [
+        {
+          "path": "icons/zodiac-libra.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/zodiac-libra.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/zodiac-pisces",
+      "type": "registry:component",
+      "title": "ZodiacPisces",
+      "description": "ZodiacPisces, the two-tone drawing of zodiac-pisces on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of zodiac-pisces: https://keylineicons.com/icons/zodiac-pisces",
+      "files": [
+        {
+          "path": "icons/zodiac-pisces.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/zodiac-pisces.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/zodiac-sagittarius",
+      "type": "registry:component",
+      "title": "ZodiacSagittarius",
+      "description": "ZodiacSagittarius, the two-tone drawing of zodiac-sagittarius on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of zodiac-sagittarius: https://keylineicons.com/icons/zodiac-sagittarius",
+      "files": [
+        {
+          "path": "icons/zodiac-sagittarius.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/zodiac-sagittarius.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/zodiac-scorpio",
+      "type": "registry:component",
+      "title": "ZodiacScorpio",
+      "description": "ZodiacScorpio, the two-tone drawing of zodiac-scorpio on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of zodiac-scorpio: https://keylineicons.com/icons/zodiac-scorpio",
+      "files": [
+        {
+          "path": "icons/zodiac-scorpio.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/zodiac-scorpio.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/zodiac-taurus",
+      "type": "registry:component",
+      "title": "ZodiacTaurus",
+      "description": "ZodiacTaurus, the two-tone drawing of zodiac-taurus on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of zodiac-taurus: https://keylineicons.com/icons/zodiac-taurus",
+      "files": [
+        {
+          "path": "icons/zodiac-taurus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/zodiac-taurus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sharp/two-tone/zodiac-virgo",
+      "type": "registry:component",
+      "title": "ZodiacVirgo",
+      "description": "ZodiacVirgo, the two-tone drawing of zodiac-virgo on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of zodiac-virgo: https://keylineicons.com/icons/zodiac-virgo",
+      "files": [
+        {
+          "path": "icons/zodiac-virgo.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/sharp/two-tone/zodiac-virgo.tsx"
         }
       ]
     }

@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Sword({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M4.7322 14.318L9.6527 9.3975L15.2803 3.77C15.3985 3.6518 15.5444 3.5651 15.7047 3.5179L20.7178 2.0403C20.8096 2.0132 20.9048 1.9995 21.0005 1.9995C21.5528 1.9995 22.0005 2.4472 22.0005 2.9995C22.0005 3.0952 21.9868 3.1904 21.9597 3.2822L20.4821 8.2953C20.4349 8.4556 20.3482 8.6015 20.23 8.7197L9.682 19.2678Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M2.7071 13.7071L3 14L10 21L10.2929 21.2929M6.5 17.5L3 21L2.7071 21.2929"/>
+    </svg>
+  )
+}

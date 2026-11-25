@@ -2584,7 +2584,6 @@
     ],
     "bookmark": [
       "bookmark-minus",
-      "bookmark-x",
       "bookmark-filled"
     ],
     "bluetooth": [
@@ -2815,7 +2814,6 @@
       "heart-x"
     ],
     "image": [
-      "image-play",
       "image-upscale",
       "file-media"
     ],
@@ -2887,7 +2885,6 @@
       "message-square-diff",
       "message-square-exclamation-point",
       "message-square-heart",
-      "message-square-lock",
       "message-square-more",
       "message-square-quote",
       "message-square-reply",
@@ -2910,9 +2907,6 @@
     "pen": [
       "pen-tool",
       "pencil"
-    ],
-    "refresh-ccw": [
-      "refresh-ccw-dot"
     ],
     "repeat": [
       "repeat-2"

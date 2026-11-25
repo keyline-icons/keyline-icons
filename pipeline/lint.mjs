@@ -215,6 +215,20 @@ const SIZE_KNOWN = new Set([
   'hexagon',
   // Six petals on an equilateral hexagon (2.8.0): the hexagon's own proportion, so 22 tall makes it 20 wide.
   'flower',
+  // 3.1.0: the hex bolt's head and the eight- and twenty-sided dice stand on the same equilateral
+  // hexagon, ink 20 x 22 exactly as hexagon's, so they take its reason.
+  'bolt', 'dice-d8', 'dice-d20',
+  // 3.1.0: `user` verbatim and unmoved, 16 x 20 like `user` itself, with the alert's bar and dot in the
+  // empty corner above the shoulder. A sign two wide does not move its base (wifi-info keeps its own);
+  // the review round of 25 Nov 2026 ruled that, against the 3 left the corner signs take.
+  'user-alert',
+  // 3.1.0: layers-arrow-up's stack and arrow without the end bar (one step, not to the end), the same
+  // 22 x 20 box. The rounded half reads as landscape; without the bar the sharp half's stack leaves all
+  // four corners empty and classifies as a circle.
+  'layer-arrow-up', 'layer-arrow-down',
+  // 3.1.0: the slash runs corner to corner as on every -off, so the sharp half paints 1..23 both
+  // ways and classifies as a square: pen-off's reason, below.
+  'layer-mask-off',
   'bell', 'paperclip', 'wifi', 'wifi-info', 'wifi-exclamation',
   'repeat', 'repeat-1',
   'arrow-down-left', 'arrow-down-right', 'arrow-up-left', 'arrow-up-right',
@@ -286,6 +300,8 @@ const SIZE_KNOWN = new Set([
   // opened on the edge, falls through, which is why only sharp reports.
   'table-rows-add-above', 'table-rows-add-below', 'table-rows-remove-above', 'table-rows-remove-below',
   'table-columns-add-before', 'table-columns-add-after', 'table-columns-remove-before', 'table-columns-remove-after',
+  // 3.1.0: the moves keep the same frame with the arrow on the edge, the same reason
+  'table-columns-move-before', 'table-columns-move-after', 'table-rows-move-up', 'table-rows-move-down',
   // His alien of 28 Sep 2026: the head is an egg, taller than it is wide, and he
   // kept it 20 wide under its 22 over the 22 x 22 dome it was first drawn as, so
   // it paints 20 x 22 and reads as a circle.
@@ -481,6 +497,9 @@ const SKEW_KNOWN = new Set([
   'database-zap', 'home-zap', 'house-zap', 'server-zap',
   // 1.6.0's object compounds (an 8 box, bottom right, the body opened 2 clear) keep the family's 3 and 2
   'user-cog', 'user-heart', 'user-key', 'user-list', 'user-lock', 'user-message', 'user-pen', 'user-search', 'user-shield',
+  // 3.1.0: user-unlock is user-lock's plates and body verbatim, and the cursor and the two arrows take
+  // user-plus's place, so all four keep the family's 3 and 2
+  'user-arrow-left', 'user-arrow-right', 'user-cursor', 'user-unlock',
 ]);
 
 /**
@@ -557,6 +576,8 @@ const DERIVED_RADII = {
   // 3.0.0: the same growth on r = 1.5 corners (the martini bowl's point, the screwdriver handle's
   // end, the ice skate's heel and toe, the jacket's hem), and the armchair's r = 5 back grown to 6
   martini: [2.5], screwdriver: [2.5], 'ice-skate': [2.5], jacket: [2.5], armchair: [6],
+  // 3.1.0: the same growth on r = 1.5 corners, the gun's grip and the scroll's curls
+  gun: [2.5], scroll: [2.5],
 };
 
 /**
