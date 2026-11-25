@@ -124,6 +124,14 @@ Need icons drawn for your own product? Custom sets on the same grid, as SVG, Fig
 
 Changelog
 
+3.1.0
+156 new drawings, taking the set to 2,169 names and 17,352 SVGs, the largest update since the first.
+
+* Diagrams: the flowchart's shapes, from the terminator and the document to the manual input and the off-page link, the logic gates with the tri-state buffer, and a square wave
+* Design tools: the arrange menu, layer masks, group and ungroup, two squares united, subtracted, intersected and excluded, the three stroke joins, a spline, curves, blur, distort and skew, and kerning, letter spacing and baseline shift
+* Symbols: the twelve signs of the zodiac, drawn as their marks
+* And more: the tabletop dice from four sides to twenty, a sword, crossed swords, a pistol and an explosion, a gem, a scroll, a highlighter, a hex bolt and crossed tools, the three easing curves, a camera aperture, a standing figure, a frustrated face and one in sunglasses, and new states for books, terminals, conversations, users, clouds and the desktop display
+
 3.0.0
 73 new drawings, taking the set to 2,013 names and 16,104 SVGs, and a Symbols category for the peace sign and the yin and yang.
 
@@ -177,13 +185,6 @@ The settings gear has the ring at its centre again, in stroke and two-tone, wher
 * And more: a bus seen from the front, a tower between lower wings, a pencil across a set square, two bookmarks stacked, a briefcase with an arrow down, and a house and a square with sparkles
 
 Also redrawn: 47 drawings, most of them in duotone, where ten buildings now draw the door as a solid shape that stops short of the ground. Search for transport or transportation now finds every vehicle.
-
-2.3.0
-31 new drawings, taking the set to 1,654 names and 13,232 SVGs.
-
-* Home: the bath, the shower and a soap dispenser, a pump bottle and a spray can, the fridge, the oven, the microwave and the washing machine, an air vent and a safe
-* Transport and Maps: a sailboat, a caravan, a stroller and an electric car charger; a castle, a lighthouse, a barn and a tent
-* And more: a suitcase, a hotel's service bell, a coffee maker and its carafe, a cooking pot, a kettle grill, the cigarette and its no-smoking form, a wheelchair, a skier, a pool ladder and a capital A beside the text cursor
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
@@ -770,6 +771,14 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+v3.1.0
+156 new drawings, taking the set to 2,169 names and 17,352 SVGs, the largest update since the first. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
+
+* Diagrams: the flowchart's shapes, from the terminator and the document to the manual input and the off-page link, the logic gates with the tri-state buffer, and a square wave
+* Design tools: the arrange menu, layer masks, group and ungroup, two squares united, subtracted, intersected and excluded, the three stroke joins, a spline, curves, blur, distort and skew, and kerning, letter spacing and baseline shift
+* Symbols: the twelve signs of the zodiac, drawn as their marks
+* And more: the tabletop dice from four sides to twenty, a sword, crossed swords, a pistol and an explosion, a gem, a scroll, a highlighter, a hex bolt and crossed tools, the three easing curves, a camera aperture, a standing figure, a frustrated face and one in sunglasses, and new states for books, terminals, conversations, users, clouds and the desktop display
+
 v3.0.0
 73 new drawings, taking the set to 2,013 names and 16,104 SVGs, and a Symbols category on the Catalog page for the peace sign and the yin and yang. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
 
@@ -821,13 +830,6 @@ v2.6.0
 
 Also redrawn: 47 drawings, most of them in duotone, where ten buildings now draw the door as a solid shape that stops short of the ground. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
 
-v2.3.0
-31 new drawings. The set is 1,654 names now, 1,515 component sets and 13,232 variants, up from 1,623 and 12,984. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
-
-* Home: the bath, the shower and a soap dispenser, a pump bottle and a spray can, the fridge, the oven, the microwave and the washing machine, an air vent and a safe
-* Transport and Maps: a sailboat, a caravan, a stroller and an electric car charger; a castle, a lighthouse, a barn and a tent
-* And more: a suitcase, a hotel's service bell, a coffee maker and its carafe, a cooking pot, a kettle grill, the cigarette and its no-smoking form, a wheelchair, a skier, a pool ladder and a capital A beside the text cursor
-
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
 
@@ -877,7 +879,9 @@ after), nothing on 19 Nov 2026 for the 2.8.0 entries (8,255 and 8,417), 2.1.0 fr
 plugin's and v2.1.0 from the file's on 21 Nov 2026 with the 2.9.0 entries
 (8,252 and 8,414 before the entries, 7,816 and 7,899 after), 2.2.0 from
 the plugin's and v2.2.0 from the file's on 24 Nov 2026 with the 3.0.0 entries
-(8,938 and 9,152 with them, 7,874 and 7,975 after), and a
+(8,938 and 9,152 with them, 7,874 and 7,975 after), 2.3.0 from the plugin's and
+v2.3.0 from the file's on 25 Nov 2026 with the 3.1.0 entries (8,826 and 9,038
+with them, 8,236 and 8,288 after), and a
 last line points at
 `keylineicons.com/changelog`, which keeps every release.
 
