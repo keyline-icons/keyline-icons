@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function PictureInPictureOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M20.8715 20.8715C20.5957 20.9551 20.3031 21 20 21L14 21C12.3432 21 11 19.6569 11 18L11 14C11 13.1716 11.3358 12.4216 11.8787 11.8787ZM21.2929 17.0502L16.9498 12.7071C16.7688 12.5262 16.6569 12.2762 16.6569 12C16.6569 11.4477 17.1046 11 17.6569 11L20 11C21.6569 11 23 12.3432 23 14L23 16.3431C23 16.8954 22.5523 17.3431 22 17.3431C21.7239 17.3431 21.4739 17.2312 21.2929 17.0502Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M22 8L22 7C22 5.3431 20.6569 4 19 4L9.6569 4M4.1285 4.1285C2.8967 4.5019 2 5.6462 2 7L2 17C2 18.6569 3.3432 20 5 20L8 20M2 2L22 22"/>
+    </svg>
+  )
+}

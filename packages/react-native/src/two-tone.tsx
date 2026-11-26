@@ -56,6 +56,15 @@ export function ATextCursor(props: IconProps) {
   )
 }
 
+export function Abacus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5 3V21M19 3V21M3 21H21M5 8H19M5 15H19" strokeOpacity={0.4} />
+      <Path d="M9 6.5V9.5M13 6.5V9.5M11 13.5V16.5M15 13.5V16.5" />
+    </Icon>
+  )
+}
+
 export function AccentGrave(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -175,6 +184,15 @@ export function AlarmClock(props: IconProps) {
   )
 }
 
+export function AlertDouble(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M9 5V15M15 5V15" />
+      <Path d="M10 19C10 19.5523 9.552 20 9 20C8.448 20 8 19.5523 8 19C8 18.4477 8.448 18 9 18C9.552 18 10 18.4477 10 19ZM16 19C16 19.5523 15.552 20 15 20C14.448 20 14 19.5523 14 19C14 18.4477 14.448 18 15 18C15.552 18 16 18.4477 16 19Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function Alert(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -266,6 +284,15 @@ export function AlignHorizontalSpaceAround(props: IconProps) {
   )
 }
 
+export function AlignHorizontalSpaceBetween(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M4 1C4.5523 1 5 1.4477 5 2V6.1716C5.3212 6.058 5.6593 6 6 6H7C8.6569 6 10 7.3431 10 9V15C10 16.6569 8.6569 18 7 18H6C5.6593 18 5.3212 17.942 5 17.8284V22C5 22.5523 4.5523 23 4 23C3.4477 23 3 22.5523 3 22V2C3 1.4477 3.4477 1 4 1ZM20 1C19.4477 1 19 1.4477 19 2V6.1716C18.6788 6.058 18.3407 6 18 6H17C15.3431 6 14 7.3431 14 9V15C14 16.6569 15.3431 18 17 18H18C18.3407 18 18.6788 17.942 19 17.8284V22C19 22.5523 19.4477 23 20 23C20.5523 23 21 22.5523 21 22V2C21 1.4477 20.5523 1 20 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M20 2V22M4 2V22M4 9V15C4 16.1046 4.8954 17 6 17H7C8.1046 17 9 16.1046 9 15V9C9 7.8954 8.1046 7 7 7H6C4.8954 7 4 7.8954 4 9ZM15 9V15C15 16.1046 15.8954 17 17 17H18C19.1046 17 20 16.1046 20 15V9C20 7.8954 19.1046 7 18 7H17C15.8954 7 15 7.8954 15 9Z" />
+    </Icon>
+  )
+}
+
 export function AlignOffsetBottom(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -352,6 +379,15 @@ export function AlignVerticalSpaceAround(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M22 19C22.5523 19 23 19.448 23 20C23 20.552 22.5523 21 22 21H2C1.4477 21 1 20.552 1 20C1 19.448 1.4477 19 2 19H22ZM15 8C16.6489 8 18 9.341 18 11V13C18 14.657 16.656 16 15 16H9C7.3449 16 6 14.667 6 13V11C6 9.356 7.3327 8 9 8H15ZM22 3C22.5523 3 23 3.448 23 4C23 4.552 22.5523 5 22 5H2C1.4477 5 1 4.552 1 4C1 3.448 1.4477 3 2 3H22Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M22 20H2M22 4H2M15 9H9C7.8895 9 7 9.903 7 11V12V13C7 14.112 7.8948 15 9 15H15C16.1039 15 17 14.105 17 13V12V11C17 9.895 16.0986 9 15 9Z" />
+    </Icon>
+  )
+}
+
+export function AlignVerticalSpaceBetween(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M1 4C1 4.5523 1.4477 5 2 5H6.1716C6.058 5.3212 6 5.6593 6 6V7C6 8.6569 7.3431 10 9 10H15C16.6569 10 18 8.6569 18 7V6C18 5.6593 17.942 5.3212 17.8284 5H22C22.5523 5 23 4.5523 23 4C23 3.4477 22.5523 3 22 3H2C1.4477 3 1 3.4477 1 4ZM1 20C1 19.4477 1.4477 19 2 19H6.1716C6.058 18.6788 6 18.3407 6 18V17C6 15.3431 7.3431 14 9 14H15C16.6569 14 18 15.3431 18 17V18C18 18.3407 17.942 18.6788 17.8284 19H22C22.5523 19 23 19.4477 23 20C23 20.5523 22.5523 21 22 21H2C1.4477 21 1 20.5523 1 20Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M2 20H22M2 4H22M9 4H15C16.1046 4 17 4.8954 17 6V7C17 8.1046 16.1046 9 15 9H9C7.8954 9 7 8.1046 7 7V6C7 4.8954 7.8954 4 9 4ZM9 15H15C16.1046 15 17 15.8954 17 17V18C17 19.1046 16.1046 20 15 20H9C7.8954 20 7 19.1046 7 18V17C7 15.8954 7.8954 15 9 15Z" />
     </Icon>
   )
 }
@@ -455,12 +491,32 @@ export function AppWindow2(props: IconProps) {
   )
 }
 
+export function AppWindowCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M6 2H18C20.2091 2 22 3.7909 22 6V11C22 11.5523 21.5523 12 21 12H15C13.3431 12 12 13.3431 12 15V21C12 21.5523 11.5523 22 11 22H6C3.7909 22 2 20.2091 2 18V6C2 3.7909 3.7909 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M11 21H6C4.3432 21 3 19.6569 3 18V6C3 4.3432 4.3432 3 6 3H18C19.6569 3 21 4.3432 21 6V11M15 18L17 20L21 16" />
+      <Path d="M8 7C8 7.5523 7.5523 8 7 8C6.4477 8 6 7.5523 6 7C6 6.4477 6.4477 6 7 6C7.5523 6 8 6.4477 8 7ZM12 7C12 7.5523 11.5523 8 11 8C10.4477 8 10 7.5523 10 7C10 6.4477 10.4477 6 11 6C11.5523 6 12 6.4477 12 7ZM16 7C16 7.5523 15.5523 8 15 8C14.4477 8 14 7.5523 14 7C14 6.4477 14.4477 6 15 6C15.5523 6 16 6.4477 16 7Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function AppWindowCursor(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M15.3636 20.7825L13.0152 13.4061C12.9379 13.1634 13.1688 12.9356 13.4104 13.0161L20.7865 15.4719C21.0599 15.5629 21.0736 15.9444 20.8075 16.0548L17.6567 17.362C17.5847 17.3919 17.5265 17.4475 17.4934 17.518L15.9447 20.8204C15.8239 21.0779 15.4499 21.0535 15.3636 20.7825Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M11 21H6C4.34315 21 3 19.6569 3 18V6C3 4.34315 4.34315 3 6 3H18C19.6569 3 21 4.34315 21 6V11M15.3636 20.7825L13.0152 13.4061C12.9379 13.1634 13.1688 12.9356 13.4104 13.0161L20.7865 15.4719C21.0599 15.5629 21.0736 15.9444 20.8075 16.0548L17.6567 17.362C17.5847 17.3919 17.5265 17.4475 17.4934 17.518L15.9447 20.8204C15.8239 21.0779 15.4499 21.0535 15.3636 20.7825Z" />
       <Path d="M8 7C8 7.5523 7.5523 8 7 8C6.4477 8 6 7.5523 6 7C6 6.4477 6.4477 6 7 6C7.5523 6 8 6.4477 8 7ZM12 7C12 7.5523 11.5523 8 11 8C10.4477 8 10 7.5523 10 7C10 6.4477 10.4477 6 11 6C11.5523 6 12 6.4477 12 7ZM16 7C16 7.5523 15.5523 8 15 8C14.4477 8 14 7.5523 14 7C14 6.4477 14.4477 6 15 6C15.5523 6 16 6.4477 16 7Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function AppWindowFrown(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2H18C20.209 2 22 3.7908 22 6V18C22 20.2092 20.209 22 18 22H6C3.791 22 2 20.2092 2 18V6C2 3.7908 3.791 2 6 2H12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M9 17C10 16 11 15.5 12 15.5C13 15.5 14 16 15 17M6 3H18C19.657 3 21 4.3431 21 6V18C21 19.6569 19.657 21 18 21H6C4.343 21 3 19.6569 3 18V6C3 4.3431 4.343 3 6 3Z" />
+      <Path d="M8 7C8 7.5523 7.552 8 7 8C6.448 8 6 7.5523 6 7C6 6.4477 6.448 6 7 6C7.552 6 8 6.4477 8 7ZM12 7C12 7.5523 11.552 8 11 8C10.448 8 10 7.5523 10 7C10 6.4477 10.448 6 11 6C11.552 6 12 6.4477 12 7ZM16 7C16 7.5523 15.552 8 15 8C14.448 8 14 7.5523 14 7C14 6.4477 14.448 6 15 6C15.552 6 16 6.4477 16 7ZM10 11C10 11.5523 9.552 12 9 12C8.448 12 8 11.5523 8 11C8 10.4477 8.448 10 9 10C9.552 10 10 10.4477 10 11ZM16 11C16 11.5523 15.552 12 15 12C14.448 12 14 11.5523 14 11C14 10.4477 14.448 10 15 10C15.552 10 16 10.4477 16 11Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
     </Icon>
   )
 }
@@ -475,12 +531,31 @@ export function AppWindowMinus(props: IconProps) {
   )
 }
 
+export function AppWindowOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20.8284 20.8284C20.1046 21.5523 19.1046 22 18 22H6C3.7909 22 2 20.2091 2 18V6C2 4.8955 2.4477 3.8955 3.1716 3.1716L20.8284 20.8284ZM20.2929 16.0502L7.9498 3.7071C7.7688 3.5261 7.6569 3.2761 7.6569 3C7.6569 2.4477 8.1046 2 8.6569 2H18C20.2091 2 22 3.7909 22 6V15.3431C22 15.8954 21.5523 16.3431 21 16.3431C20.7239 16.3431 20.4739 16.2312 20.2929 16.0502Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M20.1213 20.1213C19.5785 20.6642 18.8285 21 18 21H6C4.3431 21 3 19.6569 3 18V6C3 5.1715 3.3358 4.4215 3.8787 3.8787M2 2L22 22" />
+    </Icon>
+  )
+}
+
 export function AppWindowPlus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M6 2H18C20.2091 2 22 3.79086 22 6V11C22 11.5523 21.5523 12 21 12H15C13.3431 12 12 13.3431 12 15V21C12 21.5523 11.5523 22 11 22H6C3.79086 22 2 20.2091 2 18V6C2 3.79086 3.79086 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M11 21H6C4.34315 21 3 19.6569 3 18V6C3 4.34315 4.34315 3 6 3H18C19.6569 3 21 4.34315 21 6V11M18 15V21M15 18H21" />
       <Path d="M8 7C8 7.5523 7.5523 8 7 8C6.4477 8 6 7.5523 6 7C6 6.4477 6.4477 6 7 6C7.5523 6 8 6.4477 8 7ZM12 7C12 7.5523 11.5523 8 11 8C10.4477 8 10 7.5523 10 7C10 6.4477 10.4477 6 11 6C11.5523 6 12 6.4477 12 7ZM16 7C16 7.5523 15.5523 8 15 8C14.4477 8 14 7.5523 14 7C14 6.4477 14.4477 6 15 6C15.5523 6 16 6.4477 16 7Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function AppWindowShield(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M11 21H6C4.34315 21 3 19.6569 3 18V6C3 4.34315 4.34315 3 6 3H18C19.6569 3 21 4.34315 21 6V9" strokeOpacity={0.4} />
+      <Path d="M8 7C8 7.5523 7.5523 8 7 8C6.4477 8 6 7.5523 6 7C6 6.4477 6.4477 6 7 6C7.5523 6 8 6.4477 8 7ZM12 7C12 7.5523 11.5523 8 11 8C10.4477 8 10 7.5523 10 7C10 6.4477 10.4477 6 11 6C11.5523 6 12 6.4477 12 7ZM16 7C16 7.5523 15.5523 8 15 8C14.4477 8 14 7.5523 14 7C14 6.4477 14.4477 6 15 6C15.5523 6 16 6.4477 16 7Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M14.5173 13.6362C15.6758 13.4987 16.5504 12.9203 17.0731 12.4133C17.2974 12.1956 17.7026 12.1956 17.9269 12.4133C18.4496 12.9203 19.3242 13.4987 20.4827 13.6362C20.7669 13.6699 21 13.8909 21 14.1675L21 16.8747C21 17.651 20.8736 18.4412 20.3928 19.0631C19.8667 19.7434 19.0327 20.5058 17.863 20.9355C17.6288 21.0215 17.3712 21.0215 17.137 20.9355C15.9673 20.5058 15.1332 19.7434 14.6073 19.0631C14.1264 18.4412 14 17.651 14 16.8747L14 14.1675C14 13.8909 14.2331 13.6699 14.5173 13.6362Z" />
     </Icon>
   )
 }
@@ -1443,6 +1518,15 @@ export function BadgeQuestion(props: IconProps) {
   )
 }
 
+export function BadgeStar(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M4.2218 4.2218C5.216 3.2276 6.5924 2.6109 8.1109 2.6109C9.1373 1.5844 10.5345 1 12 1C13.4655 1 14.8627 1.5844 15.8891 2.6109C18.9267 2.6109 21.3891 5.0733 21.3891 8.1109C22.4156 9.1373 23 10.5345 23 12C23 13.4655 22.4156 14.8627 21.3891 15.8891C21.3891 18.9267 18.9267 21.3891 15.8891 21.3891C14.8627 22.4156 13.4655 23 12 23C10.5345 23 9.1373 22.4156 8.1109 21.3891C5.0733 21.3891 2.6109 18.9267 2.6109 15.8891C1.5844 14.8627 1 13.4655 1 12C1 10.5345 1.5844 9.1373 2.6109 8.1109C2.6109 6.5924 3.2276 5.216 4.2218 4.2218Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M20.3692 8.5334C21.4021 9.3883 22 10.6592 22 12C22 13.3408 21.4021 14.6117 20.3692 15.4666C20.3825 15.6071 20.3891 15.748 20.3891 15.8891C20.3891 18.3744 18.3744 20.3891 15.8891 20.3891C15.748 20.3891 15.6071 20.3825 15.4666 20.3692C14.6117 21.4021 13.3408 22 12 22C10.6592 22 9.3883 21.4021 8.5334 20.3692C8.3929 20.3825 8.252 20.3891 8.1109 20.3891C5.6256 20.3891 3.6109 18.3744 3.6109 15.8891C3.6109 15.748 3.6175 15.6071 3.6308 15.4666C2.5979 14.6117 2 13.3408 2 12C2 10.6592 2.5979 9.3883 3.6308 8.5334C3.6175 8.3929 3.6109 8.252 3.6109 8.1109C3.6109 5.6256 5.6256 3.6109 8.1109 3.6109C8.252 3.6109 8.3929 3.6175 8.5334 3.6308C9.3883 2.5979 10.6592 2 12 2C13.3408 2 14.6117 2.5979 15.4666 3.6308C15.6071 3.6175 15.748 3.6109 15.8891 3.6109C18.3744 3.6109 20.3891 5.6256 20.3891 8.1109C20.3891 8.252 20.3825 8.3929 20.3692 8.5334ZM11.7739 7.1955C11.812 7.1044 11.9012 7.045 12 7.045C12.0989 7.045 12.188 7.1044 12.2261 7.1955L13.4063 10.0216C13.4417 10.1062 13.5215 10.164 13.6129 10.1713L16.6745 10.4157C16.8018 10.4259 16.9 10.5322 16.9 10.6599C16.9 10.7317 16.8685 10.7998 16.8141 10.8463L14.4828 12.8349C14.4283 12.8815 14.3969 12.9497 14.3969 13.0213C14.3969 13.0406 14.3991 13.0598 14.4036 13.0785L15.1161 16.053C15.1205 16.0716 15.1228 16.0908 15.1228 16.11C15.1228 16.2453 15.0131 16.355 14.8778 16.355C14.8329 16.355 14.7889 16.3427 14.7505 16.3193L12.1273 14.7237C12.089 14.7004 12.0449 14.688 12 14.688C11.9551 14.688 11.911 14.7004 11.8727 14.7237L9.2495 16.3193C9.2112 16.3427 9.1671 16.355 9.1222 16.355C8.9869 16.355 8.8772 16.2453 8.8772 16.11C8.8772 16.0908 8.8795 16.0716 8.884 16.053L9.5965 13.0785C9.6009 13.0598 9.6031 13.0406 9.6031 13.0213C9.6031 12.9497 9.5718 12.8815 9.5172 12.8349L7.186 10.8463C7.1315 10.7998 7.1 10.7317 7.1 10.6599C7.1 10.5322 7.1982 10.4259 7.3255 10.4157L10.3871 10.1713C10.4786 10.164 10.5583 10.1062 10.5937 10.0216L11.7739 7.1955Z" />
+    </Icon>
+  )
+}
+
 export function BadgeTerminal(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -1733,6 +1817,15 @@ export function BaselineShift(props: IconProps) {
   )
 }
 
+export function Baseline(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M6 17L11.065 3.6454C11.3914 2.7849 12.6086 2.7849 12.935 3.6454L18 17M7.5171 13H16.4829" strokeOpacity={0.4} />
+      <Path d="M3 21H21" />
+    </Icon>
+  )
+}
+
 export function Basketball(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -1960,6 +2053,15 @@ export function BellX(props: IconProps) {
   )
 }
 
+export function BellZ(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M10 2C10.6254 2 11.2303 2.0961 11.7996 2.2748C12.2166 2.4059 12.5 2.7922 12.5 3.2289L12.5 10C12.5 11.6569 13.8431 13 15.5 13L16.5729 13C16.9196 13 17.2416 13.1796 17.4238 13.4746C17.5426 13.667 17.6817 13.8927 17.7864 14.1174C17.8946 14.3497 18 14.6492 18 15C18 16.1046 17.1046 17 16 17L4 17C2.8954 17 2 16.1046 2 15C2 14.4387 2.2784 13.9674 2.455 13.673C2.6689 13.3166 2.8785 13.007 3.1056 12.5528C3.5331 11.6977 4 10.3517 4 8C4 4.6863 6.6863 2 10 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M16.5729 14C16.8223 14.4039 17 14.702 17 15C17 15.5523 16.5523 16 16 16L4 16C3.4477 16 3 15.5523 3 15C3 14 5 13 5 8C5 5.2386 7.2386 3 10 3C10.5226 3 11.0265 3.0802 11.5 3.2289M8.2679 20C8.6252 20.6188 9.2855 21 10 21C10.7145 21 11.3748 20.6188 11.7321 20M21 10H16.1466C15.71 10 15.4831 9.4797 15.7802 9.15977L20.7198 3.84023C21.0169 3.5203 20.79 3 20.3534 3H15.5" />
+    </Icon>
+  )
+}
+
 export function BellZap(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -2041,6 +2143,15 @@ export function Bin2(props: IconProps) {
   )
 }
 
+export function BinX(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5 6L19 6L19 19C19 21.2091 17.2091 23 15 23L9 23C6.7909 23 5 21.2091 5 19Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M10 2H14M4 7H20M6 7H18V19C18 20.6569 16.6569 22 15 22H9C7.34315 22 6 20.6569 6 19V7ZM10 13L14 17M14 13L10 17" />
+    </Icon>
+  )
+}
+
 export function Bin(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -2117,6 +2228,24 @@ export function BloodPressure(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M14.0024 1C15.8328 1 17.694 1.26 19.1313 1.739C19.8449 1.977 20.5138 2.288 21.0239 2.694C21.5218 3.091 21.9862 3.68 22.0005 4.463C22.0009 4.475 22.0024 4.488 22.0024 4.5V13.333C22.0024 13.644 21.9043 13.996 21.6509 14.286C20.9124 15.132 19.1765 16.332 16.5601 16.484C15.6721 16.536 15.0024 15.812 15.0024 15V7.489C15.0026 7.475 15.0037 7.461 15.0044 7.447C15.007 7.397 15.0131 7.347 15.023 7.299C15.0297 7.266 15.0375 7.234 15.0474 7.202C15.0977 7.041 15.1886 6.897 15.3071 6.782C15.3425 6.748 15.3808 6.717 15.4214 6.688C15.4402 6.674 15.4592 6.661 15.479 6.648C15.5095 6.63 15.5409 6.612 15.5737 6.597C15.6184 6.575 15.6659 6.556 15.7139 6.542C16.51 6.303 17.699 5.874 18.6685 5.374C19.1575 5.122 19.5447 4.874 19.7944 4.654C19.8929 4.567 19.9466 4.503 19.9771 4.463C19.9493 4.42 19.8935 4.351 19.7778 4.259C19.5224 4.056 19.0971 3.835 18.4985 3.636C17.3109 3.24 15.672 3 14.0024 3C12.3329 3 10.694 3.24 9.5063 3.636C8.9078 3.835 8.4825 4.056 8.2271 4.259C8.111 4.351 8.0545 4.42 8.0269 4.463C8.0573 4.503 8.1115 4.567 8.2105 4.654C8.4602 4.874 8.8473 5.122 9.3364 5.374C10.3059 5.874 11.4944 6.303 12.2905 6.542C12.3385 6.556 12.3855 6.575 12.4302 6.597C12.463 6.612 12.4944 6.63 12.5249 6.648C12.545 6.661 12.5644 6.674 12.5835 6.688C12.6241 6.717 12.6624 6.748 12.6978 6.782C12.8163 6.897 12.9072 7.041 12.9575 7.202C12.9674 7.234 12.9752 7.266 12.9819 7.299C12.9918 7.347 12.9969 7.397 12.9995 7.447C13.0004 7.463 13.0014 7.479 13.0015 7.495C13.0015 7.497 13.0024 7.498 13.0024 7.5V15C13.0024 15.812 12.3328 16.536 11.4448 16.484C9.158 16.351 7.5445 15.418 6.6812 14.62C6.0828 14.819 5.396 15.168 4.8599 15.629C4.1632 16.228 3.8931 16.845 4.0435 17.479C4.2143 18.198 4.7309 18.694 5.5942 19C6.3435 19.266 7.2813 19.353 8.2378 19.293L8.6089 18.553C8.8559 18.059 9.4559 17.859 9.9497 18.105C10.4433 18.353 10.6437 18.953 10.397 19.447L8.897 22.447C8.6501 22.941 8.0499 23.141 7.5562 22.895C7.0622 22.648 6.8619 22.047 7.1089 21.553L7.2349 21.3C6.4419 21.266 5.6487 21.141 4.9253 20.885C3.6324 20.426 2.4701 19.511 2.0972 17.94C1.7039 16.284 2.5672 14.962 3.5562 14.112C4.2893 13.482 5.1858 13.017 6.0024 12.739V4.5C6.0024 4.488 6.0039 4.475 6.0044 4.463C6.0187 3.68 6.4831 3.091 6.981 2.694C7.4911 2.288 8.1599 1.977 8.8735 1.739C10.3109 1.26 12.1721 1 14.0024 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M7.0014 4.5V13.333C7.0014 13.441 7.0353 13.548 7.1065 13.629C7.6738 14.279 9.1614 15.349 11.5015 15.486C11.7772 15.502 12.0014 15.276 12.0014 15V7.5C10.3347 7 7.0014 5.7 7.0014 4.5ZM7.0014 4.5C7.0014 3 10.5014 2 14.0014 2C17.5014 2 21.0014 3 21.0014 4.5M21.0014 4.5V13.333C21.0014 13.441 20.9675 13.548 20.8964 13.629C20.329 14.279 18.8414 15.349 16.5013 15.486C16.2256 15.502 16.0014 15.276 16.0014 15V7.5C17.6681 7 21.0014 5.7 21.0014 4.5ZM7.0014 13.5C5.3348 13.833 2.525 15.419 3.0687 17.71C3.6124 20 6.4251 20.531 8.8813 20.24M9.5014 19L8.8813 20.24L8.0014 22" />
+    </Icon>
+  )
+}
+
+export function BluetoothConnected(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M7 7L17 17L12 22V2L17 7L7 17" strokeOpacity={0.4} />
+      <Path d="M7 12C7 12.552 6.5523 13 6 13C5.4477 13 5 12.552 5 12C5 11.448 5.4477 11 6 11C6.5523 11 7 11.448 7 12ZM19 12C19 12.552 18.5523 13 18 13C17.4477 13 17 12.552 17 12C17 11.448 17.4477 11 18 11C18.5523 11 19 11.448 19 12Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
+export function BluetoothSearching(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M7 7L17 17L12 22V2L17 7L7 17" strokeOpacity={0.4} />
+      <Path d="M21.1652 8C21.7158 9.2617 22 10.6234 22 12C22 13.3766 21.7158 14.7383 21.1652 16M2.8348 8C2.2842 9.2617 2 10.6234 2 12C2 13.3766 2.2842 14.7383 2.8348 16" />
     </Icon>
   )
 }
@@ -2300,6 +2429,15 @@ export function BookmarkPlus(props: IconProps) {
   )
 }
 
+export function BookmarkStar(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 5C3 2.7909 4.7909 1 7 1L17 1C19.2091 1 21 2.7909 21 5L21 20.9983C21 22.5807 19.2495 23.532 17.9185 22.6807L12.2704 19.6926C12.1057 19.5867 11.8943 19.5867 11.7296 19.6926L6.0815 22.6807C4.7505 23.532 3 22.5807 3 20.9983Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M4 5C4 3.3431 5.3431 2 7 2L17 2C18.6569 2 20 3.3431 20 5L20 20.9983C20 21.7895 19.1248 22.2673 18.4592 21.8395L12.8111 18.8514C12.317 18.5338 11.683 18.5338 11.1889 18.8514L5.5408 21.8395C4.8752 22.2673 4 21.7895 4 20.9983ZM11.8154 6.8229C11.8466 6.7485 11.9194 6.7 12 6.7C12.0807 6.7 12.1534 6.7485 12.1846 6.8229L13.148 9.1298C13.1769 9.199 13.242 9.2462 13.3166 9.2521L15.8159 9.4516C15.9198 9.4599 16 9.5467 16 9.651C16 9.7095 15.9743 9.7651 15.9298 9.8031L14.0268 11.4265C13.9823 11.4645 13.9566 11.5202 13.9566 11.5786C13.9566 11.5944 13.9585 11.61 13.9622 11.6253L14.5438 14.0534C14.5474 14.0686 14.5492 14.0843 14.5492 14.1C14.5492 14.2105 14.4597 14.3 14.3492 14.3C14.3126 14.3 14.2766 14.2899 14.2453 14.2709L12.1039 12.9683C12.0726 12.9493 12.0366 12.9392 12 12.9392C11.9634 12.9392 11.9274 12.9493 11.8961 12.9683L9.7547 14.2709C9.7234 14.2899 9.6874 14.3 9.6508 14.3C9.5403 14.3 9.4508 14.2105 9.4508 14.1C9.4508 14.0843 9.4526 14.0686 9.4563 14.0534L10.0379 11.6253C10.0415 11.61 10.0434 11.5944 10.0434 11.5786C10.0434 11.5202 10.0178 11.4645 9.9732 11.4265L8.0702 9.8031C8.0257 9.7651 8 9.7095 8 9.651C8 9.5467 8.0802 9.4599 8.1841 9.4516L10.6834 9.2521C10.758 9.2462 10.8231 9.199 10.852 9.1298L11.8154 6.8229Z" />
+    </Icon>
+  )
+}
+
 export function BookmarkX(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -2336,6 +2474,51 @@ export function BoomBox(props: IconProps) {
   )
 }
 
+export function BorderBottom(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 6C3 4.34315 4.34315 3 6 3M10.5 3H13.5M18 3C19.6569 3 21 4.34315 21 6M21 10.5V13.5M3 13.5V10.5" strokeOpacity={0.4} />
+      <Path d="M21 18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18" />
+    </Icon>
+  )
+}
+
+export function BorderInside(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 6C3 4.34315 4.34315 3 6 3M18 3C19.6569 3 21 4.34315 21 6M21 18C21 19.6569 19.6569 21 18 21M6 21C4.34315 21 3 19.6569 3 18" strokeOpacity={0.4} />
+      <Path d="M10.5 3H13.5M21 10.5V13.5M13.5 21H10.5M3 13.5V10.5M12 3V21M3 12H21" />
+    </Icon>
+  )
+}
+
+export function BorderLeft(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M10.5 3H13.5M18 3C19.6569 3 21 4.34315 21 6M21 10.5V13.5M21 18C21 19.6569 19.6569 21 18 21M13.5 21H10.5" strokeOpacity={0.4} />
+      <Path d="M6 21C4.34315 21 3 19.6569 3 18V6C3 4.34315 4.34315 3 6 3" />
+    </Icon>
+  )
+}
+
+export function BorderRight(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 6C3 4.34315 4.34315 3 6 3M10.5 3H13.5M13.5 21H10.5M6 21C4.34315 21 3 19.6569 3 18M3 13.5V10.5" strokeOpacity={0.4} />
+      <Path d="M18 3C19.6569 3 21 4.34315 21 6V18C21 19.6569 19.6569 21 18 21" />
+    </Icon>
+  )
+}
+
+export function BorderTop(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M21 10.5V13.5M21 18C21 19.6569 19.6569 21 18 21M13.5 21H10.5M6 21C4.34315 21 3 19.6569 3 18M3 13.5V10.5" strokeOpacity={0.4} />
+      <Path d="M3 6C3 4.34315 4.34315 3 6 3H18C19.6569 3 21 4.34315 21 6" />
+    </Icon>
+  )
+}
+
 export function BotCircle(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -2362,6 +2545,16 @@ export function BotDroplet(props: IconProps) {
       <Path d="M19.2 8.6C20.3684 10.1579 21 12.0527 21 14C21 18.9706 16.9706 23 12 23C7.0294 23 3 18.9706 3 14C3 12.0527 3.6316 10.1579 4.8 8.6L9.6 2.2C10.1666 1.4446 11.0557 1 12 1C12.9443 1 13.8334 1.4446 14.4 2.2L19.2 8.6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M18.4 9.2C19.4386 10.5848 20 12.269 20 14C20 18.4183 16.4183 22 12 22C7.5817 22 4 18.4183 4 14C4 12.269 4.5614 10.5848 5.6 9.2L10.4 2.8C10.7777 2.2964 11.3705 2 12 2C12.6295 2 13.2223 2.2964 13.6 2.8L18.4 9.2Z" />
       <Path d="M10 11.6028L10.4521 14.5685M13.9543 11L14.4064 13.9657" />
+    </Icon>
+  )
+}
+
+export function BotFrown(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 7H17C19.2092 7 21 8.791 21 11V18C21 20.209 19.2092 22 17 22H7C4.7908 22 3 20.209 3 18V11C3 8.791 4.7908 7 7 7H12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 8V3.5M2 14.5H4M22 14.5H20M9 17C10 16 11 15.5 12 15.5C13 15.5 14 16 15 17M7 8H17C18.6569 8 20 9.343 20 11V18C20 19.657 18.6569 21 17 21H7C5.3431 21 4 19.657 4 18V11C4 9.343 5.3431 8 7 8Z" />
+      <Path d="M13.5 3.5C13.5 4.328 12.8284 5 12 5C11.1716 5 10.5 4.328 10.5 3.5C10.5 2.672 11.1716 2 12 2C12.8284 2 13.5 2.672 13.5 3.5ZM10 12C10 12.552 9.5523 13 9 13C8.4477 13 8 12.552 8 12C8 11.448 8.4477 11 9 11C9.5523 11 10 11.448 10 12ZM16 12C16 12.552 15.5523 13 15 13C14.4477 13 14 12.552 14 12C14 11.448 14.4477 11 15 11C15.5523 11 16 11.448 16 12Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
     </Icon>
   )
 }
@@ -2965,6 +3158,16 @@ export function Calculator(props: IconProps) {
   )
 }
 
+export function CalendarAlert(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M6 4H18C20.209 4 22 5.791 22 8V11C22 11.552 21.552 12 21 12H15C13.343 12 12 13.343 12 15V21C12 21.552 11.552 22 11 22H6C3.791 22 2 20.209 2 18V8C2 5.791 3.791 4 6 4Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M11 21H6C4.343 21 3 19.657 3 18V8C3 6.343 4.343 5 6 5H18C19.657 5 21 6.343 21 8V11M7 11H17M8 3V7M16 3V7M18 15V17" />
+      <Path d="M18 20C18.552 20 19 20.448 19 21C19 21.552 18.552 22 18 22C17.448 22 17 21.552 17 21C17 20.448 17.448 20 18 20Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function CalendarArrowDown(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -3019,12 +3222,30 @@ export function CalendarClock(props: IconProps) {
   )
 }
 
+export function CalendarCog(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M10 21H6C4.34315 21 3 19.6569 3 18V8C3 6.34315 4.34315 5 6 5H18C19.6569 5 21 6.34315 21 8V10M7 11H11M8 3V7M16 3V7" strokeOpacity={0.4} />
+      <Path d="M19.6667 17C19.6667 18.4728 18.4728 19.6667 17 19.6667C15.5272 19.6667 14.3333 18.4728 14.3333 17C14.3333 15.5272 15.5272 14.3333 17 14.3333C18.4728 14.3333 19.6667 15.5272 19.6667 17ZM20.5417 17H21M19.5043 19.5043L19.8284 19.8284M17 20.5417V21M14.4957 19.5043L14.1716 19.8284M13.4583 17H13M14.4957 14.4957L14.1716 14.1716M17 13.4583V13M19.5043 14.4957L19.8284 14.1716" />
+    </Icon>
+  )
+}
+
 export function CalendarDays(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M6 4L18 4C20.2091 4 22 5.79086 22 8L22 18C22 20.2091 20.2091 22 18 22L6 22C3.79086 22 2 20.2091 2 18L2 8C2 5.79086 3.79086 4 6 4Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M6 5L18 5C19.6569 5 21 6.34315 21 8L21 18C21 19.6569 19.6569 21 18 21L6 21C4.34315 21 3 19.6569 3 18L3 8C3 6.34315 4.34315 5 6 5ZM8 3L8 7M16 3L16 7" fill="none" />
       <Path d="M9 12C9 12.5523 8.5523 13 8 13C7.4477 13 7 12.5523 7 12C7 11.4477 7.4477 11 8 11C8.5523 11 9 11.4477 9 12ZM13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12ZM17 12C17 12.5523 16.5523 13 16 13C15.4477 13 15 12.5523 15 12C15 11.4477 15.4477 11 16 11C16.5523 11 17 11.4477 17 12ZM9 16C9 16.5523 8.5523 17 8 17C7.4477 17 7 16.5523 7 16C7 15.4477 7.4477 15 8 15C8.5523 15 9 15.4477 9 16ZM13 16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16C11 15.4477 11.4477 15 12 15C12.5523 15 13 15.4477 13 16ZM17 16C17 16.5523 16.5523 17 16 17C15.4477 17 15 16.5523 15 16C15 15.4477 15.4477 15 16 15C16.5523 15 17 15.4477 17 16Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
+export function CalendarLock(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M10 21H6C4.34315 21 3 19.6569 3 18V8C3 6.34315 4.34315 5 6 5H18C19.6569 5 21 6.34315 21 8V9M7 11H12M8 3V7M16 3V7" strokeOpacity={0.4} />
+      <Path d="M15 16H20C20.5523 16 21 16.4477 21 17V20C21 20.5523 20.5523 21 20 21H15C14.4477 21 14 20.5523 14 20V17C14 16.4477 14.4477 16 15 16ZM15.5 16V14C15.5 12.8954 16.3954 12 17.5 12C18.6046 12 19.5 12.8954 19.5 14V16" />
     </Icon>
   )
 }
@@ -3047,11 +3268,39 @@ export function CalendarOff(props: IconProps) {
   )
 }
 
+export function CalendarPen(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M14.7991 14.1769L16.8787 12.0973C17.4413 11.5348 18.2043 11.2186 19 11.2186C20.6569 11.2186 22 12.5618 22 14.2186C22 15.0143 21.684 15.7774 21.1213 16.34L16.9621 20.4991C16.7978 20.6634 16.5971 20.7878 16.3754 20.8616L13.1938 21.9222C12.6089 22.1172 12.0289 21.9299 11.6588 21.5597C11.2887 21.1896 11.1016 20.6096 11.2965 20.0248L12.3571 16.8428C12.4309 16.622 12.5546 16.4214 12.7195 16.2565Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M8.2464 21H6C4.34315 21 3 19.6569 3 18V8C3 6.34315 4.34315 5 6 5H18C19.6569 5 21 6.34315 21 8V8.5614M7 11H13M8 3V7M16 3V7M20.4142 15.6329L16.255 19.792C16.2001 19.8469 16.1332 19.8883 16.0596 19.9128L12.8776 20.9735C12.4867 21.1038 12.1149 20.7319 12.2452 20.341L13.3058 17.159C13.3304 17.0854 13.3717 17.0185 13.4266 16.9636L17.5858 12.8044C17.9609 12.4294 18.4696 12.2186 19 12.2186C20.1046 12.2186 21 13.1141 21 14.2186C21 14.7491 20.7893 15.2578 20.4142 15.6329Z" />
+    </Icon>
+  )
+}
+
 export function CalendarPlus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M6 4H18C20.2091 4 22 5.79086 22 8V11C22 11.5523 21.5523 12 21 12H15C13.3431 12 12 13.3431 12 15V21C12 21.5523 11.5523 22 11 22H6C3.79086 22 2 20.2091 2 18V8C2 5.79086 3.79086 4 6 4Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M11 21H6C4.34315 21 3 19.6569 3 18V8C3 6.34315 4.34315 5 6 5H18C19.6569 5 21 6.34315 21 8V11M7 11H17M8 3V7M16 3V7M18 15V21M15 18H21" />
+    </Icon>
+  )
+}
+
+export function CalendarQuestion(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M11 21H6C4.34315 21 3 19.6569 3 18V8C3 6.34315 4.34315 5 6 5H18C19.6569 5 21 6.34315 21 8V9M7 11H13M8 3V7M16 3V7" strokeOpacity={0.4} />
+      <Path d="M16.4 14.6C16.4 13.7164 17.1164 13 18 13C18.8836 13 19.6 13.7164 19.6 14.6C19.6 15.2459 19.2116 15.8285 18.6154 16.0769C18.2427 16.2322 18 16.5963 18 17" />
+      <Path d="M19 21C19 21.5523 18.5523 22 18 22C17.4477 22 17 21.5523 17 21C17 20.4477 17.4477 20 18 20C18.5523 20 19 20.4477 19 21Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function CalendarSearch(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M6 4L18 4C20.2091 4 22 5.7909 22 8L22 11C22 11.5523 21.5523 12 21 12L15 12C13.3431 12 12 13.3431 12 15L12 21C12 21.5523 11.5523 22 11 22L6 22C3.7909 22 2 20.2091 2 18L2 8C2 5.7909 3.7909 4 6 4Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M11 21H6C4.34315 21 3 19.6569 3 18V8C3 6.34315 4.34315 5 6 5H18C19.6569 5 21 6.34315 21 8V11M7 11H17M8 3V7M16 3V7M20 17.5C20 18.8807 18.8807 20 17.5 20C16.1193 20 15 18.8807 15 17.5C15 16.1193 16.1193 15 17.5 15C18.8807 15 20 16.1193 20 17.5ZM19.5 19.5L21 21" />
     </Icon>
   )
 }
@@ -3062,6 +3311,24 @@ export function CalendarSparkles(props: IconProps) {
       <Path d="M11 20L6 20C4.3431 20 3 18.6569 3 17L3 7C3 5.3431 4.3431 4 6 4L18 4C19.6569 4 21 5.3431 21 7L21 12M13 10L17 10M8 2L8 6M16 2L16 6" />
       <Path d="M18.5492 15.3739L19.1373 16.8648C19.3173 17.3213 19.6787 17.6827 20.1352 17.8627L21.6261 18.4508C21.8518 18.5397 22 18.7576 22 19C22 19.2424 21.8518 19.4603 21.6261 19.5492L20.1352 20.1373C19.6787 20.3173 19.3173 20.6787 19.1373 21.1352L18.5492 22.6261C18.4603 22.8518 18.2424 23 18 23C17.7576 23 17.5397 22.8518 17.4508 22.6261L16.8627 21.1352C16.6827 20.6787 16.3213 20.3173 15.8648 20.1373L14.3739 19.5492C14.1482 19.4603 14 19.2424 14 19C14 18.7576 14.1482 18.5397 14.3739 18.4508L15.8648 17.8627C16.3213 17.6827 16.6827 17.3213 16.8627 16.8648L17.4508 15.3739C17.5397 15.1482 17.7576 15 18 15C18.2424 15 18.4603 15.1482 18.5492 15.3739Z" fill="currentColor" stroke="none" />
       <Path d="M9.8433 11.2337L10.2108 12.1655C10.3233 12.4508 10.5492 12.6767 10.8345 12.7892L11.7663 13.1567C11.9074 13.2123 12 13.3485 12 13.5C12 13.6515 11.9074 13.7877 11.7663 13.8433L10.8345 14.2108C10.5492 14.3233 10.3233 14.5492 10.2108 14.8345L9.8433 15.7663C9.7877 15.9074 9.6515 16 9.5 16C9.3485 16 9.2123 15.9074 9.1567 15.7663L8.7892 14.8345C8.6767 14.5492 8.4508 14.3233 8.1655 14.2108L7.2337 13.8433C7.0926 13.7877 7 13.6515 7 13.5C7 13.3485 7.0926 13.2123 7.2337 13.1567L8.1655 12.7892C8.4508 12.6767 8.6767 12.4508 8.7892 12.1655L9.1567 11.2337C9.2123 11.0926 9.3485 11 9.5 11C9.6515 11 9.7877 11.0926 9.8433 11.2337Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+    </Icon>
+  )
+}
+
+export function CalendarStar(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M8 21H6C4.34315 21 3 19.6569 3 18V8C3 6.34315 4.34315 5 6 5H18C19.6569 5 21 6.34315 21 8V10M7 11H10M8 3V7M16 3V7" strokeOpacity={0.4} />
+      <Path d="M15.7693 11.6536C15.8082 11.5606 15.8992 11.5 16 11.5C16.1009 11.5 16.1918 11.5606 16.2307 11.6536L17.435 14.5373C17.4711 14.6237 17.5525 14.6827 17.6458 14.6901L20.7699 14.9395C20.8998 14.9499 21 15.0584 21 15.1887C21 15.2619 20.9679 15.3314 20.9123 15.3789L18.5335 17.4081C18.4779 17.4556 18.4458 17.5252 18.4458 17.5983C18.4458 17.618 18.4481 17.6375 18.4527 17.6566L19.1797 20.6918C19.1842 20.7108 19.1865 20.7304 19.1865 20.75C19.1865 20.8881 19.0746 21 18.9365 21C18.8907 21 18.8458 20.9874 18.8066 20.9636L16.1299 19.3354C16.0908 19.3116 16.0458 19.299 16 19.299C15.9542 19.299 15.9092 19.3116 15.8701 19.3354L13.1934 20.9636C13.1543 20.9874 13.1093 21 13.0635 21C12.9254 21 12.8135 20.8881 12.8135 20.75C12.8135 20.7304 12.8158 20.7108 12.8204 20.6918L13.5474 17.6566C13.5519 17.6375 13.5542 17.618 13.5542 17.5983C13.5542 17.5252 13.5222 17.4556 13.4665 17.4081L11.0878 15.3789C11.0321 15.3314 11 15.2619 11 15.1887C11 15.0584 11.1002 14.9499 11.2301 14.9395L14.3542 14.6901C14.4475 14.6827 14.5289 14.6237 14.565 14.5373Z" />
+    </Icon>
+  )
+}
+
+export function CalendarUser(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M9 21H6C4.34315 21 3 19.6569 3 18V8C3 6.34315 4.34315 5 6 5H18C19.6569 5 21 6.34315 21 8M8 3V7M16 3V7M7 11H11" strokeOpacity={0.4} />
+      <Path d="M17 11C18.1046 11 19 11.8954 19 13C19 14.1046 18.1046 15 17 15C15.8954 15 15 14.1046 15 13C15 11.8954 15.8954 11 17 11ZM13 21C13 19.8954 13.8954 19 15 19H19C20.1046 19 21 19.8954 21 21" />
     </Icon>
   )
 }
@@ -3167,6 +3434,15 @@ export function Captions(props: IconProps) {
   )
 }
 
+export function Capture(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 3L19 3C21.2092 3 23 4.7908 23 7L23 17C23 19.2092 21.2092 21 19 21L5 21C2.7908 21 1 19.2092 1 17L1 7C1 4.7908 2.7908 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M5 4L19 4C20.6569 4 22 5.3431 22 7L22 17C22 18.6569 20.6569 20 19 20L5 20C3.3431 20 2 18.6569 2 17L2 7C2 5.3431 3.3431 4 5 4ZM6 10V9C6 8.4477 6.4477 8 7 8H9M15 8H17C17.5523 8 18 8.4477 18 9V10M18 14V15C18 15.5523 17.5523 16 17 16H15M9 16H7C6.4477 16 6 15.5523 6 15V14" />
+    </Icon>
+  )
+}
+
 export function CarElectric(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -3199,6 +3475,16 @@ export function CarOff(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M15.1715 18L3 18C1.8954 18 1 17.1046 1 16L1 13.6491C1 13.1117 1.0866 12.5778 1.2566 12.068L3.2621 6.0513C3.4776 5.4043 3.9073 4.8501 4.4802 4.4802L18 18.0001L15.1715 18ZM8.2426 4L12.0975 4C12.9582 4 13.7775 4.3697 14.347 5.0151L18.5717 9.8031L20.9487 10.5955C22.1737 11.0038 23 12.1502 23 13.4415L23 16C23.0003 16.7212 22.6121 17.3867 21.9842 17.7415L8.2426 4Z" fill="currentColor" fillOpacity={0.4} fillRule="evenodd" clipRule="evenodd" stroke="none" />
       <Path d="M4 17L3 17C2.4477 17 2 16.5523 2 16L2 13.6491C2 13.2192 2.0693 12.7921 2.2053 12.3842L4.2108 6.3675C4.3822 5.8532 4.7489 5.4442 5.212 5.212M8 17L15 17M3 10L10 10M8 17C8 18.1046 7.1046 19 6 19C4.8954 19 4 18.1046 4 17C4 15.8954 4.8954 15 6 15C7.1046 15 8 15.8954 8 17ZM18.4142 18.4142C18.0523 18.7761 17.5523 19 17 19C15.8954 19 15 18.1046 15 17C15 16.4477 15.2239 15.9477 15.5858 15.5858M2 2L22 22" fill="none" />
+    </Icon>
+  )
+}
+
+export function CarSparkles(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M9 8H6.1082C5.2473 8 4.483 8.551 4.2108 9.368L3 13L2.2053 15.384C2.0693 15.792 2 16.219 2 16.649V19C2 19.552 2.4477 20 3 20H4M4 20C4 21.105 4.8954 22 6 22C7.1046 22 8 21.105 8 20M4 20C4 18.895 4.8954 18 6 18C7.1046 18 8 18.895 8 20M3 13H11M9 8H12.0975C12.6713 8 13.2175 8.246 13.5971 8.677L18 13.667M9 8V11C9 12.105 9.8954 13 11 13M11 13H15.3509C15.7808 13 16.2079 13.069 16.6158 13.205L18 13.667L20.6325 14.544C21.4491 14.816 22 15.581 22 16.441V19C22 19.552 21.5523 20 21 20H19M19 20C19 21.105 18.1046 22 17 22C15.8954 22 15 21.105 15 20M19 20C19 18.895 18.1046 18 17 18C15.8954 18 15 18.895 15 20M8 20H15" />
+      <Path d="M19.5492 1.374L20.1373 2.865C20.3173 3.321 20.6787 3.683 21.1352 3.863L22.6261 4.451C22.8518 4.54 23 4.758 23 5C23 5.242 22.8518 5.46 22.6261 5.549L21.1352 6.137C20.6787 6.317 20.3173 6.679 20.1373 7.135L19.5492 8.626C19.4603 8.852 19.2424 9 19 9C18.7576 9 18.5397 8.852 18.4508 8.626L17.8627 7.135C17.6827 6.679 17.3213 6.317 16.8648 6.137L15.3739 5.549C15.1482 5.46 15 5.242 15 5C15 4.758 15.1482 4.54 15.3739 4.451L16.8648 3.863C17.3213 3.683 17.6827 3.321 17.8627 2.865L18.4508 1.374C18.5397 1.148 18.7576 1 19 1C19.2424 1 19.4603 1.148 19.5492 1.374Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M11.2746 1.187L11.5687 1.932C11.6587 2.161 11.8393 2.341 12.0676 2.431L12.8131 2.725C12.9259 2.77 13 2.879 13 3C13 3.121 12.9259 3.23 12.8131 3.275L12.0676 3.569C11.8393 3.659 11.6587 3.839 11.5687 4.068L11.2746 4.813C11.2302 4.926 11.1212 5 11 5C10.8788 5 10.7698 4.926 10.7254 4.813L10.4313 4.068C10.3413 3.839 10.1607 3.659 9.9324 3.569L9.1869 3.275C9.0741 3.23 9 3.121 9 3C9 2.879 9.0741 2.77 9.1869 2.725L9.9324 2.431C10.1607 2.341 10.3413 2.161 10.4313 1.932L10.7254 1.187C10.7698 1.074 10.8788 1 11 1C11.1212 1 11.2302 1.074 11.2746 1.187Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
     </Icon>
   )
 }
@@ -3311,6 +3597,15 @@ export function CaretUp(props: IconProps) {
   )
 }
 
+export function CaseLower(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M11 12.5C11 14.9853 8.9853 17 6.5 17C4.0147 17 2 14.9853 2 12.5C2 10.0147 4.0147 8 6.5 8C8.9853 8 11 10.0147 11 12.5ZM11 12.5L11 7M11 12.5L11 17" strokeOpacity={0.4} />
+      <Path d="M22 14C22 15.657 20.6569 17 19 17C17.3431 17 16 15.657 16 14C16 12.343 17.3431 11 19 11C20.6569 11 22 12.343 22 14ZM22 14L22 10M22 14L22 17" />
+    </Icon>
+  )
+}
+
 export function CaseSensitive(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -3334,6 +3629,40 @@ export function CassetteTape(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M5 3L19 3C21.2092 3 23 4.7908 23 7L23 17C23 19.2092 21.2092 21 19 21L5 21C2.7908 21 1 19.2092 1 17L1 7C1 4.7908 2.7908 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M5 4L19 4C20.6569 4 22 5.3431 22 7L22 17C22 18.6569 20.6569 20 19 20L5 20C3.3431 20 2 18.6569 2 17L2 7C2 5.3431 3.3431 4 5 4ZM10 10C10 11.1046 9.1046 12 8 12C6.8954 12 6 11.1046 6 10C6 8.8954 6.8954 8 8 8C9.1046 8 10 8.8954 10 10ZM18 10C18 11.1046 17.1046 12 16 12C14.8954 12 14 11.1046 14 10C14 8.8954 14.8954 8 16 8C17.1046 8 18 8.8954 18 10ZM8 12L16 12M6 20L7.3495 16.8054C7.4277 16.6203 7.6092 16.5 7.8101 16.5L16.1899 16.5C16.3908 16.5 16.5723 16.6203 16.6505 16.8054L18 20" fill="none" />
+    </Icon>
+  )
+}
+
+export function CastAlert(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2 8V7C2 5.343 3.3432 4 5 4H12M22 14V17C22 18.657 20.6569 20 19 20H14" strokeOpacity={0.4} />
+      <Path d="M2 16C4.2091 16 6 17.791 6 20M2 12C6.4183 12 10 15.582 10 20" />
+      <Path d="M3 20C3 20.552 2.5523 21 2 21C1.4477 21 1 20.552 1 20C1 19.448 1.4477 19 2 19C2.5523 19 3 19.448 3 20Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M19 4V6" />
+      <Path d="M20 10C20 10.552 19.5523 11 19 11C18.4477 11 18 10.552 18 10C18 9.448 18.4477 9 19 9C19.5523 9 20 9.448 20 10Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
+export function CastPause(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2 8V7C2 5.343 3.343 4 5 4H12M22 14V17C22 18.657 20.657 20 19 20H14" strokeOpacity={0.4} />
+      <Path d="M2 16C4.209 16 6 17.791 6 20M2 12C6.418 12 10 15.582 10 20" />
+      <Path d="M3 20C3 20.552 2.552 21 2 21C1.448 21 1 20.552 1 20C1 19.448 1.448 19 2 19C2.552 19 3 19.448 3 20Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M17 4V10M21 4V10" />
+    </Icon>
+  )
+}
+
+export function CastX(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2 8V7C2 5.343 3.3432 4 5 4H12M22 14V17C22 18.657 20.6569 20 19 20H14" strokeOpacity={0.4} />
+      <Path d="M2 16C4.2091 16 6 17.791 6 20M2 12C6.4183 12 10 15.582 10 20" />
+      <Path d="M3 20C3 20.552 2.5523 21 2 21C1.4477 21 1 20.552 1 20C1 19.448 1.4477 19 2 19C2.5523 19 3 19.448 3 20Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M16 4L22 10M22 4L16 10" />
     </Icon>
   )
 }
@@ -3934,6 +4263,15 @@ export function ChevronsFourDirections(props: IconProps) {
   )
 }
 
+export function ChevronsLeftRightEllipsis(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M7 7L2 12L7 17M17 7L22 12L17 17" />
+      <Path d="M9 12C9 12.552 8.552 13 8 13C7.448 13 7 12.552 7 12C7 11.448 7.448 11 8 11C8.552 11 9 11.448 9 12ZM13 12C13 12.552 12.552 13 12 13C11.448 13 11 12.552 11 12C11 11.448 11.448 11 12 11C12.552 11 13 11.448 13 12ZM17 12C17 12.552 16.552 13 16 13C15.448 13 15 12.552 15 12C15 11.448 15.448 11 16 11C16.552 11 17 11.448 17 12Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function ChevronsLeftRight(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -4282,6 +4620,26 @@ export function CircleBarChart(props: IconProps) {
   )
 }
 
+export function CircleBookmark(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M23 12C23 18.075 18.075 23 12 23C5.925 23 1 18.075 1 12C1 5.925 5.925 1 12 1C18.075 1 23 5.925 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2Z" />
+      <Path d="M8.129 8.613C8.129 7.812 8.779 7.162 9.581 7.162H14.419C15.221 7.162 15.871 7.812 15.871 8.613V16.354C15.871 16.737 15.447 16.968 15.125 16.761L12.392 15.315C12.153 15.161 11.847 15.161 11.608 15.315L8.875 16.761C8.553 16.968 8.129 16.737 8.129 16.354V8.613Z" />
+    </Icon>
+  )
+}
+
+export function CircleBraces(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M23 12C23 18.075 18.0751 23 12 23C5.9249 23 1 18.075 1 12C1 5.925 5.9249 1 12 1C18.0751 1 23 5.925 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 2C17.5228 2 22 6.477 22 12C22 17.523 17.5228 22 12 22C6.4771 22 2 17.523 2 12C2 6.477 6.4771 2 12 2Z" />
+      <Path d="M10 7C9.4477 7 9 7.448 9 8V10.482C9 10.747 8.8947 11.002 8.7071 11.189L8.0732 11.823C8.0264 11.87 8 11.934 8 12C8 12.066 8.0264 12.13 8.0732 12.177L8.7071 12.811C8.8947 12.998 9 13.253 9 13.518V16C9 16.552 9.4477 17 10 17M14 7C14.5523 7 15 7.448 15 8V10.482C15 10.747 15.1054 11.002 15.2929 11.189L15.9268 11.823C15.9737 11.87 16 11.934 16 12C16 12.066 15.9737 12.13 15.9268 12.177L15.2929 12.811C15.1054 12.998 15 13.253 15 13.518V16C15 16.552 14.5523 17 14 17" />
+    </Icon>
+  )
+}
+
 export function CircleCaretDown(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -4318,6 +4676,34 @@ export function CircleCaretUp(props: IconProps) {
       <Path d="M23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M12 2C17.5228 2 22 6.4772 22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2Z" />
       <Path d="M11.5301 7.27326L7.06842 15.2107C6.86937 15.5648 7.12844 16 7.5383 16H16.4617C16.8716 16 17.1306 15.5648 16.9316 15.2107L12.4699 7.27326C12.2651 6.90891 11.7349 6.90891 11.5301 7.27326Z" />
+    </Icon>
+  )
+}
+
+export function CircleCheckLine(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 2C17.5228 2 22 6.4772 22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2ZM9 10L11 12L15 8M9 16L15 16" />
+    </Icon>
+  )
+}
+
+export function CircleCheckPlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 1C18.0751 1 23 5.9249 23 12C23 12.5523 22.5523 13 22 13L16 13C14.3431 13 13 14.3431 13 16L13 22C13 22.5523 12.5523 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12M8 12L10.6667 15L16 9M19 16V22M16 19H22" />
+    </Icon>
+  )
+}
+
+export function CircleCheckSparkles(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C13.565 22 15.045 21.641 16.364 21M8 12L10.667 15L16 9" />
+      <Path d="M19.981 1.327L20.495 2.632C20.653 3.031 20.969 3.347 21.368 3.505L22.673 4.019C22.87 4.097 23 4.288 23 4.5C23 4.712 22.87 4.903 22.673 4.981L21.368 5.495C20.969 5.653 20.653 5.969 20.495 6.368L19.981 7.673C19.903 7.87 19.712 8 19.5 8C19.288 8 19.097 7.87 19.019 7.673L18.505 6.368C18.347 5.969 18.031 5.653 17.632 5.495L16.327 4.981C16.13 4.903 16 4.712 16 4.5C16 4.288 16.13 4.097 16.327 4.019L17.632 3.505C18.031 3.347 18.347 3.031 18.505 2.632L19.019 1.327C19.097 1.13 19.288 1 19.5 1C19.712 1 19.903 1.13 19.981 1.327Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M19.843 14.234L20.211 15.165C20.323 15.451 20.549 15.677 20.834 15.789L21.766 16.157C21.907 16.212 22 16.349 22 16.5C22 16.651 21.907 16.788 21.766 16.843L20.834 17.211C20.549 17.323 20.323 17.549 20.211 17.834L19.843 18.766C19.788 18.907 19.651 19 19.5 19C19.349 19 19.212 18.907 19.157 18.766L18.789 17.834C18.677 17.549 18.451 17.323 18.166 17.211L17.234 16.843C17.093 16.788 17 16.651 17 16.5C17 16.349 17.093 16.212 17.234 16.157L18.166 15.789C18.451 15.677 18.677 15.451 18.789 15.165L19.157 14.234C19.212 14.093 19.349 14 19.5 14C19.651 14 19.788 14.093 19.843 14.234Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
     </Icon>
   )
 }
@@ -4512,6 +4898,15 @@ export function CircleDashed(props: IconProps) {
   )
 }
 
+export function CircleDiamond(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM11.2929 7.2929C11.4805 7.1054 11.7348 7 12 7C12.2652 7 12.5195 7.1054 12.7071 7.2929L16.7071 11.2929C16.8947 11.4805 17 11.7348 17 12C17 12.2652 16.8947 12.5195 16.7071 12.7071L12.7071 16.7071C12.5195 16.8947 12.2652 17 12 17C11.7348 17 11.4805 16.8947 11.2929 16.7071L7.2929 12.7071C7.1054 12.5195 7 12.2652 7 12C7 11.7348 7.1054 11.4805 7.2929 11.2929L11.2929 7.2929Z" />
+    </Icon>
+  )
+}
+
 export function CircleDivide(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -4528,6 +4923,15 @@ export function CircleDollarSign(props: IconProps) {
       <Path d="M12 1C18.0753 1 23 5.9247 23 12C23 18.0753 18.0753 23 12 23C5.9247 23 1 18.0753 1 12C1 5.9247 5.9247 1 12 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2Z" />
       <Path d="M12 6L12 18M14.5 7L10.5 7C9.1193 7 8 8.1193 8 9.5C8 10.8807 9.1193 12 10.5 12L13.5 12C14.8807 12 16 13.1193 16 14.5C16 15.8807 14.8807 17 13.5 17L9.5 17" fill="none" />
+    </Icon>
+  )
+}
+
+export function CircleDotDashed(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M21.877 10.436C22.041 11.472 22.041 12.528 21.877 13.564M20.09 17.878C19.473 18.727 18.727 19.473 17.878 20.09M13.564 21.877C12.528 22.041 11.472 22.041 10.436 21.877M6.122 20.09C5.273 19.473 4.527 18.727 3.91 17.878M2.123 13.564C1.959 12.528 1.959 11.472 2.123 10.436M3.91 6.122C4.527 5.273 5.273 4.527 6.122 3.91M10.436 2.123C11.472 1.959 12.528 1.959 13.564 2.123M17.878 3.91C18.727 4.527 19.473 5.273 20.09 6.122" strokeOpacity={0.4} />
+      <Path d="M14 12C14 13.105 13.105 14 12 14C10.895 14 10 13.105 10 12C10 10.895 10.895 10 12 10C13.105 10 14 10.895 14 12Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
     </Icon>
   )
 }
@@ -4629,6 +5033,16 @@ export function CircleJapaneseYen(props: IconProps) {
   )
 }
 
+export function CircleListFilter(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 2C17.5228 2 22 6.4772 22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2Z" />
+      <Path d="M8 8H16M9.5 12H14.5M11 16H13" />
+    </Icon>
+  )
+}
+
 export function CircleMenu(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -4645,6 +5059,16 @@ export function CircleMinus(props: IconProps) {
       <Path d="M23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M12 2C17.5228 2 22 6.4772 22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2Z" />
       <Path d="M8 12H16" />
+    </Icon>
+  )
+}
+
+export function CircleMoon(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M23 12C23 18.075 18.075 23 12 23C5.925 23 1 18.075 1 12C1 5.925 5.925 1 12 1C18.075 1 23 5.925 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2Z" />
+      <Path d="M17 12C17 14.761 14.761 17 12 17C9.239 17 7 14.761 7 12C7 9.239 9.239 7 12 7C10.868 8.415 10.981 10.456 12.262 11.738C13.544 13.019 15.585 13.132 17 12Z" />
     </Icon>
   )
 }
@@ -4761,6 +5185,15 @@ export function CirclePoundSterling(props: IconProps) {
       <Path d="M12 1C18.0753 1 23 5.9247 23 12C23 18.0753 18.0753 23 12 23C5.9247 23 1 18.0753 1 12C1 5.9247 5.9247 1 12 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2Z" />
       <Path d="M10 18L10 8C10 6.8954 10.8954 6 12 6C13.1046 6 14 6.8954 14 8C14 8.3511 13.9076 8.696 13.7321 9M8.5 14L14 14M8.5 18L15.5 18" fill="none" />
+    </Icon>
+  )
+}
+
+export function CircleProgressArrowDown(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M17.8778 3.9098C18.7268 4.5266 19.4734 5.2732 20.0902 6.1222M21.8769 10.4357C22.041 11.4721 22.041 12.5279 21.8769 13.5643M20.0902 17.8778C19.4734 18.7268 18.7268 19.4734 17.8778 20.0902" strokeOpacity={0.4} />
+      <Path d="M12 22C6.4772 22 2 17.5229 2 12C2 6.4772 6.4772 2 12 2M8 12.1063L11.6464 15.8497C11.8417 16.0501 12.1583 16.0501 12.3536 15.8497L16 12.1063M12 8L12 15.6993" />
     </Icon>
   )
 }
@@ -4893,6 +5326,16 @@ export function CircleRecord(props: IconProps) {
       <Path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12Z" />
       <Path d="M16 12C16 14.2091 14.2091 16 12 16C9.7909 16 8 14.2091 8 12C8 9.7909 9.7909 8 12 8C14.2091 8 16 9.7909 16 12Z" />
+    </Icon>
+  )
+}
+
+export function CircleSearch(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M23 12C23 18.075 18.075 23 12 23C5.925 23 1 18.075 1 12C1 5.925 5.925 1 12 1C18.075 1 23 5.925 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2Z" />
+      <Path d="M13.414 13.414L16.243 16.243M14.357 11.057C14.357 12.88 12.88 14.357 11.057 14.357C9.235 14.357 7.757 12.88 7.757 11.057C7.757 9.235 9.235 7.757 11.057 7.757C12.88 7.757 14.357 9.235 14.357 11.057Z" />
     </Icon>
   )
 }
@@ -5033,9 +5476,9 @@ export function CircleTrendingUp(props: IconProps) {
 export function CircleUser(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <Path d="M12 2C17.5228 2 22 6.4772 22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2Z" />
-      <Path d="M15 9C15 10.6569 13.6569 12 12 12C10.3431 12 9 10.6569 9 9C9 7.34315 10.3431 6 12 6C13.6569 6 15 7.34315 15 9ZM13 14C15.6654 14 17.8419 16.0856 18 18.7082C16.3499 20.1841 14.2138 21 12 21C9.7862 21 7.65007 20.1841 6 18.7082C6.15709 16.0856 8.33462 14 11 14H13Z" fill="currentColor" stroke="none" />
+      <Path d="M23 12C23 18.075 18.075 23 12 23C5.925 23 1 18.075 1 12C1 5.925 5.925 1 12 1C18.075 1 23 5.925 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2Z" />
+      <Path d="M15 9C15 10.657 13.657 12 12 12C10.343 12 9 10.657 9 9C9 7.343 10.343 6 12 6C13.657 6 15 7.343 15 9ZM13 14C15.665 14 17.842 16.086 18 18.708C16.35 20.184 14.214 21 12 21C9.786 21 7.65 20.184 6 18.708C6.157 16.086 8.335 14 11 14H13Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
     </Icon>
   )
 }
@@ -5113,6 +5556,16 @@ export function Circles(props: IconProps) {
   )
 }
 
+export function CircuitBoard(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M19 12V19C19 21.209 17.2092 23 15 23H5C2.7908 23 1 21.209 1 19V5C1 2.791 2.7908 1 5 1H15C17.2092 1 19 2.791 19 5V12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M18 7H22M18 12H22M18 17H22M6 18H10M5 2H15C16.6569 2 18 3.343 18 5V19C18 20.657 16.6569 22 15 22H5C3.3431 22 2 20.657 2 19V5C2 3.343 3.3431 2 5 2ZM7 6H13C13.5523 6 14 6.448 14 7V12C14 12.552 13.5523 13 13 13H7C6.4477 13 6 12.552 6 12V7C6 6.448 6.4477 6 7 6Z" />
+      <Path d="M15 18C15 18.552 14.5523 19 14 19C13.4477 19 13 18.552 13 18C13 17.448 13.4477 17 14 17C14.5523 17 15 17.448 15 18Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function Clapperboard(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -5168,6 +5621,15 @@ export function ClipboardCopy(props: IconProps) {
   )
 }
 
+export function ClipboardHeart(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M17.8604 3.0928C19.694 3.4972 20.9998 5.1223 21 7L21 19C21 21.2091 19.2091 23 17 23L7 23C4.7909 23 3 21.2091 3 19L3 7C3.0002 5.1223 4.306 3.4972 6.1396 3.0928C6.5354 1.8466 7.6925 1.0001 9 1L15 1C16.3075 1.0001 17.4646 1.8466 17.8604 3.0928Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M7 4C5.3431 4 4 5.3431 4 7L4 19C4 20.6569 5.3431 22 7 22L17 22C18.6569 22 20 20.6569 20 19L20 7C20 5.3431 18.6569 4 17 4M7 4C7 2.8954 7.8954 2 9 2L15 2C16.1046 2 17 2.8954 17 4L17 5C17 6.1046 16.1046 7 15 7L9 7C7.8954 7 7 6.1046 7 5L7 4ZM12 18C10.175 16.4846 8 15.1806 8 13.2361C8 12.0011 9.0745 11 10.4 11C11 11 11.537 11.2123 12 11.5833C12.463 11.2123 13 11 13.6 11C14.9255 11 16 12.0011 16 13.2361C16 15.1806 13.825 16.4846 12 18Z" />
+    </Icon>
+  )
+}
+
 export function ClipboardList(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -5183,6 +5645,15 @@ export function ClipboardMinus(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M17.8604 3.0928C19.694 3.4972 20.9998 5.1223 21 7L21 19C21 21.2091 19.2091 23 17 23L7 23C4.7909 23 3 21.2091 3 19L3 7C3.0002 5.1223 4.306 3.4972 6.1396 3.0928C6.5354 1.8466 7.6925 1.0001 9 1L15 1C16.3075 1.0001 17.4646 1.8466 17.8604 3.0928Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M7 4C5.3431 4 4 5.3431 4 7L4 19C4 20.6569 5.3431 22 7 22L17 22C18.6569 22 20 20.6569 20 19L20 7C20 5.3431 18.6569 4 17 4M7 4C7 2.8954 7.8954 2 9 2L15 2C16.1046 2 17 2.8954 17 4L17 5C17 6.1046 16.1046 7 15 7L9 7C7.8954 7 7 6.1046 7 5L7 4ZM9 15L15 15" fill="none" />
+    </Icon>
+  )
+}
+
+export function ClipboardOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20.6465 20.6465C20.0188 22.0343 18.6222 23 17 23H7C4.7909 23 3 21.2091 3 19V7C3.0001 5.9083 3.4415 4.9021 4.1714 4.1714L20.6465 20.6465ZM19.2929 15.0503L7.2456 3.0029C7.0646 2.822 6.9527 2.572 6.9527 2.2958C6.9527 1.9464 7.1319 1.6389 7.4032 1.4601C7.8705 1.1664 8.4205 1.0001 9 1H15C16.3075 1.0001 17.4646 1.8466 17.8604 3.0928C19.694 3.4972 20.9998 5.1223 21 7V14.3431C21 14.8954 20.5523 15.3431 20 15.3431C19.7239 15.3431 19.4739 15.2312 19.2929 15.0503Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M4.8787 4.8787C4.3358 5.4215 4 6.1715 4 7V19C4 20.6569 5.3431 22 7 22H17C18.3538 22 19.4981 21.1033 19.8715 19.8715M2 2L22 22" />
     </Icon>
   )
 }
@@ -5487,6 +5958,15 @@ export function CloudClock(props: IconProps) {
   )
 }
 
+export function CloudCog(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M4 16.4641C2.7624 15.7496 2 14.4291 2 13C2 10.7909 3.7909 9 6 9C6 5.6863 8.6863 3 12 3C15.3137 3 18 5.6863 18 9C20.2091 9 22 10.7909 22 13C22 14.4291 21.2376 15.7496 20 16.4641" strokeOpacity={0.4} />
+      <Path d="M14.6667 17C14.6667 18.4728 13.4728 19.6667 12 19.6667C10.5272 19.6667 9.3333 18.4728 9.3333 17C9.3333 15.5272 10.5272 14.3333 12 14.3333C13.4728 14.3333 14.6667 15.5272 14.6667 17ZM15.5417 17L16 17M14.5043 19.5043L14.8284 19.8284M12 20.5417L12 21M9.4957 19.5043L9.1716 19.8284M8.4583 17L8 17M9.4957 14.4957L9.1716 14.1716M12 13.4583L12 13M14.5043 14.4957L14.8284 14.1716" />
+    </Icon>
+  )
+}
+
 export function CloudDownload(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -5586,6 +6066,24 @@ export function CloudOff(props: IconProps) {
   )
 }
 
+export function CloudPackage(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 15.6458C2.3556 14.915 2 13.9743 2 13C2 10.7909 3.7909 9 6 9C6 5.6863 8.6863 3 12 3C15.3137 3 18 5.6863 18 9C20.2091 9 22 10.7909 22 13C22 13.9743 21.6444 14.915 21 15.6458" strokeOpacity={0.4} />
+      <Path d="M16.8507 14.2103C16.7548 14.0552 16.6166 13.9263 16.4472 13.8416L12.4472 11.8416C12.1657 11.7009 11.8343 11.7009 11.5528 11.8416L7.5528 13.8416C7.3834 13.9263 7.2452 14.0552 7.1494 14.2103M16.8507 14.2103C16.9465 14.3654 17 14.5467 17 14.7361V18C17 18.3788 16.786 18.725 16.4472 18.8944L12.4472 20.8944C12.3064 20.9648 12.1532 21 12 21M16.8507 14.2103L12 16.618M16.8507 14.2103L16.8507 14.2103M12 21C11.8468 21 11.6936 20.9648 11.5528 20.8944L7.5528 18.8944C7.214 18.725 7 18.3788 7 18V14.7361C7 14.5467 7.0535 14.3654 7.1494 14.2103M12 21V16.618M7.1494 14.2103L7.1493 14.2103M7.1494 14.2103L12 16.618" />
+    </Icon>
+  )
+}
+
+export function CloudPlay(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5 16.874C3.2748 16.4299 2 14.8638 2 13C2 10.7909 3.7909 9 6 9C6 5.6863 8.6863 3 12 3C15.3137 3 18 5.6863 18 9C20.2091 9 22 10.7909 22 13C22 14.8638 20.7252 16.4299 19 16.874" strokeOpacity={0.4} />
+      <Path d="M10.5998 13.2016L14.5998 16.1998C15.1334 16.5998 15.1334 17.4002 14.5998 17.8002L10.5998 20.7984C9.9405 21.2925 9 20.8221 9 19.9982L9 14.0018C9 13.1779 9.9405 12.7075 10.5998 13.2016Z" />
+    </Icon>
+  )
+}
+
 export function CloudPlus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -5636,6 +6134,15 @@ export function CloudSearch(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M5 16.874C3.2748 16.4299 2 14.8638 2 13C2 10.7909 3.7909 9 6 9C6 5.6863 8.6863 3 12 3C15.3137 3 18 5.6863 18 9C20.2091 9 22 10.7909 22 13C22 14.8638 20.7252 16.4299 19 16.874" fill="none" strokeOpacity={0.4} />
       <Path d="M14 17.5C14 18.8807 12.8807 20 11.5 20C10.1193 20 9 18.8807 9 17.5C9 16.1193 10.1193 15 11.5 15C12.8807 15 14 16.1193 14 17.5ZM13.5 19.5L15 21" />
+    </Icon>
+  )
+}
+
+export function CloudShield(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M4.5 16.7081C2.989 16.0969 2 14.6299 2 13C2 10.7909 3.7909 9 6 9C6 5.6863 8.6863 3 12 3C15.3137 3 18 5.6863 18 9C20.2091 9 22 10.7909 22 13C22 14.6299 21.011 16.0969 19.5 16.7081" strokeOpacity={0.4} />
+      <Path d="M9.0173 13.6362C10.1758 13.4987 11.0504 12.9203 11.5731 12.4133C11.7974 12.1956 12.2026 12.1956 12.4269 12.4133C12.9496 12.9203 13.8242 13.4987 14.9827 13.6362C15.2669 13.6699 15.5 13.8909 15.5 14.1675L15.5 16.8747C15.5 17.651 15.3736 18.4412 14.8928 19.0631C14.3667 19.7434 13.5327 20.5058 12.363 20.9355C12.1288 21.0215 11.8712 21.0215 11.637 20.9355C10.4673 20.5058 9.6332 19.7434 9.1073 19.0631C8.6264 18.4412 8.5 17.651 8.5 16.8747L8.5 14.1675C8.5 13.8909 8.7331 13.6699 9.0173 13.6362Z" />
     </Icon>
   )
 }
@@ -5894,6 +6401,15 @@ export function Columns3(props: IconProps) {
   )
 }
 
+export function Columns4(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2 6C2 3.7909 3.7909 2 6 2L18 2C20.2091 2 22 3.7909 22 6L22 18C22 20.2091 20.2091 22 18 22L6 22C3.7909 22 2 20.2091 2 18L2 6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M3 6C3 4.3431 4.3431 3 6 3L18 3C19.6569 3 21 4.3431 21 6L21 18C21 19.6569 19.6569 21 18 21L6 21C4.3431 21 3 19.6569 3 18L3 6ZM7.5 3L7.5 21M12 3L12 21M16.5 3L16.5 21" fill="none" />
+    </Icon>
+  )
+}
+
 export function Comma(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -6029,6 +6545,15 @@ export function CookingPot(props: IconProps) {
   )
 }
 
+export function CopyArrowRight(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M11 7L19 7C21.2091 7 23 8.7909 23 11L23 19C23 21.2091 21.2091 23 19 23L11 23C8.7909 23 7 21.2091 7 19L7 11C7 8.7909 8.7909 7 11 7Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M15.8284 4C15.4046 2.8015 14.2714 2 13 2H5C3.34315 2 2 3.34315 2 5V13C2 14.2714 2.8015 15.4046 4 15.8284M11 8H19C20.65684 8 22 9.34316 22 11V19C22 20.65684 20.65684 22 19 22H11C9.34316 22 8 20.65684 8 19V11C8 9.34316 9.34316 8 11 8ZM12 15L18 15M15 12L18 15L15 18" />
+    </Icon>
+  )
+}
+
 export function CopyCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -6083,6 +6608,14 @@ export function Copy(props: IconProps) {
   )
 }
 
+export function CornerChamfer(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 3L14.5858 3C14.851 3 15.1054 3.1054 15.2929 3.2929L20.7071 8.7071C20.8946 8.8946 21 9.149 21 9.4142L21 21" />
+    </Icon>
+  )
+}
+
 export function CornerDownLeft(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -6099,6 +6632,14 @@ export function CornerDownRight(props: IconProps) {
   )
 }
 
+export function CornerInverted(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 3L14.0718 3C14.5689 3 14.9905 3.3651 15.0615 3.8571C15.4416 6.4901 17.5099 8.5584 20.1429 8.9385C20.6349 9.0095 21 9.4311 21 9.9282L21 21" />
+    </Icon>
+  )
+}
+
 export function CornerLeftDown(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -6111,6 +6652,14 @@ export function CornerLeftUp(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M4 8L10 2L16 8M10 2L10 18C10 20.2091 11.7909 22 14 22L20 22" />
+    </Icon>
+  )
+}
+
+export function CornerNotch(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 3L14 3C14.5523 3 15 3.4477 15 4L15 8C15 8.5523 15.4477 9 16 9L20 9C20.5523 9 21 9.4477 21 10L21 21" />
     </Icon>
   )
 }
@@ -6223,6 +6772,15 @@ export function CreditCardMinus(props: IconProps) {
   )
 }
 
+export function CreditCardOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20.646 20.646C20.144 20.874 19.587 21 19 21H5C2.791 21 1 19.209 1 17V7C1 5.378 1.966 3.981 3.353 3.353L20.646 20.646ZM21.293 17.05L8.95 4.707C8.769 4.526 8.657 4.276 8.657 4C8.657 3.448 9.105 3 9.657 3H19C21.209 3 23 4.791 23 7V16.343C23 16.895 22.552 17.343 22 17.343C21.724 17.343 21.474 17.231 21.293 17.05Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M2 9H9M19.872 19.872C19.596 19.955 19.303 20 19 20H5C3.343 20 2 18.657 2 17V7C2 5.646 2.897 4.502 4.128 4.128M2 2L22 22" />
+    </Icon>
+  )
+}
+
 export function CreditCardPlus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -6292,6 +6850,15 @@ export function Cross(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M16.375 7.12C16.375 7.4 16.5989 7.62 16.875 7.62H19.5C20.8807 7.62 22 8.74 22 10.12V13.88C22 15.26 20.8807 16.38 19.5 16.38H16.875C16.5989 16.38 16.375 16.6 16.375 16.88V19.5C16.375 20.88 15.2557 22 13.875 22H10.125C8.7443 22 7.625 20.88 7.625 19.5V16.88C7.625 16.6 7.4011 16.38 7.125 16.38H4.5C3.1193 16.38 2 15.26 2 13.88V10.12C2 8.74 3.1193 7.62 4.5 7.62H7.125C7.4011 7.62 7.625 7.4 7.625 7.12V4.5C7.625 3.12 8.7443 2 10.125 2H13.875C15.2557 2 16.375 3.12 16.375 4.5V7.12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M3 10.12V13.88C3 14.7 3.6716 15.38 4.5 15.38H7.125C7.9534 15.38 8.625 16.05 8.625 16.88V19.5C8.625 20.33 9.2966 21 10.125 21H13.875C14.7034 21 15.375 20.33 15.375 19.5V16.88C15.375 16.05 16.0466 15.38 16.875 15.38H19.5C20.3284 15.38 21 14.7 21 13.88V10.12C21 9.3 20.3284 8.62 19.5 8.62H16.875C16.0466 8.62 15.375 7.95 15.375 7.12V4.5C15.375 3.67 14.7034 3 13.875 3H10.125C9.2966 3 8.625 3.67 8.625 4.5V7.12C8.625 7.95 7.9534 8.62 7.125 8.62H4.5C3.6716 8.62 3 9.3 3 10.12Z" />
+    </Icon>
+  )
+}
+
+export function CrosshairX(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M21 12C21 16.9706 16.9706 21 12 21C7.0294 21 3 16.9706 3 12C3 7.0294 7.0294 3 12 3C16.9706 3 21 7.0294 21 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M20 12C20 16.4183 16.4183 20 12 20C7.5817 20 4 16.4183 4 12C4 7.5817 7.5817 4 12 4C16.4183 4 20 7.5817 20 12ZM12 2V6M12 22V18M2 12H6M22 12H18M9.5 9.5L14.5 14.5M14.5 9.5L9.5 14.5" />
     </Icon>
   )
 }
@@ -6523,6 +7090,15 @@ export function DatabaseMinus(props: IconProps) {
   )
 }
 
+export function DatabaseOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20.785 20.785C20.675 20.977 20.535 21.136 20.397 21.263C20.099 21.536 19.719 21.748 19.326 21.918C18.493 22.278 17.409 22.539 16.143 22.722C14.877 22.904 13.44 23 12 23C10.56 23 9.123 22.904 7.857 22.722C6.592 22.539 5.507 22.278 4.674 21.918C4.281 21.748 3.901 21.536 3.603 21.263C3.307 20.99 3 20.567 3 20V4C3 3.697 3.088 3.435 3.215 3.215L20.785 20.785ZM19.293 15.05L7.227 2.984C7.046 2.803 6.934 2.553 6.934 2.277C6.934 1.786 7.288 1.377 7.755 1.293C7.789 1.288 7.823 1.283 7.857 1.278C9.123 1.096 10.56 1 12 1C13.44 1 14.877 1.096 16.143 1.278C17.409 1.461 18.493 1.722 19.326 2.082C19.719 2.252 20.099 2.464 20.397 2.737C20.693 3.01 21 3.433 21 4V14.343C21 14.895 20.552 15.343 20 15.343C19.724 15.343 19.474 15.231 19.293 15.05Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M4 4V20C4 21.105 7.582 22 12 22C16.418 22 20 21.105 20 20M4 12C4 13.105 7.582 14 12 14C12.669 14 13.319 13.979 13.941 13.941M2 2L22 22" />
+    </Icon>
+  )
+}
+
 export function DatabasePlus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -6668,6 +7244,15 @@ export function DiamondDot(props: IconProps) {
       <Path d="M9.8787 1.8787C10.4413 1.3161 11.2044 1 12 1C12.7956 1 13.5587 1.3161 14.1213 1.8787L22.1213 9.8787C22.6839 10.4413 23 11.2044 23 12C23 12.7956 22.6839 13.5587 22.1213 14.1213L14.1213 22.1213C13.5587 22.6839 12.7956 23 12 23C11.2044 23 10.4413 22.6839 9.8787 22.1213L1.8787 14.1213C1.3161 13.5587 1 12.7956 1 12C1 11.2044 1.3161 10.4413 1.8787 9.8787L9.8787 1.8787Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M10.5858 2.5858C10.9609 2.2107 11.4696 2 12 2C12.5304 2 13.0391 2.2107 13.4142 2.5858L21.4142 10.5858C21.7893 10.9609 22 11.4696 22 12C22 12.5304 21.7893 13.0391 21.4142 13.4142L13.4142 21.4142C13.0391 21.7893 12.5304 22 12 22C11.4696 22 10.9609 21.7893 10.5858 21.4142L2.5858 13.4142C2.2107 13.0391 2 12.5304 2 12C2 11.4696 2.2107 10.9609 2.5858 10.5858L10.5858 2.5858Z" fill="none" />
       <Path d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function DiamondNodes(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M14.1213 6.1213C13.5795 6.6631 12.8282 7 12 7C10.3431 7 9 5.6569 9 4C9 2.3431 10.3431 1 12 1C13.6569 1 15 2.3431 15 4C15 4.8282 14.6631 5.5795 14.1213 6.1213ZM17.8787 14.1213C17.3369 13.5795 17 12.8282 17 12C17 10.3431 18.3431 9 20 9C21.6569 9 23 10.3431 23 12C23 13.6569 21.6569 15 20 15C19.1718 15 18.4205 14.6631 17.8787 14.1213ZM14.1213 22.1213C13.5795 22.6631 12.8282 23 12 23C10.3431 23 9 21.6569 9 20C9 18.3431 10.3431 17 12 17C13.6569 17 15 18.3431 15 20C15 20.8282 14.6631 21.5795 14.1213 22.1213ZM6.1213 14.1213C5.5795 14.6631 4.8282 15 4 15C2.3431 15 1 13.6569 1 12C1 10.3431 2.3431 9 4 9C5.6569 9 7 10.3431 7 12C7 12.8282 6.6631 13.5795 6.1213 14.1213Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M14 4C14 5.1046 13.1046 6 12 6C10.8954 6 10 5.1046 10 4C10 2.8954 10.8954 2 12 2C13.1046 2 14 2.8954 14 4ZM22 12C22 13.1046 21.1046 14 20 14C18.8954 14 18 13.1046 18 12C18 10.8954 18.8954 10 20 10C21.1046 10 22 10.8954 22 12ZM14 20C14 21.1046 13.1046 22 12 22C10.8954 22 10 21.1046 10 20C10 18.8954 10.8954 18 12 18C13.1046 18 14 18.8954 14 20ZM6 12C6 13.1046 5.1046 14 4 14C2.8954 14 2 13.1046 2 12C2 10.8954 2.8954 10 4 10C5.1046 10 6 10.8954 6 12ZM13.4142 5.4142L18.5858 10.5858M18.5858 13.4142L13.4142 18.5858M10.5858 18.5858L5.4142 13.4142M5.4142 10.5858L10.5858 5.4142" />
     </Icon>
   )
 }
@@ -6947,6 +7532,16 @@ export function DropletDegree(props: IconProps) {
   )
 }
 
+export function DropletHalf(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M18.4 9.2C19.4386 10.5848 20 12.269 20 14C20 18.4183 16.4183 22 12 22C7.5817 22 4 18.4183 4 14C4 12.269 4.5614 10.5848 5.6 9.2L10.4 2.8C10.7777 2.2965 11.3703 2 12 2C12.6297 2 13.2223 2.2965 13.5999 2.7999L18.4 9.2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M17.6 9.8C18.5088 11.0117 19 12.4854 19 14C19 17.866 15.866 21 12 21C8.134 21 5 17.866 5 14C5 12.4854 5.4912 11.0117 6.4 9.8L11.2 3.4C11.3889 3.1482 11.6852 3 12 3C12.3148 3 12.6111 3.1482 12.8 3.4L17.6 9.8Z" fill="none" />
+      <Path d="M9.4 5.8L11.2 3.4C11.3889 3.1482 11.6852 3 12 3C12.3148 3 12.6111 3.1482 12.8 3.4L17.6 9.8C18.5088 11.0117 19 12.4854 19 14C19 17.866 15.866 21 12 21C11.5298 21 11.0607 20.9526 10.6 20.8586L10.8 19.8788C10.8658 19.8922 10.9328 19.899 11 19.899C11.5523 19.899 12 19.4513 12 18.899L12 7C12 6.4477 11.5523 6 11 6C10.6852 6 10.3889 6.1482 10.2 6.4Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
 export function DropletOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -7031,8 +7626,8 @@ export function Ear(props: IconProps) {
 export function EarbudsOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M11 11L11 19C11 20.6569 9.6569 22 8 22C6.3431 22 5 20.6569 5 19L5 11.899C2.6718 11.4241 0.9994 9.3762 0.9994 7C0.9994 5.4261 1.7406 3.944 2.9998 2.9998L11 11ZM19 19C19 20.6569 17.6569 22 16 22C14.3431 22 13 20.6569 13 19L13 13L19 19ZM13 8.3431L13 7C13 4.2385 15.2386 1.9999 18.0001 1.9999C20.7615 1.9999 23.0001 4.2385 23.0001 6.9999C23.0001 9.376 21.328 11.4238 19 11.899L19 12.3431L18.98 12.3431C18.9802 12.8844 18.5415 13.3233 18.0002 13.3233C17.7402 13.3233 17.4908 13.22 17.3071 13.0361L17.2929 13.0503L13.2929 9.0503L13.3071 9.0361C13.123 8.8525 13.0197 8.6031 13.02 8.3431L13 8.3431ZM6.2487 2.0061C8.8146 2.134 10.866 4.1854 10.9939 6.7513L6.2487 2.0061Z" fill="currentColor" fillOpacity={0.4} fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <Path d="M3.7159 3.7159C2.6787 4.4386 2 5.6401 2 7C2 8.9008 3.3376 10.539 5.2 10.9192C5.6656 11.0142 6 11.4238 6 11.899L6 19C6 20.1046 6.8954 21 8 21C9.1046 21 10 20.1046 10 19L10 10M14 14L14 19C14 20.1046 14.8954 21 16 21C17.1046 21 18 20.1046 18 19L18 18M6 17L10 17M14 17L17 17M2 2L22 22" fill="none" />
+      <Path d="M11 11V19C11 20.657 9.657 22 8 22C6.343 22 5 20.657 5 19V11.899C2.672 11.424 0.999 9.376 0.999 7C0.999 5.426 1.741 3.944 3 3L11 11ZM19 19C19 20.657 17.657 22 16 22C14.343 22 13 20.657 13 19V13L19 19ZM13 8.343V7C13 4.238 15.239 2 18 2C20.761 2 23 4.238 23 7C23 9.376 21.328 11.424 19 11.899V12.343H18.98C18.98 12.884 18.541 13.323 18 13.323C17.74 13.323 17.491 13.22 17.307 13.036L17.293 13.05L13.293 9.05L13.307 9.036C13.123 8.852 13.02 8.603 13.02 8.343H13ZM6.249 2.006C8.815 2.134 10.866 4.185 10.994 6.751L6.249 2.006Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M3.716 3.716C2.679 4.439 2 5.64 2 7C2 8.901 3.338 10.539 5.2 10.919C5.666 11.014 6 11.424 6 11.899V19C6 20.105 6.895 21 8 21C9.105 21 10 20.105 10 19V10M14 14V19C14 20.105 14.895 21 16 21C17.105 21 18 20.105 18 19V18M6 17H10M14 17H17M2 2L22 22" />
     </Icon>
   )
 }
@@ -7052,6 +7647,15 @@ export function Earth(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM15.4202 2.6031L15.4958 6.2951C15.4986 6.4313 15.5153 6.5669 15.5457 6.6998L16.178 9.4663C16.2579 9.8157 16.2424 10.1801 16.1331 10.5215L15.5302 12.4057C15.5101 12.4684 15.4839 12.529 15.4519 12.5866L15.0508 13.3086C14.6367 14.0539 13.5397 13.9724 13.2403 13.1741L12.957 12.4188C12.8571 12.1523 12.6484 11.941 12.3832 11.8379L11.8626 11.6355C11.3758 11.4462 10.8253 11.6634 10.5989 12.1342L9.363 14.705C9.0066 15.4463 7.9575 15.4644 7.5759 14.7358L6.4431 12.5732C6.3499 12.3952 6.2052 12.2494 6.0279 12.1549L5.2247 11.7265C4.9563 11.5834 4.6373 11.5702 4.358 11.6907L2.0244 12.6976M21.9452 13.0453L18.5505 15.7235C18.3197 15.9056 18.1318 16.1363 18.0004 16.3993L16.8444 18.7113C16.8148 18.7704 16.7823 18.828 16.7471 18.8839L15.0902 21.5106" />
+    </Icon>
+  )
+}
+
+export function EaseInOut(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3.5 20.5C12 20.5 12 3.5 20.5 3.5" fill="none" />
+      <Path d="M5 3.5C5 4.3285 4.3285 5 3.5 5C2.6715 5 2 4.3285 2 3.5C2 2.6715 2.6715 2 3.5 2C4.3285 2 5 2.6715 5 3.5ZM10 3.5C10 4.3285 9.3285 5 8.5 5C7.6715 5 7 4.3285 7 3.5C7 2.6715 7.6715 2 8.5 2C9.3285 2 10 2.6715 10 3.5ZM17 20.5C17 21.3285 16.3285 22 15.5 22C14.6715 22 14 21.3285 14 20.5C14 19.6715 14.6715 19 15.5 19C16.3285 19 17 19.6715 17 20.5ZM22 20.5C22 21.3285 21.3285 22 20.5 22C19.6715 22 19 21.3285 19 20.5C19 19.6715 19.6715 19 20.5 19C21.3285 19 22 19.6715 22 20.5Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
     </Icon>
   )
 }
@@ -7333,6 +7937,14 @@ export function Explosion(props: IconProps) {
   )
 }
 
+export function EyeClosed(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2 8C4.3607 11.1476 8.0655 13 12 13C15.9345 13 19.6393 11.1476 22 8M19.3473 10.6127L21.3142 13.3199M14.5989 12.7268L15.2946 15.9999M9.4011 12.7268L8.7054 16M4.6527 10.6127L2.6858 13.3199" fill="none" />
+    </Icon>
+  )
+}
+
 export function EyeOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -7398,6 +8010,25 @@ export function FaceFrustrated(props: IconProps) {
   )
 }
 
+export function FaceHeartEyes(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2.4577 11.8167C1.7194 11.106 1 10.1631 1 8.9167C1 8.08 1.3736 7.3406 1.9409 6.8228C2.5068 6.3063 3.2728 6 4.1 6C4.6083 6 5.078 6.118 5.5 6.3244C5.922 6.118 6.3917 6 6.9 6C7.7272 6 8.4932 6.3063 9.0591 6.8228C9.6264 7.3406 10 8.08 10 8.9167C10 10.1631 9.2806 11.106 8.5423 11.8167C8.165 12.1799 7.7429 12.52 7.3345 12.8377C6.9115 13.1668 6.5197 13.4596 6.131 13.7758C5.9527 13.9208 5.7299 14 5.5 14C5.2701 14 5.0473 13.9208 4.869 13.7758C4.4803 13.4596 4.0885 13.1668 3.6655 12.8377C3.2571 12.52 2.835 12.1799 2.4577 11.8167ZM21.5423 11.8167C21.165 12.1799 20.7429 12.52 20.3345 12.8377C19.9115 13.1668 19.5197 13.4596 19.131 13.7758C18.9527 13.9208 18.7299 14 18.5 14C18.2701 14 18.0473 13.9208 17.869 13.7758C17.4803 13.4596 17.0885 13.1668 16.6655 12.8377C16.2571 12.52 15.835 12.1799 15.4577 11.8167C14.7194 11.106 14 10.1631 14 8.9167C14 8.08 14.3736 7.3406 14.9409 6.8228C15.5068 6.3063 16.2728 6 17.1 6C17.6083 6 18.078 6.118 18.5 6.3244C18.922 6.118 19.3917 6 19.9 6C20.7272 6 21.4932 6.3063 22.0591 6.8228C22.6264 7.3406 23 8.08 23 8.9167C23 10.1631 22.2806 11.106 21.5423 11.8167Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M21.1355 16.0674C19.529 19.6754 15.9495 22 12 22C8.0505 22 4.471 19.6754 2.8645 16.0674M7.6163 3.0121C8.9817 2.3461 10.4809 2 12 2C13.5191 2 15.0183 2.3461 16.3837 3.0121M5.5 13C3.9032 11.7011 2 10.5833 2 8.9167C2 7.8581 2.9402 7 4.1 7C4.625 7 5.0949 7.182 5.5 7.5C5.9051 7.182 6.375 7 6.9 7C8.0598 7 9 7.8581 9 8.9167C9 10.5833 7.0968 11.7011 5.5 13ZM18.5 13C16.9032 11.7011 15 10.5833 15 8.9167C15 7.8581 15.9402 7 17.1 7C17.625 7 18.0949 7.182 18.5 7.5C18.9051 7.182 19.375 7 19.9 7C21.0598 7 22 7.8581 22 8.9167C22 10.5833 20.0968 11.7011 18.5 13ZM9 16C10 17 11 17.5 12 17.5C13 17.5 14 17 15 16" />
+    </Icon>
+  )
+}
+
+export function FaceKiss(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M15.4577 20.817C14.7194 20.106 14 19.163 14 17.917C14 17.08 14.3736 16.341 14.9409 15.823C15.5068 15.306 16.2728 15 17.1 15C17.6083 15 18.078 15.118 18.5 15.324C18.922 15.118 19.3917 15 19.9 15C20.7272 15 21.4932 15.306 22.0591 15.823C22.6264 16.341 23 17.08 23 17.917C23 19.163 22.2806 20.106 21.5423 20.817C21.165 21.18 20.7429 21.52 20.3345 21.838C19.9115 22.167 19.5197 22.46 19.131 22.776C18.9527 22.921 18.7299 23 18.5 23C18.2701 23 18.0473 22.921 17.869 22.776C17.4803 22.46 17.0885 22.167 16.6655 21.838C16.2571 21.52 15.835 21.18 15.4577 20.817Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12.349 21.994C12.2327 21.998 12.1164 22 12 22C6.4772 22 2 17.523 2 12C2 6.477 6.4772 2 12 2C17.5228 2 22 6.477 22 12C22 12.116 21.998 12.233 21.9939 12.349M9 10V11M15 10V11M18.5 22C16.9032 20.701 15 19.583 15 17.917C15 16.858 15.9402 16 17.1 16C17.625 16 18.0949 16.182 18.5 16.5C18.9051 16.182 19.375 16 19.9 16C21.0598 16 22 16.858 22 17.917C22 19.583 20.0968 20.701 18.5 22Z" />
+      <Path d="M12 16.5C12 17.328 11.3284 18 10.5 18C9.6716 18 9 17.328 9 16.5C9 15.672 9.6716 15 10.5 15C11.3284 15 12 15.672 12 16.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function FaceLaugh(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -7412,6 +8043,24 @@ export function FaceNeutral(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM9 10L9 11M15 10L15 11M9 16L15 16" fill="none" />
+    </Icon>
+  )
+}
+
+export function FaceRofl(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12.5 12.8661L14.9496 11.4518C15.5463 11.1072 16.229 11.1108 16.7856 11.3669C17.3422 11.623 17.7891 12.1391 17.9156 12.8165C18.3016 14.8843 17.3483 16.9951 15.5 18.0622C13.6517 19.1293 11.3471 18.8996 9.7494 17.5314C9.2259 17.0831 9.0023 16.4381 9.0589 15.8279C9.1154 15.2178 9.4537 14.6249 10.0504 14.2804ZM1.8787 22.1213C1.3369 21.5795 1 20.8282 1 20C1 19.3802 1.192 18.7755 1.5496 18.2693L2.7748 16.5346C3.056 16.1367 3.5128 15.9 4 15.9C4.4872 15.9 4.944 16.1367 5.2251 16.5344L6.4504 18.2693C6.808 18.7755 7 19.3802 7 20C7 21.6569 5.6569 23 4 23C3.1718 23 2.4205 22.6631 1.8787 22.1213Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M2.0745 13.2187C2.0249 12.8144 2 12.4074 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12C22 17.5228 17.5228 22 12 22C11.2429 22 10.4882 21.914 9.7505 21.7437M6.7189 9.8529L8.6429 10.1854L7.9689 12.0179M12.7811 6.3529L12.1071 8.1854L14.0311 8.5179M10.5504 15.1464L15.4496 12.3178C16.0469 11.9729 16.806 12.3221 16.9326 13.0001C17.2413 14.6539 16.4785 16.3426 15 17.1962C13.5215 18.0498 11.6777 17.8661 10.3998 16.7718C9.8759 16.3232 9.953 15.4913 10.5504 15.1464ZM3.5916 17.1115C3.6853 16.9789 3.8376 16.9 4 16.9C4.1624 16.9 4.3147 16.9789 4.4084 17.1115L5.6336 18.8462C5.872 19.1837 6 19.5868 6 20C6 21.1046 5.1046 22 4 22C2.8954 22 2 21.1046 2 20C2 19.5868 2.128 19.1837 2.3664 18.8462L3.5916 17.1115Z" />
+    </Icon>
+  )
+}
+
+export function FaceSleep(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2" strokeOpacity={0.4} />
+      <Path d="M7 10C7 10.5523 7.6716 11 8.5 11C9.3284 11 10 10.5523 10 10M14 10C14 10.5523 14.6716 11 15.5 11C16.3284 11 17 10.5523 17 10M9 15C10 16 11 16.5 12 16.5C13 16.5 14 16 15 15M16 2H20.3486C20.8433 2 21.0376 2.6416 20.626 2.916L17.374 5.084C16.9624 5.3584 17.1567 6 17.6514 6H22" />
     </Icon>
   )
 }
@@ -7434,11 +8083,47 @@ export function FaceSmile(props: IconProps) {
   )
 }
 
+export function FaceSquint(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M19.778 4.222C21.768 6.211 23 8.963 23 12C23 18.075 18.075 23 12 23C5.925 23 1 18.075 1 12C1 5.925 5.925 1 12 1C15.037 1 17.789 2.232 19.778 4.222Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M8.5 7.5L10 8.75L8.5 10M15.5 7.5L14 8.75L15.5 10M22 12C22 17.523 17.523 22 12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12ZM9.171 14H14.829C15.518 14 16.001 14.682 15.772 15.332C15.212 16.919 13.707 18 12 18C10.293 18 8.788 16.919 8.228 15.332C7.999 14.682 8.482 14 9.171 14Z" />
+    </Icon>
+  )
+}
+
+export function FaceStarEyes(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M7.731 5.8007L8.0667 6.6517C8.1175 6.7805 8.2195 6.8825 8.3484 6.9334L10.0504 7.6046C10.6236 7.8306 11 8.3843 11 9C11 9.6157 10.6236 10.1694 10.0503 10.3954L8.3483 11.0667C8.2195 11.1175 8.1175 11.2195 8.0666 11.3484L7.3954 13.0504C7.1694 13.6236 6.6157 14 6 14C5.3843 14 4.8306 13.6236 4.6046 13.0503L3.9333 11.3483C3.8825 11.2195 3.7805 11.1175 3.6516 11.0666L1.9496 10.3954C1.3764 10.1694 1 9.6157 1 9C1 8.3843 1.3764 7.8306 1.9497 7.6046L3.6517 6.9333C3.7805 6.8825 3.8825 6.7805 3.9334 6.6516L4.6046 4.9496C4.8306 4.3764 5.3843 4 6 4C6.6157 4 7.1694 4.3764 7.3954 4.9497ZM19.731 5.8007L20.0667 6.6517C20.1175 6.7805 20.2195 6.8825 20.3484 6.9334L22.0504 7.6046C22.6236 7.8306 23 8.3843 23 9C23 9.6157 22.6236 10.1694 22.0503 10.3954L20.3483 11.0667C20.2195 11.1175 20.1175 11.2195 20.0666 11.3484L19.3954 13.0504C19.1694 13.6236 18.6157 14 18 14C17.3843 14 16.8306 13.6236 16.6046 13.0503L15.9333 11.3483C15.8825 11.2195 15.7805 11.1175 15.6516 11.0666L13.9496 10.3954C13.3764 10.1694 13 9.6157 13 9C13 8.3843 13.3764 7.8306 13.9497 7.6046L15.6517 6.9333C15.7805 6.8825 15.8825 6.7805 15.9334 6.6516L16.6046 4.9496C16.8306 4.3764 17.3843 4 18 4C18.6157 4 19.1694 4.3764 19.3954 4.9497Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M21.3358 15.5837C19.8521 19.4488 16.1401 22 12 22C7.8599 22 4.1479 19.4488 2.6642 15.5837M9.4118 2.3407C10.2559 2.1146 11.1261 2 12 2C12.8739 2 13.7441 2.1146 14.5882 2.3407M6.4651 5.3165L7.1364 7.0186C7.2889 7.4051 7.5949 7.7111 7.9814 7.8636L9.6835 8.5349C9.8745 8.6102 10 8.7947 10 9C10 9.2053 9.8745 9.3898 9.6835 9.4651L7.9814 10.1364C7.5949 10.2889 7.2889 10.5949 7.1364 10.9814L6.4651 12.6835C6.3898 12.8745 6.2053 13 6 13C5.7947 13 5.6102 12.8745 5.5349 12.6835L4.8636 10.9814C4.7111 10.5949 4.4051 10.2889 4.0186 10.1364L2.3165 9.4651C2.1255 9.3898 2 9.2053 2 9C2 8.7947 2.1255 8.6102 2.3165 8.5349L4.0186 7.8636C4.4051 7.7111 4.7111 7.4051 4.8636 7.0186L5.5349 5.3165C5.6102 5.1255 5.7947 5 6 5C6.2053 5 6.3898 5.1255 6.4651 5.3165ZM18.4651 5.3165L19.1364 7.0186C19.2889 7.4051 19.5949 7.7111 19.9814 7.8636L21.6835 8.5349C21.8745 8.6102 22 8.7947 22 9C22 9.2053 21.8745 9.3898 21.6835 9.4651L19.9814 10.1364C19.5949 10.2889 19.2889 10.5949 19.1364 10.9814L18.4651 12.6835C18.3898 12.8745 18.2053 13 18 13C17.7947 13 17.6102 12.8745 17.5349 12.6835L16.8636 10.9814C16.7111 10.5949 16.4051 10.2889 16.0186 10.1364L14.3165 9.4651C14.1255 9.3898 14 9.2053 14 9C14 8.7947 14.1255 8.6102 14.3165 8.5349L16.0186 7.8636C16.4051 7.7111 16.7111 7.4051 16.8636 7.0186L17.5349 5.3165C17.6102 5.1255 17.7947 5 18 5C18.2053 5 18.3898 5.1255 18.4651 5.3165ZM9 16C10 17 11 17.5 12 17.5C13 17.5 14 17 15 16" />
+    </Icon>
+  )
+}
+
 export function FaceSunglasses(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M22.9215 10.6839C22.974 11.121 23 11.5605 23 12C23 18.0751 18.0751 23 12 23C8.9627 23 6.2114 21.7677 4.2218 19.7782C2.2323 17.7886 1 15.0373 1 12C1 11.5605 1.026 11.121 1.0785 10.6839C1.0271 10.4635 1 10.2344 1 10L1 8C1 6.9725 1.7748 6.126 2.772 6.0128C4.7926 2.8976 8.2611 1 12 1C13.9649 1 15.8555 1.5242 17.5 2.4737C18.9846 3.3309 20.2693 4.5348 21.228 6.0128C22.2252 6.126 23 6.9725 23 8L23 10C23 10.2343 22.9729 10.4634 22.9215 10.6839Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M3.3397 7C5.1261 3.906 8.4273 2 12 2C15.5727 2 18.8739 3.906 20.6603 7M21.9035 10.6139C21.9677 11.0731 22 11.5363 22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 11.5363 2.0323 11.0731 2.0965 10.6139M2 8C2 7.4477 2.4477 7 3 7L9 7C9.5523 7 10 7.4477 10 8L10 10C10 11.1046 9.1046 12 8 12L4 12C2.8954 12 2 11.1046 2 10ZM14 8C14 7.4477 14.4477 7 15 7L21 7C21.5523 7 22 7.4477 22 8L22 10C22 11.1046 21.1046 12 20 12L16 12C14.8954 12 14 11.1046 14 10ZM10 8H14M9 16C10 17 11 17.5 12 17.5C13 17.5 14 17 15 16" />
+    </Icon>
+  )
+}
+
+export function FaceTearsJoy(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 13H14.829C15.518 13 16.107 13.344 16.461 13.844C16.815 14.345 16.944 15.015 16.715 15.665C16.015 17.649 14.134 19 12 19C9.866 19 7.985 17.649 7.285 15.665C7.056 15.015 7.185 14.345 7.539 13.844C7.893 13.344 8.482 13 9.171 13H12ZM1.879 22.121C1.337 21.58 1 20.828 1 20C1 19.38 1.192 18.776 1.55 18.269L2.775 16.535C3.056 16.137 3.513 15.9 4 15.9C4.487 15.9 4.944 16.137 5.225 16.534L6.45 18.269C6.808 18.776 7 19.38 7 20C7 21.657 5.657 23 4 23C3.172 23 2.421 22.663 1.879 22.121ZM22.121 22.121C21.58 22.663 20.828 23 20 23C18.343 23 17 21.657 17 20C17 19.38 17.192 18.776 17.55 18.269L18.775 16.535C19.056 16.137 19.513 15.9 20 15.9C20.487 15.9 20.944 16.137 21.225 16.534L22.45 18.269C22.808 18.776 23 19.38 23 20C23 20.828 22.663 21.58 22.121 22.121Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M14.25 21.744C13.512 21.914 12.757 22 12 22C11.243 22 10.488 21.914 9.75 21.744M2.075 13.219C2.025 12.814 2 12.407 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 12.407 21.975 12.814 21.926 13.219M8.5 7.5L10 8.75L8.5 10M15.5 7.5L14 8.75L15.5 10M9.171 14H14.829C15.518 14 16.001 14.682 15.772 15.332C15.212 16.919 13.707 18 12 18C10.293 18 8.788 16.919 8.228 15.332C7.999 14.682 8.482 14 9.171 14ZM3.592 17.111C3.685 16.979 3.838 16.9 4 16.9C4.162 16.9 4.315 16.979 4.408 17.111L5.634 18.846C5.872 19.184 6 19.587 6 20C6 21.105 5.105 22 4 22C2.895 22 2 21.105 2 20C2 19.587 2.128 19.184 2.366 18.846L3.592 17.111ZM19.592 17.111C19.685 16.979 19.838 16.9 20 16.9C20.162 16.9 20.315 16.979 20.408 17.111L21.634 18.846C21.872 19.184 22 19.587 22 20C22 21.105 21.105 22 20 22C18.895 22 18 21.105 18 20C18 19.587 18.128 19.184 18.366 18.846L19.592 17.111Z" />
+    </Icon>
+  )
+}
+
+export function FaceTongue(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M19.7782 4.2218C21.7677 6.2114 23 8.9627 23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C15.0373 1 17.7886 2.2323 19.7782 4.2218Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2C17.5228 2 22 6.4772 22 12ZM9 8L9 9M14 8.5L16 8.5M8 13L16 13M10 13L10 16C10 17.1046 10.8954 18 12 18C13.1046 18 14 17.1046 14 16L14 13" />
     </Icon>
   )
 }
@@ -7466,6 +8151,16 @@ export function FastForward(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M1 7.504964C1 5.313398 3.619285 4.182505 5.214383 5.685378L10.371506 10.544331C11.209498 11.333873 11.209498 12.666127 10.371506 13.455669L5.214383 18.314623C3.619286 19.817496 1 18.686603 1 16.495037ZM13 7.504963C13 5.313397 15.619285 4.182504 17.214383 5.685377L22.371507 10.544331C23.209499 11.333873 23.209499 12.666127 22.371507 13.455669L17.214383 18.314623C15.619285 19.817496 13 18.686603 13 16.495037Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M2 7.504963C2 6.190024 3.571571 5.511488 4.52863 6.413212L9.685754 11.272166C10.10475 11.666937 10.10475 12.333063 9.685754 12.727834L4.52863 17.586788C3.571571 18.488512 2 17.809976 2 16.495037ZM14 7.504963C14 6.190024 15.571571 5.511488 16.52863 6.413212L21.685754 11.272166C22.10475 11.666937 22.10475 12.333063 21.685754 12.727834L16.52863 17.586788C15.571571 18.488512 14 17.809976 14 16.495037Z" />
+    </Icon>
+  )
+}
+
+export function Fax(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M19 8.126C20.7253 8.57 22 10.1361 22 12L22 18C22 20.2092 20.2092 22 18 22L6 22C3.7908 22 2 20.2092 2 18L2 11.5L2 5C2 3.3431 3.3431 2 5 2L7 2C8.6569 2 10 3.3431 10 5L10 8L12 8L12 6C12 4.8954 12.8954 4 14 4L17 4C18.1046 4 19 4.8954 19 6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M5 3L7 3C8.1046 3 9 3.8954 9 5L9 9L18 9C19.6569 9 21 10.3431 21 12L21 18C21 19.6569 19.6569 21 18 21L6 21C4.3431 21 3 19.6569 3 18L3 5C3 3.8954 3.8954 3 5 3ZM9 9L9 21M13 9L13 6C13 5.4477 13.4477 5 14 5L17 5C17.5523 5 18 5.4477 18 6L18 9" />
+      <Path d="M14 13C14 13.5523 13.5523 14 13 14C12.4477 14 12 13.5523 12 13C12 12.4477 12.4477 12 13 12C13.5523 12 14 12.4477 14 13ZM18 13C18 13.5523 17.5523 14 17 14C16.4477 14 16 13.5523 16 13C16 12.4477 16.4477 12 17 12C17.5523 12 18 12.4477 18 13ZM14 17C14 17.5523 13.5523 18 13 18C12.4477 18 12 17.5523 12 17C12 16.4477 12.4477 16 13 16C13.5523 16 14 16.4477 14 17ZM18 17C18 17.5523 17.5523 18 17 18C16.4477 18 16 17.5523 16 17C16 16.4477 16.4477 16 17 16C17.5523 16 18 16.4477 18 17Z" fill="currentColor" stroke="none" />
     </Icon>
   )
 }
@@ -7607,6 +8302,15 @@ export function FileImage(props: IconProps) {
   )
 }
 
+export function FileLock(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M14 1C14.2652 1 14.5195 1.1054 14.707 1.293L20.707 7.293C20.8946 7.4805 21 7.7348 21 8L21 10C21 10.5523 20.5523 11 20 11L13 11C11.3431 11 10 12.3431 10 14L10 22C10 22.5523 9.5523 23 9 23L8 23C5.2386 23 3 20.7614 3 18L3 6C3 3.2386 5.2386 1 8 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M14 2H8C5.79086 2 4 3.79086 4 6V18C4 20.2091 5.79086 22 8 22H9M14 2L20 8V10M14 2V5C14 6.65685 15.3431 8 17 8H20M14 18L19 18C19.5523 18 20 18.4477 20 19L20 21C20 21.5523 19.5523 22 19 22L14 22C13.4477 22 13 21.5523 13 21L13 19C13 18.4477 13.4477 18 14 18ZM14.5 18L14.5 16C14.5 14.8954 15.3954 14 16.5 14C17.6046 14 18.5 14.8954 18.5 16L18.5 18" />
+    </Icon>
+  )
+}
+
 export function FileMinus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -7640,6 +8344,15 @@ export function FileSearch(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M14 1C14.2652 1 14.5195 1.1054 14.707 1.293L20.707 7.293C20.8946 7.4805 21 7.7348 21 8L21 12C21 12.5523 20.5523 13 20 13L14 13C12.3431 13 11 14.3431 11 16L11 22C11 22.5523 10.5523 23 10 23L8 23C5.2386 23 3 20.7614 3 18L3 6C3 3.2386 5.2386 1 8 1L14 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M14 2L8 2C5.7909 2 4 3.7909 4 6L4 18C4 20.2091 5.7909 22 8 22L10 22M14 2L20 8L20 12M14 2L14 5C14 6.6569 15.3431 8 17 8L20 8M19 18.5C19 19.8807 17.8807 21 16.5 21C15.1193 21 14 19.8807 14 18.5C14 17.1193 15.1193 16 16.5 16C17.8807 16 19 17.1193 19 18.5ZM18.5 20.5L20 22" />
+    </Icon>
+  )
+}
+
+export function FileSignature(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M14 1C14.2652 1 14.5195 1.1054 14.707 1.293L20.707 7.293C20.8946 7.4805 21 7.7348 21 8L21 18C21 20.7614 18.7614 23 16 23L8 23C5.2386 23 3 20.7614 3 18L3 6C3 3.2386 5.2386 1 8 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M14 2H8C5.79086 2 4 3.79086 4 6V18C4 20.2091 5.79086 22 8 22H16C18.2091 22 20 20.2091 20 18V8L14 2ZM14 2V5C14 6.65685 15.3431 8 17 8H20M8 13.7228C10.1818 13.2431 10.4242 11.324 10.6666 12.2835C10.9091 13.2431 11.3939 14.2026 12.1212 13.9627C12.8485 13.7228 13.0909 12.5234 13.5757 13.2431C14.0606 13.9627 15.2728 13.9627 16 13.9627M8 18L16 18" />
     </Icon>
   )
 }
@@ -7781,6 +8494,15 @@ export function FilterDashedPanel(props: IconProps) {
   )
 }
 
+export function FilterOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M13 20.999L12.1992 21.599C11.5931 22.053 10.7825 22.126 10.1051 21.787C9.4278 21.448 9 20.756 9 19.998V15.657C9 15.105 9.4477 14.657 10 14.657C10.2762 14.657 10.5262 14.769 10.7072 14.95L13 17.243V13L15 15V18.5C15 18.518 14.9998 18.537 14.9993 18.555C14.9978 18.608 14.9943 18.66 14.9888 18.712C14.988 18.719 14.9871 18.727 14.9863 18.734C14.9806 18.782 14.9731 18.83 14.964 18.878C14.963 18.883 14.9619 18.889 14.9608 18.894C14.946 18.968 14.9272 19.04 14.9044 19.111C14.8924 19.148 14.8792 19.186 14.865 19.222C14.8597 19.236 14.8543 19.25 14.8487 19.263C14.8447 19.273 14.8407 19.282 14.8366 19.292C14.8284 19.311 14.8198 19.33 14.811 19.349C14.7977 19.377 14.7838 19.405 14.7693 19.432C14.7429 19.482 14.7145 19.531 14.684 19.579C14.6774 19.589 14.6707 19.599 14.6639 19.61C14.5927 19.716 14.5109 19.817 14.4143 19.914C14.3476 19.981 14.2758 20.043 14.1992 20.1L13 20.999ZM14.8611 10.618L7.9498 3.707C7.7688 3.526 7.6569 3.276 7.6569 3C7.6569 2.448 8.1046 2 8.6569 2H19.998C20.8046 2 21.5322 2.485 21.8433 3.229C22.1543 3.973 21.988 4.831 21.4214 5.405L16.2799 10.614C16.0986 10.797 15.8467 10.911 15.5682 10.911C15.2921 10.911 15.0421 10.799 14.8611 10.618Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M14 14V18.5C14 18.815 13.8516 19.111 13.5996 19.3L11.5996 20.799C10.9403 21.293 10 20.822 10 19.998V15.657M2 2L22 22" />
+    </Icon>
+  )
+}
+
 export function Filter(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -7823,6 +8545,24 @@ export function Fish(props: IconProps) {
       <Path d="M11.5859 4C12.0708 4 12.5394 4.18 12.9043 4.5L17.5078 8.53C19.5002 9.21 21.2526 10.52 22.4746 12.3C22.8168 12.8 23 13.39 23 14C23 14.61 22.8168 15.2 22.4746 15.7C20.6289 18.39 17.5732 20 14.3076 20C11.9022 20 9.5792 19.12 7.7725 17.54L3.7144 19.09C3.4866 19.18 3.2441 19.22 3 19.22C1.8955 19.22 1.0002 18.33 1 17.22C1 16.67 1.232 16.13 1.6396 15.76L3.5303 14L1.6396 12.24C1.232 11.87 1 11.33 1 10.78C1.0002 9.67 1.8955 8.78 3 8.78C3.2441 8.78 3.4866 8.82 3.7144 8.91L7.7725 10.46C8.0425 10.23 8.3255 10.01 8.6172 9.8L9.6416 5.53C9.8575 4.63 10.6613 4 11.5859 4Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M17 9.42L12.2454 5.25C12.063 5.09 11.8287 5 11.5861 5C11.1237 5 10.7216 5.32 10.6137 5.77L9.5 10.41M7.4151 11.4C7.5292 11.44 7.6504 11.46 7.7726 11.46C8.0155 11.46 8.2502 11.38 8.4327 11.21C10.057 9.79 12.1454 9 14.3079 9C17.2436 9 19.9905 10.45 21.6498 12.87C21.8779 13.2 21.9999 13.6 21.9999 14C21.9999 14.4 21.8779 14.8 21.6498 15.13C19.9905 17.55 17.2436 19 14.3079 19C12.1454 19 10.057 18.21 8.4327 16.79C8.2502 16.62 8.0155 16.54 7.7726 16.54C7.6504 16.54 7.5292 16.56 7.4151 16.6L3.3574 18.16C3.2433 18.2 3.1221 18.22 3 18.22C2.4477 18.22 2 17.77 2 17.22C2 16.94 2.1158 16.68 2.3196 16.49L4.2107 14.73C4.4145 14.54 4.5303 14.28 4.5303 14C4.5303 13.72 4.4145 13.46 4.2107 13.27L2.3196 11.51C2.1158 11.32 2 11.06 2 10.78C2 10.23 2.4477 9.78 3 9.78C3.1221 9.78 3.2433 9.8 3.3574 9.84L7.4151 11.4Z" />
       <Path d="M18 14C18 14.55 17.5523 15 17 15C16.4477 15 16 14.55 16 14C16 13.45 16.4477 13 17 13C17.5523 13 18 13.45 18 14Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
+export function FitHeight(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M21 12L21 19C21 21.2092 19.2092 23 17 23L7 23C4.7908 23 3 21.2092 3 19L3 5C3 2.7908 4.7908 1 7 1L17 1C19.2092 1 21 2.7908 21 5Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M7 2L17 2C18.6569 2 20 3.3431 20 5L20 19C20 20.6569 18.6569 22 17 22L7 22C5.3431 22 4 20.6569 4 19L4 5C4 3.3431 5.3431 2 7 2ZM12 6V18M9 9L12 6L15 9M9 15L12 18L15 15" />
+    </Icon>
+  )
+}
+
+export function FitWidth(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 3L19 3C21.2092 3 23 4.7908 23 7L23 17C23 19.2092 21.2092 21 19 21L5 21C2.7908 21 1 19.2092 1 17L1 7C1 4.7908 2.7908 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M5 4L19 4C20.6569 4 22 5.3431 22 7L22 17C22 18.6569 20.6569 20 19 20L5 20C3.3431 20 2 18.6569 2 17L2 7C2 5.3431 3.3431 4 5 4ZM6 12H18M9 9L6 12L9 15M15 9L18 12L15 15" />
     </Icon>
   )
 }
@@ -8197,6 +8937,15 @@ export function FolderCog(props: IconProps) {
   )
 }
 
+export function FolderLines(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2 7C2 4.7909 3.7909 3 6 3L8.6716 3C9.4672 3 10.2303 3.3161 10.7929 3.8787L12.1213 5.2071C12.3089 5.3946 12.5632 5.5 12.8284 5.5L18 5.5C20.2091 5.5 22 7.2909 22 9.5L22 17C22 19.2091 20.2091 21 18 21L6 21C3.7909 21 2 19.2091 2 17Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M3 7C3 5.3431 4.3431 4 6 4L8.6716 4C9.202 4 9.7107 4.2107 10.0858 4.5858L11.4142 5.9142C11.7893 6.2893 12.298 6.5 12.8284 6.5L18 6.5C19.6569 6.5 21 7.8431 21 9.5L21 17C21 18.6569 19.6569 20 18 20L6 20C4.3431 20 3 18.6569 3 17ZM8 11L16 11M8 15L13 15" />
+    </Icon>
+  )
+}
+
 export function FolderMinus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -8210,6 +8959,15 @@ export function FolderOpen(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M6 15L7.4472 12.1056C7.786 11.428 8.4785 11 9.2361 11L19.9978 11C21.4451 11 22.4132 12.4897 21.8254 13.8123L19.6032 18.8123C19.2822 19.5345 18.5659 20 17.7756 20L4 20C2.8954 20 2 19.1046 2 18L2 6C2 4.8954 2.8954 4 4 4L7.3787 4C7.7765 4 8.158 4.158 8.4393 4.4393L9.5607 5.5607C9.842 5.842 10.2235 6 10.6213 6L17 6C18.1046 6 19 6.8954 19 8L19 11" />
+    </Icon>
+  )
+}
+
+export function FolderPen(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M14.7991 13.1769L16.8787 11.0973C17.4413 10.5348 18.2043 10.2186 19 10.2186C20.6569 10.2186 22 11.5618 22 13.2186C22 14.0143 21.684 14.7774 21.1213 15.34L16.9621 19.4991C16.7978 19.6634 16.5971 19.7878 16.3754 19.8616L13.1938 20.9222C12.6089 21.1172 12.0289 20.9299 11.6588 20.5597C11.2887 20.1896 11.1016 19.6096 11.2965 19.0248L12.3571 15.8428C12.4309 15.622 12.5546 15.4214 12.7195 15.2565Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M8.2464 20L6 20C4.3431 20 3 18.6569 3 17L3 7C3 5.3431 4.3431 4 6 4L8.6716 4C9.202 4 9.7107 4.2107 10.0858 4.5858L11.4142 5.9142C11.7893 6.2893 12.298 6.5 12.8284 6.5L18 6.5C18.7935 6.5 19.5151 6.8081 20.0516 7.3111M20.4142 14.6329L16.255 18.792C16.2001 18.8469 16.1332 18.8883 16.0596 18.9128L12.8776 19.9735C12.4867 20.1038 12.1149 19.7319 12.2452 19.341L13.3058 16.159C13.3304 16.0854 13.3717 16.0185 13.4266 15.9636L17.5858 11.8044C17.9609 11.4294 18.4696 11.2186 19 11.2186C20.1046 11.2186 21 12.1141 21 13.2186C21 13.7491 20.7893 14.2578 20.4142 14.6329Z" />
     </Icon>
   )
 }
@@ -8477,6 +9235,15 @@ export function GalleryVertical(props: IconProps) {
   )
 }
 
+export function GamepadOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M16.639 16.639L15.937 17.34C16.118 17.521 16.23 17.771 16.23 18.047C16.23 18.599 15.782 19.047 15.23 19.047C14.845 19.047 14.511 18.83 14.344 18.512C14.34 18.504 14.336 18.496 14.332 18.488L13.795 17.393C13.66 17.127 13.43 16.922 13.15 16.819C13.001 16.762 12.844 16.733 12.684 16.733H11.308C10.998 16.733 10.699 16.846 10.466 17.051C10.358 17.147 10.269 17.263 10.205 17.393L9.667 18.488C9.291 19.249 8.705 19.887 7.978 20.325C7.245 20.767 6.405 21.001 5.549 21.001C5.112 21.001 4.677 20.94 4.257 20.82C3.451 20.591 2.724 20.145 2.155 19.531C1.589 18.923 1.21 18.164 1.063 17.345C1.021 17.103 0.999 16.858 0.999 16.612C0.999 16.426 1.012 16.241 1.036 16.057L2.172 7.374C2.28 6.556 2.593 5.778 3.082 5.114C3.371 4.724 3.71 4.38 4.089 4.089L16.639 16.639ZM21.281 17.039L8.95 4.707C8.769 4.526 8.657 4.276 8.657 4C8.657 3.448 9.105 3 9.657 3H16.68C16.685 3 16.69 3 16.695 3C17.939 3 19.143 3.438 20.096 4.237C20.718 4.758 21.203 5.422 21.51 6.172C21.667 6.558 21.774 6.962 21.828 7.374L22.964 16.057C22.972 16.119 22.979 16.182 22.985 16.245C22.987 16.273 22.988 16.302 22.988 16.331C22.988 16.884 22.541 17.331 21.988 17.331C21.712 17.331 21.462 17.22 21.281 17.039Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M15.23 18.047L14.693 16.952C14.328 16.209 13.545 15.733 12.684 15.733H11.315C10.455 15.733 9.672 16.209 9.307 16.952L8.77 18.047C8.185 19.239 6.931 20 5.553 20C3.416 20 1.762 18.211 2.027 16.186L3.164 7.504C3.309 6.392 3.924 5.435 4.803 4.803M7 10H10M9 9V12M2 2L22 22" />
+    </Icon>
+  )
+}
+
 export function Gamepad(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -8586,6 +9353,16 @@ export function GateXor(props: IconProps) {
   )
 }
 
+export function GaugeAlert(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 22C6.4772 22 2 17.523 2 12C2 6.477 6.4772 2 12 2C17.5228 2 22 6.477 22 12" strokeOpacity={0.4} />
+      <Path d="M12 12V7M19 16V18" />
+      <Path d="M14 12C14 13.105 13.1046 14 12 14C10.8954 14 10 13.105 10 12C10 10.895 10.8954 10 12 10C13.1046 10 14 10.895 14 12ZM7 12C7 12.552 6.5523 13 6 13C5.4477 13 5 12.552 5 12C5 11.448 5.4477 11 6 11C6.5523 11 7 11.448 7 12ZM8.7574 7.757C8.7574 8.31 8.3097 8.757 7.7574 8.757C7.2051 8.757 6.7574 8.31 6.7574 7.757C6.7574 7.205 7.2051 6.757 7.7574 6.757C8.3097 6.757 8.7574 7.205 8.7574 7.757ZM17.2426 7.757C17.2426 8.31 16.7949 8.757 16.2426 8.757C15.6903 8.757 15.2426 8.31 15.2426 7.757C15.2426 7.205 15.6903 6.757 16.2426 6.757C16.7949 6.757 17.2426 7.205 17.2426 7.757ZM19 12C19 12.552 18.5523 13 18 13C17.4477 13 17 12.552 17 12C17 11.448 17.4477 11 18 11C18.5523 11 19 11.448 19 12ZM20 22C20 22.552 19.5523 23 19 23C18.4477 23 18 22.552 18 22C18 21.448 18.4477 21 19 21C19.5523 21 20 21.448 20 22Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function GaugeDashedHalf(props: IconProps) {
   return (
     <Icon fill="none" {...props}>
@@ -8630,6 +9407,15 @@ export function Gavel(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M9.43 10.0274L9.4055 10.0029C9.2774 9.8748 9.1036 9.8028 8.9224 9.8028C8.2108 9.8028 7.5283 9.5201 7.0251 9.0169L6.8787 8.8705C6.3161 8.3079 6 7.5449 6 6.7492C6 5.9535 6.3161 5.1905 6.8787 4.6279L9.6279 1.8787C10.1905 1.3161 10.9535 1 11.7492 1C12.5449 1 13.3079 1.3161 13.8705 1.8787L14.0169 2.0251C14.5201 2.5283 14.8028 3.2108 14.8028 3.9224C14.8028 4.1035 14.8747 4.2773 15.0028 4.4054L19.5945 8.9971C19.7226 9.1252 19.8964 9.1972 20.0776 9.1972C20.7892 9.1972 21.4717 9.4799 21.9749 9.9831L22.1213 10.1295C22.6839 10.6921 23 11.4551 23 12.2508C23 13.0465 22.6839 13.8095 22.1213 14.3721L19.3721 17.1213C18.8095 17.6839 18.0465 18 17.2508 18C16.4551 18 15.6921 17.6839 15.1295 17.1213L14.9831 16.9749C14.4799 16.4717 14.1972 15.7892 14.1972 15.0776C14.1972 14.8965 14.1253 14.7227 13.9972 14.5946L13.9722 14.5696L6.4836 22.0589C5.8812 22.6614 5.0641 22.9999 4.2121 22.9999C2.438 22.9999 0.9999 21.5618 0.9999 19.7878C0.9999 18.9361 1.3382 18.1192 1.9403 17.5169L9.43 10.0274Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M10.5611 10.3105L2.6476 18.2238C2.2329 18.6387 1.9999 19.2014 2 19.7881C2.0001 20.3748 2.2333 20.9375 2.6481 21.3523C3.0631 21.7671 3.6257 22.0001 4.2124 22C4.5028 22 4.7905 21.9427 5.0588 21.8315C5.3272 21.7203 5.571 21.5573 5.7765 21.3518L13.6891 13.4384M18.8874 9.7042L14.2958 5.1126C13.9801 4.797 13.8028 4.3688 13.8028 3.9224C13.8028 3.476 13.6255 3.0479 13.3098 2.7322L13.1634 2.5858C12.3824 1.8047 11.1161 1.8047 10.335 2.5858L7.5858 5.335C6.8047 6.1161 6.8047 7.3824 7.5858 8.1634L7.7322 8.3098C8.0479 8.6255 8.476 8.8028 8.9224 8.8028C9.3688 8.8028 9.797 8.9801 10.1126 9.2958L14.7042 13.8874C15.0199 14.203 15.1972 14.6312 15.1972 15.0776C15.1972 15.524 15.3745 15.9521 15.6902 16.2678L15.8366 16.4142C16.6176 17.1953 17.8839 17.1953 18.665 16.4142L21.4142 13.665C22.1953 12.8839 22.1953 11.6176 21.4142 10.8366L21.2678 10.6902C20.9521 10.3745 20.524 10.1972 20.0776 10.1972C19.6312 10.1972 19.203 10.0199 18.8874 9.7042ZM10.1126 9.2958L14.2958 5.1126M14.7042 13.8874L18.8874 9.7042" fill="none" />
+    </Icon>
+  )
+}
+
+export function Gearbox(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M14.828 7.828C14.106 8.551 13.104 9 12 9C9.791 9 8 7.209 8 5C8 2.791 9.791 1 12 1C14.209 1 16 2.791 16 5C16 6.104 15.551 7.106 14.828 7.828Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M4 2V12M4 12V22M4 12H12M20 2V12M20 12V22M20 12H12M12 8V12M12 8C13.657 8 15 6.657 15 5C15 3.343 13.657 2 12 2C10.343 2 9 3.343 9 5C9 6.657 10.343 8 12 8ZM12 12V22" />
     </Icon>
   )
 }
@@ -8961,6 +9747,15 @@ export function GlobeCheck(props: IconProps) {
   )
 }
 
+export function GlobeClock(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M7.5989 22.0842C3.7145 20.3865 1 16.5103 1 12C1 5.9249 5.9249 1 12 1C16.5103 1 20.3865 3.7145 22.082 7.5999C22.1355 7.7224 22.1652 7.8577 22.1652 8C22.1652 8.5523 21.7175 9 21.1652 9C21.0385 9 20.9174 8.9764 20.8059 8.9335C19.5361 8.2093 18.0664 7.7956 16.5 7.7956C11.6927 7.7956 7.7956 11.6927 7.7956 16.5C7.7956 18.0664 8.2093 19.5361 8.9335 20.8059C8.9764 20.9174 9 21.0385 9 21.1652C9 21.7175 8.5523 22.1652 8 22.1652C7.8577 22.1652 7.7224 22.1355 7.5989 22.0842ZM23 16.5C23 20.0899 20.0899 23 16.5 23C12.9101 23 10 20.0899 10 16.5C10 12.9101 12.9101 10 16.5 10C20.0899 10 23 12.9101 23 16.5Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M8 21.1652C4.3557 19.5747 2 15.9762 2 12C2 6.4772 6.4772 2 12 2C15.9762 2 19.5747 4.3557 21.1652 8M2 12L8 12M12 2C9.3333 5 8 8.5 8 12M12 2C13.3827 3.5555 14.4069 5.2454 15.0726 7M22 16.5C22 19.5376 19.5376 22 16.5 22C13.4624 22 11 19.5376 11 16.5C11 13.4624 13.4624 11 16.5 11C19.5376 11 22 13.4624 22 16.5ZM16 15.1L16 17L17.9 17" />
+    </Icon>
+  )
+}
+
 export function GlobeCog(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -8975,6 +9770,16 @@ export function GlobeCursor(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M12 1C18.0751 1 23 5.9249 23 12L8 12C8 15.5 9.3333 19 12 22L12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12M2 12H22M12 2C14.6667 5 16 8.5 16 12M12 2C9.33333 5 8 8.5 8 12C8 15.5 9.33333 19 12 22M17.7728 21.8371L16.0114 16.3046C15.9534 16.1226 16.1272 15.9519 16.3089 16.0124L21.8399 17.8539C22.0454 17.9223 22.0557 18.2081 21.8557 18.2911L19.4925 19.2715C19.4385 19.2939 19.3949 19.3355 19.3702 19.3882L18.2085 21.8653C18.118 22.058 17.8374 22.0398 17.7728 21.8371Z" />
+    </Icon>
+  )
+}
+
+export function GlobeNetwork(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20.5 9.5C20.5 14.194 16.694 18 12 18C7.306 18 3.5 14.194 3.5 9.5C3.5 4.806 7.306 1 12 1C16.694 1 20.5 4.806 20.5 9.5Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 2C16.142 2 19.5 5.358 19.5 9.5M12 2C7.858 2 4.5 5.358 4.5 9.5M12 2C13.667 4.25 14.5 6.875 14.5 9.5M12 2C10.333 4.25 9.5 6.875 9.5 9.5M19.5 9.5C19.5 13.642 16.142 17 12 17M19.5 9.5H14.5M12 17C7.858 17 4.5 13.642 4.5 9.5M12 17C13.667 14.75 14.5 12.125 14.5 9.5M12 17C10.333 14.75 9.5 12.125 9.5 9.5M12 17V21.5M4.5 9.5H9.5M9.5 9.5H14.5M12 21.5H3M12 21.5H21" />
+      <Path d="M12 20C12.828 20 13.5 20.672 13.5 21.5C13.5 22.328 12.828 23 12 23C11.172 23 10.5 22.328 10.5 21.5C10.5 20.672 11.172 20 12 20Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
     </Icon>
   )
 }
@@ -9003,6 +9808,15 @@ export function GlobeSearch(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M12 1C18.0751 1 23 5.9249 23 12L8 12C8 15.5 9.3333 19 12 22L12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12M2 12L22 12M12 2C14.6667 5 16 8.5 16 12M12 2C9.33333 5 8 8.5 8 12C8 15.5 9.33333 19 12 22M21 18.5C21 19.8807 19.8807 21 18.5 21C17.1193 21 16 19.8807 16 18.5C16 17.1193 17.1193 16 18.5 16C19.8807 16 21 17.1193 21 18.5ZM20.5 20.5L22 22" fill="none" />
+    </Icon>
+  )
+}
+
+export function GlobeShield(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 1C17.3216 1 21.76 4.7791 22.7793 9.7998C22.7923 9.8642 22.7998 9.9317 22.7998 10C22.7998 10.5523 22.352 11 21.7998 11L14 11C12.3431 11 11 12.3431 11 14L11 21.7998C11 22.352 10.5523 22.7998 10 22.7998C9.9317 22.7998 9.8652 22.7923 9.8008 22.7793C4.78 21.76 1 17.3216 1 12C1 5.9249 5.9249 1 12 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M10 21.8C5.4355 20.8734 2 16.8379 2 12C2 6.4772 6.4772 2 12 2C16.8379 2 20.8734 5.4355 21.8 10M2 12L10 12M9 17.2271C8.3333 15.5 8 13.75 8 12C8 8.5 9.3333 5 12 2C14.1579 4.4276 15.4426 7.1826 15.8544 10M15.5173 15.3862C16.6758 15.2487 17.5504 14.6703 18.0731 14.1633C18.2974 13.9456 18.7026 13.9456 18.9269 14.1633C19.4496 14.6703 20.3242 15.2487 21.4827 15.3862C21.7669 15.4199 22 15.6409 22 15.9175L22 17.8747C22 18.651 21.8736 19.4412 21.3928 20.0631C20.8667 20.7434 20.0327 21.5058 18.863 21.9355C18.6288 22.0215 18.3712 22.0215 18.137 21.9355C16.9673 21.5058 16.1332 20.7434 15.6073 20.0631C15.1264 19.4412 15 18.651 15 17.8747L15 15.9175C15 15.6409 15.2331 15.4199 15.5173 15.3862Z" />
     </Icon>
   )
 }
@@ -9039,6 +9853,15 @@ export function GolfHole(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M10 3.6937C9.9999 2.8653 10.6714 2.1937 11.4999 2.1937C11.6611 2.1937 11.8213 2.2197 11.9743 2.2707L17.4702 4.1026C18.2869 4.3749 18.8377 5.1391 18.8377 6C18.8377 6.8609 18.2869 7.6251 17.4702 7.8974L11.9743 9.7293C11.8213 9.7803 11.6611 9.8063 11.4999 9.8063C10.6714 9.8063 9.9999 9.1347 10 8.3063L10 3.6937Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M15 15.1373C19.0571 15.5196 22 16.6567 22 18C22 19.6569 17.5228 21 12 21C6.4772 21 2 19.6569 2 18C2 16.8895 4.011 15.92 7 15.4013M11 3.6937C11 3.4176 11.2239 3.1937 11.5 3.1937C11.5537 3.1937 11.6071 3.2024 11.6581 3.2194L17.154 5.0513C17.5623 5.1874 17.8377 5.5696 17.8377 6C17.8377 6.4304 17.5623 6.8126 17.154 6.9487L11.6581 8.7806C11.6071 8.7976 11.5537 8.8063 11.5 8.8063C11.2239 8.8063 11 8.5824 11 8.3063L11 3.6937ZM11 3L11 17" fill="none" />
+    </Icon>
+  )
+}
+
+export function GradientLinear(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2L18 2C20.2092 2 22 3.7908 22 6L22 18C22 20.2092 20.2092 22 18 22L6 22C3.7908 22 2 20.2092 2 18L2 6C2 3.7908 3.7908 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3L18 3C19.6569 3 21 4.3431 21 6L21 18C21 19.6569 19.6569 21 18 21L6 21C4.3431 21 3 19.6569 3 18L3 6C3 4.3431 4.3431 3 6 3ZM3 11L11 3M3 17L17 3M7 21L21 7" />
     </Icon>
   )
 }
@@ -9177,6 +10000,16 @@ export function GridCircles(props: IconProps) {
   )
 }
 
+export function GridDots(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2H18C20.2092 2 22 3.791 22 6V18C22 20.209 20.2092 22 18 22H6C3.7908 22 2 20.209 2 18V6C2 3.791 3.7908 2 6 2H12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3H18C19.6569 3 21 4.343 21 6V18C21 19.657 19.6569 21 18 21H6C4.3431 21 3 19.657 3 18V6C3 4.343 4.3431 3 6 3Z" />
+      <Path d="M7.3333 6C8.0697 6 8.6667 6.597 8.6667 7.333C8.6667 8.07 8.0697 8.667 7.3333 8.667C6.5969 8.667 6 8.07 6 7.333C6 6.597 6.5969 6 7.3333 6ZM12 6C12.7364 6 13.3333 6.597 13.3333 7.333C13.3333 8.07 12.7364 8.667 12 8.667C11.2636 8.667 10.6667 8.07 10.6667 7.333C10.6667 6.597 11.2636 6 12 6ZM16.6667 6C17.4031 6 18 6.597 18 7.333C18 8.07 17.4031 8.667 16.6667 8.667C15.9303 8.667 15.3333 8.07 15.3333 7.333C15.3333 6.597 15.9303 6 16.6667 6ZM7.3333 10.667C8.0697 10.667 8.6667 11.264 8.6667 12C8.6667 12.736 8.0697 13.333 7.3333 13.333C6.5969 13.333 6 12.736 6 12C6 11.264 6.5969 10.667 7.3333 10.667ZM12 10.667C12.7364 10.667 13.3333 11.264 13.3333 12C13.3333 12.736 12.7364 13.333 12 13.333C11.2636 13.333 10.6667 12.736 10.6667 12C10.6667 11.264 11.2636 10.667 12 10.667ZM16.6667 10.667C17.4031 10.667 18 11.264 18 12C18 12.736 17.4031 13.333 16.6667 13.333C15.9303 13.333 15.3333 12.736 15.3333 12C15.3333 11.264 15.9303 10.667 16.6667 10.667ZM7.3333 15.333C8.0697 15.333 8.6667 15.93 8.6667 16.667C8.6667 17.403 8.0697 18 7.3333 18C6.5969 18 6 17.403 6 16.667C6 15.93 6.5969 15.333 7.3333 15.333ZM12 15.333C12.7364 15.333 13.3333 15.93 13.3333 16.667C13.3333 17.403 12.7364 18 12 18C11.2636 18 10.6667 17.403 10.6667 16.667C10.6667 15.93 11.2636 15.333 12 15.333ZM16.6667 15.333C17.4031 15.333 18 15.93 18 16.667C18 17.403 17.4031 18 16.6667 18C15.9303 18 15.3333 17.403 15.3333 16.667C15.3333 15.93 15.9303 15.333 16.6667 15.333Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function GridMasonry(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -9243,6 +10076,14 @@ export function GripVertical(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M10 5C10 5.5523 9.5523 6 9 6C8.4477 6 8 5.5523 8 5C8 4.4477 8.4477 4 9 4C9.5523 4 10 4.4477 10 5ZM10 12C10 12.5523 9.5523 13 9 13C8.4477 13 8 12.5523 8 12C8 11.4477 8.4477 11 9 11C9.5523 11 10 11.4477 10 12ZM10 19C10 19.5523 9.5523 20 9 20C8.4477 20 8 19.5523 8 19C8 18.4477 8.4477 18 9 18C9.5523 18 10 18.4477 10 19ZM16 5C16 5.5523 15.5523 6 15 6C14.4477 6 14 5.5523 14 5C14 4.4477 14.4477 4 15 4C15.5523 4 16 4.4477 16 5ZM16 12C16 12.5523 15.5523 13 15 13C14.4477 13 14 12.5523 14 12C14 11.4477 14.4477 11 15 11C15.5523 11 16 11.4477 16 12ZM16 19C16 19.5523 15.5523 20 15 20C14.4477 20 14 19.5523 14 19C14 18.4477 14.4477 18 15 18C15.5523 18 16 18.4477 16 19Z" />
+    </Icon>
+  )
+}
+
+export function Grip(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5 4C5 4.5523 4.5523 5 4 5C3.4477 5 3 4.5523 3 4C3 3.4477 3.4477 3 4 3C4.5523 3 5 3.4477 5 4ZM13 4C13 4.5523 12.5523 5 12 5C11.4477 5 11 4.5523 11 4C11 3.4477 11.4477 3 12 3C12.5523 3 13 3.4477 13 4ZM21 4C21 4.5523 20.5523 5 20 5C19.4477 5 19 4.5523 19 4C19 3.4477 19.4477 3 20 3C20.5523 3 21 3.4477 21 4ZM5 12C5 12.5523 4.5523 13 4 13C3.4477 13 3 12.5523 3 12C3 11.4477 3.4477 11 4 11C4.5523 11 5 11.4477 5 12ZM13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12ZM21 12C21 12.5523 20.5523 13 20 13C19.4477 13 19 12.5523 19 12C19 11.4477 19.4477 11 20 11C20.5523 11 21 11.4477 21 12ZM5 20C5 20.5523 4.5523 21 4 21C3.4477 21 3 20.5523 3 20C3 19.4477 3.4477 19 4 19C4.5523 19 5 19.4477 5 20ZM13 20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20C11 19.4477 11.4477 19 12 19C12.5523 19 13 19.4477 13 20ZM21 20C21 20.5523 20.5523 21 20 21C19.4477 21 19 20.5523 19 20C19 19.4477 19.4477 19 20 19C20.5523 19 21 19.4477 21 20Z" />
     </Icon>
   )
 }
@@ -9398,6 +10239,15 @@ export function HandHeart(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M3 16.3L5.8 13.5C6.1 13.2 6.5 13 7 13H9.5C10.32843 13 11 13.67157 11 14.5L11.17 14.17L14.17 11.17C14.95105 10.38895 16.21895 10.38895 17 11.17C17.78105 11.95105 17.78105 13.21895 17 14L13 18C12.4 18.6 11.5 19 10.5 19H5.82843C5.29847 19 4.78921 19.21079 4.41421 19.58579L3 21Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M8.9168 13.0295C6.7265 11.1171 5 9.12 5 6.6C5 4.0594 7.149 2 9.8 2C11 2 12.0741 2.4367 13 3.2C13.9259 2.4367 15 2 16.2 2C18.851 2 21 4.0594 21 6.6C21 8.94 19.5113 10.8292 17.5449 12.6183M3 14V22M11 14.5C11 13.67157 10.32843 13 9.5 13H7C6.5 13 6.1 13.2 5.8 13.5L3 16.3M3 21L4.41421 19.58579C4.78921 19.21079 5.29847 19 5.82843 19H10.5C11.5 19 12.4 18.6 13 18L17 14C17.78105 13.21895 17.78105 11.95105 17 11.17C16.21895 10.38895 14.95105 10.38895 14.17 11.17L11.17 14.17" />
+    </Icon>
+  )
+}
+
+export function HandOpenOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20.0385 20.039C19.0016 21.433 17.4816 22.527 15.3525 22.893C15.3353 22.896 15.317 22.899 15.2997 22.901C14.021 23.053 12.161 23.142 10.1202 22.296C8.0776 21.449 5.9715 19.715 4.0794 16.447L2.3783 13.828C1.6697 12.736 1.9925 11.323 3.0512 10.606C4.0147 9.954 5.3291 10.052 6.178 10.856L7.1858 11.81L6.493 6.493L20.0385 20.039ZM20.1619 15.919L8.2288 3.986C8.0478 3.805 7.9359 3.555 7.9359 3.279C7.9359 2.738 8.3657 2.297 8.9026 2.28C9.3223 2.267 9.7343 2.351 10.1075 2.514C10.5006 1.679 11.3406 1.093 12.3047 1.01C13.5344 0.905 14.7038 1.64 15.0829 2.79C15.3586 2.688 15.6537 2.627 15.9588 2.617C17.238 2.576 18.4058 3.418 18.6941 4.652C18.9298 4.583 19.1787 4.547 19.4323 4.546C20.7947 4.547 21.9977 5.604 21.9986 7.026C21.9999 9.691 22.0008 13.302 21.9977 13.506C21.9945 14.101 21.9501 14.739 21.8526 15.393C21.7673 15.859 21.3594 16.212 20.869 16.212C20.5929 16.212 20.3429 16.1 20.1619 15.919Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M7.652 7.652L8.434 13.653C8.469 13.921 8.1257 14.079 7.924 13.888L5.4898 11.582C4.9857 11.105 4.1909 11.042 3.6108 11.435C2.987 11.857 2.8147 12.665 3.2165 13.283L4.9181 15.903C8.5408 22.194 12.7674 22.194 15.1826 21.908C17.0854 21.58 18.4183 20.596 19.3232 19.323M2 2L22 22" />
     </Icon>
   )
 }
@@ -9874,11 +10724,38 @@ export function HistoryCheck(props: IconProps) {
   )
 }
 
+export function HistoryCog(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M10 21.798C5.3441 20.8476 2 16.7519 2 12C2 8.8524 3.4819 5.8886 6 4M3.0454 3L6.0617 3.86C6.3273 3.94 6.4811 4.21 6.4054 4.48L5.5451 7.49" strokeOpacity={0.4} />
+      <Path d="M21.798 10C20.8476 5.3441 16.7519 2 12 2C11.666 2 11.3322 2.0167 10.9999 2.0501M12 6V12H7M20.6667 18C20.6667 19.4728 19.4728 20.6667 18 20.6667C16.5272 20.6667 15.3333 19.4728 15.3333 18C15.3333 16.5272 16.5272 15.3333 18 15.3333C19.4728 15.3333 20.6667 16.5272 20.6667 18ZM21.5417 18L22 18M20.5043 20.5043L20.8284 20.8284M18 21.5417L18 22M15.4957 20.5043L15.1716 20.8284M14.4583 18L14 18M15.4957 15.4957L15.1716 15.1716M18 14.4583L18 14M20.5043 15.4957L20.8284 15.1716" />
+    </Icon>
+  )
+}
+
+export function HistoryX(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 22C6.4772 22 2 17.52 2 12C2 8.96 3.3577 6.23 5.5 4.4C5.6619 4.26 5.8284 4.13 5.999 4M3.0454 3L6.0617 3.86C6.3273 3.94 6.4811 4.21 6.4054 4.48L5.5451 7.49" strokeOpacity={0.4} />
+      <Path d="M22 12C22 6.48 17.5228 2 12 2C11.6625 2 11.3289 2.02 11 2.05M12 6V12H17M16 16L22 22M22 16L16 22" />
+    </Icon>
+  )
+}
+
 export function History(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M3.2117 10.0593C3.071 10.6966 3 11.3473 3 12C3 16.9706 7.0294 21 12 21C16.9706 21 21 16.9706 21 12C21 7.0294 16.9706 3 12 3C9.5169 3 7.1441 4.0259 5.4432 5.8349M4.2857 3L4.7293 6.105C4.7683 6.3784 5.0216 6.5683 5.295 6.5293L8.4 6.0857" fill="none" strokeOpacity={0.4} />
       <Path d="M12 8L12 12L16 12" fill="none" />
+    </Icon>
+  )
+}
+
+export function HockeyPuck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M19.4424 18.7569C17.4878 19.5388 14.8561 20 12 20C9.1439 20 6.5122 19.5388 4.5576 18.7569C3.583 18.3671 2.7272 17.8779 2.0988 17.2835C1.4682 16.6872 1 15.9158 1 15L1 9C1 8.0842 1.4682 7.3128 2.0988 6.7165C2.7272 6.1221 3.583 5.6329 4.5576 5.2431C6.5122 4.4612 9.1439 4 12 4C14.8561 4 17.4878 4.4612 19.4424 5.2431C20.417 5.6329 21.2728 6.1221 21.9012 6.7165C22.5318 7.3128 23 8.0842 23 9L23 15C23 15.9158 22.5318 16.6872 21.9012 17.2835C21.2728 17.8779 20.417 18.3671 19.4424 18.7569Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M22 9C22 11.2091 17.5228 13 12 13C6.4772 13 2 11.2091 2 9C2 6.7909 6.4772 5 12 5C17.5228 5 22 6.7909 22 9ZM2 9L2 15C2 17.2091 6.4772 19 12 19C17.5228 19 22 17.2091 22 15L22 9" />
     </Icon>
   )
 }
@@ -10239,11 +11116,39 @@ export function IdBadge(props: IconProps) {
   )
 }
 
+export function IdCardSparkles(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M22 12V19C22 20.657 20.6569 22 19 22H13M13 22H5M13 22C13 19.791 11.2091 18 9 18C6.7909 18 5 19.791 5 22M5 22C3.3431 22 2 20.657 2 19V9C2 7.343 3.3431 6 5 6H12M11 12C11 13.105 10.1046 14 9 14C7.8954 14 7 13.105 7 12C7 10.895 7.8954 10 9 10C10.1046 10 11 10.895 11 12Z" />
+      <Path d="M19.5492 1.374L20.1373 2.865C20.3173 3.321 20.6787 3.683 21.1352 3.863L22.6261 4.451C22.8518 4.54 23 4.758 23 5C23 5.242 22.8518 5.46 22.6261 5.549L21.1352 6.137C20.6787 6.317 20.3173 6.679 20.1373 7.135L19.5492 8.626C19.4603 8.852 19.2424 9 19 9C18.7576 9 18.5397 8.852 18.4508 8.626L17.8627 7.135C17.6827 6.679 17.3213 6.317 16.8648 6.137L15.3739 5.549C15.1482 5.46 15 5.242 15 5C15 4.758 15.1482 4.54 15.3739 4.451L16.8648 3.863C17.3213 3.683 17.6827 3.321 17.8627 2.865L18.4508 1.374C18.5397 1.148 18.7576 1 19 1C19.2424 1 19.4603 1.148 19.5492 1.374Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M16.8433 12.234L17.2108 13.165C17.3233 13.451 17.5492 13.677 17.8345 13.789L18.7663 14.157C18.9074 14.212 19 14.349 19 14.5C19 14.651 18.9074 14.788 18.7663 14.843L17.8345 15.211C17.5492 15.323 17.3233 15.549 17.2108 15.835L16.8433 16.766C16.7877 16.907 16.6515 17 16.5 17C16.3485 17 16.2123 16.907 16.1567 16.766L15.7892 15.835C15.6767 15.549 15.4508 15.323 15.1655 15.211L14.2337 14.843C14.0926 14.788 14 14.651 14 14.5C14 14.349 14.0926 14.212 14.2337 14.157L15.1655 13.789C15.4508 13.677 15.6767 13.451 15.7892 13.165L16.1567 12.234C16.2123 12.093 16.3485 12 16.5 12C16.6515 12 16.7877 12.093 16.8433 12.234Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+    </Icon>
+  )
+}
+
 export function IdCard(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M5 3L19 3C21.2091 3 23 4.7909 23 7L23 17C23 19.2091 21.2091 21 19 21L5 21C2.7909 21 1 19.2091 1 17L1 7C1 4.7909 2.7909 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M5 4L19 4C20.6569 4 22 5.3431 22 7L22 17C22 18.6569 20.6569 20 19 20L5 20C3.3431 20 2 18.6569 2 17L2 7C2 5.3431 3.3431 4 5 4ZM11 10C11 11.1046 10.1046 12 9 12C7.8954 12 7 11.1046 7 10C7 8.8954 7.8954 8 9 8C10.1046 8 11 8.8954 11 10ZM5 20C5 17.7909 6.7909 16 9 16C11.2091 16 13 17.7909 13 20M15 10L18 10M15 14L18 14" />
+    </Icon>
+  )
+}
+
+export function IframeOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20.8285 20.829C20.1046 21.552 19.1046 22 18 22H6C3.7909 22 2 20.209 2 18V6C2 4.895 2.4477 3.896 3.1716 3.172L3.8787 3.879C3.3358 4.422 3 5.172 3 6V9H9L20.8285 20.829ZM20.2929 16.05L7.9498 3.707C7.7688 3.526 7.6569 3.276 7.6569 3C7.6569 2.448 8.1046 2 8.6569 2H12H18C20.2092 2 22 3.791 22 6V15.343C22 15.895 21.5523 16.343 21 16.343C20.7239 16.343 20.4739 16.231 20.2929 16.05Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M20.1213 20.121C19.5785 20.664 18.8285 21 18 21H6C4.3431 21 3 19.657 3 18V6C3 5.172 3.3358 4.422 3.8787 3.879M3 9H9M16.7071 16.707C16.5262 16.888 16.2762 17 16 17H8C7.4477 17 7 16.552 7 16V14C7 13.448 7.4477 13 8 13H13M2 2L22 22" />
+    </Icon>
+  )
+}
+
+export function Iframe(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2H18C20.209 2 22 3.791 22 6V18C22 20.209 20.209 22 18 22H6C3.791 22 2 20.209 2 18V6C2 3.791 3.791 2 6 2H12ZM18 3H6C4.343 3 3 4.343 3 6V9H21V6C21 4.343 19.657 3 18 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M3 9H21M6 3H18C19.657 3 21 4.343 21 6V18C21 19.657 19.657 21 18 21H6C4.343 21 3 19.657 3 18V6C3 4.343 4.343 3 6 3ZM8 13H16C16.552 13 17 13.448 17 14V16C17 16.552 16.552 17 16 17H8C7.448 17 7 16.552 7 16V14C7 13.448 7.448 13 8 13Z" />
     </Icon>
   )
 }
@@ -10384,6 +11289,16 @@ export function ImageScan(props: IconProps) {
   )
 }
 
+export function ImageSearch(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M11 2H6C3.791 2 2 3.791 2 6V18C2 20.209 3.791 22 6 22H18C20.209 22 22 20.209 22 18V13C22 12.448 21.552 12 21 12H15C13.343 12 12 10.657 12 9V3C12 2.448 11.552 2 11 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M11 3H6C4.343 3 3 4.343 3 6V18M3 18C3 19.657 4.343 21 6 21H18C19.657 21 21 19.657 21 18V17M3 18L7.939 13.061C8.525 12.475 9.475 12.475 10.061 13.061L12.08 15.08C12.608 15.608 13.444 15.667 14.041 15.219L15.959 13.781C16.556 13.333 17.392 13.392 17.92 13.92L21 17M21 17V13M19.5 7.5L21 9M20 5.5C20 6.881 18.881 8 17.5 8C16.119 8 15 6.881 15 5.5C15 4.119 16.119 3 17.5 3C18.881 3 20 4.119 20 5.5Z" />
+      <Path d="M9.5 7.5C9.5 8.328 8.828 9 8 9C7.172 9 6.5 8.328 6.5 7.5C6.5 6.672 7.172 6 8 6C8.828 6 9.5 6.672 9.5 7.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function ImageSparkles(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -10442,6 +11357,24 @@ export function Images(props: IconProps) {
   )
 }
 
+export function InboxArrowDown(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M23 13L23 17C23 19.2091 21.2091 21 19 21L5 21C2.7909 21 1 19.2091 1 17L1 13L8 13L10 16L14 16L16 13Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M18.8952 7.0905L21.5574 11.4317C21.8468 11.9036 22 12.4464 22 13L22 17C22 18.6569 20.6569 20 19 20L5 20C3.3431 20 2 18.6569 2 17L2 13C2 12.4464 2.1532 11.9036 2.4426 11.4317L5.1048 7.0905M2 13L8 13L10 16L14 16L16 13L22 13M12 4V11M9 8L12 11L15 8" />
+    </Icon>
+  )
+}
+
+export function InboxArrowUp(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M23 13L23 17C23 19.2091 21.2091 21 19 21L5 21C2.7909 21 1 19.2091 1 17L1 13L8 13L10 16L14 16L16 13Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M18.9923 7.2487L21.5574 11.4317C21.8468 11.9036 22 12.4464 22 13L22 17C22 18.6569 20.6569 20 19 20L5 20C3.3431 20 2 18.6569 2 17L2 13C2 12.4464 2.1532 11.9036 2.4426 11.4317L5.0077 7.2487M2 13L8 13L10 16L14 16L16 13L22 13M12 11V4M9 7L12 4L15 7" />
+    </Icon>
+  )
+}
+
 export function InboxDot(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -10466,6 +11399,15 @@ export function Inbox(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M8.6794 3L15.3206 3C16.7118 3 18.0031 3.7229 18.7304 4.9089L22.4099 10.9089C22.7958 11.5381 23 12.2619 23 13L23 17C23 19.2091 21.2091 21 19 21L5 21C2.7909 21 1 19.2091 1 17L1 13C1 12.2619 1.2042 11.5381 1.5901 10.9089L5.2696 4.9089C5.9969 3.7229 7.2882 3 8.6794 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M8.6794 4L15.3206 4C16.364 4 17.3325 4.5422 17.878 5.4317L21.5574 11.4317C21.8468 11.9036 22 12.4464 22 13L22 17C22 18.6569 20.6569 20 19 20L5 20C3.3431 20 2 18.6569 2 17L2 13C2 12.4464 2.1532 11.9036 2.4426 11.4317L6.122 5.4317C6.6675 4.5422 7.636 4 8.6794 4ZM2 13L8 13L10 16L14 16L16 13L22 13" />
+    </Icon>
+  )
+}
+
+export function Inboxes(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M14 21L9 21C6.7908 21 5 19.2092 5 17L5 13.0015C5 12.2636 5.2041 11.5398 5.5899 10.9107L6.8171 8.9092C7.5443 7.7231 8.8358 7 10.2271 7L17.7729 7C19.1642 7 20.4557 7.7231 21.1829 8.9092L22.4101 10.9107C22.7959 11.5398 23 12.2636 23 13.0015L23 17C23 19.2092 21.2092 21 19 21Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M2 13V9.0015C2 8.448 2.1531 7.9052 2.4424 7.4334L3.6696 5.4319C4.215 4.5423 5.1836 4 6.2271 4H13.7729M10.2271 8H17.7729C18.8164 8 19.785 8.5423 20.3304 9.4319L21.5576 11.4334C21.8469 11.9052 22 12.448 22 13.0015V17C22 18.6569 20.6569 20 19 20H9C7.3431 20 6 18.6569 6 17V13.0015C6 12.448 6.1531 11.9052 6.4424 11.4334L7.6696 9.4319C8.215 8.5423 9.1836 8 10.2271 8ZM6 13H10L12 16H16L18 13H22" />
     </Icon>
   )
 }
@@ -10542,6 +11484,16 @@ export function Italic(props: IconProps) {
   )
 }
 
+export function IvBag(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 1H16C18.209 1 20 2.7908 20 5V12C20 14.7614 17.761 17 15 17H9C6.239 17 4 14.7614 4 12V5C4 2.7908 5.791 1 8 1H12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M5 11H19M12 16V19C12 20.6569 10.657 22 9 22H7M8 2H16C17.657 2 19 3.3431 19 5V12C19 14.2091 17.209 16 15 16H9C6.791 16 5 14.2091 5 12V5C5 3.3431 6.343 2 8 2Z" />
+      <Path d="M13.5 6.5C13.5 7.3284 12.828 8 12 8C11.172 8 10.5 7.3284 10.5 6.5C10.5 5.6716 11.172 5 12 5C12.828 5 13.5 5.6716 13.5 6.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function Jacket(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -10585,6 +11537,15 @@ export function Kerning(props: IconProps) {
   )
 }
 
+export function KeyOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M10.8723 10.8724C10.9559 11.2347 11 11.6122 11 12C11 14.7614 8.7614 17 6 17C3.2386 17 1 14.7614 1 12C1 9.2386 3.2386 7 6 7C6.3878 7 6.7653 7.0441 7.1276 7.1277L10.8723 10.8724ZM21 11H22C22.5523 11 23 11.4477 23 12C23 12.5523 22.5523 13 22 13V15.3431C22 15.8954 21.5523 16.3431 21 16.3431C20.4477 16.3431 20 15.8954 20 15.3431V13H17.6569C17.1046 13 16.6569 12.5523 16.6569 12C16.6569 11.4477 17.1046 11 17.6569 11H21Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M10 12C10 14.2091 8.2091 16 6 16C3.7909 16 2 14.2091 2 12C2 9.7909 3.7909 8 6 8C8.2091 8 10 9.7909 10 12ZM10 12H12M12 12L2 2M12 12L22 22" />
+    </Icon>
+  )
+}
+
 export function KeyRound(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -10612,12 +11573,22 @@ export function Key(props: IconProps) {
   )
 }
 
+export function KeyboardLock(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5 3H19C21.209 3 23 4.7909 23 7C23 7.5523 22.552 8 22 8H15C13.343 8 12 9.3431 12 11V20C12 20.5523 11.552 21 11 21H5C2.791 21 1 19.2091 1 17V7C1 4.7909 2.791 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M11 20H5C3.343 20 2 18.6569 2 17V7C2 5.3431 3.343 4 5 4H19C20.657 4 22 5.3431 22 7M8 16H11M16.5 15V13C16.5 11.8954 17.395 11 18.5 11C19.605 11 20.5 11.8954 20.5 13V15M16 15H21C21.552 15 22 15.4477 22 16V19C22 19.5523 21.552 20 21 20H16C15.448 20 15 19.5523 15 19V16C15 15.4477 15.448 15 16 15Z" />
+      <Path d="M5.5 7H6.5C6.776 7 7 7.2239 7 7.5V8.5C7 8.7761 6.776 9 6.5 9H5.5C5.224 9 5 8.7761 5 8.5V7.5C5 7.2239 5.224 7 5.5 7ZM9.5 7H10.5C10.776 7 11 7.2239 11 7.5V8.5C11 8.7761 10.776 9 10.5 9H9.5C9.224 9 9 8.7761 9 8.5V7.5C9 7.2239 9.224 7 9.5 7ZM5.5 11H6.5C6.776 11 7 11.2239 7 11.5V12.5C7 12.7761 6.776 13 6.5 13H5.5C5.224 13 5 12.7761 5 12.5V11.5C5 11.2239 5.224 11 5.5 11ZM9.5 11H10.5C10.776 11 11 11.2239 11 11.5V12.5C11 12.7761 10.776 13 10.5 13H9.5C9.224 13 9 12.7761 9 12.5V11.5C9 11.2239 9.224 11 9.5 11Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function KeyboardOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M20.6465 20.6465C20.1291 20.8803 19.5677 21.0008 19 21L5 21C2.7909 21 1 19.2091 1 17L1 7C0.9998 5.4276 1.9206 4.0009 3.3535 3.3535L20.6465 20.6465ZM9.6569 3L19 3C21.2091 3 23 4.7909 23 7L23 16.3431L22.98 16.3431C22.9802 16.8844 22.5415 17.3233 22.0002 17.3233C21.7402 17.3233 21.4908 17.22 21.3071 17.0361L21.2929 17.0503L8.9497 4.7071L8.9639 4.6929C8.78 4.5092 8.6767 4.2598 8.6767 3.9998C8.6767 3.4585 9.1156 3.0198 9.6569 3.02L9.6569 3Z" fill="currentColor" fillOpacity={0.4} fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <Path d="M5.5 11L6.5 11C6.7761 11 7 11.2239 7 11.5L7 12.5C7 12.7761 6.7761 13 6.5 13L5.5 13C5.2239 13 5 12.7761 5 12.5L5 11.5C5 11.2239 5.2239 11 5.5 11Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <Path d="M19.8715 19.8715C19.5957 19.9551 19.3031 20 19 20L5 20C3.3431 20 2 18.6569 2 17L2 7C2 5.6462 2.8967 4.5019 4.1285 4.1285M8 16L16 16M2 2L22 22" fill="none" />
+      <Path d="M20.646 20.6465C20.129 20.8803 19.568 21.0008 19 21H5C2.791 21 1 19.2091 1 17V7C1 5.4276 1.921 4.0009 3.353 3.3535L20.646 20.6465ZM9.657 3H19C21.209 3 23 4.7909 23 7V16.3431H22.98C22.98 16.8844 22.542 17.3233 22 17.3233C21.74 17.3233 21.491 17.22 21.307 17.0361L21.293 17.0503L8.95 4.7071L8.964 4.6929C8.78 4.5092 8.677 4.2598 8.677 3.9998C8.677 3.4585 9.116 3.0198 9.657 3.02V3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M5.5 11H6.5C6.776 11 7 11.2239 7 11.5V12.5C7 12.7761 6.776 13 6.5 13H5.5C5.224 13 5 12.7761 5 12.5V11.5C5 11.2239 5.224 11 5.5 11Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M19.872 19.8715C19.596 19.9551 19.303 20 19 20H5C3.343 20 2 18.6569 2 17V7C2 5.6462 2.897 4.5019 4.128 4.1285M8 16H16M2 2L22 22" />
     </Icon>
   )
 }
@@ -10645,6 +11616,15 @@ export function Lambda(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M5 5.5C5 4.1193 6.1193 3 7.5 3C8.6348 3 9.6273 3.7644 9.9171 4.8616L13.222 17.3749C13.9562 20.1546 17.802 20.4095 18.8966 17.7511L19 17.5M11.5383 11L5 21" fill="none" />
+    </Icon>
+  )
+}
+
+export function LampCeiling(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M7.1 19L5.5025 19C4.5076 19 3.7066 18.4388 3.3007 17.684C2.8948 16.9292 2.8683 15.9515 3.4169 15.1216L6.8692 9.8977C7.2392 9.3359 7.867 9 8.5378 9L15.4622 9C16.133 9 16.7608 9.3359 17.1316 9.8989L20.5832 15.1217C21.1317 15.9515 21.1052 16.9292 20.6993 17.684C20.2934 18.4388 19.4924 19 18.4975 19L16.9 19C16.4367 21.2822 14.4189 23 12 23C9.5811 23 7.5633 21.2822 7.1 19Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M9 2L15 2M12 2L12 10M7.7035 10.449C7.8886 10.168 8.202 10 8.5378 10L15.4622 10C15.798 10 16.1114 10.168 16.2965 10.449L19.7489 15.673C20.4079 16.67 19.6928 18 18.4975 18L5.5025 18C4.3072 18 3.5921 16.67 4.2511 15.673L7.7035 10.449ZM8 18C8 20.2091 9.7909 22 12 22C14.2091 22 16 20.2091 16 18" />
     </Icon>
   )
 }
@@ -10701,6 +11681,33 @@ export function Language(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M2 11L6 2L10 11M3.3333 8L8.6667 8" fill="none" />
       <Path d="M16 11L18 11M12 15L22 15M14 15C14.4767 16.1439 15.5203 18.0076 17 19.543C18.1074 20.6922 19.459 21.6576 21 22M20 15C19.5234 16.1439 18.4797 18.0076 17 19.543C15.8926 20.6922 14.541 21.6576 13 22" fill="none" strokeOpacity={0.4} />
+    </Icon>
+  )
+}
+
+export function LaptopArrowDown(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 15L3 6C3 4.3431 4.3431 3 6 3L18 3C19.6569 3 21 4.3431 21 6L21 15L21.5 15C22.3284 15 23 15.6716 23 16.5L23 18C23 19.6569 21.6569 21 20 21L4 21C2.3431 21 1 19.6569 1 18L1 16.5C1 15.6716 1.6716 15 2.5 15Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M4 16V6C4 4.8954 4.8954 4 6 4H18C19.1046 4 20 4.8954 20 6V16M2.5 16H21.5C21.7761 16 22 16.2239 22 16.5V18C22 19.1046 21.1046 20 20 20H4C2.8954 20 2 19.1046 2 18V16.5C2 16.2239 2.2239 16 2.5 16ZM12 8V12M9 9L12 12L15 9" />
+    </Icon>
+  )
+}
+
+export function LaptopCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M21 13.9922L21 15L21.5 15C22.3284 15 23 15.6716 23 16.5L23 18C23 19.6569 21.6569 21 20 21L4 21C2.3431 21 1 19.6569 1 18L1 16.5C1 15.6716 1.6716 15 2.5 15L3 15L3 6C3 4.3431 4.3431 3 6 3L12 3.0001C12.5523 3.0001 13 3.4478 13 4.0001L13 11.0001C13 12.1047 13.8954 13.0001 15 13.0001L20 13.0001C20.5497 13.0001 20.9958 13.4435 21 13.9922Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M4 16L4 6C4 4.8954 4.8954 4 6 4L12 4M20 14L20 16M2.5 16L21.5 16C21.7761 16 22 16.2239 22 16.5L22 18C22 19.1046 21.1046 20 20 20L4 20C2.8954 20 2 19.1046 2 18L2 16.5C2 16.2239 2.2239 16 2.5 16ZM16 7L18 9L22 5" />
+    </Icon>
+  )
+}
+
+export function LaptopSmartphoneOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M21.8284 21.828C21.1046 22.552 20.1046 23 19 23H16C13.7909 23 12 21.209 12 19V13C12 12.691 12.035 12.39 12.1014 12.101L21.8284 21.828ZM15.558 9.024C15.7031 9.008 15.8506 9 16 9H19C21.2091 9 23 10.791 23 13V16.343C23 16.895 22.5523 17.343 22 17.343C21.7239 17.343 21.4739 17.231 21.2929 17.05L14.9638 10.721C14.7848 10.54 14.6743 10.292 14.6743 10.017C14.6743 9.504 15.0605 9.082 15.558 9.024ZM7.6569 1H18C18.4124 1 18.8077 1.084 19.168 1.236C19.5277 1.388 19.8506 1.608 20.1213 1.879C20.3921 2.149 20.6117 2.472 20.7638 2.832C20.9162 3.192 21 3.588 21 4C21 4.552 20.5523 5 20 5C19.4477 5 19 4.552 19 4C19 3.86 18.9718 3.729 18.9218 3.611C18.8715 3.492 18.7983 3.384 18.7071 3.293C18.6159 3.202 18.5079 3.128 18.389 3.078C18.2707 3.028 18.1399 3 18 3H7.6569C7.1046 3 6.6569 2.552 6.6569 2C6.6569 1.448 7.1046 1 7.6569 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M4 14V4M9 18H4C2.8954 18 2 17.105 2 16V14.5C2 14.224 2.2239 14 2.5 14H9M13 13V19C13 20.657 14.3431 22 16 22H19C19.8285 22 20.5785 21.664 21.1213 21.121M2 2L22 22" />
     </Icon>
   )
 }
@@ -11068,6 +12075,14 @@ export function Lighthouse(props: IconProps) {
   )
 }
 
+export function LineDashed(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2 12L4 12M8 12L10 12M14 12L16 12M20 12L22 12" />
+    </Icon>
+  )
+}
+
 export function Link2Off(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -11365,6 +12380,42 @@ export function Locate(props: IconProps) {
   )
 }
 
+export function LockCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M17 9C19.2091 9 21 10.7909 21 13L21 19C21 21.2091 19.2091 23 17 23L7 23C4.7909 23 3 21.2091 3 19L3 13C3 10.7909 4.7909 9 7 9Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M7.5 10V6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5V10M4 13V19C4 20.6569 5.34315 22 7 22H17C18.6569 22 20 20.6569 20 19V13C20 11.3431 18.6569 10 17 10H7C5.34315 10 4 11.3431 4 13ZM9 16L11 18L15 14" />
+    </Icon>
+  )
+}
+
+export function LockClock(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5.5 10L5.5 6.5C5.5 4.0147 7.5147 2 10 2C12.4853 2 14.5 4.0147 14.5 6.5L14.5 7M9.5 10L5 10C3.3431 10 2 11.3431 2 13L2 19C2 20.6569 3.3431 22 5 22L8.5 22" strokeOpacity={0.4} />
+      <Path d="M22 16.5C22 19.5376 19.5376 22 16.5 22C13.4624 22 11 19.5376 11 16.5C11 13.4624 13.4624 11 16.5 11C19.5376 11 22 13.4624 22 16.5ZM16 15.1L16 17L17.9 17" />
+    </Icon>
+  )
+}
+
+export function LockOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20.646 20.646C20.019 22.034 18.622 23 17 23H7C4.791 23 3 21.209 3 19V13C3 10.791 4.791 9 7 9H9L20.646 20.646ZM19.293 15.05L14.95 10.707C14.769 10.526 14.657 10.276 14.657 10C14.657 9.501 15.022 9.088 15.5 9.012V6.5C15.5 6.257 15.475 6.021 15.429 5.794C15.382 5.566 15.314 5.347 15.225 5.138C15.137 4.929 15.029 4.73 14.903 4.544C14.777 4.357 14.634 4.184 14.475 4.025C14.316 3.867 14.142 3.723 13.956 3.597C13.77 3.471 13.571 3.363 13.362 3.275C13.153 3.186 12.934 3.118 12.706 3.071C12.479 3.025 12.243 3 12 3C11.765 3 11.536 3.023 11.316 3.067C11.095 3.11 10.882 3.175 10.678 3.258C10.475 3.341 10.281 3.443 10.098 3.561C9.915 3.68 9.744 3.815 9.587 3.965C9.187 4.346 8.554 4.33 8.173 3.93C7.792 3.53 7.808 2.897 8.208 2.516C8.454 2.282 8.722 2.07 9.009 1.884C9.296 1.697 9.602 1.537 9.922 1.406C10.243 1.275 10.58 1.174 10.927 1.105C11.275 1.036 11.634 1 12 1C12.378 1 12.749 1.038 13.107 1.112C13.466 1.185 13.812 1.293 14.141 1.433C14.47 1.572 14.783 1.742 15.076 1.94C15.368 2.138 15.641 2.362 15.889 2.611C16.138 2.859 16.363 3.132 16.56 3.424C16.758 3.717 16.928 4.03 17.067 4.359C17.207 4.688 17.315 5.034 17.388 5.393C17.462 5.751 17.5 6.122 17.5 6.5V9.031C19.473 9.277 21 10.96 21 13V14.343C21 14.895 20.552 15.343 20 15.343C19.724 15.343 19.474 15.231 19.293 15.05Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M7.5 10V7.5M10 10H7C5.343 10 4 11.343 4 13V19C4 20.657 5.343 22 7 22H17C18.354 22 19.498 21.103 19.872 19.872M2 2L22 22" />
+    </Icon>
+  )
+}
+
+export function LockPlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M17 9C19.2091 9 21 10.7909 21 13L21 19C21 21.2091 19.2091 23 17 23L7 23C4.7909 23 3 21.2091 3 19L3 13C3 10.7909 4.7909 9 7 9Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M7.5 10V6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5V10M4 13V19C4 20.6569 5.34315 22 7 22H17C18.6569 22 20 20.6569 20 19V13C20 11.3431 18.6569 10 17 10H7C5.34315 10 4 11.3431 4 13ZM12 14L12 18M10 16L14 16" />
+    </Icon>
+  )
+}
+
 export function Lock(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -11389,6 +12440,15 @@ export function LogOut(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M9 4L7 4C4.7909 4 3 5.7909 3 8L3 16C3 18.2091 4.7909 20 7 20L9 20" fill="none" strokeOpacity={0.4} />
       <Path d="M20.2307 12L10.1093 12M15.17 6.5L20.8359 11.6314C21.0547 11.8296 21.0547 12.1704 20.8359 12.3686L15.17 17.5" fill="none" />
+    </Icon>
+  )
+}
+
+export function Lotus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M14.1617 19.0805C13.5874 19.7186 12.8425 20.1318 12 20.1318C11.1575 20.1318 10.4127 19.7186 9.8383 19.0805C9.7275 19.1786 9.6176 19.2728 9.5086 19.3632C9.33 19.5113 9.1533 19.6493 8.9786 19.7772C8.8039 19.9052 8.6307 20.0234 8.4589 20.1316C8.1158 20.3479 7.776 20.526 7.4391 20.6636C7.1018 20.8013 6.7652 20.8992 6.4297 20.9529C6.0935 21.0068 5.7615 21.0157 5.4361 20.9776C5.1103 20.9394 4.7998 20.8551 4.5063 20.7297C4.2133 20.6047 3.9433 20.4415 3.6948 20.2498C3.4469 20.0585 3.2204 19.8388 3.0128 19.5993C2.8052 19.3599 2.6144 19.0982 2.4379 18.8205C2.2614 18.5428 2.0975 18.2461 1.9444 17.9353C1.7913 17.6244 1.6479 17.2969 1.5129 16.9567C1.4453 16.7865 1.3798 16.6128 1.316 16.436C1.2522 16.2592 1.1902 16.0791 1.1298 15.8961C1.0385 15.6192 0.9946 15.3335 1.0005 15.0488C1.0063 14.7642 1.0617 14.4849 1.1648 14.2219C1.2679 13.9589 1.417 13.7162 1.6061 13.5035C1.7952 13.2906 2.0215 13.1108 2.2768 12.9696C2.4609 12.8678 2.6442 12.7698 2.8263 12.6762C3.0085 12.5825 3.1898 12.4931 3.3699 12.4084C3.4275 12.3813 3.485 12.3547 3.5423 12.3286C3.1063 10.5166 3.1752 8.4891 3.4758 6.4354C3.5215 6.1229 3.616 5.8111 3.7833 5.532C3.954 5.2472 4.2006 4.9986 4.5271 4.8412C4.8536 4.6839 5.2017 4.646 5.5308 4.6899C5.8533 4.7329 6.156 4.8533 6.429 5.0123C7.289 5.5133 8.1063 6.0496 8.8463 6.6298C9.2004 5.8612 9.6046 5.0977 10.044 4.342C10.2526 3.9832 10.5096 3.6588 10.8265 3.4166C11.1504 3.1691 11.5495 3 12 3C12.4505 3 12.8496 3.1691 13.1735 3.4166C13.4904 3.6588 13.7474 3.9832 13.9561 4.342C14.3955 5.0977 14.7997 5.8612 15.1537 6.6298C15.8938 6.0496 16.711 5.5133 17.571 5.0123C17.844 4.8533 18.1467 4.7329 18.4692 4.6899C18.7983 4.646 19.1464 4.6839 19.4729 4.8412C19.7994 4.9986 20.046 5.2472 20.2167 5.532C20.384 5.8111 20.4785 6.1229 20.5242 6.4354C20.8248 8.489 20.8937 10.5166 20.4577 12.3286C20.5151 12.3547 20.5725 12.3813 20.6301 12.4083C20.8102 12.4931 20.9915 12.5825 21.1737 12.6762C21.3558 12.7698 21.5391 12.8678 21.7233 12.9697C21.9785 13.1108 22.2048 13.2906 22.3939 13.5035C22.5664 13.6975 22.7056 13.9164 22.8069 14.153C22.8167 14.1758 22.8262 14.1988 22.8352 14.222C22.9383 14.485 22.9937 14.7643 22.9995 15.0489C23.0054 15.3336 22.9615 15.6193 22.8701 15.8963C22.8098 16.0792 22.7478 16.2593 22.684 16.4361C22.6202 16.6129 22.5547 16.7866 22.4871 16.9568C22.3521 17.297 22.2087 17.6245 22.0556 17.9354C21.9025 18.2462 21.7386 18.5429 21.5621 18.8206C21.3856 19.0983 21.1948 19.36 20.9872 19.5994C20.7796 19.8389 20.5531 20.0586 20.3052 20.2499C20.0567 20.4416 19.7867 20.6048 19.4938 20.7298C19.2002 20.8551 18.8897 20.9394 18.5639 20.9776C18.2385 21.0157 17.9065 21.0068 17.5703 20.9529C17.2348 20.8992 16.8982 20.8013 16.5609 20.6636C16.224 20.526 15.8842 20.3479 15.5411 20.1316C15.3693 20.0234 15.1961 19.9052 15.0214 19.7772C14.8467 19.6493 14.67 19.5113 14.4914 19.3632C14.3824 19.2728 14.2724 19.1785 14.1617 19.0805Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M13.5037 18.3125C16.9306 14.1629 15.8163 9.5306 13.0916 4.8447C12.4366 3.7184 11.5634 3.7184 10.9084 4.8447C8.1837 9.5306 7.0694 14.1629 10.4963 18.3125C11.3985 19.4049 12.6015 19.4049 13.5037 18.3125ZM9.243 8.2899C8.3232 7.408 7.1897 6.6128 5.9256 5.8764C5.1752 5.4393 4.591 5.7208 4.4653 6.5801C3.7404 11.5326 4.5075 15.7203 9.7103 17.2237M4.7808 12.8998C4.1424 13.1318 3.465 13.4554 2.7606 13.8448C2.124 14.1968 1.8516 14.892 2.0795 15.5828C3.4648 19.7807 5.6054 21.9699 9.9 17.6451M14.757 8.2899C15.6768 7.408 16.8103 6.6128 18.0744 5.8764C18.8248 5.4393 19.409 5.7208 19.5347 6.5801C20.2596 11.5326 19.4925 15.7203 14.2897 17.2237M19.2192 12.8998C19.8576 13.1318 20.535 13.4554 21.2394 13.8448C21.876 14.1968 22.1484 14.892 21.9205 15.5828C20.5352 19.7807 18.3946 21.9699 14.1 17.6451" />
     </Icon>
   )
 }
@@ -11420,6 +12480,61 @@ export function Magnet(props: IconProps) {
   )
 }
 
+export function MailAlert(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5 3H19C21.2091 3 23 4.791 23 7V10C23 10.552 22.5523 11 22 11H16C14.3431 11 13 12.343 13 14V20C13 20.552 12.5523 21 12 21H5C2.7909 21 1 19.209 1 17V7C1 4.791 2.7909 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 20H5C3.3432 20 2 18.657 2 17V7M2 7C2 5.343 3.3432 4 5 4H19C20.6569 4 22 5.343 22 7M2 7L11.2929 11C11.7154 11.282 12.2846 11.282 12.7071 11L22 7M22 7V10M19 14V16" />
+      <Path d="M20 20C20 20.552 19.5523 21 19 21C18.4477 21 18 20.552 18 20C18 19.448 18.4477 19 19 19C19.5523 19 20 19.448 20 20Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
+export function MailArrowDown(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5 3H19C21.2091 3 23 4.79086 23 7V10C23 10.5523 22.5523 11 22 11H16C14.3431 11 13 12.3431 13 14V20C13 20.5523 12.5523 21 12 21H5C2.79086 21 1 19.2091 1 17V7C1 4.79086 2.79086 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 20H5C3.34315 20 2 18.6569 2 17V7C2 5.34315 3.34315 4 5 4H19C20.6569 4 22 5.34315 22 7V10M2 7L11.2929 11C11.7154 11.2817 12.2846 11.2817 12.7071 11L22 7M19 14V20M16 17L19 20L22 17" />
+    </Icon>
+  )
+}
+
+export function MailArrowLeft(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5 3H19C21.2091 3 23 4.79086 23 7V10C23 10.5523 22.5523 11 22 11H16C14.3431 11 13 12.3431 13 14V20C13 20.5523 12.5523 21 12 21H5C2.79086 21 1 19.2091 1 17V7C1 4.79086 2.79086 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 20H5C3.34315 20 2 18.6569 2 17V7C2 5.34315 3.34315 4 5 4H19C20.6569 4 22 5.34315 22 7V10M2 7L11.2929 11C11.7154 11.2817 12.2846 11.2817 12.7071 11L22 7M22 17L16 17M19 14L16 17L19 20" />
+    </Icon>
+  )
+}
+
+export function MailArrowRight(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5 3H19C21.2091 3 23 4.79086 23 7V10C23 10.5523 22.5523 11 22 11H16C14.3431 11 13 12.3431 13 14V20C13 20.5523 12.5523 21 12 21H5C2.79086 21 1 19.2091 1 17V7C1 4.79086 2.79086 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 20H5C3.34315 20 2 18.6569 2 17V7C2 5.34315 3.34315 4 5 4H19C20.6569 4 22 5.34315 22 7V10M2 7L11.2929 11C11.7154 11.2817 12.2846 11.2817 12.7071 11L22 7M16 17L22 17M19 14L22 17L19 20" />
+    </Icon>
+  )
+}
+
+export function MailArrowUp(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5 3H19C21.2091 3 23 4.79086 23 7V10C23 10.5523 22.5523 11 22 11H16C14.3431 11 13 12.3431 13 14V20C13 20.5523 12.5523 21 12 21H5C2.79086 21 1 19.2091 1 17V7C1 4.79086 2.79086 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 20H5C3.34315 20 2 18.6569 2 17V7C2 5.34315 3.34315 4 5 4H19C20.6569 4 22 5.34315 22 7V10M2 7L11.2929 11C11.7154 11.2817 12.2846 11.2817 12.7071 11L22 7M19 20V14M16 17L19 14L22 17" />
+    </Icon>
+  )
+}
+
+export function MailAsterisk(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5 3H19C21.209 3 23 4.791 23 7V10C23 10.552 22.552 11 22 11H16C14.343 11 13 12.343 13 14V20C13 20.552 12.552 21 12 21H5C2.791 21 1 19.209 1 17V7C1 4.791 2.791 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 20H5C3.343 20 2 18.657 2 17V7M2 7C2 5.343 3.343 4 5 4H19C20.657 4 22 5.343 22 7M2 7L11.293 11C11.715 11.282 12.285 11.282 12.707 11L22 7M22 7V10M19 14V17M19 17V20M19 17L16.6 18.8M19 17L21.4 15.2M19 17L16.6 15.2M19 17L21.4 18.8" />
+    </Icon>
+  )
+}
+
 export function MailCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -11429,11 +12544,29 @@ export function MailCheck(props: IconProps) {
   )
 }
 
+export function MailCog(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5 1L19 1C21.2091 1 23 2.7909 23 5L23 10C23 10.5523 22.5523 11 22 11L14 11C12.3431 11 11 12.3431 11 14L11 18C11 18.5523 10.5523 19 10 19L5 19C2.7909 19 1 17.2091 1 15L1 5C1 2.7909 2.7909 1 5 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M10 18L5 18C3.3432 18 2 16.6569 2 15L2 5C2 3.3431 3.3432 2 5 2L19 2C20.6569 2 22 3.3431 22 5L22 10M2 5L11.2929 9C11.7154 9.2817 12.2846 9.2817 12.7071 9L22 5M20.6667 18C20.6667 19.4728 19.4728 20.6667 18 20.6667C16.5272 20.6667 15.3333 19.4728 15.3333 18C15.3333 16.5272 16.5272 15.3333 18 15.3333C19.4728 15.3333 20.6667 16.5272 20.6667 18ZM21.5417 18L22 18M20.5043 20.5043L20.8284 20.8284M18 21.5417L18 22M15.4957 20.5043L15.1716 20.8284M14.4583 18L14 18M15.4957 15.4957L15.1716 15.1716M18 14.4583L18 14M20.5043 15.4957L20.8284 15.1716" />
+    </Icon>
+  )
+}
+
 export function MailDot(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M5 3H19C21.2091 3 23 4.79086 23 7V10C23 10.5523 22.5523 11 22 11H16C14.3431 11 13 12.3431 13 14V20C13 20.5523 12.5523 21 12 21H5C2.79086 21 1 19.2091 1 17V7C1 4.79086 2.79086 3 5 3ZM23 17C23 19.2091 21.2091 21 19 21C16.7909 21 15 19.2091 15 17C15 14.7909 16.7909 13 19 13C21.2091 13 23 14.7909 23 17Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M12 20H5C3.34315 20 2 18.6569 2 17V7C2 5.34315 3.34315 4 5 4H19C20.6569 4 22 5.34315 22 7V10M2 7L11.2929 11C11.7154 11.2817 12.2846 11.2817 12.7071 11L22 7M19 14C20.65685 14 22 15.34315 22 17C22 18.65685 20.65685 20 19 20C17.34315 20 16 18.65685 16 17C16 15.34315 17.34315 14 19 14Z" />
+    </Icon>
+  )
+}
+
+export function MailForward(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M11 20H5C3.34315 20 2 18.6569 2 17V7C2 5.34315 3.34315 4 5 4H19C20.6569 4 22 5.34315 22 7V10M2 7L11.2929 11C11.7154 11.2817 12.2846 11.2817 12.7071 11L22 7" strokeOpacity={0.4} />
+      <Path d="M19 13L22 16L19 19M22 16L17 16C15.8954 16 15 16.8954 15 18L15 20" />
     </Icon>
   )
 }
@@ -11470,6 +12603,24 @@ export function MailScan(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M12 14H3C2.4477 14 2 13.5523 2 13V6C2 3.7909 3.7909 2 6 2H18C20.2091 2 22 3.7909 22 6V13C22 13.5523 21.5523 14 21 14Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M3 13V6C3 4.34315 4.34315 3 6 3H18C19.6569 3 21 4.34315 21 6V13M3 6L11.36361 8.84948C11.74386 9.05015 12.25614 9.05015 12.63639 8.84948L21 6M2 13H22M3 17H10M21 17H14M20 21H18M14 21H10M6 21H4" />
+    </Icon>
+  )
+}
+
+export function MailSearch(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5 3H19C21.2091 3 23 4.79086 23 7V10C23 10.5523 22.5523 11 22 11H16C14.3431 11 13 12.3431 13 14V20C13 20.5523 12.5523 21 12 21H5C2.79086 21 1 19.2091 1 17V7C1 4.79086 2.79086 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 20H5C3.34315 20 2 18.6569 2 17V7C2 5.34315 3.34315 4 5 4H19C20.6569 4 22 5.34315 22 7V10M2 7L11.2929 11C11.7154 11.2817 12.2846 11.2817 12.7071 11L22 7M21 16.5C21 17.8807 19.8807 19 18.5 19C17.1193 19 16 17.8807 16 16.5C16 15.1193 17.1193 14 18.5 14C19.8807 14 21 15.1193 21 16.5ZM20.5 18.5L22 20" />
+    </Icon>
+  )
+}
+
+export function MailShield(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5 1L19 1C21.2091 1 23 2.7909 23 5L23 10C23 10.5523 22.5523 11 22 11L15 11C13.3431 11 12 12.3431 12 14L12 18C12 18.5523 11.5523 19 11 19L5 19C2.7909 19 1 17.2091 1 15L1 5C1 2.7909 2.7909 1 5 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M11 18L5 18C3.3432 18 2 16.6569 2 15L2 5C2 3.3431 3.3432 2 5 2L19 2C20.6569 2 22 3.3431 22 5L22 10M2 5L11.2929 9C11.7154 9.2817 12.2846 9.2817 12.7071 9L22 5M15.5173 15.3862C16.6758 15.2487 17.5504 14.6703 18.0731 14.1633C18.2974 13.9456 18.7026 13.9456 18.9269 14.1633C19.4496 14.6703 20.3242 15.2487 21.4827 15.3862C21.7669 15.4199 22 15.6409 22 15.9175L22 17.8747C22 18.651 21.8736 19.4412 21.3928 20.0631C20.8667 20.7434 20.0327 21.5058 18.863 21.9355C18.6288 22.0215 18.3712 22.0215 18.137 21.9355C16.9673 21.5058 16.1332 20.7434 15.6073 20.0631C15.1264 19.4412 15 18.651 15 17.8747L15 15.9175C15 15.6409 15.2331 15.4199 15.5173 15.3862Z" />
     </Icon>
   )
 }
@@ -11592,6 +12743,16 @@ export function MapPinSearch(props: IconProps) {
   )
 }
 
+export function MapPinSparkles(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M18.9373 11C18.7353 12.604 18.0507 14.117 16.9628 15.333L11 22L5.0372 15.333C3.7253 13.867 3 11.968 3 10C3 5.582 6.5817 2 11 2C11.3387 2 11.6724 2.021 12 2.062M14 10C14 11.657 12.6569 13 11 13C9.3431 13 8 11.657 8 10C8 8.343 9.3431 7 11 7C12.6569 7 14 8.343 14 10Z" />
+      <Path d="M18.9806 1.327L19.4952 2.632C19.6526 3.031 19.9688 3.347 20.3683 3.505L21.6729 4.019C21.8703 4.097 22 4.288 22 4.5C22 4.712 21.8703 4.903 21.6729 4.981L20.3683 5.495C19.9688 5.653 19.6526 5.969 19.4952 6.368L18.9806 7.673C18.9028 7.87 18.7121 8 18.5 8C18.2879 8 18.0972 7.87 18.0194 7.673L17.5048 6.368C17.3474 5.969 17.0312 5.653 16.6317 5.495L15.3271 4.981C15.1297 4.903 15 4.712 15 4.5C15 4.288 15.1297 4.097 15.3271 4.019L16.6317 3.505C17.0312 3.347 17.3474 3.031 17.5048 2.632L18.0194 1.327C18.0972 1.13 18.2879 1 18.5 1C18.7121 1 18.9028 1.13 18.9806 1.327Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M19.8433 18.234L20.2108 19.166C20.3233 19.451 20.5492 19.677 20.8345 19.789L21.7663 20.157C21.9074 20.212 22 20.349 22 20.5C22 20.651 21.9074 20.788 21.7663 20.843L20.8345 21.211C20.5492 21.323 20.3233 21.549 20.2108 21.834L19.8433 22.766C19.7877 22.907 19.6515 23 19.5 23C19.3485 23 19.2123 22.907 19.1567 22.766L18.7892 21.834C18.6767 21.549 18.4508 21.323 18.1655 21.211L17.2337 20.843C17.0926 20.788 17 20.651 17 20.5C17 20.349 17.0926 20.212 17.2337 20.157L18.1655 19.789C18.4508 19.677 18.6767 19.451 18.7892 19.166L19.1567 18.234C19.2123 18.093 19.3485 18 19.5 18C19.6515 18 19.7877 18.093 19.8433 18.234Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+    </Icon>
+  )
+}
+
 export function MapPinX(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -11706,6 +12867,15 @@ export function Merge(props: IconProps) {
   )
 }
 
+export function MessageArrowUp(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2C17.8553 2 23 5.8327 23 11C23 16.1673 17.8553 20 12 20C11.2351 20 10.4723 19.9337 9.7236 19.8047L5.4385 21.8984C5.1434 22.0425 4.7961 22.0329 4.5098 21.8721C4.2235 21.7112 4.0344 21.4197 4.0039 21.0928L3.6084 16.8252C1.9521 15.2269 1 13.1718 1 11C1 5.8327 6.1447 2 12 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M4.5686 16.353 C2.915 14.8839 2 12.9769 2 11 C2 6.5817 6.4772 3 12 3 C17.5228 3 22 6.5817 22 11 C22 15.4183 17.5228 19 12 19 C11.1845 19 10.3721 18.9202 9.5808 18.7624 L5 21 L4.5686 16.353 ZM12 14V8M9 11L12 8L15 11" />
+    </Icon>
+  )
+}
+
 export function MessageCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -11715,11 +12885,29 @@ export function MessageCheck(props: IconProps) {
   )
 }
 
+export function MessageClock(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2C17.8553 2 23 5.8327 23 11C23 16.1673 17.8553 20 12 20C11.2351 20 10.4723 19.9337 9.7236 19.8047L5.4385 21.8984C5.1434 22.0425 4.7961 22.0329 4.5098 21.8721C4.2235 21.7112 4.0344 21.4197 4.0039 21.0928L3.6084 16.8252C1.9521 15.2269 1 13.1718 1 11C1 5.8327 6.1447 2 12 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M4.5686 16.353C2.915 14.8839 2 12.9769 2 11C2 6.5817 6.4772 3 12 3C17.5228 3 22 6.5817 22 11C22 15.4183 17.5228 19 12 19C11.1845 19 10.3721 18.9202 9.5808 18.7624L5 21ZM12 7V11H15" />
+    </Icon>
+  )
+}
+
 export function MessageCode(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M4.3043 4.5623C6.3033 2.9631 9.0274 2 12 2C14.9726 2 17.6967 2.9631 19.6957 4.5623C21.6966 6.1629 23 8.4326 23 11C23 13.5674 21.6966 15.8371 19.6957 17.4377C17.6967 19.0369 14.9726 20 12 20C11.2349 20 10.4718 19.935 9.723 19.8059L5.4389 21.8985C5.3022 21.9653 5.1521 22 5 22C4.4835 22 4.052 21.6067 4.0043 21.0924L3.6082 16.8264C1.9516 15.2281 1 13.1721 1 11C1 8.4326 2.3034 6.1629 4.3043 4.5623Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M10 8.5L7.5 11L10 13.5M14 8.5L16.5 11L14 13.5M4.5686 16.353C2.915 14.8839 2 12.9769 2 11C2 6.5817 6.4772 3 12 3C17.5228 3 22 6.5817 22 11C22 15.4183 17.5228 19 12 19C11.1845 19 10.3721 18.9202 9.5808 18.7624L5 21L4.5686 16.353Z" />
+    </Icon>
+  )
+}
+
+export function MessageDashedCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2.1558 12.4066C2.0521 11.9423 2 11.4716 2 11C2 10.5284 2.0521 10.0577 2.1558 9.5934M4.2415 5.9526C4.8943 5.3104 5.6678 4.7532 6.5342 4.3007M10.585 3.0805C11.0537 3.0269 11.5265 3 12 3C12.4735 3 12.9463 3.0269 13.415 3.0805M17.4658 4.3007C18.3322 4.7532 19.1057 5.3104 19.7585 5.9526M21.8442 9.5934C21.9479 10.0577 22 10.5284 22 11C22 11.4716 21.9479 11.9423 21.8442 12.4066M19.7585 16.0474C19.1057 16.6896 18.3322 17.2468 17.4658 17.6993M13.415 18.9195C12.9463 18.9731 12.4735 19 12 19C11.1845 19 10.3721 18.9202 9.5808 18.7624L5 21L4.5686 16.353C4.4564 16.2534 4.3473 16.1514 4.2415 16.0474" strokeOpacity={0.4} />
+      <Path d="M9 11L11 13L15 9" />
     </Icon>
   )
 }
@@ -11844,11 +13032,38 @@ export function MessageSquareArrowUpRight(props: IconProps) {
   )
 }
 
+export function MessageSquareArrowUp(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M6 2L18 2C20.2091 2 22 3.7909 22 6L22 14C22 16.2091 20.2091 18 18 18L7.4142 18L3.7071 21.7071C3.5196 21.8946 3.2652 22 3 22C2.4477 22 2 21.5523 2 21L2 6C2 3.7909 3.7909 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3L18 3C19.6569 3 21 4.3431 21 6L21 14C21 15.6569 19.6569 17 18 17L7 17L3 21L3 6C3 4.3431 4.3431 3 6 3ZM12 13V7M9 10L12 7L15 10" fill="none" />
+    </Icon>
+  )
+}
+
 export function MessageSquareCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M6 2L18 2C20.2091 2 22 3.7909 22 6L22 14C22 16.2091 20.2091 18 18 18L7.4142 18L3.7071 21.7071C3.5196 21.8946 3.2652 22 3 22C2.4477 22 2 21.5523 2 21L2 6C2 3.7909 3.7909 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M6 3L18 3C19.6569 3 21 4.3431 21 6L21 14C21 15.6569 19.6569 17 18 17L7 17L3 21L3 6C3 4.3431 4.3431 3 6 3ZM9 10L11 12L15 8" fill="none" />
+    </Icon>
+  )
+}
+
+export function MessageSquareCode(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M6 2L18 2C20.2091 2 22 3.7909 22 6L22 14C22 16.2091 20.2091 18 18 18L7.4142 18L3.7071 21.7071C3.5196 21.8946 3.2652 22 3 22C2.4477 22 2 21.5523 2 21L2 6C2 3.7909 3.7909 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3L18 3C19.6569 3 21 4.3431 21 6L21 14C21 15.6569 19.6569 17 18 17L7 17L3 21L3 6C3 4.3431 4.3431 3 6 3ZM10 7.5L7.5 10L10 12.5M14 7.5L16.5 10L14 12.5" />
+    </Icon>
+  )
+}
+
+export function MessageSquareDashedCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 7.75L3 6C3 4.3431 4.3431 3 6 3M10.5 3L13.5 3M18 3C19.6569 3 21 4.3431 21 6L21 7.75M21 12.25L21 14C21 15.6569 19.6569 17 18 17M14 17L11 17M7 17L3 21L3 12.25" strokeOpacity={0.4} />
+      <Path d="M9 10L11 12L15 8" />
     </Icon>
   )
 }
@@ -11866,6 +13081,16 @@ export function MessageSquareDot(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M11.6754 2L6 2C3.7909 2 2 3.7909 2 6L2 21C2 21.5523 2.4477 22 3 22C3.2652 22 3.5196 21.8946 3.7071 21.7071L7.4142 18L18 18C20.2091 18 22 16.2091 22 14L22 12.3246C22 11.7723 21.5523 11.3246 21 11.3246C20.8518 11.3246 20.7054 11.3575 20.5714 11.421C19.7678 11.8022 18.8895 12 18 12C14.6863 12 12 9.3137 12 6C12 5.1105 12.1978 4.2322 12.579 3.4286C12.6425 3.2946 12.6754 3.1482 12.6754 3C12.6754 2.4477 12.2277 2 11.6754 2ZM22 6C22 3.7909 20.2091 2 18 2C15.7909 2 14 3.7909 14 6C14 8.2091 15.7909 10 18 10C20.2091 10 22 8.2091 22 6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M21 6C21 7.6569 19.6569 9 18 9C16.3431 9 15 7.6569 15 6C15 4.3431 16.3431 3 18 3C19.6569 3 21 4.3431 21 6ZM11.6754 3L6 3C4.3431 3 3 4.3431 3 6L3 21L7 17L18 17C19.6569 17 21 15.6569 21 14L21 12.3246" fill="none" />
+    </Icon>
+  )
+}
+
+export function MessageSquareInfo(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2 13.5L2 6C2 3.7908 3.7908 2 6 2L18 2C20.2092 2 22 3.7908 22 6L22 14C22 16.2092 20.2092 18 18 18L7.4142 18L3.7071 21.7071C3.5196 21.8946 3.2652 22 3 22C2.4477 22 2 21.5523 2 21Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3L18 3C19.6569 3 21 4.3431 21 6L21 14C21 15.6569 19.6569 17 18 17L7 17L3 21L3 6C3 4.3431 4.3431 3 6 3ZM12 13L12 11" />
+      <Path d="M13 7C13 7.5523 12.5523 8 12 8C11.4477 8 11 7.5523 11 7C11 6.4477 11.4477 6 12 6C12.5523 6 13 6.4477 13 7Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
     </Icon>
   )
 }
@@ -11897,11 +13122,30 @@ export function MessageSquareMinus(props: IconProps) {
   )
 }
 
+export function MessageSquareMore(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M6 2H18C20.2091 2 22 3.791 22 6V14C22 16.209 20.2091 18 18 18H7.4142L3.7071 21.707C3.5196 21.895 3.2652 22 3 22C2.4477 22 2 21.552 2 21V6C2 3.791 3.7909 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3H18C19.6569 3 21 4.343 21 6V14C21 15.657 19.6569 17 18 17H7L3 21V6C3 4.343 4.3431 3 6 3Z" />
+      <Path d="M7.3333 8.667C8.0697 8.667 8.6666 9.264 8.6666 10C8.6666 10.736 8.0697 11.333 7.3333 11.333C6.5969 11.333 6 10.736 6 10C6 9.264 6.5969 8.667 7.3333 8.667ZM12 8.667C12.7364 8.667 13.3333 9.264 13.3333 10C13.3333 10.736 12.7364 11.333 12 11.333C11.2636 11.333 10.6667 10.736 10.6667 10C10.6667 9.264 11.2636 8.667 12 8.667ZM16.6667 8.667C17.4031 8.667 18 9.264 18 10C18 10.736 17.4031 11.333 16.6667 11.333C15.9303 11.333 15.3334 10.736 15.3334 10C15.3334 9.264 15.9303 8.667 16.6667 8.667Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function MessageSquareOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M18 18L7.4142 18L3.7071 21.7071C3.5196 21.8946 3.2652 22 3 22C2.4477 22 2 21.5523 2 21L2 6C2 4.9391 2.4214 3.9217 3.1716 3.1716ZM8.6569 2L18 2C20.2091 2 22 3.7909 22 6L22 14C22 14.5138 21.901 15.0229 21.7084 15.4993C21.5556 15.8771 21.1889 16.1244 20.7813 16.1244C20.5161 16.1244 20.2617 16.0191 20.0742 15.8316L7.9497 3.7071C7.7622 3.5196 7.6569 3.2652 7.6569 3C7.6569 2.4477 8.1046 2 8.6569 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M17 17L7 17L3 21L3 6C3 5.2044 3.3161 4.4413 3.8787 3.8787M2 2L22 22" fill="none" />
+    </Icon>
+  )
+}
+
+export function MessageSquarePen(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M18.2632 9.6258L15.8319 12.0572C15.7361 12.153 15.6219 12.2283 15.4962 12.2786L11.3714 13.9285C11.2533 13.9757 11.1272 14 11 14C10.4477 14 10 13.5523 10 13C10 12.8728 10.0243 12.7467 10.0715 12.6286L11.7214 8.5038C11.7717 8.3781 11.847 8.2639 11.9428 8.1681L17.3054 2.8055C18.3794 1.7314 20.1206 1.7314 21.1945 2.8054C22.2685 3.8794 22.2685 5.6206 21.1945 6.6945Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 3L6 3C4.3431 3 3 4.3431 3 6L3 21L7 17L18 17C19.6569 17 21 15.6569 21 14L21 12M11 13L15.1248 11.3501L20.4874 5.9874C21.1709 5.304 21.1709 4.196 20.4874 3.5126C19.804 2.8291 18.696 2.8291 18.0126 3.5126L12.6499 8.8752Z" />
     </Icon>
   )
 }
@@ -12040,6 +13284,14 @@ export function Milestone(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M5 4L16.7192 4C17.0865 4 17.4467 4.1011 17.7603 4.2923L21.0411 6.2923C21.6366 6.6554 22 7.3025 22 8C22 8.6975 21.6366 9.3446 21.0411 9.7077L17.7603 11.7077C17.4467 11.8989 17.0865 12 16.7192 12L5 12C3.3431 12 2 10.6569 2 9L2 7C2 5.3431 3.3431 4 5 4Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M5 5L16.7192 5C16.9029 5 17.0829 5.0506 17.2397 5.1461L20.5205 7.1461C21.1599 7.5359 21.1599 8.4641 20.5205 8.8539L17.2397 10.8539C17.0829 10.9494 16.9029 11 16.7192 11L5 11C3.8954 11 3 10.1046 3 9L3 7C3 5.8954 3.8954 5 5 5ZM12 2L12 5M12 11L12 22M8 22L16 22" />
+    </Icon>
+  )
+}
+
+export function Minimize2(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M9 3L9 8.5C9 8.7761 8.7761 9 8.5 9L3 9M3 3L8.4 8.4M15 3L15 8.5C15 8.7761 15.2239 9 15.5 9L21 9M21 3L15.6 8.4M15 21L15 15.5C15 15.2239 15.2239 15 15.5 15L21 15M21 21L15.6 15.6M9 21L9 15.5C9 15.2239 8.7761 15 8.5 15L3 15M3 21L8.4 15.6" fill="none" />
     </Icon>
   )
 }
@@ -12422,6 +13674,14 @@ export function MountainSnow(props: IconProps) {
   )
 }
 
+export function MouseLock(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M7 18.3178C6.3682 17.3675 6 16.2267 6 15L6 9C6 5.6863 8.6863 3 12 3C14.973 3 17.441 5.1623 17.917 8M12 7L12 8M12 16L17 16C17.5523 16 18 16.4477 18 17L18 20C18 20.5523 17.5523 21 17 21L12 21C11.4477 21 11 20.5523 11 20L11 17C11 16.4477 11.4477 16 12 16ZM12.5 16L12.5 14C12.5 12.8954 13.3954 12 14.5 12C15.6046 12 16.5 12.8954 16.5 14L16.5 16" />
+    </Icon>
+  )
+}
+
 export function MouseOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -12662,6 +13922,15 @@ export function Nfc(props: IconProps) {
   )
 }
 
+export function NodesCycle(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M13.0925 6.1213C12.5507 5.5795 12.2138 4.8282 12.2138 4C12.2138 2.3431 13.5569 1 15.2138 1C16.8706 1 18.2138 2.3431 18.2138 4C18.2138 5.6569 16.8706 7 15.2138 7C14.3856 7 13.6343 6.6631 13.0925 6.1213ZM17.197 21.4396C16.6552 20.8978 16.3183 20.1465 16.3183 19.3183C16.3183 17.6615 17.6614 16.3183 19.3183 16.3183C20.9752 16.3183 22.3183 17.6615 22.3183 19.3183C22.3183 20.9752 20.9752 22.3183 19.3183 22.3183C18.4901 22.3183 17.7388 21.9814 17.197 21.4396ZM1.8787 13.0925C2.4205 12.5507 3.1718 12.2138 4 12.2138C5.6568 12.2138 7 13.5569 7 15.2138C7 16.8707 5.6568 18.2138 4 18.2138C2.3431 18.2138 1 16.8707 1 15.2138C1 14.3856 1.3369 13.6343 1.8787 13.0925Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M20.1806 7.3661C21.3618 8.9482 22 10.8697 22 12.8441C22 13.2036 21.9789 13.5628 21.9366 13.9198M13.9197 21.9367C13.5627 21.9789 13.2035 22.0001 12.844 22.0001C10.8696 22.0001 8.9481 21.3619 7.3661 20.1806M4.4317 9.2294C5.3575 7.0748 7.0747 5.3575 9.2293 4.4317M17.2138 4C17.2138 5.1046 16.3183 6 15.2138 6C14.1092 6 13.2138 5.1046 13.2138 4C13.2138 2.8954 14.1092 2 15.2138 2C16.3183 2 17.2138 2.8954 17.2138 4ZM21.3183 19.3183C21.3183 20.4229 20.4229 21.3183 19.3183 21.3183C18.2137 21.3183 17.3183 20.4229 17.3183 19.3183C17.3183 18.2138 18.2137 17.3183 19.3183 17.3183C20.4229 17.3183 21.3183 18.2138 21.3183 19.3183ZM6 15.2138C6 16.3184 5.1045 17.2138 4 17.2138C2.8954 17.2138 2 16.3184 2 15.2138C2 14.1092 2.8954 13.2138 4 13.2138C5.1045 13.2138 6 14.1092 6 15.2138Z" />
+    </Icon>
+  )
+}
+
 export function NotebookPen(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -12758,8 +14027,8 @@ export function OutdoorSeating(props: IconProps) {
 export function OvenOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M20.8715 20.8715C20.4872 22.1357 19.3214 23 18 23L6 23C4.3431 23 3 21.6569 3 20L3 6C2.9987 5.1643 3.2079 4.3417 3.6081 3.6081L20.8715 20.8715ZM7.589 1.0167C7.7257 1.0055 7.8628 1 8 1L16 1C18.7614 1 21 3.2386 21 6L21 14.3431L20.98 14.3431C20.9802 14.8844 20.5415 15.3233 20.0002 15.3233C19.7402 15.3233 19.4908 15.22 19.3071 15.0361L19.2929 15.0503L6.9631 2.7205L6.9773 2.7063C6.7934 2.5226 6.6901 2.2732 6.6901 2.0132C6.6901 1.5028 7.0819 1.0779 7.5906 1.0366L7.589 1.0167Z" fill="currentColor" fillOpacity={0.4} fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <Path d="M20 20C20 21.1046 19.1046 22 18 22L6 22C4.8954 22 4 21.1046 4 20L4 6C4 5.4131 4.1264 4.8557 4.3535 4.3535M4 10L10 10M9 14L14 14M2 2L22 22" fill="none" />
+      <Path d="M20.872 20.872C20.487 22.136 19.321 23 18 23H6C4.343 23 3 21.657 3 20V6C2.999 5.164 3.208 4.342 3.608 3.608L20.872 20.872ZM7.589 1.017C7.726 1.006 7.863 1 8 1H16C18.761 1 21 3.239 21 6V14.343H20.98C20.98 14.884 20.542 15.323 20 15.323C19.74 15.323 19.491 15.22 19.307 15.036L19.293 15.05L6.963 2.72L6.977 2.706C6.793 2.523 6.69 2.273 6.69 2.013C6.69 1.503 7.082 1.078 7.591 1.037L7.589 1.017Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M20 20C20 21.105 19.105 22 18 22H6C4.895 22 4 21.105 4 20V6C4 5.413 4.126 4.856 4.353 4.353M4 10H10M9 14H14M2 2L22 22" />
     </Icon>
   )
 }
@@ -13033,6 +14302,16 @@ export function PanelLeftOpen(props: IconProps) {
   )
 }
 
+export function PanelLeftSparkles(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20 12V19C20 20.657 18.6569 22 17 22H5C3.3431 22 2 20.657 2 19V7C2 5.343 3.3431 4 5 4H12M8 4V22" />
+      <Path d="M19.5492 1.374L20.1373 2.865C20.3173 3.321 20.6787 3.683 21.1352 3.863L22.6261 4.451C22.8518 4.54 23 4.758 23 5C23 5.242 22.8518 5.46 22.6261 5.549L21.1352 6.137C20.6787 6.317 20.3173 6.679 20.1373 7.135L19.5492 8.626C19.4603 8.852 19.2424 9 19 9C18.7576 9 18.5397 8.852 18.4508 8.626L17.8627 7.135C17.6827 6.679 17.3213 6.317 16.8648 6.137L15.3739 5.549C15.1482 5.46 15 5.242 15 5C15 4.758 15.1482 4.54 15.3739 4.451L16.8648 3.863C17.3213 3.683 17.6827 3.321 17.8627 2.865L18.4508 1.374C18.5397 1.148 18.7576 1 19 1C19.2424 1 19.4603 1.148 19.5492 1.374Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M13.8433 7.234L14.2108 8.165C14.3233 8.451 14.5492 8.677 14.8345 8.789L15.7663 9.157C15.9074 9.212 16 9.349 16 9.5C16 9.651 15.9074 9.788 15.7663 9.843L14.8345 10.211C14.5492 10.323 14.3233 10.549 14.2108 10.835L13.8433 11.766C13.7877 11.907 13.6515 12 13.5 12C13.3485 12 13.2123 11.907 13.1567 11.766L12.7892 10.835C12.6767 10.549 12.4508 10.323 12.1655 10.211L11.2337 9.843C11.0926 9.788 11 9.651 11 9.5C11 9.349 11.0926 9.212 11.2337 9.157L12.1655 8.789C12.4508 8.677 12.6767 8.451 12.7892 8.165L13.1567 7.234C13.2123 7.093 13.3485 7 13.5 7C13.6515 7 13.7877 7.093 13.8433 7.234Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+    </Icon>
+  )
+}
+
 export function PanelLeft(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -13085,6 +14364,16 @@ export function PanelRightOpen(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M6 2H18C20.20914 2 22 3.79086 22 6V18C22 20.20914 20.20914 22 18 22H6C3.79086 22 2 20.20914 2 18V6C2 3.79086 3.79086 2 6 2ZM15 3V21H18C19.65685 21 21 19.65685 21 18V6C21 4.34315 19.65685 3 18 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M6 3H18C19.6569 3 21 4.34315 21 6V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V6C3 4.34315 4.34315 3 6 3ZM15 3V21M11 9L8 12L11 15" />
+    </Icon>
+  )
+}
+
+export function PanelRightSparkles(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M4 12V19C4 20.657 5.343 22 7 22H19C20.657 22 22 20.657 22 19V7C22 5.343 20.657 4 19 4H12M16 4V22" />
+      <Path d="M5.549 1.374L6.137 2.865C6.317 3.321 6.679 3.683 7.135 3.863L8.626 4.451C8.852 4.54 9 4.758 9 5C9 5.242 8.852 5.46 8.626 5.549L7.135 6.137C6.679 6.317 6.317 6.679 6.137 7.135L5.549 8.626C5.46 8.852 5.242 9 5 9C4.758 9 4.54 8.852 4.451 8.626L3.863 7.135C3.683 6.679 3.321 6.317 2.865 6.137L1.374 5.549C1.148 5.46 1 5.242 1 5C1 4.758 1.148 4.54 1.374 4.451L2.865 3.863C3.321 3.683 3.683 3.321 3.863 2.865L4.451 1.374C4.54 1.148 4.758 1 5 1C5.242 1 5.46 1.148 5.549 1.374Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M10.843 7.234L11.211 8.165C11.323 8.451 11.549 8.677 11.835 8.789L12.766 9.157C12.907 9.212 13 9.349 13 9.5C13 9.651 12.907 9.788 12.766 9.843L11.835 10.211C11.549 10.323 11.323 10.549 11.211 10.835L10.843 11.766C10.788 11.907 10.651 12 10.5 12C10.349 12 10.212 11.907 10.157 11.766L9.789 10.835C9.677 10.549 9.451 10.323 9.165 10.211L8.234 9.843C8.093 9.788 8 9.651 8 9.5C8 9.349 8.093 9.212 8.234 9.157L9.165 8.789C9.451 8.677 9.677 8.451 9.789 8.165L10.157 7.234C10.212 7.093 10.349 7 10.5 7C10.651 7 10.788 7.093 10.843 7.234Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
     </Icon>
   )
 }
@@ -13209,6 +14498,15 @@ export function PaperBag(props: IconProps) {
   )
 }
 
+export function PaperclipPlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M13.6716 5.8536L6.0126 13.5125C5.3292 14.1959 5.3292 15.304 6.0126 15.9874C6.696 16.6708 7.8041 16.6708 8.4875 15.9874L16.5 7.9749C17.8668 6.608 17.8668 4.392 16.5 3.0251C15.1332 1.6583 12.9171 1.6583 11.5503 3.0251L3.5377 11.0377C1.4875 13.0879 1.4874 16.4119 3.5377 18.4623C5.5881 20.5126 8.9121 20.5125 10.9623 18.4623L18 11.4246" strokeOpacity={0.4} />
+      <Path d="M19 16V22M16 19H22" />
+    </Icon>
+  )
+}
+
 export function Paperclip(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -13291,6 +14589,15 @@ export function PartyPopper(props: IconProps) {
       <Path d="M3.8889 15.0235L2.151 19.2374C1.8127 20.0579 2.0626 20.8911 2.5858 21.4142C3.1089 21.9374 3.9421 22.1873 4.7625 21.849L13.1904 18.3733C13.4239 18.2775 13.6404 18.1378 13.8264 17.9518C14.2517 17.5264 14.4068 16.9776 14.4194 16.4689C14.4318 15.9673 14.3106 15.4476 14.1206 14.9537C13.7397 13.9634 13.0126 12.8953 12.0586 11.9414C11.1047 10.9874 10.0366 10.2603 9.0463 9.8794C8.5524 9.6894 8.0327 9.5682 7.5311 9.5806C7.0224 9.5932 6.4736 9.7483 6.0482 10.1735C5.8622 10.3596 5.7225 10.5761 5.6267 10.8096Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M6.5512 11.1909L3.0755 19.6187C2.7364 20.441 3.559 21.2636 4.3813 20.9245L12.8091 17.4488M8.5231 15.4769C6.7657 13.7196 5.9742 11.6618 6.7553 10.8807C7.5364 10.0997 9.5941 10.8911 11.3515 12.6485C13.1089 14.4059 13.9003 16.4636 13.1193 17.2447C12.3382 18.0258 10.2804 17.2343 8.5231 15.4769ZM11.5 7C13.0123 7.2844 13.5123 6.7011 13 5.25C12.4877 3.7989 12.9877 3.2156 14.5 3.5M15 10.5C16.5979 11.009 17.4313 10.4256 17.5 8.75C17.5687 7.0744 18.4021 6.491 20 7M18 17C19.5123 17.2844 20.0123 16.7011 19.5 15.25C18.9877 13.7989 19.4877 13.2156 21 13.5" />
       <Path d="M22 3C22 3.5523 21.5523 4 21 4C20.4477 4 20 3.5523 20 3C20 2.4477 20.4477 2 21 2C21.5523 2 22 2.4477 22 3ZM9 5C9 5.5523 8.5523 6 8 6C7.4477 6 7 5.5523 7 5C7 4.4477 7.4477 4 8 4C8.5523 4 9 4.4477 9 5ZM21 21C21 21.5523 20.5523 22 20 22C19.4477 22 19 21.5523 19 21C19 20.4477 19.4477 20 20 20C20.5523 20 21 20.4477 21 21Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function Password(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M4 7V12M2 11L6 8M2 8L6 11M12 7V12M10 11L14 8M10 8L14 11M20 7V12M18 11L22 8M18 8L22 11" />
+      <Path d="M2 17H22" strokeOpacity={0.4} />
     </Icon>
   )
 }
@@ -13546,6 +14853,33 @@ export function Pi(props: IconProps) {
   )
 }
 
+export function PianoOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20.6465 20.6465C20.1444 20.8736 19.587 21 19 21L5 21C2.7908 21 1 19.2092 1 17L1 7C1 5.3778 1.9656 3.9811 3.3535 3.3535ZM21.2929 17.0502L8.9498 4.7071C8.7688 4.5261 8.6569 4.2761 8.6569 4C8.6569 3.4477 9.1046 3 9.6569 3L12 3L19 3C21.2092 3 23 4.7908 23 7L23 16.3431C23 16.8954 22.5523 17.3431 22 17.3431C21.7239 17.3431 21.4739 17.2312 21.2929 17.0502Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M19.8715 19.8715C19.5957 19.9551 19.3031 20 19 20L5 20C3.3431 20 2 18.6569 2 17L2 7C2 5.6462 2.8967 4.5019 4.1285 4.1285M6 6L6 12C6 12.5523 6.4477 13 7 13L9 13C9.5523 13 10 12.5523 10 12L10 10M8 13L8 20M2 2L22 22" />
+    </Icon>
+  )
+}
+
+export function Piano(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 3L19 3C21.2092 3 23 4.7908 23 7L23 17C23 19.2092 21.2092 21 19 21L5 21C2.7908 21 1 19.2092 1 17L1 7C1 4.7908 2.7908 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M5 4L19 4C20.6569 4 22 5.3431 22 7L22 17C22 18.6569 20.6569 20 19 20L5 20C3.3431 20 2 18.6569 2 17L2 7C2 5.3431 3.3431 4 5 4ZM6 4V12C6 12.5523 6.4477 13 7 13H9C9.5523 13 10 12.5523 10 12V4M8 13V20M14 4V12C14 12.5523 14.4477 13 15 13H17C17.5523 13 18 12.5523 18 12V4M16 13V20" />
+    </Icon>
+  )
+}
+
+export function PictureInPictureOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20.8715 20.872C20.5957 20.955 20.3031 21 20 21H14C12.3432 21 11 19.657 11 18V14C11 13.172 11.3358 12.422 11.8787 11.879L20.8715 20.872ZM21.2929 17.05L16.9498 12.707C16.7688 12.526 16.6569 12.276 16.6569 12C16.6569 11.448 17.1046 11 17.6569 11H20C21.6569 11 23 12.343 23 14V16.343C23 16.895 22.5523 17.343 22 17.343C21.7239 17.343 21.4739 17.231 21.2929 17.05ZM21 8V7C21 6.777 20.964 6.565 20.8983 6.368C20.8324 6.17 20.7362 5.985 20.6147 5.819C20.4931 5.653 20.3465 5.507 20.1806 5.385C20.0148 5.264 19.8302 5.168 19.6324 5.102C19.4349 5.036 19.2227 5 19 5H9.6569C9.1046 5 8.6569 4.552 8.6569 4C8.6569 3.448 9.1046 3 9.6569 3H19C19.4401 3 19.8655 3.071 20.2641 3.204C20.6624 3.337 21.0323 3.53 21.363 3.772C21.6936 4.015 21.9854 4.306 22.2277 4.637C22.4701 4.968 22.6633 5.338 22.7959 5.736C22.9286 6.135 23 6.56 23 7V8C23 8.552 22.5523 9 22 9C21.4477 9 21 8.552 21 8Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M4.1285 4.128C2.8967 4.502 2 5.646 2 7V17C2 18.657 3.3432 20 5 20H8M20 20H14C12.8954 20 12 19.105 12 18V14C12 13.448 12.2239 12.948 12.5858 12.586M2 2L22 22" />
+    </Icon>
+  )
+}
+
 export function PictureInPicture(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -13571,6 +14905,24 @@ export function PiggyBank(props: IconProps) {
       <Path d="M12.2064 5.5027C12.3515 5.2496 12.5572 4.9788 12.8253 4.7134C13.095 4.4464 13.4326 4.1802 13.845 3.9401C14.2577 3.6997 14.7434 3.4865 15.3083 3.3242C15.8731 3.162 16.5141 3.0515 17.2375 3.014C17.6708 2.9916 18.0649 3.16 18.3439 3.4344C18.6209 3.7069 18.7895 4.0872 18.7895 4.5L18.7895 7.1207C19.2109 7.3427 19.5695 7.6357 19.8613 7.9924C20.2066 8.4145 20.4387 8.9011 20.5849 9.4165C20.6903 9.7879 20.7523 10.1783 20.7802 10.579L21.5 10.579C21.9139 10.579 22.2902 10.7479 22.5606 11.0183C22.831 11.2886 23 11.665 23 12.079L23 13.9211C23 14.3351 22.831 14.7114 22.5606 14.9817C22.2903 15.2521 21.914 15.4211 21.5 15.4211L20.8208 15.4211C20.8179 15.5817 20.8078 15.7538 20.7852 15.932C20.7324 16.3489 20.6096 16.8156 20.342 17.2746C20.0719 17.7381 19.6758 18.1562 19.128 18.5C18.6708 18.7869 18.1185 19.0157 17.4598 19.1837L17.4598 21.5C17.4598 21.9139 17.2909 22.2902 17.0206 22.5606C16.7502 22.831 16.3738 23 15.9598 23L13.8308 23C13.5932 23 13.3624 22.9436 13.156 22.8396C12.9496 22.7356 12.7669 22.5838 12.6255 22.3928L10.9699 20.1579L10.9247 20.1579L9.2693 22.3928C9.1279 22.5837 8.9453 22.7355 8.7388 22.8396C8.5323 22.9437 8.3015 23 8.0639 23L5.8795 23C5.4655 23 5.0892 22.831 4.8189 22.5606C4.5486 22.2903 4.3795 21.914 4.3795 21.5L4.3795 19.7849C4.0852 19.6255 3.806 19.4466 3.5433 19.2464C3.204 18.9879 2.8949 18.6958 2.6185 18.3682C2.3421 18.0407 2.1013 17.6813 1.8962 17.2901C1.6912 16.8992 1.5232 16.4792 1.3904 16.0309C1.2577 15.5828 1.1602 15.1064 1.0958 14.6021C1.0314 14.0978 1 13.564 1 13C1 12.4741 1.0532 11.9673 1.1575 11.4818C1.262 10.9961 1.4171 10.5344 1.6192 10.0988C1.7569 9.802 1.9077 9.5122 2.0718 9.2309C2.2359 8.9495 2.4133 8.6764 2.6043 8.413C2.8749 8.0397 3.3657 7.8999 3.7925 8.0744C8.5 10 10 8.5 12.2064 5.5027ZM7 7C8.6569 7 10 5.6569 10 4C10 2.3431 8.6569 1 7 1C5.3431 1 4 2.3431 4 4C4 5.6569 5.3431 7 7 7Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M13.074 6C13.4604 5.3259 14.6805 4.1477 17.2892 4.0127C17.5649 3.9984 17.7895 4.2239 17.7895 4.5L17.7895 7.4175C17.7895 7.6383 17.9368 7.8288 18.1392 7.9171C19.311 8.4281 19.7857 9.5613 19.7979 11.0491C19.8002 11.3367 20.0264 11.579 20.314 11.579L21.5 11.579C21.7761 11.579 22 11.8028 22 12.079L22 13.9211C22 14.1972 21.7761 14.4211 21.5 14.4211L20.2839 14.4211C20.0078 14.4211 19.7927 14.6441 19.8085 14.9198C19.8692 15.978 19.8425 17.6743 16.8811 18.2913C16.6406 18.3414 16.4598 18.5493 16.4598 18.795L16.4598 21.5C16.4598 21.7761 16.236 22 15.9598 22L13.8308 22C13.6724 22 13.5233 21.9249 13.429 21.7976L11.6236 19.3603C11.5293 19.233 11.3802 19.1579 11.2218 19.1579L10.6729 19.1579C10.5145 19.1579 10.3654 19.233 10.2711 19.3603L8.4657 21.7976C8.3714 21.9249 8.2224 22 8.0639 22L5.8795 22C5.6034 22 5.3795 21.7761 5.3795 21.5L5.3795 19.4879C5.3795 19.2877 5.2589 19.1084 5.0791 19.0205C3.0584 18.0324 2 16.1626 2 13C2 12.0836 2.1851 11.2551 2.5263 10.5197C2.7763 9.9809 3.072 9.4716 3.4139 9M9 4C9 5.1046 8.1046 6 7 6C5.8954 6 5 5.1046 5 4C5 2.8954 5.8954 2 7 2C8.1046 2 9 2.8954 9 4Z" fill="none" />
       <Path d="M17 10.5C17 11.0523 16.5523 11.5 16 11.5C15.4477 11.5 15 11.0523 15 10.5C15 9.9477 15.4477 9.5 16 9.5C16.5523 9.5 17 9.9477 17 10.5Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function PilcrowLeft(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M21 3H13C11.3431 3 10 4.3431 10 6C10 7.6569 11.3431 9 13 9H15M15 3V13M20 3V13" strokeOpacity={0.4} />
+      <Path d="M21 17H3M7 13L3 17L7 21" />
+    </Icon>
+  )
+}
+
+export function PilcrowRight(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M14 3H6C4.3431 3 3 4.3431 3 6C3 7.6569 4.3431 9 6 9H8M8 3V13M13 3V13" strokeOpacity={0.4} />
+      <Path d="M3 17H21M17 13L21 17L17 21" />
     </Icon>
   )
 }
@@ -13899,11 +15251,47 @@ export function Power(props: IconProps) {
   )
 }
 
+export function PrinterOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20 20H19C19 21.657 17.657 23 16 23H8C6.343 23 5 21.657 5 20H4C2.343 20 1 18.657 1 17V12C1 10.35 2.332 9.011 3.979 9H9L20 20ZM7.512 1.039C7.671 1.013 7.834 1 8 1H13.586C14.116 1 14.625 1.211 15 1.586L18.414 5C18.789 5.375 19 5.884 19 6.414V9H20C21.657 9 23 10.343 23 12V16.343C23 16.895 22.552 17.343 22 17.343C21.724 17.343 21.474 17.231 21.293 17.05L6.975 2.732C6.794 2.551 6.682 2.301 6.682 2.025C6.682 1.531 7.041 1.12 7.512 1.039Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 19H4C2.895 19 2 18.105 2 17V12C2 10.895 2.895 10 4 10H10M18 18V20C18 21.105 17.105 22 16 22H8C6.895 22 6 21.105 6 20V17C6 15.895 6.895 15 8 15H15M2 2L22 22" />
+    </Icon>
+  )
+}
+
 export function Printer(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M8 1L13.5858 1C14.1162 1 14.6249 1.2107 15 1.5858L18.4142 5C18.7893 5.3751 19 5.8838 19 6.4142L19 9L20 9C21.6569 9 23 10.3431 23 12L23 17C23 18.6569 21.6569 20 20 20L19 20L19 20C19 21.6569 17.6569 23 16 23L8 23C6.3431 23 5 21.6569 5 20L5 20L4 20C2.3431 20 1 18.6569 1 17L1 12C1 10.3431 2.3431 9 4 9L5 9L5 4C5 2.3431 6.3431 1 8 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M6 19L4 19C2.8954 19 2 18.1046 2 17L2 12C2 10.8954 2.8954 10 4 10L20 10C21.1046 10 22 10.8954 22 12L22 17C22 18.1046 21.1046 19 20 19L18 19M6 10L6 4C6 2.8954 6.8954 2 8 2L13.5858 2C13.851 2 14.1054 2.1054 14.2929 2.2929L17.7071 5.7071C17.8946 5.8946 18 6.149 18 6.4142L18 10M8 15L16 15C17.1046 15 18 15.8954 18 17L18 20C18 21.1046 17.1046 22 16 22L8 22C6.8954 22 6 21.1046 6 20L6 17C6 15.8954 6.8954 15 8 15Z" fill="none" />
+    </Icon>
+  )
+}
+
+export function PuzzleCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20.2912 12.0633C19.7409 11.4129 18.9187 11 18 11L17.5 11C17.2239 11 17 10.7761 17 10.5L17 9C17 7.8954 16.1046 7 15 7L13.5 7C13.2239 7 13 6.7761 13 6.5L13 6C13 4.3431 11.6569 3 10 3C8.3431 3 7 4.3431 7 6L7 6.5C7 6.7761 6.7761 7 6.5 7L5 7C3.8954 7 3 7.8954 3 9L3 10.5C3 10.7761 3.2239 11 3.5 11L4 11C5.6569 11 7 12.3431 7 14C7 15.6569 5.6569 17 4 17L3.5 17C3.2239 17 3 17.2239 3 17.5L3 19C3 20.1046 3.8954 21 5 21L12.3431 21" strokeOpacity={0.4} />
+      <Path d="M15 18L17 20L21 16" />
+    </Icon>
+  )
+}
+
+export function PuzzleCrack(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M10 2C12.2092 2 14 3.7908 14 6L15 6C16.6569 6 18 7.3431 18 9L18 10C20.2092 10 22 11.7908 22 14C22 16.2092 20.2092 18 18 18L18 19C18 20.6569 16.6569 22 15 22L5 22C3.3431 22 2 20.6569 2 19L2 17.5C2 16.6716 2.6716 16 3.5 16L4 16C5.1046 16 6 15.1046 6 14C6 12.8954 5.1046 12 4 12L3.5 12C2.6716 12 2 11.3284 2 10.5L2 9C2 7.3431 3.3431 6 5 6L6 6C6 3.7908 7.7908 2 10 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M7 6L7 6.5C7 6.7761 6.7761 7 6.5 7L5 7C3.8954 7 3 7.8954 3 9L3 10.5C3 10.7761 3.2239 11 3.5 11L4 11C5.6569 11 7 12.3431 7 14C7 15.6569 5.6569 17 4 17L3.5 17C3.2239 17 3 17.2239 3 17.5L3 19C3 20.1046 3.8954 21 5 21L15 21C16.1046 21 17 20.1046 17 19L17 17.5C17 17.2239 17.2239 17 17.5 17L18 17C19.6569 17 21 15.6569 21 14C21 12.3431 19.6569 11 18 11L17.5 11C17.2239 11 17 10.7761 17 10.5L17 9C17 7.8954 16.1046 7 15 7L13.5 7C13.2239 7 13 6.7761 13 6.5L13 6C13 4.3431 11.6569 3 10 3C8.3431 3 7 4.3431 7 6ZM11 21L13 17L11 14L13 11" />
+    </Icon>
+  )
+}
+
+export function PuzzleOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M18 18V19C18 20.6569 16.657 22 15 22H5C3.343 22 2 20.6569 2 19V17.5C2 16.6716 2.672 16 3.5 16H4C5.105 16 6 15.1046 6 14C6 12.8954 5.105 12 4 12H3.5C2.672 12 2 11.3284 2 10.5V9C2 7.3431 3.343 6 5 6H6L18 18ZM20.075 15.8323L8.168 3.9252C7.987 3.7442 7.875 3.4942 7.875 3.2181C7.875 2.8023 8.129 2.4458 8.49 2.2949C8.956 2.1048 9.466 2 10 2C12.209 2 14 3.7908 14 6H15C16.657 6 18 7.3431 18 9V10C20.209 10 22 11.7908 22 14C22 14.5344 21.895 15.0442 21.705 15.5102C21.554 15.8714 21.198 16.1251 20.782 16.1251C20.506 16.1251 20.256 16.0133 20.075 15.8323Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6.853 6.8535C6.763 6.944 6.638 7 6.5 7H5C3.895 7 3 7.8954 3 9V10.5C3 10.7761 3.224 11 3.5 11H4C5.657 11 7 12.3431 7 14C7 15.6569 5.657 17 4 17H3.5C3.224 17 3 17.2239 3 17.5V19C3 20.1046 3.895 21 5 21H15C16.105 21 17 20.1046 17 19V17.5C17 17.3619 17.056 17.2369 17.146 17.1465M2 2L22 22" />
     </Icon>
   )
 }
@@ -14134,6 +15522,15 @@ export function Record(props: IconProps) {
   )
 }
 
+export function RectangleGogglesOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M19 19H16.9612C16.0499 19 15.188 18.5857 14.6187 17.8742L11.9999 14.6009L9.3814 17.8741C8.812 18.5857 7.9501 19 7.0388 19H4C2.3432 19 1 17.6569 1 16V8C1 6.3431 2.3431 5 4 5H5L19 19ZM21.2678 17.0251L10.9498 6.7071C10.7688 6.5262 10.6569 6.2762 10.6569 6C10.6569 5.4477 11.1046 5 11.6569 5H12H20C21.6569 5 23 6.3432 23 8V16C23 16.1661 22.9865 16.329 22.9605 16.4878C22.8799 16.9592 22.4693 17.318 21.9749 17.318C21.6988 17.318 21.4488 17.2061 21.2678 17.0251Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M18 18H16.9612C16.3537 18 15.7791 17.7238 15.3995 17.2494L12.7809 13.9761C12.3805 13.4757 11.6195 13.4757 11.2191 13.9761L8.6005 17.2494C8.2209 17.7238 7.6463 18 7.0388 18H4C2.8954 18 2 17.1046 2 16V8C2 6.8954 2.8954 6 4 6H6M2 2L22 22" />
+    </Icon>
+  )
+}
+
 export function RectangleGoggles(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -14148,6 +15545,14 @@ export function Recycle(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M7.4793 7.4945L9.7855 3.5C10.9402 1.5 13.827 1.5 14.9817 3.5L17.2879 7.4945M13.8086 6.5622L17.2879 7.4945L18.2201 4.0152" strokeOpacity={0.4} />
       <Path d="M19.2879 10.9586L21.5941 14.953C22.7488 16.953 21.3054 19.453 18.996 19.453L14.3836 19.453M16.9306 16.906L14.3836 19.453L16.9306 22M10.3836 19.453L5.7712 19.453C3.4618 19.453 2.0184 16.953 3.1731 14.953L5.4793 10.9586M6.4116 14.4378L5.4793 10.9586L2 11.8908" />
+    </Icon>
+  )
+}
+
+export function Redirect(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M16 4L22 10L16 16M22 10H12C10.8954 10 10 10.8954 10 12V18C10 19.1046 9.1046 20 8 20H2" />
     </Icon>
   )
 }
@@ -14195,6 +15600,16 @@ export function RefreshCcw(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M3.2117 10.0593C3.071 10.6966 3 11.3473 3 12C3 16.9706 7.0294 21 12 21C14.4831 21 16.8559 19.9741 18.5568 18.1651M19.7143 21L19.2707 17.895C19.2317 17.6216 18.9784 17.4317 18.705 17.4707L15.6 17.9143" strokeLinejoin="miter" />
       <Path d="M20.7883 13.9407C20.929 13.3034 21 12.6527 21 12C21 7.0294 16.9706 3 12 3C9.5169 3 7.1441 4.0259 5.4432 5.8349M4.2857 3L4.7293 6.105C4.7683 6.3784 5.0216 6.5683 5.295 6.5293L8.4 6.0857" strokeLinejoin="miter" strokeOpacity={0.4} />
+    </Icon>
+  )
+}
+
+export function RefreshCwAlert(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3.2117 13.9407C3.071 13.3034 3 12.6527 3 12C3 7.0294 7.0294 3 12 3C14.4831 3 16.8559 4.0259 18.5568 5.8349M19.7143 3L19.2707 6.105C19.2317 6.3784 18.9784 6.5683 18.705 6.5293L15.6 6.0857" strokeOpacity={0.4} />
+      <Path d="M20.7882 10.0593C20.9289 10.6966 20.9999 11.3473 20.9999 12C20.9999 16.9706 16.9705 21 11.9999 21C9.5168 21 7.144 19.9741 5.4431 18.1651M4.2856 21L4.7292 17.895C4.7682 17.6216 5.0215 17.4317 5.2949 17.4707L8.3999 17.9143M12 8V12" />
+      <Path d="M13 16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16C11 15.4477 11.4477 15 12 15C12.5523 15 13 15.4477 13 16Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
     </Icon>
   )
 }
@@ -14291,6 +15706,15 @@ export function Repeat(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M3 12L3 9C3 7.3432 4.3431 6 6 6L21 6M18 3L21 6L18 9" strokeOpacity={0.4} />
       <Path d="M21 12L21 15C21 16.6569 19.6569 18 18 18L3 18M6 21L3 18L6 15" />
+    </Icon>
+  )
+}
+
+export function Replace(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M6 3C8.2091 3 10 4.7909 10 7C10 9.2091 8.2091 11 6 11C3.7909 11 2 9.2091 2 7C2 4.7909 3.7909 3 6 3ZM16 13H20C21.1046 13 22 13.8954 22 15V19C22 20.1046 21.1046 21 20 21H16C14.8954 21 14 20.1046 14 19V15C14 13.8954 14.8954 13 16 13Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 4C7.6569 4 9 5.3431 9 7C9 8.6569 7.6569 10 6 10C4.3431 10 3 8.6569 3 7C3 5.3431 4.3431 4 6 4ZM13 7L21 7M18 4L21 7L18 10M16 14L20 14C20.5523 14 21 14.4477 21 15L21 19C21 19.5523 20.5523 20 20 20L16 20C15.4477 20 15 19.5523 15 19L15 15C15 14.4477 15.4477 14 16 14ZM11 17L3 17M6 14L3 17L6 20" />
     </Icon>
   )
 }
@@ -14501,6 +15925,16 @@ export function Route(props: IconProps) {
   )
 }
 
+export function RouterOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20.8715 20.8715C20.5957 20.9551 20.3031 21 20 21H4C2.3431 21 1 19.6569 1 18V14C1 12.3431 2.3431 11 4 11H11L20.8715 20.8715ZM16.4172 12.1746C16.1823 11.9345 16.0739 11.5818 16.1613 11.232L18.0299 3.7575C18.1638 3.2217 18.7067 2.8959 19.2425 3.0299C19.7783 3.1638 20.1041 3.7067 19.9701 4.2425L18.2807 11H20C21.6569 11 23 12.3431 23 14V16.3431C23 16.8954 22.5523 17.3431 22 17.3431C21.7239 17.3431 21.4739 17.2312 21.2929 17.0502L16.9498 12.7071C16.8604 12.6178 16.7879 12.5116 16.7374 12.3937C16.6148 12.3413 16.5068 12.2662 16.4172 12.1746Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M20 20H4C2.8954 20 2 19.1046 2 18V14C2 12.8954 2.8954 12 4 12H12M7 12L5.3333 5.3333M2 2L22 22" />
+      <Path d="M9 16C9 16.5523 8.5523 17 8 17C7.4477 17 7 16.5523 7 16C7 15.4477 7.4477 15 8 15C8.5523 15 9 15.4477 9 16Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function Router(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -14511,11 +15945,37 @@ export function Router(props: IconProps) {
   )
 }
 
+export function Rows2(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2L18 2C20.2092 2 22 3.7908 22 6L22 18C22 20.2092 20.2092 22 18 22L6 22C3.7908 22 2 20.2092 2 18L2 6C2 3.7908 3.7908 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M3 6C3 4.3431 4.3431 3 6 3L18 3C19.6569 3 21 4.3431 21 6L21 18C21 19.6569 19.6569 21 18 21L6 21C4.3431 21 3 19.6569 3 18ZM3 12L21 12" />
+    </Icon>
+  )
+}
+
 export function Rss(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M3 3C12.9411 3 21 11.0589 21 21M3 9C9.6274 9 15 14.3726 15 21M3 15C6.3137 15 9 17.6863 9 21" strokeOpacity={0.4} />
       <Path d="M5 20.5C5 21.3284 4.3284 22 3.5 22C2.6716 22 2 21.3284 2 20.5C2 19.6716 2.6716 19 3.5 19C4.3284 19 5 19.6716 5 20.5Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function RulerDimensionLine(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2 7L2 17M22 7L22 17M2 12L22 12M7 12L7 15M12 12L12 16M17 12L17 15" />
+    </Icon>
+  )
+}
+
+export function Ruler(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M8.4644 8.464L15.0502 1.879C16.2218 0.707 18.1213 0.707 19.2929 1.879L22.1213 4.707C23.2929 5.879 23.2929 7.778 22.1213 8.95L8.9498 22.121C7.7782 23.293 5.8787 23.293 4.7071 22.121L1.8787 19.293C0.7071 18.121 0.7071 16.222 1.8787 15.05L8.4644 8.464Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M4.9289 13.414L7.7574 16.243M7.7574 10.586L9.5251 12.354M10.5858 7.757L13.4142 10.586M13.4142 4.929L15.182 6.697M2.5858 18.586C1.8047 17.805 1.8047 16.538 2.5858 15.757L15.7573 2.586C16.5384 1.805 17.8047 1.805 18.5858 2.586L21.4142 5.414C22.1953 6.195 22.1953 7.462 21.4142 8.243L8.2427 21.414C7.4616 22.195 6.1953 22.195 5.4142 21.414L2.5858 18.586Z" />
     </Icon>
   )
 }
@@ -14646,6 +16106,24 @@ export function ScanBarcode(props: IconProps) {
   )
 }
 
+export function ScanBoxOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 8L3 6C3 5.1716 3.3358 4.4216 3.8787 3.8787M20.1213 20.1213C19.5785 20.6642 18.8285 21 18 21L16 21M8 21L6 21C4.3431 21 3 19.6569 3 18L3 16M16 3L18 3C19.6569 3 21 4.3431 21 6L21 8M13.0894 7.4325L16.4538 9.1457C16.789 9.3164 17 9.6607 17 10.0369L17 11.3431" strokeOpacity={0.4} />
+      <Path d="M7.1542 9.5033L12 12M12 12L12 17M12 17C11.8445 17 11.6889 16.9637 11.5463 16.8911L7.5463 14.8543C7.2111 14.6836 7 14.3393 7 13.9632L7 10.0369C7 9.6607 7.2111 9.3164 7.5463 9.1457L8.6061 8.6061M2 2L22 22" />
+    </Icon>
+  )
+}
+
+export function ScanBox(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 8V6C3 4.343 4.3432 3 6 3H8M16 3H18C19.6569 3 21 4.343 21 6V8M21 16V18C21 19.657 19.6569 21 18 21H16M8 21H6C4.3432 21 3 19.657 3 18V16" strokeOpacity={0.4} />
+      <Path d="M7.1542 9.503L7.1542 9.503M7.1542 9.503L12 12M7.1542 9.503C7.2486 9.354 7.3827 9.229 7.5463 9.146L11.5463 7.109C11.8314 6.964 12.1687 6.964 12.4538 7.109L16.4538 9.146C16.6174 9.229 16.7515 9.354 16.8458 9.503C16.9447 9.66 17 9.844 17 10.037V13.963C17 14.339 16.789 14.684 16.4538 14.854L12.4538 16.891C12.3112 16.964 12.1556 17 12 17C11.8444 17 11.6888 16.964 11.5463 16.891L7.5463 14.854C7.2111 14.684 7 14.339 7 13.963V10.037C7 9.844 7.0553 9.66 7.1542 9.503ZM12 12L16.8458 9.503M12 12V17" />
+    </Icon>
+  )
+}
+
 export function ScanCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -14679,6 +16157,15 @@ export function ScanLine(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M3 8L3 6C3 4.3431 4.3431 3 6 3L8 3M16 3L18 3C19.6569 3 21 4.3431 21 6L21 8M21 16L21 18C21 19.6569 19.6569 21 18 21L16 21M8 21L6 21C4.3431 21 3 19.6569 3 18L3 16" strokeOpacity={0.4} />
       <Path d="M3 12L21 12" />
+    </Icon>
+  )
+}
+
+export function ScanPlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 8V6C3 4.34315 4.34315 3 6 3H8M16 3H18C19.6569 3 21 4.34315 21 6V8M8 21H6C4.34315 21 3 19.6569 3 18V16" strokeOpacity={0.4} />
+      <Path d="M18 15L18 21M15 18L21 18" />
     </Icon>
   )
 }
@@ -14876,6 +16363,15 @@ export function Search2(props: IconProps) {
   )
 }
 
+export function SearchActivity(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M15.6569 15.6569C14.2102 17.1035 12.2089 18 10 18C5.5817 18 2 14.4183 2 10C2 5.5817 5.5817 2 10 2C14.4183 2 18 5.5817 18 10C18 12.2089 17.1035 14.2102 15.6569 15.6569Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10ZM15 15L21 21M3 10H7.5L9 7.5L11 12.5L12.5 10H17" />
+    </Icon>
+  )
+}
+
 export function SearchCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -14946,6 +16442,15 @@ export function Search(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M10 2C14.4184 2 18 5.5816 18 10C18 14.4184 14.4184 18 10 18C5.5816 18 2 14.4184 2 10C2 5.5816 5.5816 2 10 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10ZM15 15L21 21" />
+    </Icon>
+  )
+}
+
+export function SecurityKey(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M8 16.874C6.2747 16.43 5 14.8639 5 13L5 5C5 2.7908 6.7908 1 9 1L15 1C17.2092 1 19 2.7908 19 5L19 9L19 13C19 14.8639 17.7253 16.43 16 16.874L16 21C16 22.1046 15.1046 23 14 23L10 23C8.8954 23 8 22.1046 8 21Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M9 2L15 2C16.6569 2 18 3.3431 18 5L18 13C18 14.6569 16.6569 16 15 16L9 16C7.3431 16 6 14.6569 6 13L6 5C6 3.3431 7.3431 2 9 2ZM9 16V21C9 21.5523 9.4477 22 10 22H14C14.5523 22 15 21.5523 15 21V16M14 9C14 10.1046 13.1046 11 12 11C10.8954 11 10 10.1046 10 9C10 7.8954 10.8954 7 12 7C13.1046 7 14 7.8954 14 9Z" />
     </Icon>
   )
 }
@@ -15024,6 +16529,25 @@ export function SeparatorHorizontal(props: IconProps) {
   )
 }
 
+export function SerialPortOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M18.7872 18.7872C18.3806 18.9256 17.9467 19 17.4987 19L6.5013 19C4.6658 19 3.066 17.7508 2.6208 15.9702L1.1208 9.9701C0.4897 7.446 2.3984 5.0008 5 5ZM19.8971 15.6544L10.9498 6.7071C10.7688 6.5262 10.6569 6.2762 10.6569 6C10.6569 5.4477 11.1046 5 11.6569 5L12 5L18.9987 5C21.601 5 23.5104 7.4456 22.8792 9.9702L21.5681 15.2146C21.4511 15.6371 21.0639 15.9473 20.6042 15.9473C20.3281 15.9473 20.0781 15.8354 19.8971 15.6544Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M17.9639 17.9639C17.8118 17.9877 17.6564 18 17.4987 18L6.5013 18C5.1247 18 3.9248 17.0631 3.5909 15.7276L2.0909 9.7276C1.6175 7.8342 3.0496 6 5.0013 6L6 6M2 2L22 22" />
+    </Icon>
+  )
+}
+
+export function SerialPort(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 5H18.999C21.601 5 23.51 7.446 22.879 9.97L21.379 15.97C20.934 17.751 19.334 19 17.499 19H6.501C4.666 19 3.066 17.751 2.621 15.97L1.121 9.97C0.49 7.446 2.399 5 5.001 5H12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M2.091 9.728C1.618 7.834 3.05 6 5.001 6H18.999C20.95 6 22.383 7.834 21.909 9.728L20.409 15.728C20.075 17.063 18.875 18 17.499 18H6.501C5.125 18 3.925 17.063 3.591 15.728L2.091 9.728Z" />
+      <Path d="M9 10C9 10.552 8.552 11 8 11C7.448 11 7 10.552 7 10C7 9.448 7.448 9 8 9C8.552 9 9 9.448 9 10ZM13 10C13 10.552 12.552 11 12 11C11.448 11 11 10.552 11 10C11 9.448 11.448 9 12 9C12.552 9 13 9.448 13 10ZM17 10C17 10.552 16.552 11 16 11C15.448 11 15 10.552 15 10C15 9.448 15.448 9 16 9C16.552 9 17 9.448 17 10ZM11 14C11 14.552 10.552 15 10 15C9.448 15 9 14.552 9 14C9 13.448 9.448 13 10 13C10.552 13 11 13.448 11 14ZM15 14C15 14.552 14.552 15 14 15C13.448 15 13 14.552 13 14C13 13.448 13.448 13 14 13C14.552 13 15 13.448 15 14Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function ServerMinus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -15037,9 +16561,9 @@ export function ServerMinus(props: IconProps) {
 export function ServerOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M11 11L6 11C4.3431 11 3 9.6569 3 8L3 4C2.9997 3.7048 3.043 3.4111 3.1285 3.1285L11 11ZM20.8715 20.8715C20.4872 22.1357 19.3214 23 18 23L6 23C4.3431 23 3 21.6569 3 20L3 16C3 14.3431 4.3431 13 6 13L13 13L20.8715 20.8715ZM7.6569 1L18 1C19.6569 1 21 2.3431 21 4L21 8C21 9.6569 19.6569 11 18 11L15.6569 11L15.6569 10.98C15.3969 10.9803 15.1475 10.877 14.9639 10.6929L14.9497 10.7071L6.9497 2.7071L6.9639 2.6929C6.78 2.5092 6.6767 2.2598 6.6767 1.9998C6.6767 1.4585 7.1156 1.0198 7.6569 1.02L7.6569 1ZM17.2426 13L18 13C19.6569 13 21 14.3431 21 16L21 16.7574L17.2426 13Z" fill="currentColor" fillOpacity={0.4} fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <Path d="M9 18C9 18.5523 8.5523 19 8 19C7.4477 19 7 18.5523 7 18C7 17.4477 7.4477 17 8 17C8.5523 17 9 17.4477 9 18ZM13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18C11 17.4477 11.4477 17 12 17C12.5523 17 13 17.4477 13 18Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <Path d="M10 10L6 10C4.8954 10 4 9.1046 4 8L4 4M20 20C20 21.1046 19.1046 22 18 22L6 22C4.8954 22 4 21.1046 4 20L4 16C4 14.8954 4.8954 14 6 14L14 14M2 2L22 22" fill="none" />
+      <Path d="M11 11H6C4.343 11 3 9.657 3 8V4C3 3.705 3.043 3.411 3.129 3.128L11 11ZM20.872 20.872C20.487 22.136 19.321 23 18 23H6C4.343 23 3 21.657 3 20V16C3 14.343 4.343 13 6 13H13L20.872 20.872ZM7.657 1H18C19.657 1 21 2.343 21 4V8C21 9.657 19.657 11 18 11H15.657V10.98C15.397 10.98 15.148 10.877 14.964 10.693L14.95 10.707L6.95 2.707L6.964 2.693C6.78 2.509 6.677 2.26 6.677 2C6.677 1.458 7.116 1.02 7.657 1.02V1ZM17.243 13H18C19.657 13 21 14.343 21 16V16.757L17.243 13Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M9 18C9 18.552 8.552 19 8 19C7.448 19 7 18.552 7 18C7 17.448 7.448 17 8 17C8.552 17 9 17.448 9 18ZM13 18C13 18.552 12.552 19 12 19C11.448 19 11 18.552 11 18C11 17.448 11.448 17 12 17C12.552 17 13 17.448 13 18Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M10 10H6C4.895 10 4 9.105 4 8V4M20 20C20 21.105 19.105 22 18 22H6C4.895 22 4 21.105 4 20V16C4 14.895 4.895 14 6 14H14M2 2L22 22" />
     </Icon>
   )
 }
@@ -15119,6 +16643,25 @@ export function Shapes2(props: IconProps) {
   )
 }
 
+export function ShapesBlend(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M20.2426 11.7574C21.3273 12.8421 22 14.3434 22 16C22 19.3137 19.3137 22 16 22C12.6863 22 10 19.3137 10 16C10 12.6863 12.6863 10 16 10C17.6566 10 19.1579 10.6727 20.2426 11.7574Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M3 12L3 4C3 3.4477 3.4477 3 4 3L12 3M7 16L7 10C7 8.3431 8.3431 7 10 7L16 7M16 11C18.7614 11 21 13.2386 21 16C21 18.7614 18.7614 21 16 21C13.2386 21 11 18.7614 11 16C11 13.2386 13.2386 11 16 11Z" />
+    </Icon>
+  )
+}
+
+export function ShapesSparkles(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 3L10 10M10 3L3 10M10 17.5C10 19.433 8.433 21 6.5 21C4.567 21 3 19.433 3 17.5C3 15.567 4.567 14 6.5 14C8.433 14 10 15.567 10 17.5ZM16 14H19C20.105 14 21 14.895 21 16V19C21 20.105 20.105 21 19 21H16C14.895 21 14 20.105 14 19V16C14 14.895 14.895 14 16 14Z" />
+      <Path d="M19.412 2.28L19.853 3.399C19.988 3.741 20.259 4.012 20.601 4.147L21.72 4.588C21.889 4.655 22 4.818 22 5C22 5.182 21.889 5.345 21.72 5.412L20.601 5.853C20.259 5.988 19.988 6.259 19.853 6.601L19.412 7.72C19.345 7.889 19.182 8 19 8C18.818 8 18.655 7.889 18.588 7.72L18.147 6.601C18.012 6.259 17.741 5.988 17.399 5.853L16.28 5.412C16.111 5.345 16 5.182 16 5C16 4.818 16.111 4.655 16.28 4.588L17.399 4.147C17.741 4.012 18.012 3.741 18.147 3.399L18.588 2.28C18.655 2.111 18.818 2 19 2C19.182 2 19.345 2.111 19.412 2.28Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M15.275 7.187L15.569 7.932C15.659 8.161 15.839 8.341 16.068 8.431L16.813 8.725C16.926 8.77 17 8.879 17 9C17 9.121 16.926 9.23 16.813 9.275L16.068 9.569C15.839 9.659 15.659 9.839 15.569 10.068L15.275 10.813C15.23 10.926 15.121 11 15 11C14.879 11 14.77 10.926 14.725 10.813L14.431 10.068C14.341 9.839 14.161 9.659 13.932 9.569L13.187 9.275C13.074 9.23 13 9.121 13 9C13 8.879 13.074 8.77 13.187 8.725L13.932 8.431C14.161 8.341 14.341 8.161 14.431 7.932L14.725 7.187C14.77 7.074 14.879 7 15 7C15.121 7 15.23 7.074 15.275 7.187Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+    </Icon>
+  )
+}
+
 export function Shapes(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -15158,9 +16701,18 @@ export function ShepherdsHut(props: IconProps) {
 export function ShieldAlert(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M5.0647 4.1754C7.4506 3.8923 9.2514 2.6998 10.3279 1.6554C10.7686 1.2278 11.3816 1 12 1C12.6184 1 13.2314 1.2278 13.6721 1.6554C14.7486 2.6998 16.5495 3.8923 18.9353 4.1754C20.0939 4.3129 21 5.2554 21 6.3829L21 12.5708C21 14.5658 20.6389 16.5862 19.4031 18.1846C18.1083 19.859 16.0537 21.7334 13.1746 22.7912C12.4169 23.0696 11.5831 23.0696 10.8253 22.7911C7.9462 21.7334 5.8916 19.859 4.5969 18.1846C3.3611 16.5862 3 14.5658 3 12.5708L3 6.3829C3 5.2554 3.9062 4.3129 5.0647 4.1754Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <Path d="M5.18251 5.16845C7.83034 4.85425 9.82952 3.53222 11.0242 2.37315C11.537 1.87562 12.463 1.87562 12.9758 2.37315C14.1705 3.53222 16.1697 4.85425 18.8175 5.16845C19.4672 5.24554 20 5.75056 20 6.38285V12.5708C20 14.3452 19.7111 16.1513 18.612 17.5729C17.4097 19.1277 15.5033 20.8703 12.8298 21.8525C12.2945 22.0492 11.7055 22.0492 11.1702 21.8525C8.49668 20.8703 6.59026 19.1277 5.38804 17.5729C4.28885 16.1513 4 14.3452 4 12.5708V6.38285C4 5.75056 4.53284 5.24554 5.18251 5.16845ZM12 7L12 13" />
-      <Path d="M13 17C13 17.5523 12.5523 18 12 18C11.4477 18 11 17.5523 11 17C11 16.4477 11.4477 16 12 16C12.5523 16 13 16.4477 13 17Z" fill="currentColor" stroke="none" />
+      <Path d="M5.065 4.175C7.451 3.892 9.251 2.7 10.328 1.655C10.769 1.228 11.382 1 12 1C12.618 1 13.231 1.228 13.672 1.655C14.749 2.7 16.55 3.892 18.935 4.175C20.094 4.313 21 5.255 21 6.383V12.571C21 14.566 20.639 16.586 19.403 18.185C18.108 19.859 16.054 21.733 13.175 22.791C12.417 23.07 11.583 23.07 10.825 22.791C7.946 21.733 5.892 19.859 4.597 18.185C3.361 16.586 3 14.566 3 12.571V6.383C3 5.255 3.906 4.313 5.065 4.175Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 7V13M5.183 5.168C7.83 4.854 9.83 3.532 11.024 2.373C11.537 1.876 12.463 1.876 12.976 2.373C14.17 3.532 16.17 4.854 18.817 5.168C19.467 5.246 20 5.751 20 6.383V12.571C20 14.345 19.711 16.151 18.612 17.573C17.41 19.128 15.503 20.87 12.83 21.852C12.294 22.049 11.706 22.049 11.17 21.852C8.497 20.87 6.59 19.128 5.388 17.573C4.289 16.151 4 14.345 4 12.571V6.383C4 5.751 4.533 5.246 5.183 5.168Z" />
+      <Path d="M13 17C13 17.552 12.552 18 12 18C11.448 18 11 17.552 11 17C11 16.448 11.448 16 12 16C12.552 16 13 16.448 13 17Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
+export function ShieldArrowRight(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M4 8V6.38285C4 5.75056 4.53284 5.24554 5.18251 5.16845C7.83034 4.85425 9.82952 3.53222 11.0242 2.37315C11.537 1.87562 12.463 1.87562 12.9758 2.37315C14.1705 3.53222 16.1697 4.85425 18.8175 5.16845C19.4672 5.24554 20 5.75056 20 6.38285V12.5708C20 14.3452 19.7111 16.1513 18.612 17.5729C17.4097 19.1277 15.5033 20.8703 12.8298 21.8525C12.2945 22.0492 11.7055 22.0492 11.1702 21.8525C8.49668 20.8703 6.59026 19.1277 5.38804 17.5729C5.013 17.0879 4.7323 16.558 4.5252 16" strokeOpacity={0.4} />
+      <Path d="M4 12H16M12.2071 8L15.8535 11.6464C16.0488 11.8417 16.0488 12.1583 15.8535 12.3536L12.2071 16" />
     </Icon>
   )
 }
@@ -15168,8 +16720,26 @@ export function ShieldAlert(props: IconProps) {
 export function ShieldCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5.065 4.175C7.451 3.892 9.251 2.7 10.328 1.655C10.769 1.228 11.382 1 12 1C12.618 1 13.231 1.228 13.672 1.655C14.749 2.7 16.55 3.892 18.935 4.175C20.094 4.313 21 5.255 21 6.383V12.571C21 14.566 20.639 16.586 19.403 18.185C18.108 19.859 16.054 21.733 13.175 22.791C12.417 23.07 11.583 23.07 10.825 22.791C7.946 21.733 5.892 19.859 4.597 18.185C3.361 16.586 3 14.566 3 12.571V6.383C3 5.255 3.906 4.313 5.065 4.175Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M8 12L10.667 15L16 9M5.183 5.168C7.83 4.854 9.83 3.532 11.024 2.373C11.537 1.876 12.463 1.876 12.976 2.373C14.17 3.532 16.17 4.854 18.817 5.168C19.467 5.246 20 5.751 20 6.383V12.571C20 14.345 19.711 16.151 18.612 17.573C17.41 19.128 15.503 20.87 12.83 21.852C12.294 22.049 11.706 22.049 11.17 21.852C8.497 20.87 6.59 19.128 5.388 17.573C4.289 16.151 4 14.345 4 12.571V6.383C4 5.751 4.533 5.246 5.183 5.168Z" />
+    </Icon>
+  )
+}
+
+export function ShieldCog(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5.0647 4.175C7.4506 3.892 9.2514 2.7 10.3279 1.655C10.7686 1.228 11.3816 1 12 1C12.6184 1 13.2314 1.228 13.6721 1.655C14.7486 2.7 16.5495 3.892 18.9353 4.175C20.0939 4.313 21 5.255 21 6.383V12.571C21 14.566 20.6389 16.586 19.4031 18.185C18.1083 19.859 16.0537 21.733 13.1746 22.791C12.4169 23.07 11.5831 23.07 10.8253 22.791C7.9462 21.733 5.8916 19.859 4.5969 18.185C3.3611 16.586 3 14.566 3 12.571V6.383C3 5.255 3.9062 4.313 5.0647 4.175Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M15.5417 12H16M14.5043 14.504L14.8284 14.828M12 15.542V16M9.4957 14.504L9.1716 14.828M8.4583 12H8M9.4957 9.496L9.1716 9.172M12 8.458V8M14.5043 9.496L14.8284 9.172M5.1825 5.168C7.8303 4.854 9.8295 3.532 11.0242 2.373C11.537 1.876 12.463 1.876 12.9758 2.373C14.1705 3.532 16.1697 4.854 18.8175 5.168C19.4672 5.246 20 5.751 20 6.383V12.571C20 14.345 19.7111 16.151 18.612 17.573C17.4097 19.128 15.5033 20.87 12.8298 21.853C12.2945 22.049 11.7055 22.049 11.1702 21.853C8.4967 20.87 6.5903 19.128 5.388 17.573C4.2889 16.151 4 14.345 4 12.571V6.383C4 5.751 4.5328 5.246 5.1825 5.168ZM14.6667 12C14.6667 13.473 13.4728 14.667 12 14.667C10.5272 14.667 9.3333 13.473 9.3333 12C9.3333 10.527 10.5272 9.333 12 9.333C13.4728 9.333 14.6667 10.527 14.6667 12Z" />
+    </Icon>
+  )
+}
+
+export function ShieldGlobe(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M5.0647 4.1754C7.4506 3.8923 9.2514 2.6998 10.3279 1.6554C10.7686 1.2278 11.3816 1 12 1C12.6184 1 13.2314 1.2278 13.6721 1.6554C14.7486 2.6998 16.5495 3.8923 18.9353 4.1754C20.0939 4.3129 21 5.2554 21 6.3829L21 12.5708C21 14.5658 20.6389 16.5862 19.4031 18.1846C18.1083 19.859 16.0537 21.7334 13.1746 22.7912C12.4169 23.0696 11.5831 23.0696 10.8253 22.7911C7.9462 21.7334 5.8916 19.859 4.5969 18.1846C3.3611 16.5862 3 14.5658 3 12.5708L3 6.3829C3 5.2554 3.9062 4.3129 5.0647 4.1754Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <Path d="M5.18251 5.16845C7.83034 4.85425 9.82952 3.53222 11.0242 2.37315C11.537 1.87562 12.463 1.87562 12.9758 2.37315C14.1705 3.53222 16.1697 4.85425 18.8175 5.16845C19.4672 5.24554 20 5.75056 20 6.38285V12.5708C20 14.3452 19.7111 16.1513 18.612 17.5729C17.4097 19.1277 15.5033 20.8703 12.8298 21.8525C12.2945 22.0492 11.7055 22.0492 11.1702 21.8525C8.49668 20.8703 6.59026 19.1277 5.38804 17.5729C4.28885 16.1513 4 14.3452 4 12.5708V6.38285C4 5.75056 4.53284 5.24554 5.18251 5.16845ZM8 12L10.6667 15L16 9" />
+      <Path d="M5.18251 5.16845C7.83034 4.85425 9.82952 3.53222 11.0242 2.37315C11.537 1.87562 12.463 1.87562 12.9758 2.37315C14.1705 3.53222 16.1697 4.85425 18.8175 5.16845C19.4672 5.24554 20 5.75056 20 6.38285V12.5708C20 14.3452 19.7111 16.1513 18.612 17.5729C17.4097 19.1277 15.5033 20.8703 12.8298 21.8525C12.2945 22.0492 11.7055 22.0492 11.1702 21.8525C8.49668 20.8703 6.59026 19.1277 5.38804 17.5729C4.28885 16.1513 4 14.3452 4 12.5708V6.38285C4 5.75056 4.53284 5.24554 5.18251 5.16845ZM4 12H20M12 2C14.6667 5 16 8.5 16 12C16 15.5 14.6667 19 12 22C9.33333 19 8 15.5 8 12C8 8.5 9.33333 5 12 2Z" />
     </Icon>
   )
 }
@@ -15179,6 +16749,16 @@ export function ShieldHeart(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M5.0647 4.1754C7.4506 3.8923 9.2514 2.6998 10.3279 1.6554C10.7686 1.2278 11.3816 1 12 1C12.6184 1 13.2314 1.2278 13.6721 1.6554C14.7486 2.6998 16.5495 3.8923 18.9353 4.1754C20.0939 4.3129 21 5.2554 21 6.3829L21 12.5708C21 14.5658 20.6389 16.5862 19.4031 18.1846C18.1083 19.859 16.0537 21.7334 13.1746 22.7912C12.4169 23.0696 11.5831 23.0696 10.8253 22.7911C7.9462 21.7334 5.8916 19.859 4.5969 18.1846C3.3611 16.5862 3 14.5658 3 12.5708L3 6.3829C3 5.2554 3.9062 4.3129 5.0647 4.1754Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M5.18251 5.16845C7.83034 4.85425 9.82952 3.53222 11.0242 2.37315C11.537 1.87562 12.463 1.87562 12.9758 2.37315C14.1705 3.53222 16.1697 4.85425 18.8175 5.16845C19.4672 5.24554 20 5.75056 20 6.38285V12.5708C20 14.3452 19.7111 16.1513 18.612 17.5729C17.4097 19.1277 15.5033 20.8703 12.8298 21.8525C12.2945 22.0492 11.7055 22.0492 11.1702 21.8525C8.49668 20.8703 6.59026 19.1277 5.38804 17.5729C4.28885 16.1513 4 14.3452 4 12.5708V6.38285C4 5.75056 4.53284 5.24554 5.18251 5.16845ZM12 15.591C10.1796 14.0362 8.01 12.6983 8.01 10.7033C8.01 9.4361 9.0818 8.409 10.404 8.409C11.0025 8.409 11.5382 8.6268 12 9.0075C12.4618 8.6268 12.9975 8.409 13.596 8.409C14.9182 8.409 15.99 9.4361 15.99 10.7033C15.99 12.6983 13.8204 14.0362 12 15.591Z" />
+    </Icon>
+  )
+}
+
+export function ShieldInfo(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5.065 4.175C7.451 3.892 9.251 2.7 10.328 1.655C10.769 1.228 11.382 1 12 1C12.618 1 13.231 1.228 13.672 1.655C14.749 2.7 16.55 3.892 18.935 4.175C20.094 4.313 21 5.255 21 6.383V12.571C21 14.566 20.639 16.586 19.403 18.185C18.108 19.859 16.054 21.733 13.175 22.791C12.417 23.07 11.583 23.07 10.825 22.791C7.946 21.733 5.892 19.859 4.597 18.185C3.361 16.586 3 14.566 3 12.571V6.383C3 5.255 3.906 4.313 5.065 4.175Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 17V11M5.183 5.168C7.83 4.854 9.83 3.532 11.024 2.373C11.537 1.876 12.463 1.876 12.976 2.373C14.17 3.532 16.17 4.854 18.817 5.168C19.467 5.246 20 5.751 20 6.383V12.571C20 14.345 19.711 16.151 18.612 17.573C17.41 19.128 15.503 20.87 12.83 21.853C12.294 22.049 11.706 22.049 11.17 21.853C8.497 20.87 6.59 19.128 5.388 17.573C4.289 16.151 4 14.345 4 12.571V6.383C4 5.751 4.533 5.246 5.183 5.168Z" />
+      <Path d="M13 7C13 7.552 12.552 8 12 8C11.448 8 11 7.552 11 7C11 6.448 11.448 6 12 6C12.552 6 13 6.448 13 7Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
     </Icon>
   )
 }
@@ -15204,8 +16784,8 @@ export function ShieldLock(props: IconProps) {
 export function ShieldMinus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M5.0647 4.1754C7.4506 3.8923 9.2514 2.6998 10.3279 1.6554C10.7686 1.2278 11.3816 1 12 1C12.6184 1 13.2314 1.2278 13.6721 1.6554C14.7486 2.6998 16.5495 3.8923 18.9353 4.1754C20.0939 4.3129 21 5.2554 21 6.3829L21 12.5708C21 14.5658 20.6389 16.5862 19.4031 18.1846C18.1083 19.859 16.0537 21.7334 13.1746 22.7912C12.4169 23.0696 11.5831 23.0696 10.8253 22.7911C7.9462 21.7334 5.8916 19.859 4.5969 18.1846C3.3611 16.5862 3 14.5658 3 12.5708L3 6.3829C3 5.2554 3.9062 4.3129 5.0647 4.1754Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <Path d="M5.18251 5.16845C7.83034 4.85425 9.82952 3.53222 11.0242 2.37315C11.537 1.87562 12.463 1.87562 12.9758 2.37315C14.1705 3.53222 16.1697 4.85425 18.8175 5.16845C19.4672 5.24554 20 5.75056 20 6.38285V12.5708C20 14.3452 19.7111 16.1513 18.612 17.5729C17.4097 19.1277 15.5033 20.8703 12.8298 21.8525C12.2945 22.0492 11.7055 22.0492 11.1702 21.8525C8.49668 20.8703 6.59026 19.1277 5.38804 17.5729C4.28885 16.1513 4 14.3452 4 12.5708V6.38285C4 5.75056 4.53284 5.24554 5.18251 5.16845ZM8 12L16 12" />
+      <Path d="M5.0647 4.175C7.4506 3.892 9.2514 2.7 10.3279 1.655C10.7686 1.228 11.3816 1 12 1C12.6184 1 13.2314 1.228 13.6721 1.655C14.7486 2.7 16.5495 3.892 18.9353 4.175C20.0939 4.313 21 5.255 21 6.383V12.571C21 14.566 20.6389 16.586 19.4031 18.185C18.1083 19.859 16.0537 21.733 13.1746 22.791C12.4169 23.07 11.5831 23.07 10.8253 22.791C7.9462 21.733 5.8916 19.859 4.5969 18.185C3.3611 16.586 3 14.566 3 12.571V6.383C3 5.255 3.9062 4.313 5.0647 4.175Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M8 12H16M5.1825 5.168C7.8303 4.854 9.8295 3.532 11.0242 2.373C11.537 1.876 12.463 1.876 12.9758 2.373C14.1705 3.532 16.1697 4.854 18.8175 5.168C19.4672 5.246 20 5.751 20 6.383V12.571C20 14.345 19.7111 16.151 18.612 17.573C17.4097 19.128 15.5033 20.87 12.8298 21.853C12.2945 22.049 11.7055 22.049 11.1702 21.853C8.4967 20.87 6.5903 19.128 5.388 17.573C4.2889 16.151 4 14.345 4 12.571V6.383C4 5.751 4.5328 5.246 5.1825 5.168Z" />
     </Icon>
   )
 }
@@ -15222,8 +16802,8 @@ export function ShieldOff(props: IconProps) {
 export function ShieldPlus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M5.0647 4.1754C7.4506 3.8923 9.2514 2.6998 10.3279 1.6554C10.7686 1.2278 11.3816 1 12 1C12.6184 1 13.2314 1.2278 13.6721 1.6554C14.7486 2.6998 16.5495 3.8923 18.9353 4.1754C20.0939 4.3129 21 5.2554 21 6.3829L21 12.5708C21 14.5658 20.6389 16.5862 19.4031 18.1846C18.1083 19.859 16.0537 21.7334 13.1746 22.7912C12.4169 23.0696 11.5831 23.0696 10.8253 22.7911C7.9462 21.7334 5.8916 19.859 4.5969 18.1846C3.3611 16.5862 3 14.5658 3 12.5708L3 6.3829C3 5.2554 3.9062 4.3129 5.0647 4.1754Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <Path d="M5.18251 5.16845C7.83034 4.85425 9.82952 3.53222 11.0242 2.37315C11.537 1.87562 12.463 1.87562 12.9758 2.37315C14.1705 3.53222 16.1697 4.85425 18.8175 5.16845C19.4672 5.24554 20 5.75056 20 6.38285V12.5708C20 14.3452 19.7111 16.1513 18.612 17.5729C17.4097 19.1277 15.5033 20.8703 12.8298 21.8525C12.2945 22.0492 11.7055 22.0492 11.1702 21.8525C8.49668 20.8703 6.59026 19.1277 5.38804 17.5729C4.28885 16.1513 4 14.3452 4 12.5708V6.38285C4 5.75056 4.53284 5.24554 5.18251 5.16845ZM8 12L16 12M12 8L12 16" />
+      <Path d="M5.0647 4.175C7.4506 3.892 9.2514 2.7 10.3279 1.655C10.7686 1.228 11.3816 1 12 1C12.6184 1 13.2314 1.228 13.6721 1.655C14.7486 2.7 16.5495 3.892 18.9353 4.175C20.0939 4.313 21 5.255 21 6.383V12.571C21 14.566 20.6389 16.586 19.4031 18.185C18.1083 19.859 16.0537 21.733 13.1746 22.791C12.4169 23.07 11.5831 23.07 10.8253 22.791C7.9462 21.733 5.8916 19.859 4.5969 18.185C3.3611 16.586 3 14.566 3 12.571V6.383C3 5.255 3.9062 4.313 5.0647 4.175Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M8 12H16M12 8V16M5.1825 5.168C7.8303 4.854 9.8295 3.532 11.0242 2.373C11.537 1.876 12.463 1.876 12.9758 2.373C14.1705 3.532 16.1697 4.854 18.8175 5.168C19.4672 5.246 20 5.751 20 6.383V12.571C20 14.345 19.7111 16.151 18.612 17.573C17.4097 19.128 15.5033 20.87 12.8298 21.853C12.2945 22.049 11.7055 22.049 11.1702 21.853C8.4967 20.87 6.5903 19.128 5.388 17.573C4.2889 16.151 4 14.345 4 12.571V6.383C4 5.751 4.5328 5.246 5.1825 5.168Z" />
     </Icon>
   )
 }
@@ -15231,9 +16811,18 @@ export function ShieldPlus(props: IconProps) {
 export function ShieldQuestion(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M5.065 4.175C7.451 3.892 9.251 2.7 10.328 1.655C10.769 1.228 11.382 1 12 1C12.618 1 13.231 1.228 13.672 1.655C14.749 2.7 16.55 3.892 18.935 4.175C20.094 4.313 21 5.255 21 6.383V12.571C21 14.566 20.639 16.586 19.403 18.185C18.108 19.859 16.054 21.733 13.175 22.791C12.417 23.07 11.583 23.07 10.825 22.791C7.946 21.733 5.892 19.859 4.597 18.185C3.361 16.586 3 14.566 3 12.571V6.383C3 5.255 3.906 4.313 5.065 4.175Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M9.6 9.9C9.6 8.575 10.674 7.5 12 7.5C13.326 7.5 14.4 8.575 14.4 9.9C14.4 10.869 13.817 11.743 12.923 12.115C12.364 12.348 12 12.894 12 13.5M5.183 5.168C7.83 4.854 9.83 3.532 11.024 2.373C11.537 1.876 12.463 1.876 12.976 2.373C14.17 3.532 16.17 4.854 18.817 5.168C19.467 5.246 20 5.751 20 6.383V12.571C20 14.345 19.711 16.151 18.612 17.573C17.41 19.128 15.503 20.87 12.83 21.853C12.294 22.049 11.706 22.049 11.17 21.853C8.497 20.87 6.59 19.128 5.388 17.573C4.289 16.151 4 14.345 4 12.571V6.383C4 5.751 4.533 5.246 5.183 5.168Z" />
+      <Path d="M13 17.5C13 18.052 12.552 18.5 12 18.5C11.448 18.5 11 18.052 11 17.5C11 16.948 11.448 16.5 12 16.5C12.552 16.5 13 16.948 13 17.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
+export function ShieldSearch(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M5.0647 4.1754C7.4506 3.8923 9.2514 2.6998 10.3279 1.6554C10.7686 1.2278 11.3816 1 12 1C12.6184 1 13.2314 1.2278 13.6721 1.6554C14.7486 2.6998 16.5495 3.8923 18.9353 4.1754C20.0939 4.3129 21 5.2554 21 6.3829L21 12.5708C21 14.5658 20.6389 16.5862 19.4031 18.1846C18.1083 19.859 16.0537 21.7334 13.1746 22.7912C12.4169 23.0696 11.5831 23.0696 10.8253 22.7911C7.9462 21.7334 5.8916 19.859 4.5969 18.1846C3.3611 16.5862 3 14.5658 3 12.5708L3 6.3829C3 5.2554 3.9062 4.3129 5.0647 4.1754Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <Path d="M5.18251 5.16845C7.83034 4.85425 9.82952 3.53222 11.0242 2.37315C11.537 1.87562 12.463 1.87562 12.9758 2.37315C14.1705 3.53222 16.1697 4.85425 18.8175 5.16845C19.4672 5.24554 20 5.75056 20 6.38285V12.5708C20 14.3452 19.7111 16.1513 18.612 17.5729C17.4097 19.1277 15.5033 20.8703 12.8298 21.8525C12.2945 22.0492 11.7055 22.0492 11.1702 21.8525C8.49668 20.8703 6.59026 19.1277 5.38804 17.5729C4.28885 16.1513 4 14.3452 4 12.5708V6.38285C4 5.75056 4.53284 5.24554 5.18251 5.16845ZM9.6 9.9C9.6 8.5745 10.6745 7.5 12 7.5C13.3255 7.5 14.4 8.5745 14.4 9.9C14.4 10.8689 13.8174 11.7427 12.9231 12.1154C12.3641 12.3483 12 12.8944 12 13.5" />
-      <Path d="M13 17.5C13 18.0523 12.5523 18.5 12 18.5C11.4477 18.5 11 18.0523 11 17.5C11 16.9477 11.4477 16.5 12 16.5C12.5523 16.5 13 16.9477 13 17.5Z" fill="currentColor" stroke="none" />
+      <Path d="M5.18251 5.16845C7.83034 4.85425 9.82952 3.53222 11.0242 2.37315C11.537 1.87562 12.463 1.87562 12.9758 2.37315C14.1705 3.53222 16.1697 4.85425 18.8175 5.16845C19.4672 5.24554 20 5.75056 20 6.38285V12.5708C20 14.3452 19.7111 16.1513 18.612 17.5729C17.4097 19.1277 15.5033 20.8703 12.8298 21.8525C12.2945 22.0492 11.7055 22.0492 11.1702 21.8525C8.49668 20.8703 6.59026 19.1277 5.38804 17.5729C4.28885 16.1513 4 14.3452 4 12.5708V6.38285C4 5.75056 4.53284 5.24554 5.18251 5.16845ZM14 11C14 12.3807 12.8807 13.5 11.5 13.5C10.1193 13.5 9 12.3807 9 11C9 9.6193 10.1193 8.5 11.5 8.5C12.8807 8.5 14 9.6193 14 11ZM13.5 13L15 14.5" />
     </Icon>
   )
 }
@@ -15260,9 +16849,9 @@ export function ShieldTerminal(props: IconProps) {
 export function ShieldUser(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M5.0647 4.1754C7.4506 3.8923 9.2514 2.6998 10.3279 1.6554C10.7686 1.2278 11.3816 1 12 1C12.6184 1 13.2314 1.2278 13.6721 1.6554C14.7486 2.6998 16.5495 3.8923 18.9353 4.1754C20.0939 4.3129 21 5.2554 21 6.3829L21 12.5708C21 14.5658 20.6389 16.5862 19.4031 18.1846C18.1083 19.859 16.0537 21.7334 13.1746 22.7912C12.4169 23.0696 11.5831 23.0696 10.8253 22.7911C7.9462 21.7334 5.8916 19.859 4.5969 18.1846C3.3611 16.5862 3 14.5658 3 12.5708L3 6.3829C3 5.2554 3.9062 4.3129 5.0647 4.1754Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <Path d="M5.18251 5.16845C7.83034 4.85425 9.82952 3.53222 11.0242 2.37315C11.537 1.87562 12.463 1.87562 12.9758 2.37315C14.1705 3.53222 16.1697 4.85425 18.8175 5.16845C19.4672 5.24554 20 5.75056 20 6.38285V12.5708C20 14.3452 19.7111 16.1513 18.612 17.5729C17.4097 19.1277 15.5033 20.8703 12.8298 21.8525C12.2945 22.0492 11.7055 22.0492 11.1702 21.8525C8.49668 20.8703 6.59026 19.1277 5.38804 17.5729C4.28885 16.1513 4 14.3452 4 12.5708V6.38285C4 5.75056 4.53284 5.24554 5.18251 5.16845Z" />
-      <Path d="M15 9C15 10.6569 13.6569 12 12 12C10.3431 12 9 10.6569 9 9C9 7.34315 10.3431 6 12 6C13.6569 6 15 7.34315 15 9ZM6.3461 17.1722C7.0976 15.2585 8.944 14 11 14L13 14C15.056 14 16.9024 15.2585 17.654 17.1722C16.5337 18.5565 14.8211 20.0556 12.485 20.9138C12.1725 21.0286 11.8275 21.0286 11.5151 20.9139C9.1788 20.0556 7.4662 18.5564 6.3461 17.1722Z" fill="currentColor" stroke="none" />
+      <Path d="M5.0647 4.175C7.4506 3.892 9.2514 2.7 10.3279 1.655C10.7686 1.228 11.3816 1 12 1C12.6184 1 13.2314 1.228 13.6721 1.655C14.7486 2.7 16.5495 3.892 18.9353 4.175C20.0939 4.313 21 5.255 21 6.383V12.571C21 14.566 20.6389 16.586 19.4031 18.185C18.1083 19.859 16.0537 21.733 13.1746 22.791C12.4169 23.07 11.5831 23.07 10.8253 22.791C7.9462 21.733 5.8916 19.859 4.5969 18.185C3.3611 16.586 3 14.566 3 12.571V6.383C3 5.255 3.9062 4.313 5.0647 4.175Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M5.1825 5.168C7.8303 4.854 9.8295 3.532 11.0242 2.373C11.537 1.876 12.463 1.876 12.9758 2.373C14.1705 3.532 16.1697 4.854 18.8175 5.168C19.4672 5.246 20 5.751 20 6.383V12.571C20 14.345 19.7111 16.151 18.612 17.573C17.4097 19.128 15.5033 20.87 12.8298 21.852C12.2945 22.049 11.7055 22.049 11.1702 21.852C8.4967 20.87 6.5903 19.128 5.388 17.573C4.2889 16.151 4 14.345 4 12.571V6.383C4 5.751 4.5328 5.246 5.1825 5.168Z" />
+      <Path d="M15 9C15 10.657 13.6569 12 12 12C10.3431 12 9 10.657 9 9C9 7.343 10.3431 6 12 6C13.6569 6 15 7.343 15 9ZM6.3461 17.172C7.0976 15.258 8.944 14 11 14H13C15.056 14 16.9024 15.258 17.654 17.172C16.5337 18.556 14.8211 20.056 12.485 20.914C12.1725 21.029 11.8275 21.029 11.5151 20.914C9.1788 20.056 7.4662 18.556 6.3461 17.172Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
     </Icon>
   )
 }
@@ -15270,8 +16859,8 @@ export function ShieldUser(props: IconProps) {
 export function ShieldX(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M5.0647 4.1754C7.4506 3.8923 9.2514 2.6998 10.3279 1.6554C10.7686 1.2278 11.3816 1 12 1C12.6184 1 13.2314 1.2278 13.6721 1.6554C14.7486 2.6998 16.5495 3.8923 18.9353 4.1754C20.0939 4.3129 21 5.2554 21 6.3829L21 12.5708C21 14.5658 20.6389 16.5862 19.4031 18.1846C18.1083 19.859 16.0537 21.7334 13.1746 22.7912C12.4169 23.0696 11.5831 23.0696 10.8253 22.7911C7.9462 21.7334 5.8916 19.859 4.5969 18.1846C3.3611 16.5862 3 14.5658 3 12.5708L3 6.3829C3 5.2554 3.9062 4.3129 5.0647 4.1754Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <Path d="M5.18251 5.16845C7.83034 4.85425 9.82952 3.53222 11.0242 2.37315C11.537 1.87562 12.463 1.87562 12.9758 2.37315C14.1705 3.53222 16.1697 4.85425 18.8175 5.16845C19.4672 5.24554 20 5.75056 20 6.38285V12.5708C20 14.3452 19.7111 16.1513 18.612 17.5729C17.4097 19.1277 15.5033 20.8703 12.8298 21.8525C12.2945 22.0492 11.7055 22.0492 11.1702 21.8525C8.49668 20.8703 6.59026 19.1277 5.38804 17.5729C4.28885 16.1513 4 14.3452 4 12.5708V6.38285C4 5.75056 4.53284 5.24554 5.18251 5.16845ZM9 9L15 15M15 9L9 15" />
+      <Path d="M5.065 4.175C7.451 3.892 9.251 2.7 10.328 1.655C10.769 1.228 11.382 1 12 1C12.618 1 13.231 1.228 13.672 1.655C14.749 2.7 16.55 3.892 18.935 4.175C20.094 4.313 21 5.255 21 6.383V12.571C21 14.566 20.639 16.586 19.403 18.185C18.108 19.859 16.054 21.733 13.175 22.791C12.417 23.07 11.583 23.07 10.825 22.791C7.946 21.733 5.892 19.859 4.597 18.185C3.361 16.586 3 14.566 3 12.571V6.383C3 5.255 3.906 4.313 5.065 4.175Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M9 9L15 15M15 9L9 15M5.183 5.168C7.83 4.854 9.83 3.532 11.024 2.373C11.537 1.876 12.463 1.876 12.976 2.373C14.17 3.532 16.17 4.854 18.817 5.168C19.467 5.246 20 5.751 20 6.383V12.571C20 14.345 19.711 16.151 18.612 17.573C17.41 19.128 15.503 20.87 12.83 21.852C12.294 22.049 11.706 22.049 11.17 21.852C8.497 20.87 6.59 19.128 5.388 17.573C4.289 16.151 4 14.345 4 12.571V6.383C4 5.751 4.533 5.246 5.183 5.168Z" />
     </Icon>
   )
 }
@@ -15279,8 +16868,8 @@ export function ShieldX(props: IconProps) {
 export function Shield(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M5.0647 4.1754C7.4506 3.8923 9.2514 2.6998 10.3279 1.6554C10.7686 1.2278 11.3816 1 12 1C12.6184 1 13.2314 1.2278 13.6721 1.6554C14.7486 2.6998 16.5495 3.8923 18.9353 4.1754C20.0939 4.3129 21 5.2554 21 6.3829L21 12.5708C21 14.5658 20.6389 16.5862 19.4031 18.1846C18.1083 19.859 16.0537 21.7334 13.1746 22.7912C12.4169 23.0696 11.5831 23.0696 10.8253 22.7911C7.9462 21.7334 5.8916 19.859 4.5969 18.1846C3.3611 16.5862 3 14.5658 3 12.5708L3 6.3829C3 5.2554 3.9062 4.3129 5.0647 4.1754Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <Path d="M5.18251 5.16845C7.83034 4.85425 9.82952 3.53222 11.0242 2.37315C11.537 1.87562 12.463 1.87562 12.9758 2.37315C14.1705 3.53222 16.1697 4.85425 18.8175 5.16845C19.4672 5.24554 20 5.75056 20 6.38285V12.5708C20 14.3452 19.7111 16.1513 18.612 17.5729C17.4097 19.1277 15.5033 20.8703 12.8298 21.8525C12.2945 22.0492 11.7055 22.0492 11.1702 21.8525C8.49668 20.8703 6.59026 19.1277 5.38804 17.5729C4.28885 16.1513 4 14.3452 4 12.5708V6.38285C4 5.75056 4.53284 5.24554 5.18251 5.16845Z" />
+      <Path d="M5.0647 4.175C7.4506 3.892 9.2514 2.7 10.3279 1.655C10.7686 1.228 11.3816 1 12 1C12.6184 1 13.2314 1.228 13.6721 1.655C14.7486 2.7 16.5495 3.892 18.9353 4.175C20.0939 4.313 21 5.255 21 6.383V12.571C21 14.566 20.6389 16.586 19.4031 18.185C18.1083 19.859 16.0537 21.733 13.1746 22.791C12.4169 23.07 11.5831 23.07 10.8253 22.791C7.9462 21.733 5.8916 19.859 4.5969 18.185C3.3611 16.586 3 14.566 3 12.571V6.383C3 5.255 3.9062 4.313 5.0647 4.175Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M5.1825 5.168C7.8303 4.854 9.8295 3.532 11.0242 2.373C11.537 1.876 12.463 1.876 12.9758 2.373C14.1705 3.532 16.1697 4.854 18.8175 5.168C19.4672 5.246 20 5.751 20 6.383V12.571C20 14.345 19.7111 16.151 18.612 17.573C17.4097 19.128 15.5033 20.87 12.8298 21.852C12.2945 22.049 11.7055 22.049 11.1702 21.852C8.4967 20.87 6.5903 19.128 5.388 17.573C4.2889 16.151 4 14.345 4 12.571V6.383C4 5.751 4.5328 5.246 5.1825 5.168Z" />
     </Icon>
   )
 }
@@ -15327,6 +16916,15 @@ export function Shirt(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M15.3417 1.0602L19.9907 2.7508C20.8021 3.0458 21.447 3.6761 21.7606 4.4804L22.8633 7.3088C22.9535 7.5404 22.9998 7.7867 22.9998 8.0352C22.9998 8.7742 22.5924 9.453 21.9402 9.8004L19.4742 11.114L19.0822 20.1303C19.0125 21.735 17.6912 23 16.0851 23L7.9149 23C6.3088 23 4.9875 21.735 4.9178 20.1303L4.5258 11.114L2.0598 9.8004C1.4076 9.453 1.0002 8.7742 1.0002 8.0352C1.0002 7.7867 1.0465 7.5404 1.1367 7.3088L2.2394 4.4804C2.553 3.6761 3.1979 3.0458 4.0093 2.7508L8.6583 1.0602C8.7678 1.0204 8.8834 1 9 1C9.5523 1 10 1.4477 10 2C10 3.1046 10.8954 4 12 4C13.1046 4 14 3.1046 14 2C14 1.4477 14.4477 1 15 1C15.1166 1 15.2322 1.0204 15.3417 1.0602Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M15 2L19.649 3.6905C20.1899 3.8872 20.6199 4.3074 20.8289 4.8437L21.9316 7.672C22.1156 8.1442 21.9173 8.6795 21.47 8.9178L19.0041 10.2315C18.6917 10.3979 18.4906 10.717 18.4752 11.0706L18.0832 20.0869C18.0367 21.1566 17.1558 22 16.0851 22L7.9149 22C6.8442 22 5.9633 21.1566 5.9168 20.0869L5.5248 11.0706C5.5094 10.717 5.3083 10.3979 4.9959 10.2315L2.53 8.9178C2.0827 8.6795 1.8844 8.1442 2.0684 7.672L3.1711 4.8437C3.3801 4.3074 3.8101 3.8872 4.351 3.6905L9 2C9 3.6569 10.3431 5 12 5C13.6569 5 15 3.6569 15 2Z" />
+    </Icon>
+  )
+}
+
+export function ShoppingBagCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M4.0572 7H19.9428M10 21H7C5.34315 21 4 19.6569 4 18V7.33333C4 7.11696 4.07018 6.90643 4.2 6.73333L6.1 4.2C6.66656 3.44458 7.55573 3 8.5 3H15.5C16.4443 3 17.3334 3.44458 17.9 4.2L19.8 6.73333C19.9298 6.90643 20 7.11696 20 7.33333V12" strokeOpacity={0.4} />
+      <Path d="M15 11C15 12.6569 13.6569 14 12 14C10.3431 14 9 12.6569 9 11M14 19L16 21L20 17" />
     </Icon>
   )
 }
@@ -15516,6 +17114,15 @@ export function Signature(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M8.5 18L22 18" fill="none" strokeOpacity={0.4} />
       <Path d="M2 21C3.1938 18.9186 4.7128 16.0493 5.9929 13.2135M5.99294 13.2135C8.20397 8.31533 9.7023 3.51693 7.5814 3.05055C3.63084 2.18185 2.58008 12.7908 5.99294 13.2135ZM5.99294 13.2135C6.19638 13.2387 6.41568 13.2277 6.65116 13.1759C10.8372 12.2554 11.3023 8.57347 11.7674 10.4144C12.2326 12.2554 13.1628 14.0964 14.5581 13.6361C15.9535 13.1759 16.4186 10.8747 17.3488 12.2554C18.2791 13.6361 20.6047 13.6361 22 13.6361" fill="none" />
+    </Icon>
+  )
+}
+
+export function Signpost(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M13.0213 3L18.5426 3C18.9103 3 19.2707 3.1014 19.5843 3.2927L22.042 4.7928C22.6798 5.1822 23 5.8474 23 6.5C23 7.1526 22.6798 7.8178 22.042 8.2071L19.5846 9.7072C19.2707 9.8986 18.9103 10 18.5426 10L7.5 10C6.1193 10 5 8.8807 5 7.5L5 5.5C5 4.1193 6.1193 3 7.5 3ZM10.9787 19L5.4574 19C5.0897 19 4.7293 18.8986 4.4157 18.7073L1.958 17.2072C1.3202 16.8178 1 16.1526 1 15.5C1 14.8474 1.3202 14.1822 1.958 13.7929L4.4154 12.2928C4.7293 12.1014 5.0897 12 5.4574 12L16.5 12C17.8807 12 19 13.1193 19 14.5L19 16.5C19 17.8807 17.8807 19 16.5 19Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M7.5 4L18.5426 4C18.7264 4 18.9067 4.0507 19.0636 4.1464L21.521 5.6464C22.1597 6.0363 22.1597 6.9637 21.521 7.3536L19.0636 8.8536C18.9067 8.9493 18.7264 9 18.5426 9L7.5 9C6.6716 9 6 8.3284 6 7.5L6 5.5C6 4.6716 6.6716 4 7.5 4ZM18 14.5L18 16.5C18 17.3284 17.3284 18 16.5 18L5.4574 18C5.2736 18 5.0933 17.9493 4.9364 17.8536L2.479 16.3536C1.8403 15.9637 1.8403 15.0363 2.479 14.6464L4.9364 13.1464C5.0933 13.0507 5.2736 13 5.4574 13L16.5 13C17.3284 13 18 13.6716 18 14.5ZM12 2V4M12 9V13M12 18V22M8 22H16" />
     </Icon>
   )
 }
@@ -15973,11 +17580,29 @@ export function Speaker(props: IconProps) {
   )
 }
 
+export function Speakers(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M11 1H19C21.2092 1 23 2.791 23 5V19C23 21.209 21.2092 23 19 23H11C8.7908 23 7 21.209 7 19V5C7 2.791 8.7908 1 11 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M4 4.172C2.8015 4.595 2 5.729 2 7V17C2 18.271 2.8015 19.405 4 19.828M11 2H19C20.6569 2 22 3.343 22 5V19C22 20.657 20.6569 22 19 22H11C9.3431 22 8 20.657 8 19V5C8 3.343 9.3431 2 11 2ZM18 15C18 16.657 16.6569 18 15 18C13.3431 18 12 16.657 12 15C12 13.343 13.3431 12 15 12C16.6569 12 18 13.343 18 15Z" />
+      <Path d="M16.5 7C16.5 7.828 15.8284 8.5 15 8.5C14.1716 8.5 13.5 7.828 13.5 7C13.5 6.172 14.1716 5.5 15 5.5C15.8284 5.5 16.5 6.172 16.5 7Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function SpellCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M5 9C6.6569 9 8 10.3431 8 12C8 13.6569 6.6569 15 5 15C3.3431 15 2 13.6569 2 12C2 10.3431 3.3431 9 5 9ZM8 9L8 15M12 5L12 15M12 12C12 10.3431 13.3431 9 15 9C16.6569 9 18 10.3431 18 12C18 12.3407 17.942 12.6788 17.8284 13" fill="none" strokeOpacity={0.4} />
       <Path d="M16 17L18 19L22 15" fill="none" />
+    </Icon>
+  )
+}
+
+export function Spiral(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M14 13C14 11.8954 13.1046 11 12 11C10.8954 11 10 11.8954 10 13C10 15.2091 11.7909 17 14 17C16.2091 17 18 15.2091 18 13C18 9.6863 15.3137 7 12 7C8.6863 7 6 9.6863 6 13C6 17.4183 9.5817 21 14 21C18.4183 21 22 17.4183 22 13C22 7.4772 17.5228 3 12 3C6.4772 3 2 7.4772 2 13" />
     </Icon>
   )
 }
@@ -16004,6 +17629,24 @@ export function Split(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M12 21L12 16C12 14.3431 10.6569 13 9 13C7.3431 13 6 11.6569 6 10L6 3M12 16C12 14.3431 13.3431 13 15 13C16.6569 13 18 11.6569 18 10L18 3M3 6L6 3L9 6M15 6L18 3L21 6" fill="none" />
+    </Icon>
+  )
+}
+
+export function Spool(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M6 7C4.3431 7 3 5.6569 3 4C3 2.3431 4.3431 1 6 1L12 1L18 1C19.6569 1 21 2.3431 21 4C21 5.6569 19.6569 7 18 7L18 17C19.6569 17 21 18.3431 21 20C21 21.6569 19.6569 23 18 23L6 23C4.3431 23 3 21.6569 3 20C3 18.3431 4.3431 17 6 17Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 2L18 2C19.1046 2 20 2.8954 20 4C20 5.1046 19.1046 6 18 6L6 6C4.8954 6 4 5.1046 4 4C4 2.8954 4.8954 2 6 2ZM6 18L18 18C19.1046 18 20 18.8954 20 20C20 21.1046 19.1046 22 18 22L6 22C4.8954 22 4 21.1046 4 20C4 18.8954 4.8954 18 6 18ZM7 6V18M17 6V18M7 13.5L17 10.5" />
+    </Icon>
+  )
+}
+
+export function SportsCourt(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 3L19 3C21.2092 3 23 4.7908 23 7L23 17C23 19.2092 21.2092 21 19 21L5 21C2.7908 21 1 19.2092 1 17L1 7C1 4.7908 2.7908 3 5 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M5 4L19 4C20.6569 4 22 5.3431 22 7L22 17C22 18.6569 20.6569 20 19 20L5 20C3.3431 20 2 18.6569 2 17L2 7C2 5.3431 3.3431 4 5 4ZM12 4L12 10M12 14L12 20M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12ZM2 8L5 8C5.5523 8 6 8.4477 6 9L6 15C6 15.5523 5.5523 16 5 16L2 16M22 8L19 8C18.4477 8 18 8.4477 18 9L18 15C18 15.5523 18.4477 16 19 16L22 16" />
     </Icon>
   )
 }
@@ -16200,6 +17843,15 @@ export function SquareArrowOutUpLeft(props: IconProps) {
   )
 }
 
+export function SquareArrowOutUpRightOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M7 7L6 7C4.3431 7 3 8.3431 3 10L3 18C3 19.6569 4.3431 21 6 21L14 21C15.6569 21 17 19.6569 17 18L17 17M14.8284 9.1716L20.5 3.5M13 3L20.5 3C20.7761 3 21 3.2239 21 3.5L21 11" strokeOpacity={0.4} />
+      <Path d="M2 2L22 22" />
+    </Icon>
+  )
+}
+
 export function SquareArrowOutUpRight(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -16358,6 +18010,26 @@ export function SquareBarChart(props: IconProps) {
   )
 }
 
+export function SquareBookmark(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2 6C2 3.791 3.791 2 6 2H18C20.209 2 22 3.791 22 6V18C22 20.209 20.209 22 18 22H6C3.791 22 2 20.209 2 18V6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3H18C19.657 3 21 4.343 21 6V18C21 19.657 19.657 21 18 21H6C4.343 21 3 19.657 3 18V6C3 4.343 4.343 3 6 3Z" />
+      <Path d="M8.129 8.613C8.129 7.812 8.779 7.162 9.581 7.162H14.419C15.221 7.162 15.871 7.812 15.871 8.613V16.354C15.871 16.737 15.447 16.968 15.125 16.761L12.392 15.315C12.153 15.161 11.847 15.161 11.608 15.315L8.875 16.761C8.553 16.968 8.129 16.737 8.129 16.354V8.613Z" />
+    </Icon>
+  )
+}
+
+export function SquareBraces(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2 6C2 3.791 3.7909 2 6 2H18C20.2091 2 22 3.791 22 6V18C22 20.209 20.2091 22 18 22H6C3.7909 22 2 20.209 2 18V6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3H18C19.6569 3 21 4.343 21 6V18C21 19.657 19.6569 21 18 21H6C4.3432 21 3 19.657 3 18V6C3 4.343 4.3432 3 6 3Z" />
+      <Path d="M10 7C9.4477 7 9 7.448 9 8V10.482C9 10.747 8.8947 11.002 8.7071 11.189L8.0732 11.823C8.0264 11.87 8 11.934 8 12C8 12.066 8.0264 12.13 8.0732 12.177L8.7071 12.811C8.8947 12.998 9 13.253 9 13.518V16C9 16.552 9.4477 17 10 17M14 7C14.5523 7 15 7.448 15 8V10.482C15 10.747 15.1054 11.002 15.2929 11.189L15.9268 11.823C15.9737 11.87 16 11.934 16 12C16 12.066 15.9737 12.13 15.9268 12.177L15.2929 12.811C15.1054 12.998 15 13.253 15 13.518V16C15 16.552 14.5523 17 14 17" />
+    </Icon>
+  )
+}
+
 export function SquareCaretDown(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -16488,6 +18160,16 @@ export function SquareChevronsUp(props: IconProps) {
   )
 }
 
+export function SquareCode(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2 6C2 3.79086 3.79086 2 6 2H18C20.2091 2 22 3.79086 22 6V18C22 20.2091 20.2091 22 18 22H6C3.79086 22 2 20.2091 2 18V6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3L18 3C19.6569 3 21 4.3431 21 6L21 18C21 19.6569 19.6569 21 18 21L6 21C4.3431 21 3 19.6569 3 18L3 6C3 4.3431 4.3431 3 6 3Z" />
+      <Path d="M10 8.5L7 12L10 15.5M14 8.5L17 12L14 15.5" />
+    </Icon>
+  )
+}
+
 export function SquareCursor(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -16516,6 +18198,15 @@ export function SquareDashedHalf(props: IconProps) {
   )
 }
 
+export function SquareDashedPen(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M10.8714 14.4285L14.9962 12.7786C15.1219 12.7283 15.2361 12.653 15.3319 12.5572L21.1945 6.6945C22.2685 5.6206 22.2685 3.8794 21.1945 2.8055C20.1206 1.7315 18.3794 1.7315 17.3055 2.8055L11.4428 8.6681C11.347 8.7639 11.2717 8.8781 11.2214 9.0038L9.5715 13.1286C9.423 13.5 9.51 13.9242 9.7929 14.2071C10.0758 14.49 10.5 14.577 10.8714 14.4285Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M3 6C3 4.34315 4.34315 3 6 3M10.5 3H12.5M21 11.5V13.5M21 18C21 19.6569 19.6569 21 18 21M13.5 21H10.5M6 21C4.34315 21 3 19.6569 3 18M3 13.5V10.5M10.5 13.5L14.6248 11.8501L20.4874 5.9874C21.1709 5.304 21.1709 4.196 20.4874 3.5126C19.804 2.8291 18.696 2.8291 18.0126 3.5126L12.1499 9.3752Z" />
+    </Icon>
+  )
+}
+
 export function SquareDashedQuarter(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -16538,6 +18229,15 @@ export function SquareDashed(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M3 6C3 4.34315 4.34315 3 6 3M10.5 3H13.5M18 3C19.6569 3 21 4.34315 21 6M21 10.5V13.5M21 18C21 19.6569 19.6569 21 18 21M13.5 21H10.5M6 21C4.34315 21 3 19.6569 3 18M3 13.5V10.5" />
+    </Icon>
+  )
+}
+
+export function SquareDiamond(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2L18 2C20.2092 2 22 3.7908 22 6L22 18C22 20.2092 20.2092 22 18 22L6 22C3.7908 22 2 20.2092 2 18L2 6C2 3.7908 3.7908 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M3 6C3 4.3431 4.3431 3 6 3L18 3C19.6569 3 21 4.3431 21 6L21 18C21 19.6569 19.6569 21 18 21L6 21C4.3431 21 3 19.6569 3 18ZM11.2929 7.2929C11.4805 7.1054 11.7348 7 12 7C12.2652 7 12.5195 7.1054 12.7071 7.2929L16.7071 11.2929C16.8947 11.4805 17 11.7348 17 12C17 12.2652 16.8947 12.5195 16.7071 12.7071L12.7071 16.7071C12.5195 16.8947 12.2652 17 12 17C11.7348 17 11.4805 16.8947 11.2929 16.7071L7.2929 12.7071C7.1054 12.5195 7 12.2652 7 12C7 11.7348 7.1054 11.4805 7.2929 11.2929L11.2929 7.2929Z" />
     </Icon>
   )
 }
@@ -16599,6 +18299,46 @@ export function SquareHalf(props: IconProps) {
   )
 }
 
+export function SquareListCheck(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M6 2H18C20.2091 2 22 3.791 22 6V11C22 11.552 21.5523 12 21 12H15C13.3431 12 12 13.343 12 15V21C12 21.552 11.5523 22 11 22H6C3.7909 22 2 20.209 2 18V6C2 3.791 3.7909 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M11 21H6C4.3432 21 3 19.657 3 18V6C3 4.343 4.3432 3 6 3H18C19.6569 3 21 4.343 21 6V11M12 8H16M15 18L17 20L21 16" />
+      <Path d="M9 8C9 8.552 8.5523 9 8 9C7.4477 9 7 8.552 7 8C7 7.448 7.4477 7 8 7C8.5523 7 9 7.448 9 8ZM9 12C9 12.552 8.5523 13 8 13C7.4477 13 7 12.552 7 12C7 11.448 7.4477 11 8 11C8.5523 11 9 11.448 9 12ZM9 16C9 16.552 8.5523 17 8 17C7.4477 17 7 16.552 7 16C7 15.448 7.4477 15 8 15C8.5523 15 9 15.448 9 16Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
+export function SquareListFilter(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2 6C2 3.79086 3.79086 2 6 2H18C20.2091 2 22 3.79086 22 6V18C22 20.2091 20.2091 22 18 22H6C3.79086 22 2 20.2091 2 18V6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3L18 3C19.6569 3 21 4.3431 21 6L21 18C21 19.6569 19.6569 21 18 21L6 21C4.3431 21 3 19.6569 3 18L3 6C3 4.3431 4.3431 3 6 3Z" />
+      <Path d="M8 8H16M9.5 12H14.5M11 16H13" />
+    </Icon>
+  )
+}
+
+export function SquareListPlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M6 2H18C20.2091 2 22 3.791 22 6V11C22 11.552 21.5523 12 21 12H15C13.3431 12 12 13.343 12 15V21C12 21.552 11.5523 22 11 22H6C3.7909 22 2 20.209 2 18V6C2 3.791 3.7909 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M11 21H6C4.3432 21 3 19.657 3 18V6C3 4.343 4.3432 3 6 3H18C19.6569 3 21 4.343 21 6V11M12 8H16M18 15V21M15 18H21" />
+      <Path d="M9 8C9 8.552 8.5523 9 8 9C7.4477 9 7 8.552 7 8C7 7.448 7.4477 7 8 7C8.5523 7 9 7.448 9 8ZM9 12C9 12.552 8.5523 13 8 13C7.4477 13 7 12.552 7 12C7 11.448 7.4477 11 8 11C8.5523 11 9 11.448 9 12ZM9 16C9 16.552 8.5523 17 8 17C7.4477 17 7 16.552 7 16C7 15.448 7.4477 15 8 15C8.5523 15 9 15.448 9 16Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
+export function SquareList(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2H18C20.209 2 22 3.791 22 6V18C22 20.209 20.209 22 18 22H6C3.791 22 2 20.209 2 18V6C2 3.791 3.791 2 6 2H12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 8H16M12 12H16M12 16H16M6 3H18C19.657 3 21 4.343 21 6V18C21 19.657 19.657 21 18 21H6C4.343 21 3 19.657 3 18V6C3 4.343 4.343 3 6 3Z" />
+      <Path d="M9 8C9 8.552 8.552 9 8 9C7.448 9 7 8.552 7 8C7 7.448 7.448 7 8 7C8.552 7 9 7.448 9 8ZM9 12C9 12.552 8.552 13 8 13C7.448 13 7 12.552 7 12C7 11.448 7.448 11 8 11C8.552 11 9 11.448 9 12ZM9 16C9 16.552 8.552 17 8 17C7.448 17 7 16.552 7 16C7 15.448 7.448 15 8 15C8.552 15 9 15.448 9 16Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function SquareMenu(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -16615,6 +18355,16 @@ export function SquareMinus(props: IconProps) {
       <Path d="M2 6C2 3.79086 3.79086 2 6 2H18C20.2091 2 22 3.79086 22 6V18C22 20.2091 20.2091 22 18 22H6C3.79086 22 2 20.2091 2 18V6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M6 3L18 3C19.6569 3 21 4.3431 21 6L21 18C21 19.6569 19.6569 21 18 21L6 21C4.3431 21 3 19.6569 3 18L3 6C3 4.3431 4.3431 3 6 3Z" />
       <Path d="M8 12H16" />
+    </Icon>
+  )
+}
+
+export function SquareMoon(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2 6C2 3.7909 3.7909 2 6 2H18C20.2091 2 22 3.7909 22 6V18C22 20.2091 20.2091 22 18 22H6C3.7909 22 2 20.2091 2 18V6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3H18C19.6569 3 21 4.3431 21 6V18C21 19.6569 19.6569 21 18 21H6C4.3432 21 3 19.6569 3 18V6C3 4.3431 4.3432 3 6 3Z" />
+      <Path d="M17 12C17 14.7614 14.7614 17 12 17C9.2386 17 7 14.7614 7 12C7 9.2386 9.2386 7 12 7C10.8677 8.4154 10.9807 10.4559 12.2624 11.7376C13.5441 13.0193 15.5846 13.1323 17 12Z" />
     </Icon>
   )
 }
@@ -16645,6 +18395,15 @@ export function SquareNavigation(props: IconProps) {
       <Path d="M20 21C20.5523 21 21 20.5523 21 20V6C21 4.34315 19.6569 3 18 3H6C4.34315 3 3 4.34315 3 6V20C3 20.5523 3.44772 21 4 21" />
       <Path d="M10.6348 12.1017C11.3682 11.2997 12.6318 11.2997 13.3652 12.1017C13.4501 12.1945 13.5277 12.2981 13.5967 12.4123L13.667 12.5382L16.2744 17.6125C16.2982 17.6588 16.32 17.7053 16.3398 17.7521C16.6386 18.4566 16.4965 19.2071 16.1025 19.7365C15.6775 20.3073 14.8972 20.6849 14.0439 20.4084L12 19.7453L9.957 20.4084C9.9037 20.4257 9.8505 20.44 9.7978 20.4523C9.1654 20.5998 8.5833 20.3961 8.1719 20.0343C8.0691 19.944 7.9771 19.8435 7.8974 19.7365C7.8713 19.7013 7.8461 19.6651 7.8223 19.6281C7.6783 19.4049 7.5764 19.1493 7.5293 18.8781C7.5057 18.7426 7.4958 18.6031 7.501 18.4621C7.5027 18.415 7.5066 18.3678 7.5117 18.3205C7.522 18.226 7.5389 18.131 7.5635 18.0363C7.5881 17.9412 7.6202 17.8462 7.6601 17.7521C7.68 17.7053 7.7018 17.6588 7.7256 17.6125L10.333 12.5382L10.4033 12.4123C10.4723 12.2981 10.5501 12.1945 10.6348 12.1017Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M8.61484 18.0691L11.2224 12.9948C11.5613 12.3351 12.4387 12.3351 12.7776 12.9948L15.3852 18.0691C15.7728 18.8235 15.1164 19.7053 14.3519 19.4574L12.2556 18.7775C12.0889 18.7234 11.9111 18.7234 11.7444 18.7775L9.64808 19.4574C8.88356 19.7053 8.2272 18.8235 8.61484 18.0691Z" />
+    </Icon>
+  )
+}
+
+export function SquarePadding(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2L18 2C20.2092 2 22 3.7908 22 6L22 18C22 20.2092 20.2092 22 18 22L6 22C3.7908 22 2 20.2092 2 18L2 6C2 3.7908 3.7908 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M3 6C3 4.3431 4.3431 3 6 3L18 3C19.6569 3 21 4.3431 21 6L21 18C21 19.6569 19.6569 21 18 21L6 21C4.3431 21 3 19.6569 3 18ZM10.5 7L13.5 7M17 10.5L17 13.5M10.5 17L13.5 17M7 10.5L7 13.5" />
     </Icon>
   )
 }
@@ -16761,6 +18520,16 @@ export function SquareRoundCorner(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M3 21V11C3 6.5817 6.5817 3 11 3H21M11 11L5.3431 5.3431" />
       <Path d="M11 9.5C11.8284 9.5 12.5 10.1716 12.5 11C12.5 11.8284 11.8284 12.5 11 12.5C10.1716 12.5 9.5 11.8284 9.5 11C9.5 10.1716 10.1716 9.5 11 9.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
+export function SquareSearch(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M2 6C2 3.7909 3.7909 2 6 2H18C20.2091 2 22 3.7909 22 6V18C22 20.2091 20.2091 22 18 22H6C3.7909 22 2 20.2091 2 18V6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3H18C19.6569 3 21 4.3432 21 6V18C21 19.6569 19.6569 21 18 21H6C4.3432 21 3 19.6569 3 18V6C3 4.3432 4.3432 3 6 3Z" />
+      <Path d="M13.4141 13.4142L16.2425 16.2426M14.3569 11.0572C14.3569 12.8796 12.8795 14.357 11.0571 14.357C9.2346 14.357 7.7573 12.8796 7.7573 11.0572C7.7573 9.2347 9.2346 7.7574 11.0571 7.7574C12.8795 7.7574 14.3569 9.2347 14.3569 11.0572Z" />
     </Icon>
   )
 }
@@ -16888,6 +18657,16 @@ export function SquareType(props: IconProps) {
   )
 }
 
+export function SquareUser(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2H18C20.209 2 22 3.7909 22 6V18C22 20.2092 20.209 22 18 22H6C3.791 22 2 20.2092 2 18V6C2 3.7909 3.791 2 6 2H12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3H18C19.657 3 21 4.3432 21 6V18C21 19.6569 19.657 21 18 21H6C4.343 21 3 19.6569 3 18V6C3 4.3432 4.343 3 6 3Z" />
+      <Path d="M14.121 11.1213C13.579 11.6631 12.828 12 12 12C10.343 12 9 10.6569 9 9C9 7.3432 10.343 6 12 6C13.657 6 15 7.3432 15 9C15 9.8282 14.663 10.5795 14.121 11.1213ZM6 20V19C6 16.2386 8.239 14 11 14H13C15.761 14 18 16.2386 18 19V20H6Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function SquareX(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -16912,6 +18691,15 @@ export function Square(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M2 6C2 3.79086 3.79086 2 6 2H18C20.2091 2 22 3.79086 22 6V18C22 20.2091 20.2091 22 18 22H6C3.79086 22 2 20.2091 2 18V6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M6 3H18C19.6569 3 21 4.34315 21 6V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V6C3 4.34315 4.34315 3 6 3Z" />
+    </Icon>
+  )
+}
+
+export function SquaresDivide(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M8 16L5 16C3.3431 16 2 14.6569 2 13L2 5C2 3.3431 3.3431 2 5 2L9 2L13 2C14.6569 2 16 3.3431 16 5L16 8L19 8C20.6569 8 22 9.3431 22 11L22 19C22 20.6569 20.6569 22 19 22L11 22C9.3431 22 8 20.6569 8 19Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M5 3L13 3C14.1046 3 15 3.8954 15 5L15 13C15 14.1046 14.1046 15 13 15L5 15C3.8954 15 3 14.1046 3 13L3 5C3 3.8954 3.8954 3 5 3ZM11 9L19 9C20.1046 9 21 9.8954 21 11L21 19C21 20.1046 20.1046 21 19 21L11 21C9.8954 21 9 20.1046 9 19L9 11C9 9.8954 9.8954 9 11 9Z" />
     </Icon>
   )
 }
@@ -16979,6 +18767,16 @@ export function Stamp(props: IconProps) {
   )
 }
 
+export function StarHalf(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M10.6046 1.95C10.8306 1.377 11.384 1 12 1C12.616 1 13.1694 1.377 13.3954 1.95L15.6757 7.732L21.6263 8.235C22.4031 8.3 23.0002 8.95 23.0002 9.73C23.0002 10.154 22.8205 10.558 22.5056 10.843L17.9148 14.99L19.3122 21.169C19.3368 21.278 19.3492 21.389 19.3492 21.5C19.3492 22.329 18.6776 23 17.8492 23C17.5611 23 17.279 22.917 17.0368 22.761L12 19.516L6.9632 22.761C6.721 22.917 6.4389 23 6.1508 23C5.3224 23 4.6508 22.329 4.6508 21.5C4.6508 21.389 4.6632 21.278 4.6878 21.169L6.0852 14.99L1.4944 10.843C1.1795 10.558 0.9998 10.154 0.9998 9.73C0.9998 8.95 1.5969 8.3 2.3737 8.235L8.3243 7.732L10.6046 1.95Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M11.5349 2.316C11.6102 2.125 11.7947 2 12 2C12.2053 2 12.3898 2.125 12.4651 2.316L14.8592 8.387C14.9289 8.564 15.0929 8.686 15.2822 8.702L21.5421 9.231C21.801 9.253 22 9.47 22 9.73C22 9.871 21.9401 10.006 21.8352 10.101L17.0274 14.444C16.9225 14.539 16.8626 14.674 16.8626 14.815C16.8626 14.853 16.8667 14.89 16.8749 14.926L18.3368 21.39C18.345 21.426 18.3491 21.463 18.3491 21.5C18.3491 21.776 18.1253 22 17.8491 22C17.7531 22 17.6591 21.972 17.5784 21.92L12.2708 18.501C12.19 18.449 12.096 18.421 12 18.421C11.904 18.421 11.81 18.449 11.7292 18.501L6.4216 21.92C6.3409 21.972 6.2469 22 6.1509 22C5.8747 22 5.6509 21.776 5.6509 21.5C5.6509 21.463 5.655 21.426 5.6632 21.39L7.1251 14.926C7.1333 14.89 7.1374 14.853 7.1374 14.815C7.1374 14.674 7.0775 14.539 6.9726 14.444L2.1648 10.101C2.0599 10.006 2 9.871 2 9.73C2 9.47 2.199 9.253 2.4579 9.231L8.7178 8.702C8.9071 8.686 9.0711 8.564 9.1408 8.387L11.5349 2.316Z" />
+      <Path d="M12 2C12.2053 2 12.3898 2.125 12.4651 2.316L14.8592 8.387C14.9289 8.564 15.0929 8.686 15.2822 8.702L21.5421 9.231C21.801 9.253 22 9.47 22 9.73C22 9.871 21.9401 10.006 21.8352 10.101L17.0274 14.444C16.9225 14.539 16.8626 14.674 16.8626 14.815C16.8626 14.852 16.8667 14.89 16.8749 14.926L18.3368 21.39C18.345 21.426 18.3491 21.463 18.3491 21.5C18.3491 21.776 18.1253 22 17.8491 22C17.7531 22 17.6591 21.972 17.5784 21.92L12.2708 18.501C12.19 18.449 12.096 18.421 12 18.421V2Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function StarOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -17002,6 +18800,15 @@ export function Star(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M10.6046 1.9497C10.8306 1.3766 11.384 1 12 1C12.616 1 13.1694 1.3766 13.3954 1.9497L15.6757 7.732L21.6263 8.2351C22.4031 8.3005 23.0002 8.9501 23.0002 9.7296C23.0002 10.1539 22.8205 10.5584 22.5056 10.8428L17.9148 14.9904L19.3122 21.1691C19.3368 21.2777 19.3492 21.3888 19.3492 21.5002C19.3492 22.3285 18.6776 23.0001 17.8492 23.0001C17.5611 23.0001 17.279 22.9171 17.0368 22.761L12 19.5163L6.9632 22.761C6.721 22.9171 6.4389 23.0001 6.1508 23.0001C5.3224 23.0001 4.6508 22.3285 4.6508 21.5002C4.6508 21.3888 4.6632 21.2777 4.6878 21.1691L6.0852 14.9904L1.4944 10.8428C1.1795 10.5584 0.9998 10.1539 0.9998 9.7296C0.9998 8.9501 1.5969 8.3005 2.3737 8.2351L8.3243 7.732L10.6046 1.9497Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M11.5349 2.3165C11.6102 2.1255 11.7947 2 12 2C12.2053 2 12.3898 2.1255 12.4651 2.3165L14.8592 8.3875C14.9289 8.5643 15.0929 8.6863 15.2822 8.7023L21.5421 9.2315C21.801 9.2534 22 9.4699 22 9.7298C22 9.8712 21.9401 10.006 21.8352 10.1008L17.0274 14.4444C16.9225 14.5392 16.8626 14.674 16.8626 14.8154C16.8626 14.8525 16.8667 14.8895 16.8749 14.9257L18.3368 21.3897C18.345 21.4259 18.3491 21.4629 18.3491 21.5C18.3491 21.7761 18.1253 22 17.8491 22C17.7531 22 17.6591 21.9723 17.5784 21.9203L12.2708 18.5012C12.19 18.4492 12.096 18.4215 12 18.4215C11.904 18.4215 11.81 18.4492 11.7292 18.5012L6.4216 21.9203C6.3409 21.9723 6.2469 22 6.1509 22C5.8747 22 5.6509 21.7761 5.6509 21.5C5.6509 21.4629 5.655 21.4259 5.6632 21.3897L7.1251 14.9257C7.1333 14.8895 7.1374 14.8525 7.1374 14.8154C7.1374 14.674 7.0775 14.5392 6.9726 14.4444L2.1648 10.1008C2.0599 10.006 2 9.8712 2 9.7298C2 9.4699 2.199 9.2534 2.4579 9.2315L8.7178 8.7023C8.9071 8.6863 9.0711 8.5643 9.1408 8.3875L11.5349 2.3165Z" fill="none" />
+    </Icon>
+  )
+}
+
+export function Stars(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M4.1249 13.395L5.6251 13.276L6.9435 10.119C7.1472 9.632 7.6226 9.315 8.1501 9.315C8.6776 9.315 9.153 9.632 9.3564 10.118L10.6752 13.276L14.0967 13.549C14.6237 13.591 15.0735 13.946 15.2364 14.449C15.3989 14.951 15.2442 15.503 14.8407 15.847L12.2382 18.067L13.0336 21.388C13.1566 21.902 12.9585 22.438 12.5322 22.749C12.1053 23.06 11.5336 23.084 11.0827 22.81L8.1501 21.026L5.2177 22.809C4.7666 23.084 4.1949 23.06 3.7681 22.749C3.3417 22.438 3.1436 21.902 3.2666 21.388L4.062 18.067L1.459 15.847C1.0565 15.504 0.9007 14.952 1.0639 14.449C1.2267 13.946 1.6765 13.591 2.2035 13.549L4.1249 13.395ZM20.4667 3.987L21.8726 4.099C22.3667 4.138 22.788 4.471 22.9405 4.943C23.0934 5.414 22.9467 5.931 22.5699 6.252L20.7906 7.77L21.3343 10.04C21.4499 10.521 21.2636 11.024 20.8645 11.315C20.4645 11.607 19.929 11.628 19.5068 11.372L17.5001 10.151L15.4939 11.372C15.0712 11.628 14.5357 11.607 14.1357 11.315C13.7366 11.024 13.5503 10.521 13.666 10.039L14.2096 7.77L12.4301 6.252C12.0535 5.931 11.9068 5.414 12.0599 4.942C12.2122 4.471 12.6335 4.138 13.127 4.099L15.468 3.912L16.3697 1.753C16.5602 1.297 17.0057 1 17.5001 1C17.9945 1 18.44 1.297 18.6305 1.753L19.5322 3.912L20.4667 3.987Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M7.8662 10.504C7.9141 10.389 8.026 10.315 8.15 10.315C8.274 10.315 8.3859 10.389 8.4338 10.504L9.9151 14.051C9.9595 14.157 10.0595 14.23 10.1743 14.239L14.017 14.546C14.1409 14.555 14.2467 14.639 14.285 14.757C14.3233 14.876 14.2867 15.005 14.1921 15.086L11.2663 17.582C11.1783 17.657 11.1398 17.775 11.1668 17.888L12.061 21.621C12.0899 21.742 12.0434 21.868 11.943 21.941C11.8427 22.014 11.7082 22.02 11.6021 21.955L8.3098 19.952C8.2116 19.893 8.0884 19.893 7.9902 19.952L4.6979 21.955C4.5918 22.02 4.4573 22.014 4.357 21.941C4.2566 21.868 4.2101 21.742 4.239 21.621L5.1332 17.888C5.1602 17.775 5.1217 17.657 5.0337 17.582L2.1079 15.086C2.0133 15.005 1.9766 14.876 2.015 14.757C2.0533 14.639 2.1591 14.555 2.283 14.546L6.1257 14.239C6.2405 14.23 6.3405 14.157 6.385 14.051L7.8662 10.504ZM17.2924 2.138C17.3274 2.054 17.4092 2 17.5 2C17.5908 2 17.6726 2.054 17.7076 2.138L18.7915 4.734C18.824 4.811 18.8972 4.864 18.9812 4.871L21.7929 5.095C21.8836 5.103 21.961 5.164 21.989 5.251C22.0171 5.337 21.9902 5.432 21.921 5.491L19.7802 7.317C19.7158 7.372 19.6877 7.459 19.7074 7.541L20.3617 10.273C20.3829 10.361 20.3488 10.453 20.2754 10.507C20.202 10.56 20.1036 10.564 20.0259 10.517L17.6169 9.052C17.5451 9.008 17.4549 9.008 17.3831 9.052L14.9741 10.517C14.8964 10.564 14.798 10.56 14.7246 10.507C14.6512 10.453 14.6171 10.361 14.6383 10.273L15.2926 7.541C15.3123 7.459 15.2842 7.372 15.2198 7.317L13.079 5.491C13.0098 5.432 12.9829 5.337 13.011 5.251C13.039 5.164 13.1164 5.103 13.2071 5.095L16.0188 4.871C16.1028 4.864 16.176 4.811 16.2085 4.734L17.2924 2.138Z" />
     </Icon>
   )
 }
@@ -17244,6 +19051,15 @@ export function SunMedium(props: IconProps) {
   )
 }
 
+export function SunMoon(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3.3431 9.3431C1.8965 10.7898 1 12.7911 1 15C1 19.4183 4.5817 23 9 23C13.4183 23 17 19.4183 17 15C17 14.4477 16.5523 14 16 14C15.7836 14 15.5731 14.0702 15.4 14.2C14.7076 14.7193 13.8655 15 13 15C10.7909 15 9 13.2091 9 11C9 10.1345 9.2807 9.2924 9.8 8.6C9.9298 8.4269 10 8.2164 10 8C10 7.4477 9.5523 7 9 7C6.7911 7 4.7898 7.8965 3.3431 9.3431Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M9 8C5.134 8 2 11.134 2 15C2 18.866 5.134 22 9 22C12.866 22 16 18.866 16 15C15.1345 15.6491 14.0819 16 13 16C10.2386 16 8 13.7614 8 11C8 9.9181 8.3509 8.8655 9 8ZM13 4.5V2M17.5962 6.4038L19.364 4.636M19.5 11H22" />
+    </Icon>
+  )
+}
+
 export function SunRain(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -17375,6 +19191,15 @@ export function Syringe(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M13.2218 5.1213C13.4093 4.9338 13.6637 4.8284 13.9289 4.8284C14.1941 4.8284 14.4485 4.9338 14.636 5.1213L18.8787 9.364C19.0662 9.5515 19.1716 9.8059 19.1716 10.0711C19.1716 10.3363 19.0662 10.5907 18.8787 10.7782L10.8076 18.8492C10.245 19.4119 9.4819 19.7279 8.6863 19.7279C7.8906 19.7279 7.1276 19.4119 6.565 18.8492L5.1508 17.435C4.5881 16.8724 4.2721 16.1094 4.2721 15.3137C4.2721 14.5181 4.5881 13.755 5.1508 13.1924L13.2218 5.1213Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M13.9289 5.8284L5.8579 13.8995C5.4828 14.2746 5.2721 14.7833 5.2721 15.3137C5.2721 15.8441 5.4828 16.3529 5.8579 16.7279L7.2721 18.1421C7.6471 18.5172 8.1559 18.7279 8.6863 18.7279C9.2167 18.7279 9.7254 18.5172 10.1005 18.1421L18.1716 10.0711M6.565 17.435L3 21M12.5147 4.4142L16.0502 7.9498L18.8787 5.1213M16.7574 3L21 7.2426M16.0502 7.9498L19.5858 11.4853M7.7574 12L9.1716 13.4142M10.5858 9.1716L12 10.5858" fill="none" />
+    </Icon>
+  )
+}
+
+export function Tab(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2H18C20.2092 2 22 3.791 22 6V18C22 20.209 20.2092 22 18 22H6C3.7909 22 2 20.209 2 18V6C2 3.791 3.7909 2 6 2H12ZM18 3H12V7C12 7.552 12.4477 8 13 8H21V6C21 4.343 19.6569 3 18 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M12 3V7C12 7.552 12.4477 8 13 8H21M6 3H18C19.6569 3 21 4.343 21 6V18C21 19.657 19.6569 21 18 21H6C4.3432 21 3 19.657 3 18V6C3 4.343 4.3432 3 6 3Z" />
     </Icon>
   )
 }
@@ -17764,6 +19589,16 @@ export function TagHorizontalStart(props: IconProps) {
   )
 }
 
+export function TagOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M6.293 17.707L10.707 22.121C11.879 23.293 13.778 23.293 14.95 22.121L22.121 14.95C23.293 13.778 23.293 11.879 22.121 10.707L17.707 6.293L6.293 17.707ZM4.879 14.879L14.879 4.879C15.06 4.698 15.172 4.448 15.172 4.172C15.172 3.895 15.06 3.645 14.879 3.464L13.293 1.879C12.73 1.316 11.967 1 11.172 1H5C2.791 1 1 2.791 1 5V11.172C1 11.967 1.316 12.73 1.879 13.293L3.464 14.879C3.645 15.06 3.895 15.172 4.172 15.172C4.448 15.172 4.698 15.06 4.879 14.879Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M17 7L21.414 11.414C22.195 12.195 22.195 13.462 21.414 14.243L14.243 21.414C13.462 22.195 12.195 22.195 11.414 21.414L7 17M22 2L2 22" />
+      <Path d="M9.5 8C9.5 8.828 8.828 9.5 8 9.5C7.172 9.5 6.5 8.828 6.5 8C6.5 7.172 7.172 6.5 8 6.5C8.828 6.5 9.5 7.172 9.5 8Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+    </Icon>
+  )
+}
+
 export function TagSparkles(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -17780,6 +19615,16 @@ export function Tag(props: IconProps) {
       <Path d="M1 5C1 2.790861 2.790861 1 5 1L11.171573 1C11.967223 1 12.730285 1.316071 13.292894 1.87868L22.12132 10.707107C23.292893 11.87868 23.292893 13.778174 22.12132 14.949747L14.949747 22.12132C13.778174 23.292893 11.87868 23.292893 10.707107 22.12132L1.87868 13.292894C1.316071 12.730285 1 11.967223 1 11.171573Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M2 5C2 3.343146 3.343146 2 5 2L11.171573 2C11.702006 2 12.210714 2.210714 12.585786 2.585786L21.414213 11.414213C22.195262 12.195262 22.195262 13.461592 21.414213 14.24264L14.24264 21.414213C13.461592 22.195262 12.195262 22.195262 11.414213 21.414213L2.585786 12.585786C2.210714 12.210714 2 11.702006 2 11.171573Z" />
       <Path d="M9.5 8C9.5 8.8284 8.8284 9.5 8 9.5C7.1716 9.5 6.5 8.8284 6.5 8C6.5 7.1716 7.1716 6.5 8 6.5C8.8284 6.5 9.5 7.1716 9.5 8Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function Tags(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M18.7071 9.2929L22.1213 12.7071C23.2928 13.8786 23.2928 15.7782 22.1213 16.9497L16.9497 22.1213C15.7782 23.2928 13.8786 23.2928 12.7071 22.1213L5.8787 15.2929C5.3161 14.7303 5 13.9672 5 13.1716L5 9C5 6.7908 6.7908 5 9 5L13.1716 5C13.9672 5 14.7303 5.3161 15.2929 5.8787Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 9C6 7.3431 7.3431 6 9 6L13.1716 6C13.702 6 14.2107 6.2107 14.5858 6.5858L21.4142 13.4142C22.1952 14.1952 22.1952 15.4616 21.4142 16.2426L16.2426 21.4142C15.4616 22.1952 14.1952 22.1952 13.4142 21.4142L6.5858 14.5858C6.2107 14.2107 6 13.702 6 13.1716ZM2 9L2 5C2 3.3431 3.3431 2 5 2L9 2" />
+      <Path d="M12.5 11C12.5 11.8284 11.8284 12.5 11 12.5C10.1716 12.5 9.5 11.8284 9.5 11C9.5 10.1716 10.1716 9.5 11 9.5C11.8284 9.5 12.5 10.1716 12.5 11Z" fill="currentColor" stroke="none" />
     </Icon>
   )
 }
@@ -18057,6 +19902,15 @@ export function TextAlign2Start(props: IconProps) {
   )
 }
 
+export function TextAlignBottom(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2L18 2C20.2092 2 22 3.7908 22 6L22 18C22 20.2092 20.2092 22 18 22L6 22C3.7908 22 2 20.2092 2 18L2 6C2 3.7908 3.7908 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3L18 3C19.6569 3 21 4.3431 21 6L21 18C21 19.6569 19.6569 21 18 21L6 21C4.3431 21 3 19.6569 3 18L3 6C3 4.3431 4.3431 3 6 3ZM7 13L17 13M7 17L13 17" />
+    </Icon>
+  )
+}
+
 export function TextAlignCenter(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -18090,10 +19944,28 @@ export function TextAlignJustify(props: IconProps) {
   )
 }
 
+export function TextAlignMiddle(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2L18 2C20.2092 2 22 3.7908 22 6L22 18C22 20.2092 20.2092 22 18 22L6 22C3.7908 22 2 20.2092 2 18L2 6C2 3.7908 3.7908 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3L18 3C19.6569 3 21 4.3431 21 6L21 18C21 19.6569 19.6569 21 18 21L6 21C4.3431 21 3 19.6569 3 18L3 6C3 4.3431 4.3431 3 6 3ZM7 10L17 10M7 14L13 14" />
+    </Icon>
+  )
+}
+
 export function TextAlignStart(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M3 3H21M3 9H15M3 15H21M3 21H15" fill="none" />
+    </Icon>
+  )
+}
+
+export function TextAlignTop(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 2L18 2C20.2092 2 22 3.7908 22 6L22 18C22 20.2092 20.2092 22 18 22L6 22C3.7908 22 2 20.2092 2 18L2 6C2 3.7908 3.7908 2 6 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M6 3L18 3C19.6569 3 21 4.3431 21 6L21 18C21 19.6569 19.6569 21 18 21L6 21C4.3431 21 3 19.6569 3 18L3 6C3 4.3431 4.3431 3 6 3ZM7 7L17 7M7 11L13 11" />
     </Icon>
   )
 }
@@ -18146,6 +20018,15 @@ export function TextQuote(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M3 5H16M3 12V19M7 12H21M7 19H21" fill="none" />
+    </Icon>
+  )
+}
+
+export function TextSelect(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 6C3 4.34315 4.34315 3 6 3M10.5 3H13.5M18 3C19.6569 3 21 4.34315 21 6M21 10.5V13.5M21 18C21 19.6569 19.6569 21 18 21M13.5 21H10.5M6 21C4.34315 21 3 19.6569 3 18M3 13.5V10.5" strokeOpacity={0.4} />
+      <Path d="M10 7H14M12 7V17M10 17H14" />
     </Icon>
   )
 }
@@ -18315,6 +20196,25 @@ export function Tools(props: IconProps) {
   )
 }
 
+export function TouchpadMouseOff(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M21.5355 21.5355C20.6318 22.4392 19.3804 23 18 23C15.2386 23 13 20.7614 13 18L13 14C13 13.687 13.0288 13.3808 13.0838 13.0838ZM21.2929 17.0502L15.4164 11.1737C15.2354 10.9928 15.1235 10.7428 15.1235 10.4666C15.1235 10.0841 15.3382 9.7518 15.6537 9.5837L15.6223 9.6004C15.6345 9.5938 15.6467 9.5872 15.659 9.5807C16.3574 9.21 17.1542 9 18 9C20.7614 9 23 11.2386 23 14L23 16.3431C23 16.8954 22.5523 17.3431 22 17.3431C21.7239 17.3431 21.4739 17.2312 21.2929 17.0502Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M10 16L5 16C3.3431 16 2 14.6569 2 13L2 5C2 4.1715 2.3358 3.4215 2.8787 2.8787M20.8284 20.8284C20.1046 21.5523 19.1046 22 18 22C15.7909 22 14 20.2091 14 18L14 14M2 2L22 22" />
+      <Path d="M7.6569 2L17 2C18.6569 2 20 3.3431 20 5L20 6" strokeOpacity={0.4} />
+    </Icon>
+  )
+}
+
+export function TouchpadMouse(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M21.5355 21.5355C20.6318 22.4392 19.3804 23 18 23C15.2386 23 13 20.7614 13 18L13 14C13 11.2386 15.2386 9 18 9C20.7614 9 23 11.2386 23 14L23 18C23 19.3804 22.4392 20.6318 21.5355 21.5355Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M10 16H5C3.3431 16 2 14.6569 2 13V5C2 3.3431 3.3431 2 5 2H17C18.6569 2 20 3.3431 20 5V6M18 10C20.2091 10 22 11.7909 22 14V18C22 20.2091 20.2091 22 18 22C15.7909 22 14 20.2091 14 18V14C14 11.7909 15.7909 10 18 10ZM18 14V15" />
+    </Icon>
+  )
+}
+
 export function TowelRack(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -18369,6 +20269,16 @@ export function TrainFrontOff(props: IconProps) {
       <Path d="M21 6L21 15C21.0006 15.5054 20.9052 16.0064 20.7188 16.4762L5.5238 1.2812C5.9936 1.0948 6.4946 0.9994 7 1L17 1C18.8242 1.0002 20.4173 2.2339 20.874 4L22 4C22.5523 4 23 4.4477 23 5C23 5.5523 22.5523 6 22 6L21 6ZM16.1715 19L7 19C4.7909 19 3 17.2091 3 15L3 5C2.9992 4.4323 3.1197 3.8709 3.3535 3.3535L18.6465 18.6466C18.1291 18.8803 17.5677 19.0008 17 19.0001L16.1715 19Z" fill="currentColor" fillOpacity={0.4} fillRule="evenodd" clipRule="evenodd" stroke="none" />
       <Path d="M17.8715 17.8715C17.5957 17.9551 17.3031 18 17 18L7 18C5.3431 18 4 16.6569 4 15L4 5C4 4.6969 4.0449 4.4043 4.1285 4.1285M4 9L9 9M4 5L2 5M7 18L5 22M17 18L19 22M2 2L22 22" fill="none" />
       <Path d="M10 13.5C10 14.3284 9.3284 15 8.5 15C7.6716 15 7 14.3284 7 13.5C7 12.6716 7.6716 12 8.5 12C9.3284 12 10 12.6716 10 13.5Z" fill="currentColor" stroke="none" />
+    </Icon>
+  )
+}
+
+export function TrainFrontTunnel(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 6H16C17.657 6 19 7.343 19 9V17C19 18.657 17.657 20 16 20H8C6.343 20 5 18.657 5 17V9C5 7.343 6.343 6 8 6H12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M2 22V7C2 4.239 4.239 2 7 2H17C19.761 2 22 4.239 22 7V22M18 11V9C18 7.895 17.105 7 16 7H8C6.895 7 6 7.895 6 9V11M18 11V17C18 18.105 17.105 19 16 19M18 11H6M16 19H8M16 19L17.5 22M8 19C6.895 19 6 18.105 6 17V11M8 19L6.5 22" />
+      <Path d="M11 15C11 15.552 10.552 16 10 16C9.448 16 9 15.552 9 15C9 14.448 9.448 14 10 14C10.552 14 11 14.448 11 15ZM15 15C15 15.552 14.552 16 14 16C13.448 16 13 15.552 13 15C13 14.448 13.448 14 14 14C14.552 14 15 14.448 15 15Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
     </Icon>
   )
 }
@@ -18761,6 +20671,24 @@ export function TypeSize(props: IconProps) {
   )
 }
 
+export function TypeVariable(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M6 6L6 5C6 3.8954 6.8954 3 8 3L16 3C17.1046 3 18 3.8954 18 5L18 6M12 3L12 11M9 11L15 11M3 18L13 18M21 18L17 18" strokeOpacity={0.4} />
+      <Path d="M17 15L17 21" />
+    </Icon>
+  )
+}
+
+export function TypeVertical(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M7 4L7 3C7 2.4477 7.4477 2 8 2L16 2C16.5523 2 17 2.4477 17 3L17 4M12 2L12 10M10 10L14 10" strokeOpacity={0.4} />
+      <Path d="M7 16L7 15C7 14.4477 7.4477 14 8 14L16 14C16.5523 14 17 14.4477 17 15L17 16M12 14L12 22M10 22L14 22" />
+    </Icon>
+  )
+}
+
 export function TypeWidth(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -18942,11 +20870,29 @@ export function UserArrowRight(props: IconProps) {
   )
 }
 
+export function UserBan(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M10 12C10.5523 12 11 12.4477 11 13L11 21C11 21.5523 10.5523 22 10 22L3 22C1.8954 22 1 21.1046 1 20L1 19C1 15.134 4.134 12 8 12ZM9 2C11.2092 2 13 3.7908 13 6C13 8.2092 11.2092 10 9 10C6.7909 10 5 8.2092 5 6C5 3.7908 6.7909 2 9 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M9 3C10.6569 3 12 4.3431 12 6C12 7.6569 10.6569 9 9 9C7.3432 9 6 7.6569 6 6C6 4.3431 7.3432 3 9 3ZM10 21L3 21C2.4477 21 2 20.5523 2 20V19C2 15.6863 4.6863 13 8 13L10 13M15.1716 14.1716L20.8284 19.8284M18 13C20.2092 13 22 14.7908 22 17C22 19.2092 20.2092 21 18 21C15.7908 21 14 19.2092 14 17C14 14.7908 15.7908 13 18 13Z" />
+    </Icon>
+  )
+}
+
 export function UserCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M8 12H10C13.866 12 17 15.134 17 19V20C17 21.1046 16.1046 22 15 22H3C1.89543 22 1 21.1046 1 20V19C1 15.134 4.13401 12 8 12ZM13 6C13 8.20914 11.2091 10 9 10C6.79086 10 5 8.20914 5 6C5 3.79086 6.79086 2 9 2C11.2091 2 13 3.79086 13 6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M8 13H10C13.3137 13 16 15.6863 16 19V20C16 20.5523 15.5523 21 15 21H3C2.44772 21 2 20.5523 2 20V19C2 15.6863 4.68629 13 8 13ZM9 3C10.6569 3 12 4.34315 12 6C12 7.65685 10.6569 9 9 9C7.34315 9 6 7.65685 6 6C6 4.34315 7.34315 3 9 3ZM16 6L18 8.25L22 3.75" />
+    </Icon>
+  )
+}
+
+export function UserChild(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M11.8284 3.1716C12.5512 3.8943 13 4.8957 13 6C13 8.2092 11.2092 10 9 10C6.7909 10 5 8.2092 5 6C5 3.7908 6.7909 2 9 2C10.1043 2 11.1057 2.4488 11.8284 3.1716ZM15.8787 13.1213C15.3369 12.5795 15 11.8282 15 11C15 9.3431 16.3431 8 18 8C19.6569 8 21 9.3431 21 11C21 12.6569 19.6569 14 18 14C17.1718 14 16.4205 13.6631 15.8787 13.1213ZM18 22L15 22C13.8954 22 13 21.1046 13 20C13 17.7908 14.7908 16 17 16L19 16C21.2092 16 23 17.7908 23 20C23 21.1046 22.1046 22 21 22Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M10.1008 21H3C2.4477 21 2 20.5523 2 20L2 19C2 15.6863 4.6863 13 8 13H10C10.8947 13 11.7781 13.2001 12.5854 13.5856M9 3C10.6569 3 12 4.3431 12 6C12 7.6569 10.6569 9 9 9C7.3432 9 6 7.6569 6 6C6 4.3431 7.3432 3 9 3ZM17 17H19C20.6569 17 22 18.3431 22 20C22 20.5523 21.5523 21 21 21H15C14.4477 21 14 20.5523 14 20C14 18.3431 15.3431 17 17 17ZM20 11C20 12.1046 19.1046 13 18 13C16.8954 13 16 12.1046 16 11C16 9.8954 16.8954 9 18 9C19.1046 9 20 9.8954 20 11Z" />
     </Icon>
   )
 }
@@ -19062,9 +21008,18 @@ export function UserShield(props: IconProps) {
 export function UserSparkles(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M16 21C16 21.5523 15.5523 22 15 22L3 22C2.4477 22 2 21.5523 2 21V20C2 16.6863 4.6863 14 8 14L10 14C10.7013 14 11.3744 14.1203 12 14.3414M9 4C10.6569 4 12 5.3431 12 7C12 8.6569 10.6569 10 9 10C7.3431 10 6 8.6569 6 7C6 5.3431 7.3431 4 9 4Z" />
-      <Path d="M19.5492 11.3739L20.1373 12.8648C20.3173 13.3213 20.6787 13.6827 21.1352 13.8627L22.6261 14.4508C22.8518 14.5397 23 14.7576 23 15C23 15.2424 22.8518 15.4603 22.6261 15.5492L21.1352 16.1373C20.6787 16.3173 20.3173 16.6787 20.1373 17.1352L19.5492 18.6261C19.4603 18.8518 19.2424 19 19 19C18.7576 19 18.5397 18.8518 18.4508 18.6261L17.8627 17.1352C17.6827 16.6787 17.3213 16.3173 16.8648 16.1373L15.3739 15.5492C15.1482 15.4603 15 15.2424 15 15C15 14.7576 15.1482 14.5397 15.3739 14.4508L16.8648 13.8627C17.3213 13.6827 17.6827 13.3213 17.8627 12.8648L18.4508 11.3739C18.5397 11.1482 18.7576 11 19 11C19.2424 11 19.4603 11.1482 19.5492 11.3739Z" fill="currentColor" stroke="none" />
-      <Path d="M20.8433 1.2337L21.2108 2.1655C21.3233 2.4508 21.5492 2.6767 21.8345 2.7892L22.7663 3.1567C22.9074 3.2123 23 3.3485 23 3.5C23 3.6515 22.9074 3.7877 22.7663 3.8433L21.8345 4.2108C21.5492 4.3233 21.3233 4.5492 21.2108 4.8345L20.8433 5.7663C20.7877 5.9074 20.6515 6 20.5 6C20.3485 6 20.2123 5.9074 20.1567 5.7663L19.7892 4.8345C19.6767 4.5492 19.4508 4.3233 19.1655 4.2108L18.2337 3.8433C18.0926 3.7877 18 3.6515 18 3.5C18 3.3485 18.0926 3.2123 18.2337 3.1567L19.1655 2.7892C19.4508 2.6767 19.6767 2.4508 19.7892 2.1655L20.1567 1.2337C20.2123 1.0926 20.3485 1 20.5 1C20.6515 1 20.7877 1.0926 20.8433 1.2337Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M16 21C16 21.552 15.5523 22 15 22H3C2.4477 22 2 21.552 2 21V20C2 16.686 4.6863 14 8 14H10C10.7013 14 11.3744 14.12 12 14.341M9 4C10.6569 4 12 5.343 12 7C12 8.657 10.6569 10 9 10C7.3431 10 6 8.657 6 7C6 5.343 7.3431 4 9 4Z" />
+      <Path d="M19.5492 11.374L20.1373 12.865C20.3173 13.321 20.6787 13.683 21.1352 13.863L22.6261 14.451C22.8518 14.54 23 14.758 23 15C23 15.242 22.8518 15.46 22.6261 15.549L21.1352 16.137C20.6787 16.317 20.3173 16.679 20.1373 17.135L19.5492 18.626C19.4603 18.852 19.2424 19 19 19C18.7576 19 18.5397 18.852 18.4508 18.626L17.8627 17.135C17.6827 16.679 17.3213 16.317 16.8648 16.137L15.3739 15.549C15.1482 15.46 15 15.242 15 15C15 14.758 15.1482 14.54 15.3739 14.451L16.8648 13.863C17.3213 13.683 17.6827 13.321 17.8627 12.865L18.4508 11.374C18.5397 11.148 18.7576 11 19 11C19.2424 11 19.4603 11.148 19.5492 11.374Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M20.8433 1.234L21.2108 2.165C21.3233 2.451 21.5492 2.677 21.8345 2.789L22.7663 3.157C22.9074 3.212 23 3.349 23 3.5C23 3.651 22.9074 3.788 22.7663 3.843L21.8345 4.211C21.5492 4.323 21.3233 4.549 21.2108 4.834L20.8433 5.766C20.7877 5.907 20.6515 6 20.5 6C20.3485 6 20.2123 5.907 20.1567 5.766L19.7892 4.834C19.6767 4.549 19.4508 4.323 19.1655 4.211L18.2337 3.843C18.0926 3.788 18 3.651 18 3.5C18 3.349 18.0926 3.212 18.2337 3.157L19.1655 2.789C19.4508 2.677 19.6767 2.451 19.7892 2.165L20.1567 1.234C20.2123 1.093 20.3485 1 20.5 1C20.6515 1 20.7877 1.093 20.8433 1.234Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+    </Icon>
+  )
+}
+
+export function UserStar(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M8 12C8.5523 12 9 12.4477 9 13L9 21C9 21.5523 8.5523 22 8 22L3 22C1.8954 22 1 21.1046 1 20L1 19C1 15.134 4.134 12 8 12ZM9 2C11.2092 2 13 3.7908 13 6C13 8.2092 11.2092 10 9 10C6.7909 10 5 8.2092 5 6C5 3.7908 6.7909 2 9 2Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M9 3C10.6569 3 12 4.3431 12 6C12 7.6569 10.6569 9 9 9C7.3432 9 6 7.6569 6 6C6 4.3431 7.3432 3 9 3ZM8 21L3 21C2.4477 21 2 20.5523 2 20V19C2 15.6863 4.6863 13 8 13M16.7693 11.6536C16.8082 11.5606 16.8992 11.5 17 11.5C17.1009 11.5 17.1918 11.5606 17.2307 11.6536L18.435 14.5373C18.4711 14.6237 18.5525 14.6827 18.6458 14.6901L21.7699 14.9395C21.8998 14.9499 22 15.0584 22 15.1887C22 15.2619 21.9679 15.3314 21.9123 15.3789L19.5335 17.4081C19.4779 17.4556 19.4458 17.5252 19.4458 17.5983C19.4458 17.618 19.4481 17.6375 19.4527 17.6566L20.1797 20.6918C20.1842 20.7108 20.1865 20.7304 20.1865 20.75C20.1865 20.8881 20.0746 21 19.9365 21C19.8907 21 19.8458 20.9874 19.8066 20.9636L17.1299 19.3354C17.0908 19.3116 17.0458 19.299 17 19.299C16.9542 19.299 16.9092 19.3116 16.8701 19.3354L14.1934 20.9636C14.1543 20.9874 14.1093 21 14.0635 21C13.9254 21 13.8135 20.8881 13.8135 20.75C13.8135 20.7304 13.8158 20.7108 13.8204 20.6918L14.5474 17.6566C14.5519 17.6375 14.5542 17.618 14.5542 17.5983C14.5542 17.5252 14.5222 17.4556 14.4665 17.4081L12.0878 15.3789C12.0321 15.3314 12 15.2619 12 15.1887C12 15.0584 12.1002 14.9499 12.2301 14.9395L15.3542 14.6901C15.4475 14.6827 15.5289 14.6237 15.565 14.5373L16.7693 11.6536Z" />
     </Icon>
   )
 }
@@ -19123,6 +21078,15 @@ export function Users3(props: IconProps) {
   )
 }
 
+export function UsersPlus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M8 12L10 12C13.866 12 17 15.134 17 19L17 20C17 21.1046 16.1046 22 15 22L3 22C1.8954 22 1 21.1046 1 20L1 19C1 15.134 4.134 12 8 12ZM13 6C13 8.2091 11.2091 10 9 10C6.7909 10 5 8.2091 5 6C5 3.7909 6.7909 2 9 2C11.2091 2 13 3.7909 13 6Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M19 3L19 9M16 6L22 6M8 13L10 13C13.3137 13 16 15.6863 16 19L16 20C16 20.5523 15.5523 21 15 21L3 21C2.4477 21 2 20.5523 2 20L2 19C2 15.6863 4.6863 13 8 13ZM9 3C10.6569 3 12 4.3431 12 6C12 7.6569 10.6569 9 9 9C7.3432 9 6 7.6569 6 6C6 4.3431 7.3432 3 9 3ZM18.3333 13.4713C20.554 14.409 22 16.589 22 19L22 20C22 20.5523 21.5523 21 21 21" />
+    </Icon>
+  )
+}
+
 export function Users(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -19167,11 +21131,29 @@ export function Vault(props: IconProps) {
   )
 }
 
+export function VectorCorner(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M12 4L13 4C14.1046 4 15 4.8954 15 6L15 8C15 9.1046 14.1046 10 13 10L11 10C9.8954 10 9 9.1046 9 8L9 6C9 4.8954 9.8954 4 11 4Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M11 5L13 5C13.5523 5 14 5.4477 14 6L14 8C14 8.5523 13.5523 9 13 9L11 9C10.4477 9 10 8.5523 10 8L10 6C10 5.4477 10.4477 5 11 5ZM10 8L2 19M14 8L22 19" />
+    </Icon>
+  )
+}
+
 export function VectorDistort(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M5 2L6 2C7.1046 2 8 2.8954 8 4L8 6C8 7.1046 7.1046 8 6 8L4 8C2.8954 8 2 7.1046 2 6L2 4C2 2.8954 2.8954 2 4 2ZM19 5L20 5C21.1046 5 22 5.8954 22 7L22 9C22 10.1046 21.1046 11 20 11L18 11C16.8954 11 16 10.1046 16 9L16 7C16 5.8954 16.8954 5 18 5ZM17 16L18 16C19.1046 16 20 16.8954 20 18L20 20C20 21.1046 19.1046 22 18 22L16 22C14.8954 22 14 21.1046 14 20L14 18C14 16.8954 14.8954 16 16 16ZM7 12L8 12C9.1046 12 10 12.8954 10 14L10 16C10 17.1046 9.1046 18 8 18L6 18C4.8954 18 4 17.1046 4 16L4 14C4 12.8954 4.8954 12 6 12Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M4 3H6C6.5523 3 7 3.4477 7 4V6C7 6.5523 6.5523 7 6 7H4C3.4477 7 3 6.5523 3 6V4C3 3.4477 3.4477 3 4 3ZM18 6H20C20.5523 6 21 6.4477 21 7V9C21 9.5523 20.5523 10 20 10H18C17.4477 10 17 9.5523 17 9V7C17 6.4477 17.4477 6 18 6ZM16 17H18C18.5523 17 19 17.4477 19 18V20C19 20.5523 18.5523 21 18 21H16C15.4477 21 15 20.5523 15 20V18C15 17.4477 15.4477 17 16 17ZM6 13H8C8.5523 13 9 13.4477 9 14V16C9 16.5523 8.5523 17 8 17H6C5.4477 17 5 16.5523 5 16V14C5 13.4477 5.4477 13 6 13ZM7 5L17 8M19 10L17 17M15 19L9 15M7 13L5 7" />
+    </Icon>
+  )
+}
+
+export function VectorPointMinus(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M11 8L12 8C13.1046 8 14 8.8954 14 10L14 12C14 13.1046 13.1046 14 12 14L10 14C8.8954 14 8 13.1046 8 12L8 10C8 8.8954 8.8954 8 10 8Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M10 9L12 9C12.5523 9 13 9.4477 13 10L13 12C13 12.5523 12.5523 13 12 13L10 13C9.4477 13 9 12.5523 9 12L9 10C9 9.4477 9.4477 9 10 9ZM2 19C2 15 5 11 9 11M13 11C17 11 22 9 22 5M16 19L22 19" />
     </Icon>
   )
 }
@@ -19217,6 +21199,15 @@ export function Video2(props: IconProps) {
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M15 5C16.6569 5 18 6.34312 18 8V8.38184L20.1055 7.3291C21.435 6.66456 22.9996 7.63177 23 9.11816V14.8828C22.9995 16.3691 21.435 17.3354 20.1055 16.6709L18 15.6182V16C18 17.6569 16.6569 19 15 19H4C2.34312 19 1 17.6569 1 16V8C1 6.34312 2.34312 5 4 5H15Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M4 6L15 6C16.1046 6 17 6.8954 17 8L17 16C17 17.1046 16.1046 18 15 18L4 18C2.8954 18 2 17.1046 2 16L2 8C2 6.8954 2.8954 6 4 6ZM17 10L20.5528 8.2236C21.2177 7.8912 22 8.3747 22 9.118L22 14.882C22 15.6253 21.2177 16.1088 20.5528 15.7764L17 14" />
+    </Icon>
+  )
+}
+
+export function VideoFrame(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M3 8V6C3 4.34315 4.34315 3 6 3H8M16 3H18C19.6569 3 21 4.34315 21 6V8M8 21H6C4.34315 21 3 19.6569 3 18V16" strokeOpacity={0.4} />
+      <Path d="M7.9627 8.1055C7.9627 7.3201 8.8267 6.8413 9.4927 7.2575L14.8023 10.576C15.1156 10.7718 15.1156 11.2282 14.8023 11.424L9.4927 14.7425C8.8267 15.1587 7.9627 14.6799 7.9627 13.8945L7.9627 8.1055ZM18 15V21M15 18L18 21L21 18" />
     </Icon>
   )
 }
@@ -19691,6 +21682,15 @@ export function Workflow(props: IconProps) {
   )
 }
 
+export function Wreath(props: IconProps) {
+  return (
+    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <Path d="M6.5677 11.0385C6.8552 11.3988 7.1024 11.7824 7.2972 12.192C7.8645 13.3848 7.942 14.6958 7.456 16.1108C7.8491 16.2439 8.2243 16.4109 8.5745 16.6188C9.8334 17.366 10.6678 18.5798 10.9199 20.3173C11.1102 21.6304 10.2973 22.7265 8.9856 22.9258C7.2497 23.1893 5.8459 22.7433 4.7653 21.7556C3.7355 20.8143 3.0793 19.4538 2.6116 18.0239C2.5263 17.7632 2.4783 17.4792 2.5011 17.188C2.5161 16.9954 2.5623 16.8016 2.6459 16.6178C1.9134 15.9439 1.4463 15.114 1.2047 14.1771C0.8509 12.8056 0.9965 11.2728 1.3302 9.7691C1.3825 9.533 1.4748 9.2902 1.6287 9.0713C1.786 8.8475 2.0056 8.6532 2.288 8.5356C2.311 8.526 2.3342 8.5171 2.3573 8.5088C2.3167 7.2363 2.6517 6.0754 3.2588 5.0226C4.0733 3.6099 5.3578 2.4232 6.7856 1.3872C6.988 1.2404 7.2287 1.1095 7.502 1.0439C7.7839 0.9762 8.1126 0.9768 8.4343 1.1174C8.7561 1.2581 8.9796 1.4989 9.1214 1.7517C9.2589 1.9968 9.3264 2.2623 9.3561 2.5105C9.5766 4.3526 9.5676 6.1951 9.0039 7.8137C8.557 9.0969 7.7737 10.2021 6.5677 11.0385ZM21.6427 8.5088C21.6658 8.5171 21.689 8.526 21.712 8.5356C21.9944 8.6532 22.214 8.8475 22.3713 9.0713C22.5252 9.2902 22.6175 9.533 22.6698 9.7691C23.0035 11.2728 23.1491 12.8056 22.7953 14.1771C22.5537 15.114 22.0866 15.9439 21.3541 16.6178C21.4377 16.8016 21.4839 16.9954 21.4989 17.188C21.5217 17.4792 21.4737 17.7632 21.3884 18.0239C20.9207 19.4538 20.2645 20.8143 19.2347 21.7556C18.1541 22.7433 16.7503 23.1893 15.0144 22.9258C13.7027 22.7265 12.8898 21.6304 13.0801 20.3173C13.3322 18.5798 14.1666 17.366 15.4255 16.6188C15.7757 16.4109 16.1509 16.2439 16.544 16.1108C16.058 14.6958 16.1355 13.3848 16.7028 12.192C16.8976 11.7824 17.1448 11.3988 17.4323 11.0385C16.2263 10.2021 15.443 9.0969 14.9961 7.8137C14.4324 6.1951 14.4234 4.3526 14.6439 2.5105C14.6736 2.2623 14.7411 1.9968 14.8786 1.7517C15.0204 1.4989 15.2439 1.2581 15.5657 1.1174C15.8874 0.9768 16.2161 0.9762 16.498 1.0439C16.7713 1.1095 17.012 1.2404 17.2144 1.3872C18.6422 2.4232 19.9267 3.6099 20.7412 5.0226C21.3483 6.0754 21.6833 7.2363 21.6427 8.5088Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M9.9302 20.4608C9.5065 17.5395 7.2355 16.7031 4.3567 16.6413C3.6647 16.6265 3.3468 17.0551 3.562 17.713C4.4572 20.4498 5.917 22.3801 8.8355 21.9371C9.6038 21.8204 10.0417 21.2299 9.9302 20.4608ZM6.0617 16.8072C7.8228 13.5304 6.1054 11.3396 3.3041 9.5703C2.8276 9.2694 2.4285 9.4355 2.3064 9.9857C1.6653 12.8751 1.8721 15.3875 4.4654 16.6454M4.9545 10.8106C8.2608 9.2955 8.7891 6.1873 8.3632 2.6294C8.2871 1.9939 7.891 1.8207 7.3729 2.1966C4.6181 4.1954 2.7456 6.5503 3.5366 9.7428M14.0698 20.4608C14.4935 17.5395 16.7645 16.7031 19.6433 16.6413C20.3353 16.6265 20.6532 17.0551 20.438 17.713C19.5428 20.4498 18.083 22.3801 15.1645 21.9371C14.3962 21.8204 13.9583 21.2299 14.0698 20.4608ZM17.9383 16.8072C16.1772 13.5304 17.8946 11.3396 20.6959 9.5703C21.1724 9.2694 21.5715 9.4355 21.6936 9.9857C22.3347 12.8751 22.1279 15.3875 19.5346 16.6454M19.0455 10.8106C15.7392 9.2955 15.2109 6.1873 15.6368 2.6294C15.7129 1.9939 16.109 1.8207 16.6271 2.1966C19.3819 4.1954 21.2544 6.5503 20.4634 9.7428" />
+    </Icon>
+  )
+}
+
 export function WrenchOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -19987,6 +21987,7 @@ export {
   AArrowDown as AArrowDownIcon,
   AArrowUp as AArrowUpIcon,
   ATextCursor as ATextCursorIcon,
+  Abacus as AbacusIcon,
   AccentGrave as AccentGraveIcon,
   Accessibility as AccessibilityIcon,
   ActivitySparkles as ActivitySparklesIcon,
@@ -20000,6 +22001,7 @@ export {
   AlarmClockPlus as AlarmClockPlusIcon,
   AlarmClockX as AlarmClockXIcon,
   AlarmClock as AlarmClockIcon,
+  AlertDouble as AlertDoubleIcon,
   Alert as AlertIcon,
   Alien as AlienIcon,
   AlignCenterHorizontal as AlignCenterHorizontalIcon,
@@ -20010,6 +22012,7 @@ export {
   AlignHorizontalDistributeEnd as AlignHorizontalDistributeEndIcon,
   AlignHorizontalDistributeStart as AlignHorizontalDistributeStartIcon,
   AlignHorizontalSpaceAround as AlignHorizontalSpaceAroundIcon,
+  AlignHorizontalSpaceBetween as AlignHorizontalSpaceBetweenIcon,
   AlignOffsetBottom as AlignOffsetBottomIcon,
   AlignOffsetLeft as AlignOffsetLeftIcon,
   AlignOffsetRight as AlignOffsetRightIcon,
@@ -20020,6 +22023,7 @@ export {
   AlignVerticalDistributeEnd as AlignVerticalDistributeEndIcon,
   AlignVerticalDistributeStart as AlignVerticalDistributeStartIcon,
   AlignVerticalSpaceAround as AlignVerticalSpaceAroundIcon,
+  AlignVerticalSpaceBetween as AlignVerticalSpaceBetweenIcon,
   Alt as AltIcon,
   AmericanFootball as AmericanFootballIcon,
   Anchor2 as Anchor2Icon,
@@ -20031,9 +22035,13 @@ export {
   AppMinus as AppMinusIcon,
   AppPlus as AppPlusIcon,
   AppWindow2 as AppWindow2Icon,
+  AppWindowCheck as AppWindowCheckIcon,
   AppWindowCursor as AppWindowCursorIcon,
+  AppWindowFrown as AppWindowFrownIcon,
   AppWindowMinus as AppWindowMinusIcon,
+  AppWindowOff as AppWindowOffIcon,
   AppWindowPlus as AppWindowPlusIcon,
+  AppWindowShield as AppWindowShieldIcon,
   AppWindowSparkles as AppWindowSparklesIcon,
   AppWindowTerminal as AppWindowTerminalIcon,
   AppWindowX as AppWindowXIcon,
@@ -20142,6 +22150,7 @@ export {
   BadgePercent as BadgePercentIcon,
   BadgePlus as BadgePlusIcon,
   BadgeQuestion as BadgeQuestionIcon,
+  BadgeStar as BadgeStarIcon,
   BadgeTerminal as BadgeTerminalIcon,
   BadgeX as BadgeXIcon,
   Badge as BadgeIcon,
@@ -20174,6 +22183,7 @@ export {
   BarsProgress as BarsProgressIcon,
   Baseball as BaseballIcon,
   BaselineShift as BaselineShiftIcon,
+  Baseline as BaselineIcon,
   Basketball as BasketballIcon,
   Bath as BathIcon,
   BatteryCharging as BatteryChargingIcon,
@@ -20199,6 +22209,7 @@ export {
   BellRing as BellRingIcon,
   BellSparkles as BellSparklesIcon,
   BellX as BellXIcon,
+  BellZ as BellZIcon,
   BellZap as BellZapIcon,
   Bell as BellIcon,
   Bike2Off as Bike2OffIcon,
@@ -20208,6 +22219,7 @@ export {
   Bike as BikeIcon,
   Bikini as BikiniIcon,
   Bin2 as Bin2Icon,
+  BinX as BinXIcon,
   Bin as BinIcon,
   Binary as BinaryIcon,
   Binoculars as BinocularsIcon,
@@ -20217,6 +22229,8 @@ export {
   Blocks2 as Blocks2Icon,
   Blocks as BlocksIcon,
   BloodPressure as BloodPressureIcon,
+  BluetoothConnected as BluetoothConnectedIcon,
+  BluetoothSearching as BluetoothSearchingIcon,
   Bluetooth as BluetoothIcon,
   Blur as BlurIcon,
   Bold as BoldIcon,
@@ -20237,13 +22251,20 @@ export {
   BookmarkCheck as BookmarkCheckIcon,
   BookmarkOff as BookmarkOffIcon,
   BookmarkPlus as BookmarkPlusIcon,
+  BookmarkStar as BookmarkStarIcon,
   BookmarkX as BookmarkXIcon,
   Bookmark as BookmarkIcon,
   Bookmarks as BookmarksIcon,
   BoomBox as BoomBoxIcon,
+  BorderBottom as BorderBottomIcon,
+  BorderInside as BorderInsideIcon,
+  BorderLeft as BorderLeftIcon,
+  BorderRight as BorderRightIcon,
+  BorderTop as BorderTopIcon,
   BotCircle as BotCircleIcon,
   BotCloud as BotCloudIcon,
   BotDroplet as BotDropletIcon,
+  BotFrown as BotFrownIcon,
   BotHeart as BotHeartIcon,
   BotMessage as BotMessageIcon,
   BotNetwork as BotNetworkIcon,
@@ -20309,17 +22330,25 @@ export {
   Cake as CakeIcon,
   CalculatorSparkles as CalculatorSparklesIcon,
   Calculator as CalculatorIcon,
+  CalendarAlert as CalendarAlertIcon,
   CalendarArrowDown as CalendarArrowDownIcon,
   CalendarArrowLeft as CalendarArrowLeftIcon,
   CalendarArrowRight as CalendarArrowRightIcon,
   CalendarArrowUp as CalendarArrowUpIcon,
   CalendarCheck as CalendarCheckIcon,
   CalendarClock as CalendarClockIcon,
+  CalendarCog as CalendarCogIcon,
   CalendarDays as CalendarDaysIcon,
+  CalendarLock as CalendarLockIcon,
   CalendarMinus as CalendarMinusIcon,
   CalendarOff as CalendarOffIcon,
+  CalendarPen as CalendarPenIcon,
   CalendarPlus as CalendarPlusIcon,
+  CalendarQuestion as CalendarQuestionIcon,
+  CalendarSearch as CalendarSearchIcon,
   CalendarSparkles as CalendarSparklesIcon,
+  CalendarStar as CalendarStarIcon,
+  CalendarUser as CalendarUserIcon,
   CalendarX as CalendarXIcon,
   CalendarZap as CalendarZapIcon,
   Calendar as CalendarIcon,
@@ -20331,10 +22360,12 @@ export {
   CaptionsOff as CaptionsOffIcon,
   CaptionsSparkles as CaptionsSparklesIcon,
   Captions as CaptionsIcon,
+  Capture as CaptureIcon,
   CarElectric as CarElectricIcon,
   CarFrontOff as CarFrontOffIcon,
   CarFront as CarFrontIcon,
   CarOff as CarOffIcon,
+  CarSparkles as CarSparklesIcon,
   CarTaxiFrontOff as CarTaxiFrontOffIcon,
   CarTaxiFront as CarTaxiFrontIcon,
   CarTaxi as CarTaxiIcon,
@@ -20347,9 +22378,13 @@ export {
   CaretLeft as CaretLeftIcon,
   CaretRight as CaretRightIcon,
   CaretUp as CaretUpIcon,
+  CaseLower as CaseLowerIcon,
   CaseSensitive as CaseSensitiveIcon,
   CaseUpper as CaseUpperIcon,
   CassetteTape as CassetteTapeIcon,
+  CastAlert as CastAlertIcon,
+  CastPause as CastPauseIcon,
+  CastX as CastXIcon,
   Cast as CastIcon,
   Castle as CastleIcon,
   CctvOff as CctvOffIcon,
@@ -20414,6 +22449,7 @@ export {
   ChevronsDownUp as ChevronsDownUpIcon,
   ChevronsDown as ChevronsDownIcon,
   ChevronsFourDirections as ChevronsFourDirectionsIcon,
+  ChevronsLeftRightEllipsis as ChevronsLeftRightEllipsisIcon,
   ChevronsLeftRight as ChevronsLeftRightIcon,
   ChevronsLeft as ChevronsLeftIcon,
   ChevronsRight as ChevronsRightIcon,
@@ -20450,10 +22486,15 @@ export {
   CircleBarChartHorizontalEnd as CircleBarChartHorizontalEndIcon,
   CircleBarChartHorizontalStart as CircleBarChartHorizontalStartIcon,
   CircleBarChart as CircleBarChartIcon,
+  CircleBookmark as CircleBookmarkIcon,
+  CircleBraces as CircleBracesIcon,
   CircleCaretDown as CircleCaretDownIcon,
   CircleCaretLeft as CircleCaretLeftIcon,
   CircleCaretRight as CircleCaretRightIcon,
   CircleCaretUp as CircleCaretUpIcon,
+  CircleCheckLine as CircleCheckLineIcon,
+  CircleCheckPlus as CircleCheckPlusIcon,
+  CircleCheckSparkles as CircleCheckSparklesIcon,
   CircleCheck as CircleCheckIcon,
   CircleChevronDown as CircleChevronDownIcon,
   CircleChevronLeft as CircleChevronLeftIcon,
@@ -20474,8 +22515,10 @@ export {
   CircleDashedThreeQuarter as CircleDashedThreeQuarterIcon,
   CircleDashedUser as CircleDashedUserIcon,
   CircleDashed as CircleDashedIcon,
+  CircleDiamond as CircleDiamondIcon,
   CircleDivide as CircleDivideIcon,
   CircleDollarSign as CircleDollarSignIcon,
+  CircleDotDashed as CircleDotDashedIcon,
   CircleDotLock as CircleDotLockIcon,
   CircleDot as CircleDotIcon,
   CircleEqual as CircleEqualIcon,
@@ -20486,8 +22529,10 @@ export {
   CircleHalf as CircleHalfIcon,
   CircleIndianRupee as CircleIndianRupeeIcon,
   CircleJapaneseYen as CircleJapaneseYenIcon,
+  CircleListFilter as CircleListFilterIcon,
   CircleMenu as CircleMenuIcon,
   CircleMinus as CircleMinusIcon,
+  CircleMoon as CircleMoonIcon,
   CircleMoreHorizontal as CircleMoreHorizontalIcon,
   CircleMoreVertical as CircleMoreVerticalIcon,
   CircleNavigation as CircleNavigationIcon,
@@ -20500,6 +22545,7 @@ export {
   CirclePlay as CirclePlayIcon,
   CirclePlus as CirclePlusIcon,
   CirclePoundSterling as CirclePoundSterlingIcon,
+  CircleProgressArrowDown as CircleProgressArrowDownIcon,
   CircleProgressArrowUp as CircleProgressArrowUpIcon,
   CircleProgressCheck as CircleProgressCheckIcon,
   CircleProgressHalf as CircleProgressHalfIcon,
@@ -20514,6 +22560,7 @@ export {
   CircleQuestion as CircleQuestionIcon,
   CircleRadical as CircleRadicalIcon,
   CircleRecord as CircleRecordIcon,
+  CircleSearch as CircleSearchIcon,
   CircleSevenEighth as CircleSevenEighthIcon,
   CircleSigma as CircleSigmaIcon,
   CircleSlash2 as CircleSlash2Icon,
@@ -20537,14 +22584,17 @@ export {
   CirclesFive as CirclesFiveIcon,
   CirclesThree as CirclesThreeIcon,
   Circles as CirclesIcon,
+  CircuitBoard as CircuitBoardIcon,
   Clapperboard as ClapperboardIcon,
   Clarinet as ClarinetIcon,
   ClipboardAlert as ClipboardAlertIcon,
   ClipboardCheck as ClipboardCheckIcon,
   ClipboardCode as ClipboardCodeIcon,
   ClipboardCopy as ClipboardCopyIcon,
+  ClipboardHeart as ClipboardHeartIcon,
   ClipboardList as ClipboardListIcon,
   ClipboardMinus as ClipboardMinusIcon,
+  ClipboardOff as ClipboardOffIcon,
   ClipboardPaste as ClipboardPasteIcon,
   ClipboardPlus as ClipboardPlusIcon,
   ClipboardTerminal as ClipboardTerminalIcon,
@@ -20578,6 +22628,7 @@ export {
   CloudAlert as CloudAlertIcon,
   CloudCheck as CloudCheckIcon,
   CloudClock as CloudClockIcon,
+  CloudCog as CloudCogIcon,
   CloudDownload as CloudDownloadIcon,
   CloudDrizzle as CloudDrizzleIcon,
   CloudFog as CloudFogIcon,
@@ -20589,12 +22640,15 @@ export {
   CloudMoon as CloudMoonIcon,
   CloudNetwork as CloudNetworkIcon,
   CloudOff as CloudOffIcon,
+  CloudPackage as CloudPackageIcon,
+  CloudPlay as CloudPlayIcon,
   CloudPlus as CloudPlusIcon,
   CloudRainHeavy as CloudRainHeavyIcon,
   CloudRainWind as CloudRainWindIcon,
   CloudRain as CloudRainIcon,
   CloudRainbow as CloudRainbowIcon,
   CloudSearch as CloudSearchIcon,
+  CloudShield as CloudShieldIcon,
   CloudSignal as CloudSignalIcon,
   CloudSleet as CloudSleetIcon,
   CloudSnow as CloudSnowIcon,
@@ -20623,6 +22677,7 @@ export {
   Colon as ColonIcon,
   Columns2 as Columns2Icon,
   Columns3 as Columns3Icon,
+  Columns4 as Columns4Icon,
   Comma as CommaIcon,
   Command as CommandIcon,
   Compact as CompactIcon,
@@ -20638,16 +22693,20 @@ export {
   Cookie as CookieIcon,
   CookingPotOff as CookingPotOffIcon,
   CookingPot as CookingPotIcon,
+  CopyArrowRight as CopyArrowRightIcon,
   CopyCheck as CopyCheckIcon,
   CopyMinus as CopyMinusIcon,
   CopyOff as CopyOffIcon,
   CopyPlus as CopyPlusIcon,
   CopyX as CopyXIcon,
   Copy as CopyIcon,
+  CornerChamfer as CornerChamferIcon,
   CornerDownLeft as CornerDownLeftIcon,
   CornerDownRight as CornerDownRightIcon,
+  CornerInverted as CornerInvertedIcon,
   CornerLeftDown as CornerLeftDownIcon,
   CornerLeftUp as CornerLeftUpIcon,
+  CornerNotch as CornerNotchIcon,
   CornerRightDown as CornerRightDownIcon,
   CornerRightUp as CornerRightUpIcon,
   CornerSharp as CornerSharpIcon,
@@ -20660,6 +22719,7 @@ export {
   CreditCard2 as CreditCard2Icon,
   CreditCardCheck as CreditCardCheckIcon,
   CreditCardMinus as CreditCardMinusIcon,
+  CreditCardOff as CreditCardOffIcon,
   CreditCardPlus as CreditCardPlusIcon,
   CreditCardSparkles as CreditCardSparklesIcon,
   CreditCardX as CreditCardXIcon,
@@ -20668,6 +22728,7 @@ export {
   Croissant as CroissantIcon,
   Crop as CropIcon,
   Cross as CrossIcon,
+  CrosshairX as CrosshairXIcon,
   Crosshair as CrosshairIcon,
   Crown as CrownIcon,
   Cuboid as CuboidIcon,
@@ -20693,6 +22754,7 @@ export {
   DatabaseCheck as DatabaseCheckIcon,
   DatabaseCog as DatabaseCogIcon,
   DatabaseMinus as DatabaseMinusIcon,
+  DatabaseOff as DatabaseOffIcon,
   DatabasePlus as DatabasePlusIcon,
   DatabaseSparkles as DatabaseSparklesIcon,
   DatabaseX as DatabaseXIcon,
@@ -20709,6 +22771,7 @@ export {
   DiamondAlert as DiamondAlertIcon,
   DiamondCheck as DiamondCheckIcon,
   DiamondDot as DiamondDotIcon,
+  DiamondNodes as DiamondNodesIcon,
   Diamond as DiamondIcon,
   Diamonds as DiamondsIcon,
   Dice1 as Dice1Icon,
@@ -20739,6 +22802,7 @@ export {
   DraftingCompass as DraftingCompassIcon,
   Dress as DressIcon,
   DropletDegree as DropletDegreeIcon,
+  DropletHalf as DropletHalfIcon,
   DropletOff as DropletOffIcon,
   Droplet as DropletIcon,
   Droplets as DropletsIcon,
@@ -20751,6 +22815,7 @@ export {
   EarbudsOff as EarbudsOffIcon,
   Earbuds as EarbudsIcon,
   Earth as EarthIcon,
+  EaseInOut as EaseInOutIcon,
   EaseIn as EaseInIcon,
   EaseLinear as EaseLinearIcon,
   EaseOut as EaseOutIcon,
@@ -20782,6 +22847,7 @@ export {
   ExpandSparkles as ExpandSparklesIcon,
   ExpandVertical as ExpandVerticalIcon,
   Explosion as ExplosionIcon,
+  EyeClosed as EyeClosedIcon,
   EyeOff as EyeOffIcon,
   EyeSparkles as EyeSparklesIcon,
   Eye as EyeIcon,
@@ -20789,14 +22855,23 @@ export {
   FaceExpressionless as FaceExpressionlessIcon,
   FaceFrown as FaceFrownIcon,
   FaceFrustrated as FaceFrustratedIcon,
+  FaceHeartEyes as FaceHeartEyesIcon,
+  FaceKiss as FaceKissIcon,
   FaceLaugh as FaceLaughIcon,
   FaceNeutral as FaceNeutralIcon,
+  FaceRofl as FaceRoflIcon,
+  FaceSleep as FaceSleepIcon,
   FaceSmilePlus as FaceSmilePlusIcon,
   FaceSmile as FaceSmileIcon,
+  FaceSquint as FaceSquintIcon,
+  FaceStarEyes as FaceStarEyesIcon,
   FaceSunglasses as FaceSunglassesIcon,
+  FaceTearsJoy as FaceTearsJoyIcon,
+  FaceTongue as FaceTongueIcon,
   Facemask as FacemaskIcon,
   Factory as FactoryIcon,
   FastForward as FastForwardIcon,
+  Fax as FaxIcon,
   Feather2 as Feather2Icon,
   Feather as FeatherIcon,
   FerrisWheel as FerrisWheelIcon,
@@ -20812,10 +22887,12 @@ export {
   FileCog as FileCogIcon,
   FileDiff as FileDiffIcon,
   FileImage as FileImageIcon,
+  FileLock as FileLockIcon,
   FileMinus as FileMinusIcon,
   FileOff as FileOffIcon,
   FilePlus as FilePlusIcon,
   FileSearch as FileSearchIcon,
+  FileSignature as FileSignatureIcon,
   FileSparkles as FileSparklesIcon,
   FileSpreadsheet as FileSpreadsheetIcon,
   FileTerminal as FileTerminalIcon,
@@ -20831,11 +22908,14 @@ export {
   FilmSparkles as FilmSparklesIcon,
   Film as FilmIcon,
   FilterDashedPanel as FilterDashedPanelIcon,
+  FilterOff as FilterOffIcon,
   Filter as FilterIcon,
   FingerprintPattern as FingerprintPatternIcon,
   FireExtinguisher as FireExtinguisherIcon,
   FireTruck as FireTruckIcon,
   Fish as FishIcon,
+  FitHeight as FitHeightIcon,
+  FitWidth as FitWidthIcon,
   FlagChequered as FlagChequeredIcon,
   FlagOff as FlagOffIcon,
   FlagSwallowtail as FlagSwallowtailIcon,
@@ -20877,8 +22957,10 @@ export {
   FolderArrowUp as FolderArrowUpIcon,
   FolderCheck as FolderCheckIcon,
   FolderCog as FolderCogIcon,
+  FolderLines as FolderLinesIcon,
   FolderMinus as FolderMinusIcon,
   FolderOpen as FolderOpenIcon,
+  FolderPen as FolderPenIcon,
   FolderPlus as FolderPlusIcon,
   FolderSearch as FolderSearchIcon,
   FolderSparkles as FolderSparklesIcon,
@@ -20908,6 +22990,7 @@ export {
   GalleryVerticalEnd as GalleryVerticalEndIcon,
   GalleryVerticalStart as GalleryVerticalStartIcon,
   GalleryVertical as GalleryVerticalIcon,
+  GamepadOff as GamepadOffIcon,
   Gamepad as GamepadIcon,
   GarageOpen as GarageOpenIcon,
   Garage as GarageIcon,
@@ -20920,11 +23003,13 @@ export {
   GateOr as GateOrIcon,
   GateXnor as GateXnorIcon,
   GateXor as GateXorIcon,
+  GaugeAlert as GaugeAlertIcon,
   GaugeDashedHalf as GaugeDashedHalfIcon,
   GaugeHigh as GaugeHighIcon,
   GaugeLow as GaugeLowIcon,
   Gauge as GaugeIcon,
   Gavel as GavelIcon,
+  Gearbox as GearboxIcon,
   Gem as GemIcon,
   Ghost as GhostIcon,
   GiftSparkles as GiftSparklesIcon,
@@ -20960,15 +23045,19 @@ export {
   GlassWater as GlassWaterIcon,
   Glasses as GlassesIcon,
   GlobeCheck as GlobeCheckIcon,
+  GlobeClock as GlobeClockIcon,
   GlobeCog as GlobeCogIcon,
   GlobeCursor as GlobeCursorIcon,
+  GlobeNetwork as GlobeNetworkIcon,
   GlobeOff as GlobeOffIcon,
   GlobePlus as GlobePlusIcon,
   GlobeSearch as GlobeSearchIcon,
+  GlobeShield as GlobeShieldIcon,
   GlobeX as GlobeXIcon,
   Globe as GlobeIcon,
   GoldBars as GoldBarsIcon,
   GolfHole as GolfHoleIcon,
+  GradientLinear as GradientLinearIcon,
   GraduationCap as GraduationCapIcon,
   Grape as GrapeIcon,
   GreaterThanEqual as GreaterThanEqualIcon,
@@ -20984,6 +23073,7 @@ export {
   GridCirclesPlus as GridCirclesPlusIcon,
   GridCirclesX as GridCirclesXIcon,
   GridCircles as GridCirclesIcon,
+  GridDots as GridDotsIcon,
   GridMasonry as GridMasonryIcon,
   GridSquaresCheck as GridSquaresCheckIcon,
   GridSquaresPlus as GridSquaresPlusIcon,
@@ -20992,6 +23082,7 @@ export {
   Grill as GrillIcon,
   GripHorizontal as GripHorizontalIcon,
   GripVertical as GripVerticalIcon,
+  Grip as GripIcon,
   Gripper as GripperIcon,
   Group as GroupIcon,
   Guesthouse as GuesthouseIcon,
@@ -21009,6 +23100,7 @@ export {
   HandClosed as HandClosedIcon,
   HandCoins as HandCoinsIcon,
   HandHeart as HandHeartIcon,
+  HandOpenOff as HandOpenOffIcon,
   HandOpen as HandOpenIcon,
   HandPointerDown as HandPointerDownIcon,
   HandPointerLeft as HandPointerLeftIcon,
@@ -21060,7 +23152,10 @@ export {
   Hexagons as HexagonsIcon,
   Highlighter as HighlighterIcon,
   HistoryCheck as HistoryCheckIcon,
+  HistoryCog as HistoryCogIcon,
+  HistoryX as HistoryXIcon,
   History as HistoryIcon,
+  HockeyPuck as HockeyPuckIcon,
   HockeySticks as HockeySticksIcon,
   HomeCheck as HomeCheckIcon,
   HomeHeart as HomeHeartIcon,
@@ -21100,7 +23195,10 @@ export {
   Humidity as HumidityIcon,
   IceSkate as IceSkateIcon,
   IdBadge as IdBadgeIcon,
+  IdCardSparkles as IdCardSparklesIcon,
   IdCard as IdCardIcon,
+  IframeOff as IframeOffIcon,
+  Iframe as IframeIcon,
   ImageAlignLeft as ImageAlignLeftIcon,
   ImageAlignRight as ImageAlignRightIcon,
   ImageArrowDown as ImageArrowDownIcon,
@@ -21115,15 +23213,19 @@ export {
   ImagePlay as ImagePlayIcon,
   ImagePlus as ImagePlusIcon,
   ImageScan as ImageScanIcon,
+  ImageSearch as ImageSearchIcon,
   ImageSparkles as ImageSparklesIcon,
   ImageWrapLeft as ImageWrapLeftIcon,
   ImageWrapRight as ImageWrapRightIcon,
   ImageX as ImageXIcon,
   Image as ImageIcon,
   Images as ImagesIcon,
+  InboxArrowDown as InboxArrowDownIcon,
+  InboxArrowUp as InboxArrowUpIcon,
   InboxDot as InboxDotIcon,
   InboxSparkles as InboxSparklesIcon,
   Inbox as InboxIcon,
+  Inboxes as InboxesIcon,
   IndianRupee as IndianRupeeIcon,
   Infinity as InfinityIcon,
   Info as InfoIcon,
@@ -21132,24 +23234,31 @@ export {
   InputTextCursor as InputTextCursorIcon,
   Input as InputIcon,
   Italic as ItalicIcon,
+  IvBag as IvBagIcon,
   Jacket as JacketIcon,
   JapaneseYen as JapaneseYenIcon,
   JerryCan as JerryCanIcon,
   Joystick as JoystickIcon,
   Kerning as KerningIcon,
+  KeyOff as KeyOffIcon,
   KeyRound as KeyRoundIcon,
   KeySquare as KeySquareIcon,
   Key as KeyIcon,
+  KeyboardLock as KeyboardLockIcon,
   KeyboardOff as KeyboardOffIcon,
   Keyboard as KeyboardIcon,
   Keyframes as KeyframesIcon,
   Lambda as LambdaIcon,
+  LampCeiling as LampCeilingIcon,
   LampDesk as LampDeskIcon,
   LampFloor as LampFloorIcon,
   Lamp as LampIcon,
   Landmark as LandmarkIcon,
   LanguageSparkles as LanguageSparklesIcon,
   Language as LanguageIcon,
+  LaptopArrowDown as LaptopArrowDownIcon,
+  LaptopCheck as LaptopCheckIcon,
+  LaptopSmartphoneOff as LaptopSmartphoneOffIcon,
   LaptopSmartphone as LaptopSmartphoneIcon,
   LaptopSparkles as LaptopSparklesIcon,
   Laptop as LaptopIcon,
@@ -21190,6 +23299,7 @@ export {
   LightbulbSparkles as LightbulbSparklesIcon,
   Lightbulb as LightbulbIcon,
   Lighthouse as LighthouseIcon,
+  LineDashed as LineDashedIcon,
   Link2Off as Link2OffIcon,
   Link2 as Link2Icon,
   LinkPlus as LinkPlusIcon,
@@ -21223,18 +23333,33 @@ export {
   LocateFixed as LocateFixedIcon,
   LocateOff as LocateOffIcon,
   Locate as LocateIcon,
+  LockCheck as LockCheckIcon,
+  LockClock as LockClockIcon,
+  LockOff as LockOffIcon,
+  LockPlus as LockPlusIcon,
   Lock as LockIcon,
   LogIn as LogInIcon,
   LogOut as LogOutIcon,
+  Lotus as LotusIcon,
   Luggage as LuggageIcon,
   Lungs as LungsIcon,
   Magnet as MagnetIcon,
+  MailAlert as MailAlertIcon,
+  MailArrowDown as MailArrowDownIcon,
+  MailArrowLeft as MailArrowLeftIcon,
+  MailArrowRight as MailArrowRightIcon,
+  MailArrowUp as MailArrowUpIcon,
+  MailAsterisk as MailAsteriskIcon,
   MailCheck as MailCheckIcon,
+  MailCog as MailCogIcon,
   MailDot as MailDotIcon,
+  MailForward as MailForwardIcon,
   MailMinus as MailMinusIcon,
   MailOpen as MailOpenIcon,
   MailPlus as MailPlusIcon,
   MailScan as MailScanIcon,
+  MailSearch as MailSearchIcon,
+  MailShield as MailShieldIcon,
   MailSparkles as MailSparklesIcon,
   MailX as MailXIcon,
   MailZap as MailZapIcon,
@@ -21248,6 +23373,7 @@ export {
   MapPinOff as MapPinOffIcon,
   MapPinPlus as MapPinPlusIcon,
   MapPinSearch as MapPinSearchIcon,
+  MapPinSparkles as MapPinSparklesIcon,
   MapPinX as MapPinXIcon,
   MapPin as MapPinIcon,
   Map as MapIcon,
@@ -21261,8 +23387,11 @@ export {
   MenuSparkles as MenuSparklesIcon,
   Menu as MenuIcon,
   Merge as MergeIcon,
+  MessageArrowUp as MessageArrowUpIcon,
   MessageCheck as MessageCheckIcon,
+  MessageClock as MessageClockIcon,
   MessageCode as MessageCodeIcon,
+  MessageDashedCheck as MessageDashedCheckIcon,
   MessageDashed as MessageDashedIcon,
   MessageDot as MessageDotIcon,
   MessageLines as MessageLinesIcon,
@@ -21276,13 +23405,19 @@ export {
   MessageSparkles as MessageSparklesIcon,
   MessageSquareAlert as MessageSquareAlertIcon,
   MessageSquareArrowUpRight as MessageSquareArrowUpRightIcon,
+  MessageSquareArrowUp as MessageSquareArrowUpIcon,
   MessageSquareCheck as MessageSquareCheckIcon,
+  MessageSquareCode as MessageSquareCodeIcon,
+  MessageSquareDashedCheck as MessageSquareDashedCheckIcon,
   MessageSquareDashed as MessageSquareDashedIcon,
   MessageSquareDot as MessageSquareDotIcon,
+  MessageSquareInfo as MessageSquareInfoIcon,
   MessageSquareLines as MessageSquareLinesIcon,
   MessageSquareLock as MessageSquareLockIcon,
   MessageSquareMinus as MessageSquareMinusIcon,
+  MessageSquareMore as MessageSquareMoreIcon,
   MessageSquareOff as MessageSquareOffIcon,
+  MessageSquarePen as MessageSquarePenIcon,
   MessageSquarePlus as MessageSquarePlusIcon,
   MessageSquareSparkle as MessageSquareSparkleIcon,
   MessageSquareSparkles as MessageSquareSparklesIcon,
@@ -21298,6 +23433,7 @@ export {
   Microscope as MicroscopeIcon,
   Microwave as MicrowaveIcon,
   Milestone as MilestoneIcon,
+  Minimize2 as Minimize2Icon,
   Minimize as MinimizeIcon,
   MinusForwardSlashPlus as MinusForwardSlashPlusIcon,
   Minus as MinusIcon,
@@ -21340,6 +23476,7 @@ export {
   Mosque as MosqueIcon,
   Mount as MountIcon,
   MountainSnow as MountainSnowIcon,
+  MouseLock as MouseLockIcon,
   MouseOff as MouseOffIcon,
   MousePointer as MousePointerIcon,
   Mouse as MouseIcon,
@@ -21368,6 +23505,7 @@ export {
   Necktie as NecktieIcon,
   Newspaper as NewspaperIcon,
   Nfc as NfcIcon,
+  NodesCycle as NodesCycleIcon,
   NotebookPen as NotebookPenIcon,
   Notebook as NotebookIcon,
   OctagonAlert as OctagonAlertIcon,
@@ -21408,12 +23546,14 @@ export {
   PanelLeftDashed as PanelLeftDashedIcon,
   PanelLeftOpenDashed as PanelLeftOpenDashedIcon,
   PanelLeftOpen as PanelLeftOpenIcon,
+  PanelLeftSparkles as PanelLeftSparklesIcon,
   PanelLeft as PanelLeftIcon,
   PanelRightCloseDashed as PanelRightCloseDashedIcon,
   PanelRightClose as PanelRightCloseIcon,
   PanelRightDashed as PanelRightDashedIcon,
   PanelRightOpenDashed as PanelRightOpenDashedIcon,
   PanelRightOpen as PanelRightOpenIcon,
+  PanelRightSparkles as PanelRightSparklesIcon,
   PanelRight as PanelRightIcon,
   PanelTopCloseDashed as PanelTopCloseDashedIcon,
   PanelTopClose as PanelTopCloseIcon,
@@ -21427,6 +23567,7 @@ export {
   Pants as PantsIcon,
   PaperBagSparkles as PaperBagSparklesIcon,
   PaperBag as PaperBagIcon,
+  PaperclipPlus as PaperclipPlusIcon,
   Paperclip as PaperclipIcon,
   Parallelogram as ParallelogramIcon,
   Parasol as ParasolIcon,
@@ -21437,6 +23578,7 @@ export {
   ParenthesisRight as ParenthesisRightIcon,
   Parking as ParkingIcon,
   PartyPopper as PartyPopperIcon,
+  Password as PasswordIcon,
   Paste as PasteIcon,
   Pause as PauseIcon,
   PawPrint as PawPrintIcon,
@@ -21465,9 +23607,14 @@ export {
   PhoneSparkles as PhoneSparklesIcon,
   Phone as PhoneIcon,
   Pi as PiIcon,
+  PianoOff as PianoOffIcon,
+  Piano as PianoIcon,
+  PictureInPictureOff as PictureInPictureOffIcon,
   PictureInPicture as PictureInPictureIcon,
   Pig as PigIcon,
   PiggyBank as PiggyBankIcon,
+  PilcrowLeft as PilcrowLeftIcon,
+  PilcrowRight as PilcrowRightIcon,
   Pilcrow as PilcrowIcon,
   PillBottle as PillBottleIcon,
   Pill as PillIcon,
@@ -21504,7 +23651,11 @@ export {
   PoundSterling as PoundSterlingIcon,
   PowerOff as PowerOffIcon,
   Power as PowerIcon,
+  PrinterOff as PrinterOffIcon,
   Printer as PrinterIcon,
+  PuzzleCheck as PuzzleCheckIcon,
+  PuzzleCrack as PuzzleCrackIcon,
+  PuzzleOff as PuzzleOffIcon,
   Puzzle as PuzzleIcon,
   Pyramid as PyramidIcon,
   QrCode as QrCodeIcon,
@@ -21530,13 +23681,16 @@ export {
   Ratio916 as Ratio916Icon,
   Receipt as ReceiptIcon,
   Record as RecordIcon,
+  RectangleGogglesOff as RectangleGogglesOffIcon,
   RectangleGoggles as RectangleGogglesIcon,
   Recycle as RecycleIcon,
+  Redirect as RedirectIcon,
   RedoDot as RedoDotIcon,
   Redo as RedoIcon,
   RefreshCcwDot as RefreshCcwDotIcon,
   RefreshCcwSparkles as RefreshCcwSparklesIcon,
   RefreshCcw as RefreshCcwIcon,
+  RefreshCwAlert as RefreshCwAlertIcon,
   RefreshCwOff as RefreshCwOffIcon,
   RefreshCwSparkles as RefreshCwSparklesIcon,
   RefreshCw as RefreshCwIcon,
@@ -21547,6 +23701,7 @@ export {
   Repeat1 as Repeat1Icon,
   RepeatOff as RepeatOffIcon,
   Repeat as RepeatIcon,
+  Replace as ReplaceIcon,
   Replay as ReplayIcon,
   ReplyAll as ReplyAllIcon,
   Reply as ReplyIcon,
@@ -21570,8 +23725,12 @@ export {
   RouteArrowRight as RouteArrowRightIcon,
   RouteOff as RouteOffIcon,
   Route as RouteIcon,
+  RouterOff as RouterOffIcon,
   Router as RouterIcon,
+  Rows2 as Rows2Icon,
   Rss as RssIcon,
+  RulerDimensionLine as RulerDimensionLineIcon,
+  Ruler as RulerIcon,
   Sailboat as SailboatIcon,
   Salad as SaladIcon,
   SatelliteDish as SatelliteDishIcon,
@@ -21586,10 +23745,13 @@ export {
   ScaleUnbalanced as ScaleUnbalancedIcon,
   Scale as ScaleIcon,
   ScanBarcode as ScanBarcodeIcon,
+  ScanBoxOff as ScanBoxOffIcon,
+  ScanBox as ScanBoxIcon,
   ScanCheck as ScanCheckIcon,
   ScanEye as ScanEyeIcon,
   ScanFace as ScanFaceIcon,
   ScanLine as ScanLineIcon,
+  ScanPlus as ScanPlusIcon,
   ScanQrCode as ScanQrCodeIcon,
   ScanSearch as ScanSearchIcon,
   ScanSparkle as ScanSparkleIcon,
@@ -21611,6 +23773,7 @@ export {
   Search2Sparkles as Search2SparklesIcon,
   Search2X as Search2XIcon,
   Search2 as Search2Icon,
+  SearchActivity as SearchActivityIcon,
   SearchCheck as SearchCheckIcon,
   SearchList as SearchListIcon,
   SearchMinus as SearchMinusIcon,
@@ -21619,6 +23782,7 @@ export {
   SearchSparkles as SearchSparklesIcon,
   SearchX as SearchXIcon,
   Search as SearchIcon,
+  SecurityKey as SecurityKeyIcon,
   Semicolon as SemicolonIcon,
   SendClock as SendClockIcon,
   SendFast as SendFastIcon,
@@ -21627,6 +23791,8 @@ export {
   SendSparkles as SendSparklesIcon,
   Send as SendIcon,
   SeparatorHorizontal as SeparatorHorizontalIcon,
+  SerialPortOff as SerialPortOffIcon,
+  SerialPort as SerialPortIcon,
   ServerMinus as ServerMinusIcon,
   ServerOff as ServerOffIcon,
   ServerPlus as ServerPlusIcon,
@@ -21637,19 +23803,26 @@ export {
   Shadows as ShadowsIcon,
   Shamrock as ShamrockIcon,
   Shapes2 as Shapes2Icon,
+  ShapesBlend as ShapesBlendIcon,
+  ShapesSparkles as ShapesSparklesIcon,
   Shapes as ShapesIcon,
   Share2 as Share2Icon,
   Share as ShareIcon,
   ShepherdsHut as ShepherdsHutIcon,
   ShieldAlert as ShieldAlertIcon,
+  ShieldArrowRight as ShieldArrowRightIcon,
   ShieldCheck as ShieldCheckIcon,
+  ShieldCog as ShieldCogIcon,
+  ShieldGlobe as ShieldGlobeIcon,
   ShieldHeart as ShieldHeartIcon,
+  ShieldInfo as ShieldInfoIcon,
   ShieldKey as ShieldKeyIcon,
   ShieldLock as ShieldLockIcon,
   ShieldMinus as ShieldMinusIcon,
   ShieldOff as ShieldOffIcon,
   ShieldPlus as ShieldPlusIcon,
   ShieldQuestion as ShieldQuestionIcon,
+  ShieldSearch as ShieldSearchIcon,
   ShieldSparkles as ShieldSparklesIcon,
   ShieldTerminal as ShieldTerminalIcon,
   ShieldUser as ShieldUserIcon,
@@ -21660,6 +23833,7 @@ export {
   Ship as ShipIcon,
   ShirtSparkles as ShirtSparklesIcon,
   Shirt as ShirtIcon,
+  ShoppingBagCheck as ShoppingBagCheckIcon,
   ShoppingBag as ShoppingBagIcon,
   ShoppingBasketPlus as ShoppingBasketPlusIcon,
   ShoppingBasketSearch as ShoppingBasketSearchIcon,
@@ -21680,6 +23854,7 @@ export {
   SignalSparkles as SignalSparklesIcon,
   Signal as SignalIcon,
   Signature as SignatureIcon,
+  Signpost as SignpostIcon,
   Sink as SinkIcon,
   Siren as SirenIcon,
   Ski as SkiIcon,
@@ -21730,10 +23905,14 @@ export {
   Sparkle as SparkleIcon,
   Sparkles as SparklesIcon,
   Speaker as SpeakerIcon,
+  Speakers as SpeakersIcon,
   SpellCheck as SpellCheckIcon,
+  Spiral as SpiralIcon,
   Spline as SplineIcon,
   Split2 as Split2Icon,
   Split as SplitIcon,
+  Spool as SpoolIcon,
+  SportsCourt as SportsCourtIcon,
   SprayCan as SprayCanIcon,
   Sprint as SprintIcon,
   Sprout as SproutIcon,
@@ -21754,6 +23933,7 @@ export {
   SquareArrowOutDownLeft as SquareArrowOutDownLeftIcon,
   SquareArrowOutDownRight as SquareArrowOutDownRightIcon,
   SquareArrowOutUpLeft as SquareArrowOutUpLeftIcon,
+  SquareArrowOutUpRightOff as SquareArrowOutUpRightOffIcon,
   SquareArrowOutUpRight as SquareArrowOutUpRightIcon,
   SquareArrowRight as SquareArrowRightIcon,
   SquareArrowUTurnLeft as SquareArrowUTurnLeftIcon,
@@ -21770,6 +23950,8 @@ export {
   SquareBarChartHorizontalEnd as SquareBarChartHorizontalEndIcon,
   SquareBarChartHorizontalStart as SquareBarChartHorizontalStartIcon,
   SquareBarChart as SquareBarChartIcon,
+  SquareBookmark as SquareBookmarkIcon,
+  SquareBraces as SquareBracesIcon,
   SquareCaretDown as SquareCaretDownIcon,
   SquareCaretLeft as SquareCaretLeftIcon,
   SquareCaretRight as SquareCaretRightIcon,
@@ -21783,23 +23965,32 @@ export {
   SquareChevronsLeft as SquareChevronsLeftIcon,
   SquareChevronsRight as SquareChevronsRightIcon,
   SquareChevronsUp as SquareChevronsUpIcon,
+  SquareCode as SquareCodeIcon,
   SquareCursor as SquareCursorIcon,
   SquareDashedFull as SquareDashedFullIcon,
   SquareDashedHalf as SquareDashedHalfIcon,
+  SquareDashedPen as SquareDashedPenIcon,
   SquareDashedQuarter as SquareDashedQuarterIcon,
   SquareDashedThreeQuarter as SquareDashedThreeQuarterIcon,
   SquareDashed as SquareDashedIcon,
+  SquareDiamond as SquareDiamondIcon,
   SquareDivide as SquareDivideIcon,
   SquareDot as SquareDotIcon,
   SquareEqual as SquareEqualIcon,
   SquareFull as SquareFullIcon,
   SquareFunction as SquareFunctionIcon,
   SquareHalf as SquareHalfIcon,
+  SquareListCheck as SquareListCheckIcon,
+  SquareListFilter as SquareListFilterIcon,
+  SquareListPlus as SquareListPlusIcon,
+  SquareList as SquareListIcon,
   SquareMenu as SquareMenuIcon,
   SquareMinus as SquareMinusIcon,
+  SquareMoon as SquareMoonIcon,
   SquareMoreHorizontal as SquareMoreHorizontalIcon,
   SquareMoreVertical as SquareMoreVerticalIcon,
   SquareNavigation as SquareNavigationIcon,
+  SquarePadding as SquarePaddingIcon,
   SquarePause as SquarePauseIcon,
   SquarePen as SquarePenIcon,
   SquarePercent as SquarePercentIcon,
@@ -21812,6 +24003,7 @@ export {
   SquareRadical as SquareRadicalIcon,
   SquareRecord as SquareRecordIcon,
   SquareRoundCorner as SquareRoundCornerIcon,
+  SquareSearch as SquareSearchIcon,
   SquareSigma as SquareSigmaIcon,
   SquareSlash2 as SquareSlash2Icon,
   SquareSlash as SquareSlashIcon,
@@ -21825,9 +24017,11 @@ export {
   SquareTrendingDown as SquareTrendingDownIcon,
   SquareTrendingUp as SquareTrendingUpIcon,
   SquareType as SquareTypeIcon,
+  SquareUser as SquareUserIcon,
   SquareX as SquareXIcon,
   SquareZap as SquareZapIcon,
   Square as SquareIcon,
+  SquaresDivide as SquaresDivideIcon,
   SquaresExclude as SquaresExcludeIcon,
   SquaresIntersect as SquaresIntersectIcon,
   SquaresSubtract as SquaresSubtractIcon,
@@ -21835,9 +24029,11 @@ export {
   Stairs as StairsIcon,
   StampPostage as StampPostageIcon,
   Stamp as StampIcon,
+  StarHalf as StarHalfIcon,
   StarOff as StarOffIcon,
   StarShooting as StarShootingIcon,
   Star as StarIcon,
+  Stars as StarsIcon,
   SteeringWheel as SteeringWheelIcon,
   Stethoscope as StethoscopeIcon,
   Sticker as StickerIcon,
@@ -21864,6 +24060,7 @@ export {
   SunHorizon as SunHorizonIcon,
   SunLounger as SunLoungerIcon,
   SunMedium as SunMediumIcon,
+  SunMoon as SunMoonIcon,
   SunRain as SunRainIcon,
   Sun as SunIcon,
   Sunglasses as SunglassesIcon,
@@ -21879,6 +24076,7 @@ export {
   SymmetryHorizontal as SymmetryHorizontalIcon,
   SymmetryVertical as SymmetryVerticalIcon,
   Syringe as SyringeIcon,
+  Tab as TabIcon,
   TableCellsMerge as TableCellsMergeIcon,
   TableCellsRows as TableCellsRowsIcon,
   TableCellsSplit as TableCellsSplitIcon,
@@ -21920,8 +24118,10 @@ export {
   TagHorizontalStartPercent as TagHorizontalStartPercentIcon,
   TagHorizontalStartSparkles as TagHorizontalStartSparklesIcon,
   TagHorizontalStart as TagHorizontalStartIcon,
+  TagOff as TagOffIcon,
   TagSparkles as TagSparklesIcon,
   Tag as TagIcon,
+  Tags as TagsIcon,
   Tally1 as Tally1Icon,
   Tally2 as Tally2Icon,
   Tally3 as Tally3Icon,
@@ -21952,17 +24152,21 @@ export {
   TestTubes as TestTubesIcon,
   TextAlign2End as TextAlign2EndIcon,
   TextAlign2Start as TextAlign2StartIcon,
+  TextAlignBottom as TextAlignBottomIcon,
   TextAlignCenter as TextAlignCenterIcon,
   TextAlignEnd as TextAlignEndIcon,
   TextAlignJustifyCharacter as TextAlignJustifyCharacterIcon,
   TextAlignJustify as TextAlignJustifyIcon,
+  TextAlignMiddle as TextAlignMiddleIcon,
   TextAlignStart as TextAlignStartIcon,
+  TextAlignTop as TextAlignTopIcon,
   TextAppend as TextAppendIcon,
   TextCursorInput as TextCursorInputIcon,
   TextCursor as TextCursorIcon,
   TextInsert as TextInsertIcon,
   TextLineSummary as TextLineSummaryIcon,
   TextQuote as TextQuoteIcon,
+  TextSelect as TextSelectIcon,
   TextSplit as TextSplitIcon,
   TextWordSpacing as TextWordSpacingIcon,
   TextWrap as TextWrapIcon,
@@ -21981,12 +24185,15 @@ export {
   Toggles as TogglesIcon,
   Toolbox as ToolboxIcon,
   Tools as ToolsIcon,
+  TouchpadMouseOff as TouchpadMouseOffIcon,
+  TouchpadMouse as TouchpadMouseIcon,
   TowelRack as TowelRackIcon,
   Tower as TowerIcon,
   Tractor as TractorIcon,
   TrafficCone as TrafficConeIcon,
   TrafficLight as TrafficLightIcon,
   TrainFrontOff as TrainFrontOffIcon,
+  TrainFrontTunnel as TrainFrontTunnelIcon,
   TrainFront as TrainFrontIcon,
   TrainTrack as TrainTrackIcon,
   TramFrontOff as TramFrontOffIcon,
@@ -22030,6 +24237,8 @@ export {
   TypeOff as TypeOffIcon,
   TypeOutline as TypeOutlineIcon,
   TypeSize as TypeSizeIcon,
+  TypeVariable as TypeVariableIcon,
+  TypeVertical as TypeVerticalIcon,
   TypeWidth as TypeWidthIcon,
   Type as TypeIcon,
   UmbrellaOff as UmbrellaOffIcon,
@@ -22050,7 +24259,9 @@ export {
   UserAlert as UserAlertIcon,
   UserArrowLeft as UserArrowLeftIcon,
   UserArrowRight as UserArrowRightIcon,
+  UserBan as UserBanIcon,
   UserCheck as UserCheckIcon,
+  UserChild as UserChildIcon,
   UserCog as UserCogIcon,
   UserCursor as UserCursorIcon,
   UserHeart as UserHeartIcon,
@@ -22064,23 +24275,28 @@ export {
   UserSearch as UserSearchIcon,
   UserShield as UserShieldIcon,
   UserSparkles as UserSparklesIcon,
+  UserStar as UserStarIcon,
   UserUnlock as UserUnlockIcon,
   UserVoice as UserVoiceIcon,
   UserX as UserXIcon,
   UserZap as UserZapIcon,
   User as UserIcon,
   Users3 as Users3Icon,
+  UsersPlus as UsersPlusIcon,
   Users as UsersIcon,
   Utensils as UtensilsIcon,
   Variable as VariableIcon,
   Vault2 as Vault2Icon,
   Vault as VaultIcon,
+  VectorCorner as VectorCornerIcon,
   VectorDistort as VectorDistortIcon,
+  VectorPointMinus as VectorPointMinusIcon,
   VectorPolygon as VectorPolygonIcon,
   VectorSkew as VectorSkewIcon,
   VectorSquare as VectorSquareIcon,
   Venus as VenusIcon,
   Video2 as Video2Icon,
+  VideoFrame as VideoFrameIcon,
   VideoSparkles as VideoSparklesIcon,
   Video as VideoIcon,
   VisionPro as VisionProIcon,
@@ -22132,6 +24348,7 @@ export {
   WineCrack as WineCrackIcon,
   Wine as WineIcon,
   Workflow as WorkflowIcon,
+  Wreath as WreathIcon,
   WrenchOff as WrenchOffIcon,
   WrenchSparkles as WrenchSparklesIcon,
   Wrench as WrenchIcon,

@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ClipboardOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M20.6465 20.6465C20.0188 22.0343 18.6222 23 17 23L7 23C4.7909 23 3 21.2091 3 19L3 7C3.0001 5.9083 3.4415 4.9021 4.1714 4.1714ZM12.6569 6L15 6C15.5523 6 16 5.5523 16 5L16 4C16 3.4477 15.5523 3 15 3L9 3C8.5228 3 8.1237 3.3342 8.024 3.7814L6.5336 2.291C7.0839 1.4975 7.9978 1.0001 9 1L15 1C16.3075 1.0001 17.4646 1.8466 17.8604 3.0928C19.694 3.4972 20.9998 5.1223 21 7L21 14.3431C21 14.8954 20.5523 15.3431 20 15.3431C19.7239 15.3431 19.4739 15.2312 19.2929 15.0503L11.9498 7.7071C11.7688 7.5262 11.6569 7.2762 11.6569 7C11.6569 6.4477 12.1046 6 12.6569 6Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M2 2L22 22"/>
+    </svg>
+  )
+}

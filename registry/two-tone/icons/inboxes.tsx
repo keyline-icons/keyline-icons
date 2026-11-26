@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Inboxes({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M14 21L9 21C6.7908 21 5 19.2092 5 17L5 13.0015C5 12.2636 5.2041 11.5398 5.5899 10.9107L6.8171 8.9092C7.5443 7.7231 8.8358 7 10.2271 7L17.7729 7C19.1642 7 20.4557 7.7231 21.1829 8.9092L22.4101 10.9107C22.7959 11.5398 23 12.2636 23 13.0015L23 17C23 19.2092 21.2092 21 19 21Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M2 13V9.0015C2 8.448 2.1531 7.9052 2.4424 7.4334L3.6696 5.4319C4.215 4.5423 5.1836 4 6.2271 4H13.7729M10.2271 8H17.7729C18.8164 8 19.785 8.5423 20.3304 9.4319L21.5576 11.4334C21.8469 11.9052 22 12.448 22 13.0015V17C22 18.6569 20.6569 20 19 20H9C7.3431 20 6 18.6569 6 17V13.0015C6 12.448 6.1531 11.9052 6.4424 11.4334L7.6696 9.4319C8.215 8.5423 9.1836 8 10.2271 8ZM6 13H10L12 16H16L18 13H22"/>
+    </svg>
+  )
+}

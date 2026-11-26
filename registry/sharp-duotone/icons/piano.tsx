@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Piano({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 3H22C22.552 3 23 3.448 23 4V20C23 20.552 22.552 21 22 21H2C1.448 21 1 20.552 1 20V4C1 3.448 1.448 3 2 3H12Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M17.988 21H14.012C14.559 20.994 15 20.548 15 20V14C15 13.448 14.552 13 14 13V5H18V13C17.448 13 17 13.448 17 14V20C17 20.548 17.441 20.994 17.988 21ZM9.988 21H6.012C6.559 20.994 7 20.548 7 20V14C7 13.448 6.552 13 6 13V5H10V13C9.448 13 9 13.448 9 14V20C9 20.548 9.441 20.994 9.988 21Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

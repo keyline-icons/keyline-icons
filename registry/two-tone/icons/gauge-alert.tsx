@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function GaugeAlert({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 22C6.4772 22 2 17.523 2 12C2 6.477 6.4772 2 12 2C17.5228 2 22 6.477 22 12" strokeOpacity="0.4"/>
+      <path d="M12 12V7M19 16V18"/>
+      <path d="M14 12C14 13.105 13.1046 14 12 14C10.8954 14 10 13.105 10 12C10 10.895 10.8954 10 12 10C13.1046 10 14 10.895 14 12ZM7 12C7 12.552 6.5523 13 6 13C5.4477 13 5 12.552 5 12C5 11.448 5.4477 11 6 11C6.5523 11 7 11.448 7 12ZM8.7574 7.757C8.7574 8.31 8.3097 8.757 7.7574 8.757C7.2051 8.757 6.7574 8.31 6.7574 7.757C6.7574 7.205 7.2051 6.757 7.7574 6.757C8.3097 6.757 8.7574 7.205 8.7574 7.757ZM17.2426 7.757C17.2426 8.31 16.7949 8.757 16.2426 8.757C15.6903 8.757 15.2426 8.31 15.2426 7.757C15.2426 7.205 15.6903 6.757 16.2426 6.757C16.7949 6.757 17.2426 7.205 17.2426 7.757ZM19 12C19 12.552 18.5523 13 18 13C17.4477 13 17 12.552 17 12C17 11.448 17.4477 11 18 11C18.5523 11 19 11.448 19 12ZM20 22C20 22.552 19.5523 23 19 23C18.4477 23 18 22.552 18 22C18 21.448 18.4477 21 19 21C19.5523 21 20 21.448 20 22Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+    </svg>
+  )
+}

@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function KeyboardLock({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M5 3H19C21.209 3 23 4.7909 23 7C23 7.5523 22.552 8 22 8H15C13.343 8 12 9.3431 12 11V20C12 20.5523 11.552 21 11 21H5C2.791 21 1 19.2091 1 17V7C1 4.7909 2.791 3 5 3Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M12 15.0001V17.0001H11H8C7.448 17.0001 7 16.5524 7 16.0001C7 15.4478 7.448 15.0001 8 15.0001H11H12ZM5.5 7.0001H6.5C6.776 7.0001 7 7.224 7 7.5001V8.5001C7 8.7762 6.776 9.0001 6.5 9.0001H5.5C5.224 9.0001 5 8.7762 5 8.5001V7.5001C5 7.224 5.224 7.0001 5.5 7.0001ZM9.5 7.0001H10.5C10.776 7.0001 11 7.224 11 7.5001V8.5001C11 8.7762 10.776 9.0001 10.5 9.0001H9.5C9.224 9.0001 9 8.7762 9 8.5001V7.5001C9 7.224 9.224 7.0001 9.5 7.0001ZM5.5 11.0001H6.5C6.776 11.0001 7 11.224 7 11.5001V12.5001C7 12.7762 6.776 13.0001 6.5 13.0001H5.5C5.224 13.0001 5 12.7762 5 12.5001V11.5001C5 11.224 5.224 11.0001 5.5 11.0001ZM9.5 11.0001H10.5C10.776 11.0001 11 11.224 11 11.5001V12.5001C11 12.7762 10.776 13.0001 10.5 13.0001H9.5C9.224 13.0001 9 12.7762 9 12.5001V11.5001C9 11.224 9.224 11.0001 9.5 11.0001Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M16.5 15V13C16.5 11.8954 17.395 11 18.5 11C19.605 11 20.5 11.8954 20.5 13V15M16 15H21C21.552 15 22 15.4477 22 16V19C22 19.5523 21.552 20 21 20H16C15.448 20 15 19.5523 15 19V16C15 15.4477 15.448 15 16 15Z"/>
+    </svg>
+  )
+}

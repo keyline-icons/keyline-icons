@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ClipboardHeart({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M18 3L20 3C20.5523 3 21 3.4477 21 4L21 22C21 22.5523 20.5523 23 20 23L4 23C3.4477 23 3 22.5523 3 22L3 4C3 3.4477 3.4477 3 4 3L6 3L6 2C6 1.4477 6.4477 1 7 1L17 1C17.5523 1 18 1.4477 18 2ZM8 3L8 6L16 6L16 3ZM8.6147 16.4922C9.04 16.9101 9.5172 17.3028 9.9832 17.6729C10.4638 18.0545 10.9154 18.3992 11.3612 18.7693C11.5407 18.9184 11.7667 19 12 19C12.2333 19 12.4593 18.9184 12.6388 18.7693C13.0846 18.3992 13.5362 18.0545 14.0168 17.6729C14.4828 17.3028 14.96 16.9101 15.3853 16.4922C16.2217 15.6703 17 14.6134 17 13.2361C17 12.3186 16.599 11.5012 15.9787 10.9233C15.3597 10.3465 14.5162 10 13.6 10C13.0162 10 12.4793 10.1436 12 10.3934C11.5207 10.1436 10.9838 10 10.4 10C9.4838 10 8.6403 10.3465 8.0213 10.9233C7.401 11.5012 7 12.3186 7 13.2361C7 14.6134 7.7783 15.6703 8.6147 16.4922Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

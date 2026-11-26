@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function KeyboardLock({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M11 20H5C3.343 20 2 18.6569 2 17V7C2 5.3431 3.343 4 5 4H19C20.657 4 22 5.3431 22 7M8 16H11M16.5 15V13C16.5 11.8954 17.395 11 18.5 11C19.605 11 20.5 11.8954 20.5 13V15M16 15H21C21.552 15 22 15.4477 22 16V19C22 19.5523 21.552 20 21 20H16C15.448 20 15 19.5523 15 19V16C15 15.4477 15.448 15 16 15Z"/>
+      <path d="M5.5 7H6.5C6.776 7 7 7.2239 7 7.5V8.5C7 8.7761 6.776 9 6.5 9H5.5C5.224 9 5 8.7761 5 8.5V7.5C5 7.2239 5.224 7 5.5 7ZM9.5 7H10.5C10.776 7 11 7.2239 11 7.5V8.5C11 8.7761 10.776 9 10.5 9H9.5C9.224 9 9 8.7761 9 8.5V7.5C9 7.2239 9.224 7 9.5 7ZM5.5 11H6.5C6.776 11 7 11.2239 7 11.5V12.5C7 12.7761 6.776 13 6.5 13H5.5C5.224 13 5 12.7761 5 12.5V11.5C5 11.2239 5.224 11 5.5 11ZM9.5 11H10.5C10.776 11 11 11.2239 11 11.5V12.5C11 12.7761 10.776 13 10.5 13H9.5C9.224 13 9 12.7761 9 12.5V11.5C9 11.2239 9.224 11 9.5 11Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+    </svg>
+  )
+}

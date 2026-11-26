@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function InboxArrowDown({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M2 13H8L10 16H14L16 13H22V17C22 18.6569 20.6569 20 19 20H5C3.3431 20 2 18.6569 2 17V13Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M18.8952 7.0905L21.5574 11.4317C21.8468 11.9036 22 12.4464 22 13M22 13V17C22 18.6569 20.6569 20 19 20H5C3.3431 20 2 18.6569 2 17V13M22 13H16L14 16H10L8 13H2M2 13C2 12.4464 2.1532 11.9036 2.4426 11.4317L5.1048 7.0905M12 4V11M15 8L12 11L9 8"/>
+    </svg>
+  )
+}

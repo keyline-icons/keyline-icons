@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function LaptopSmartphoneOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M21.8284 21.828C21.1046 22.552 20.1046 23 19 23H16C13.7909 23 12 21.209 12 19V13C12 12.691 12.035 12.39 12.1014 12.101L21.8284 21.828ZM15.558 9.024C15.7031 9.008 15.8506 9 16 9H19C21.2091 9 23 10.791 23 13V16.343C23 16.895 22.5523 17.343 22 17.343C21.7239 17.343 21.4739 17.231 21.2929 17.05L14.9638 10.721C14.7848 10.54 14.6743 10.292 14.6743 10.017C14.6743 9.504 15.0605 9.082 15.558 9.024ZM7.6569 1H18C18.4124 1 18.8077 1.084 19.168 1.236C19.5277 1.388 19.8506 1.608 20.1213 1.879C20.3921 2.149 20.6117 2.472 20.7638 2.832C20.9162 3.192 21 3.588 21 4C21 4.552 20.5523 5 20 5C19.4477 5 19 4.552 19 4C19 3.86 18.9718 3.729 18.9218 3.611C18.8715 3.492 18.7983 3.384 18.7071 3.293C18.6159 3.202 18.5079 3.128 18.389 3.078C18.2707 3.028 18.1399 3 18 3H7.6569C7.1046 3 6.6569 2.552 6.6569 2C6.6569 1.448 7.1046 1 7.6569 1Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M4 14V4M9 18H4C2.8954 18 2 17.105 2 16V14.5C2 14.224 2.2239 14 2.5 14H9M13 13V19C13 20.657 14.3431 22 16 22H19C19.8285 22 20.5785 21.664 21.1213 21.121M2 2L22 22"/>
+    </svg>
+  )
+}

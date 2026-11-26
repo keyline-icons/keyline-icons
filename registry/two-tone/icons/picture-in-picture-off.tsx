@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function PictureInPictureOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M20.8715 20.872C20.5957 20.955 20.3031 21 20 21H14C12.3432 21 11 19.657 11 18V14C11 13.172 11.3358 12.422 11.8787 11.879L20.8715 20.872ZM21.2929 17.05L16.9498 12.707C16.7688 12.526 16.6569 12.276 16.6569 12C16.6569 11.448 17.1046 11 17.6569 11H20C21.6569 11 23 12.343 23 14V16.343C23 16.895 22.5523 17.343 22 17.343C21.7239 17.343 21.4739 17.231 21.2929 17.05ZM21 8V7C21 6.777 20.964 6.565 20.8983 6.368C20.8324 6.17 20.7362 5.985 20.6147 5.819C20.4931 5.653 20.3465 5.507 20.1806 5.385C20.0148 5.264 19.8302 5.168 19.6324 5.102C19.4349 5.036 19.2227 5 19 5H9.6569C9.1046 5 8.6569 4.552 8.6569 4C8.6569 3.448 9.1046 3 9.6569 3H19C19.4401 3 19.8655 3.071 20.2641 3.204C20.6624 3.337 21.0323 3.53 21.363 3.772C21.6936 4.015 21.9854 4.306 22.2277 4.637C22.4701 4.968 22.6633 5.338 22.7959 5.736C22.9286 6.135 23 6.56 23 7V8C23 8.552 22.5523 9 22 9C21.4477 9 21 8.552 21 8Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M4.1285 4.128C2.8967 4.502 2 5.646 2 7V17C2 18.657 3.3432 20 5 20H8M20 20H14C12.8954 20 12 19.105 12 18V14C12 13.448 12.2239 12.948 12.5858 12.586M2 2L22 22"/>
+    </svg>
+  )
+}

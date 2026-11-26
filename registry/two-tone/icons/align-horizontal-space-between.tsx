@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function AlignHorizontalSpaceBetween({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M4 1C4.5523 1 5 1.4477 5 2V6.1716C5.3212 6.058 5.6593 6 6 6H7C8.6569 6 10 7.3431 10 9V15C10 16.6569 8.6569 18 7 18H6C5.6593 18 5.3212 17.942 5 17.8284V22C5 22.5523 4.5523 23 4 23C3.4477 23 3 22.5523 3 22V2C3 1.4477 3.4477 1 4 1ZM20 1C19.4477 1 19 1.4477 19 2V6.1716C18.6788 6.058 18.3407 6 18 6H17C15.3431 6 14 7.3431 14 9V15C14 16.6569 15.3431 18 17 18H18C18.3407 18 18.6788 17.942 19 17.8284V22C19 22.5523 19.4477 23 20 23C20.5523 23 21 22.5523 21 22V2C21 1.4477 20.5523 1 20 1Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M20 2V22M4 2V22M4 9V15C4 16.1046 4.8954 17 6 17H7C8.1046 17 9 16.1046 9 15V9C9 7.8954 8.1046 7 7 7H6C4.8954 7 4 7.8954 4 9ZM15 9V15C15 16.1046 15.8954 17 17 17H18C19.1046 17 20 16.1046 20 15V9C20 7.8954 19.1046 7 18 7H17C15.8954 7 15 7.8954 15 9Z"/>
+    </svg>
+  )
+}

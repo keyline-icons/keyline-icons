@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CircuitBoard({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M19 12L19 22C19 22.5523 18.5523 23 18 23L2 23C1.4477 23 1 22.5523 1 22L1 2C1 1.4477 1.4477 1 2 1L18 1C18.5523 1 19 1.4477 19 2ZM10 5L6 5C5.4477 5 5 5.4477 5 6L5 13C5 13.5523 5.4477 14 6 14L14 14C14.5523 14 15 13.5523 15 13L15 6C15 5.4477 14.5523 5 14 5ZM5 17L5 19L11 19L11 17ZM15 18C15 17.4477 14.5523 17 14 17C13.4477 17 13 17.4477 13 18C13 18.5523 13.4477 19 14 19C14.5523 19 15 18.5523 15 18Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M18 7L23 7M18 12L23 12M18 17L23 17"/>
+    </svg>
+  )
+}

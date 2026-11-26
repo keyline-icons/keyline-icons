@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function LampCeiling({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M7.1 19L4.0007 19C3.4484 19 3.0007 18.5523 3.0007 18C3.0007 17.8448 3.0368 17.6917 3.1063 17.5528L7.1058 9.5528C7.2751 9.214 7.6214 9 8.0002 9L15.9998 9C16.3786 9 16.7249 9.214 16.8942 9.5528L20.8937 17.5528C20.9632 17.6917 20.9993 17.8448 20.9993 18C20.9993 18.5523 20.5516 19 19.9993 19L16.9 19C16.4367 21.2822 14.4189 23 12 23C9.5811 23 7.5633 21.2822 7.1 19Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M8 2L16 2M12 2L12 10M8.0002 10L15.9998 10L19.9993 18L4.0007 18ZM8 18C8 20.2091 9.7909 22 12 22C14.2091 22 16 20.2091 16 18"/>
+    </svg>
+  )
+}

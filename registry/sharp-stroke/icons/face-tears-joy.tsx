@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function FaceTearsJoy({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M15.017 21.534C14.039 21.843 13.022 22 12 22C10.978 22 9.961 21.843 8.983 21.534M2.167 13.823C2.056 13.221 2 12.611 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 12.611 21.944 13.221 21.833 13.823M8.14 7.2L8.5 7.5L10 8.75L8.5 10L8.14 10.3M15.86 7.2L15.5 7.5L14 8.75L15.5 10L15.86 10.3M8 14H16C16 16.209 14.209 18 12 18C9.791 18 8 16.209 8 14ZM4 16.9L5.528 18.71C5.833 19.071 6 19.528 6 20C6 21.105 5.105 22 4 22C2.895 22 2 21.105 2 20C2 19.528 2.167 19.071 2.472 18.71L4 16.9ZM20 16.9L21.528 18.71C21.833 19.071 22 19.528 22 20C22 21.105 21.105 22 20 22C18.895 22 18 21.105 18 20C18 19.528 18.167 19.071 18.472 18.71L20 16.9Z"/>
+    </svg>
+  )
+}

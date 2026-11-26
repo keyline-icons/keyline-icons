@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function FaceHeartEyes({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M21.1355 16.0674C19.529 19.6754 15.9495 22 12 22C8.0505 22 4.471 19.6754 2.8645 16.0674M7.6163 3.0121C8.9817 2.3461 10.4809 2 12 2C13.5191 2 15.0183 2.3461 16.3837 3.0121M5.5 13C3.9032 11.7011 2 10.5833 2 8.9167C2 7.8581 2.9402 7 4.1 7C4.625 7 5.0949 7.182 5.5 7.5C5.9051 7.182 6.375 7 6.9 7C8.0598 7 9 7.8581 9 8.9167C9 10.5833 7.0968 11.7011 5.5 13ZM18.5 13C16.9032 11.7011 15 10.5833 15 8.9167C15 7.8581 15.9402 7 17.1 7C17.625 7 18.0949 7.182 18.5 7.5C18.9051 7.182 19.375 7 19.9 7C21.0598 7 22 7.8581 22 8.9167C22 10.5833 20.0968 11.7011 18.5 13ZM9 16C10 17 11 17.5 12 17.5C13 17.5 14 17 15 16"/>
+    </svg>
+  )
+}

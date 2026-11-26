@@ -481,8 +481,8 @@ const FIRST = [
  ["log out", "log-out", "same"],
  // Another set's name matched only as typed with hyphens: pasted from code or
  // typed as words it found nothing (BookmarkCheck 3, package open 3).
- ["BluetoothConnected", "bluetooth", "another set's name pasted from code"],
- ["bluetooth connected", "bluetooth", "the same name typed as words"],
+ ["BluetoothConnected", "bluetooth-connected", "another set's name pasted from code; its own drawing since 3.2.0"],
+ ["bluetooth connected", "bluetooth-connected", "the same name typed as words"],
  ["shadcn down chevron", "chevron-down", "`shadcn` names the library, not the drawing"],
 ]
 

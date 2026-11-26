@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function LockCheck({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M7.5 10V6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5V10"/>
+      <path d="M17 9C19.2091 9 21 10.7909 21 13L21 19C21 21.2091 19.2091 23 17 23L7 23C4.7909 23 3 21.2091 3 19L3 13C3 10.7909 4.7909 9 7 9ZM9.7071 15.2929C9.3166 14.9024 8.6834 14.9024 8.2929 15.2929C7.9024 15.6834 7.9024 16.3166 8.2929 16.7071L10.2929 18.7071C10.6834 19.0976 11.3166 19.0976 11.7071 18.7071L15.7071 14.7071C16.0976 14.3166 16.0976 13.6834 15.7071 13.2929C15.3166 12.9024 14.6834 12.9024 14.2929 13.2929L11 16.5858Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+    </svg>
+  )
+}

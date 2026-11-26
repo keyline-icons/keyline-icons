@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function FaceKiss({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M15.4577 20.817C14.7194 20.106 14 19.163 14 17.917C14 17.08 14.3736 16.341 14.9409 15.823C15.5068 15.306 16.2728 15 17.1 15C17.6083 15 18.078 15.118 18.5 15.324C18.922 15.118 19.3917 15 19.9 15C20.7272 15 21.4932 15.306 22.0591 15.823C22.6264 16.341 23 17.08 23 17.917C23 19.163 22.2806 20.106 21.5423 20.817C21.165 21.18 20.7429 21.52 20.3345 21.838C19.9115 22.167 19.5197 22.46 19.131 22.776C18.9527 22.921 18.7299 23 18.5 23C18.2701 23 18.0473 22.921 17.869 22.776C17.4803 22.46 17.0885 22.167 16.6655 21.838C16.2571 21.52 15.835 21.18 15.4577 20.817Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M12.349 21.994C12.2327 21.998 12.1164 22 12 22C6.4772 22 2 17.523 2 12C2 6.477 6.4772 2 12 2C17.5228 2 22 6.477 22 12C22 12.116 21.998 12.233 21.9939 12.349M9 10V11M15 10V11M18.5 22C16.9032 20.701 15 19.583 15 17.917C15 16.858 15.9402 16 17.1 16C17.625 16 18.0949 16.182 18.5 16.5C18.9051 16.182 19.375 16 19.9 16C21.0598 16 22 16.858 22 17.917C22 19.583 20.0968 20.701 18.5 22Z"/>
+      <path d="M12 16.5C12 17.328 11.3284 18 10.5 18C9.6716 18 9 17.328 9 16.5C9 15.672 9.6716 15 10.5 15C11.3284 15 12 15.672 12 16.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+    </svg>
+  )
+}

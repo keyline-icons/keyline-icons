@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Inboxes({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M14 21L6 21C5.4477 21 5 20.5523 5 20L5 12.155C5 11.9705 5.051 11.7896 5.1475 11.6323L7.695 7.4773C7.8768 7.1808 8.1997 7 8.5475 7L19.4525 7C19.8003 7 20.1232 7.1808 20.305 7.4773L22.8525 11.6323C22.949 11.7896 23 11.9705 23 12.155L23 20C23 20.5523 22.5523 21 22 21Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M2 14L2 8.155L4.5475 4L14.7729 4" strokeOpacity="0.4"/>
+      <path d="M6 13H10L12 16H16L18 13H22"/>
+    </svg>
+  )
+}

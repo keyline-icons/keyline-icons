@@ -230,6 +230,19 @@ const SIZE_KNOWN = new Set([
   // 3.1.0: the slash runs corner to corner as on every -off, so the sharp half paints 1..23 both
   // ways and classifies as a square: pen-off's reason, below.
   'layer-mask-off',
+  // 3.2.0: alert's own bang twice, side by side, 16 tall like `alert` above: a pair of marks run to
+  // the band would outweigh the single one it doubles.
+  'alert-double',
+  // 3.2.0: `mouse` verbatim, his 18 capsule (below), with the lock in the corner box beside it.
+  'mouse-lock',
+  // 3.2.0: -off forms over 20 x 20 bases, table-off's reason: the slash paints 1..23, so the
+  // sharp butt corners put ink in all four corners and the drawing classifies as a square.
+  'app-window-off', 'credit-card-off', 'iframe-off', 'piano-off', 'picture-in-picture-off',
+  'scan-box-off', 'square-arrow-out-up-right-off',
+  // 3.2.0: speaker's own 22-tall cabinet with a second standing behind it, and train-front's
+  // 22 x 22 under a tunnel's arch: both reach all four corners and read as squares, at the
+  // height of the drawing each one doubles or frames.
+  'speakers', 'train-front-tunnel',
   'bell', 'paperclip', 'wifi', 'wifi-info', 'wifi-exclamation',
   'repeat', 'repeat-1',
   'arrow-down-left', 'arrow-down-right', 'arrow-up-left', 'arrow-up-right',

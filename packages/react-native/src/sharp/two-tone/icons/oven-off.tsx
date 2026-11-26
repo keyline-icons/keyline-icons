@@ -9,8 +9,8 @@ export type { IconProps }
 export function OvenOff(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M21 21L21 22C21 22.5523 20.5523 23 20 23L4 23C3.4477 23 3 22.5523 3 22L3 3L21 21ZM4.7426 1L20 1C20.5523 1 21 1.4477 21 2L21 17.2574L4.7426 1Z" fill="currentColor" fillOpacity={0.4} fillRule="evenodd" clipRule="evenodd" stroke="none" />
-      <Path d="M20 20L20 22L4 22L4 4M4 10L10 10M8 14L14 14M1.7071 1.7071L22.2929 22.2929" fill="none" />
+      <Path d="M21 21V22C21 22.552 20.552 23 20 23H4C3.448 23 3 22.552 3 22V3L21 21ZM4.743 1H20C20.552 1 21 1.448 21 2V17.257L4.743 1Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <Path d="M20 20V22H4V4M4 10H10M8 14H14M1.707 1.707L22.293 22.293" />
     </Icon>
   )
 }

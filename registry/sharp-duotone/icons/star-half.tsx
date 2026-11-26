@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function StarHalf({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M10.605 1.95C10.831 1.377 11.384 1 12 1C12.616 1 13.169 1.377 13.395 1.95L15.676 7.732L21.626 8.235C22.403 8.3 23 8.95 23 9.73C23 10.154 22.82 10.558 22.506 10.843L17.915 14.99L19.312 21.169C19.337 21.278 19.349 21.389 19.349 21.5C19.349 22.329 18.678 23 17.849 23C17.561 23 17.279 22.917 17.037 22.761L12 19.516L6.963 22.761C6.721 22.917 6.439 23 6.151 23C5.322 23 4.651 22.329 4.651 21.5C4.651 21.389 4.663 21.278 4.688 21.169L6.085 14.99L1.494 10.843C1.179 10.558 1 10.154 1 9.73C1 8.95 1.597 8.3 2.374 8.235L8.324 7.732L10.605 1.95Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M12 3.863L14.043 9.043C14.182 9.397 14.51 9.641 14.889 9.673L20.31 10.131L16.14 13.899C15.93 14.088 15.81 14.358 15.81 14.641C15.81 14.715 15.819 14.789 15.835 14.861L16.598 18.236L17.092 20.417L12.542 17.486C12.38 17.382 12.192 17.327 12 17.327V3.863Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function BookmarkStar({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M4 1L20 1C20.5523 1 21 1.4477 21 2L21 22C21 22.7247 20.2533 23.2057 19.5918 22.9129L12 19.5177L4.4082 22.9129C3.7467 23.2057 3 22.7247 3 22L3 2C3 1.4477 3.4477 1 4 1ZM14.585 8.3502L13.8827 8.2941L13.1068 6.4362C12.9203 5.9914 12.4848 5.7 12 5.7C11.5156 5.7 11.0798 5.9911 10.8926 6.4375L10.1173 8.2941L8.1045 8.4548C7.481 8.5046 7 9.0251 7 9.651C7 10.0029 7.1544 10.3361 7.4212 10.5639L8.9512 11.8691L8.4838 13.8204C8.461 13.9154 8.4508 14.0095 8.4508 14.1C8.4508 14.7628 8.988 15.3 9.6508 15.3C9.871 15.3 10.0864 15.2394 10.2744 15.1253L12 14.0756L13.7264 15.1257C13.9136 15.2394 14.129 15.3 14.3492 15.3C15.012 15.3 15.5492 14.7628 15.5492 14.1C15.5492 14.0083 15.5387 13.9152 15.5169 13.8229L15.0489 11.8691L16.5792 10.5636C16.8456 10.3361 17 10.0029 17 9.651C17 9.0251 16.519 8.5046 15.8955 8.4548Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

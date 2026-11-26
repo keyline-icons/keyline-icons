@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function GlobeShield({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M10 21.8C5.4355 20.8734 2 16.8379 2 12C2 6.4772 6.4772 2 12 2C16.8379 2 20.8734 5.4355 21.8 10M2 12L10 12M9 17.2271C8.3333 15.5 8 13.75 8 12C8 8.5 9.3333 5 12 2C14.1579 4.4276 15.4426 7.1826 15.8544 10" strokeOpacity="0.4"/>
+      <path d="M15.5173 15.3862C16.6758 15.2487 17.5504 14.6703 18.0731 14.1633C18.2974 13.9456 18.7026 13.9456 18.9269 14.1633C19.4496 14.6703 20.3242 15.2487 21.4827 15.3862C21.7669 15.4199 22 15.6409 22 15.9175L22 17.8747C22 18.651 21.8736 19.4412 21.3928 20.0631C20.8667 20.7434 20.0327 21.5058 18.863 21.9355C18.6288 22.0215 18.3712 22.0215 18.137 21.9355C16.9673 21.5058 16.1332 20.7434 15.6073 20.0631C15.1264 19.4412 15 18.651 15 17.8747L15 15.9175C15 15.6409 15.2331 15.4199 15.5173 15.3862Z"/>
+    </svg>
+  )
+}

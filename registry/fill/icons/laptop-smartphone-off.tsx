@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function LaptopSmartphoneOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M21.8284 21.8284C21.1046 22.5523 20.1046 23 19 23L16 23C13.7909 23 12 21.2091 12 19L12 13C12 12.691 12.035 12.3902 12.1014 12.1014ZM15.558 9.0242C15.7031 9.0082 15.8506 9 16 9L19 9C21.2091 9 23 10.7909 23 13L23 16.3431C23 16.8954 22.5523 17.3431 22 17.3431C21.7239 17.3431 21.4739 17.2312 21.2929 17.0502L14.9638 10.7211C14.7848 10.5405 14.6743 10.2919 14.6743 10.0175C14.6743 9.5045 15.0605 9.0818 15.558 9.0242Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M4 14L4 4M7.6569 2L18 2C19.1046 2 20 2.8954 20 4M9 18L4 18C2.8954 18 2 17.1046 2 16L2 14.5C2 14.2239 2.2239 14 2.5 14L9 14M2 2L22 22"/>
+    </svg>
+  )
+}

@@ -1,0 +1,29 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function SerialPort({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 5H21.998C22.551 5 22.998 5.448 22.998 6C22.998 6.059 22.993 6.119 22.983 6.177L20.825 18.177C20.74 18.653 20.325 19 19.841 19H4.159C3.675 19 3.26 18.653 3.175 18.177L1.017 6.177C1.007 6.119 1.001 6.059 1.001 6C1.001 5.448 1.449 5 2.001 5H12Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M2.001 6H21.998L19.841 18H4.159L2.001 6Z"/>
+      <path d="M9 10C9 10.552 8.552 11 8 11C7.448 11 7 10.552 7 10C7 9.448 7.448 9 8 9C8.552 9 9 9.448 9 10ZM13 10C13 10.552 12.552 11 12 11C11.448 11 11 10.552 11 10C11 9.448 11.448 9 12 9C12.552 9 13 9.448 13 10ZM17 10C17 10.552 16.552 11 16 11C15.448 11 15 10.552 15 10C15 9.448 15.448 9 16 9C16.552 9 17 9.448 17 10ZM11 14C11 14.552 10.552 15 10 15C9.448 15 9 14.552 9 14C9 13.448 9.448 13 10 13C10.552 13 11 13.448 11 14ZM15 14C15 14.552 14.552 15 14 15C13.448 15 13 14.552 13 14C13 13.448 13.448 13 14 13C14.552 13 15 13.448 15 14Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+    </svg>
+  )
+}

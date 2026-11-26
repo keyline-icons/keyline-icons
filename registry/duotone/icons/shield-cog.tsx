@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function ShieldCog({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M5.0647 4.175C7.4506 3.892 9.2514 2.7 10.3279 1.655C10.7686 1.228 11.3816 1 12 1C12.6184 1 13.2314 1.228 13.6721 1.655C14.7486 2.7 16.5495 3.892 18.9353 4.175C20.0939 4.313 21 5.255 21 6.383V12.571C21 14.566 20.6389 16.586 19.4031 18.185C18.1083 19.859 16.0537 21.733 13.1746 22.791C12.4169 23.07 11.5831 23.07 10.8253 22.791C7.9462 21.733 5.8916 19.859 4.5969 18.185C3.3611 16.586 3 14.566 3 12.571V6.383C3 5.255 3.9062 4.313 5.0647 4.175Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M15.5417 12H16M14.5043 14.504L14.8284 14.828M12 15.542V16M9.4957 14.504L9.1716 14.828M8.4583 12H8M9.4957 9.496L9.1716 9.172M12 8.458V8M14.5043 9.496L14.8284 9.172M14.6667 12C14.6667 13.473 13.4728 14.667 12 14.667C10.5272 14.667 9.3333 13.473 9.3333 12C9.3333 10.527 10.5272 9.333 12 9.333C13.4728 9.333 14.6667 10.527 14.6667 12Z"/>
+    </svg>
+  )
+}

@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function AlignVerticalSpaceBetween({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M6 6V7C6 8.6569 7.343 10 9 10H15C16.657 10 18 8.6569 18 7V6C18 4.3431 16.657 3 15 3H9C7.343 3 6 4.3431 6 6ZM6 18V17C6 15.3431 7.343 14 9 14H15C16.657 14 18 15.3431 18 17V18C18 19.6569 16.657 21 15 21H9C7.343 21 6 19.6569 6 18Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M1 4C1 4.5523 1.448 5 2 5H22C22.552 5 23 4.5523 23 4C23 3.4477 22.552 3 22 3H2C1.448 3 1 3.4477 1 4ZM1 20C1 20.5523 1.448 21 2 21H22C22.552 21 23 20.5523 23 20C23 19.4477 22.552 19 22 19H2C1.448 19 1 19.4477 1 20Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

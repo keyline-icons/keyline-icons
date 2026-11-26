@@ -1,0 +1,24 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function DropletHalf({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M17.9629 8.6666C19.2747 10.1334 20 12.0322 20 14C20 18.4183 16.4183 22 12 22C7.5817 22 4 18.4183 4 14C4 12.0322 4.7253 10.1334 6.0371 8.6666L12 1.9999L17.9629 8.6666Z" fill="currentColor" fillOpacity="0.4"/>
+      <path d="M12 7.618C12 7.0657 12.4477 6.618 13 6.618C13.2846 6.618 13.5556 6.7393 13.7454 6.9514L16.4721 10C17.456 11.1 18 12.5241 18 14C18 17.3137 15.3137 20 12 20Z" fill="currentColor"/>
+    </svg>
+  )
+}

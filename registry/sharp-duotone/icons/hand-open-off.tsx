@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function HandOpenOff({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M19.987 20.107C18.952 21.469 17.447 22.533 15.353 22.893C15.335 22.896 15.317 22.899 15.3 22.901C14.021 23.053 12.161 23.142 10.12 22.296C8.078 21.449 5.972 19.715 4.079 16.447L2.378 13.828C1.67 12.736 1.993 11.323 3.051 10.606C4.015 9.954 5.329 10.052 6.178 10.856L7.186 11.81L6.511 6.631L19.987 20.107ZM6.901 3.244C7.3 2.769 7.87 2.43 8.521 2.318C9.07 2.223 9.622 2.301 10.108 2.514C10.501 1.679 11.341 1.093 12.305 1.01C13.534 0.905 14.704 1.64 15.083 2.79C15.359 2.688 15.654 2.627 15.959 2.617C17.238 2.576 18.406 3.418 18.694 4.652C18.93 4.583 19.179 4.547 19.432 4.546C20.795 4.547 21.998 5.604 21.999 7.026C22 9.691 22.001 13.302 21.998 13.506C21.991 14.777 21.797 16.242 21.298 17.641L15.273 11.617L15.765 11.583L15.334 5.273L13.339 5.41L13.652 9.995L6.901 3.244ZM16.867 7.772L17.041 11.977L19.039 11.895L18.865 7.689L16.867 7.772Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M1.707 1.707L22.293 22.293"/>
+    </svg>
+  )
+}

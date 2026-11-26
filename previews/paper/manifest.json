@@ -14,259 +14,307 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 2030,
-  "names": 2169,
-  "variants": 17352,
+  "icons": 2230,
+  "names": 2386,
+  "variants": 19088,
   "sheets": [
     {
       "file": "actions-1.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 1,
-      "parts": 20,
+      "parts": 24,
       "into": "artboard",
       "width": 742,
-      "icons": 73,
+      "icons": 90,
       "variants": 40,
-      "bytes": 39409
+      "bytes": 34164
     },
     {
       "file": "actions-2.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 2,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 32571
+      "bytes": 32718
     },
     {
       "file": "actions-3.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 3,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 32768
+      "bytes": 31204
     },
     {
       "file": "actions-4.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 4,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 35874
+      "variants": 24,
+      "bytes": 39223
     },
     {
       "file": "actions-5.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 5,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 34878
+      "variants": 48,
+      "bytes": 36133
     },
     {
       "file": "actions-6.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 6,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 40563
+      "variants": 48,
+      "bytes": 36125
     },
     {
       "file": "actions-7.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 7,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 36730
+      "variants": 40,
+      "bytes": 33328
     },
     {
       "file": "actions-8.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 8,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 31780
+      "variants": 24,
+      "bytes": 24689
     },
     {
       "file": "actions-9.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 9,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 40237
+      "variants": 24,
+      "bytes": 39659
     },
     {
       "file": "actions-10.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 10,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 38308
+      "variants": 32,
+      "bytes": 39211
     },
     {
       "file": "actions-11.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 11,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 39610
+      "variants": 40,
+      "bytes": 36766
     },
     {
       "file": "actions-12.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 12,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 39265
+      "variants": 48,
+      "bytes": 39925
     },
     {
       "file": "actions-13.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 13,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 34512
+      "bytes": 39257
     },
     {
       "file": "actions-14.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 14,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 35537
+      "variants": 40,
+      "bytes": 36611
     },
     {
       "file": "actions-15.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 15,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 36033
+      "variants": 40,
+      "bytes": 35585
     },
     {
       "file": "actions-16.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 16,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 38986
+      "variants": 40,
+      "bytes": 36109
     },
     {
       "file": "actions-17.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 17,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 35764
+      "bytes": 37796
     },
     {
       "file": "actions-18.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 18,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 39791
+      "bytes": 38774
     },
     {
       "file": "actions-19.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 19,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 39466
+      "variants": 32,
+      "bytes": 35151
     },
     {
       "file": "actions-20.html",
       "artboard": "Actions",
       "category": "Actions",
       "part": 20,
-      "parts": 20,
+      "parts": 24,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 16081
+      "variants": 32,
+      "bytes": 37521
+    },
+    {
+      "file": "actions-21.html",
+      "artboard": "Actions",
+      "category": "Actions",
+      "part": 21,
+      "parts": 24,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 32,
+      "bytes": 37674
+    },
+    {
+      "file": "actions-22.html",
+      "artboard": "Actions",
+      "category": "Actions",
+      "part": 22,
+      "parts": 24,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 24,
+      "bytes": 35013
+    },
+    {
+      "file": "actions-23.html",
+      "artboard": "Actions",
+      "category": "Actions",
+      "part": 23,
+      "parts": 24,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 48,
+      "bytes": 40832
+    },
+    {
+      "file": "actions-24.html",
+      "artboard": "Actions",
+      "category": "Actions",
+      "part": 24,
+      "parts": 24,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 40,
+      "bytes": 36575
     },
     {
       "file": "ai-1.html",
       "artboard": "AI",
       "category": "AI",
       "part": 1,
-      "parts": 44,
+      "parts": 47,
       "into": "artboard",
       "width": 742,
-      "icons": 110,
+      "icons": 118,
       "variants": 24,
       "bytes": 42840
     },
@@ -275,7 +323,7 @@
       "artboard": "AI",
       "category": "AI",
       "part": 2,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -287,7 +335,7 @@
       "artboard": "AI",
       "category": "AI",
       "part": 3,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -299,43 +347,55 @@
       "artboard": "AI",
       "category": "AI",
       "part": 4,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 34956
+      "bytes": 35885
     },
     {
       "file": "ai-5.html",
       "artboard": "AI",
       "category": "AI",
       "part": 5,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 32822
+      "bytes": 31242
     },
     {
       "file": "ai-6.html",
       "artboard": "AI",
       "category": "AI",
       "part": 6,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 16,
-      "bytes": 35932
+      "bytes": 25428
     },
     {
       "file": "ai-7.html",
       "artboard": "AI",
       "category": "AI",
       "part": 7,
-      "parts": 44,
+      "parts": 47,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 8,
+      "bytes": 21313
+    },
+    {
+      "file": "ai-8.html",
+      "artboard": "AI",
+      "category": "AI",
+      "part": 8,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -343,11 +403,11 @@
       "bytes": 35794
     },
     {
-      "file": "ai-8.html",
+      "file": "ai-9.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 8,
-      "parts": 44,
+      "part": 9,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -355,11 +415,11 @@
       "bytes": 28526
     },
     {
-      "file": "ai-9.html",
+      "file": "ai-10.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 9,
-      "parts": 44,
+      "part": 10,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -367,47 +427,47 @@
       "bytes": 29158
     },
     {
-      "file": "ai-10.html",
-      "artboard": "AI",
-      "category": "AI",
-      "part": 10,
-      "parts": 44,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 24,
-      "bytes": 37386
-    },
-    {
       "file": "ai-11.html",
       "artboard": "AI",
       "category": "AI",
       "part": 11,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 38640
+      "bytes": 39811
     },
     {
       "file": "ai-12.html",
       "artboard": "AI",
       "category": "AI",
       "part": 12,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 27046
+      "variants": 24,
+      "bytes": 38497
     },
     {
       "file": "ai-13.html",
       "artboard": "AI",
       "category": "AI",
       "part": 13,
-      "parts": 44,
+      "parts": 47,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 24,
+      "bytes": 39826
+    },
+    {
+      "file": "ai-14.html",
+      "artboard": "AI",
+      "category": "AI",
+      "part": 14,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -415,59 +475,59 @@
       "bytes": 28175
     },
     {
-      "file": "ai-14.html",
-      "artboard": "AI",
-      "category": "AI",
-      "part": 14,
-      "parts": 44,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 16,
-      "bytes": 32380
-    },
-    {
       "file": "ai-15.html",
       "artboard": "AI",
       "category": "AI",
       "part": 15,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 40008
+      "variants": 16,
+      "bytes": 32009
     },
     {
       "file": "ai-16.html",
       "artboard": "AI",
       "category": "AI",
       "part": 16,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 38628
+      "bytes": 40165
     },
     {
       "file": "ai-17.html",
       "artboard": "AI",
       "category": "AI",
       "part": 17,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 27901
+      "variants": 24,
+      "bytes": 38847
     },
     {
       "file": "ai-18.html",
       "artboard": "AI",
       "category": "AI",
       "part": 18,
-      "parts": 44,
+      "parts": 47,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 24,
+      "bytes": 40820
+    },
+    {
+      "file": "ai-19.html",
+      "artboard": "AI",
+      "category": "AI",
+      "part": 19,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -475,11 +535,11 @@
       "bytes": 26380
     },
     {
-      "file": "ai-19.html",
+      "file": "ai-20.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 19,
-      "parts": 44,
+      "part": 20,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -487,23 +547,23 @@
       "bytes": 28834
     },
     {
-      "file": "ai-20.html",
-      "artboard": "AI",
-      "category": "AI",
-      "part": 20,
-      "parts": 44,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 24,
-      "bytes": 39495
-    },
-    {
       "file": "ai-21.html",
       "artboard": "AI",
       "category": "AI",
       "part": 21,
-      "parts": 44,
+      "parts": 47,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 24,
+      "bytes": 39476
+    },
+    {
+      "file": "ai-22.html",
+      "artboard": "AI",
+      "category": "AI",
+      "part": 22,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -511,11 +571,11 @@
       "bytes": 31480
     },
     {
-      "file": "ai-22.html",
+      "file": "ai-23.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 22,
-      "parts": 44,
+      "part": 23,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -523,11 +583,11 @@
       "bytes": 27061
     },
     {
-      "file": "ai-23.html",
+      "file": "ai-24.html",
       "artboard": "AI",
       "category": "AI",
-      "part": 23,
-      "parts": 44,
+      "part": 24,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -535,83 +595,95 @@
       "bytes": 27458
     },
     {
-      "file": "ai-24.html",
-      "artboard": "AI",
-      "category": "AI",
-      "part": 24,
-      "parts": 44,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 24,
-      "bytes": 40383
-    },
-    {
       "file": "ai-25.html",
       "artboard": "AI",
       "category": "AI",
       "part": 25,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 16,
-      "bytes": 27274
+      "bytes": 28083
     },
     {
       "file": "ai-26.html",
       "artboard": "AI",
       "category": "AI",
       "part": 26,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 29636
+      "variants": 24,
+      "bytes": 40179
     },
     {
       "file": "ai-27.html",
       "artboard": "AI",
       "category": "AI",
       "part": 27,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 39805
+      "variants": 16,
+      "bytes": 29143
     },
     {
       "file": "ai-28.html",
       "artboard": "AI",
       "category": "AI",
       "part": 28,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 29657
+      "variants": 16,
+      "bytes": 27923
     },
     {
       "file": "ai-29.html",
       "artboard": "AI",
       "category": "AI",
       "part": 29,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 39349
+      "bytes": 39782
     },
     {
       "file": "ai-30.html",
       "artboard": "AI",
       "category": "AI",
       "part": 30,
-      "parts": 44,
+      "parts": 47,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 24,
+      "bytes": 29676
+    },
+    {
+      "file": "ai-31.html",
+      "artboard": "AI",
+      "category": "AI",
+      "part": 31,
+      "parts": 47,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 24,
+      "bytes": 39330
+    },
+    {
+      "file": "ai-32.html",
+      "artboard": "AI",
+      "category": "AI",
+      "part": 32,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -619,172 +691,184 @@
       "bytes": 35310
     },
     {
-      "file": "ai-31.html",
-      "artboard": "AI",
-      "category": "AI",
-      "part": 31,
-      "parts": 44,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 16,
-      "bytes": 28752
-    },
-    {
-      "file": "ai-32.html",
-      "artboard": "AI",
-      "category": "AI",
-      "part": 32,
-      "parts": 44,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 16,
-      "bytes": 30040
-    },
-    {
       "file": "ai-33.html",
       "artboard": "AI",
       "category": "AI",
       "part": 33,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 37768
+      "bytes": 38861
     },
     {
       "file": "ai-34.html",
       "artboard": "AI",
       "category": "AI",
       "part": 34,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 40172
+      "variants": 16,
+      "bytes": 28064
     },
     {
       "file": "ai-35.html",
       "artboard": "AI",
       "category": "AI",
       "part": 35,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 28282
+      "variants": 24,
+      "bytes": 40362
     },
     {
       "file": "ai-36.html",
       "artboard": "AI",
       "category": "AI",
       "part": 36,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 30086
+      "variants": 24,
+      "bytes": 39498
     },
     {
       "file": "ai-37.html",
       "artboard": "AI",
       "category": "AI",
       "part": 37,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 39368
+      "bytes": 40064
     },
     {
       "file": "ai-38.html",
       "artboard": "AI",
       "category": "AI",
       "part": 38,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 32944
+      "variants": 16,
+      "bytes": 29977
     },
     {
       "file": "ai-39.html",
       "artboard": "AI",
       "category": "AI",
       "part": 39,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 38792
+      "variants": 16,
+      "bytes": 29351
     },
     {
       "file": "ai-40.html",
       "artboard": "AI",
       "category": "AI",
       "part": 40,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 28753
+      "variants": 24,
+      "bytes": 38405
     },
     {
       "file": "ai-41.html",
       "artboard": "AI",
       "category": "AI",
       "part": 41,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 27655
+      "variants": 24,
+      "bytes": 32297
     },
     {
       "file": "ai-42.html",
       "artboard": "AI",
       "category": "AI",
       "part": 42,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 28019
+      "variants": 24,
+      "bytes": 40865
     },
     {
       "file": "ai-43.html",
       "artboard": "AI",
       "category": "AI",
       "part": 43,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 16,
-      "bytes": 26946
+      "bytes": 27173
     },
     {
       "file": "ai-44.html",
       "artboard": "AI",
       "category": "AI",
       "part": 44,
-      "parts": 44,
+      "parts": 47,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 16,
-      "bytes": 32294
+      "bytes": 27991
+    },
+    {
+      "file": "ai-45.html",
+      "artboard": "AI",
+      "category": "AI",
+      "part": 45,
+      "parts": 47,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 16,
+      "bytes": 27617
+    },
+    {
+      "file": "ai-46.html",
+      "artboard": "AI",
+      "category": "AI",
+      "part": 46,
+      "parts": 47,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 16,
+      "bytes": 31825
+    },
+    {
+      "file": "ai-47.html",
+      "artboard": "AI",
+      "category": "AI",
+      "part": 47,
+      "parts": 47,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 8,
+      "bytes": 13856
     },
     {
       "file": "animals-1.html",
@@ -842,7 +926,7 @@
       "parts": 21,
       "into": "artboard",
       "width": 742,
-      "icons": 136,
+      "icons": 139,
       "variants": 48,
       "bytes": 37729
     },
@@ -1035,8 +1119,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 30429
+      "variants": 48,
+      "bytes": 34206
     },
     {
       "file": "arrows-18.html",
@@ -1048,7 +1132,7 @@
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 38716
+      "bytes": 35705
     },
     {
       "file": "arrows-19.html",
@@ -1059,8 +1143,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 37609
+      "variants": 32,
+      "bytes": 32934
     },
     {
       "file": "arrows-20.html",
@@ -1071,8 +1155,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 72,
-      "bytes": 39808
+      "variants": 56,
+      "bytes": 37495
     },
     {
       "file": "arrows-21.html",
@@ -1083,18 +1167,18 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 9666
+      "variants": 56,
+      "bytes": 32682
     },
     {
       "file": "art-1.html",
       "artboard": "Art",
       "category": "Art",
       "part": 1,
-      "parts": 7,
+      "parts": 8,
       "into": "artboard",
       "width": 742,
-      "icons": 26,
+      "icons": 34,
       "variants": 16,
       "bytes": 40742
     },
@@ -1103,43 +1187,43 @@
       "artboard": "Art",
       "category": "Art",
       "part": 2,
-      "parts": 7,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 33138
+      "variants": 40,
+      "bytes": 40148
     },
     {
       "file": "art-3.html",
       "artboard": "Art",
       "category": "Art",
       "part": 3,
-      "parts": 7,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 29864
+      "variants": 48,
+      "bytes": 40554
     },
     {
       "file": "art-4.html",
       "artboard": "Art",
       "category": "Art",
       "part": 4,
-      "parts": 7,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 27694
+      "variants": 32,
+      "bytes": 31320
     },
     {
       "file": "art-5.html",
       "artboard": "Art",
       "category": "Art",
       "part": 5,
-      "parts": 7,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -1151,24 +1235,36 @@
       "artboard": "Art",
       "category": "Art",
       "part": 6,
-      "parts": 7,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 33836
+      "variants": 56,
+      "bytes": 37067
     },
     {
       "file": "art-7.html",
       "artboard": "Art",
       "category": "Art",
       "part": 7,
-      "parts": 7,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 31905
+      "variants": 40,
+      "bytes": 40050
+    },
+    {
+      "file": "art-8.html",
+      "artboard": "Art",
+      "category": "Art",
+      "part": 8,
+      "parts": 8,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 8,
+      "bytes": 5613
     },
     {
       "file": "charts-1.html",
@@ -1178,7 +1274,7 @@
       "parts": 12,
       "into": "artboard",
       "width": 742,
-      "icons": 54,
+      "icons": 55,
       "variants": 64,
       "bytes": 39065
     },
@@ -1276,7 +1372,7 @@
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 31979
+      "bytes": 30364
     },
     {
       "file": "charts-10.html",
@@ -1287,8 +1383,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 36999
+      "variants": 32,
+      "bytes": 37629
     },
     {
       "file": "charts-11.html",
@@ -1299,8 +1395,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 39026
+      "variants": 72,
+      "bytes": 39712
     },
     {
       "file": "charts-12.html",
@@ -1311,8 +1407,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 8,
-      "bytes": 4116
+      "variants": 24,
+      "bytes": 15741
     },
     {
       "file": "chevrons-carets-1.html",
@@ -1322,7 +1418,7 @@
       "parts": 7,
       "into": "artboard",
       "width": 742,
-      "icons": 27,
+      "icons": 28,
       "variants": 56,
       "bytes": 39231
     },
@@ -1383,8 +1479,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 39730
+      "variants": 56,
+      "bytes": 35428
     },
     {
       "file": "chevrons-carets-7.html",
@@ -1395,8 +1491,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 14496
+      "variants": 48,
+      "bytes": 25988
     },
     {
       "file": "commerce-1.html",
@@ -1406,7 +1502,7 @@
       "parts": 17,
       "into": "artboard",
       "width": 742,
-      "icons": 75,
+      "icons": 78,
       "variants": 32,
       "bytes": 40794
     },
@@ -1516,7 +1612,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 40869
+      "bytes": 38814
     },
     {
       "file": "commerce-11.html",
@@ -1527,8 +1623,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 32472
+      "variants": 40,
+      "bytes": 39951
     },
     {
       "file": "commerce-12.html",
@@ -1552,7 +1648,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 36604
+      "bytes": 36623
     },
     {
       "file": "commerce-14.html",
@@ -1564,7 +1660,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 39062
+      "bytes": 38433
     },
     {
       "file": "commerce-15.html",
@@ -1575,8 +1671,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 31341
+      "variants": 40,
+      "bytes": 39581
     },
     {
       "file": "commerce-16.html",
@@ -1588,7 +1684,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 38623
+      "bytes": 39192
     },
     {
       "file": "commerce-17.html",
@@ -1599,8 +1695,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 8,
-      "bytes": 14177
+      "variants": 16,
+      "bytes": 21238
     },
     {
       "file": "controls-1.html",
@@ -1610,9 +1706,9 @@
       "parts": 3,
       "into": "artboard",
       "width": 742,
-      "icons": 15,
-      "variants": 48,
-      "bytes": 42665
+      "icons": 16,
+      "variants": 32,
+      "bytes": 35422
     },
     {
       "file": "controls-2.html",
@@ -1623,8 +1719,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 39990
+      "variants": 48,
+      "bytes": 37937
     },
     {
       "file": "controls-3.html",
@@ -1635,18 +1731,18 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 12642
+      "variants": 48,
+      "bytes": 32996
     },
     {
       "file": "devices-1.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 1,
-      "parts": 27,
+      "parts": 32,
       "into": "artboard",
       "width": 742,
-      "icons": 144,
+      "icons": 170,
       "variants": 48,
       "bytes": 36762
     },
@@ -1655,19 +1751,31 @@
       "artboard": "Devices",
       "category": "Devices",
       "part": 2,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 33597
+      "bytes": 36399
     },
     {
       "file": "devices-3.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 3,
-      "parts": 27,
+      "parts": 32,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 32,
+      "bytes": 33244
+    },
+    {
+      "file": "devices-4.html",
+      "artboard": "Devices",
+      "category": "Devices",
+      "part": 4,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -1675,292 +1783,340 @@
       "bytes": 36975
     },
     {
-      "file": "devices-4.html",
-      "artboard": "Devices",
-      "category": "Devices",
-      "part": 4,
-      "parts": 27,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 40,
-      "bytes": 38749
-    },
-    {
       "file": "devices-5.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 5,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 35713
+      "bytes": 39037
     },
     {
       "file": "devices-6.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 6,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 36473
+      "bytes": 35449
     },
     {
       "file": "devices-7.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 7,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 30072
+      "variants": 56,
+      "bytes": 40763
     },
     {
       "file": "devices-8.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 8,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 33239
+      "variants": 32,
+      "bytes": 40328
     },
     {
       "file": "devices-9.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 9,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 25538
+      "bytes": 33333
     },
     {
       "file": "devices-10.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 10,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 40251
+      "bytes": 40741
     },
     {
       "file": "devices-11.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 11,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 35791
+      "variants": 24,
+      "bytes": 32258
     },
     {
       "file": "devices-12.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 12,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 37487
+      "variants": 32,
+      "bytes": 36757
     },
     {
       "file": "devices-13.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 13,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 34491
+      "bytes": 40828
     },
     {
       "file": "devices-14.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 14,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 35377
+      "variants": 56,
+      "bytes": 40107
     },
     {
       "file": "devices-15.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 15,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 40695
+      "bytes": 37565
     },
     {
       "file": "devices-16.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 16,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 36735
+      "variants": 56,
+      "bytes": 40450
     },
     {
       "file": "devices-17.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 17,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 40881
+      "bytes": 37927
     },
     {
       "file": "devices-18.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 18,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 40192
+      "variants": 40,
+      "bytes": 34213
     },
     {
       "file": "devices-19.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 19,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 34086
+      "variants": 40,
+      "bytes": 37999
     },
     {
       "file": "devices-20.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 20,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 37278
+      "variants": 48,
+      "bytes": 40220
     },
     {
       "file": "devices-21.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 21,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 37855
+      "variants": 40,
+      "bytes": 35300
     },
     {
       "file": "devices-22.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 22,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 37527
+      "variants": 48,
+      "bytes": 35685
     },
     {
       "file": "devices-23.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 23,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 40040
+      "variants": 48,
+      "bytes": 38289
     },
     {
       "file": "devices-24.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 24,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 37739
+      "variants": 32,
+      "bytes": 34388
     },
     {
       "file": "devices-25.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 25,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 36436
+      "variants": 48,
+      "bytes": 39440
     },
     {
       "file": "devices-26.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 26,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 36305
+      "variants": 56,
+      "bytes": 39107
     },
     {
       "file": "devices-27.html",
       "artboard": "Devices",
       "category": "Devices",
       "part": 27,
-      "parts": 27,
+      "parts": 32,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 25232
+      "variants": 56,
+      "bytes": 38222
+    },
+    {
+      "file": "devices-28.html",
+      "artboard": "Devices",
+      "category": "Devices",
+      "part": 28,
+      "parts": 32,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 48,
+      "bytes": 36177
+    },
+    {
+      "file": "devices-29.html",
+      "artboard": "Devices",
+      "category": "Devices",
+      "part": 29,
+      "parts": 32,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 56,
+      "bytes": 40091
+    },
+    {
+      "file": "devices-30.html",
+      "artboard": "Devices",
+      "category": "Devices",
+      "part": 30,
+      "parts": 32,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 56,
+      "bytes": 36717
+    },
+    {
+      "file": "devices-31.html",
+      "artboard": "Devices",
+      "category": "Devices",
+      "part": 31,
+      "parts": 32,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 40,
+      "bytes": 35708
+    },
+    {
+      "file": "devices-32.html",
+      "artboard": "Devices",
+      "category": "Devices",
+      "part": 32,
+      "parts": 32,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 24,
+      "bytes": 17840
     },
     {
       "file": "diagrams-1.html",
@@ -1970,7 +2126,7 @@
       "parts": 5,
       "into": "artboard",
       "width": 742,
-      "icons": 26,
+      "icons": 27,
       "variants": 48,
       "bytes": 37997
     },
@@ -2019,8 +2175,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 18971
+      "variants": 32,
+      "bytes": 34529
     },
     {
       "file": "education.html",
@@ -2030,19 +2186,19 @@
       "parts": 1,
       "into": "artboard",
       "width": 742,
-      "icons": 3,
-      "variants": 24,
-      "bytes": 22389
+      "icons": 4,
+      "variants": 32,
+      "bytes": 26461
     },
     {
       "file": "emoji-1.html",
       "artboard": "Emoji",
       "category": "Emoji",
       "part": 1,
-      "parts": 3,
+      "parts": 6,
       "into": "artboard",
       "width": 742,
-      "icons": 14,
+      "icons": 22,
       "variants": 40,
       "bytes": 39909
     },
@@ -2051,103 +2207,151 @@
       "artboard": "Emoji",
       "category": "Emoji",
       "part": 2,
-      "parts": 3,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 31789
+      "variants": 32,
+      "bytes": 34560
     },
     {
       "file": "emoji-3.html",
       "artboard": "Emoji",
       "category": "Emoji",
       "part": 3,
-      "parts": 3,
+      "parts": 6,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 39169
+      "variants": 40,
+      "bytes": 34724
+    },
+    {
+      "file": "emoji-4.html",
+      "artboard": "Emoji",
+      "category": "Emoji",
+      "part": 4,
+      "parts": 6,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 24,
+      "bytes": 36959
+    },
+    {
+      "file": "emoji-5.html",
+      "artboard": "Emoji",
+      "category": "Emoji",
+      "part": 5,
+      "parts": 6,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 24,
+      "bytes": 40297
+    },
+    {
+      "file": "emoji-6.html",
+      "artboard": "Emoji",
+      "category": "Emoji",
+      "part": 6,
+      "parts": 6,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 16,
+      "bytes": 12058
     },
     {
       "file": "files-1.html",
       "artboard": "Files",
       "category": "Files",
       "part": 1,
-      "parts": 15,
+      "parts": 17,
       "into": "artboard",
       "width": 742,
-      "icons": 89,
+      "icons": 98,
       "variants": 56,
-      "bytes": 40715
+      "bytes": 39160
     },
     {
       "file": "files-2.html",
       "artboard": "Files",
       "category": "Files",
       "part": 2,
-      "parts": 15,
+      "parts": 17,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 40417
+      "variants": 40,
+      "bytes": 36311
     },
     {
       "file": "files-3.html",
       "artboard": "Files",
       "category": "Files",
       "part": 3,
-      "parts": 15,
+      "parts": 17,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 39378
+      "bytes": 36526
     },
     {
       "file": "files-4.html",
       "artboard": "Files",
       "category": "Files",
       "part": 4,
-      "parts": 15,
+      "parts": 17,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 34321
+      "bytes": 36369
     },
     {
       "file": "files-5.html",
       "artboard": "Files",
       "category": "Files",
       "part": 5,
-      "parts": 15,
+      "parts": 17,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 36827
+      "bytes": 39834
     },
     {
       "file": "files-6.html",
       "artboard": "Files",
       "category": "Files",
       "part": 6,
-      "parts": 15,
+      "parts": 17,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 40839
+      "variants": 48,
+      "bytes": 35368
     },
     {
       "file": "files-7.html",
       "artboard": "Files",
       "category": "Files",
       "part": 7,
-      "parts": 15,
+      "parts": 17,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 48,
+      "bytes": 35237
+    },
+    {
+      "file": "files-8.html",
+      "artboard": "Files",
+      "category": "Files",
+      "part": 8,
+      "parts": 17,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -2155,100 +2359,112 @@
       "bytes": 37490
     },
     {
-      "file": "files-8.html",
-      "artboard": "Files",
-      "category": "Files",
-      "part": 8,
-      "parts": 15,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 48,
-      "bytes": 35533
-    },
-    {
       "file": "files-9.html",
       "artboard": "Files",
       "category": "Files",
       "part": 9,
-      "parts": 15,
+      "parts": 17,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 35847
+      "bytes": 35990
     },
     {
       "file": "files-10.html",
       "artboard": "Files",
       "category": "Files",
       "part": 10,
-      "parts": 15,
+      "parts": 17,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 39916
+      "variants": 48,
+      "bytes": 39464
     },
     {
       "file": "files-11.html",
       "artboard": "Files",
       "category": "Files",
       "part": 11,
-      "parts": 15,
+      "parts": 17,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 35955
+      "variants": 56,
+      "bytes": 40579
     },
     {
       "file": "files-12.html",
       "artboard": "Files",
       "category": "Files",
       "part": 12,
-      "parts": 15,
+      "parts": 17,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 37704
+      "bytes": 37548
     },
     {
       "file": "files-13.html",
       "artboard": "Files",
       "category": "Files",
       "part": 13,
-      "parts": 15,
+      "parts": 17,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 33854
+      "variants": 48,
+      "bytes": 38131
     },
     {
       "file": "files-14.html",
       "artboard": "Files",
       "category": "Files",
       "part": 14,
-      "parts": 15,
+      "parts": 17,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 34398
+      "variants": 48,
+      "bytes": 37071
     },
     {
       "file": "files-15.html",
       "artboard": "Files",
       "category": "Files",
       "part": 15,
-      "parts": 15,
+      "parts": 17,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 34811
+      "bytes": 35105
+    },
+    {
+      "file": "files-16.html",
+      "artboard": "Files",
+      "category": "Files",
+      "part": 16,
+      "parts": 17,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 48,
+      "bytes": 39384
+    },
+    {
+      "file": "files-17.html",
+      "artboard": "Files",
+      "category": "Files",
+      "part": 17,
+      "parts": 17,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 24,
+      "bytes": 21409
     },
     {
       "file": "finance-1.html",
@@ -2258,7 +2474,7 @@
       "parts": 9,
       "into": "artboard",
       "width": 742,
-      "icons": 39,
+      "icons": 40,
       "variants": 40,
       "bytes": 40936
     },
@@ -2296,7 +2512,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 37388
+      "bytes": 36267
     },
     {
       "file": "finance-5.html",
@@ -2308,7 +2524,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 39637
+      "bytes": 40623
     },
     {
       "file": "finance-6.html",
@@ -2319,8 +2535,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 31381
+      "variants": 32,
+      "bytes": 37350
     },
     {
       "file": "finance-7.html",
@@ -2332,7 +2548,7 @@
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 30181
+      "bytes": 30162
     },
     {
       "file": "finance-8.html",
@@ -2344,7 +2560,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 38764
+      "bytes": 38783
     },
     {
       "file": "finance-9.html",
@@ -2356,7 +2572,7 @@
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 19484
+      "bytes": 19465
     },
     {
       "file": "food-drink-1.html",
@@ -2630,7 +2846,7 @@
       "parts": 7,
       "into": "artboard",
       "width": 742,
-      "icons": 23,
+      "icons": 24,
       "variants": 24,
       "bytes": 36325
     },
@@ -2668,7 +2884,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 34266
+      "bytes": 34268
     },
     {
       "file": "health-5.html",
@@ -2680,7 +2896,7 @@
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 38268
+      "bytes": 33468
     },
     {
       "file": "health-6.html",
@@ -2692,7 +2908,7 @@
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 37418
+      "bytes": 36127
     },
     {
       "file": "health-7.html",
@@ -2703,8 +2919,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 16345
+      "variants": 24,
+      "bytes": 29581
     },
     {
       "file": "home-1.html",
@@ -2714,7 +2930,7 @@
       "parts": 12,
       "into": "artboard",
       "width": 742,
-      "icons": 58,
+      "icons": 59,
       "variants": 48,
       "bytes": 38362
     },
@@ -2776,7 +2992,7 @@
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 37960
+      "bytes": 34502
     },
     {
       "file": "home-7.html",
@@ -2787,8 +3003,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 38912
+      "variants": 32,
+      "bytes": 32384
     },
     {
       "file": "home-8.html",
@@ -2800,7 +3016,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 35383
+      "bytes": 37203
     },
     {
       "file": "home-9.html",
@@ -2811,8 +3027,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 31803
+      "variants": 40,
+      "bytes": 39300
     },
     {
       "file": "home-10.html",
@@ -2824,7 +3040,7 @@
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 40885
+      "bytes": 37454
     },
     {
       "file": "home-11.html",
@@ -2835,8 +3051,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 39920
+      "variants": 40,
+      "bytes": 37660
     },
     {
       "file": "home-12.html",
@@ -2847,8 +3063,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 25214
+      "variants": 56,
+      "bytes": 37442
     },
     {
       "file": "keyboard.html",
@@ -2891,10 +3107,10 @@
       "artboard": "Layout",
       "category": "Layout",
       "part": 1,
-      "parts": 27,
+      "parts": 30,
       "into": "artboard",
       "width": 742,
-      "icons": 167,
+      "icons": 180,
       "variants": 48,
       "bytes": 39102
     },
@@ -2903,322 +3119,358 @@
       "artboard": "Layout",
       "category": "Layout",
       "part": 2,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 64,
-      "bytes": 39676
+      "bytes": 40708
     },
     {
       "file": "layout-3.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 3,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 64,
-      "bytes": 39125
+      "bytes": 38903
     },
     {
       "file": "layout-4.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 4,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 36726
+      "bytes": 36088
     },
     {
       "file": "layout-5.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 5,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 39383
+      "variants": 64,
+      "bytes": 40359
     },
     {
       "file": "layout-6.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 6,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 39399
+      "variants": 56,
+      "bytes": 35956
     },
     {
       "file": "layout-7.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 7,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 72,
-      "bytes": 40556
+      "variants": 32,
+      "bytes": 32269
     },
     {
       "file": "layout-8.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 8,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 38618
+      "variants": 64,
+      "bytes": 37340
     },
     {
       "file": "layout-9.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 9,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 36617
+      "variants": 56,
+      "bytes": 36870
     },
     {
       "file": "layout-10.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 10,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 38569
+      "variants": 32,
+      "bytes": 37118
     },
     {
       "file": "layout-11.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 11,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 40130
+      "bytes": 32768
     },
     {
       "file": "layout-12.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 12,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 32967
+      "variants": 40,
+      "bytes": 38723
     },
     {
       "file": "layout-13.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 13,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 39784
+      "bytes": 37413
     },
     {
       "file": "layout-14.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 14,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 40466
+      "variants": 32,
+      "bytes": 33656
     },
     {
       "file": "layout-15.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 15,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 39361
+      "variants": 32,
+      "bytes": 36707
     },
     {
       "file": "layout-16.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 16,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 72,
-      "bytes": 38780
+      "variants": 48,
+      "bytes": 39477
     },
     {
       "file": "layout-17.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 17,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 72,
-      "bytes": 38078
+      "variants": 40,
+      "bytes": 34575
     },
     {
       "file": "layout-18.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 18,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 37321
+      "bytes": 39063
     },
     {
       "file": "layout-19.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 19,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 40555
+      "variants": 72,
+      "bytes": 37553
     },
     {
       "file": "layout-20.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 20,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 36377
+      "bytes": 37908
     },
     {
       "file": "layout-21.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 21,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 64,
-      "bytes": 40679
+      "bytes": 33897
     },
     {
       "file": "layout-22.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 22,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 39516
+      "bytes": 39307
     },
     {
       "file": "layout-23.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 23,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 36312
+      "variants": 64,
+      "bytes": 40214
     },
     {
       "file": "layout-24.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 24,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 40212
+      "variants": 56,
+      "bytes": 36227
     },
     {
       "file": "layout-25.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 25,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 36125
+      "bytes": 37267
     },
     {
       "file": "layout-26.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 26,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 39850
+      "variants": 56,
+      "bytes": 37519
     },
     {
       "file": "layout-27.html",
       "artboard": "Layout",
       "category": "Layout",
       "part": 27,
-      "parts": 27,
+      "parts": 30,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 8,
-      "bytes": 5543
+      "variants": 56,
+      "bytes": 36532
+    },
+    {
+      "file": "layout-28.html",
+      "artboard": "Layout",
+      "category": "Layout",
+      "part": 28,
+      "parts": 30,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 64,
+      "bytes": 39956
+    },
+    {
+      "file": "layout-29.html",
+      "artboard": "Layout",
+      "category": "Layout",
+      "part": 29,
+      "parts": 30,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 56,
+      "bytes": 39096
+    },
+    {
+      "file": "layout-30.html",
+      "artboard": "Layout",
+      "category": "Layout",
+      "part": 30,
+      "parts": 30,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 48,
+      "bytes": 37317
     },
     {
       "file": "mail-1.html",
       "artboard": "Mail",
       "category": "Mail",
       "part": 1,
-      "parts": 11,
+      "parts": 15,
       "into": "artboard",
       "width": 742,
-      "icons": 61,
+      "icons": 84,
       "variants": 40,
       "bytes": 37080
     },
@@ -3227,130 +3479,178 @@
       "artboard": "Mail",
       "category": "Mail",
       "part": 2,
-      "parts": 11,
+      "parts": 15,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 40545
+      "variants": 40,
+      "bytes": 37712
     },
     {
       "file": "mail-3.html",
       "artboard": "Mail",
       "category": "Mail",
       "part": 3,
-      "parts": 11,
+      "parts": 15,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 36407
+      "bytes": 35607
     },
     {
       "file": "mail-4.html",
       "artboard": "Mail",
       "category": "Mail",
       "part": 4,
-      "parts": 11,
+      "parts": 15,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 40195
+      "variants": 48,
+      "bytes": 38953
     },
     {
       "file": "mail-5.html",
       "artboard": "Mail",
       "category": "Mail",
       "part": 5,
-      "parts": 11,
+      "parts": 15,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 39308
+      "bytes": 37347
     },
     {
       "file": "mail-6.html",
       "artboard": "Mail",
       "category": "Mail",
       "part": 6,
-      "parts": 11,
+      "parts": 15,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 37528
+      "variants": 56,
+      "bytes": 40862
     },
     {
       "file": "mail-7.html",
       "artboard": "Mail",
       "category": "Mail",
       "part": 7,
-      "parts": 11,
+      "parts": 15,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 39985
+      "bytes": 36309
     },
     {
       "file": "mail-8.html",
       "artboard": "Mail",
       "category": "Mail",
       "part": 8,
-      "parts": 11,
+      "parts": 15,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 39320
+      "variants": 40,
+      "bytes": 35426
     },
     {
       "file": "mail-9.html",
       "artboard": "Mail",
       "category": "Mail",
       "part": 9,
-      "parts": 11,
+      "parts": 15,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 39919
+      "variants": 40,
+      "bytes": 39414
     },
     {
       "file": "mail-10.html",
       "artboard": "Mail",
       "category": "Mail",
       "part": 10,
-      "parts": 11,
+      "parts": 15,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 30315
+      "bytes": 34864
     },
     {
       "file": "mail-11.html",
       "artboard": "Mail",
       "category": "Mail",
       "part": 11,
-      "parts": 11,
+      "parts": 15,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 25593
+      "variants": 56,
+      "bytes": 39203
+    },
+    {
+      "file": "mail-12.html",
+      "artboard": "Mail",
+      "category": "Mail",
+      "part": 12,
+      "parts": 15,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 48,
+      "bytes": 39247
+    },
+    {
+      "file": "mail-13.html",
+      "artboard": "Mail",
+      "category": "Mail",
+      "part": 13,
+      "parts": 15,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 48,
+      "bytes": 37697
+    },
+    {
+      "file": "mail-14.html",
+      "artboard": "Mail",
+      "category": "Mail",
+      "part": 14,
+      "parts": 15,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 56,
+      "bytes": 38470
+    },
+    {
+      "file": "mail-15.html",
+      "artboard": "Mail",
+      "category": "Mail",
+      "part": 15,
+      "parts": 15,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 24,
+      "bytes": 32249
     },
     {
       "file": "maps-1.html",
       "artboard": "Maps",
       "category": "Maps",
       "part": 1,
-      "parts": 13,
+      "parts": 14,
       "into": "artboard",
       "width": 742,
-      "icons": 59,
+      "icons": 61,
       "variants": 40,
       "bytes": 37546
     },
@@ -3359,7 +3659,7 @@
       "artboard": "Maps",
       "category": "Maps",
       "part": 2,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -3371,55 +3671,55 @@
       "artboard": "Maps",
       "category": "Maps",
       "part": 3,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 39164
+      "bytes": 40437
     },
     {
       "file": "maps-4.html",
       "artboard": "Maps",
       "category": "Maps",
       "part": 4,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 34087
+      "variants": 32,
+      "bytes": 39893
     },
     {
       "file": "maps-5.html",
       "artboard": "Maps",
       "category": "Maps",
       "part": 5,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 20932
+      "bytes": 20913
     },
     {
       "file": "maps-6.html",
       "artboard": "Maps",
       "category": "Maps",
       "part": 6,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 40843
+      "bytes": 40862
     },
     {
       "file": "maps-7.html",
       "artboard": "Maps",
       "category": "Maps",
       "part": 7,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -3431,7 +3731,7 @@
       "artboard": "Maps",
       "category": "Maps",
       "part": 8,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -3443,19 +3743,19 @@
       "artboard": "Maps",
       "category": "Maps",
       "part": 9,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 36701
+      "bytes": 36682
     },
     {
       "file": "maps-10.html",
       "artboard": "Maps",
       "category": "Maps",
       "part": 10,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -3467,142 +3767,166 @@
       "artboard": "Maps",
       "category": "Maps",
       "part": 11,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 34016
+      "bytes": 34035
     },
     {
       "file": "maps-12.html",
       "artboard": "Maps",
       "category": "Maps",
       "part": 12,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 38511
+      "variants": 24,
+      "bytes": 26266
     },
     {
       "file": "maps-13.html",
       "artboard": "Maps",
       "category": "Maps",
       "part": 13,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 40660
+      "variants": 32,
+      "bytes": 34278
+    },
+    {
+      "file": "maps-14.html",
+      "artboard": "Maps",
+      "category": "Maps",
+      "part": 14,
+      "parts": 14,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 24,
+      "bytes": 26720
     },
     {
       "file": "math-1.html",
       "artboard": "Math",
       "category": "Math",
       "part": 1,
-      "parts": 8,
+      "parts": 9,
       "into": "artboard",
       "width": 742,
       "icons": 47,
       "variants": 64,
-      "bytes": 41100
+      "bytes": 39299
     },
     {
       "file": "math-2.html",
       "artboard": "Math",
       "category": "Math",
       "part": 2,
-      "parts": 8,
+      "parts": 9,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 39860
+      "variants": 56,
+      "bytes": 40039
     },
     {
       "file": "math-3.html",
       "artboard": "Math",
       "category": "Math",
       "part": 3,
-      "parts": 8,
+      "parts": 9,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 64,
-      "bytes": 39668
+      "bytes": 39079
     },
     {
       "file": "math-4.html",
       "artboard": "Math",
       "category": "Math",
       "part": 4,
-      "parts": 8,
+      "parts": 9,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 72,
-      "bytes": 37998
+      "bytes": 40037
     },
     {
       "file": "math-5.html",
       "artboard": "Math",
       "category": "Math",
       "part": 5,
-      "parts": 8,
+      "parts": 9,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 64,
-      "bytes": 40849
+      "bytes": 38628
     },
     {
       "file": "math-6.html",
       "artboard": "Math",
       "category": "Math",
       "part": 6,
-      "parts": 8,
+      "parts": 9,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 72,
-      "bytes": 39560
+      "bytes": 40708
     },
     {
       "file": "math-7.html",
       "artboard": "Math",
       "category": "Math",
       "part": 7,
-      "parts": 8,
+      "parts": 9,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 40885
+      "variants": 56,
+      "bytes": 35546
     },
     {
       "file": "math-8.html",
       "artboard": "Math",
       "category": "Math",
       "part": 8,
-      "parts": 8,
+      "parts": 9,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 24581
+      "variants": 72,
+      "bytes": 37591
+    },
+    {
+      "file": "math-9.html",
+      "artboard": "Math",
+      "category": "Math",
+      "part": 9,
+      "parts": 9,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 16,
+      "bytes": 7992
     },
     {
       "file": "media-1.html",
       "artboard": "Media",
       "category": "Media",
       "part": 1,
-      "parts": 21,
+      "parts": 23,
       "into": "artboard",
       "width": 742,
-      "icons": 112,
+      "icons": 123,
       "variants": 48,
       "bytes": 41784
     },
@@ -3611,7 +3935,7 @@
       "artboard": "Media",
       "category": "Media",
       "part": 2,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -3623,127 +3947,139 @@
       "artboard": "Media",
       "category": "Media",
       "part": 3,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 36778
+      "bytes": 37505
     },
     {
       "file": "media-4.html",
       "artboard": "Media",
       "category": "Media",
       "part": 4,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 35666
+      "variants": 48,
+      "bytes": 38377
     },
     {
       "file": "media-5.html",
       "artboard": "Media",
       "category": "Media",
       "part": 5,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 37311
+      "variants": 40,
+      "bytes": 39402
     },
     {
       "file": "media-6.html",
       "artboard": "Media",
       "category": "Media",
       "part": 6,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 37840
+      "variants": 40,
+      "bytes": 36684
     },
     {
       "file": "media-7.html",
       "artboard": "Media",
       "category": "Media",
       "part": 7,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 32311
+      "variants": 56,
+      "bytes": 40545
     },
     {
       "file": "media-8.html",
       "artboard": "Media",
       "category": "Media",
       "part": 8,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 37396
+      "variants": 40,
+      "bytes": 35286
     },
     {
       "file": "media-9.html",
       "artboard": "Media",
       "category": "Media",
       "part": 9,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 40841
+      "variants": 40,
+      "bytes": 37972
     },
     {
       "file": "media-10.html",
       "artboard": "Media",
       "category": "Media",
       "part": 10,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 36022
+      "variants": 48,
+      "bytes": 39973
     },
     {
       "file": "media-11.html",
       "artboard": "Media",
       "category": "Media",
       "part": 11,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 40584
+      "bytes": 35245
     },
     {
       "file": "media-12.html",
       "artboard": "Media",
       "category": "Media",
       "part": 12,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 35688
+      "variants": 32,
+      "bytes": 35166
     },
     {
       "file": "media-13.html",
       "artboard": "Media",
       "category": "Media",
       "part": 13,
-      "parts": 21,
+      "parts": 23,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 40,
+      "bytes": 35063
+    },
+    {
+      "file": "media-14.html",
+      "artboard": "Media",
+      "category": "Media",
+      "part": 14,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -3751,11 +4087,11 @@
       "bytes": 30581
     },
     {
-      "file": "media-14.html",
+      "file": "media-15.html",
       "artboard": "Media",
       "category": "Media",
-      "part": 14,
-      "parts": 21,
+      "part": 15,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -3763,172 +4099,208 @@
       "bytes": 37061
     },
     {
-      "file": "media-15.html",
-      "artboard": "Media",
-      "category": "Media",
-      "part": 15,
-      "parts": 21,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 56,
-      "bytes": 35949
-    },
-    {
       "file": "media-16.html",
       "artboard": "Media",
       "category": "Media",
       "part": 16,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 37123
+      "variants": 56,
+      "bytes": 40070
     },
     {
       "file": "media-17.html",
       "artboard": "Media",
       "category": "Media",
       "part": 17,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 72,
-      "bytes": 39568
+      "variants": 48,
+      "bytes": 36262
     },
     {
       "file": "media-18.html",
       "artboard": "Media",
       "category": "Media",
       "part": 18,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 36954
+      "variants": 64,
+      "bytes": 40393
     },
     {
       "file": "media-19.html",
       "artboard": "Media",
       "category": "Media",
       "part": 19,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 39592
+      "variants": 72,
+      "bytes": 38615
     },
     {
       "file": "media-20.html",
       "artboard": "Media",
       "category": "Media",
       "part": 20,
-      "parts": 21,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 38524
+      "variants": 48,
+      "bytes": 37236
     },
     {
       "file": "media-21.html",
       "artboard": "Media",
       "category": "Media",
       "part": 21,
-      "parts": 21,
+      "parts": 23,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 56,
+      "bytes": 39858
+    },
+    {
+      "file": "media-22.html",
+      "artboard": "Media",
+      "category": "Media",
+      "part": 22,
+      "parts": 23,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 36002
+      "bytes": 37463
+    },
+    {
+      "file": "media-23.html",
+      "artboard": "Media",
+      "category": "Media",
+      "part": 23,
+      "parts": 23,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 40,
+      "bytes": 29180
     },
     {
       "file": "nature-1.html",
       "artboard": "Nature",
       "category": "Nature",
       "part": 1,
-      "parts": 7,
+      "parts": 9,
       "into": "artboard",
       "width": 742,
-      "icons": 25,
+      "icons": 28,
       "variants": 32,
-      "bytes": 41411
+      "bytes": 33762
     },
     {
       "file": "nature-2.html",
       "artboard": "Nature",
       "category": "Nature",
       "part": 2,
-      "parts": 7,
+      "parts": 9,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 33164
+      "bytes": 36098
     },
     {
       "file": "nature-3.html",
       "artboard": "Nature",
       "category": "Nature",
       "part": 3,
-      "parts": 7,
+      "parts": 9,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 37673
+      "variants": 16,
+      "bytes": 27645
     },
     {
       "file": "nature-4.html",
       "artboard": "Nature",
       "category": "Nature",
       "part": 4,
-      "parts": 7,
+      "parts": 9,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 38167
+      "variants": 16,
+      "bytes": 37880
     },
     {
       "file": "nature-5.html",
       "artboard": "Nature",
       "category": "Nature",
       "part": 5,
-      "parts": 7,
+      "parts": 9,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 35133
+      "bytes": 39340
     },
     {
       "file": "nature-6.html",
       "artboard": "Nature",
       "category": "Nature",
       "part": 6,
-      "parts": 7,
+      "parts": 9,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 38931
+      "variants": 32,
+      "bytes": 36631
     },
     {
       "file": "nature-7.html",
       "artboard": "Nature",
       "category": "Nature",
       "part": 7,
-      "parts": 7,
+      "parts": 9,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 34520
+      "variants": 24,
+      "bytes": 32486
+    },
+    {
+      "file": "nature-8.html",
+      "artboard": "Nature",
+      "category": "Nature",
+      "part": 8,
+      "parts": 9,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 24,
+      "bytes": 34889
+    },
+    {
+      "file": "nature-9.html",
+      "artboard": "Nature",
+      "category": "Nature",
+      "part": 9,
+      "parts": 9,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 24,
+      "bytes": 37045
     },
     {
       "file": "people-1.html",
@@ -3998,7 +4370,7 @@
       "parts": 5,
       "into": "artboard",
       "width": 742,
-      "icons": 15,
+      "icons": 16,
       "variants": 40,
       "bytes": 33724
     },
@@ -4024,7 +4396,7 @@
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 36680
+      "bytes": 36931
     },
     {
       "file": "pointers-4.html",
@@ -4036,7 +4408,7 @@
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 36403
+      "bytes": 36143
     },
     {
       "file": "pointers-5.html",
@@ -4047,8 +4419,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 8,
-      "bytes": 6913
+      "variants": 16,
+      "bytes": 19102
     },
     {
       "file": "science-1.html",
@@ -4103,127 +4475,139 @@
       "artboard": "Shapes",
       "category": "Shapes",
       "part": 1,
-      "parts": 19,
+      "parts": 21,
       "into": "artboard",
       "width": 742,
-      "icons": 98,
-      "variants": 40,
-      "bytes": 40861
+      "icons": 111,
+      "variants": 48,
+      "bytes": 43199
     },
     {
       "file": "shapes-2.html",
       "artboard": "Shapes",
       "category": "Shapes",
       "part": 2,
-      "parts": 19,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 35855
+      "bytes": 34908
     },
     {
       "file": "shapes-3.html",
       "artboard": "Shapes",
       "category": "Shapes",
       "part": 3,
-      "parts": 19,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 39284
+      "variants": 32,
+      "bytes": 36003
     },
     {
       "file": "shapes-4.html",
       "artboard": "Shapes",
       "category": "Shapes",
       "part": 4,
-      "parts": 19,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 37798
+      "bytes": 35426
     },
     {
       "file": "shapes-5.html",
       "artboard": "Shapes",
       "category": "Shapes",
       "part": 5,
-      "parts": 19,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 40460
+      "variants": 48,
+      "bytes": 38027
     },
     {
       "file": "shapes-6.html",
       "artboard": "Shapes",
       "category": "Shapes",
       "part": 6,
-      "parts": 19,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 35589
+      "variants": 56,
+      "bytes": 39048
     },
     {
       "file": "shapes-7.html",
       "artboard": "Shapes",
       "category": "Shapes",
       "part": 7,
-      "parts": 19,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 27370
+      "variants": 48,
+      "bytes": 37729
     },
     {
       "file": "shapes-8.html",
       "artboard": "Shapes",
       "category": "Shapes",
       "part": 8,
-      "parts": 19,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 37632
+      "variants": 32,
+      "bytes": 40364
     },
     {
       "file": "shapes-9.html",
       "artboard": "Shapes",
       "category": "Shapes",
       "part": 9,
-      "parts": 19,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 40762
+      "variants": 32,
+      "bytes": 35107
     },
     {
       "file": "shapes-10.html",
       "artboard": "Shapes",
       "category": "Shapes",
       "part": 10,
-      "parts": 19,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 34483
+      "variants": 40,
+      "bytes": 40026
     },
     {
       "file": "shapes-11.html",
       "artboard": "Shapes",
       "category": "Shapes",
       "part": 11,
-      "parts": 19,
+      "parts": 21,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 40,
+      "bytes": 39853
+    },
+    {
+      "file": "shapes-12.html",
+      "artboard": "Shapes",
+      "category": "Shapes",
+      "part": 12,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -4231,11 +4615,11 @@
       "bytes": 40153
     },
     {
-      "file": "shapes-12.html",
+      "file": "shapes-13.html",
       "artboard": "Shapes",
       "category": "Shapes",
-      "part": 12,
-      "parts": 19,
+      "part": 13,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -4243,23 +4627,23 @@
       "bytes": 36035
     },
     {
-      "file": "shapes-13.html",
-      "artboard": "Shapes",
-      "category": "Shapes",
-      "part": 13,
-      "parts": 19,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 40,
-      "bytes": 37768
-    },
-    {
       "file": "shapes-14.html",
       "artboard": "Shapes",
       "category": "Shapes",
       "part": 14,
-      "parts": 19,
+      "parts": 21,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 40,
+      "bytes": 37749
+    },
+    {
+      "file": "shapes-15.html",
+      "artboard": "Shapes",
+      "category": "Shapes",
+      "part": 15,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -4267,11 +4651,11 @@
       "bytes": 36906
     },
     {
-      "file": "shapes-15.html",
+      "file": "shapes-16.html",
       "artboard": "Shapes",
       "category": "Shapes",
-      "part": 15,
-      "parts": 19,
+      "part": 16,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -4279,52 +4663,64 @@
       "bytes": 37202
     },
     {
-      "file": "shapes-16.html",
-      "artboard": "Shapes",
-      "category": "Shapes",
-      "part": 16,
-      "parts": 19,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 48,
-      "bytes": 36797
-    },
-    {
       "file": "shapes-17.html",
       "artboard": "Shapes",
       "category": "Shapes",
       "part": 17,
-      "parts": 19,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 40280
+      "variants": 40,
+      "bytes": 36406
     },
     {
       "file": "shapes-18.html",
       "artboard": "Shapes",
       "category": "Shapes",
       "part": 18,
-      "parts": 19,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 40184
+      "bytes": 38957
     },
     {
       "file": "shapes-19.html",
       "artboard": "Shapes",
       "category": "Shapes",
       "part": 19,
-      "parts": 19,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 21491
+      "variants": 56,
+      "bytes": 38837
+    },
+    {
+      "file": "shapes-20.html",
+      "artboard": "Shapes",
+      "category": "Shapes",
+      "part": 20,
+      "parts": 21,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 56,
+      "bytes": 40353
+    },
+    {
+      "file": "shapes-21.html",
+      "artboard": "Shapes",
+      "category": "Shapes",
+      "part": 21,
+      "parts": 21,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 56,
+      "bytes": 36900
     },
     {
       "file": "sport-1.html",
@@ -4334,7 +4730,7 @@
       "parts": 8,
       "into": "artboard",
       "width": 742,
-      "icons": 33,
+      "icons": 35,
       "variants": 32,
       "bytes": 36772
     },
@@ -4371,8 +4767,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 31048
+      "variants": 40,
+      "bytes": 39671
     },
     {
       "file": "sport-5.html",
@@ -4396,7 +4792,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 37099
+      "bytes": 39442
     },
     {
       "file": "sport-7.html",
@@ -4407,8 +4803,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 40519
+      "variants": 32,
+      "bytes": 33232
     },
     {
       "file": "sport-8.html",
@@ -4419,8 +4815,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 13139
+      "variants": 32,
+      "bytes": 27404
     },
     {
       "file": "stationery-1.html",
@@ -4499,118 +4895,130 @@
       "artboard": "Text",
       "category": "Text",
       "part": 1,
-      "parts": 9,
+      "parts": 10,
       "into": "artboard",
       "width": 742,
-      "icons": 63,
+      "icons": 74,
       "variants": 72,
-      "bytes": 42540
+      "bytes": 43211
     },
     {
       "file": "text-2.html",
       "artboard": "Text",
       "category": "Text",
       "part": 2,
-      "parts": 9,
+      "parts": 10,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 80,
-      "bytes": 40809
+      "bytes": 40631
     },
     {
       "file": "text-3.html",
       "artboard": "Text",
       "category": "Text",
       "part": 3,
-      "parts": 9,
+      "parts": 10,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 64,
-      "bytes": 36189
+      "bytes": 38428
     },
     {
       "file": "text-4.html",
       "artboard": "Text",
       "category": "Text",
       "part": 4,
-      "parts": 9,
+      "parts": 10,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 38170
+      "variants": 56,
+      "bytes": 38727
     },
     {
       "file": "text-5.html",
       "artboard": "Text",
       "category": "Text",
       "part": 5,
-      "parts": 9,
+      "parts": 10,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 37289
+      "variants": 56,
+      "bytes": 36081
     },
     {
       "file": "text-6.html",
       "artboard": "Text",
       "category": "Text",
       "part": 6,
-      "parts": 9,
+      "parts": 10,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 36818
+      "variants": 72,
+      "bytes": 38643
     },
     {
       "file": "text-7.html",
       "artboard": "Text",
       "category": "Text",
       "part": 7,
-      "parts": 9,
+      "parts": 10,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 36778
+      "bytes": 35969
     },
     {
       "file": "text-8.html",
       "artboard": "Text",
       "category": "Text",
       "part": 8,
-      "parts": 9,
+      "parts": 10,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 36541
+      "variants": 56,
+      "bytes": 37100
     },
     {
       "file": "text-9.html",
       "artboard": "Text",
       "category": "Text",
       "part": 9,
-      "parts": 9,
+      "parts": 10,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 8,
-      "bytes": 5477
+      "variants": 64,
+      "bytes": 36851
+    },
+    {
+      "file": "text-10.html",
+      "artboard": "Text",
+      "category": "Text",
+      "part": 10,
+      "parts": 10,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 32,
+      "bytes": 18349
     },
     {
       "file": "time-1.html",
       "artboard": "Time",
       "category": "Time",
       "part": 1,
-      "parts": 8,
+      "parts": 10,
       "into": "artboard",
       "width": 742,
-      "icons": 49,
+      "icons": 59,
       "variants": 48,
       "bytes": 40080
     },
@@ -4619,84 +5027,108 @@
       "artboard": "Time",
       "category": "Time",
       "part": 2,
-      "parts": 8,
+      "parts": 10,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 34957
+      "bytes": 34282
     },
     {
       "file": "time-3.html",
       "artboard": "Time",
       "category": "Time",
       "part": 3,
-      "parts": 8,
+      "parts": 10,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 37985
+      "variants": 40,
+      "bytes": 35994
     },
     {
       "file": "time-4.html",
       "artboard": "Time",
       "category": "Time",
       "part": 4,
-      "parts": 8,
+      "parts": 10,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 37552
+      "variants": 40,
+      "bytes": 32458
     },
     {
       "file": "time-5.html",
       "artboard": "Time",
       "category": "Time",
       "part": 5,
-      "parts": 8,
+      "parts": 10,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 64,
-      "bytes": 39734
+      "variants": 48,
+      "bytes": 36564
     },
     {
       "file": "time-6.html",
       "artboard": "Time",
       "category": "Time",
       "part": 6,
-      "parts": 8,
+      "parts": 10,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 37121
+      "variants": 64,
+      "bytes": 37395
     },
     {
       "file": "time-7.html",
       "artboard": "Time",
       "category": "Time",
       "part": 7,
-      "parts": 8,
+      "parts": 10,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 39780
+      "variants": 56,
+      "bytes": 36011
     },
     {
       "file": "time-8.html",
       "artboard": "Time",
       "category": "Time",
       "part": 8,
-      "parts": 8,
+      "parts": 10,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 12094
+      "variants": 56,
+      "bytes": 39251
+    },
+    {
+      "file": "time-9.html",
+      "artboard": "Time",
+      "category": "Time",
+      "part": 9,
+      "parts": 10,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 40,
+      "bytes": 34276
+    },
+    {
+      "file": "time-10.html",
+      "artboard": "Time",
+      "category": "Time",
+      "part": 10,
+      "parts": 10,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 32,
+      "bytes": 23964
     },
     {
       "file": "tools-1.html",
@@ -4706,7 +5138,7 @@
       "parts": 5,
       "into": "artboard",
       "width": 742,
-      "icons": 20,
+      "icons": 22,
       "variants": 40,
       "bytes": 35147
     },
@@ -4732,7 +5164,7 @@
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 37789
+      "bytes": 38183
     },
     {
       "file": "tools-4.html",
@@ -4743,8 +5175,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 38076
+      "variants": 40,
+      "bytes": 33513
     },
     {
       "file": "tools-5.html",
@@ -4755,18 +5187,18 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 16,
-      "bytes": 23985
+      "variants": 24,
+      "bytes": 39688
     },
     {
       "file": "transport-1.html",
       "artboard": "Transport",
       "category": "Transport",
       "part": 1,
-      "parts": 13,
+      "parts": 14,
       "into": "artboard",
       "width": 742,
-      "icons": 48,
+      "icons": 50,
       "variants": 32,
       "bytes": 38125
     },
@@ -4775,7 +5207,7 @@
       "artboard": "Transport",
       "category": "Transport",
       "part": 2,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -4787,7 +5219,7 @@
       "artboard": "Transport",
       "category": "Transport",
       "part": 3,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -4799,7 +5231,7 @@
       "artboard": "Transport",
       "category": "Transport",
       "part": 4,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -4811,7 +5243,7 @@
       "artboard": "Transport",
       "category": "Transport",
       "part": 5,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -4823,7 +5255,7 @@
       "artboard": "Transport",
       "category": "Transport",
       "part": 6,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -4835,31 +5267,31 @@
       "artboard": "Transport",
       "category": "Transport",
       "part": 7,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 35143
+      "variants": 40,
+      "bytes": 40451
     },
     {
       "file": "transport-8.html",
       "artboard": "Transport",
       "category": "Transport",
       "part": 8,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 31035
+      "bytes": 31016
     },
     {
       "file": "transport-9.html",
       "artboard": "Transport",
       "category": "Transport",
       "part": 9,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -4871,19 +5303,19 @@
       "artboard": "Transport",
       "category": "Transport",
       "part": 10,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 37710
+      "bytes": 37729
     },
     {
       "file": "transport-11.html",
       "artboard": "Transport",
       "category": "Transport",
       "part": 11,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
@@ -4895,34 +5327,46 @@
       "artboard": "Transport",
       "category": "Transport",
       "part": 12,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 34144
+      "bytes": 34125
     },
     {
       "file": "transport-13.html",
       "artboard": "Transport",
       "category": "Transport",
       "part": 13,
-      "parts": 13,
+      "parts": 14,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 35981
+      "bytes": 34597
+    },
+    {
+      "file": "transport-14.html",
+      "artboard": "Transport",
+      "category": "Transport",
+      "part": 14,
+      "parts": 14,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 8,
+      "bytes": 9173
     },
     {
       "file": "users-1.html",
       "artboard": "Users",
       "category": "Users",
       "part": 1,
-      "parts": 7,
+      "parts": 8,
       "into": "artboard",
       "width": 742,
-      "icons": 32,
+      "icons": 36,
       "variants": 40,
       "bytes": 37540
     },
@@ -4931,72 +5375,84 @@
       "artboard": "Users",
       "category": "Users",
       "part": 2,
-      "parts": 7,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 35824
+      "bytes": 34415
     },
     {
       "file": "users-3.html",
       "artboard": "Users",
       "category": "Users",
       "part": 3,
-      "parts": 7,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 34985
+      "bytes": 32479
     },
     {
       "file": "users-4.html",
       "artboard": "Users",
       "category": "Users",
       "part": 4,
-      "parts": 7,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 38444
+      "variants": 40,
+      "bytes": 38431
     },
     {
       "file": "users-5.html",
       "artboard": "Users",
       "category": "Users",
       "part": 5,
-      "parts": 7,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 35183
+      "variants": 48,
+      "bytes": 36692
     },
     {
       "file": "users-6.html",
       "artboard": "Users",
       "category": "Users",
       "part": 6,
-      "parts": 7,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 35727
+      "variants": 32,
+      "bytes": 34129
     },
     {
       "file": "users-7.html",
       "artboard": "Users",
       "category": "Users",
       "part": 7,
-      "parts": 7,
+      "parts": 8,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 8,
-      "bytes": 5905
+      "variants": 40,
+      "bytes": 35808
+    },
+    {
+      "file": "users-8.html",
+      "artboard": "Users",
+      "category": "Users",
+      "part": 8,
+      "parts": 8,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 16,
+      "bytes": 12657
     },
     {
       "file": "weather-1.html",
@@ -5006,7 +5462,7 @@
       "parts": 9,
       "into": "artboard",
       "width": 742,
-      "icons": 48,
+      "icons": 49,
       "variants": 56,
       "bytes": 42853
     },
@@ -5044,7 +5500,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 36960
+      "bytes": 37874
     },
     {
       "file": "weather-5.html",
@@ -5056,7 +5512,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 37271
+      "bytes": 36512
     },
     {
       "file": "weather-6.html",
@@ -5068,7 +5524,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 35672
+      "bytes": 37360
     },
     {
       "file": "weather-7.html",
@@ -5079,8 +5535,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 37627
+      "variants": 48,
+      "bytes": 40230
     },
     {
       "file": "weather-8.html",
@@ -5091,8 +5547,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 32642
+      "variants": 40,
+      "bytes": 36903
     },
     {
       "file": "weather-9.html",
@@ -5103,212 +5559,260 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 31141
+      "variants": 40,
+      "bytes": 40883
     },
     {
       "file": "web-1.html",
       "artboard": "Web",
       "category": "Web",
       "part": 1,
-      "parts": 17,
+      "parts": 21,
       "into": "artboard",
       "width": 742,
-      "icons": 92,
+      "icons": 104,
       "variants": 48,
-      "bytes": 39304
+      "bytes": 36715
     },
     {
       "file": "web-2.html",
       "artboard": "Web",
       "category": "Web",
       "part": 2,
-      "parts": 17,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 40644
+      "variants": 40,
+      "bytes": 37000
     },
     {
       "file": "web-3.html",
       "artboard": "Web",
       "category": "Web",
       "part": 3,
-      "parts": 17,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 32991
+      "bytes": 40058
     },
     {
       "file": "web-4.html",
       "artboard": "Web",
       "category": "Web",
       "part": 4,
-      "parts": 17,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 38498
+      "variants": 48,
+      "bytes": 36482
     },
     {
       "file": "web-5.html",
       "artboard": "Web",
       "category": "Web",
       "part": 5,
-      "parts": 17,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 37027
+      "bytes": 39251
     },
     {
       "file": "web-6.html",
       "artboard": "Web",
       "category": "Web",
       "part": 6,
-      "parts": 17,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 38301
+      "variants": 40,
+      "bytes": 35611
     },
     {
       "file": "web-7.html",
       "artboard": "Web",
       "category": "Web",
       "part": 7,
-      "parts": 17,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 38587
+      "variants": 32,
+      "bytes": 36578
     },
     {
       "file": "web-8.html",
       "artboard": "Web",
       "category": "Web",
       "part": 8,
-      "parts": 17,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 39338
+      "variants": 40,
+      "bytes": 40560
     },
     {
       "file": "web-9.html",
       "artboard": "Web",
       "category": "Web",
       "part": 9,
-      "parts": 17,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 40715
+      "variants": 48,
+      "bytes": 35750
     },
     {
       "file": "web-10.html",
       "artboard": "Web",
       "category": "Web",
       "part": 10,
-      "parts": 17,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 40350
+      "bytes": 39159
     },
     {
       "file": "web-11.html",
       "artboard": "Web",
       "category": "Web",
       "part": 11,
-      "parts": 17,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 34920
+      "variants": 32,
+      "bytes": 40078
     },
     {
       "file": "web-12.html",
       "artboard": "Web",
       "category": "Web",
       "part": 12,
-      "parts": 17,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 39943
+      "variants": 40,
+      "bytes": 34415
     },
     {
       "file": "web-13.html",
       "artboard": "Web",
       "category": "Web",
       "part": 13,
-      "parts": 17,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 35746
+      "variants": 40,
+      "bytes": 34623
     },
     {
       "file": "web-14.html",
       "artboard": "Web",
       "category": "Web",
       "part": 14,
-      "parts": 17,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 37944
+      "variants": 48,
+      "bytes": 40492
     },
     {
       "file": "web-15.html",
       "artboard": "Web",
       "category": "Web",
       "part": 15,
-      "parts": 17,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 34352
+      "variants": 48,
+      "bytes": 39007
     },
     {
       "file": "web-16.html",
       "artboard": "Web",
       "category": "Web",
       "part": 16,
-      "parts": 17,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 36828
+      "variants": 56,
+      "bytes": 37617
     },
     {
       "file": "web-17.html",
       "artboard": "Web",
       "category": "Web",
       "part": 17,
-      "parts": 17,
+      "parts": 21,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 56,
+      "bytes": 38772
+    },
+    {
+      "file": "web-18.html",
+      "artboard": "Web",
+      "category": "Web",
+      "part": 18,
+      "parts": 21,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 32,
+      "bytes": 38421
+    },
+    {
+      "file": "web-19.html",
+      "artboard": "Web",
+      "category": "Web",
+      "part": 19,
+      "parts": 21,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 48,
+      "bytes": 40661
+    },
+    {
+      "file": "web-20.html",
+      "artboard": "Web",
+      "category": "Web",
+      "part": 20,
+      "parts": 21,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 35128
+      "bytes": 36248
+    },
+    {
+      "file": "web-21.html",
+      "artboard": "Web",
+      "category": "Web",
+      "part": 21,
+      "parts": 21,
+      "into": "rows",
+      "width": 742,
+      "icons": 0,
+      "variants": 8,
+      "bytes": 7214
     },
     {
       "file": "catalog.html",
@@ -5340,7 +5844,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 17398
+      "bytes": 417538
     },
     {
       "file": "changelog-earlier.html",

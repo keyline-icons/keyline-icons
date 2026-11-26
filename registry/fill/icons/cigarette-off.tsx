@@ -21,8 +21,8 @@ export function CigaretteOff({ size = 24, ...props }: IconProps) {
       focusable="false"
       {...props}
     >
-      <path d="M19 19L19 20.5C19 21.3284 18.3284 22 17.5 22L3.5 22C2.1193 22 1 20.8807 1 19.5L1 17.5C1 16.1193 2.1193 15 3.5 15L15 15L19 19Z" fill="currentColor" stroke="none"/>
-      <path d="M10.151 4.4942C10.6341 3.9557 11.25 3.5301 11.9609 3.2714M16 3C17.6569 3 19 4.3431 19 6L19 7.5C20.6569 7.5 22 8.8431 22 10.5L22 12M19 7.5L17.5 7.5M2 2L22 22" fill="none"/>
+      <path d="M19 19V20.5C19 21.328 18.3284 22 17.5 22H3.5C2.1193 22 1 20.881 1 19.5V17.5C1 16.119 2.1193 15 3.5 15H15L19 19Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M10.151 4.494C10.6341 3.956 11.25 3.53 11.9609 3.271M16 3C17.6569 3 19 4.343 19 6V7.5M19 7.5C20.6569 7.5 22 8.843 22 10.5V12M19 7.5H17.5M2 2L22 22"/>
     </svg>
   )
 }

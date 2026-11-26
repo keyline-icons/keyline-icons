@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function CircleDiamond({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M23 12C23 18.0751 18.0751 23 12 23C5.9249 23 1 18.0751 1 12C1 5.9249 5.9249 1 12 1C18.0751 1 23 5.9249 23 12Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M11.2929 7.2929C11.4805 7.1054 11.7348 7 12 7C12.2652 7 12.5195 7.1054 12.7071 7.2929L16.7071 11.2929C16.8947 11.4805 17 11.7348 17 12C17 12.2652 16.8947 12.5195 16.7071 12.7071L12.7071 16.7071C12.5195 16.8947 12.2652 17 12 17C11.7348 17 11.4805 16.8947 11.2929 16.7071L7.2929 12.7071C7.1054 12.5195 7 12.2652 7 12C7 11.7348 7.1054 11.4805 7.2929 11.2929L11.2929 7.2929Z"/>
+    </svg>
+  )
+}

@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function MailShield({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 1L5 1C2.7909 1 1 2.7908 1 5C1 5.3995 1.2377 5.7606 1.6046 5.9185L10.8263 9.8879C11.5436 10.3191 12.4564 10.3191 13.1737 9.8879L22.3954 5.9185C22.7623 5.7606 23 5.3995 23 5C23 2.7908 21.2092 1 19 1Z" fill="currentColor" stroke="none"/>
+      <path d="M11 18L5 18C3.3432 18 2 16.6569 2 15L2 5C2 3.3431 3.3432 2 5 2L19 2C20.6569 2 22 3.3431 22 5L22 10M2 5L11.2929 9C11.7154 9.2817 12.2846 9.2817 12.7071 9L22 5M15.5173 15.3862C16.6758 15.2487 17.5504 14.6703 18.0731 14.1633C18.2974 13.9456 18.7026 13.9456 18.9269 14.1633C19.4496 14.6703 20.3242 15.2487 21.4827 15.3862C21.7669 15.4199 22 15.6409 22 15.9175L22 17.8747C22 18.651 21.8736 19.4412 21.3928 20.0631C20.8667 20.7434 20.0327 21.5058 18.863 21.9355C18.6288 22.0215 18.3712 22.0215 18.137 21.9355C16.9673 21.5058 16.1332 20.7434 15.6073 20.0631C15.1264 19.4412 15 18.651 15 17.8747L15 15.9175C15 15.6409 15.2331 15.4199 15.5173 15.3862Z"/>
+    </svg>
+  )
+}

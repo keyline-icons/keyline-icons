@@ -1,0 +1,28 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Replace({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M6 3C8.2091 3 10 4.7909 10 7C10 9.2091 8.2091 11 6 11C3.7909 11 2 9.2091 2 7C2 4.7909 3.7909 3 6 3ZM15 13H21C21.5523 13 22 13.4477 22 14V20C22 20.5523 21.5523 21 21 21H15C14.4477 21 14 20.5523 14 20V14C14 13.4477 14.4477 13 15 13Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M6 4C7.6569 4 9 5.3431 9 7C9 8.6569 7.6569 10 6 10C4.3431 10 3 8.6569 3 7C3 5.3431 4.3431 4 6 4ZM12 7L21 7M17.7071 3.7071L21 7L17.7071 10.2929M15 14L21 14L21 20L15 20L15 14ZM12 17L3 17M6.2929 13.7071L3 17L6.2929 20.2929"/>
+    </svg>
+  )
+}

@@ -21,9 +21,9 @@ export function KeyboardOff({ size = 24, ...props }: IconProps) {
       focusable="false"
       {...props}
     >
-      <path d="M21 21L2 21C1.4477 21 1 20.5523 1 20L1 4C1 3.4477 1.4477 3 2 3L3 3L21 21ZM6.7426 3L22 3C22.5523 3 23 3.4477 23 4L23 19.2574L6.7426 3Z" fill="currentColor" fillOpacity="0.4" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
-      <path d="M5 11L7 11L7 13L5 13L5 11Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
-      <path d="M20 20L2 20L2 4L4 4M7 16L16 16M1.7071 1.7071L22.2929 22.2929" fill="none"/>
+      <path d="M21 21H2C1.448 21 1 20.5523 1 20V4C1 3.4477 1.448 3 2 3H3L21 21ZM6.743 3H22C22.552 3 23 3.4477 23 4V19.2574L6.743 3Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M5 11H7V13H5V11Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none"/>
+      <path d="M20 20H2V4H4M7 16H16M1.707 1.7071L22.293 22.293"/>
     </svg>
   )
 }

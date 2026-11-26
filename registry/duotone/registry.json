@@ -44,6 +44,20 @@
       ]
     },
     {
+      "name": "duotone/abacus",
+      "type": "registry:component",
+      "title": "Abacus",
+      "description": "Abacus, the duotone drawing of abacus on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of abacus: https://keylineicons.com/icons/abacus",
+      "files": [
+        {
+          "path": "icons/abacus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/abacus.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/accent-grave",
       "type": "registry:component",
       "title": "AccentGrave",
@@ -240,6 +254,20 @@
       ]
     },
     {
+      "name": "duotone/alert-double",
+      "type": "registry:component",
+      "title": "AlertDouble",
+      "description": "AlertDouble, the duotone drawing of alert-double on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of alert-double: https://keylineicons.com/icons/alert-double",
+      "files": [
+        {
+          "path": "icons/alert-double.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/alert-double.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/alien",
       "type": "registry:component",
       "title": "Alien",
@@ -362,6 +390,20 @@
           "path": "icons/align-horizontal-space-around.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/align-horizontal-space-around.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/align-horizontal-space-between",
+      "type": "registry:component",
+      "title": "AlignHorizontalSpaceBetween",
+      "description": "AlignHorizontalSpaceBetween, the duotone drawing of align-horizontal-space-between on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of align-horizontal-space-between: https://keylineicons.com/icons/align-horizontal-space-between",
+      "files": [
+        {
+          "path": "icons/align-horizontal-space-between.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/align-horizontal-space-between.tsx"
         }
       ]
     },
@@ -502,6 +544,20 @@
           "path": "icons/align-vertical-space-around.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/align-vertical-space-around.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/align-vertical-space-between",
+      "type": "registry:component",
+      "title": "AlignVerticalSpaceBetween",
+      "description": "AlignVerticalSpaceBetween, the duotone drawing of align-vertical-space-between on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of align-vertical-space-between: https://keylineicons.com/icons/align-vertical-space-between",
+      "files": [
+        {
+          "path": "icons/align-vertical-space-between.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/align-vertical-space-between.tsx"
         }
       ]
     },
@@ -674,6 +730,20 @@
       ]
     },
     {
+      "name": "duotone/app-window-check",
+      "type": "registry:component",
+      "title": "AppWindowCheck",
+      "description": "AppWindowCheck, the duotone drawing of app-window-check on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of app-window-check: https://keylineicons.com/icons/app-window-check",
+      "files": [
+        {
+          "path": "icons/app-window-check.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/app-window-check.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/app-window-cursor",
       "type": "registry:component",
       "title": "AppWindowCursor",
@@ -684,6 +754,20 @@
           "path": "icons/app-window-cursor.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/app-window-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/app-window-frown",
+      "type": "registry:component",
+      "title": "AppWindowFrown",
+      "description": "AppWindowFrown, the duotone drawing of app-window-frown on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of app-window-frown: https://keylineicons.com/icons/app-window-frown",
+      "files": [
+        {
+          "path": "icons/app-window-frown.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/app-window-frown.tsx"
         }
       ]
     },
@@ -702,6 +786,20 @@
       ]
     },
     {
+      "name": "duotone/app-window-off",
+      "type": "registry:component",
+      "title": "AppWindowOff",
+      "description": "AppWindowOff, the duotone drawing of app-window-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of app-window-off: https://keylineicons.com/icons/app-window-off",
+      "files": [
+        {
+          "path": "icons/app-window-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/app-window-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/app-window-plus",
       "type": "registry:component",
       "title": "AppWindowPlus",
@@ -712,6 +810,20 @@
           "path": "icons/app-window-plus.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/app-window-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/app-window-shield",
+      "type": "registry:component",
+      "title": "AppWindowShield",
+      "description": "AppWindowShield, the duotone drawing of app-window-shield on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of app-window-shield: https://keylineicons.com/icons/app-window-shield",
+      "files": [
+        {
+          "path": "icons/app-window-shield.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/app-window-shield.tsx"
         }
       ]
     },
@@ -2228,6 +2340,20 @@
       ]
     },
     {
+      "name": "duotone/badge-star",
+      "type": "registry:component",
+      "title": "BadgeStar",
+      "description": "BadgeStar, the duotone drawing of badge-star on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of badge-star: https://keylineicons.com/icons/badge-star",
+      "files": [
+        {
+          "path": "icons/badge-star.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/badge-star.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/badge-terminal",
       "type": "registry:component",
       "title": "BadgeTerminal",
@@ -2648,6 +2774,20 @@
       ]
     },
     {
+      "name": "duotone/baseline",
+      "type": "registry:component",
+      "title": "Baseline",
+      "description": "Baseline, the duotone drawing of baseline on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of baseline: https://keylineicons.com/icons/baseline",
+      "files": [
+        {
+          "path": "icons/baseline.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/baseline.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/baseline-shift",
       "type": "registry:component",
       "title": "BaselineShift",
@@ -3026,6 +3166,20 @@
       ]
     },
     {
+      "name": "duotone/bell-z",
+      "type": "registry:component",
+      "title": "BellZ",
+      "description": "BellZ, the duotone drawing of bell-z on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bell-z: https://keylineicons.com/icons/bell-z",
+      "files": [
+        {
+          "path": "icons/bell-z.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/bell-z.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/bell-zap",
       "type": "registry:component",
       "title": "BellZap",
@@ -3152,6 +3306,20 @@
       ]
     },
     {
+      "name": "duotone/bin-x",
+      "type": "registry:component",
+      "title": "BinX",
+      "description": "BinX, the duotone drawing of bin-x on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bin-x: https://keylineicons.com/icons/bin-x",
+      "files": [
+        {
+          "path": "icons/bin-x.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/bin-x.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/binary",
       "type": "registry:component",
       "title": "Binary",
@@ -3274,6 +3442,34 @@
           "path": "icons/bluetooth.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/bluetooth.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/bluetooth-connected",
+      "type": "registry:component",
+      "title": "BluetoothConnected",
+      "description": "BluetoothConnected, the duotone drawing of bluetooth-connected on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bluetooth-connected: https://keylineicons.com/icons/bluetooth-connected",
+      "files": [
+        {
+          "path": "icons/bluetooth-connected.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/bluetooth-connected.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/bluetooth-searching",
+      "type": "registry:component",
+      "title": "BluetoothSearching",
+      "description": "BluetoothSearching, the duotone drawing of bluetooth-searching on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bluetooth-searching: https://keylineicons.com/icons/bluetooth-searching",
+      "files": [
+        {
+          "path": "icons/bluetooth-searching.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/bluetooth-searching.tsx"
         }
       ]
     },
@@ -3558,6 +3754,20 @@
       ]
     },
     {
+      "name": "duotone/bookmark-star",
+      "type": "registry:component",
+      "title": "BookmarkStar",
+      "description": "BookmarkStar, the duotone drawing of bookmark-star on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bookmark-star: https://keylineicons.com/icons/bookmark-star",
+      "files": [
+        {
+          "path": "icons/bookmark-star.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/bookmark-star.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/bookmark-x",
       "type": "registry:component",
       "title": "BookmarkX",
@@ -3596,6 +3806,76 @@
           "path": "icons/boom-box.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/boom-box.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/border-bottom",
+      "type": "registry:component",
+      "title": "BorderBottom",
+      "description": "BorderBottom, the duotone drawing of border-bottom on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of border-bottom: https://keylineicons.com/icons/border-bottom",
+      "files": [
+        {
+          "path": "icons/border-bottom.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/border-bottom.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/border-inside",
+      "type": "registry:component",
+      "title": "BorderInside",
+      "description": "BorderInside, the duotone drawing of border-inside on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of border-inside: https://keylineicons.com/icons/border-inside",
+      "files": [
+        {
+          "path": "icons/border-inside.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/border-inside.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/border-left",
+      "type": "registry:component",
+      "title": "BorderLeft",
+      "description": "BorderLeft, the duotone drawing of border-left on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of border-left: https://keylineicons.com/icons/border-left",
+      "files": [
+        {
+          "path": "icons/border-left.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/border-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/border-right",
+      "type": "registry:component",
+      "title": "BorderRight",
+      "description": "BorderRight, the duotone drawing of border-right on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of border-right: https://keylineicons.com/icons/border-right",
+      "files": [
+        {
+          "path": "icons/border-right.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/border-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/border-top",
+      "type": "registry:component",
+      "title": "BorderTop",
+      "description": "BorderTop, the duotone drawing of border-top on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of border-top: https://keylineicons.com/icons/border-top",
+      "files": [
+        {
+          "path": "icons/border-top.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/border-top.tsx"
         }
       ]
     },
@@ -3652,6 +3932,20 @@
           "path": "icons/bot-droplet.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/bot-droplet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/bot-frown",
+      "type": "registry:component",
+      "title": "BotFrown",
+      "description": "BotFrown, the duotone drawing of bot-frown on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of bot-frown: https://keylineicons.com/icons/bot-frown",
+      "files": [
+        {
+          "path": "icons/bot-frown.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/bot-frown.tsx"
         }
       ]
     },
@@ -4566,6 +4860,20 @@
       ]
     },
     {
+      "name": "duotone/calendar-alert",
+      "type": "registry:component",
+      "title": "CalendarAlert",
+      "description": "CalendarAlert, the duotone drawing of calendar-alert on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of calendar-alert: https://keylineicons.com/icons/calendar-alert",
+      "files": [
+        {
+          "path": "icons/calendar-alert.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/calendar-alert.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/calendar-arrow-down",
       "type": "registry:component",
       "title": "CalendarArrowDown",
@@ -4650,6 +4958,20 @@
       ]
     },
     {
+      "name": "duotone/calendar-cog",
+      "type": "registry:component",
+      "title": "CalendarCog",
+      "description": "CalendarCog, the duotone drawing of calendar-cog on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of calendar-cog: https://keylineicons.com/icons/calendar-cog",
+      "files": [
+        {
+          "path": "icons/calendar-cog.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/calendar-cog.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/calendar-days",
       "type": "registry:component",
       "title": "CalendarDays",
@@ -4660,6 +4982,20 @@
           "path": "icons/calendar-days.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/calendar-days.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/calendar-lock",
+      "type": "registry:component",
+      "title": "CalendarLock",
+      "description": "CalendarLock, the duotone drawing of calendar-lock on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of calendar-lock: https://keylineicons.com/icons/calendar-lock",
+      "files": [
+        {
+          "path": "icons/calendar-lock.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/calendar-lock.tsx"
         }
       ]
     },
@@ -4692,6 +5028,20 @@
       ]
     },
     {
+      "name": "duotone/calendar-pen",
+      "type": "registry:component",
+      "title": "CalendarPen",
+      "description": "CalendarPen, the duotone drawing of calendar-pen on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of calendar-pen: https://keylineicons.com/icons/calendar-pen",
+      "files": [
+        {
+          "path": "icons/calendar-pen.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/calendar-pen.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/calendar-plus",
       "type": "registry:component",
       "title": "CalendarPlus",
@@ -4706,6 +5056,34 @@
       ]
     },
     {
+      "name": "duotone/calendar-question",
+      "type": "registry:component",
+      "title": "CalendarQuestion",
+      "description": "CalendarQuestion, the duotone drawing of calendar-question on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of calendar-question: https://keylineicons.com/icons/calendar-question",
+      "files": [
+        {
+          "path": "icons/calendar-question.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/calendar-question.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/calendar-search",
+      "type": "registry:component",
+      "title": "CalendarSearch",
+      "description": "CalendarSearch, the duotone drawing of calendar-search on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of calendar-search: https://keylineicons.com/icons/calendar-search",
+      "files": [
+        {
+          "path": "icons/calendar-search.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/calendar-search.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/calendar-sparkles",
       "type": "registry:component",
       "title": "CalendarSparkles",
@@ -4716,6 +5094,34 @@
           "path": "icons/calendar-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/calendar-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/calendar-star",
+      "type": "registry:component",
+      "title": "CalendarStar",
+      "description": "CalendarStar, the duotone drawing of calendar-star on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of calendar-star: https://keylineicons.com/icons/calendar-star",
+      "files": [
+        {
+          "path": "icons/calendar-star.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/calendar-star.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/calendar-user",
+      "type": "registry:component",
+      "title": "CalendarUser",
+      "description": "CalendarUser, the duotone drawing of calendar-user on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of calendar-user: https://keylineicons.com/icons/calendar-user",
+      "files": [
+        {
+          "path": "icons/calendar-user.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/calendar-user.tsx"
         }
       ]
     },
@@ -4860,6 +5266,20 @@
       ]
     },
     {
+      "name": "duotone/capture",
+      "type": "registry:component",
+      "title": "Capture",
+      "description": "Capture, the duotone drawing of capture on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of capture: https://keylineicons.com/icons/capture",
+      "files": [
+        {
+          "path": "icons/capture.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/capture.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/car",
       "type": "registry:component",
       "title": "Car",
@@ -4926,6 +5346,20 @@
           "path": "icons/car-off.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/car-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/car-sparkles",
+      "type": "registry:component",
+      "title": "CarSparkles",
+      "description": "CarSparkles, the duotone drawing of car-sparkles on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of car-sparkles: https://keylineicons.com/icons/car-sparkles",
+      "files": [
+        {
+          "path": "icons/car-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/car-sparkles.tsx"
         }
       ]
     },
@@ -5084,6 +5518,20 @@
       ]
     },
     {
+      "name": "duotone/case-lower",
+      "type": "registry:component",
+      "title": "CaseLower",
+      "description": "CaseLower, the duotone drawing of case-lower on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of case-lower: https://keylineicons.com/icons/case-lower",
+      "files": [
+        {
+          "path": "icons/case-lower.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/case-lower.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/case-sensitive",
       "type": "registry:component",
       "title": "CaseSensitive",
@@ -5136,6 +5584,48 @@
           "path": "icons/cast.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/cast.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/cast-alert",
+      "type": "registry:component",
+      "title": "CastAlert",
+      "description": "CastAlert, the duotone drawing of cast-alert on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cast-alert: https://keylineicons.com/icons/cast-alert",
+      "files": [
+        {
+          "path": "icons/cast-alert.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/cast-alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/cast-pause",
+      "type": "registry:component",
+      "title": "CastPause",
+      "description": "CastPause, the duotone drawing of cast-pause on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cast-pause: https://keylineicons.com/icons/cast-pause",
+      "files": [
+        {
+          "path": "icons/cast-pause.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/cast-pause.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/cast-x",
+      "type": "registry:component",
+      "title": "CastX",
+      "description": "CastX, the duotone drawing of cast-x on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cast-x: https://keylineicons.com/icons/cast-x",
+      "files": [
+        {
+          "path": "icons/cast-x.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/cast-x.tsx"
         }
       ]
     },
@@ -6050,6 +6540,20 @@
       ]
     },
     {
+      "name": "duotone/chevrons-left-right-ellipsis",
+      "type": "registry:component",
+      "title": "ChevronsLeftRightEllipsis",
+      "description": "ChevronsLeftRightEllipsis, the duotone drawing of chevrons-left-right-ellipsis on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of chevrons-left-right-ellipsis: https://keylineicons.com/icons/chevrons-left-right-ellipsis",
+      "files": [
+        {
+          "path": "icons/chevrons-left-right-ellipsis.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/chevrons-left-right-ellipsis.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/chevrons-right",
       "type": "registry:component",
       "title": "ChevronsRight",
@@ -6540,6 +7044,34 @@
       ]
     },
     {
+      "name": "duotone/circle-bookmark",
+      "type": "registry:component",
+      "title": "CircleBookmark",
+      "description": "CircleBookmark, the duotone drawing of circle-bookmark on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-bookmark: https://keylineicons.com/icons/circle-bookmark",
+      "files": [
+        {
+          "path": "icons/circle-bookmark.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/circle-bookmark.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/circle-braces",
+      "type": "registry:component",
+      "title": "CircleBraces",
+      "description": "CircleBraces, the duotone drawing of circle-braces on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-braces: https://keylineicons.com/icons/circle-braces",
+      "files": [
+        {
+          "path": "icons/circle-braces.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/circle-braces.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/circle-caret-down",
       "type": "registry:component",
       "title": "CircleCaretDown",
@@ -6606,6 +7138,48 @@
           "path": "icons/circle-check.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/circle-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/circle-check-line",
+      "type": "registry:component",
+      "title": "CircleCheckLine",
+      "description": "CircleCheckLine, the duotone drawing of circle-check-line on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-check-line: https://keylineicons.com/icons/circle-check-line",
+      "files": [
+        {
+          "path": "icons/circle-check-line.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/circle-check-line.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/circle-check-plus",
+      "type": "registry:component",
+      "title": "CircleCheckPlus",
+      "description": "CircleCheckPlus, the duotone drawing of circle-check-plus on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-check-plus: https://keylineicons.com/icons/circle-check-plus",
+      "files": [
+        {
+          "path": "icons/circle-check-plus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/circle-check-plus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/circle-check-sparkles",
+      "type": "registry:component",
+      "title": "CircleCheckSparkles",
+      "description": "CircleCheckSparkles, the duotone drawing of circle-check-sparkles on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-check-sparkles: https://keylineicons.com/icons/circle-check-sparkles",
+      "files": [
+        {
+          "path": "icons/circle-check-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/circle-check-sparkles.tsx"
         }
       ]
     },
@@ -6876,6 +7450,20 @@
       ]
     },
     {
+      "name": "duotone/circle-diamond",
+      "type": "registry:component",
+      "title": "CircleDiamond",
+      "description": "CircleDiamond, the duotone drawing of circle-diamond on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-diamond: https://keylineicons.com/icons/circle-diamond",
+      "files": [
+        {
+          "path": "icons/circle-diamond.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/circle-diamond.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/circle-divide",
       "type": "registry:component",
       "title": "CircleDivide",
@@ -6914,6 +7502,20 @@
           "path": "icons/circle-dot.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/circle-dot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/circle-dot-dashed",
+      "type": "registry:component",
+      "title": "CircleDotDashed",
+      "description": "CircleDotDashed, the duotone drawing of circle-dot-dashed on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-dot-dashed: https://keylineicons.com/icons/circle-dot-dashed",
+      "files": [
+        {
+          "path": "icons/circle-dot-dashed.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/circle-dot-dashed.tsx"
         }
       ]
     },
@@ -7044,6 +7646,20 @@
       ]
     },
     {
+      "name": "duotone/circle-list-filter",
+      "type": "registry:component",
+      "title": "CircleListFilter",
+      "description": "CircleListFilter, the duotone drawing of circle-list-filter on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-list-filter: https://keylineicons.com/icons/circle-list-filter",
+      "files": [
+        {
+          "path": "icons/circle-list-filter.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/circle-list-filter.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/circle-menu",
       "type": "registry:component",
       "title": "CircleMenu",
@@ -7068,6 +7684,20 @@
           "path": "icons/circle-minus.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/circle-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/circle-moon",
+      "type": "registry:component",
+      "title": "CircleMoon",
+      "description": "CircleMoon, the duotone drawing of circle-moon on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-moon: https://keylineicons.com/icons/circle-moon",
+      "files": [
+        {
+          "path": "icons/circle-moon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/circle-moon.tsx"
         }
       ]
     },
@@ -7236,6 +7866,20 @@
           "path": "icons/circle-pound-sterling.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/circle-pound-sterling.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/circle-progress-arrow-down",
+      "type": "registry:component",
+      "title": "CircleProgressArrowDown",
+      "description": "CircleProgressArrowDown, the duotone drawing of circle-progress-arrow-down on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-progress-arrow-down: https://keylineicons.com/icons/circle-progress-arrow-down",
+      "files": [
+        {
+          "path": "icons/circle-progress-arrow-down.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/circle-progress-arrow-down.tsx"
         }
       ]
     },
@@ -7432,6 +8076,20 @@
           "path": "icons/circle-record.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/circle-record.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/circle-search",
+      "type": "registry:component",
+      "title": "CircleSearch",
+      "description": "CircleSearch, the duotone drawing of circle-search on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circle-search: https://keylineicons.com/icons/circle-search",
+      "files": [
+        {
+          "path": "icons/circle-search.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/circle-search.tsx"
         }
       ]
     },
@@ -7744,6 +8402,20 @@
       ]
     },
     {
+      "name": "duotone/circuit-board",
+      "type": "registry:component",
+      "title": "CircuitBoard",
+      "description": "CircuitBoard, the duotone drawing of circuit-board on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of circuit-board: https://keylineicons.com/icons/circuit-board",
+      "files": [
+        {
+          "path": "icons/circuit-board.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/circuit-board.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/clapperboard",
       "type": "registry:component",
       "title": "Clapperboard",
@@ -7842,6 +8514,20 @@
       ]
     },
     {
+      "name": "duotone/clipboard-heart",
+      "type": "registry:component",
+      "title": "ClipboardHeart",
+      "description": "ClipboardHeart, the duotone drawing of clipboard-heart on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of clipboard-heart: https://keylineicons.com/icons/clipboard-heart",
+      "files": [
+        {
+          "path": "icons/clipboard-heart.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/clipboard-heart.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/clipboard-list",
       "type": "registry:component",
       "title": "ClipboardList",
@@ -7866,6 +8552,20 @@
           "path": "icons/clipboard-minus.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/clipboard-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/clipboard-off",
+      "type": "registry:component",
+      "title": "ClipboardOff",
+      "description": "ClipboardOff, the duotone drawing of clipboard-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of clipboard-off: https://keylineicons.com/icons/clipboard-off",
+      "files": [
+        {
+          "path": "icons/clipboard-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/clipboard-off.tsx"
         }
       ]
     },
@@ -8332,6 +9032,20 @@
       ]
     },
     {
+      "name": "duotone/cloud-cog",
+      "type": "registry:component",
+      "title": "CloudCog",
+      "description": "CloudCog, the duotone drawing of cloud-cog on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-cog: https://keylineicons.com/icons/cloud-cog",
+      "files": [
+        {
+          "path": "icons/cloud-cog.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/cloud-cog.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/cloud-download",
       "type": "registry:component",
       "title": "CloudDownload",
@@ -8486,6 +9200,34 @@
       ]
     },
     {
+      "name": "duotone/cloud-package",
+      "type": "registry:component",
+      "title": "CloudPackage",
+      "description": "CloudPackage, the duotone drawing of cloud-package on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-package: https://keylineicons.com/icons/cloud-package",
+      "files": [
+        {
+          "path": "icons/cloud-package.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/cloud-package.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/cloud-play",
+      "type": "registry:component",
+      "title": "CloudPlay",
+      "description": "CloudPlay, the duotone drawing of cloud-play on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-play: https://keylineicons.com/icons/cloud-play",
+      "files": [
+        {
+          "path": "icons/cloud-play.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/cloud-play.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/cloud-plus",
       "type": "registry:component",
       "title": "CloudPlus",
@@ -8566,6 +9308,20 @@
           "path": "icons/cloud-search.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/cloud-search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/cloud-shield",
+      "type": "registry:component",
+      "title": "CloudShield",
+      "description": "CloudShield, the duotone drawing of cloud-shield on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of cloud-shield: https://keylineicons.com/icons/cloud-shield",
+      "files": [
+        {
+          "path": "icons/cloud-shield.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/cloud-shield.tsx"
         }
       ]
     },
@@ -8948,6 +9704,20 @@
       ]
     },
     {
+      "name": "duotone/columns-4",
+      "type": "registry:component",
+      "title": "Columns4",
+      "description": "Columns4, the duotone drawing of columns-4 on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of columns-4: https://keylineicons.com/icons/columns-4",
+      "files": [
+        {
+          "path": "icons/columns-4.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/columns-4.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/comma",
       "type": "registry:component",
       "title": "Comma",
@@ -9172,6 +9942,20 @@
       ]
     },
     {
+      "name": "duotone/copy-arrow-right",
+      "type": "registry:component",
+      "title": "CopyArrowRight",
+      "description": "CopyArrowRight, the duotone drawing of copy-arrow-right on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of copy-arrow-right: https://keylineicons.com/icons/copy-arrow-right",
+      "files": [
+        {
+          "path": "icons/copy-arrow-right.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/copy-arrow-right.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/copy-check",
       "type": "registry:component",
       "title": "CopyCheck",
@@ -9242,6 +10026,20 @@
       ]
     },
     {
+      "name": "duotone/corner-chamfer",
+      "type": "registry:component",
+      "title": "CornerChamfer",
+      "description": "CornerChamfer, the duotone drawing of corner-chamfer on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of corner-chamfer: https://keylineicons.com/icons/corner-chamfer",
+      "files": [
+        {
+          "path": "icons/corner-chamfer.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/corner-chamfer.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/corner-down-left",
       "type": "registry:component",
       "title": "CornerDownLeft",
@@ -9270,6 +10068,20 @@
       ]
     },
     {
+      "name": "duotone/corner-inverted",
+      "type": "registry:component",
+      "title": "CornerInverted",
+      "description": "CornerInverted, the duotone drawing of corner-inverted on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of corner-inverted: https://keylineicons.com/icons/corner-inverted",
+      "files": [
+        {
+          "path": "icons/corner-inverted.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/corner-inverted.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/corner-left-down",
       "type": "registry:component",
       "title": "CornerLeftDown",
@@ -9294,6 +10106,20 @@
           "path": "icons/corner-left-up.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/corner-left-up.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/corner-notch",
+      "type": "registry:component",
+      "title": "CornerNotch",
+      "description": "CornerNotch, the duotone drawing of corner-notch on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of corner-notch: https://keylineicons.com/icons/corner-notch",
+      "files": [
+        {
+          "path": "icons/corner-notch.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/corner-notch.tsx"
         }
       ]
     },
@@ -9480,6 +10306,20 @@
       ]
     },
     {
+      "name": "duotone/credit-card-off",
+      "type": "registry:component",
+      "title": "CreditCardOff",
+      "description": "CreditCardOff, the duotone drawing of credit-card-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of credit-card-off: https://keylineicons.com/icons/credit-card-off",
+      "files": [
+        {
+          "path": "icons/credit-card-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/credit-card-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/credit-card-plus",
       "type": "registry:component",
       "title": "CreditCardPlus",
@@ -9588,6 +10428,20 @@
           "path": "icons/crosshair.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/crosshair.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/crosshair-x",
+      "type": "registry:component",
+      "title": "CrosshairX",
+      "description": "CrosshairX, the duotone drawing of crosshair-x on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of crosshair-x: https://keylineicons.com/icons/crosshair-x",
+      "files": [
+        {
+          "path": "icons/crosshair-x.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/crosshair-x.tsx"
         }
       ]
     },
@@ -9942,6 +10796,20 @@
       ]
     },
     {
+      "name": "duotone/database-off",
+      "type": "registry:component",
+      "title": "DatabaseOff",
+      "description": "DatabaseOff, the duotone drawing of database-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of database-off: https://keylineicons.com/icons/database-off",
+      "files": [
+        {
+          "path": "icons/database-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/database-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/database-plus",
       "type": "registry:component",
       "title": "DatabasePlus",
@@ -10162,6 +11030,20 @@
           "path": "icons/diamond-dot.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/diamond-dot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/diamond-nodes",
+      "type": "registry:component",
+      "title": "DiamondNodes",
+      "description": "DiamondNodes, the duotone drawing of diamond-nodes on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of diamond-nodes: https://keylineicons.com/icons/diamond-nodes",
+      "files": [
+        {
+          "path": "icons/diamond-nodes.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/diamond-nodes.tsx"
         }
       ]
     },
@@ -10586,6 +11468,20 @@
       ]
     },
     {
+      "name": "duotone/droplet-half",
+      "type": "registry:component",
+      "title": "DropletHalf",
+      "description": "DropletHalf, the duotone drawing of droplet-half on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of droplet-half: https://keylineicons.com/icons/droplet-half",
+      "files": [
+        {
+          "path": "icons/droplet-half.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/droplet-half.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/droplet-off",
       "type": "registry:component",
       "title": "DropletOff",
@@ -10750,6 +11646,20 @@
           "path": "icons/ease-in.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/ease-in.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/ease-in-out",
+      "type": "registry:component",
+      "title": "EaseInOut",
+      "description": "EaseInOut, the duotone drawing of ease-in-out on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of ease-in-out: https://keylineicons.com/icons/ease-in-out",
+      "files": [
+        {
+          "path": "icons/ease-in-out.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/ease-in-out.tsx"
         }
       ]
     },
@@ -11188,6 +12098,20 @@
       ]
     },
     {
+      "name": "duotone/eye-closed",
+      "type": "registry:component",
+      "title": "EyeClosed",
+      "description": "EyeClosed, the duotone drawing of eye-closed on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of eye-closed: https://keylineicons.com/icons/eye-closed",
+      "files": [
+        {
+          "path": "icons/eye-closed.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/eye-closed.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/eye-off",
       "type": "registry:component",
       "title": "EyeOff",
@@ -11272,6 +12196,34 @@
       ]
     },
     {
+      "name": "duotone/face-heart-eyes",
+      "type": "registry:component",
+      "title": "FaceHeartEyes",
+      "description": "FaceHeartEyes, the duotone drawing of face-heart-eyes on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of face-heart-eyes: https://keylineicons.com/icons/face-heart-eyes",
+      "files": [
+        {
+          "path": "icons/face-heart-eyes.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/face-heart-eyes.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/face-kiss",
+      "type": "registry:component",
+      "title": "FaceKiss",
+      "description": "FaceKiss, the duotone drawing of face-kiss on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of face-kiss: https://keylineicons.com/icons/face-kiss",
+      "files": [
+        {
+          "path": "icons/face-kiss.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/face-kiss.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/face-laugh",
       "type": "registry:component",
       "title": "FaceLaugh",
@@ -11296,6 +12248,34 @@
           "path": "icons/face-neutral.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/face-neutral.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/face-rofl",
+      "type": "registry:component",
+      "title": "FaceRofl",
+      "description": "FaceRofl, the duotone drawing of face-rofl on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of face-rofl: https://keylineicons.com/icons/face-rofl",
+      "files": [
+        {
+          "path": "icons/face-rofl.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/face-rofl.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/face-sleep",
+      "type": "registry:component",
+      "title": "FaceSleep",
+      "description": "FaceSleep, the duotone drawing of face-sleep on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of face-sleep: https://keylineicons.com/icons/face-sleep",
+      "files": [
+        {
+          "path": "icons/face-sleep.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/face-sleep.tsx"
         }
       ]
     },
@@ -11328,6 +12308,34 @@
       ]
     },
     {
+      "name": "duotone/face-squint",
+      "type": "registry:component",
+      "title": "FaceSquint",
+      "description": "FaceSquint, the duotone drawing of face-squint on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of face-squint: https://keylineicons.com/icons/face-squint",
+      "files": [
+        {
+          "path": "icons/face-squint.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/face-squint.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/face-star-eyes",
+      "type": "registry:component",
+      "title": "FaceStarEyes",
+      "description": "FaceStarEyes, the duotone drawing of face-star-eyes on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of face-star-eyes: https://keylineicons.com/icons/face-star-eyes",
+      "files": [
+        {
+          "path": "icons/face-star-eyes.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/face-star-eyes.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/face-sunglasses",
       "type": "registry:component",
       "title": "FaceSunglasses",
@@ -11338,6 +12346,34 @@
           "path": "icons/face-sunglasses.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/face-sunglasses.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/face-tears-joy",
+      "type": "registry:component",
+      "title": "FaceTearsJoy",
+      "description": "FaceTearsJoy, the duotone drawing of face-tears-joy on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of face-tears-joy: https://keylineicons.com/icons/face-tears-joy",
+      "files": [
+        {
+          "path": "icons/face-tears-joy.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/face-tears-joy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/face-tongue",
+      "type": "registry:component",
+      "title": "FaceTongue",
+      "description": "FaceTongue, the duotone drawing of face-tongue on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of face-tongue: https://keylineicons.com/icons/face-tongue",
+      "files": [
+        {
+          "path": "icons/face-tongue.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/face-tongue.tsx"
         }
       ]
     },
@@ -11380,6 +12416,20 @@
           "path": "icons/fast-forward.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/fast-forward.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/fax",
+      "type": "registry:component",
+      "title": "Fax",
+      "description": "Fax, the duotone drawing of fax on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of fax: https://keylineicons.com/icons/fax",
+      "files": [
+        {
+          "path": "icons/fax.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/fax.tsx"
         }
       ]
     },
@@ -11608,6 +12658,20 @@
       ]
     },
     {
+      "name": "duotone/file-lock",
+      "type": "registry:component",
+      "title": "FileLock",
+      "description": "FileLock, the duotone drawing of file-lock on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of file-lock: https://keylineicons.com/icons/file-lock",
+      "files": [
+        {
+          "path": "icons/file-lock.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/file-lock.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/file-minus",
       "type": "registry:component",
       "title": "FileMinus",
@@ -11660,6 +12724,20 @@
           "path": "icons/file-search.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/file-search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/file-signature",
+      "type": "registry:component",
+      "title": "FileSignature",
+      "description": "FileSignature, the duotone drawing of file-signature on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of file-signature: https://keylineicons.com/icons/file-signature",
+      "files": [
+        {
+          "path": "icons/file-signature.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/file-signature.tsx"
         }
       ]
     },
@@ -11874,6 +12952,20 @@
       ]
     },
     {
+      "name": "duotone/filter-off",
+      "type": "registry:component",
+      "title": "FilterOff",
+      "description": "FilterOff, the duotone drawing of filter-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of filter-off: https://keylineicons.com/icons/filter-off",
+      "files": [
+        {
+          "path": "icons/filter-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/filter-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/fingerprint-pattern",
       "type": "registry:component",
       "title": "FingerprintPattern",
@@ -11926,6 +13018,34 @@
           "path": "icons/fish.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/fish.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/fit-height",
+      "type": "registry:component",
+      "title": "FitHeight",
+      "description": "FitHeight, the duotone drawing of fit-height on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of fit-height: https://keylineicons.com/icons/fit-height",
+      "files": [
+        {
+          "path": "icons/fit-height.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/fit-height.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/fit-width",
+      "type": "registry:component",
+      "title": "FitWidth",
+      "description": "FitWidth, the duotone drawing of fit-width on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of fit-width: https://keylineicons.com/icons/fit-width",
+      "files": [
+        {
+          "path": "icons/fit-width.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/fit-width.tsx"
         }
       ]
     },
@@ -12518,6 +13638,20 @@
       ]
     },
     {
+      "name": "duotone/folder-lines",
+      "type": "registry:component",
+      "title": "FolderLines",
+      "description": "FolderLines, the duotone drawing of folder-lines on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of folder-lines: https://keylineicons.com/icons/folder-lines",
+      "files": [
+        {
+          "path": "icons/folder-lines.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/folder-lines.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/folder-minus",
       "type": "registry:component",
       "title": "FolderMinus",
@@ -12542,6 +13676,20 @@
           "path": "icons/folder-open.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/folder-open.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/folder-pen",
+      "type": "registry:component",
+      "title": "FolderPen",
+      "description": "FolderPen, the duotone drawing of folder-pen on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of folder-pen: https://keylineicons.com/icons/folder-pen",
+      "files": [
+        {
+          "path": "icons/folder-pen.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/folder-pen.tsx"
         }
       ]
     },
@@ -12952,6 +14100,20 @@
       ]
     },
     {
+      "name": "duotone/gamepad-off",
+      "type": "registry:component",
+      "title": "GamepadOff",
+      "description": "GamepadOff, the duotone drawing of gamepad-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gamepad-off: https://keylineicons.com/icons/gamepad-off",
+      "files": [
+        {
+          "path": "icons/gamepad-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/gamepad-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/garage",
       "type": "registry:component",
       "title": "Garage",
@@ -13120,6 +14282,20 @@
       ]
     },
     {
+      "name": "duotone/gauge-alert",
+      "type": "registry:component",
+      "title": "GaugeAlert",
+      "description": "GaugeAlert, the duotone drawing of gauge-alert on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gauge-alert: https://keylineicons.com/icons/gauge-alert",
+      "files": [
+        {
+          "path": "icons/gauge-alert.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/gauge-alert.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/gauge-dashed-half",
       "type": "registry:component",
       "title": "GaugeDashedHalf",
@@ -13172,6 +14348,20 @@
           "path": "icons/gavel.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/gavel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/gearbox",
+      "type": "registry:component",
+      "title": "Gearbox",
+      "description": "Gearbox, the duotone drawing of gearbox on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gearbox: https://keylineicons.com/icons/gearbox",
+      "files": [
+        {
+          "path": "icons/gearbox.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/gearbox.tsx"
         }
       ]
     },
@@ -13680,6 +14870,20 @@
       ]
     },
     {
+      "name": "duotone/globe-clock",
+      "type": "registry:component",
+      "title": "GlobeClock",
+      "description": "GlobeClock, the duotone drawing of globe-clock on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of globe-clock: https://keylineicons.com/icons/globe-clock",
+      "files": [
+        {
+          "path": "icons/globe-clock.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/globe-clock.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/globe-cog",
       "type": "registry:component",
       "title": "GlobeCog",
@@ -13704,6 +14908,20 @@
           "path": "icons/globe-cursor.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/globe-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/globe-network",
+      "type": "registry:component",
+      "title": "GlobeNetwork",
+      "description": "GlobeNetwork, the duotone drawing of globe-network on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of globe-network: https://keylineicons.com/icons/globe-network",
+      "files": [
+        {
+          "path": "icons/globe-network.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/globe-network.tsx"
         }
       ]
     },
@@ -13750,6 +14968,20 @@
       ]
     },
     {
+      "name": "duotone/globe-shield",
+      "type": "registry:component",
+      "title": "GlobeShield",
+      "description": "GlobeShield, the duotone drawing of globe-shield on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of globe-shield: https://keylineicons.com/icons/globe-shield",
+      "files": [
+        {
+          "path": "icons/globe-shield.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/globe-shield.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/globe-x",
       "type": "registry:component",
       "title": "GlobeX",
@@ -13788,6 +15020,20 @@
           "path": "icons/golf-hole.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/golf-hole.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/gradient-linear",
+      "type": "registry:component",
+      "title": "GradientLinear",
+      "description": "GradientLinear, the duotone drawing of gradient-linear on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of gradient-linear: https://keylineicons.com/icons/gradient-linear",
+      "files": [
+        {
+          "path": "icons/gradient-linear.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/gradient-linear.tsx"
         }
       ]
     },
@@ -14002,6 +15248,20 @@
       ]
     },
     {
+      "name": "duotone/grid-dots",
+      "type": "registry:component",
+      "title": "GridDots",
+      "description": "GridDots, the duotone drawing of grid-dots on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of grid-dots: https://keylineicons.com/icons/grid-dots",
+      "files": [
+        {
+          "path": "icons/grid-dots.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/grid-dots.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/grid-masonry",
       "type": "registry:component",
       "title": "GridMasonry",
@@ -14082,6 +15342,20 @@
           "path": "icons/grill.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/grill.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/grip",
+      "type": "registry:component",
+      "title": "Grip",
+      "description": "Grip, the duotone drawing of grip on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of grip: https://keylineicons.com/icons/grip",
+      "files": [
+        {
+          "path": "icons/grip.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/grip.tsx"
         }
       ]
     },
@@ -14362,6 +15636,20 @@
           "path": "icons/hand-open.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/hand-open.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/hand-open-off",
+      "type": "registry:component",
+      "title": "HandOpenOff",
+      "description": "HandOpenOff, the duotone drawing of hand-open-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of hand-open-off: https://keylineicons.com/icons/hand-open-off",
+      "files": [
+        {
+          "path": "icons/hand-open-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/hand-open-off.tsx"
         }
       ]
     },
@@ -15080,6 +16368,48 @@
       ]
     },
     {
+      "name": "duotone/history-cog",
+      "type": "registry:component",
+      "title": "HistoryCog",
+      "description": "HistoryCog, the duotone drawing of history-cog on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of history-cog: https://keylineicons.com/icons/history-cog",
+      "files": [
+        {
+          "path": "icons/history-cog.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/history-cog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/history-x",
+      "type": "registry:component",
+      "title": "HistoryX",
+      "description": "HistoryX, the duotone drawing of history-x on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of history-x: https://keylineicons.com/icons/history-x",
+      "files": [
+        {
+          "path": "icons/history-x.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/history-x.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/hockey-puck",
+      "type": "registry:component",
+      "title": "HockeyPuck",
+      "description": "HockeyPuck, the duotone drawing of hockey-puck on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of hockey-puck: https://keylineicons.com/icons/hockey-puck",
+      "files": [
+        {
+          "path": "icons/hockey-puck.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/hockey-puck.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/hockey-sticks",
       "type": "registry:component",
       "title": "HockeySticks",
@@ -15640,6 +16970,48 @@
       ]
     },
     {
+      "name": "duotone/id-card-sparkles",
+      "type": "registry:component",
+      "title": "IdCardSparkles",
+      "description": "IdCardSparkles, the duotone drawing of id-card-sparkles on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of id-card-sparkles: https://keylineicons.com/icons/id-card-sparkles",
+      "files": [
+        {
+          "path": "icons/id-card-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/id-card-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/iframe",
+      "type": "registry:component",
+      "title": "Iframe",
+      "description": "Iframe, the duotone drawing of iframe on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of iframe: https://keylineicons.com/icons/iframe",
+      "files": [
+        {
+          "path": "icons/iframe.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/iframe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/iframe-off",
+      "type": "registry:component",
+      "title": "IframeOff",
+      "description": "IframeOff, the duotone drawing of iframe-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of iframe-off: https://keylineicons.com/icons/iframe-off",
+      "files": [
+        {
+          "path": "icons/iframe-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/iframe-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/image",
       "type": "registry:component",
       "title": "Image",
@@ -15850,6 +17222,20 @@
       ]
     },
     {
+      "name": "duotone/image-search",
+      "type": "registry:component",
+      "title": "ImageSearch",
+      "description": "ImageSearch, the duotone drawing of image-search on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of image-search: https://keylineicons.com/icons/image-search",
+      "files": [
+        {
+          "path": "icons/image-search.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/image-search.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/image-sparkles",
       "type": "registry:component",
       "title": "ImageSparkles",
@@ -15934,6 +17320,34 @@
       ]
     },
     {
+      "name": "duotone/inbox-arrow-down",
+      "type": "registry:component",
+      "title": "InboxArrowDown",
+      "description": "InboxArrowDown, the duotone drawing of inbox-arrow-down on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of inbox-arrow-down: https://keylineicons.com/icons/inbox-arrow-down",
+      "files": [
+        {
+          "path": "icons/inbox-arrow-down.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/inbox-arrow-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/inbox-arrow-up",
+      "type": "registry:component",
+      "title": "InboxArrowUp",
+      "description": "InboxArrowUp, the duotone drawing of inbox-arrow-up on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of inbox-arrow-up: https://keylineicons.com/icons/inbox-arrow-up",
+      "files": [
+        {
+          "path": "icons/inbox-arrow-up.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/inbox-arrow-up.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/inbox-dot",
       "type": "registry:component",
       "title": "InboxDot",
@@ -15958,6 +17372,20 @@
           "path": "icons/inbox-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/inbox-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/inboxes",
+      "type": "registry:component",
+      "title": "Inboxes",
+      "description": "Inboxes, the duotone drawing of inboxes on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of inboxes: https://keylineicons.com/icons/inboxes",
+      "files": [
+        {
+          "path": "icons/inboxes.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/inboxes.tsx"
         }
       ]
     },
@@ -16074,6 +17502,20 @@
       ]
     },
     {
+      "name": "duotone/iv-bag",
+      "type": "registry:component",
+      "title": "IvBag",
+      "description": "IvBag, the duotone drawing of iv-bag on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of iv-bag: https://keylineicons.com/icons/iv-bag",
+      "files": [
+        {
+          "path": "icons/iv-bag.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/iv-bag.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/jacket",
       "type": "registry:component",
       "title": "Jacket",
@@ -16158,6 +17600,20 @@
       ]
     },
     {
+      "name": "duotone/key-off",
+      "type": "registry:component",
+      "title": "KeyOff",
+      "description": "KeyOff, the duotone drawing of key-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of key-off: https://keylineicons.com/icons/key-off",
+      "files": [
+        {
+          "path": "icons/key-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/key-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/key-round",
       "type": "registry:component",
       "title": "KeyRound",
@@ -16196,6 +17652,20 @@
           "path": "icons/keyboard.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/keyboard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/keyboard-lock",
+      "type": "registry:component",
+      "title": "KeyboardLock",
+      "description": "KeyboardLock, the duotone drawing of keyboard-lock on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of keyboard-lock: https://keylineicons.com/icons/keyboard-lock",
+      "files": [
+        {
+          "path": "icons/keyboard-lock.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/keyboard-lock.tsx"
         }
       ]
     },
@@ -16252,6 +17722,20 @@
           "path": "icons/lamp.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/lamp.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/lamp-ceiling",
+      "type": "registry:component",
+      "title": "LampCeiling",
+      "description": "LampCeiling, the duotone drawing of lamp-ceiling on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of lamp-ceiling: https://keylineicons.com/icons/lamp-ceiling",
+      "files": [
+        {
+          "path": "icons/lamp-ceiling.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/lamp-ceiling.tsx"
         }
       ]
     },
@@ -16340,6 +17824,34 @@
       ]
     },
     {
+      "name": "duotone/laptop-arrow-down",
+      "type": "registry:component",
+      "title": "LaptopArrowDown",
+      "description": "LaptopArrowDown, the duotone drawing of laptop-arrow-down on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of laptop-arrow-down: https://keylineicons.com/icons/laptop-arrow-down",
+      "files": [
+        {
+          "path": "icons/laptop-arrow-down.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/laptop-arrow-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/laptop-check",
+      "type": "registry:component",
+      "title": "LaptopCheck",
+      "description": "LaptopCheck, the duotone drawing of laptop-check on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of laptop-check: https://keylineicons.com/icons/laptop-check",
+      "files": [
+        {
+          "path": "icons/laptop-check.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/laptop-check.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/laptop-smartphone",
       "type": "registry:component",
       "title": "LaptopSmartphone",
@@ -16350,6 +17862,20 @@
           "path": "icons/laptop-smartphone.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/laptop-smartphone.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/laptop-smartphone-off",
+      "type": "registry:component",
+      "title": "LaptopSmartphoneOff",
+      "description": "LaptopSmartphoneOff, the duotone drawing of laptop-smartphone-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of laptop-smartphone-off: https://keylineicons.com/icons/laptop-smartphone-off",
+      "files": [
+        {
+          "path": "icons/laptop-smartphone-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/laptop-smartphone-off.tsx"
         }
       ]
     },
@@ -16886,6 +18412,20 @@
       ]
     },
     {
+      "name": "duotone/line-dashed",
+      "type": "registry:component",
+      "title": "LineDashed",
+      "description": "LineDashed, the duotone drawing of line-dashed on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of line-dashed: https://keylineicons.com/icons/line-dashed",
+      "files": [
+        {
+          "path": "icons/line-dashed.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/line-dashed.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/link",
       "type": "registry:component",
       "title": "Link",
@@ -17362,6 +18902,62 @@
       ]
     },
     {
+      "name": "duotone/lock-check",
+      "type": "registry:component",
+      "title": "LockCheck",
+      "description": "LockCheck, the duotone drawing of lock-check on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of lock-check: https://keylineicons.com/icons/lock-check",
+      "files": [
+        {
+          "path": "icons/lock-check.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/lock-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/lock-clock",
+      "type": "registry:component",
+      "title": "LockClock",
+      "description": "LockClock, the duotone drawing of lock-clock on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of lock-clock: https://keylineicons.com/icons/lock-clock",
+      "files": [
+        {
+          "path": "icons/lock-clock.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/lock-clock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/lock-off",
+      "type": "registry:component",
+      "title": "LockOff",
+      "description": "LockOff, the duotone drawing of lock-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of lock-off: https://keylineicons.com/icons/lock-off",
+      "files": [
+        {
+          "path": "icons/lock-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/lock-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/lock-plus",
+      "type": "registry:component",
+      "title": "LockPlus",
+      "description": "LockPlus, the duotone drawing of lock-plus on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of lock-plus: https://keylineicons.com/icons/lock-plus",
+      "files": [
+        {
+          "path": "icons/lock-plus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/lock-plus.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/log-in",
       "type": "registry:component",
       "title": "LogIn",
@@ -17386,6 +18982,20 @@
           "path": "icons/log-out.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/log-out.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/lotus",
+      "type": "registry:component",
+      "title": "Lotus",
+      "description": "Lotus, the duotone drawing of lotus on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of lotus: https://keylineicons.com/icons/lotus",
+      "files": [
+        {
+          "path": "icons/lotus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/lotus.tsx"
         }
       ]
     },
@@ -17446,6 +19056,90 @@
       ]
     },
     {
+      "name": "duotone/mail-alert",
+      "type": "registry:component",
+      "title": "MailAlert",
+      "description": "MailAlert, the duotone drawing of mail-alert on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mail-alert: https://keylineicons.com/icons/mail-alert",
+      "files": [
+        {
+          "path": "icons/mail-alert.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/mail-alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/mail-arrow-down",
+      "type": "registry:component",
+      "title": "MailArrowDown",
+      "description": "MailArrowDown, the duotone drawing of mail-arrow-down on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mail-arrow-down: https://keylineicons.com/icons/mail-arrow-down",
+      "files": [
+        {
+          "path": "icons/mail-arrow-down.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/mail-arrow-down.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/mail-arrow-left",
+      "type": "registry:component",
+      "title": "MailArrowLeft",
+      "description": "MailArrowLeft, the duotone drawing of mail-arrow-left on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mail-arrow-left: https://keylineicons.com/icons/mail-arrow-left",
+      "files": [
+        {
+          "path": "icons/mail-arrow-left.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/mail-arrow-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/mail-arrow-right",
+      "type": "registry:component",
+      "title": "MailArrowRight",
+      "description": "MailArrowRight, the duotone drawing of mail-arrow-right on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mail-arrow-right: https://keylineicons.com/icons/mail-arrow-right",
+      "files": [
+        {
+          "path": "icons/mail-arrow-right.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/mail-arrow-right.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/mail-arrow-up",
+      "type": "registry:component",
+      "title": "MailArrowUp",
+      "description": "MailArrowUp, the duotone drawing of mail-arrow-up on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mail-arrow-up: https://keylineicons.com/icons/mail-arrow-up",
+      "files": [
+        {
+          "path": "icons/mail-arrow-up.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/mail-arrow-up.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/mail-asterisk",
+      "type": "registry:component",
+      "title": "MailAsterisk",
+      "description": "MailAsterisk, the duotone drawing of mail-asterisk on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mail-asterisk: https://keylineicons.com/icons/mail-asterisk",
+      "files": [
+        {
+          "path": "icons/mail-asterisk.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/mail-asterisk.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/mail-check",
       "type": "registry:component",
       "title": "MailCheck",
@@ -17460,6 +19154,20 @@
       ]
     },
     {
+      "name": "duotone/mail-cog",
+      "type": "registry:component",
+      "title": "MailCog",
+      "description": "MailCog, the duotone drawing of mail-cog on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mail-cog: https://keylineicons.com/icons/mail-cog",
+      "files": [
+        {
+          "path": "icons/mail-cog.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/mail-cog.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/mail-dot",
       "type": "registry:component",
       "title": "MailDot",
@@ -17470,6 +19178,20 @@
           "path": "icons/mail-dot.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/mail-dot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/mail-forward",
+      "type": "registry:component",
+      "title": "MailForward",
+      "description": "MailForward, the duotone drawing of mail-forward on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mail-forward: https://keylineicons.com/icons/mail-forward",
+      "files": [
+        {
+          "path": "icons/mail-forward.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/mail-forward.tsx"
         }
       ]
     },
@@ -17526,6 +19248,34 @@
           "path": "icons/mail-scan.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/mail-scan.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/mail-search",
+      "type": "registry:component",
+      "title": "MailSearch",
+      "description": "MailSearch, the duotone drawing of mail-search on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mail-search: https://keylineicons.com/icons/mail-search",
+      "files": [
+        {
+          "path": "icons/mail-search.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/mail-search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/mail-shield",
+      "type": "registry:component",
+      "title": "MailShield",
+      "description": "MailShield, the duotone drawing of mail-shield on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mail-shield: https://keylineicons.com/icons/mail-shield",
+      "files": [
+        {
+          "path": "icons/mail-shield.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/mail-shield.tsx"
         }
       ]
     },
@@ -17726,6 +19476,20 @@
       ]
     },
     {
+      "name": "duotone/map-pin-sparkles",
+      "type": "registry:component",
+      "title": "MapPinSparkles",
+      "description": "MapPinSparkles, the duotone drawing of map-pin-sparkles on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of map-pin-sparkles: https://keylineicons.com/icons/map-pin-sparkles",
+      "files": [
+        {
+          "path": "icons/map-pin-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/map-pin-sparkles.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/map-pin-x",
       "type": "registry:component",
       "title": "MapPinX",
@@ -17894,6 +19658,20 @@
       ]
     },
     {
+      "name": "duotone/message-arrow-up",
+      "type": "registry:component",
+      "title": "MessageArrowUp",
+      "description": "MessageArrowUp, the duotone drawing of message-arrow-up on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of message-arrow-up: https://keylineicons.com/icons/message-arrow-up",
+      "files": [
+        {
+          "path": "icons/message-arrow-up.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/message-arrow-up.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/message-check",
       "type": "registry:component",
       "title": "MessageCheck",
@@ -17904,6 +19682,20 @@
           "path": "icons/message-check.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/message-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/message-clock",
+      "type": "registry:component",
+      "title": "MessageClock",
+      "description": "MessageClock, the duotone drawing of message-clock on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of message-clock: https://keylineicons.com/icons/message-clock",
+      "files": [
+        {
+          "path": "icons/message-clock.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/message-clock.tsx"
         }
       ]
     },
@@ -17932,6 +19724,20 @@
           "path": "icons/message-dashed.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/message-dashed.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/message-dashed-check",
+      "type": "registry:component",
+      "title": "MessageDashedCheck",
+      "description": "MessageDashedCheck, the duotone drawing of message-dashed-check on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of message-dashed-check: https://keylineicons.com/icons/message-dashed-check",
+      "files": [
+        {
+          "path": "icons/message-dashed-check.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/message-dashed-check.tsx"
         }
       ]
     },
@@ -18104,6 +19910,20 @@
       ]
     },
     {
+      "name": "duotone/message-square-arrow-up",
+      "type": "registry:component",
+      "title": "MessageSquareArrowUp",
+      "description": "MessageSquareArrowUp, the duotone drawing of message-square-arrow-up on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of message-square-arrow-up: https://keylineicons.com/icons/message-square-arrow-up",
+      "files": [
+        {
+          "path": "icons/message-square-arrow-up.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/message-square-arrow-up.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/message-square-arrow-up-right",
       "type": "registry:component",
       "title": "MessageSquareArrowUpRight",
@@ -18132,6 +19952,20 @@
       ]
     },
     {
+      "name": "duotone/message-square-code",
+      "type": "registry:component",
+      "title": "MessageSquareCode",
+      "description": "MessageSquareCode, the duotone drawing of message-square-code on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of message-square-code: https://keylineicons.com/icons/message-square-code",
+      "files": [
+        {
+          "path": "icons/message-square-code.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/message-square-code.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/message-square-dashed",
       "type": "registry:component",
       "title": "MessageSquareDashed",
@@ -18146,6 +19980,20 @@
       ]
     },
     {
+      "name": "duotone/message-square-dashed-check",
+      "type": "registry:component",
+      "title": "MessageSquareDashedCheck",
+      "description": "MessageSquareDashedCheck, the duotone drawing of message-square-dashed-check on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of message-square-dashed-check: https://keylineicons.com/icons/message-square-dashed-check",
+      "files": [
+        {
+          "path": "icons/message-square-dashed-check.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/message-square-dashed-check.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/message-square-dot",
       "type": "registry:component",
       "title": "MessageSquareDot",
@@ -18156,6 +20004,20 @@
           "path": "icons/message-square-dot.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/message-square-dot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/message-square-info",
+      "type": "registry:component",
+      "title": "MessageSquareInfo",
+      "description": "MessageSquareInfo, the duotone drawing of message-square-info on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of message-square-info: https://keylineicons.com/icons/message-square-info",
+      "files": [
+        {
+          "path": "icons/message-square-info.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/message-square-info.tsx"
         }
       ]
     },
@@ -18202,6 +20064,20 @@
       ]
     },
     {
+      "name": "duotone/message-square-more",
+      "type": "registry:component",
+      "title": "MessageSquareMore",
+      "description": "MessageSquareMore, the duotone drawing of message-square-more on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of message-square-more: https://keylineicons.com/icons/message-square-more",
+      "files": [
+        {
+          "path": "icons/message-square-more.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/message-square-more.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/message-square-off",
       "type": "registry:component",
       "title": "MessageSquareOff",
@@ -18212,6 +20088,20 @@
           "path": "icons/message-square-off.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/message-square-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/message-square-pen",
+      "type": "registry:component",
+      "title": "MessageSquarePen",
+      "description": "MessageSquarePen, the duotone drawing of message-square-pen on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of message-square-pen: https://keylineicons.com/icons/message-square-pen",
+      "files": [
+        {
+          "path": "icons/message-square-pen.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/message-square-pen.tsx"
         }
       ]
     },
@@ -18408,6 +20298,20 @@
           "path": "icons/minimize.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/minimize.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/minimize-2",
+      "type": "registry:component",
+      "title": "Minimize2",
+      "description": "Minimize2, the duotone drawing of minimize-2 on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of minimize-2: https://keylineicons.com/icons/minimize-2",
+      "files": [
+        {
+          "path": "icons/minimize-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/minimize-2.tsx"
         }
       ]
     },
@@ -19000,6 +20904,20 @@
       ]
     },
     {
+      "name": "duotone/mouse-lock",
+      "type": "registry:component",
+      "title": "MouseLock",
+      "description": "MouseLock, the duotone drawing of mouse-lock on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of mouse-lock: https://keylineicons.com/icons/mouse-lock",
+      "files": [
+        {
+          "path": "icons/mouse-lock.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/mouse-lock.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/mouse-off",
       "type": "registry:component",
       "title": "MouseOff",
@@ -19374,6 +21292,20 @@
           "path": "icons/nfc.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/nfc.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/nodes-cycle",
+      "type": "registry:component",
+      "title": "NodesCycle",
+      "description": "NodesCycle, the duotone drawing of nodes-cycle on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of nodes-cycle: https://keylineicons.com/icons/nodes-cycle",
+      "files": [
+        {
+          "path": "icons/nodes-cycle.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/nodes-cycle.tsx"
         }
       ]
     },
@@ -19952,6 +21884,20 @@
       ]
     },
     {
+      "name": "duotone/panel-left-sparkles",
+      "type": "registry:component",
+      "title": "PanelLeftSparkles",
+      "description": "PanelLeftSparkles, the duotone drawing of panel-left-sparkles on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of panel-left-sparkles: https://keylineicons.com/icons/panel-left-sparkles",
+      "files": [
+        {
+          "path": "icons/panel-left-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/panel-left-sparkles.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/panel-right",
       "type": "registry:component",
       "title": "PanelRight",
@@ -20032,6 +21978,20 @@
           "path": "icons/panel-right-open-dashed.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/panel-right-open-dashed.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/panel-right-sparkles",
+      "type": "registry:component",
+      "title": "PanelRightSparkles",
+      "description": "PanelRightSparkles, the duotone drawing of panel-right-sparkles on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of panel-right-sparkles: https://keylineicons.com/icons/panel-right-sparkles",
+      "files": [
+        {
+          "path": "icons/panel-right-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/panel-right-sparkles.tsx"
         }
       ]
     },
@@ -20218,6 +22178,20 @@
       ]
     },
     {
+      "name": "duotone/paperclip-plus",
+      "type": "registry:component",
+      "title": "PaperclipPlus",
+      "description": "PaperclipPlus, the duotone drawing of paperclip-plus on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of paperclip-plus: https://keylineicons.com/icons/paperclip-plus",
+      "files": [
+        {
+          "path": "icons/paperclip-plus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/paperclip-plus.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/parallelogram",
       "type": "registry:component",
       "title": "Parallelogram",
@@ -20340,6 +22314,20 @@
           "path": "icons/party-popper.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/party-popper.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/password",
+      "type": "registry:component",
+      "title": "Password",
+      "description": "Password, the duotone drawing of password on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of password: https://keylineicons.com/icons/password",
+      "files": [
+        {
+          "path": "icons/password.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/password.tsx"
         }
       ]
     },
@@ -20736,6 +22724,34 @@
       ]
     },
     {
+      "name": "duotone/piano",
+      "type": "registry:component",
+      "title": "Piano",
+      "description": "Piano, the duotone drawing of piano on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of piano: https://keylineicons.com/icons/piano",
+      "files": [
+        {
+          "path": "icons/piano.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/piano.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/piano-off",
+      "type": "registry:component",
+      "title": "PianoOff",
+      "description": "PianoOff, the duotone drawing of piano-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of piano-off: https://keylineicons.com/icons/piano-off",
+      "files": [
+        {
+          "path": "icons/piano-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/piano-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/picture-in-picture",
       "type": "registry:component",
       "title": "PictureInPicture",
@@ -20746,6 +22762,20 @@
           "path": "icons/picture-in-picture.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/picture-in-picture.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/picture-in-picture-off",
+      "type": "registry:component",
+      "title": "PictureInPictureOff",
+      "description": "PictureInPictureOff, the duotone drawing of picture-in-picture-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of picture-in-picture-off: https://keylineicons.com/icons/picture-in-picture-off",
+      "files": [
+        {
+          "path": "icons/picture-in-picture-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/picture-in-picture-off.tsx"
         }
       ]
     },
@@ -20788,6 +22818,34 @@
           "path": "icons/pilcrow.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/pilcrow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/pilcrow-left",
+      "type": "registry:component",
+      "title": "PilcrowLeft",
+      "description": "PilcrowLeft, the duotone drawing of pilcrow-left on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of pilcrow-left: https://keylineicons.com/icons/pilcrow-left",
+      "files": [
+        {
+          "path": "icons/pilcrow-left.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/pilcrow-left.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/pilcrow-right",
+      "type": "registry:component",
+      "title": "PilcrowRight",
+      "description": "PilcrowRight, the duotone drawing of pilcrow-right on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of pilcrow-right: https://keylineicons.com/icons/pilcrow-right",
+      "files": [
+        {
+          "path": "icons/pilcrow-right.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/pilcrow-right.tsx"
         }
       ]
     },
@@ -21296,6 +23354,20 @@
       ]
     },
     {
+      "name": "duotone/printer-off",
+      "type": "registry:component",
+      "title": "PrinterOff",
+      "description": "PrinterOff, the duotone drawing of printer-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of printer-off: https://keylineicons.com/icons/printer-off",
+      "files": [
+        {
+          "path": "icons/printer-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/printer-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/puzzle",
       "type": "registry:component",
       "title": "Puzzle",
@@ -21306,6 +23378,48 @@
           "path": "icons/puzzle.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/puzzle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/puzzle-check",
+      "type": "registry:component",
+      "title": "PuzzleCheck",
+      "description": "PuzzleCheck, the duotone drawing of puzzle-check on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of puzzle-check: https://keylineicons.com/icons/puzzle-check",
+      "files": [
+        {
+          "path": "icons/puzzle-check.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/puzzle-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/puzzle-crack",
+      "type": "registry:component",
+      "title": "PuzzleCrack",
+      "description": "PuzzleCrack, the duotone drawing of puzzle-crack on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of puzzle-crack: https://keylineicons.com/icons/puzzle-crack",
+      "files": [
+        {
+          "path": "icons/puzzle-crack.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/puzzle-crack.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/puzzle-off",
+      "type": "registry:component",
+      "title": "PuzzleOff",
+      "description": "PuzzleOff, the duotone drawing of puzzle-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of puzzle-off: https://keylineicons.com/icons/puzzle-off",
+      "files": [
+        {
+          "path": "icons/puzzle-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/puzzle-off.tsx"
         }
       ]
     },
@@ -21660,6 +23774,20 @@
       ]
     },
     {
+      "name": "duotone/rectangle-goggles-off",
+      "type": "registry:component",
+      "title": "RectangleGogglesOff",
+      "description": "RectangleGogglesOff, the duotone drawing of rectangle-goggles-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of rectangle-goggles-off: https://keylineicons.com/icons/rectangle-goggles-off",
+      "files": [
+        {
+          "path": "icons/rectangle-goggles-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/rectangle-goggles-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/recycle",
       "type": "registry:component",
       "title": "Recycle",
@@ -21670,6 +23798,20 @@
           "path": "icons/recycle.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/recycle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/redirect",
+      "type": "registry:component",
+      "title": "Redirect",
+      "description": "Redirect, the duotone drawing of redirect on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of redirect: https://keylineicons.com/icons/redirect",
+      "files": [
+        {
+          "path": "icons/redirect.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/redirect.tsx"
         }
       ]
     },
@@ -21754,6 +23896,20 @@
           "path": "icons/refresh-cw.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/refresh-cw.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/refresh-cw-alert",
+      "type": "registry:component",
+      "title": "RefreshCwAlert",
+      "description": "RefreshCwAlert, the duotone drawing of refresh-cw-alert on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of refresh-cw-alert: https://keylineicons.com/icons/refresh-cw-alert",
+      "files": [
+        {
+          "path": "icons/refresh-cw-alert.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/refresh-cw-alert.tsx"
         }
       ]
     },
@@ -21880,6 +24036,20 @@
           "path": "icons/repeat-off.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/repeat-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/replace",
+      "type": "registry:component",
+      "title": "Replace",
+      "description": "Replace, the duotone drawing of replace on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of replace: https://keylineicons.com/icons/replace",
+      "files": [
+        {
+          "path": "icons/replace.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/replace.tsx"
         }
       ]
     },
@@ -22220,6 +24390,34 @@
       ]
     },
     {
+      "name": "duotone/router-off",
+      "type": "registry:component",
+      "title": "RouterOff",
+      "description": "RouterOff, the duotone drawing of router-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of router-off: https://keylineicons.com/icons/router-off",
+      "files": [
+        {
+          "path": "icons/router-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/router-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/rows-2",
+      "type": "registry:component",
+      "title": "Rows2",
+      "description": "Rows2, the duotone drawing of rows-2 on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of rows-2: https://keylineicons.com/icons/rows-2",
+      "files": [
+        {
+          "path": "icons/rows-2.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/rows-2.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/rss",
       "type": "registry:component",
       "title": "Rss",
@@ -22230,6 +24428,34 @@
           "path": "icons/rss.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/rss.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/ruler",
+      "type": "registry:component",
+      "title": "Ruler",
+      "description": "Ruler, the duotone drawing of ruler on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of ruler: https://keylineicons.com/icons/ruler",
+      "files": [
+        {
+          "path": "icons/ruler.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/ruler.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/ruler-dimension-line",
+      "type": "registry:component",
+      "title": "RulerDimensionLine",
+      "description": "RulerDimensionLine, the duotone drawing of ruler-dimension-line on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of ruler-dimension-line: https://keylineicons.com/icons/ruler-dimension-line",
+      "files": [
+        {
+          "path": "icons/ruler-dimension-line.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/ruler-dimension-line.tsx"
         }
       ]
     },
@@ -22444,6 +24670,34 @@
       ]
     },
     {
+      "name": "duotone/scan-box",
+      "type": "registry:component",
+      "title": "ScanBox",
+      "description": "ScanBox, the duotone drawing of scan-box on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of scan-box: https://keylineicons.com/icons/scan-box",
+      "files": [
+        {
+          "path": "icons/scan-box.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/scan-box.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/scan-box-off",
+      "type": "registry:component",
+      "title": "ScanBoxOff",
+      "description": "ScanBoxOff, the duotone drawing of scan-box-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of scan-box-off: https://keylineicons.com/icons/scan-box-off",
+      "files": [
+        {
+          "path": "icons/scan-box-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/scan-box-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/scan-check",
       "type": "registry:component",
       "title": "ScanCheck",
@@ -22496,6 +24750,20 @@
           "path": "icons/scan-line.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/scan-line.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/scan-plus",
+      "type": "registry:component",
+      "title": "ScanPlus",
+      "description": "ScanPlus, the duotone drawing of scan-plus on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of scan-plus: https://keylineicons.com/icons/scan-plus",
+      "files": [
+        {
+          "path": "icons/scan-plus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/scan-plus.tsx"
         }
       ]
     },
@@ -22794,6 +25062,20 @@
       ]
     },
     {
+      "name": "duotone/search-activity",
+      "type": "registry:component",
+      "title": "SearchActivity",
+      "description": "SearchActivity, the duotone drawing of search-activity on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of search-activity: https://keylineicons.com/icons/search-activity",
+      "files": [
+        {
+          "path": "icons/search-activity.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/search-activity.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/search-check",
       "type": "registry:component",
       "title": "SearchCheck",
@@ -22888,6 +25170,20 @@
           "path": "icons/search-x.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/search-x.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/security-key",
+      "type": "registry:component",
+      "title": "SecurityKey",
+      "description": "SecurityKey, the duotone drawing of security-key on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of security-key: https://keylineicons.com/icons/security-key",
+      "files": [
+        {
+          "path": "icons/security-key.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/security-key.tsx"
         }
       ]
     },
@@ -23000,6 +25296,34 @@
           "path": "icons/separator-horizontal.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/separator-horizontal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/serial-port",
+      "type": "registry:component",
+      "title": "SerialPort",
+      "description": "SerialPort, the duotone drawing of serial-port on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of serial-port: https://keylineicons.com/icons/serial-port",
+      "files": [
+        {
+          "path": "icons/serial-port.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/serial-port.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/serial-port-off",
+      "type": "registry:component",
+      "title": "SerialPortOff",
+      "description": "SerialPortOff, the duotone drawing of serial-port-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of serial-port-off: https://keylineicons.com/icons/serial-port-off",
+      "files": [
+        {
+          "path": "icons/serial-port-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/serial-port-off.tsx"
         }
       ]
     },
@@ -23158,6 +25482,34 @@
       ]
     },
     {
+      "name": "duotone/shapes-blend",
+      "type": "registry:component",
+      "title": "ShapesBlend",
+      "description": "ShapesBlend, the duotone drawing of shapes-blend on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of shapes-blend: https://keylineicons.com/icons/shapes-blend",
+      "files": [
+        {
+          "path": "icons/shapes-blend.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/shapes-blend.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/shapes-sparkles",
+      "type": "registry:component",
+      "title": "ShapesSparkles",
+      "description": "ShapesSparkles, the duotone drawing of shapes-sparkles on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of shapes-sparkles: https://keylineicons.com/icons/shapes-sparkles",
+      "files": [
+        {
+          "path": "icons/shapes-sparkles.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/shapes-sparkles.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/share",
       "type": "registry:component",
       "title": "Share",
@@ -23228,6 +25580,20 @@
       ]
     },
     {
+      "name": "duotone/shield-arrow-right",
+      "type": "registry:component",
+      "title": "ShieldArrowRight",
+      "description": "ShieldArrowRight, the duotone drawing of shield-arrow-right on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of shield-arrow-right: https://keylineicons.com/icons/shield-arrow-right",
+      "files": [
+        {
+          "path": "icons/shield-arrow-right.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/shield-arrow-right.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/shield-check",
       "type": "registry:component",
       "title": "ShieldCheck",
@@ -23242,6 +25608,34 @@
       ]
     },
     {
+      "name": "duotone/shield-cog",
+      "type": "registry:component",
+      "title": "ShieldCog",
+      "description": "ShieldCog, the duotone drawing of shield-cog on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of shield-cog: https://keylineicons.com/icons/shield-cog",
+      "files": [
+        {
+          "path": "icons/shield-cog.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/shield-cog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/shield-globe",
+      "type": "registry:component",
+      "title": "ShieldGlobe",
+      "description": "ShieldGlobe, the duotone drawing of shield-globe on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of shield-globe: https://keylineicons.com/icons/shield-globe",
+      "files": [
+        {
+          "path": "icons/shield-globe.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/shield-globe.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/shield-heart",
       "type": "registry:component",
       "title": "ShieldHeart",
@@ -23252,6 +25646,20 @@
           "path": "icons/shield-heart.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/shield-heart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/shield-info",
+      "type": "registry:component",
+      "title": "ShieldInfo",
+      "description": "ShieldInfo, the duotone drawing of shield-info on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of shield-info: https://keylineicons.com/icons/shield-info",
+      "files": [
+        {
+          "path": "icons/shield-info.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/shield-info.tsx"
         }
       ]
     },
@@ -23336,6 +25744,20 @@
           "path": "icons/shield-question.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/shield-question.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/shield-search",
+      "type": "registry:component",
+      "title": "ShieldSearch",
+      "description": "ShieldSearch, the duotone drawing of shield-search on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of shield-search: https://keylineicons.com/icons/shield-search",
+      "files": [
+        {
+          "path": "icons/shield-search.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/shield-search.tsx"
         }
       ]
     },
@@ -23476,6 +25898,20 @@
           "path": "icons/shopping-bag.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/shopping-bag.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/shopping-bag-check",
+      "type": "registry:component",
+      "title": "ShoppingBagCheck",
+      "description": "ShoppingBagCheck, the duotone drawing of shopping-bag-check on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of shopping-bag-check: https://keylineicons.com/icons/shopping-bag-check",
+      "files": [
+        {
+          "path": "icons/shopping-bag-check.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/shopping-bag-check.tsx"
         }
       ]
     },
@@ -23742,6 +26178,20 @@
           "path": "icons/signature.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/signature.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/signpost",
+      "type": "registry:component",
+      "title": "Signpost",
+      "description": "Signpost, the duotone drawing of signpost on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of signpost: https://keylineicons.com/icons/signpost",
+      "files": [
+        {
+          "path": "icons/signpost.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/signpost.tsx"
         }
       ]
     },
@@ -24446,6 +26896,20 @@
       ]
     },
     {
+      "name": "duotone/speakers",
+      "type": "registry:component",
+      "title": "Speakers",
+      "description": "Speakers, the duotone drawing of speakers on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of speakers: https://keylineicons.com/icons/speakers",
+      "files": [
+        {
+          "path": "icons/speakers.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/speakers.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/spell-check",
       "type": "registry:component",
       "title": "SpellCheck",
@@ -24456,6 +26920,20 @@
           "path": "icons/spell-check.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/spell-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/spiral",
+      "type": "registry:component",
+      "title": "Spiral",
+      "description": "Spiral, the duotone drawing of spiral on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of spiral: https://keylineicons.com/icons/spiral",
+      "files": [
+        {
+          "path": "icons/spiral.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/spiral.tsx"
         }
       ]
     },
@@ -24498,6 +26976,34 @@
           "path": "icons/split-2.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/split-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/spool",
+      "type": "registry:component",
+      "title": "Spool",
+      "description": "Spool, the duotone drawing of spool on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of spool: https://keylineicons.com/icons/spool",
+      "files": [
+        {
+          "path": "icons/spool.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/spool.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/sports-court",
+      "type": "registry:component",
+      "title": "SportsCourt",
+      "description": "SportsCourt, the duotone drawing of sports-court on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of sports-court: https://keylineicons.com/icons/sports-court",
+      "files": [
+        {
+          "path": "icons/sports-court.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/sports-court.tsx"
         }
       ]
     },
@@ -24810,6 +27316,20 @@
       ]
     },
     {
+      "name": "duotone/square-arrow-out-up-right-off",
+      "type": "registry:component",
+      "title": "SquareArrowOutUpRightOff",
+      "description": "SquareArrowOutUpRightOff, the duotone drawing of square-arrow-out-up-right-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-arrow-out-up-right-off: https://keylineicons.com/icons/square-arrow-out-up-right-off",
+      "files": [
+        {
+          "path": "icons/square-arrow-out-up-right-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/square-arrow-out-up-right-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/square-arrow-right",
       "type": "registry:component",
       "title": "SquareArrowRight",
@@ -25020,6 +27540,34 @@
       ]
     },
     {
+      "name": "duotone/square-bookmark",
+      "type": "registry:component",
+      "title": "SquareBookmark",
+      "description": "SquareBookmark, the duotone drawing of square-bookmark on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-bookmark: https://keylineicons.com/icons/square-bookmark",
+      "files": [
+        {
+          "path": "icons/square-bookmark.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/square-bookmark.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/square-braces",
+      "type": "registry:component",
+      "title": "SquareBraces",
+      "description": "SquareBraces, the duotone drawing of square-braces on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-braces: https://keylineicons.com/icons/square-braces",
+      "files": [
+        {
+          "path": "icons/square-braces.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/square-braces.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/square-caret-down",
       "type": "registry:component",
       "title": "SquareCaretDown",
@@ -25202,6 +27750,20 @@
       ]
     },
     {
+      "name": "duotone/square-code",
+      "type": "registry:component",
+      "title": "SquareCode",
+      "description": "SquareCode, the duotone drawing of square-code on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-code: https://keylineicons.com/icons/square-code",
+      "files": [
+        {
+          "path": "icons/square-code.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/square-code.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/square-cursor",
       "type": "registry:component",
       "title": "SquareCursor",
@@ -25258,6 +27820,20 @@
       ]
     },
     {
+      "name": "duotone/square-dashed-pen",
+      "type": "registry:component",
+      "title": "SquareDashedPen",
+      "description": "SquareDashedPen, the duotone drawing of square-dashed-pen on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-dashed-pen: https://keylineicons.com/icons/square-dashed-pen",
+      "files": [
+        {
+          "path": "icons/square-dashed-pen.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/square-dashed-pen.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/square-dashed-quarter",
       "type": "registry:component",
       "title": "SquareDashedQuarter",
@@ -25282,6 +27858,20 @@
           "path": "icons/square-dashed-three-quarter.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/square-dashed-three-quarter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/square-diamond",
+      "type": "registry:component",
+      "title": "SquareDiamond",
+      "description": "SquareDiamond, the duotone drawing of square-diamond on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-diamond: https://keylineicons.com/icons/square-diamond",
+      "files": [
+        {
+          "path": "icons/square-diamond.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/square-diamond.tsx"
         }
       ]
     },
@@ -25370,6 +27960,62 @@
       ]
     },
     {
+      "name": "duotone/square-list",
+      "type": "registry:component",
+      "title": "SquareList",
+      "description": "SquareList, the duotone drawing of square-list on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-list: https://keylineicons.com/icons/square-list",
+      "files": [
+        {
+          "path": "icons/square-list.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/square-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/square-list-check",
+      "type": "registry:component",
+      "title": "SquareListCheck",
+      "description": "SquareListCheck, the duotone drawing of square-list-check on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-list-check: https://keylineicons.com/icons/square-list-check",
+      "files": [
+        {
+          "path": "icons/square-list-check.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/square-list-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/square-list-filter",
+      "type": "registry:component",
+      "title": "SquareListFilter",
+      "description": "SquareListFilter, the duotone drawing of square-list-filter on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-list-filter: https://keylineicons.com/icons/square-list-filter",
+      "files": [
+        {
+          "path": "icons/square-list-filter.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/square-list-filter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/square-list-plus",
+      "type": "registry:component",
+      "title": "SquareListPlus",
+      "description": "SquareListPlus, the duotone drawing of square-list-plus on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-list-plus: https://keylineicons.com/icons/square-list-plus",
+      "files": [
+        {
+          "path": "icons/square-list-plus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/square-list-plus.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/square-menu",
       "type": "registry:component",
       "title": "SquareMenu",
@@ -25394,6 +28040,20 @@
           "path": "icons/square-minus.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/square-minus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/square-moon",
+      "type": "registry:component",
+      "title": "SquareMoon",
+      "description": "SquareMoon, the duotone drawing of square-moon on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-moon: https://keylineicons.com/icons/square-moon",
+      "files": [
+        {
+          "path": "icons/square-moon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/square-moon.tsx"
         }
       ]
     },
@@ -25436,6 +28096,20 @@
           "path": "icons/square-navigation.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/square-navigation.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/square-padding",
+      "type": "registry:component",
+      "title": "SquarePadding",
+      "description": "SquarePadding, the duotone drawing of square-padding on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-padding: https://keylineicons.com/icons/square-padding",
+      "files": [
+        {
+          "path": "icons/square-padding.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/square-padding.tsx"
         }
       ]
     },
@@ -25604,6 +28278,20 @@
           "path": "icons/square-round-corner.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/square-round-corner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/square-search",
+      "type": "registry:component",
+      "title": "SquareSearch",
+      "description": "SquareSearch, the duotone drawing of square-search on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-search: https://keylineicons.com/icons/square-search",
+      "files": [
+        {
+          "path": "icons/square-search.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/square-search.tsx"
         }
       ]
     },
@@ -25790,6 +28478,20 @@
       ]
     },
     {
+      "name": "duotone/square-user",
+      "type": "registry:component",
+      "title": "SquareUser",
+      "description": "SquareUser, the duotone drawing of square-user on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of square-user: https://keylineicons.com/icons/square-user",
+      "files": [
+        {
+          "path": "icons/square-user.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/square-user.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/square-x",
       "type": "registry:component",
       "title": "SquareX",
@@ -25814,6 +28516,20 @@
           "path": "icons/square-zap.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/square-zap.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/squares-divide",
+      "type": "registry:component",
+      "title": "SquaresDivide",
+      "description": "SquaresDivide, the duotone drawing of squares-divide on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of squares-divide: https://keylineicons.com/icons/squares-divide",
+      "files": [
+        {
+          "path": "icons/squares-divide.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/squares-divide.tsx"
         }
       ]
     },
@@ -25930,6 +28646,20 @@
       ]
     },
     {
+      "name": "duotone/star-half",
+      "type": "registry:component",
+      "title": "StarHalf",
+      "description": "StarHalf, the duotone drawing of star-half on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of star-half: https://keylineicons.com/icons/star-half",
+      "files": [
+        {
+          "path": "icons/star-half.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/star-half.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/star-off",
       "type": "registry:component",
       "title": "StarOff",
@@ -25954,6 +28684,20 @@
           "path": "icons/star-shooting.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/star-shooting.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/stars",
+      "type": "registry:component",
+      "title": "Stars",
+      "description": "Stars, the duotone drawing of stars on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of stars: https://keylineicons.com/icons/stars",
+      "files": [
+        {
+          "path": "icons/stars.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/stars.tsx"
         }
       ]
     },
@@ -26336,6 +29080,20 @@
       ]
     },
     {
+      "name": "duotone/sun-moon",
+      "type": "registry:component",
+      "title": "SunMoon",
+      "description": "SunMoon, the duotone drawing of sun-moon on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of sun-moon: https://keylineicons.com/icons/sun-moon",
+      "files": [
+        {
+          "path": "icons/sun-moon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/sun-moon.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/sun-rain",
       "type": "registry:component",
       "title": "SunRain",
@@ -26528,6 +29286,20 @@
           "path": "icons/syringe.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/syringe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/tab",
+      "type": "registry:component",
+      "title": "Tab",
+      "description": "Tab, the duotone drawing of tab on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of tab: https://keylineicons.com/icons/tab",
+      "files": [
+        {
+          "path": "icons/tab.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/tab.tsx"
         }
       ]
     },
@@ -27120,6 +29892,20 @@
       ]
     },
     {
+      "name": "duotone/tag-off",
+      "type": "registry:component",
+      "title": "TagOff",
+      "description": "TagOff, the duotone drawing of tag-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of tag-off: https://keylineicons.com/icons/tag-off",
+      "files": [
+        {
+          "path": "icons/tag-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/tag-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/tag-sparkles",
       "type": "registry:component",
       "title": "TagSparkles",
@@ -27130,6 +29916,20 @@
           "path": "icons/tag-sparkles.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/tag-sparkles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/tags",
+      "type": "registry:component",
+      "title": "Tags",
+      "description": "Tags, the duotone drawing of tags on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of tags: https://keylineicons.com/icons/tags",
+      "files": [
+        {
+          "path": "icons/tags.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/tags.tsx"
         }
       ]
     },
@@ -27554,6 +30354,20 @@
       ]
     },
     {
+      "name": "duotone/text-align-bottom",
+      "type": "registry:component",
+      "title": "TextAlignBottom",
+      "description": "TextAlignBottom, the duotone drawing of text-align-bottom on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of text-align-bottom: https://keylineicons.com/icons/text-align-bottom",
+      "files": [
+        {
+          "path": "icons/text-align-bottom.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/text-align-bottom.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/text-align-center",
       "type": "registry:component",
       "title": "TextAlignCenter",
@@ -27610,6 +30424,20 @@
       ]
     },
     {
+      "name": "duotone/text-align-middle",
+      "type": "registry:component",
+      "title": "TextAlignMiddle",
+      "description": "TextAlignMiddle, the duotone drawing of text-align-middle on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of text-align-middle: https://keylineicons.com/icons/text-align-middle",
+      "files": [
+        {
+          "path": "icons/text-align-middle.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/text-align-middle.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/text-align-start",
       "type": "registry:component",
       "title": "TextAlignStart",
@@ -27620,6 +30448,20 @@
           "path": "icons/text-align-start.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/text-align-start.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/text-align-top",
+      "type": "registry:component",
+      "title": "TextAlignTop",
+      "description": "TextAlignTop, the duotone drawing of text-align-top on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of text-align-top: https://keylineicons.com/icons/text-align-top",
+      "files": [
+        {
+          "path": "icons/text-align-top.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/text-align-top.tsx"
         }
       ]
     },
@@ -27704,6 +30546,20 @@
           "path": "icons/text-quote.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/text-quote.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/text-select",
+      "type": "registry:component",
+      "title": "TextSelect",
+      "description": "TextSelect, the duotone drawing of text-select on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of text-select: https://keylineicons.com/icons/text-select",
+      "files": [
+        {
+          "path": "icons/text-select.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/text-select.tsx"
         }
       ]
     },
@@ -27960,6 +30816,34 @@
       ]
     },
     {
+      "name": "duotone/touchpad-mouse",
+      "type": "registry:component",
+      "title": "TouchpadMouse",
+      "description": "TouchpadMouse, the duotone drawing of touchpad-mouse on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of touchpad-mouse: https://keylineicons.com/icons/touchpad-mouse",
+      "files": [
+        {
+          "path": "icons/touchpad-mouse.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/touchpad-mouse.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/touchpad-mouse-off",
+      "type": "registry:component",
+      "title": "TouchpadMouseOff",
+      "description": "TouchpadMouseOff, the duotone drawing of touchpad-mouse-off on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of touchpad-mouse-off: https://keylineicons.com/icons/touchpad-mouse-off",
+      "files": [
+        {
+          "path": "icons/touchpad-mouse-off.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/touchpad-mouse-off.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/towel-rack",
       "type": "registry:component",
       "title": "TowelRack",
@@ -28054,6 +30938,20 @@
           "path": "icons/train-front-off.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/train-front-off.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/train-front-tunnel",
+      "type": "registry:component",
+      "title": "TrainFrontTunnel",
+      "description": "TrainFrontTunnel, the duotone drawing of train-front-tunnel on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of train-front-tunnel: https://keylineicons.com/icons/train-front-tunnel",
+      "files": [
+        {
+          "path": "icons/train-front-tunnel.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/train-front-tunnel.tsx"
         }
       ]
     },
@@ -28660,6 +31558,34 @@
       ]
     },
     {
+      "name": "duotone/type-variable",
+      "type": "registry:component",
+      "title": "TypeVariable",
+      "description": "TypeVariable, the duotone drawing of type-variable on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of type-variable: https://keylineicons.com/icons/type-variable",
+      "files": [
+        {
+          "path": "icons/type-variable.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/type-variable.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/type-vertical",
+      "type": "registry:component",
+      "title": "TypeVertical",
+      "description": "TypeVertical, the duotone drawing of type-vertical on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of type-vertical: https://keylineicons.com/icons/type-vertical",
+      "files": [
+        {
+          "path": "icons/type-vertical.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/type-vertical.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/type-width",
       "type": "registry:component",
       "title": "TypeWidth",
@@ -28940,6 +31866,20 @@
       ]
     },
     {
+      "name": "duotone/user-ban",
+      "type": "registry:component",
+      "title": "UserBan",
+      "description": "UserBan, the duotone drawing of user-ban on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of user-ban: https://keylineicons.com/icons/user-ban",
+      "files": [
+        {
+          "path": "icons/user-ban.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/user-ban.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/user-check",
       "type": "registry:component",
       "title": "UserCheck",
@@ -28950,6 +31890,20 @@
           "path": "icons/user-check.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/user-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/user-child",
+      "type": "registry:component",
+      "title": "UserChild",
+      "description": "UserChild, the duotone drawing of user-child on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of user-child: https://keylineicons.com/icons/user-child",
+      "files": [
+        {
+          "path": "icons/user-child.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/user-child.tsx"
         }
       ]
     },
@@ -29136,6 +32090,20 @@
       ]
     },
     {
+      "name": "duotone/user-star",
+      "type": "registry:component",
+      "title": "UserStar",
+      "description": "UserStar, the duotone drawing of user-star on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of user-star: https://keylineicons.com/icons/user-star",
+      "files": [
+        {
+          "path": "icons/user-star.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/user-star.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/user-unlock",
       "type": "registry:component",
       "title": "UserUnlock",
@@ -29220,6 +32188,20 @@
       ]
     },
     {
+      "name": "duotone/users-plus",
+      "type": "registry:component",
+      "title": "UsersPlus",
+      "description": "UsersPlus, the duotone drawing of users-plus on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of users-plus: https://keylineicons.com/icons/users-plus",
+      "files": [
+        {
+          "path": "icons/users-plus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/users-plus.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/utensils",
       "type": "registry:component",
       "title": "Utensils",
@@ -29276,6 +32258,20 @@
       ]
     },
     {
+      "name": "duotone/vector-corner",
+      "type": "registry:component",
+      "title": "VectorCorner",
+      "description": "VectorCorner, the duotone drawing of vector-corner on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of vector-corner: https://keylineicons.com/icons/vector-corner",
+      "files": [
+        {
+          "path": "icons/vector-corner.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/vector-corner.tsx"
+        }
+      ]
+    },
+    {
       "name": "duotone/vector-distort",
       "type": "registry:component",
       "title": "VectorDistort",
@@ -29286,6 +32282,20 @@
           "path": "icons/vector-distort.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/vector-distort.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/vector-point-minus",
+      "type": "registry:component",
+      "title": "VectorPointMinus",
+      "description": "VectorPointMinus, the duotone drawing of vector-point-minus on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of vector-point-minus: https://keylineicons.com/icons/vector-point-minus",
+      "files": [
+        {
+          "path": "icons/vector-point-minus.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/vector-point-minus.tsx"
         }
       ]
     },
@@ -29370,6 +32380,20 @@
           "path": "icons/video-2.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/video-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/video-frame",
+      "type": "registry:component",
+      "title": "VideoFrame",
+      "description": "VideoFrame, the duotone drawing of video-frame on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of video-frame: https://keylineicons.com/icons/video-frame",
+      "files": [
+        {
+          "path": "icons/video-frame.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/video-frame.tsx"
         }
       ]
     },
@@ -30070,6 +33094,20 @@
           "path": "icons/workflow.tsx",
           "type": "registry:component",
           "target": "@components/icons/duotone/workflow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "duotone/wreath",
+      "type": "registry:component",
+      "title": "Wreath",
+      "description": "Wreath, the duotone drawing of wreath on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
+      "docs": "Every style and both corners of wreath: https://keylineicons.com/icons/wreath",
+      "files": [
+        {
+          "path": "icons/wreath.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/duotone/wreath.tsx"
         }
       ]
     },

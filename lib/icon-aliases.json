@@ -2587,9 +2587,7 @@
       "bookmark-filled"
     ],
     "bluetooth": [
-      "bluetooth-connected",
-      "bluetooth-off",
-      "bluetooth-searching"
+      "bluetooth-off"
     ],
     "building": [
       "building-2"
@@ -2611,7 +2609,6 @@
       "mic-vocal"
     ],
     "minimize": [
-      "minimize-2",
       "screen-normal"
     ],
     "minus": [
@@ -2694,11 +2691,9 @@
     ],
     "calendar": [
       "calendar-1",
-      "calendar-cog",
       "calendar-fold",
       "calendar-heart",
       "calendar-range",
-      "calendar-search",
       "calendar-sync"
     ],
     "calendar-check": [
@@ -2716,9 +2711,6 @@
     "chevrons-left": [
       "chevron-first"
     ],
-    "chevrons-left-right": [
-      "chevrons-left-right-ellipsis"
-    ],
     "chevrons-right": [
       "chevron-last"
     ],
@@ -2728,8 +2720,7 @@
       "clock-fading"
     ],
     "cloud": [
-      "cloud-backup",
-      "cloud-cog"
+      "cloud-backup"
     ],
     "database": [
       "database-backup",
@@ -2752,7 +2743,6 @@
       "file-heart",
       "file-input",
       "file-key",
-      "file-lock",
       "file-music",
       "file-output",
       "file-pen",
@@ -2797,7 +2787,6 @@
       "folder-key",
       "folder-lock",
       "folder-output",
-      "folder-pen",
       "folder-root",
       "folder-search-2",
       "folder-symlink",
@@ -2839,7 +2828,6 @@
     "mail": [
       "mail-exclamation-point",
       "mail-question-mark",
-      "mail-search",
       "mail-warning"
     ],
     "map": [
@@ -2881,11 +2869,9 @@
       "message-circle-plus"
     ],
     "message-square": [
-      "message-square-code",
       "message-square-diff",
       "message-square-exclamation-point",
       "message-square-heart",
-      "message-square-more",
       "message-square-quote",
       "message-square-reply",
       "message-square-share",
@@ -2938,13 +2924,11 @@
     ],
     "star": [
       "star-check",
-      "star-half",
       "star-minus",
       "star-plus",
       "star-x"
     ],
     "sun": [
-      "sun-moon",
       "sun-snow"
     ],
     "tag": [
@@ -2956,15 +2940,13 @@
       "lock-open"
     ],
     "user": [
-      "square-user",
       "square-user-round",
       "user-round",
       "user-round-arrow-left",
       "user-round-cog",
       "user-round-key",
       "user-round-pen",
-      "user-round-search",
-      "user-star"
+      "user-round-search"
     ],
     "user-check": [
       "user-round-check"
@@ -3469,9 +3451,6 @@
     ],
     "code-panel": [
       "code-square"
-    ],
-    "eye-off": [
-      "eye-closed"
     ]
   },
   "$names": "Names other sets use for a drawing here, keyed by the drawing. Matched against the whole query, never split into words: these are names, not keywords, and folding `message-square` into a keyword list makes a search for `square` return every message icon. All four searches rank one second only to the exact name, so it leads wherever the set does not draw that name itself; once the set does, the row is stale, and pipeline/check-search.mjs fails until it is deleted."

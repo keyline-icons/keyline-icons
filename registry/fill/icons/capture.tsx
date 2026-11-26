@@ -1,0 +1,23 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function Capture({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M12 3L19 3C21.2092 3 23 4.7908 23 7L23 17C23 19.2092 21.2092 21 19 21L5 21C2.7908 21 1 19.2092 1 17L1 7C1 4.7908 2.7908 3 5 3ZM5 10C5 10.5523 5.4477 11 6 11C6.5523 11 7 10.5523 7 10L7 9L9 9C9.5523 9 10 8.5523 10 8C10 7.4477 9.5523 7 9 7L7 7C6.448 7 5.9466 7.2249 5.5858 7.5858C5.2249 7.9466 5 8.448 5 9ZM15 7C14.4477 7 14 7.4477 14 8C14 8.5523 14.4477 9 15 9L17 9L17 10C17 10.5523 17.4477 11 18 11C18.5523 11 19 10.5523 19 10L19 9C19 8.448 18.7751 7.9466 18.4142 7.5858C18.0534 7.2249 17.552 7 17 7ZM19 14C19 13.4477 18.5523 13 18 13C17.4477 13 17 13.4477 17 14L17 15L15 15C14.4477 15 14 15.4477 14 16C14 16.5523 14.4477 17 15 17L17 17C17.552 17 18.0534 16.7751 18.4142 16.4142C18.7751 16.0534 19 15.552 19 15ZM9 17C9.5523 17 10 16.5523 10 16C10 15.4477 9.5523 15 9 15L7 15L7 14C7 13.4477 6.5523 13 6 13C5.4477 13 5 13.4477 5 14L5 15C5 15.552 5.2249 16.0534 5.5858 16.4142C5.9466 16.7751 6.448 17 7 17Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+    </svg>
+  )
+}

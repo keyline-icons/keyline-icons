@@ -1,0 +1,27 @@
+import type { SVGProps } from "react"
+
+type IconProps = Omit<SVGProps<SVGSVGElement>, "children"> & {
+  /** Rendered box in px, set as both width and height. Defaults to 24. */
+  size?: number | string
+}
+
+export function NodesCycle({ size = 24, ...props }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <path d="M20.1806 7.3661C21.3618 8.9482 22 10.8697 22 12.8441C22 13.2036 21.9789 13.5628 21.9366 13.9198M13.9197 21.9367C13.5627 21.9789 13.2035 22.0001 12.844 22.0001C10.8696 22.0001 8.9481 21.3619 7.3661 20.1806M4.4317 9.2294C5.3575 7.0748 7.0747 5.3575 9.2293 4.4317M17.2138 4C17.2138 5.1046 16.3183 6 15.2138 6C14.1092 6 13.2138 5.1046 13.2138 4C13.2138 2.8954 14.1092 2 15.2138 2C16.3183 2 17.2138 2.8954 17.2138 4ZM21.3183 19.3183C21.3183 20.4229 20.4229 21.3183 19.3183 21.3183C18.2137 21.3183 17.3183 20.4229 17.3183 19.3183C17.3183 18.2138 18.2137 17.3183 19.3183 17.3183C20.4229 17.3183 21.3183 18.2138 21.3183 19.3183ZM6 15.2138C6 16.3184 5.1045 17.2138 4 17.2138C2.8954 17.2138 2 16.3184 2 15.2138C2 14.1092 2.8954 13.2138 4 13.2138C5.1045 13.2138 6 14.1092 6 15.2138Z"/>
+    </svg>
+  )
+}
