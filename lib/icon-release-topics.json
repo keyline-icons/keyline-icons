@@ -3960,6 +3960,580 @@
      "text": "Names from a code host's own icon set now open on the drawing they stand for, on the site and in the MCP server, the CLI and the Figma plugin: `repo` opens on `book`, `issue-opened` on `circle-dot` and `thumbsup` on `thumbs-up`. Sixty-eight names, each matched by eye to the drawing."
     }
    ]
+  },
+  "3.2.0": {
+   "title": "2,381 icons in stroke, two-tone, duotone and fill, each rounded and sharp: 19,048 total",
+   "sections": [
+    {
+     "title": "New drawings",
+     "icon": "sparkles",
+     "sections": [
+      {
+       "title": "Actions",
+       "text": "A lock checked, timed, added and crossed out, shields for settings, search, information, a site and a hand-off, a half star and a cluster of stars for ratings, a closed eye, a password field, a key and a filter crossed out, and an alert twice over.",
+       "names": [
+        "lock-check",
+        "lock-clock",
+        "lock-plus",
+        "lock-off",
+        "shield-cog",
+        "shield-search",
+        "shield-info",
+        "shield-globe",
+        "shield-arrow-right",
+        "star-half",
+        "stars",
+        "badge-star",
+        "eye-closed",
+        "password",
+        "key-off",
+        "filter-off",
+        "circle-check-line",
+        "circle-check-plus",
+        "alert-double"
+       ]
+      },
+      {
+       "title": "AI",
+       "text": "Sparkles on a car, a map pin, an ID card, a check, a set of shapes and both side panels, and a bot that frowns at a bad answer.",
+       "names": [
+        "car-sparkles",
+        "map-pin-sparkles",
+        "id-card-sparkles",
+        "circle-check-sparkles",
+        "shapes-sparkles",
+        "panel-left-sparkles",
+        "panel-right-sparkles",
+        "bot-frown"
+       ]
+      },
+      {
+       "title": "Arrows",
+       "text": "A redirect, a refresh that failed, and the open-in-a-new-window arrow crossed out.",
+       "names": [
+        "redirect",
+        "refresh-cw-alert",
+        "square-arrow-out-up-right-off"
+       ]
+      },
+      {
+       "title": "Art",
+       "text": "Three ways to cut a corner, chamfered, inverted and notched, a linear gradient, a dashed line, a spool of thread, and the corner and point tools of a vector editor.",
+       "names": [
+        "corner-chamfer",
+        "corner-inverted",
+        "corner-notch",
+        "gradient-linear",
+        "line-dashed",
+        "spool",
+        "vector-corner",
+        "vector-point-minus"
+       ]
+      },
+      {
+       "title": "Charts",
+       "text": "A progress ring with a download inside it, and a gauge with an alert.",
+       "names": [
+        "circle-progress-arrow-down",
+        "gauge-alert"
+       ]
+      },
+      {
+       "title": "Chevrons & Carets",
+       "text": "Chevrons both ways around an ellipsis, for code folded away.",
+       "names": [
+        "chevrons-left-right-ellipsis"
+       ]
+      },
+      {
+       "title": "Commerce",
+       "text": "A bag that is checked out, a stack of tags and a tag crossed out.",
+       "names": [
+        "shopping-bag-check",
+        "tags",
+        "tag-off"
+       ]
+      },
+      {
+       "title": "Controls",
+       "text": "A grip, the handle on anything that drags.",
+       "names": [
+        "grip"
+       ]
+      },
+      {
+       "title": "Devices",
+       "text": "App windows that are done, broken, blocked and secured, code in a square, a circuit board, a fax, the serial port, a security key, a touchpad beside its mouse, a scan frame that adds, Bluetooth connected and searching, a locked keyboard and mouse, a laptop that is checked, and crossed-out forms for the printer, the router, the database, the gamepad, the headset visor and the laptop with its phone.",
+       "names": [
+        "app-window-check",
+        "app-window-frown",
+        "app-window-off",
+        "app-window-shield",
+        "square-code",
+        "circuit-board",
+        "fax",
+        "serial-port",
+        "serial-port-off",
+        "security-key",
+        "touchpad-mouse",
+        "touchpad-mouse-off",
+        "scan-box",
+        "scan-box-off",
+        "scan-plus",
+        "bluetooth-connected",
+        "bluetooth-searching",
+        "keyboard-lock",
+        "mouse-lock",
+        "laptop-check",
+        "laptop-smartphone-off",
+        "printer-off",
+        "router-off",
+        "database-off",
+        "gamepad-off",
+        "rectangle-goggles-off"
+       ]
+      },
+      {
+       "title": "Diagrams",
+       "text": "Nodes in a cycle, for a loop in a flow.",
+       "names": [
+        "nodes-cycle"
+       ]
+      },
+      {
+       "title": "Education",
+       "text": "An abacus, for counting and early maths.",
+       "names": [
+        "abacus"
+       ]
+      },
+      {
+       "title": "Emoji",
+       "text": "Seven more faces: heart eyes, star eyes, a kiss, a squint, a tongue out, tears of joy and rolling on the floor laughing.",
+       "names": [
+        "face-heart-eyes",
+        "face-star-eyes",
+        "face-kiss",
+        "face-squint",
+        "face-tongue",
+        "face-tears-joy",
+        "face-rofl"
+       ]
+      },
+      {
+       "title": "Files",
+       "text": "A file signed and a file locked, a folder of lines and a folder being edited, a clipboard with a heart and one crossed out, a copy sent on, and a bin with a cross.",
+       "names": [
+        "file-signature",
+        "file-lock",
+        "folder-lines",
+        "folder-pen",
+        "clipboard-heart",
+        "clipboard-off",
+        "copy-arrow-right",
+        "bin-x"
+       ]
+      },
+      {
+       "title": "Finance",
+       "text": "A credit card crossed out, for a card declined or removed.",
+       "names": [
+        "credit-card-off"
+       ]
+      },
+      {
+       "title": "Health",
+       "text": "An IV bag, for hospital and care screens.",
+       "names": [
+        "iv-bag"
+       ]
+      },
+      {
+       "title": "Home",
+       "text": "A lamp hanging from the ceiling.",
+       "names": [
+        "lamp-ceiling"
+       ]
+      },
+      {
+       "title": "Layout",
+       "text": "The table's borders, top, bottom, left, right and inside, the space between items both ways, fit to width and to height, four columns and two rows, a grid of dots, a smaller minimise, and lists in a square that are checked, filtered and growing.",
+       "names": [
+        "border-top",
+        "border-bottom",
+        "border-left",
+        "border-right",
+        "border-inside",
+        "align-horizontal-space-between",
+        "align-vertical-space-between",
+        "fit-width",
+        "fit-height",
+        "columns-4",
+        "rows-2",
+        "grid-dots",
+        "minimize-2",
+        "square-list",
+        "square-list-check",
+        "square-list-filter",
+        "circle-list-filter",
+        "square-list-plus"
+       ]
+      },
+      {
+       "title": "Mail",
+       "text": "Mail with an arrow each way, an alert, a cog, a search, a shield and an asterisk, mail forwarded, inboxes sending and receiving, messages that are timed, sent up, edited, checked off as a draft or carry code, more or information, and a bell snoozed with a Z.",
+       "names": [
+        "mail-arrow-up",
+        "mail-arrow-down",
+        "mail-arrow-left",
+        "mail-arrow-right",
+        "mail-alert",
+        "mail-cog",
+        "mail-search",
+        "mail-shield",
+        "mail-asterisk",
+        "mail-forward",
+        "inboxes",
+        "inbox-arrow-up",
+        "inbox-arrow-down",
+        "message-clock",
+        "message-arrow-up",
+        "message-square-arrow-up",
+        "message-square-pen",
+        "message-dashed-check",
+        "message-square-dashed-check",
+        "message-square-code",
+        "message-square-more",
+        "message-square-info",
+        "bell-z"
+       ]
+      },
+      {
+       "title": "Maps",
+       "text": "A signpost, and crosshairs with a cross for a missed target.",
+       "names": [
+        "signpost",
+        "crosshair-x"
+       ]
+      },
+      {
+       "title": "Math",
+       "text": "Braces in a square and in a circle.",
+       "names": [
+        "square-braces",
+        "circle-braces"
+       ]
+      },
+      {
+       "title": "Media",
+       "text": "A screen capture, casting paused, stopped or failed, a piano and a piano crossed out, speakers, a video frame, an image search, picture in picture turned off, and the curve that eases in and out.",
+       "names": [
+        "capture",
+        "cast-pause",
+        "cast-x",
+        "cast-alert",
+        "piano",
+        "piano-off",
+        "speakers",
+        "video-frame",
+        "image-search",
+        "picture-in-picture-off",
+        "ease-in-out"
+       ]
+      },
+      {
+       "title": "Nature",
+       "text": "A drop half full, a lotus and a wreath.",
+       "names": [
+        "droplet-half",
+        "lotus",
+        "wreath"
+       ]
+      },
+      {
+       "title": "Pointers",
+       "text": "An open hand crossed out, for a pan tool turned off.",
+       "names": [
+        "hand-open-off"
+       ]
+      },
+      {
+       "title": "Shapes",
+       "text": "A diamond in a square and in a circle and diamonds on a network, a puzzle piece fitted, cracked and crossed out, shapes blending, a spiral, a dashed square being edited, squares divided, padding in a square and a dashed circle round a dot.",
+       "names": [
+        "square-diamond",
+        "circle-diamond",
+        "diamond-nodes",
+        "puzzle-check",
+        "puzzle-crack",
+        "puzzle-off",
+        "shapes-blend",
+        "spiral",
+        "square-dashed-pen",
+        "squares-divide",
+        "square-padding",
+        "circle-dot-dashed"
+       ]
+      },
+      {
+       "title": "Sport",
+       "text": "A hockey puck and a court.",
+       "names": [
+        "hockey-puck",
+        "sports-court"
+       ]
+      },
+      {
+       "title": "Text",
+       "text": "Lower case, a baseline, the pilcrow both ways, replace, a text selection, vertical type, a type variable, and text set to the top, middle and bottom of its box.",
+       "names": [
+        "case-lower",
+        "baseline",
+        "pilcrow-left",
+        "pilcrow-right",
+        "replace",
+        "text-select",
+        "type-vertical",
+        "type-variable",
+        "text-align-top",
+        "text-align-middle",
+        "text-align-bottom"
+       ]
+      },
+      {
+       "title": "Time",
+       "text": "Calendars with an alert, a cog, a lock, a pen, a question, a search, a star and a person, and the history clock with a cog and a cross.",
+       "names": [
+        "calendar-alert",
+        "calendar-cog",
+        "calendar-lock",
+        "calendar-pen",
+        "calendar-question",
+        "calendar-search",
+        "calendar-star",
+        "calendar-user",
+        "history-cog",
+        "history-x"
+       ]
+      },
+      {
+       "title": "Tools",
+       "text": "A ruler, and a ruler with its dimension line.",
+       "names": [
+        "ruler",
+        "ruler-dimension-line"
+       ]
+      },
+      {
+       "title": "Transport",
+       "text": "A gearbox, and a train coming out of a tunnel.",
+       "names": [
+        "gearbox",
+        "train-front-tunnel"
+       ]
+      },
+      {
+       "title": "Users",
+       "text": "A user in a square, a child, a user with a star, a user banned and users being added.",
+       "names": [
+        "square-user",
+        "user-child",
+        "user-star",
+        "user-ban",
+        "users-plus"
+       ]
+      },
+      {
+       "title": "Weather",
+       "text": "The moon in a square and in a circle, and the sun and moon together.",
+       "names": [
+        "square-moon",
+        "circle-moon",
+        "sun-moon"
+       ]
+      },
+      {
+       "title": "Web",
+       "text": "Bookmarks in a square and a circle and one with a star, clouds with a cog, a package, a play button and a shield, a globe with a clock, a network and a shield, a frame and a frame crossed out, search in a square and a circle, a search through activity, and a tab.",
+       "names": [
+        "square-bookmark",
+        "circle-bookmark",
+        "bookmark-star",
+        "cloud-cog",
+        "cloud-package",
+        "cloud-play",
+        "cloud-shield",
+        "globe-clock",
+        "globe-network",
+        "globe-shield",
+        "iframe",
+        "iframe-off",
+        "square-search",
+        "circle-search",
+        "search-activity",
+        "tab"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Redrawn",
+     "icon": "pen",
+     "text": "Sixty-three drawings that already shipped were drawn again. Before and after below.",
+     "sections": [
+      {
+       "title": "Actions",
+       "text": "The star on 22 by 22 with whole paddings, with its circled, squared and crossed-out forms, and the shield family with its sharp plates out to the stroke's edge.",
+       "redraws": [
+        "star",
+        "star-off",
+        "circle-star",
+        "square-star",
+        "shield",
+        "shield-alert",
+        "shield-check",
+        "shield-heart",
+        "shield-key",
+        "shield-lock",
+        "shield-minus",
+        "shield-off",
+        "shield-plus",
+        "shield-question",
+        "shield-terminal",
+        "shield-user",
+        "shield-x"
+       ]
+      },
+      {
+       "title": "AI",
+       "text": "The user with sparkles, on the taller figure.",
+       "redraws": [
+        "user-sparkles"
+       ]
+      },
+      {
+       "title": "Arrows",
+       "text": "Undo and redo, 20 wide with a square head, and their forms with a dot.",
+       "redraws": [
+        "undo",
+        "redo",
+        "undo-dot",
+        "redo-dot"
+       ]
+      },
+      {
+       "title": "Art",
+       "text": "The sharp corner, drawn as the corner alone, without the dashes.",
+       "redraws": [
+        "corner-sharp"
+       ]
+      },
+      {
+       "title": "Devices",
+       "text": "The keyboard and the server crossed out, with nothing black left on the cut-away side in two-tone.",
+       "redraws": [
+        "keyboard-off",
+        "server-off"
+       ]
+      },
+      {
+       "title": "Health",
+       "text": "The cigarette crossed out, with nothing black left on the cut-away side in two-tone.",
+       "redraws": [
+        "cigarette-off"
+       ]
+      },
+      {
+       "title": "Home",
+       "text": "The toaster with a taller slice, and the oven crossed out with its cut-away side cleared in two-tone.",
+       "redraws": [
+        "toaster",
+        "oven-off"
+       ]
+      },
+      {
+       "title": "Layout",
+       "text": "The layers with their signs in the same box every other sign sits in, and the layer mask crossed out with its cut-away side cleared in two-tone.",
+       "redraws": [
+        "layers-plus",
+        "layers-minus",
+        "layers-check",
+        "layers-x",
+        "layer-mask-off"
+       ]
+      },
+      {
+       "title": "Media",
+       "text": "The earbuds crossed out, with nothing black left on the cut-away side in two-tone.",
+       "redraws": [
+        "earbuds-off"
+       ]
+      },
+      {
+       "title": "Text",
+       "text": "Both case marks, with the big A muted in two-tone.",
+       "redraws": [
+        "case-sensitive",
+        "case-upper"
+       ]
+      },
+      {
+       "title": "Users",
+       "text": "The figure stands 20 tall so the whole family centres, and every sign stands 2 clear of the body.",
+       "redraws": [
+        "user",
+        "users",
+        "circle-user",
+        "user-alert",
+        "user-arrow-left",
+        "user-arrow-right",
+        "user-check",
+        "user-cog",
+        "user-cursor",
+        "user-heart",
+        "user-key",
+        "user-list",
+        "user-lock",
+        "user-message",
+        "user-minus",
+        "user-pen",
+        "user-plus",
+        "user-search",
+        "user-shield",
+        "user-unlock",
+        "user-voice",
+        "user-x",
+        "user-zap"
+       ]
+      },
+      {
+       "title": "Weather",
+       "text": "A new bolt for the lightning clouds, and the moon's Z at the one size every Z in the set now takes.",
+       "redraws": [
+        "cloud-sun-lightning",
+        "cloud-moon-lightning",
+        "moon-z"
+       ]
+      },
+      {
+       "title": "Web",
+       "text": "The syncing cloud, drawn again.",
+       "redraws": [
+        "cloud-sync"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Removed",
+     "icon": "circle-minus",
+     "text": "`brush-plus` and `brush-minus` are no longer in the set, and their pages and their React exports go with them.",
+     "removed": [
+      "brush-plus",
+      "brush-minus"
+     ]
+    }
+   ]
   }
  }
 }

@@ -188,7 +188,7 @@ export const CATEGORIES = [
     // paper plane is the verb a message takes, and the family it reads against
     // is the one it is sent from.
     match: /^(message-square|messages-square|mail|message|bell|inbox|reply|forward|send|at$|voicemail$|postcard$|hand-bell$|stamp-postage$)/,
-    blurb: "Envelopes, a postcard and a postage stamp, messages, voicemail, bells and a hand bell, the paper plane and the marks that badge them.",
+    blurb: "Envelopes and inboxes, a postcard and a postage stamp, messages, voicemail, bells and a hand bell, the paper plane and the marks that badge them.",
   },
   {
     // Money, and what carries it. Split out of Commerce on 9 Sep 2026, when
@@ -250,7 +250,7 @@ export const CATEGORIES = [
     // factory beside the buildings; the crosshair beside the locate marks it is drawn like; the footprints,
     // a trail someone walked. `route` carries a lookahead so `router` falls through to Devices.
     match: /^(?:bridge|cabin|crosshair-x|signpost|church|ferris-wheel|fountain|guesthouse|hotel|mosque|parking|school|shepherds-hut|temple|tower|warehouse|windmill)$|^(map|compass|locate(-fixed|-off)?$|building|landmark$|route(?!r)|radar|flag(-swallowtail|-triangle-right|-off)?$|traffic-light|traffic-cone$|construction$|milestone$|anchor(-|$)|directions$|factory$|crosshair$|footprints$|barn$|castle$|lighthouse$|tent$)/,
-    blurb: "Pins, maps, compasses, the locate marks and the crosshair, routes, footprints, the radar, the buildings, a factory, a barn, a castle and a landmark, a lighthouse, a tent, flags, a milestone, the lights at the junction, the cone and the barrier of road works and two anchors.",
+    blurb: "Pins, maps, compasses, the locate marks and the crosshair, routes, a signpost, footprints, the radar, the buildings, a factory, a barn, a castle and a landmark, a lighthouse, a tent, flags, a milestone, the lights at the junction, the cone and the barrier of road works and two anchors.",
   },
   // Opened 11 Sep 2026 with the seven of batch C, the first time the set has
   // drawn the inside of a building rather than its outline. The `home` icon
@@ -294,7 +294,7 @@ export const CATEGORIES = [
     // `speaker`, `boom-box`, `cassette-tape` and `satellite-dish` joined on 25 Oct 2026 (2.2.0): what
     // plays sound and what it plays, beside the radio, and the dish that takes a broadcast in.
     blurb:
-      "Playback, volume, capture, casting and AirPlay, eject, video, broadcast, the dish and the radio, the speaker, the boom box, the cassette and the disc, a guitar, a clarinet and a drum, the clapperboard and the theatre mask, the sound and image marks, the aperture and the easing curves, and what you listen through.",
+      "Playback, volume, capture, casting and AirPlay, eject, video, broadcast, the dish and the radio, the speaker, the boom box, the cassette and the disc, a guitar, a piano, a clarinet and a drum, the clapperboard and the theatre mask, the sound and image marks, the aperture and the easing curves, and what you listen through.",
   },
   // `activity` is a pulse trace, not a transport control — it reads against the
   // bar charts and the signal bars, which is where the design file files it too.
@@ -310,7 +310,7 @@ export const CATEGORIES = [
     label: "Diagrams",
     // `workflow` joined on 18 Oct 2026 (2.0.0): two boxes on an elbow, the other set's name for it.
     match: /^(diagram-|workflow$|nodes-cycle$|flow-|gate-|wave-square$)/,
-    blurb: "Boxes on wires: a project, a subtask, and what comes before and after; the flowchart's shapes, the logic gates and the square wave they switch on.",
+    blurb: "Boxes on wires: a project, a subtask, a cycle, and what comes before and after; the flowchart's shapes, the logic gates and the square wave they switch on.",
   },
   // `code`, `terminal`, `bug` and the `app-*` tiles are the developer surface
   // of the devices around them, eleven sets today, and they stay here until
@@ -333,7 +333,7 @@ export const CATEGORIES = [
     // `card-sim` and `unplug` joined on 11 Oct 2026 (1.8.0): the phone's SIM, and
     // `plug` pulled from its socket. `router` joined on 25 Oct 2026 (2.2.0), beside the server.
     match: /^(?:binary|circuit-board|fax|focus|gamepad-off|joystick|mouse-lock|play-bug|rectangle-goggles|rectangle-goggles-off|remote-control|router-off|security-key|serial-port|serial-port-off|touchpad-mouse|touchpad-mouse-off)$|^(smartphone|phone|tablet|laptop|monitor|terminal|database|server|battery|bluetooth|code|plug|bug|cpu|printer|keyboard|usb|calculator|qr-code|scan(?!-face|-user)|app(?=-|$)|watch$|hard-drive$|vision-pro$|cable$|cctv(-off)?$|mouse(-off)?$|shredder$|gamepad$|tv$|regex$|webcam$|card-sim$|unplug$|router$)/,
-    blurb: "Phones, tablets, laptops, handsets, printers, keyboards, servers and a router, databases, terminals, code, binary and a regular expression, processors, bugs and a debug run, the app tiles, the QR code, the scan frame with what it reads, the focus frame, a watch, a hard drive, a cable, a headset visor and goggles, the app windows, a CCTV camera, a mouse, a webcam, a shredder, a gamepad, a television and its remote.",
+    blurb: "Phones, tablets, laptops, handsets, printers, keyboards, servers and a router, databases, terminals, code, binary and a regular expression, processors, bugs and a debug run, the app tiles, the QR code, the scan frame with what it reads, the focus frame, a watch, a hard drive, a cable, a headset visor and goggles, the app windows, a CCTV camera, a mouse and a touchpad, a webcam, a shredder, a fax, a circuit board, the serial port, a security key, a gamepad, a television and its remote.",
   },
   {
     label: "Pointers",
@@ -364,7 +364,7 @@ export const CATEGORIES = [
     label: "Text",
     match:
       /^(?:baseline|case-lower|replace|type-variable|type-vertical)$|^(bold|italic|underline|strikethrough|heading|pilcrow|kerning$|baseline-shift$|subscript$|superscript$|indent|letter-|line-height|text-|type$|type-(height|width|size|off)$|square-type$|quote|language|slash$|case-(sensitive|upper)$|a-(?:arrow-(?:up|down)|text-cursor)$|spell-check$|type-outline$|whole-word$|input(-|$)|compact$|ampersand$|accent-grave$|colon$|semicolon$|comma$|hyphen$|pipe$|tilde$)/,
-    blurb: "The quotation marks and the punctuation, the formatting marks, the case marks with the text-size arrows, the type size marks, kerning and the baseline shift, the letter at the cursor and the spell check, the slash, the alignment stack and what sets a paragraph.",
+    blurb: "The quotation marks and the punctuation, the formatting marks, the case marks with the text-size arrows, the type size marks, kerning and the baseline shift, the letter at the cursor and the spell check, the slash, the alignment stack, vertical type and what sets a paragraph.",
   },
   {
     label: "Layout",
@@ -382,7 +382,7 @@ export const CATEGORIES = [
     // `fold-` joined on 11 Oct 2026 (1.8.0): two arrows pressing a rule, what
     // collapses a section, beside the fullscreen corners.
     match: /^(?:border-bottom|border-inside|border-left|border-right|border-top|fit-height|fit-width|rows-2|crop|guidepoint|guidepoint-arrow-down|guidepoint-arrow-up|guidepoint-vertical-arrow-left|guidepoint-vertical-arrow-right|mount|perspective|triangles-centerline-horizontal|triangles-centerline-inward-horizontal|triangles-centerline-inward-vertical|triangles-centerline-vertical|layer-boxes|before-and-after|group|ungroup)$|^(layer-(?:mask|arrow)|separator-|unfold-|panel|layout|layers|grid|table(-|$)|list|align|menu|maximize|minimize|fullscreen|columns-|blocks(-|$)|flip-|fold-|symmetry-)/,
-    blurb: "Panels, layers, grids, blocks, columns, tables and their row, column and cell edits, lists, alignment, the flips and the symmetry axes, the folds and unfolds, grouping, the layer masks, a separator, a before and after split, the menu marks and the fullscreen corners.",
+    blurb: "Panels, layers, grids, blocks, columns, tables, their borders and their row, column and cell edits, lists, alignment and the space between, the flips and the symmetry axes, the folds and unfolds, grouping, the layer masks, a separator, a before and after split, the menu marks and the fullscreen corners.",
   },
   {
     label: "Users",
@@ -487,7 +487,7 @@ export const CATEGORIES = [
     // what someone types looking for it.
     label: "Education",
     match: /^(?:abacus|backpack|teacher)$|^graduation-cap/,
-    blurb: "The mortarboard and the teacher at the board.",
+    blurb: "The mortarboard, the teacher at the board and an abacus.",
   },
   // Three shelves opened 13 Sep 2026 with the twenty-nine of batch B, whose
   // names had been filing under Other. Each files by what the drawing IS.
@@ -516,7 +516,7 @@ export const CATEGORIES = [
     // Joined on 25 Oct 2026 (2.2.0): the skull and the bone with its fracture, beside the brain and
     // the lungs, and the first-aid kit.
     match: /^(?:iv-bag|blood-pressure|brain-side|cross|facemask|hospital|pill-bottle)$|^(brain$|lungs|ear(-|$)|heart-pulse$|pill$|bandage$|syringe$|stethoscope$|thermometer$|skull$|bone(-fractured)?$|briefcase-medical$|cigarette(-off)?$)/,
-    blurb: "The brain, the lungs, the skull, a bone whole and broken, the ear and what it hears, the heart's pulse, a pill, a plaster, a syringe, the stethoscope, the clinical thermometer, the first-aid kit and the cigarette, with its off state.",
+    blurb: "The brain, the lungs, the skull, a bone whole and broken, the ear and what it hears, the heart's pulse, a pill, a plaster, a syringe, the stethoscope, the clinical thermometer, the first-aid kit, an IV bag and the cigarette, with its off state.",
   },
   {
     // `crown` is what a winner gets, so it sits with the trophy rather than
@@ -530,7 +530,7 @@ export const CATEGORIES = [
     // board, a goal hit, beside the trophies. Anchored, so it takes its own name.
     // `chess-rook` and `dumbbell` joined on 25 Oct 2026 (2.2.0): a board game's piece and the gym's weight.
     match: /^(?:bowling-ball|club|sports-court|gun|ice-skate|ping-pong|snorkel|spade|sprint|sword|swords|whistle)$|^(trophy|award|podium|medal|crown|flag-chequered|american-football|baseball|basketball|cricket|golf|hockey|soccer|tennis|target(-arrow)?$|chess-|dumbbell$|ski$|waves-ladder$)/,
-    blurb: "Trophies, awards, crowns and the places on the podium, the balls of five games, a cricket bat, hockey sticks, a golf hole, a target and one with its arrow home, a chess rook, a sword, crossed swords and a pistol, the club and the spade, a dumbbell, a skier, an ice skate, a snorkel, a sprinter, the whistle and the pool's ladder.",
+    blurb: "Trophies, awards, crowns and the places on the podium, the balls of five games, a cricket bat, hockey sticks and a puck, a golf hole, a target and one with its arrow home, a chess rook, a sword, crossed swords and a pistol, the club and the spade, a dumbbell, a skier, an ice skate, a snorkel, a sprinter, the whistle, the pool's ladder and a court.",
   },
   {
     // The four of them are the objects, not the act of eating: a mug, a cake, a
@@ -558,7 +558,7 @@ export const CATEGORIES = [
     label: "Art",
     // `vector-square` and `vector-polygon` joined on 20 Oct 2026 (2.1.0): the vector tool's nodes, beside the frame tool.
     match: /^(?:blur|brush|corner-chamfer|corner-inverted|corner-notch|corner-sharp|gradient-linear|line-dashed|spool|curves|lasso|pipette|scribble|spline|square-round-corner)$|^(stroke-line-join-|paint|palette|easel|swatch-book$|wand$|frame$|vector-)/,
-    blurb: "The brush, the roller, the paint bucket, the palette, the pipette, the swatch book, the easel, the magic wand, the lasso, the frame tool and the vector nodes, the brush's add and subtract, blur, curves, the spline, the corner radius controls and the stroke joins.",
+    blurb: "The brush, the roller, the paint bucket, the palette, the pipette, the swatch book, the easel, the magic wand, the lasso, the frame tool and the vector nodes, blur, curves, the spline, a linear gradient, a dashed line, a spool of thread, the corner radius controls, the corner cuts and the stroke joins.",
   },
   {
     // The shelf follows what the thing is, not what the drawing is made of: a
@@ -571,7 +571,7 @@ export const CATEGORIES = [
     // pencil and ruler, the crane's hook and the claw.
     // `flashlight` joined on 25 Oct 2026 (2.2.0): the torch from the same drawer.
     match: /^(toolbox|wrench|hammer|pencil-ruler|screwdriver|pliers|saw|ruler|scissors|broom|drafting-compass$|hook$|gripper$|flashlight(-off)?$|hard-hat$|pipe-section$|crane$|tools$|bolt$)/,
-    blurb: "The toolbox, the broom and what comes out of them, a wrench crossed with a screwdriver, a bolt, a screwdriver, a drafting compass, a hook, a gripper, a flashlight, a hard hat, a crane and a pipe section.",
+    blurb: "The toolbox, the broom and what comes out of them, a wrench crossed with a screwdriver, a bolt, a screwdriver, a drafting compass, a hook, a gripper, a flashlight, a hard hat, a crane, a pipe section and the rulers.",
   },
   {
     // Opened 11 Sep 2026 for the two of batch A that no shelf could take. Tools
@@ -594,7 +594,7 @@ export const CATEGORIES = [
     // `cone`, `cuboid`, `cylinder` and `pyramid` joined on 20 Oct 2026 (2.1.0): the solids, beside the flat shapes.
     match:
       /^(circle|square|triangle|shapes|dashed|dice|dot$|full|half|quarter|three-quarter|hexagon|puzzle(?:-check|-crack|-off)?$|spiral$|diamond|octagon(-dot)?$|pentagon(-dashed)?$|shadows$|cone$|cuboid$|cylinder$|pyramid$|parallelogram$)/,
-    blurb: "Squares, circles, triangles, hexagons, a pentagon, an octagon, a parallelogram, a diamond, a dot and the shapes that hold one, dashes and the progress states drawn from them, and the solids: a cone, a cuboid, a cylinder and a pyramid.",
+    blurb: "Squares, circles, triangles, hexagons, a pentagon, an octagon, a parallelogram, a diamond, a spiral, a dot and the shapes that hold one, puzzle pieces, dashes and the progress states drawn from them, and the solids: a cone, a cuboid, a cylinder and a pyramid.",
   },
   {
     // `wifi` is here rather than in Charts beside `signal`, which is the sibling
@@ -614,7 +614,7 @@ export const CATEGORIES = [
     label: "Web",
     match:
       /^(?:cog|cog-dot|iframe|iframe-off|tab)$|^(globe|link|unlink|share|navigation|home|house|search|settings|bookmark|wifi|cloud-(?:check|x|plus|alert|dot|off|arrow|backup|cog|package|play|shield|terminal|download|upload|search|network|sync|clock|signal)|earth$|connections?$|webhook$|nfc$|rss$)/,
-    blurb: "Globes and the earth, links, connectivity, the RSS feed, sync states and web-scoped actions.",
+    blurb: "Globes and the earth, links, bookmarks, tabs and frames, connectivity, the RSS feed, cloud services, sync states and web-scoped actions.",
   },
   {
     // Prefixes rather than exact names, so the compounds this family is being
@@ -643,7 +643,7 @@ export const CATEGORIES = [
     // The 2.3.0 stays batch added a caravan, a sailboat and a stroller, each a vehicle, and the charger an
     // electric car plugs into, as the car's own fuel. `car` is anchored on (-|$), so `caravan` needs its own.
     match: /^(?:baggage-claim|fire-truck|gearbox|fuel|helicopter|jerry-can|moped|steering-wheel|tractor)$|^(plane|ship|train|tram|bus|bike|rocket|car|caravan|sailboat|stroller|ev-charger)(-|$)/,
-    blurb: "The vehicles: plane and its two states, a helicopter, ship and a sailboat with the ship's wheel, train, tram, bus and the double-decker, bike, car, taxi, a fire truck, a caravan, a stroller and the rocket, with their off states, and the charger an electric car plugs into.",
+    blurb: "The vehicles: plane and its two states, a helicopter, ship and a sailboat with the ship's wheel, train, tram, bus and the double-decker, bike, car, taxi, a fire truck, a caravan, a stroller and the rocket, with their off states, a train out of a tunnel, a gearbox and the charger an electric car plugs into.",
   },
   {
     // The living and falling half of the outdoors, and `wind-turbine` with it:
@@ -653,7 +653,7 @@ export const CATEGORIES = [
     // `waves` and `waves-2` joined on 20 Oct 2026 (2.1.0): water on the move, beside the droplet.
     // `feather` and `mountain` joined on 25 Oct 2026 (2.2.0): two feathers and the snow-capped peak.
     match: /^(?:clover|lotus|wreath|mushroom|plant-pot|shamrock|solar|solar-panel|tulip|volcano)$|^(tree|leaf|feather|flower|sprout|droplet|wind-turbine|recycle|waves|mountain)(-|s$|$)/,
-    blurb: "Trees and a pine on fire, leaves, clover and a shamrock, a flower, a tulip, a sprout and a potted plant, a mushroom, feathers, water, a snow-capped mountain and a volcano, the turbine, a solar panel and the sun rising over one, and the recycling arrows, with the off and plural forms.",
+    blurb: "Trees and a pine on fire, leaves, clover and a shamrock, a flower, a tulip, a lotus, a wreath, a sprout and a potted plant, a mushroom, feathers, water, a snow-capped mountain and a volcano, the turbine, a solar panel and the sun rising over one, and the recycling arrows, with the off and plural forms.",
   },
   {
     // `pig` is anchored so it cannot reach `piggy-bank`, which is Finance's and
