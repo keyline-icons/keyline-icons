@@ -1767,8 +1767,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 35791
+      "variants": 56,
+      "bytes": 40911
     },
     {
       "file": "devices-12.html",
@@ -1780,7 +1780,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 37487
+      "bytes": 37192
     },
     {
       "file": "devices-13.html",
@@ -1792,7 +1792,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 34491
+      "bytes": 35876
     },
     {
       "file": "devices-14.html",
@@ -1804,7 +1804,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 35377
+      "bytes": 35757
     },
     {
       "file": "devices-15.html",
@@ -1816,7 +1816,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 40695
+      "bytes": 40867
     },
     {
       "file": "devices-16.html",
@@ -1828,7 +1828,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 36735
+      "bytes": 38064
     },
     {
       "file": "devices-17.html",
@@ -1839,8 +1839,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 40881
+      "variants": 40,
+      "bytes": 32258
     },
     {
       "file": "devices-18.html",
@@ -1876,7 +1876,7 @@
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 37278
+      "bytes": 37066
     },
     {
       "file": "devices-21.html",
@@ -2800,7 +2800,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 35383
+      "bytes": 34785
     },
     {
       "file": "home-9.html",
@@ -3016,7 +3016,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 40130
+      "bytes": 40195
     },
     {
       "file": "layout-12.html",
@@ -3652,7 +3652,7 @@
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 37311
+      "bytes": 37005
     },
     {
       "file": "media-6.html",
@@ -5340,7 +5340,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 163297
+      "bytes": 23532
     },
     {
       "file": "changelog-earlier.html",
@@ -5351,7 +5351,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 25932
+      "bytes": 26876
     }
   ]
 }
