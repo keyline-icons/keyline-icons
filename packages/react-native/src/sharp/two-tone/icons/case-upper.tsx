@@ -9,7 +9,8 @@ export type { IconProps }
 export function CaseUpper(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M1.93 18.63L7.002 6L12.074 18.63M4.19 13H9.813M15.945 18.67L19.002 10L22.059 18.67M16.886 16H21.118" />
+      <Path d="M1.93 18.63L7.002 6L12.074 18.63M4.19 13H9.813" strokeOpacity={0.4} />
+      <Path d="M15.945 18.67L19.002 10L22.059 18.67M16.886 16H21.118" />
     </Icon>
   )
 }

@@ -3309,7 +3309,8 @@ export function CaretUp(props: IconProps) {
 export function CaseSensitive(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M1.93 18.627L7.002 6L12.074 18.627M4.19 13H9.813M22.002 10V19M22.002 15C22.002 16.657 20.659 18 19.002 18C17.345 18 16.002 16.657 16.002 15C16.002 13.343 17.345 12 19.002 12C20.659 12 22.002 13.343 22.002 15Z" />
+      <path d="M1.93 18.627L7.002 6L12.074 18.627M4.19 13H9.813" strokeOpacity={0.4} />
+      <path d="M22.002 10V19M22.002 15C22.002 16.657 20.659 18 19.002 18C17.345 18 16.002 16.657 16.002 15C16.002 13.343 17.345 12 19.002 12C20.659 12 22.002 13.343 22.002 15Z" />
     </Icon>
   )
 }
@@ -3317,7 +3318,8 @@ export function CaseSensitive(props: IconProps) {
 export function CaseUpper(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M1.93 18.63L7.002 6L12.074 18.63M4.19 13H9.813M15.945 18.67L19.002 10L22.059 18.67M16.886 16H21.118" />
+      <path d="M1.93 18.63L7.002 6L12.074 18.63M4.19 13H9.813" strokeOpacity={0.4} />
+      <path d="M15.945 18.67L19.002 10L22.059 18.67M16.886 16H21.118" />
     </Icon>
   )
 }
