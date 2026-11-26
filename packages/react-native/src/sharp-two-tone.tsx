@@ -11553,9 +11553,8 @@ export function Key(props: IconProps) {
 export function KeyboardLock(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M2 3H22C22.552 3 23 3.4477 23 4V7C23 7.5523 22.552 8 22 8H12V20C12 20.5523 11.552 21 11 21H2C1.448 21 1 20.5523 1 20V4C1 3.4477 1.448 3 2 3Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
       <Path d="M12 20H2V4H22V8M7 16H12M16.5 15V13C16.5 11.8954 17.395 11 18.5 11C19.605 11 20.5 11.8954 20.5 13V15M15 15H22V20H15V15Z" />
-      <Path d="M5 7H7V9H5V7ZM9 7H11V9H9V7ZM5 11H7V13H5V11ZM9 11H11V13H9V11Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
+      <Path d="M5 7H7V9H5V7ZM9 7H11V9H9V7ZM13 7H15V9H13V7ZM5 11H7V13H5V11ZM9 11H11V13H9V11Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="none" />
     </Icon>
   )
 }
