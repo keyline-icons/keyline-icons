@@ -1108,7 +1108,7 @@
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 33138
+      "bytes": 31910
     },
     {
       "file": "art-3.html",
@@ -5340,7 +5340,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 163297
+      "bytes": 5074
     },
     {
       "file": "changelog-earlier.html",
@@ -5351,7 +5351,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 25932
+      "bytes": 26876
     }
   ]
 }

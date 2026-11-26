@@ -6081,8 +6081,7 @@ export function CornerRightUp(props: IconProps) {
 export function CornerSharp(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M3 7L3 6C3 4.3431 4.3431 3 6 3L7 3M21 17L21 18C21 19.6569 19.6569 21 18 21L17 21M14.5 21L9.5 21M7 21L6 21C4.3431 21 3 19.6569 3 18L3 17M3 14.5L3 9.5" strokeOpacity={0.4} />
-      <Path d="M9.5 3L21 3L21 14.5" />
+      <Path d="M2 3L21 3L21 22" />
     </Icon>
   )
 }

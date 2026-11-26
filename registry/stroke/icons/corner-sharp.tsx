@@ -21,7 +21,7 @@ export function CornerSharp({ size = 24, ...props }: IconProps) {
       focusable="false"
       {...props}
     >
-      <path d="M10.5 3H21V13.5M3 6C3 4.34315 4.34315 3 6 3M21 18C21 19.6569 19.6569 21 18 21M13.5 21H10.5M6 21C4.34315 21 3 19.6569 3 18M3 13.5V10.5"/>
+      <path d="M3 3L21 3L21 21"/>
     </svg>
   )
 }
