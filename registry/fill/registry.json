@@ -4594,34 +4594,6 @@
       ]
     },
     {
-      "name": "fill/brush-minus",
-      "type": "registry:component",
-      "title": "BrushMinus",
-      "description": "BrushMinus, the fill drawing of brush-minus on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of brush-minus: https://keylineicons.com/icons/brush-minus",
-      "files": [
-        {
-          "path": "icons/brush-minus.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/fill/brush-minus.tsx"
-        }
-      ]
-    },
-    {
-      "name": "fill/brush-plus",
-      "type": "registry:component",
-      "title": "BrushPlus",
-      "description": "BrushPlus, the fill drawing of brush-plus on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of brush-plus: https://keylineicons.com/icons/brush-plus",
-      "files": [
-        {
-          "path": "icons/brush-plus.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/fill/brush-plus.tsx"
-        }
-      ]
-    },
-    {
       "name": "fill/bubbles",
       "type": "registry:component",
       "title": "Bubbles",
@@ -22174,20 +22146,6 @@
           "path": "icons/paperclip.tsx",
           "type": "registry:component",
           "target": "@components/icons/fill/paperclip.tsx"
-        }
-      ]
-    },
-    {
-      "name": "fill/paperclip-plus",
-      "type": "registry:component",
-      "title": "PaperclipPlus",
-      "description": "PaperclipPlus, the fill drawing of paperclip-plus on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of paperclip-plus: https://keylineicons.com/icons/paperclip-plus",
-      "files": [
-        {
-          "path": "icons/paperclip-plus.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/fill/paperclip-plus.tsx"
         }
       ]
     },

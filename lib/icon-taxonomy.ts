@@ -557,7 +557,7 @@ export const CATEGORIES = [
     // its magic wand. Anchored, so `frame-*` is filed on purpose.
     label: "Art",
     // `vector-square` and `vector-polygon` joined on 20 Oct 2026 (2.1.0): the vector tool's nodes, beside the frame tool.
-    match: /^(?:blur|brush|brush-minus|brush-plus|corner-chamfer|corner-inverted|corner-notch|corner-sharp|gradient-linear|line-dashed|spool|curves|lasso|pipette|scribble|spline|square-round-corner)$|^(stroke-line-join-|paint|palette|easel|swatch-book$|wand$|frame$|vector-)/,
+    match: /^(?:blur|brush|corner-chamfer|corner-inverted|corner-notch|corner-sharp|gradient-linear|line-dashed|spool|curves|lasso|pipette|scribble|spline|square-round-corner)$|^(stroke-line-join-|paint|palette|easel|swatch-book$|wand$|frame$|vector-)/,
     blurb: "The brush, the roller, the paint bucket, the palette, the pipette, the swatch book, the easel, the magic wand, the lasso, the frame tool and the vector nodes, the brush's add and subtract, blur, curves, the spline, the corner radius controls and the stroke joins.",
   },
   {

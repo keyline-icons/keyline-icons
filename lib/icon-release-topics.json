@@ -3689,10 +3689,8 @@
       },
       {
        "title": "Art",
-       "text": "The controls of a design app: add to and take from a brush selection, distort and skew a shape, draw a spline, blur, adjust curves, set a corner's radius and choose how a stroke turns its corners.",
+       "text": "The controls of a design app: distort and skew a shape, draw a spline, blur, adjust curves, set a corner's radius and choose how a stroke turns its corners.",
        "names": [
-        "brush-plus",
-        "brush-minus",
         "vector-distort",
         "vector-skew",
         "spline",

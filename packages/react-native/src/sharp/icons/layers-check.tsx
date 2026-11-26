@@ -9,7 +9,7 @@ export type { IconProps }
 export function LayersCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M12 2L22 7.5L12 13L2 7.5ZM1.4819 11.7151L12.2251 17.6238M1.4819 16.2151L12.2251 22.1238M16.7071 19.2071L18.6667 21.1667L22 17.8333L22.2929 17.5404" fill="none" />
+      <Path d="M12 2L22 7.5L12 13L2 7.5ZM1.4819 11.7151L12.2251 17.6238M1.4819 16.2151L12.2251 22.1238M15.7071 18.7071L18 21L22.2929 16.7071" fill="none" />
     </Icon>
   )
 }

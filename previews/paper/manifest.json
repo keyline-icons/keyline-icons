@@ -14,9 +14,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 2230,
-  "names": 2386,
-  "variants": 19088,
+  "icons": 2227,
+  "names": 2383,
+  "variants": 19064,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -1175,10 +1175,10 @@
       "artboard": "Art",
       "category": "Art",
       "part": 1,
-      "parts": 8,
+      "parts": 7,
       "into": "artboard",
       "width": 742,
-      "icons": 34,
+      "icons": 32,
       "variants": 16,
       "bytes": 40742
     },
@@ -1187,84 +1187,72 @@
       "artboard": "Art",
       "category": "Art",
       "part": 2,
-      "parts": 8,
+      "parts": 7,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 40148
+      "variants": 56,
+      "bytes": 37528
     },
     {
       "file": "art-3.html",
       "artboard": "Art",
       "category": "Art",
       "part": 3,
-      "parts": 8,
+      "parts": 7,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 40554
+      "variants": 40,
+      "bytes": 36979
     },
     {
       "file": "art-4.html",
       "artboard": "Art",
       "category": "Art",
       "part": 4,
-      "parts": 8,
+      "parts": 7,
       "into": "rows",
       "width": 742,
       "icons": 0,
       "variants": 32,
-      "bytes": 31320
+      "bytes": 39599
     },
     {
       "file": "art-5.html",
       "artboard": "Art",
       "category": "Art",
       "part": 5,
-      "parts": 8,
+      "parts": 7,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 32,
-      "bytes": 39416
+      "variants": 56,
+      "bytes": 40849
     },
     {
       "file": "art-6.html",
       "artboard": "Art",
       "category": "Art",
       "part": 6,
-      "parts": 8,
+      "parts": 7,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 56,
-      "bytes": 37067
+      "variants": 40,
+      "bytes": 36784
     },
     {
       "file": "art-7.html",
       "artboard": "Art",
       "category": "Art",
       "part": 7,
-      "parts": 8,
+      "parts": 7,
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 40,
-      "bytes": 40050
-    },
-    {
-      "file": "art-8.html",
-      "artboard": "Art",
-      "category": "Art",
-      "part": 8,
-      "parts": 8,
-      "into": "rows",
-      "width": 742,
-      "icons": 0,
-      "variants": 8,
-      "bytes": 5613
+      "variants": 16,
+      "bytes": 13912
     },
     {
       "file": "charts-1.html",
@@ -2270,7 +2258,7 @@
       "parts": 17,
       "into": "artboard",
       "width": 742,
-      "icons": 98,
+      "icons": 97,
       "variants": 56,
       "bytes": 39160
     },
@@ -2440,7 +2428,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 35105
+      "bytes": 37034
     },
     {
       "file": "files-16.html",
@@ -2452,7 +2440,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 39384
+      "bytes": 37419
     },
     {
       "file": "files-17.html",
@@ -2463,8 +2451,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 24,
-      "bytes": 21409
+      "variants": 16,
+      "bytes": 15161
     },
     {
       "file": "finance-1.html",
@@ -3292,7 +3280,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 39477
+      "bytes": 39229
     },
     {
       "file": "layout-17.html",
@@ -5844,7 +5832,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 417538
+      "bytes": 425576
     },
     {
       "file": "changelog-earlier.html",

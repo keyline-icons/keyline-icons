@@ -21,7 +21,7 @@ export function LayersMinus({ size = 24, ...props }: IconProps) {
       focusable="false"
       {...props}
     >
-      <path d="M12 2L22 7.5L12 13L2 7.5ZM1.4819 11.7151L12.2251 17.6238M1.4819 16.2151L12.2251 22.1238M16 19.5L23 19.5" fill="none"/>
+      <path d="M12 2L22 7.5L12 13L2 7.5ZM1.4819 11.7151L12.2251 17.6238M1.4819 16.2151L12.2251 22.1238M15 19L23 19" fill="none"/>
     </svg>
   )
 }
