@@ -437,8 +437,10 @@ const MAX_SKEW = 1;
  * reach its own ink corner, so the modifier sits outside it. `user-*` sat here
  * too until 26 Nov 2026, 3 over 2 on an odd 19 (head 8, gap 2, shoulders 9).
  * The shoulders went to 10 in the base and every compound took the base, so
- * the figure is 20 and the family centres on whole pads; only `user-zap` stays,
- * for its bolt across. The sign still sits outside the body. `git-graph`,
+ * the figure is 20 and the family centres on whole pads. `user-zap` left with
+ * them: its bolt went 2 right into the corner of user-plus's sign box (his pick
+ * the same day, over a 6-wide bolt and over moving the base), so it runs 1 and
+ * 1 across. The sign still sits outside the body. `git-graph`,
  * `terminal-cursor` and `signal-*` predate the rule and have not been
  * adjudicated. They are silenced, not blessed; see *A fractional extent is
  * almost always a defect*.
@@ -492,13 +494,12 @@ const SKEW_KNOWN = new Set([
   'package-arrow-down', 'package-arrow-left', 'package-arrow-right', 'package-arrow-up',
   'package-check', 'package-minus', 'package-plus', 'package-x',
   'signal-high', 'signal-low', 'signal-medium', 'terminal-cursor',
-  // user-zap stands where user-plus stands, centred top and bottom with the family since 26 Nov 2026, and
-  // since 4 Oct 2026 runs 1 vs 3 across, the bolt's placement with the four below
-  'user-zap',
   // His placement, 4 Oct 2026: a zap's base stands where its -plus stands, and the bolt keeps the place it had
   // on that base in 1.5.0 (they were even across then, the base 1 right of the -plus). Each is its 1.5.0 drawing
   // moved 1 left, pixel for pixel, so it runs 1 vs 3 across (database 2 vs 4). Pushing the bolt flush into the
-  // corner to even it out was the version he rejected: "wrongly anchored the zaps to the corner".
+  // corner to even it out was the version he rejected: "wrongly anchored the zaps to the corner". user-zap ran
+  // the same way until 26 Nov 2026, when he called its 1 vs 3 an error and picked the corner for it; these four
+  // were not asked about and keep the 4 Oct placement.
   'database-zap', 'home-zap', 'house-zap', 'server-zap',
 ]);
 

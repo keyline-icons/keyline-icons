@@ -9,7 +9,7 @@ export type { IconProps }
 export function UserZap(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M19 3L16 6L20 6L17 9" />
+      <Path d="M21 3L18 6L22 6L19 9" />
       <Path d="M13 6C13 8.20914 11.2091 10 9 10C6.79086 10 5 8.20914 5 6C5 3.79086 6.79086 2 9 2C11.2091 2 13 3.79086 13 6ZM8 12H10C13.866 12 17 15.134 17 19V20C17 21.1046 16.1046 22 15 22H3C1.89543 22 1 21.1046 1 20V19C1 15.134 4.13401 12 8 12Z" fill="currentColor" stroke="none" />
     </Icon>
   )
