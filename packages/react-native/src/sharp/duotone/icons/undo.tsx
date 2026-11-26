@@ -9,7 +9,7 @@ export type { IconProps }
 export function Undo(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M21 18.9998L21 17.9998C21 13.9534 18.6274 10.283 14.9378 8.6216C11.2482 6.9602 6.9273 7.6166 3.8975 10.2987L3.3946 10.7439M2.9995 5.0308L3.1821 10.9969L8.1788 10.8147L9.1424 10.7796" fill="none" />
+      <Path d="M21 18.9998L21 17.9998C21 13.9534 18.6274 10.283 14.9378 8.6216C11.2482 6.9602 6.9273 7.6166 3.8975 10.2987L3.3946 10.7439M3 5.0002L3 11L9 11" fill="none" />
     </Icon>
   )
 }

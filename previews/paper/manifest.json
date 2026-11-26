@@ -1120,7 +1120,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 35534
+      "bytes": 34622
     },
     {
       "file": "arrows-18.html",
@@ -1168,7 +1168,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 34034
+      "bytes": 33162
     },
     {
       "file": "art-1.html",
@@ -5832,7 +5832,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 438809
+      "bytes": 438525
     },
     {
       "file": "changelog-earlier.html",
