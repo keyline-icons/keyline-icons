@@ -14,9 +14,9 @@
     "The drawings to rename are the createdNodes with component === 'SVG'. Do not match on the name or on /svg/i — the nested paths come back as SVGVisualElement and a loose filter catches those too, which is 18 candidates on the catalogue sheet where there are 7 drawings.",
     "rename_nodes takes updates: [{ nodeId, name }] — nodeId singular here, unlike update_styles, which takes nodeIds as an array. The two are inconsistent and each rejects the other's shape."
   ],
-  "icons": 2226,
-  "names": 2382,
-  "variants": 19056,
+  "icons": 2225,
+  "names": 2381,
+  "variants": 19048,
   "sheets": [
     {
       "file": "actions-1.html",
@@ -1730,7 +1730,7 @@
       "parts": 32,
       "into": "artboard",
       "width": 742,
-      "icons": 170,
+      "icons": 169,
       "variants": 48,
       "bytes": 36762
     },
@@ -1875,8 +1875,8 @@
       "into": "rows",
       "width": 742,
       "icons": 0,
-      "variants": 48,
-      "bytes": 39868
+      "variants": 40,
+      "bytes": 33991
     },
     {
       "file": "devices-14.html",
@@ -1888,7 +1888,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 40107
+      "bytes": 40088
     },
     {
       "file": "devices-15.html",
@@ -1912,7 +1912,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 40450
+      "bytes": 40469
     },
     {
       "file": "devices-17.html",
@@ -1936,7 +1936,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 34213
+      "bytes": 34194
     },
     {
       "file": "devices-19.html",
@@ -1948,7 +1948,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 37999
+      "bytes": 38018
     },
     {
       "file": "devices-20.html",
@@ -1972,7 +1972,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 35300
+      "bytes": 35281
     },
     {
       "file": "devices-22.html",
@@ -2032,7 +2032,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 39107
+      "bytes": 39126
     },
     {
       "file": "devices-27.html",
@@ -2044,7 +2044,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 38222
+      "bytes": 38203
     },
     {
       "file": "devices-28.html",
@@ -2068,7 +2068,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 40091
+      "bytes": 40110
     },
     {
       "file": "devices-30.html",
@@ -2080,7 +2080,7 @@
       "width": 742,
       "icons": 0,
       "variants": 56,
-      "bytes": 36717
+      "bytes": 36698
     },
     {
       "file": "devices-31.html",
@@ -2092,7 +2092,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 35708
+      "bytes": 35727
     },
     {
       "file": "devices-32.html",
@@ -2104,7 +2104,7 @@
       "width": 742,
       "icons": 0,
       "variants": 24,
-      "bytes": 17840
+      "bytes": 17821
     },
     {
       "file": "diagrams-1.html",
@@ -5832,7 +5832,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 444781
+      "bytes": 443788
     },
     {
       "file": "changelog-earlier.html",

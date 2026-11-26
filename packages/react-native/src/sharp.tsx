@@ -10476,14 +10476,6 @@ export function Language(props: IconProps) {
   )
 }
 
-export function LaptopArrowDown(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <Path d="M4 16L4 4L20 4L20 16M2 16L22 16L22 20L2 20ZM12 7L12 12M8.7071 8.7071L12 12L15.2929 8.7071" fill="none" />
-    </Icon>
-  )
-}
-
 export function LaptopCheck(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -21028,7 +21020,6 @@ export {
   Landmark as LandmarkIcon,
   LanguageSparkles as LanguageSparklesIcon,
   Language as LanguageIcon,
-  LaptopArrowDown as LaptopArrowDownIcon,
   LaptopCheck as LaptopCheckIcon,
   LaptopSmartphoneOff as LaptopSmartphoneOffIcon,
   LaptopSmartphone as LaptopSmartphoneIcon,

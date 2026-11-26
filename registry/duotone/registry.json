@@ -17782,20 +17782,6 @@
       ]
     },
     {
-      "name": "duotone/laptop-arrow-down",
-      "type": "registry:component",
-      "title": "LaptopArrowDown",
-      "description": "LaptopArrowDown, the duotone drawing of laptop-arrow-down on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of laptop-arrow-down: https://keylineicons.com/icons/laptop-arrow-down",
-      "files": [
-        {
-          "path": "icons/laptop-arrow-down.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/duotone/laptop-arrow-down.tsx"
-        }
-      ]
-    },
-    {
       "name": "duotone/laptop-check",
       "type": "registry:component",
       "title": "LaptopCheck",
