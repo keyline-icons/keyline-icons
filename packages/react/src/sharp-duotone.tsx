@@ -2053,8 +2053,8 @@ export function BellX(props: IconProps) {
 export function BellZ(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M13 3.6251L13 8.4199C13 9.793 14.0725 10.9155 15.4255 10.9954L16.1993 10.7285C16.6326 11.9847 17.0404 12.7542 17.3428 13.293C17.5741 13.7052 18 14.341 18 15L18 16C18 16.5523 17.5523 17 17 17L3 17C2.4477 17 2 16.5523 2 16L2 15C2 14.4387 2.2784 13.9674 2.455 13.673C2.6689 13.3166 2.8785 13.007 3.1056 12.5528C3.5331 11.6977 4 10.3517 4 8C4 4.6863 6.6863 2 10 2C10.9153 2 11.7414 2.2118 13.3168 2.9Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M7.7679 19.134C8.6252 20.6188 9.2855 21 10 21C10.7145 21 11.3748 20.6188 12.2321 19.134M15 2L22 2L16 8L23 8" />
+      <path d="M13 3.6251L13 8.4199C13 9.793 14.0725 10.9155 15.4255 10.9954L16.2952 11C16.6925 12.0975 17.0628 12.7941 17.3428 13.293C17.5741 13.7052 18 14.341 18 15L18 16C18 16.5523 17.5523 17 17 17L3 17C2.4477 17 2 16.5523 2 16L2 15C2 14.4387 2.2784 13.9674 2.455 13.673C2.6689 13.3166 2.8785 13.007 3.1056 12.5528C3.5331 11.6977 4 10.3517 4 8C4 4.6863 6.6863 2 10 2C10.9153 2 11.7414 2.2118 13.3168 2.9Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
+      <path d="M7.7679 19.134C8.6252 20.6188 9.2855 21 10 21C10.7145 21 11.3748 20.6188 12.2321 19.134M15.32 2L22 2L16 8L23 8" />
     </Icon>
   )
 }
@@ -7984,15 +7984,6 @@ export function FaceRofl(props: IconProps) {
   )
 }
 
-export function FaceSleep(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M22 11L22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2L13 2M7 9L7 10C7 10.5523 7.6716 11 8.5 11C9.3284 11 10 10.5523 10 10L10 9M14 9L14 10C14 10.5523 14.6716 11 15.5 11C16.3284 11 17 10.5523 17 10L17 9M8.7071 14.7071L9 15C10 16 11 16.5 12 16.5C13 16.5 14 16 15 15L15.2929 14.7071" strokeOpacity={0.4} />
-      <path d="M15 2L22 2L16 6L23 6" />
-    </Icon>
-  )
-}
-
 export function FaceSmilePlus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
@@ -13560,7 +13551,7 @@ export function MoonZ(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
       <path d="M3.9289 20.0711C2.1204 18.2625 1 15.7612 1 13C1 7.4771 5.4771 3 11 3C11.5523 3 12 3.4477 12 4C12 4.2271 11.9227 4.4474 11.7809 4.6247C10.061 6.7745 10.2326 9.8738 12.1794 11.8206C14.1262 13.7674 17.2255 13.939 19.3753 12.2191C19.5526 12.0773 19.7729 12 20 12C20.5523 12 21 12.4477 21 13C21 18.5229 16.5229 23 11 23C8.2388 23 5.7375 21.8796 3.9289 20.0711Z" fill="currentColor" fillOpacity={0.4} stroke="none" />
-      <path d="M23 9L22 9L16 9L21.9975 2L16.5 2L15.5 2" />
+      <path d="M15 2L22 2L16 8L23 8" />
     </Icon>
   )
 }
@@ -22789,7 +22780,6 @@ export {
   FaceLaugh as FaceLaughIcon,
   FaceNeutral as FaceNeutralIcon,
   FaceRofl as FaceRoflIcon,
-  FaceSleep as FaceSleepIcon,
   FaceSmilePlus as FaceSmilePlusIcon,
   FaceSmile as FaceSmileIcon,
   FaceSquint as FaceSquintIcon,

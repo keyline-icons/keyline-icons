@@ -12238,20 +12238,6 @@
       ]
     },
     {
-      "name": "sharp/two-tone/face-sleep",
-      "type": "registry:component",
-      "title": "FaceSleep",
-      "description": "FaceSleep, the two-tone drawing of face-sleep on a 24×24 grid, with squared corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of face-sleep: https://keylineicons.com/icons/face-sleep",
-      "files": [
-        {
-          "path": "icons/face-sleep.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/sharp/two-tone/face-sleep.tsx"
-        }
-      ]
-    },
-    {
       "name": "sharp/two-tone/face-smile",
       "type": "registry:component",
       "title": "FaceSmile",

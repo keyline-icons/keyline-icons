@@ -1907,7 +1907,7 @@ export function BellZ(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M10 2C10.8534 2 11.6651 2.1781 12.4 2.4993C12.7645 2.6583 13 3.0183 13 3.416L13 8.4199C13 9.8449 14.1551 11 15.5801 11C16.0067 11 16.3864 11.2706 16.5255 11.6739C16.784 12.4235 17.092 12.9372 17.3624 13.3753C17.5707 13.7127 18 14.3239 18 15C18 16.1046 17.1046 17 16 17L4 17C2.8954 17 2 16.1046 2 15C2 14.4387 2.2784 13.9674 2.455 13.673C2.6689 13.3166 2.8785 13.007 3.1056 12.5528C3.5331 11.6977 4 10.3517 4 8C4 4.6863 6.6863 2 10 2Z" fill="currentColor" stroke="none" />
-      <Path d="M8.2679 20C8.6252 20.6188 9.2855 21 10 21C10.7145 21 11.3748 20.6188 11.7321 20M16 2H21.1484C21.6126 2 21.8262 2.57753 21.4738 2.87963L16.5262 7.12037C16.1738 7.42247 16.3874 8 16.8516 8H22" />
+      <Path d="M8.2679 20C8.6252 20.6188 9.2855 21 10 21C10.7145 21 11.3748 20.6188 11.7321 20M16 2H22L16 8H22" />
     </Icon>
   )
 }
@@ -7380,14 +7380,6 @@ export function FaceRofl(props: IconProps) {
   )
 }
 
-export function FaceSleep(props: IconProps) {
-  return (
-    <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <Path d="M22 12C22 17.5228 17.5228 22 12 22C6.4772 22 2 17.5228 2 12C2 6.4772 6.4772 2 12 2M7 10C7 10.5523 7.6716 11 8.5 11C9.3284 11 10 10.5523 10 10M14 10C14 10.5523 14.6716 11 15.5 11C16.3284 11 17 10.5523 17 10M9 15C10 16 11 16.5 12 16.5C13 16.5 14 16 15 15M16 2H20.3486C20.8433 2 21.0376 2.6416 20.626 2.916L17.374 5.084C16.9624 5.3584 17.1567 6 17.6514 6H22" />
-    </Icon>
-  )
-}
-
 export function FaceSmilePlus(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -12602,7 +12594,7 @@ export function MoonZ(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
       <Path d="M3.9289 20.0711C2.1204 18.2625 1 15.7612 1 13C1 7.4771 5.4771 3 11 3C11.5523 3 12 3.4477 12 4C12 4.2271 11.9227 4.4474 11.7809 4.6247C10.061 6.7745 10.2326 9.8738 12.1794 11.8206C14.1262 13.7674 17.2255 13.939 19.3753 12.2191C19.5526 12.0773 19.7729 12 20 12C20.5523 12 21 12.4477 21 13C21 18.5229 16.5229 23 11 23C8.2388 23 5.7375 21.8796 3.9289 20.0711Z" fill="currentColor" stroke="none" />
-      <Path d="M22 9H17.1466C16.71 9 16.4831 8.4797 16.7802 8.15977L21.7198 2.84023C22.0169 2.5203 21.79 2 21.3534 2H16.5" />
+      <Path d="M16 2H22L16 8H22" />
     </Icon>
   )
 }
@@ -21264,7 +21256,6 @@ export {
   FaceLaugh as FaceLaughIcon,
   FaceNeutral as FaceNeutralIcon,
   FaceRofl as FaceRoflIcon,
-  FaceSleep as FaceSleepIcon,
   FaceSmilePlus as FaceSmilePlusIcon,
   FaceSmile as FaceSmileIcon,
   FaceSquint as FaceSquintIcon,
