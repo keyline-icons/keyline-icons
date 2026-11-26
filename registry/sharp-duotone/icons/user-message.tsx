@@ -21,7 +21,7 @@ export function UserMessage({ size = 24, ...props }: IconProps) {
       focusable="false"
       {...props}
     >
-      <path d="M10 12C10.3396 12 10.6733 12.0255 11 12.0723V22H2C1.44772 22 1 21.5523 1 21V19C1 15.134 4.13402 12 8 12H10ZM9 2C11.2092 2 13 3.79082 13 6C13 8.20918 11.2092 10 9 10C6.79094 10 5 8.20921 5 6C5 3.79079 6.79094 2 9 2Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
+      <path d="M11 22H2C1.44772 22 1 21.5523 1 21V19C1 15.134 4.13402 12 8 12H11V22ZM9 2C11.2092 2 13 3.79082 13 6C13 8.20918 11.2092 10 9 10C6.79094 10 5 8.20921 5 6C5 3.79079 6.79094 2 9 2Z" fill="currentColor" fillOpacity="0.4" stroke="none"/>
       <path d="M14 13L22 13L22 18L20 18L18 20.5L18 18L14 18Z"/>
     </svg>
   )
