@@ -8849,9 +8849,290 @@ const RELEASE_3_1_0: BlogPost = {
   ],
 }
 
+export const BLOG_V320_THUMBNAIL_ICON_NAMES = [
+  "mail-forward",
+  "calendar-user",
+  "border-top",
+  "security-key",
+  "bell-z",
+  "lock-clock",
+  "inbox-arrow-down",
+  "calendar-alert",
+  "border-inside",
+  "password",
+  "shield-search",
+  "app-window-shield",
+  "abacus",
+  "lotus",
+  "hockey-puck",
+  "face-heart-eyes",
+  "piano",
+  "circuit-board",
+  "serial-port",
+  "fax",
+  "gearbox",
+  "iv-bag",
+  "signpost",
+  "spiral",
+  "puzzle-check",
+  "corner-chamfer",
+  "spool",
+  "gradient-linear",
+  "columns-4",
+  "pilcrow-left",
+  "type-vertical",
+  "globe-clock",
+  "cloud-shield",
+  "star-half",
+  "user-child",
+  "bot-frown",
+  "car-sparkles",
+  "lamp-ceiling",
+  "wreath",
+  "speakers",
+] as const
+
+export const BLOG_V320_SPREAD_ICON_NAMES = [
+  "security-key",
+  "password",
+  "lock-clock",
+  "shield-search",
+  "abacus",
+  "hockey-puck",
+  "sports-court",
+  "lotus",
+  "piano",
+  "gearbox",
+  "iv-bag",
+  "fax",
+  "face-heart-eyes",
+  "face-tears-joy",
+  "spool",
+  "corner-chamfer",
+] as const
+
+export const BLOG_V320_SIGN_ICON_NAMES = [
+  "mail-arrow-up",
+  "mail-arrow-down",
+  "mail-forward",
+  "mail-search",
+  "mail-shield",
+  "mail-asterisk",
+  "inbox-arrow-down",
+  "inboxes",
+  "calendar-alert",
+  "calendar-lock",
+  "calendar-pen",
+  "calendar-question",
+  "calendar-search",
+  "calendar-star",
+  "calendar-user",
+  "bell-z",
+] as const
+
+export const BLOG_V320_BORDER_ICON_NAMES = [
+  "border-top",
+  "border-right",
+  "border-bottom",
+  "border-left",
+  "border-inside",
+  "columns-4",
+  "rows-2",
+  "fit-width",
+  "fit-height",
+  "align-horizontal-space-between",
+  "align-vertical-space-between",
+  "grid-dots",
+] as const
+
+const RELEASE_3_2_0: BlogPost = {
+  /* Email and calendar lead the title: no earlier post claims either search,
+     and they are the two shelves the update grew most by signs. The table's
+     borders are in the slug and the keywords. */
+  slug: "email-calendar-and-table-border-icons",
+  version: "3.2.0",
+  title: "213 free email and calendar icons for React, shadcn/ui and Figma",
+  description:
+    "2,380 free, MIT-licensed SVG icons for React, shadcn/ui and Figma. New: " +
+    "mail and calendar states, table borders, locks and security keys, and " +
+    "a taller user family.",
+  standfirst:
+    "Spreadsheets set a border one edge at a time, so each border " +
+    "drawing is a dashed square with one edge drawn whole.",
+  date: "2026-11-26",
+  updated: "2026-11-26",
+  readingMinutes: 3,
+  thumbnail: BLOG_V320_THUMBNAIL_ICON_NAMES,
+  keywords: [
+    "email icons",
+    "mail icons",
+    "inbox icons",
+    "calendar icons",
+    "schedule icons",
+    "table border icons",
+    "border icons",
+    "snooze icon",
+    "security key icon",
+    "password icon",
+    "lock icons",
+    "user icons",
+    "emoji icons",
+    "abacus icon",
+    "free svg icons",
+    "shadcn/ui icons",
+    "figma icons",
+    "react icons",
+  ],
+  body: [
+    {
+      kind: "p",
+      text:
+        "An app spends most of its icons on states: the mail that went out, " +
+        "the meeting with a clash, the window that was blocked. This update " +
+        "adds 213 icons, most of them states like those. The set now " +
+        "holds 2,380 names, and every name comes in stroke, two-tone, " +
+        "duotone and fill, rounded or sharp: 19,040 SVGs.",
+    },
+    {
+      kind: "p",
+      text:
+        "Each state is built on a drawing the set already had, so the lock " +
+        "with a clock is the set's own lock, and the crossed-out printer is " +
+        "its printer. The rest are things a screen asks for by " +
+        "name: an abacus, a lotus, a hockey puck, a piano, an IV bag and " +
+        "seven more faces.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V320_SPREAD_ICON_NAMES,
+        caption:
+          "Passkey and 2FA find the security key; PIN and masked input " +
+          "find the password field.",
+      },
+    },
+
+    { kind: "h2", text: "Mail and the calendar wear the signs files already wear", id: "signs" },
+    {
+      kind: "p",
+      text:
+        "A file could carry an alert, a cog or a search long before an " +
+        "envelope could. The new mail and calendar drawings take the same " +
+        "signs at the same size, so a list that mixes a file with an alert, " +
+        "a meeting with an alert and a mail with an alert reads as one row " +
+        "of marks.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V320_SIGN_ICON_NAMES,
+        caption:
+          "The bell with a Z is found by snooze, mute and do not disturb.",
+      },
+    },
+
+    { kind: "h2", text: "A border is chosen one edge at a time", id: "borders" },
+    {
+      kind: "p",
+      text:
+        "A spreadsheet's border menu sets the top, the bottom, either side " +
+        "or the lines inside a range, one at a time. Each border drawing " +
+        "is the same square in short dashes with the chosen edge drawn " +
+        "whole; in two-tone the dashes go grey, so the edge that applies is " +
+        "the only dark line.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "grid",
+        names: BLOG_V320_BORDER_ICON_NAMES,
+        caption:
+          "Four columns, two rows, fit to width and height, and the space " +
+          "between, from the same layout menus.",
+      },
+    },
+
+    { kind: "h2", text: "The person stands taller so every sign can centre", id: "users" },
+    {
+      kind: "p",
+      text:
+        "The person was 19 pixels tall, an odd height that left every " +
+        "drawing built on it a pixel nearer the bottom than the top. It now " +
+        "stands 20 tall on the 24 pixel grid, centred, and every sign keeps " +
+        "two pixels clear of the body. All 23 person drawings were redrawn " +
+        "to match, from the plain `user` to `user-zap`.",
+    },
+    {
+      kind: "figure",
+      figure: {
+        kind: "diagnostic",
+        panels: [
+          {
+            title: "`user`, before over after",
+            a: { name: "user", take: "before" },
+            b: { name: "user", take: "after" },
+            verdict: { text: "Taller, and still one drawing", tone: "good" },
+          },
+          {
+            title: "`user-plus`, before over after",
+            a: { name: "user-plus", take: "before" },
+            b: { name: "user-plus", take: "after" },
+            verdict: { text: "The plus stands clear of the shoulder", tone: "good" },
+          },
+        ],
+        caption:
+          "Each panel paints the old drawing over the new one, and colour " +
+          "shows only where they differ.",
+        legend: { a: "only before", b: "only after", both: "in both" },
+      },
+    },
+    {
+      kind: "p",
+      text:
+        "Two drawings leave the set: `brush-plus` and `brush-minus`, with " +
+        "their React exports. The plain `brush` stays.",
+    },
+
+    { kind: "h2", text: "Sorted by the screen that asks for them", id: "by-use" },
+    {
+      kind: "list",
+      items: [
+        "A mail client: `inbox-arrow-down`, `inbox-arrow-up`, `inboxes`, `mail-forward`, `mail-search`, `mail-asterisk` for flagged, `message-square-dashed-check` for a finished draft, `bell-z` for snoozed",
+        "A scheduler: `calendar-user`, `calendar-alert`, `calendar-lock`, `calendar-question`, `history-cog`, `history-x`",
+        "Account security: `password`, `security-key`, `lock-clock`, `lock-check`, `shield-search`, `key-off`",
+        "A spreadsheet or document editor: `border-inside`, `columns-4`, `rows-2`, `text-align-middle`, `pilcrow-left`, `type-vertical`, `replace`",
+        "A device or network panel: `serial-port`, `router-off`, `bluetooth-searching`, `circuit-board`, `printer-off`, `fax`",
+      ],
+    },
+
+    { kind: "h2", text: "Getting it", id: "getting-it" },
+    {
+      kind: "link",
+      href: "/icons",
+      label: "Browse the icons",
+      text: "Every drawing, all four styles, both corner shapes.",
+    },
+    {
+      kind: "link",
+      href: "/install",
+      label: "Install",
+      text: "React, shadcn/ui, the CLI, the MCP server and the Figma plugin.",
+    },
+    {
+      kind: "link",
+      href: "/changelog",
+      label: "Changelog",
+      text: "Every drawing in this update, category by category, and the 63 redrawn.",
+    },
+  ],
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
   REACT_NATIVE_ICONS,
   LUCIDE_ALTERNATIVES,
+  RELEASE_3_2_0,
   RELEASE_3_1_0,
   RELEASE_3_0_0,
   RELEASE_2_9_0,
