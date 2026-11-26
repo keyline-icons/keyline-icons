@@ -125,7 +125,7 @@ Need icons drawn for your own product? Custom sets on the same grid, as SVG, Fig
 Changelog
 
 3.2.0
-196 new drawings, taking the set to 2,380 names and 19,040 SVGs.
+213 new icons, taking the set to 2,380 names and 19,040 SVGs.
 
 * Mail and Time: mail with an arrow each way, an alert, a cog, a search, a shield and an asterisk, mail forwarded, inboxes, a bell snoozed with a Z, and calendars with an alert, a cog, a lock, a pen, a question, a search, a star and a person
 * Layout and Text: the table's borders one edge at a time, four columns, two rows, fit to width and height, the space between, lower case, the pilcrow both ways and vertical type
@@ -772,7 +772,7 @@ keylineicons.com
 github.com/keyline-icons/keyline-icons
 
 v3.2.0
-196 new drawings, taking the set to 2,380 names and 19,040 SVGs. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link; brush-plus and brush-minus leave the set.
+213 new icons, taking the set to 2,380 names and 19,040 SVGs. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link; brush-plus and brush-minus leave the set.
 
 * Mail and Time: mail with an arrow each way, an alert, a cog, a search, a shield and an asterisk, mail forwarded, inboxes, a bell snoozed with a Z, and calendars with an alert, a cog, a lock, a pen, a question, a search, a star and a person
 * Layout and Text: the table's borders one edge at a time, four columns, two rows, fit to width and height, the space between, lower case, the pilcrow both ways and vertical type
