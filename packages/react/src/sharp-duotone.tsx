@@ -15503,8 +15503,8 @@ export function Redirect(props: IconProps) {
 export function RedoDot(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M2 19L2 18C2 11.6487 7.1487 6.5 13.5 6.5C16.55 6.5 19.4751 7.7116 21.6317 9.8683L22 10.2365M22 5L22 10.2365L16.7635 10.2365" fill="none" strokeOpacity={0.4} />
-      <path d="M11.5 17C11.5 18.1046 12.3954 19 13.5 19C14.6046 19 15.5 18.1046 15.5 17C15.5 15.8954 14.6046 15 13.5 15C12.3954 15 11.5 15.8954 11.5 17Z" fill="currentColor" stroke="none" />
+      <path d="M3 18.9998L3 17.9998C3 13.9534 5.3726 10.283 9.0622 8.6216C12.7518 6.9602 17.0727 7.6166 20.1025 10.2987L20.6054 10.7439M21.0005 5.0308L20.8179 10.9969L15.8212 10.8147L14.8576 10.7796" fill="none" strokeOpacity={0.4} />
+      <path d="M11.2851 16.9998C11.2851 18.1044 12.1805 18.9998 13.2851 18.9998C14.3897 18.9998 15.2851 18.1044 15.2851 16.9998C15.2851 15.8952 14.3897 14.9998 13.2851 14.9998C12.1805 14.9998 11.2851 15.8952 11.2851 16.9998Z" fill="currentColor" stroke="none" />
     </Icon>
   )
 }
@@ -15512,7 +15512,7 @@ export function RedoDot(props: IconProps) {
 export function Redo(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M2 19L2 18C2 11.6487 7.1487 6.5 13.5 6.5C16.55 6.5 19.4751 7.7116 21.6317 9.8683L22 10.2365M22 5L22 10.2365L16.7635 10.2365" fill="none" />
+      <path d="M3 18.9998L3 17.9998C3 13.9534 5.3726 10.283 9.0622 8.6216C12.7518 6.9602 17.0727 7.6166 20.1025 10.2987L20.6054 10.7439M21.0005 5.0308L20.8179 10.9969L15.8212 10.8147L14.8576 10.7796" fill="none" />
     </Icon>
   )
 }
@@ -20667,8 +20667,8 @@ export function Underwear(props: IconProps) {
 export function UndoDot(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M22 19L22 18C22 11.6487 16.8513 6.5 10.5 6.5C7.45 6.5 4.5249 7.7116 2.3683 9.8683L2 10.2365M2 5L2 10.2365L7.2365 10.2365" fill="none" strokeOpacity={0.4} />
-      <path d="M12.5 17C12.5 18.1046 11.6046 19 10.5 19C9.3954 19 8.5 18.1046 8.5 17C8.5 15.8954 9.3954 15 10.5 15C11.6046 15 12.5 15.8954 12.5 17Z" fill="currentColor" stroke="none" />
+      <path d="M21 18.9998L21 17.9998C21 13.9534 18.6274 10.283 14.9378 8.6216C11.2482 6.9602 6.9273 7.6166 3.8975 10.2987L3.3946 10.7439M2.9995 5.0308L3.1821 10.9969L8.1788 10.8147L9.1424 10.7796" fill="none" strokeOpacity={0.4} />
+      <path d="M12.7149 16.9998C12.7149 18.1044 11.8195 18.9998 10.7149 18.9998C9.6103 18.9998 8.7149 18.1044 8.7149 16.9998C8.7149 15.8952 9.6103 14.9998 10.7149 14.9998C11.8195 14.9998 12.7149 15.8952 12.7149 16.9998Z" fill="currentColor" stroke="none" />
     </Icon>
   )
 }
@@ -20676,7 +20676,7 @@ export function UndoDot(props: IconProps) {
 export function Undo(props: IconProps) {
   return (
     <Icon fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="butt" strokeLinejoin="round" {...props}>
-      <path d="M22 19L22 18C22 11.6487 16.8513 6.5 10.5 6.5C7.45 6.5 4.5249 7.7116 2.3683 9.8683L2 10.2365M2 5L2 10.2365L7.2365 10.2365" fill="none" />
+      <path d="M21 18.9998L21 17.9998C21 13.9534 18.6274 10.283 14.9378 8.6216C11.2482 6.9602 6.9273 7.6166 3.8975 10.2987L3.3946 10.7439M2.9995 5.0308L3.1821 10.9969L8.1788 10.8147L9.1424 10.7796" fill="none" />
     </Icon>
   )
 }
