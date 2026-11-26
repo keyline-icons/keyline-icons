@@ -133,7 +133,8 @@ const NARROW = new Set([
  *   honestly shallower than a square and should not be stretched to 20 x 20,
  *   the octagons cover ~360 units at 20
  *   against a disc's ~380 at 22 and would be far too heavy at 22, `user` is
- *   pinned by H = W/2 + 2, and `settings` cannot be scaled at all — its 16
+ *   a head of 8 over shoulders 16 wide and 10 tall (20 since 26 Nov 2026),
+ *   its width set by the dome, and `settings` cannot be scaled at all — its 16
  *   tooth fillets are absolute tokens, so growing the gear is a redraw rather
  *   than a resize.
  * - **their own proportions** — `bell` and `paperclip` are drawn to a shape the
@@ -432,9 +433,12 @@ const MAX_SKEW = 1;
  * Icons that were already off-centre when the equal-padding tier below was
  * added, listed by name so nothing new joins them by accident.
  *
- * Two are answered: `bell-*` and `user-*` are the documented cases where a
- * narrow body cannot reach its own ink corner, so the modifier sits outside it,
- * and `user`'s body geometry forces H = W/2 + 2 — an odd 19. `git-graph`,
+ * One is answered: `bell-*` is the documented case where a narrow body cannot
+ * reach its own ink corner, so the modifier sits outside it. `user-*` sat here
+ * too until 26 Nov 2026, 3 over 2 on an odd 19 (head 8, gap 2, shoulders 9).
+ * The shoulders went to 10 in the base and every compound took the base, so
+ * the figure is 20 and the family centres on whole pads; only `user-zap` stays,
+ * for its bolt across. The sign still sits outside the body. `git-graph`,
  * `terminal-cursor` and `signal-*` predate the rule and have not been
  * adjudicated. They are silenced, not blessed; see *A fractional extent is
  * almost always a defect*.
@@ -488,18 +492,14 @@ const SKEW_KNOWN = new Set([
   'package-arrow-down', 'package-arrow-left', 'package-arrow-right', 'package-arrow-up',
   'package-check', 'package-minus', 'package-plus', 'package-x',
   'signal-high', 'signal-low', 'signal-medium', 'terminal-cursor',
-  // user-zap keeps user-plus's vertical 3 and 2, and since 4 Oct 2026 runs 1 left across, with the four below
-  'user', 'user-check', 'user-minus', 'user-plus', 'user-x', 'user-zap', 'users',
+  // user-zap stands where user-plus stands, centred top and bottom with the family since 26 Nov 2026, and
+  // since 4 Oct 2026 runs 1 vs 3 across, the bolt's placement with the four below
+  'user-zap',
   // His placement, 4 Oct 2026: a zap's base stands where its -plus stands, and the bolt keeps the place it had
   // on that base in 1.5.0 (they were even across then, the base 1 right of the -plus). Each is its 1.5.0 drawing
   // moved 1 left, pixel for pixel, so it runs 1 vs 3 across (database 2 vs 4). Pushing the bolt flush into the
   // corner to even it out was the version he rejected: "wrongly anchored the zaps to the corner".
   'database-zap', 'home-zap', 'house-zap', 'server-zap',
-  // 1.6.0's object compounds (an 8 box, bottom right, the body opened 2 clear) keep the family's 3 and 2
-  'user-cog', 'user-heart', 'user-key', 'user-list', 'user-lock', 'user-message', 'user-pen', 'user-search', 'user-shield',
-  // 3.1.0: user-unlock is user-lock's plates and body verbatim, and the cursor and the two arrows take
-  // user-plus's place, so all four keep the family's 3 and 2
-  'user-arrow-left', 'user-arrow-right', 'user-cursor', 'user-unlock',
 ]);
 
 /**
@@ -579,6 +579,21 @@ const DERIVED_RADII = {
   // 3.1.0: the same growth on r = 1.5 corners, the gun's grip and the scroll's curls
   gun: [2.5], scroll: [2.5],
 };
+
+/**
+ * The user figure's shoulders, a dome of two r = 6 quarter arcs (7 on the painted edge the plates and
+ * fill follow), drawn and not derived. Sharp's squared feet always put a straight side under the arc,
+ * so its half warned here 92 times as shipped; the rounded half met a curved foot, which this rule does
+ * not read. On 26 Nov 2026 the rounded half took a 1-unit straight side too (shoulders 9 to 10, so the
+ * figure stands 20 tall and centres on whole pads), and both now run the arc between two straight
+ * edges, the shape of a filleted corner. It is the shoulder's curve, one in every member, not a box
+ * corner off the ladder.
+ */
+const SHOULDER_RADII = [6, 7];
+const SHOULDER = new Set(['user', 'users', 'user-alert', 'user-arrow-left', 'user-arrow-right', 'user-check',
+  'user-cog', 'user-cursor', 'user-heart', 'user-key', 'user-list', 'user-lock', 'user-message', 'user-minus',
+  'user-pen', 'user-plus', 'user-search', 'user-shield', 'user-sparkles', 'user-unlock', 'user-voice', 'user-x',
+  'user-zap']);
 
 /**
  * Dot sizes, in painted diameter. The radius ladder's counterpart for circles.
@@ -1138,6 +1153,7 @@ async function main() {
           // Buildings' reason. (2026-10-30, the graduation check.)
           if (style !== 'stroke' && DERIVED_RADII[name]?.some((r) => Math.abs(radius - r) <= RADIUS_TOL))
             continue;
+          if (SHOULDER.has(name) && SHOULDER_RADII.some((r) => Math.abs(radius - r) <= RADIUS_TOL)) continue;
           const near = CORNER_RADII.reduce((a, b) => (Math.abs(b - radius) < Math.abs(a - radius) ? b : a));
           if (Math.abs(near - radius) > RADIUS_TOL) offLadder.add(radius.toFixed(2));
         }
