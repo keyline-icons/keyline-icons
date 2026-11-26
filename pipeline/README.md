@@ -353,8 +353,9 @@ corner — so the family, `shuffle` included, is what sets the size), `mouse`
 on 17 Sep 2026 after it had been run to 22 for this rule), and four
 answered objects — `credit-card` is honestly shallower
 than a square, `octagon-alert` covers ~360 units at 20 against a
-disc's ~380 at 22 and would be far too heavy at 22, `user` is pinned by
-`H = W/2 + 2`, and `settings` cannot be scaled at all: its 16 tooth fillets are
+disc's ~380 at 22 and would be far too heavy at 22, `user` is a head of 8 over
+shoulders 16 wide and 10 tall (20 since 26 Nov 2026), its width set by the
+dome, and `settings` cannot be scaled at all: its 16 tooth fillets are
 absolute tokens, so growing the gear is a redraw rather than a resize.
 `flower` sets six petals on an equilateral hexagon, so it keeps the plain
 `hexagon`'s proportion: 22 tall makes it 20 wide, and 22 wide would stand it
@@ -390,9 +391,11 @@ skew of exactly 1, and the build stayed silent.
 So the strict tier asks for what the set actually does — **opposing paddings
 equal, no allowance**. Measured over 381 icons, only 19 fail it, and they are
 listed by name in `SKEW_KNOWN` rather than covered by a threshold, so nothing
-new joins them by accident. `bell-*` and `user-*` are answered there (a narrow
-body that cannot reach its own ink corner, and `user`'s H = W/2 + 2); the rest
-are silenced pending a decision, not blessed.
+new joins them by accident. `bell-*` is answered there (a narrow body that
+cannot reach its own ink corner); the rest are silenced pending a decision, not
+blessed. `user-*` sat there at 3 over 2 until 26 Nov 2026: head 8, gap 2 and
+shoulders 9 made an odd 19, so the shoulders went to 10 in the base, every
+compound took the base, and the family left the list centred.
 
 An odd extent is not a defence. 21 units centres perfectly well if the drawing
 sits on half-units, and where it genuinely cannot, the extent is the thing to
