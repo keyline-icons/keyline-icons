@@ -595,7 +595,7 @@
     "corner-left-up": "An arrow turning left then up, for going up a level and back to the parent.",
     "corner-right-down": "An arrow turning right then down, for moving on to the next row and stepping down a list.",
     "corner-right-up": "An arrow turning right then up, for moving up and on, and promoting an item a level.",
-    "corner-sharp": "A dashed square with one solid square corner, for a sharp corner and zero radius.",
+    "corner-sharp": "A square corner on its own, for a sharp corner and zero radius in a design tool.",
     "couch": "A low couch with its back cushions, for living rooms, lounges and furnished stays.",
     "coupon": "A voucher, for discount codes, promotions and offers at checkout.",
     "cpu": "A packaged die with its pins, for processors, hardware, firmware and on-device compute.",
