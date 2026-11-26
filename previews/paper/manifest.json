@@ -760,7 +760,7 @@
       "width": 742,
       "icons": 0,
       "variants": 16,
-      "bytes": 28019
+      "bytes": 28031
     },
     {
       "file": "ai-43.html",
@@ -4936,7 +4936,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 35824
+      "bytes": 35854
     },
     {
       "file": "users-3.html",
@@ -4948,7 +4948,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 34985
+      "bytes": 35029
     },
     {
       "file": "users-4.html",
@@ -4960,7 +4960,7 @@
       "width": 742,
       "icons": 0,
       "variants": 48,
-      "bytes": 38444
+      "bytes": 38477
     },
     {
       "file": "users-5.html",
@@ -4972,7 +4972,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 35183
+      "bytes": 35209
     },
     {
       "file": "users-6.html",
@@ -4984,7 +4984,7 @@
       "width": 742,
       "icons": 0,
       "variants": 40,
-      "bytes": 35727
+      "bytes": 35743
     },
     {
       "file": "users-7.html",
@@ -5340,7 +5340,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 163297
+      "bytes": 55530
     },
     {
       "file": "changelog-earlier.html",
@@ -5351,7 +5351,7 @@
       "width": 744,
       "icons": 0,
       "variants": 0,
-      "bytes": 25932
+      "bytes": 26876
     }
   ]
 }
