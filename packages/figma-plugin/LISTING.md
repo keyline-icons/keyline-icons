@@ -124,6 +124,16 @@ Need icons drawn for your own product? Custom sets on the same grid, as SVG, Fig
 
 Changelog
 
+3.2.0
+196 new drawings, taking the set to 2,380 names and 19,040 SVGs.
+
+* Mail and Time: mail with an arrow each way, an alert, a cog, a search, a shield and an asterisk, mail forwarded, inboxes, a bell snoozed with a Z, and calendars with an alert, a cog, a lock, a pen, a question, a search, a star and a person
+* Layout and Text: the table's borders one edge at a time, four columns, two rows, fit to width and height, the space between, lower case, the pilcrow both ways and vertical type
+* Security and devices: a password field, a security key, locks checked, timed and added, shields for settings, search and a site, a circuit board, a fax, the serial port, and the printer, router, database and gamepad crossed out
+* And more: seven faces, an abacus, a lotus, a wreath, a hockey puck and a court, a piano, a gearbox, an IV bag, a ceiling lamp, a signpost, a spiral and puzzle pieces
+
+Also redrawn: 63 drawings. The person stands 20 tall so every sign on it centres, the star sits on 22 by 22, and undo and redo open out to 20 wide. brush-plus and brush-minus leave the set.
+
 3.1.0
 156 new drawings, taking the set to 2,169 names and 17,352 SVGs, the largest update since the first.
 
@@ -175,16 +185,6 @@ The settings gear has the ring at its centre again, in stroke and two-tone, wher
 * Places: a hotel, a guesthouse, a cabin, a shepherd’s hut, a church, a mosque, a temple, a school, a hospital, a bridge, a fountain, a ferris wheel and a windmill
 * Layout and 3D: align and distribute tools for both axes, a crop, guides, mirror lines, and handles for moving, rotating and scaling in 3D
 * Ten drawings redrawn, the settings gear among them. Seven names moved: flower is circles-five, and the six text alignment icons are text-align-*
-
-2.5.0
-38 new drawings, taking the set to 1,692 names and 13,536 SVGs.
-
-* Home: a couch, a desk and an office desk with drawers, a roller blind, a radiator, a round mirror on a stand, a minibar fridge, a hot tub, a sun lounger and a table under a parasol
-* Food and Weather: a croissant beside a cup of coffee, a can of soda, a spoon and a fork; the sun rising and setting over the sea
-* Off states: the keyboard, the mouse, the server, the earbuds, the repeat and refresh arrows, the flashlight, the wrench, the flag, the locate mark, the bookmark, the oven, the washing machine, the cooking pot, the charging post and the flame, each struck through
-* And more: a bus seen from the front, a tower between lower wings, a pencil across a set square, two bookmarks stacked, a briefcase with an arrow down, and a house and a square with sparkles
-
-Also redrawn: 47 drawings, most of them in duotone, where ten buildings now draw the door as a solid shape that stops short of the ground. Search for transport or transportation now finds every vehicle.
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
@@ -771,6 +771,16 @@ Also available as React and React Native components, a shadcn registry, an MCP s
 keylineicons.com
 github.com/keyline-icons/keyline-icons
 
+v3.2.0
+196 new drawings, taking the set to 2,380 names and 19,040 SVGs. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link; brush-plus and brush-minus leave the set.
+
+* Mail and Time: mail with an arrow each way, an alert, a cog, a search, a shield and an asterisk, mail forwarded, inboxes, a bell snoozed with a Z, and calendars with an alert, a cog, a lock, a pen, a question, a search, a star and a person
+* Layout and Text: the table's borders one edge at a time, four columns, two rows, fit to width and height, the space between, lower case, the pilcrow both ways and vertical type
+* Security and devices: a password field, a security key, locks checked, timed and added, shields for settings, search and a site, a circuit board, a fax, the serial port, and the printer, router, database and gamepad crossed out
+* And more: seven faces, an abacus, a lotus, a wreath, a hockey puck and a court, a piano, a gearbox, an IV bag, a ceiling lamp, a signpost, a spiral and puzzle pieces
+
+Also redrawn: 63 drawings, the person family among them, now 20 tall so every sign on it centres. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
+
 v3.1.0
 156 new drawings, taking the set to 2,169 names and 17,352 SVGs, the largest update since the first. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
 
@@ -819,16 +829,6 @@ v2.6.0
 * Places: a hotel, a guesthouse, a cabin, a shepherd’s hut, a church, a mosque, a temple, a school, a hospital, a bridge, a fountain, a ferris wheel and a windmill
 * Layout and 3D: align and distribute tools for both axes, a crop, guides, mirror lines, and handles for moving, rotating and scaling in 3D
 * Ten drawings redrawn, the settings gear among them. Seven names moved: flower is circles-five, and the six text alignment icons are text-align-*
-
-2.5.0
-38 new drawings. The set is 1,692 names now, 1,553 component sets and 13,536 variants, up from 1,654 and 13,232. Nothing was renamed and no component was replaced, so instances already placed in your files keep their link.
-
-* Home: a couch, a desk and an office desk with drawers, a roller blind, a radiator, a round mirror on a stand, a minibar fridge, a hot tub, a sun lounger and a table under a parasol
-* Food and Weather: a croissant beside a cup of coffee, a can of soda, a spoon and a fork; the sun rising and setting over the sea
-* Off states: the keyboard, the mouse, the server, the earbuds, the repeat and refresh arrows, the flashlight, the wrench, the flag, the locate mark, the bookmark, the oven, the washing machine, the cooking pot, the charging post and the flame, each struck through
-* And more: a bus seen from the front, a tower between lower wings, a pencil across a set square, two bookmarks stacked, a briefcase with an arrow down, and a house and a square with sparkles
-
-Also redrawn: 47 drawings, most of them in duotone, where ten buildings now draw the door as a solid shape that stops short of the ground. The vectors were swapped inside the existing sets, so their instances pick the new drawings up.
 
 Earlier releases, back to the first cut: keylineicons.com/changelog
 ```
