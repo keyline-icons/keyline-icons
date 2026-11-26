@@ -17782,20 +17782,6 @@
       ]
     },
     {
-      "name": "laptop-check",
-      "type": "registry:component",
-      "title": "LaptopCheck",
-      "description": "LaptopCheck, the stroke drawing of laptop-check on a 24×24 grid, with rounded corners. Available in stroke, two-tone, duotone, fill.",
-      "docs": "Every style and both corners of laptop-check: https://keylineicons.com/icons/laptop-check",
-      "files": [
-        {
-          "path": "icons/laptop-check.tsx",
-          "type": "registry:component",
-          "target": "@components/icons/laptop-check.tsx"
-        }
-      ]
-    },
-    {
       "name": "laptop-smartphone",
       "type": "registry:component",
       "title": "LaptopSmartphone",

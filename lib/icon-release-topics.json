@@ -3962,7 +3962,7 @@
    ]
   },
   "3.2.0": {
-   "title": "2,381 icons in stroke, two-tone, duotone and fill, each rounded and sharp: 19,048 total",
+   "title": "2,380 icons in stroke, two-tone, duotone and fill, each rounded and sharp: 19,040 total",
    "sections": [
     {
      "title": "New drawings",
@@ -4063,7 +4063,7 @@
       },
       {
        "title": "Devices",
-       "text": "App windows that are done, broken, blocked and secured, code in a square, a circuit board, a fax, the serial port, a security key, a touchpad beside its mouse, a scan frame that adds, Bluetooth connected and searching, a locked keyboard and mouse, a laptop that is checked, and crossed-out forms for the printer, the router, the database, the gamepad, the headset visor and the laptop with its phone.",
+       "text": "App windows that are done, broken, blocked and secured, code in a square, a circuit board, a fax, the serial port, a security key, a touchpad beside its mouse, a scan frame that adds, Bluetooth connected and searching, a locked keyboard and mouse, and crossed-out forms for the printer, the router, the database, the gamepad, the headset visor and the laptop with its phone.",
        "names": [
         "app-window-check",
         "app-window-frown",
@@ -4084,7 +4084,6 @@
         "bluetooth-searching",
         "keyboard-lock",
         "mouse-lock",
-        "laptop-check",
         "laptop-smartphone-off",
         "printer-off",
         "router-off",
