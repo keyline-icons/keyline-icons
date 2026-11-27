@@ -177,10 +177,11 @@ export function Pager({
               it caps itself at the room above (`--available-height`) and
               scrolls inside it, stopping under the site bar.
 
-              `z-10`, under the dock's `z-20`: on `/icons` the dock rides the
-              foot of the window over the pager until it comes to rest, and a
-              menu opened then belongs behind the bar, not across it. Tiles
-              take no z-index, so the menu still opens over the grid.
+              On `/icons` it opens across the dock, which rests just above the
+              pager. It sat at `z-10`, under the dock, while the dock rested
+              below the pager and rode over it on the way down; since 27 Nov
+              2026 the dock rests above and can never cover the pager, so the
+              menu keeps the default rung and is never cut by the bar.
             */}
             <DropdownMenuContent
               side="top"
@@ -192,7 +193,6 @@ export function Pager({
                 bottom: 8,
                 left: 8,
               }}
-              positionerClassName="z-10"
               className="flex w-auto max-w-80 flex-col overflow-hidden p-0"
             >
               {/*

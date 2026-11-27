@@ -1857,8 +1857,8 @@ export function IconBrowser({
       {/*
         One box round the rail, the grid, the pager and the dock, so the dock
         is sticky across the whole browser and nowhere else: it rides the foot
-        of the window while the grid scrolls past and comes to rest under the
-        pager, where this box ends, as the bar on Overflow Design does.
+        of the window while the grid scrolls past and comes to rest between
+        the grid and the pager, the last thing in this box.
       */}
       <div>
         <div ref={sectionRef} className="flex gap-8">
@@ -2327,31 +2327,14 @@ export function IconBrowser({
         </div>
 
         {/*
-        The shared pager: links a crawler can follow, turning the page in
-        place on a plain click. Only the first 120 tiles are in the HTML of
-        `/icons`, so these are how the icon pages on later pages get a link
-        from the grid at all.
-
-        Under the rail and the grid rather than inside the grid's column, so
-        it is centred on the page with the dock, the panel and the line under
-        the browser. In the column it sat 120px right of all three.
-      */}
-        <Pager
-          current={currentPage}
-          total={pageCount}
-          hrefs={Array.from({ length: pageCount }, (_, i) => pageHref(i + 1))}
-          onTurn={goToPage}
-          describe={pageSpan}
-          className="pt-8"
-        />
-
-        {/*
         The dock, with the preview panel on it. Sticky, 16px off the foot of
         the window, so it follows the grid down and comes to rest under the
-        pager, as the bar on Overflow Design does. Resting above the pager
-        put the dock between the grid and its own page numbers, and sent the
-        pager's menu down over the footer. The pager's menu sits under the
-        dock instead (its `z-10` against this `z-20`).
+        grid, above the pager. It rested under the pager until 27 Nov 2026,
+        as the bar on Overflow Design does, but then the panel, floating up
+        from the bar, sat squarely on the page numbers whenever it was open
+        at the foot of the list. Above them, it covers the last row of tiles
+        instead, and the pager stays in reach. Sticky never carries the bar
+        past where it rests in the flow, so it never rides over the pager.
 
         The panel floats on the bar, out of the flow: `absolute` from the
         bottom of the sticky box, so the box is the bar's height and nothing
@@ -2368,7 +2351,7 @@ export function IconBrowser({
 
         `z-20` is the old dock's rung: above the tiles, below the site bar.
       */}
-        <div className="pointer-events-none sticky bottom-4 z-20 flex justify-center lg:mt-6">
+        <div className="pointer-events-none sticky bottom-4 z-20 flex justify-center lg:mt-8">
           <div className="absolute inset-x-0 bottom-full lg:pb-3">
             <IconPreview
               icons={icons}
@@ -2402,6 +2385,26 @@ export function IconBrowser({
           </div>
           {dock}
         </div>
+
+        {/*
+        The shared pager: links a crawler can follow, turning the page in
+        place on a plain click. Only the first 120 tiles are in the HTML of
+        `/icons`, so these are how the icon pages on later pages get a link
+        from the grid at all.
+
+        Under the rail and the grid rather than inside the grid's column, so
+        it is centred on the page with the dock, the panel and the line under
+        the browser. In the column it sat 120px right of all three. Last in
+        the box, under the dock: see the dock's note above.
+      */}
+        <Pager
+          current={currentPage}
+          total={pageCount}
+          hrefs={Array.from({ length: pageCount }, (_, i) => pageHref(i + 1))}
+          onTurn={goToPage}
+          describe={pageSpan}
+          className="pt-8"
+        />
       </div>
     </Drawer>
   )
